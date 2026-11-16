@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-body: 'Tajawal', system-ui, -apple-system, sans-serif;
+    --gs-yellow: #FFD95A;
+    --gs-cream: #FFF9E9;
+    --gs-purple: #7042A1;
+    --gs-plum: #291B40;
+    --gs-emerald: #00B978;
+    --gs-sky: #279ED6;
+    --gs-coral: #F05B63;
+  }
+
+  html,
+  body {
+    font-family: var(--font-body);
+    background-color: var(--gs-yellow);
+    color: var(--gs-plum);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle game-show geometric motif pattern */
+.game-pattern-bg {
+  background-color: #FFD95A;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.28) 0, rgba(255, 255, 255, 0.28) 18px, transparent 19px),
+    radial-gradient(circle at 82% 74%, rgba(112, 66, 161, 0.08) 0, rgba(112, 66, 161, 0.08) 26px, transparent 27px),
+    radial-gradient(circle at 52% 48%, rgba(41, 27, 64, 0.04) 0, rgba(41, 27, 64, 0.04) 2px, transparent 3px);
+  background-size: 140px 140px, 180px 180px, 32px 32px;
+}
+
+.game-card-frame {
+  background-color: #FFF9E9;
+  border: 3px solid #291B40;
+  box-shadow: 0 7px 0 #291B40;
+}
+
+.game-card-frame-sm {
+  background-color: #FFF9E9;
+  border: 2.5px solid #291B40;
+  box-shadow: 0 4px 0 #291B40;
+}
+
+.game-btn-3d {
+  border: 2.5px solid #291B40;
+  box-shadow: 0 4px 0 #291B40;
+  transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 140ms cubic-bezier(0.16, 1, 0.3, 1), filter 140ms ease;
+}
+
+.game-btn-3d:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #291B40;
+}
+
+.game-btn-3d:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #291B40;
+}
+
+.game-btn-3d:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.2deg); }
+}
+
+.animate-float-slow {
+  animation: gentle-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.reduced-motion * {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}

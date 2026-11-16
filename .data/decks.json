@@ -1,0 +1,421 @@
+[
+  {
+    "id": "deck_starter_demo",
+    "title": "المباراة التجريبية — رحلة النشامى",
+    "description": "بنك تجريبي أصلي من 5 فئات و15 تحديًا متوازنًا لتشغيل مباراة 20 دقيقة فورًا.",
+    "sourceType": "starter",
+    "ageGroup": "mixed",
+    "categories": [
+      {
+        "id": "cat_general",
+        "title": "معلومات عامة",
+        "iconKey": "general",
+        "accentColor": "#7042A1"
+      },
+      {
+        "id": "cat_science",
+        "title": "علوم واكتشافات",
+        "iconKey": "science",
+        "accentColor": "#279ED6"
+      },
+      {
+        "id": "cat_history",
+        "title": "تاريخ وحضارة",
+        "iconKey": "history",
+        "accentColor": "#00B978"
+      },
+      {
+        "id": "cat_arabic",
+        "title": "اللغة العربية",
+        "iconKey": "arabic",
+        "accentColor": "#F05B63"
+      },
+      {
+        "id": "cat_puzzles",
+        "title": "ألغاز ومهارات",
+        "iconKey": "puzzles",
+        "accentColor": "#E59A00"
+      }
+    ],
+    "cards": [
+      {
+        "id": "cur_gen_e1",
+        "word": "البوصلة",
+        "forbiddenWords": [
+          "اتجاه",
+          "شمال",
+          "سفر",
+          "مغناطيس"
+        ],
+        "closeVariants": [
+          "اتجاهات",
+          "مغناطيسية",
+          "إبرة"
+        ],
+        "categoryId": "cat_general",
+        "categoryTitle": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "educationalGoal": "التمييز بين أدوات الملاحة وتحديد الجهات",
+        "sourceSnippet": "بنك النخبة الرسمي — معلومات عامة",
+        "hostExplanation": "أداة دائرية يستخدمها الرحالة والبحارة لمعرفة الطريق في البر والبحر.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_gen_m1",
+        "word": "التعاون",
+        "forbiddenWords": [
+          "فريق",
+          "مساعدة",
+          "معا",
+          "مشاركة"
+        ],
+        "closeVariants": [
+          "يتعاون",
+          "تشاركي",
+          "ساعد"
+        ],
+        "categoryId": "cat_general",
+        "categoryTitle": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "educationalGoal": "التعبير عن القيم الاجتماعية الإيجابية",
+        "sourceSnippet": "بنك النخبة الرسمي — معلومات عامة",
+        "hostExplanation": "قيمة عظيمة تجعل العمل الصعب سهلًا عندما يضع أكثر من شخص يده بيد غيره.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_gen_h1",
+        "word": "الاحتباس الحراري",
+        "forbiddenWords": [
+          "مناخ",
+          "غازات",
+          "تلوث",
+          "دفء"
+        ],
+        "closeVariants": [
+          "حرارة",
+          "احتبس",
+          "بيئة"
+        ],
+        "categoryId": "cat_general",
+        "categoryTitle": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "educationalGoal": "فهم التغيرات البيئية العالمية",
+        "sourceSnippet": "بنك النخبة الرسمي — معلومات عامة",
+        "hostExplanation": "ظاهرة بيئية تؤدي إلى ارتفاع بطيء في درجة الكوكب بسبب بقاء الطاقة داخل الغلاف الجوي.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_sci_e1",
+        "word": "الجاذبية",
+        "forbiddenWords": [
+          "سقوط",
+          "أرض",
+          "نيوتن",
+          "تفاحة"
+        ],
+        "closeVariants": [
+          "يجذب",
+          "تسقط",
+          "وزن"
+        ],
+        "categoryId": "cat_science",
+        "categoryTitle": "علوم واكتشافات",
+        "difficulty": "easy",
+        "points": 200,
+        "educationalGoal": "مبادئ القوى الفيزيائية في الحياة اليومية",
+        "sourceSnippet": "بنك النخبة الرسمي — علوم واكتشافات",
+        "hostExplanation": "القوة الخفية التي تبقينا ثابتين على الكوكب ولا تجعلنا نطفو مثل رواد الفضاء.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_sci_m1",
+        "word": "التمثيل الضوئي",
+        "forbiddenWords": [
+          "نبات",
+          "شمس",
+          "ورقة",
+          "أخضر"
+        ],
+        "closeVariants": [
+          "ضوء",
+          "أوراق",
+          "نباتات"
+        ],
+        "categoryId": "cat_science",
+        "categoryTitle": "علوم واكتشافات",
+        "difficulty": "medium",
+        "points": 400,
+        "educationalGoal": "كيف يصنع النبات غذاءه",
+        "sourceSnippet": "بنك النخبة الرسمي — علوم واكتشافات",
+        "hostExplanation": "العملية الحيوية التي تحوّل بها الكائنات الثابتة في التربة طاقة السماء إلى غذاء وأكسجين.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_sci_h1",
+        "word": "الأيض",
+        "forbiddenWords": [
+          "طاقة",
+          "غذاء",
+          "حرق",
+          "خلايا"
+        ],
+        "closeVariants": [
+          "استقلاب",
+          "سعرات",
+          "هضم"
+        ],
+        "categoryId": "cat_science",
+        "categoryTitle": "علوم واكتشافات",
+        "difficulty": "hard",
+        "points": 600,
+        "educationalGoal": "فهم التفاعلات الكيميائية الحيوية في الجسم",
+        "sourceSnippet": "بنك النخبة الرسمي — علوم واكتشافات",
+        "hostExplanation": "مجموع العمليات التي يحوّل بها الجسم ما نأكله إلى وقود للنمو والحركة والترميم.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_his_e1",
+        "word": "البتراء",
+        "forbiddenWords": [
+          "أردن",
+          "وردي",
+          "صخر",
+          "خزنة"
+        ],
+        "closeVariants": [
+          "البترا",
+          "نبطي",
+          "أنباط"
+        ],
+        "categoryId": "cat_history",
+        "categoryTitle": "تاريخ وحضارة",
+        "difficulty": "easy",
+        "points": 200,
+        "educationalGoal": "التعرف على المعالم التاريخية الأردنية والعالمية",
+        "sourceSnippet": "بنك النخبة الرسمي — تاريخ وحضارة",
+        "hostExplanation": "مدينة أثرية منحوتة في الجبال بالجنوب ويقصدها السياح من كل الدنيا.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_his_m1",
+        "word": "بيت الحكمة",
+        "forbiddenWords": [
+          "بغداد",
+          "ترجمة",
+          "عباسي",
+          "علماء"
+        ],
+        "closeVariants": [
+          "حكمة",
+          "مأمون",
+          "كتب"
+        ],
+        "categoryId": "cat_history",
+        "categoryTitle": "تاريخ وحضارة",
+        "difficulty": "medium",
+        "points": 400,
+        "educationalGoal": "دور المراكز العلمية في الحضارة الإسلامية",
+        "sourceSnippet": "بنك النخبة الرسمي — تاريخ وحضارة",
+        "hostExplanation": "أشهر مركز فكري قديم جُمعت فيه مخطوطات الأمم ونُقلت إلى العربية في العصور المزدهرة.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_his_h1",
+        "word": "معاهدة صلح الحديبية",
+        "forbiddenWords": [
+          "مكة",
+          "قريش",
+          "هدنة",
+          "سنوات"
+        ],
+        "closeVariants": [
+          "الحديبية",
+          "صلح",
+          "مفاوضات"
+        ],
+        "categoryId": "cat_history",
+        "categoryTitle": "تاريخ وحضارة",
+        "difficulty": "hard",
+        "points": 600,
+        "educationalGoal": "تحليل القرارات السياسية الحكيمة في السيرة",
+        "sourceSnippet": "بنك النخبة الرسمي — تاريخ وحضارة",
+        "hostExplanation": "اتفاق تاريخي أبرمه المسلمون فتح باب السلام ونشر الدعوة بأسلوب دبلوماسي ذكي.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_arb_e1",
+        "word": "الفعل الماضي",
+        "forbiddenWords": [
+          "حدث",
+          "زمن",
+          "انتهى",
+          "أمس"
+        ],
+        "closeVariants": [
+          "ماضٍ",
+          "أفعال",
+          "زمان"
+        ],
+        "categoryId": "cat_arabic",
+        "categoryTitle": "اللغة العربية",
+        "difficulty": "easy",
+        "points": 200,
+        "educationalGoal": "التمييز بين أزمنة الأفعال في العربية",
+        "sourceSnippet": "بنك النخبة الرسمي — اللغة العربية",
+        "hostExplanation": "كلمة تدل على عمل وقع واكتمل قبل لحظة الكلام مثل: قرأَ وكتبَ وسافرَ.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_arb_m1",
+        "word": "التشبيه",
+        "forbiddenWords": [
+          "كاف",
+          "مثل",
+          "أسد",
+          "مقارنة"
+        ],
+        "closeVariants": [
+          "يشبه",
+          "شبه",
+          "أداة"
+        ],
+        "categoryId": "cat_arabic",
+        "categoryTitle": "اللغة العربية",
+        "difficulty": "medium",
+        "points": 400,
+        "educationalGoal": "أساليب البيان والبلاغة العربية",
+        "sourceSnippet": "بنك النخبة الرسمي — اللغة العربية",
+        "hostExplanation": "أسلوب بلاغي يربط بين شيئين اشتركا في صفة واضحة ليقرّب الصورة لذهن القارئ.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_arb_h1",
+        "word": "الجناس",
+        "forbiddenWords": [
+          "لفظ",
+          "معنى",
+          "تشابه",
+          "حروف"
+        ],
+        "closeVariants": [
+          "مجانسة",
+          "جنس",
+          "تطابق"
+        ],
+        "categoryId": "cat_arabic",
+        "categoryTitle": "اللغة العربية",
+        "difficulty": "hard",
+        "points": 600,
+        "educationalGoal": "التمييز بين المحسنات البديعية اللفظية",
+        "sourceSnippet": "بنك النخبة الرسمي — اللغة العربية",
+        "hostExplanation": "محسّن بديعي تأتي فيه كلمتان متفقتين في النطق أو قريبتين فيه لكن لكل منهما دلالة مختلفة.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_puz_e1",
+        "word": "الظل",
+        "forbiddenWords": [
+          "شمس",
+          "أسود",
+          "ضوء",
+          "يتبعك"
+        ],
+        "closeVariants": [
+          "ظلال",
+          "خيال",
+          "عتمة"
+        ],
+        "categoryId": "cat_puzzles",
+        "categoryTitle": "ألغاز ومهارات",
+        "difficulty": "easy",
+        "points": 200,
+        "educationalGoal": "التفكير الاستنتاجي والربط البصري",
+        "sourceSnippet": "بنك النخبة الرسمي — ألغاز ومهارات",
+        "hostExplanation": "شيء يمشي معك في النهار ولا يصدر صوتًا ويختفي عندما يعمّ الظلام.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_puz_m1",
+        "word": "العصف الذهني",
+        "forbiddenWords": [
+          "أفكار",
+          "مجموعة",
+          "اقتراح",
+          "حلول"
+        ],
+        "closeVariants": [
+          "عصف",
+          "تفكير",
+          "إبداع"
+        ],
+        "categoryId": "cat_puzzles",
+        "categoryTitle": "ألغاز ومهارات",
+        "difficulty": "medium",
+        "points": 400,
+        "educationalGoal": "مهارات العمل الجماعي وحل المشكلات",
+        "sourceSnippet": "بنك النخبة الرسمي — ألغاز ومهارات",
+        "hostExplanation": "جلسة يجتمع فيها الأصدقاء لطرح أكبر عدد ممكن من الاقتراحات الحرة دون انتقاد فوري.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "cur_puz_h1",
+        "word": "المغالطة المنطقية",
+        "forbiddenWords": [
+          "حجة",
+          "خطأ",
+          "استدلال",
+          "إقناع"
+        ],
+        "closeVariants": [
+          "مغالطات",
+          "منطق",
+          "برهان"
+        ],
+        "categoryId": "cat_puzzles",
+        "categoryTitle": "ألغاز ومهارات",
+        "difficulty": "hard",
+        "points": 600,
+        "educationalGoal": "تنمية التفكير النقدي وكشف الحجج الضعيفة",
+        "sourceSnippet": "بنك النخبة الرسمي — ألغاز ومهارات",
+        "hostExplanation": "خلل خفي في طريقة بناء الرأي يجعل النتيجة تبدو مقنعة رغم أن أساسها غير سليم.",
+        "status": "approved",
+        "isSensitiveReligious": false,
+        "createdAt": "2026-11-16T00:00:00.000Z"
+      }
+    ],
+    "rejectionLog": [],
+    "createdAt": "2026-11-16T00:00:00.000Z",
+    "updatedAt": "2026-11-16T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "name": "سؤال النخبة | ELITE QUIZ SHOW",
+  "description": "مسابقة الأسئلة والفئات التعليمية بالذكاء الاصطناعي — اختار الفئة... وورّينا شطارتك!",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

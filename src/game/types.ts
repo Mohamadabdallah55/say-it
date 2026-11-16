@@ -1,0 +1,359 @@
+export type GamePhase =
+  | 'LOBBY'
+  | 'BOARD'
+  | 'LIFELINE_PICK'
+  | 'QUESTION_READY'
+  | 'PLAYING'
+  | 'TIME_UP'
+  | 'REVEAL'
+  | 'AWARD'
+  | 'FINAL';
+
+export type Difficulty = 'easy' | 'medium' | 'hard';
+export type PointValue = 200 | 400 | 600;
+export type AgeGroup = 'kids_8_12' | 'teens_13_16' | 'adults' | 'mixed';
+export type CardStatus = 'approved' | 'needs_review' | 'rejected';
+export type ClientRole = 'host' | 'projector' | 'buzzer';
+export type CommentaryMode = 'full' | 'light' | 'off';
+
+export type QuestionType =
+  | 'direct_qa'
+  | 'complete'
+  | 'true_false_explain'
+  | 'who_am_i'
+  | 'order_steps'
+  | 'spot_error'
+  | 'connect_two'
+  | 'buzzer_challenge'
+  | 'analysis_reasoning'
+  | 'multiple_choice'
+  | 'pantomime_optional';
+
+export type LifelineType =
+  | 'hint'
+  | 'double_points'
+  | 'second_chance'
+  | 'two_answers'
+  | 'swap_question'
+  | 'buzzer_challenge';
+
+export type CategoryIconKey =
+  | 'general'
+  | 'science'
+  | 'history'
+  | 'arabic'
+  | 'puzzles'
+  | 'sports'
+  | 'islamic'
+  | 'pdf'
+  | 'skills'
+  | 'geography'
+  | 'tech';
+
+export interface DeckCategory {
+  id: string;
+  name: string;
+  description?: string;
+  iconKey: CategoryIconKey;
+  accentColor: string;
+}
+
+export interface QuizQuestion {
+  id: string;
+  categoryId: string;
+  categoryName: string;
+  difficulty: Difficulty;
+  points: PointValue;
+  questionType: QuestionType;
+  prompt: string;
+  answer: string;
+  acceptableAnswers?: string[];
+  options?: string[];
+  correctOptionIndex?: number;
+  orderItems?: string[];
+  hint?: string;
+  explanation?: string;
+  timeLimitSeconds?: number;
+  sourceRef?: string;
+  sourceSnippet?: string;
+  pageNumber?: number;
+  isBackup?: boolean;
+  isSensitiveReligious?: boolean;
+  status: CardStatus;
+  rejectionReason?: string;
+  regeneratedCount?: number;
+}
+
+export interface PdfAnalysisReport {
+  fileName: string;
+  fileHash: string;
+  totalPages: number;
+  readablePages: number;
+  title: string;
+  subjectDomain: string;
+  mainTopics: string[];
+  subTopics: string[];
+  facts: string[];
+  conceptsAndTerms: string[];
+  causesAndEffects: string[];
+  peopleAndEvents: string[];
+  relationshipsAndConclusions: string[];
+  educationalObjectives: string[];
+  isReligiousContent: boolean;
+  summary: string;
+  warnings: string[];
+}
+
+export interface BoardPlanCategory {
+  id: string;
+  name: string;
+  description: string;
+  iconKey: CategoryIconKey;
+  accentColor: string;
+  estimatedMaxQuestions: number;
+  supportsEasy200: boolean;
+  supportsMedium400: boolean;
+  supportsHard600: boolean;
+  sample200: string;
+  sample400: string;
+  sample600: string;
+  topicCoverage: string[];
+  capacityNote?: string;
+  pantomimeSuitable: boolean;
+}
+
+export interface BoardPlanPreview {
+  fileHash: string;
+  title: string;
+  recommendedCategoryCount: number;
+  categories: BoardPlanCategory[];
+  canBuildFull15Board: boolean;
+  warnings: string[];
+  suggestedQuestionTypes: QuestionType[];
+}
+
+export interface RejectedQuestionLog {
+  id: string;
+  prompt: string;
+  reason: string;
+  categoryName: string;
+}
+
+export interface QuizDeck {
+  schemaVersion: 2;
+  id: string;
+  title: string;
+  description: string;
+  sourceType: 'starter' | 'curated' | 'pdf' | 'imported';
+  ageGroup: AgeGroup;
+  createdAt: string;
+  updatedAt: string;
+  categories: DeckCategory[];
+  questions: QuizQuestion[];
+  pdfAnalysis?: PdfAnalysisReport;
+  boardPlan?: BoardPlanPreview;
+  rejectedLog?: RejectedQuestionLog[];
+}
+
+export interface TeamState {
+  id: string;
+  name: string;
+  color: string;
+  score: number;
+  participantsCount: number;
+  correctCount: number;
+  lifelinesRemaining: number;
+  usedLifelines: LifelineType[];
+}
+
+export interface ScoreHistoryEntry {
+  id: string;
+  actionId: string;
+  roundId?: string;
+  teamId: string | null;
+  teamIds?: string[];
+  delta: number;
+  reason: string;
+  timestamp: string;
+  undone?: boolean;
+}
+
+export interface MatchSettings {
+  categoryCount: number;
+  timerSeconds: number;
+  lifelinesEnabled: boolean;
+  maxLifelinesPerTeam: number;
+  buzzerMode: boolean;
+  allowMultiTeamAward: boolean;
+  commentaryMode: CommentaryMode;
+  soundEnabled: boolean;
+  reducedMotion: boolean;
+}
+
+export interface BoardTileState {
+  questionId: string;
+  categoryId: string;
+  difficulty: Difficulty;
+  points: PointValue;
+  used: boolean;
+  wonByTeamId: string | null;
+  wonByTeamIds?: string[];
+  skipped?: boolean;
+}
+
+export interface TimerState {
+  durationSeconds: number;
+  remainingMs: number;
+  running: boolean;
+  startedAtMs: number | null;
+  secondChanceGranted: boolean;
+}
+
+export interface BuzzerPress {
+  teamId: string;
+  teamName: string;
+  teamColor: string;
+  pressedAtMs: number;
+}
+
+export interface ActiveRound {
+  roundId: string;
+  question: QuizQuestion;
+  basePoints: PointValue;
+  effectivePoints: number;
+  activeLifeline: LifelineType | null;
+  hintRevealed: boolean;
+  twoAnswersActive: boolean;
+  buzzerOpen: boolean;
+  buzzerQueue: BuzzerPress[];
+  answered: boolean;
+  winningTeamIds: string[];
+  awardedDelta: number;
+  isCorrectionMode: boolean;
+  swappedFromQuestionId?: string;
+}
+
+export interface CommentaryItem {
+  id: string;
+  eventType: string;
+  text: string;
+  timestamp: string;
+}
+
+export interface PreflightCheckItem {
+  id: string;
+  label: string;
+  passed: boolean;
+  severity: 'error' | 'warning';
+  detail?: string;
+}
+
+export interface PreflightResult {
+  canStart: boolean;
+  checks: PreflightCheckItem[];
+  blockers: string[];
+  warnings: string[];
+}
+
+export interface RoomState {
+  schemaVersion: 2;
+  roomCode: string;
+  hostToken: string;
+  buzzerToken: string;
+  deckId: string;
+  deckTitle: string;
+  phase: GamePhase;
+  settings: MatchSettings;
+  categories: DeckCategory[];
+  boardTiles: BoardTileState[];
+  questionPool: QuizQuestion[];
+  teams: TeamState[];
+  currentTurnTeamIndex: number;
+  questionCounter: number;
+  totalQuestions: number;
+  activeRound: ActiveRound | null;
+  timer: TimerState;
+  scoreHistory: ScoreHistoryEntry[];
+  processedActionIds: string[];
+  commentary: CommentaryItem | null;
+  recentCommentaryTexts: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface SanitizedActiveRound {
+  roundId: string;
+  questionId: string;
+  categoryId: string;
+  categoryName: string;
+  difficulty: Difficulty;
+  points: PointValue;
+  questionType: QuestionType;
+  prompt: string;
+  options?: string[];
+  orderItems?: string[];
+  hint?: string;
+  answer?: string;
+  acceptableAnswers?: string[];
+  explanation?: string;
+  sourceRef?: string;
+  pageNumber?: number;
+  basePoints: PointValue;
+  effectivePoints: number;
+  activeLifeline: LifelineType | null;
+  hintRevealed: boolean;
+  twoAnswersActive: boolean;
+  buzzerOpen: boolean;
+  buzzerQueue: BuzzerPress[];
+  answered: boolean;
+  winningTeamIds: string[];
+  awardedDelta: number;
+  isCorrectionMode: boolean;
+}
+
+export interface PublicProjectorState {
+  schemaVersion: 2;
+  role: 'projector';
+  roomCode: string;
+  deckId: string;
+  deckTitle: string;
+  phase: GamePhase;
+  settings: MatchSettings;
+  categories: DeckCategory[];
+  boardTiles: BoardTileState[];
+  teams: TeamState[];
+  currentTurnTeamIndex: number;
+  questionCounter: number;
+  totalQuestions: number;
+  activeRound: SanitizedActiveRound | null;
+  timer: TimerState;
+  commentary: CommentaryItem | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface BuzzerViewState {
+  schemaVersion: 2;
+  role: 'buzzer';
+  roomCode: string;
+  deckTitle: string;
+  phase: GamePhase;
+  teams: Array<{ id: string; name: string; color: string; score: number }>;
+  currentTurnTeamIndex: number;
+  questionCounter: number;
+  activeRound: {
+    roundId: string;
+    categoryName: string;
+    points: PointValue;
+    questionType: QuestionType;
+    prompt: string;
+    buzzerOpen: boolean;
+    buzzerQueue: BuzzerPress[];
+  } | null;
+  timer: TimerState;
+}
+
+export interface HostViewState extends Omit<RoomState, 'hostToken' | 'buzzerToken' | 'processedActionIds'> {
+  role: 'host';
+  hasBackupQuestionsForActiveCategory: boolean;
+}
