@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import http from 'node:http';
 import path from 'node:path';
+import { networkInterfaces } from 'node:os';
 import express from 'express';
 import multer from 'multer';
 import { createServer as createViteServer } from 'vite';
@@ -31,6 +32,7 @@ import {
 } from './server/aiPdfEngine';
 import { roomManager } from './server/roomStore';
 import {
+  selectLibrary,
   deleteDeckById,
   getCachedPdfPlan,
   getDeckById,
@@ -38,7 +40,7 @@ import {
   saveDeck,
 } from './server/storage';
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 20 * 1024 * 1024 },
@@ -100,8 +102,11 @@ async function startServer() {
   });
 
   app.get('/api/health', (_req, res) => {
-    res.json({ ok: true, service: 'elite-quiz-show', version: 2 });
+    res.json({ ok: true, service: 'yemken-hay', version: 2 });
   });
+
+  app.use(['/api/decks', '/api/pdf'], selectLibrary);
+  app.post('/api/rooms', selectLibrary);
 
   // --- Decks & USB JSON Export/Import ---
   app.get('/api/decks', (_req, res) => {
@@ -127,7 +132,7 @@ async function startServer() {
     if (!deck) return res.status(404).json({ error: 'البنك غير موجود.' });
     const clean = sanitizeDeckForExport(deck);
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.setHeader('Content-Disposition', `attachment; filename="elite-quiz-${deck.id}.json"`);
+    res.setHeader('Content-Disposition', `attachment; filename="yemken-hay-${deck.id}.json"`);
     res.send(JSON.stringify(clean, null, 2));
   });
 
@@ -212,6 +217,9 @@ async function startServer() {
   app.post('/api/decks/:deckId/approve-all', (req, res) => {
     const deck = getDeckById(req.params.deckId);
     if (!deck) return res.status(404).json({ error: 'البنك غير موجود.' });
+    if (deck.pdfAnalysis?.isReligiousContent || deck.questions.some(q => q.isSensitiveReligious && q.status === 'needs_review')) {
+      return res.status(400).json({ error: 'راجع كل سؤال ديني واعتمده منفردًا.' });
+    }
     const updated = {
       ...deck,
       questions: deck.questions.map((q) =>
@@ -358,7 +366,7 @@ async function startServer() {
   });
 
   // --- Rooms & Multi-Screen Match API ---
-  app.get('/api/rooms', (_req, res) => {
+  app.get('/api/rooms', selectLibrary, (_req, res) => {
     res.json({ rooms: roomManager.listRooms() });
   });
 
@@ -412,7 +420,13 @@ async function startServer() {
       process.env.APP_URL && process.env.APP_URL !== 'MY_APP_URL'
         ? process.env.APP_URL
         : `${req.protocol}://${req.get('host')}`;
-    const bundle = await roomManager.getShareBundle(req.params.code, origin);
+    const linkOrigin = new URL(origin);
+    if (['localhost','127.0.0.1','[::1]'].includes(linkOrigin.hostname)) {
+      const lan = Object.values(networkInterfaces()).flat().find(address =>
+        address?.family === 'IPv4' && !address.internal && /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(address.address));
+      if (lan) linkOrigin.hostname = lan.address;
+    }
+    const bundle = await roomManager.getShareBundle(req.params.code, linkOrigin.origin);
     res.json({ share: bundle });
   });
 
@@ -456,7 +470,7 @@ async function startServer() {
   }
 
   server.listen(PORT, '0.0.0.0', () => {
-    console.log(`Elite Quiz Show Server listening on http://0.0.0.0:${PORT}`);
+    console.log(`Yemken Hay Server listening on http://0.0.0.0:${PORT}`);
   });
 }
 

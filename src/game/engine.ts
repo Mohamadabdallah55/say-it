@@ -1,5 +1,6 @@
 import { pickCommentary } from './commentary';
 import { selectActiveBoardForDeck } from './pdfValidation';
+import {resolveOrder} from './pdfValidation';
 import type {
   ActiveRound,
   BuzzerViewState,
@@ -67,8 +68,7 @@ function findAvailableBackupQuestion(
         q.categoryId === currentQuestion.categoryId &&
         q.difficulty === currentQuestion.difficulty,
     ) ??
-    backups.find((q) => q.categoryId === currentQuestion.categoryId) ??
-    backups[0]
+    backups.find((q) => q.categoryId === currentQuestion.categoryId) ?? null
   );
 }
 
@@ -92,6 +92,7 @@ export function createRoomState(params: {
     params.deck,
     settings.categoryCount,
     params.selectedCategoryIds,
+    params.teams.length,
   );
 
   const teams: TeamState[] = params.teams.map((t, idx) => ({
@@ -133,6 +134,7 @@ export function createRoomState(params: {
     processedActionIds: [],
     commentary: null,
     recentCommentaryTexts: [],
+    matchEndsAt: Date.parse(nowIso) + 20 * 60000,
     createdAt: nowIso,
     updatedAt: nowIso,
   };
@@ -151,7 +153,7 @@ export function selectBoardTile(
     return { ok: false, error: 'لا يمكن اختيار خانة جديدة قبل إنهاء الجولة الحالية.', state };
   }
   const tile = state.boardTiles.find((t) => t.questionId === questionId);
-  if (!tile || tile.used) {
+  if (!tile || tile.used || (tile.ownerTeamId && tile.ownerTeamId !== state.teams[state.currentTurnTeamIndex]?.id)) {
     return { ok: false, error: 'هذه الخانة غير متاحة أو تم لعبها مسبقًا.', state };
   }
   const question = state.questionPool.find((q) => q.id === questionId);
@@ -159,12 +161,22 @@ export function selectBoardTile(
     return { ok: false, error: 'لم يتم العثور على السؤال المرتبط بهذه الخانة.', state };
   }
 
+  const parked = state.parkedRounds?.[questionId];
+  if (parked) {
+    const remaining = { ...state.parkedRounds };
+    delete remaining[questionId];
+    return { ok: true, state: { ...state, phase: parked.phase, activeRound: parked.round,
+      timer: parked.timer, parkedRounds: remaining,
+      processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() } };
+  }
   const durationSec = question.timeLimitSeconds || state.settings.timerSeconds;
   const selectEvent =
     tile.points === 200 ? 'select200' : tile.points === 400 ? 'select400' : 'select600';
   const cmt = pickCommentary(selectEvent, state.settings.commentaryMode, state.recentCommentaryTexts);
 
   const activeRound: ActiveRound = {
+    ownerTeamId: state.teams[state.currentTurnTeamIndex].id,
+    orderPlay: resolveOrder(question) ? {teamId: state.teams[state.currentTurnTeamIndex].id, attempts: [], turns: 0} : undefined,
     roundId: `rnd_${nowMs}_${question.id}`,
     question,
     basePoints: tile.points,
@@ -184,7 +196,8 @@ export function selectBoardTile(
     ok: true,
     state: {
       ...state,
-      phase: 'QUESTION_READY',
+      phase: state.settings.lifelinesEnabled && (state.settings.cards ?? ['double_points','pit','second_chance','swap_question']).some(card => !state.teams[state.currentTurnTeamIndex].usedLifelines.includes(card as LifelineType)) && state.teams[state.currentTurnTeamIndex].lifelinesRemaining > 0
+        ? 'LIFELINE_PICK' : 'QUESTION_READY',
       questionCounter: state.questionCounter + 1,
       activeRound,
       timer: {
@@ -200,6 +213,14 @@ export function selectBoardTile(
       updatedAt: new Date(nowMs).toISOString(),
     },
   };
+}
+
+export function skipLifelinePick(state: RoomState, actionId: string, nowMs = Date.now()) {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  if (state.phase !== 'LIFELINE_PICK') return { ok: false, error: 'اختيار البطاقات مغلق.', state };
+  const next: RoomState = { ...state, phase: 'QUESTION_READY', updatedAt: new Date(nowMs).toISOString(),
+    processedActionIds: [...state.processedActionIds, actionId].slice(-200) };
+  return { ok: true, state: next };
 }
 
 export function applyLifeline(
@@ -228,7 +249,10 @@ export function applyLifeline(
   if (currentTeam.lifelinesRemaining <= 0) {
     return { ok: false, error: `استنفد فريق «${currentTeam.name}» جميع وسائل المساعدة المتاحة.`, state };
   }
-  if (state.activeRound.activeLifeline && lifeline !== 'second_chance') {
+  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
+    return { ok: false, error: 'البطاقة غير متاحة.', state };
+  }
+  if (state.activeRound.activeLifeline) {
     return { ok: false, error: 'تم تفعيل وسيلة مساعدة بالفعل في هذا السؤال.', state };
   }
 
@@ -282,6 +306,7 @@ export function applyLifeline(
         points: state.activeRound.basePoints,
         difficulty: state.activeRound.question.difficulty,
       },
+      orderPlay: resolveOrder(backup) ? {teamId: state.teams[state.currentTurnTeamIndex].id, attempts: [], turns: 0} : undefined,
       swappedFromQuestionId: oldId,
       hintRevealed: false,
       twoAnswersActive: false,
@@ -317,6 +342,7 @@ export function applyLifeline(
     ok: true,
     state: {
       ...state,
+      phase: state.phase === 'LIFELINE_PICK' ? 'QUESTION_READY' : state.phase,
       teams: nextTeams,
       boardTiles: nextBoardTiles,
       activeRound: nextRound,
@@ -363,7 +389,8 @@ export function swapActiveWithBackup(
           points: state.activeRound.basePoints,
           difficulty: state.activeRound.question.difficulty,
         },
-        swappedFromQuestionId: oldId,
+        orderPlay: resolveOrder(backup) ? {teamId: state.teams[state.currentTurnTeamIndex].id, attempts: [], turns: 0} : undefined,
+      swappedFromQuestionId: oldId,
         hintRevealed: false,
         twoAnswersActive: false,
         buzzerQueue: [],
@@ -542,15 +569,43 @@ export function recordBuzzerPress(
   };
 }
 
+export function submitOrder(state: RoomState, indices: unknown, actionId: string, nowMs = Date.now()) {
+  if (state.processedActionIds.includes(actionId)) return {ok:true, state};
+  const round = state.activeRound;
+  const play = round?.orderPlay;
+  if (!round || !play || play.winner !== undefined || !['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase))
+    return {ok:false, state, error:'محاولة الترتيب مغلقة.'};
+  const items = round.question.orderItems ?? [];
+  const key = resolveOrder(round.question);
+  if (!key || !Array.isArray(indices)) return {ok:false, state, error:'ترتيب غير صالح.'};
+  const attempt: number[] = indices;
+  if (attempt.length && (attempt.length !== items.length || new Set(attempt).size !== items.length ||
+      !attempt.every(i => Number.isInteger(i) && i >= 0 && i < items.length)))
+    return {ok:false, state, error:'اختر كل الخطوات مرة واحدة.'};
+  if (attempt.length && play.attempts.some(prev => prev.length === attempt.length && prev.every((v,i) => v === attempt[i])))
+    return {ok:false, state, error:'جرّب الفريق السابق هذا الترتيب.'};
+  const correct = attempt.length === key.length && attempt.every((v,i) => items[v] === key[i]);
+  const turns = play.turns + 1;
+  const finished = correct || turns >= state.teams.length;
+  const nextTeam = state.teams[(state.teams.findIndex(t => t.id === play.teamId) + 1) % state.teams.length];
+  const next: RoomState = { ...state,
+    activeRound: {...round, orderPlay:{teamId: finished ? play.teamId : nextTeam.id, turns,
+      attempts: attempt.length ? [...play.attempts,attempt] : play.attempts, winner: finished ? (correct ? play.teamId : null) : undefined}},
+    updatedAt:new Date(nowMs).toISOString(), processedActionIds:[...state.processedActionIds,actionId].slice(-200)};
+  return finished ? revealAnswer(next, actionId + '_reveal', nowMs) : {ok:true,state:next};
+}
+
 export function revealAnswer(
   state: RoomState,
   actionId: string,
   nowMs = Date.now(),
 ): { ok: boolean; error?: string; state: RoomState } {
   if (state.processedActionIds.includes(actionId)) return { ok: true, state };
-  if (!state.activeRound || state.phase === 'BOARD' || state.phase === 'FINAL') {
+  if (!state.activeRound || !['QUESTION_READY', 'PLAYING', 'TIME_UP', 'REVEAL'].includes(state.phase)) {
     return { ok: false, error: 'لا يوجد سؤال نشط لكشف إجابته.', state };
   }
+  if (state.activeRound.orderPlay && state.activeRound.orderPlay.winner === undefined)
+    return {ok:false, state, error:'أكمل محاولة الترتيب أو تخطّها.'};
   const remaining = computeRemainingMs(state.timer, nowMs);
 
   return {
@@ -568,6 +623,22 @@ export function revealAnswer(
       updatedAt: new Date(nowMs).toISOString(),
     },
   };
+}
+
+function nextEligibleTurn(state: RoomState, tiles: RoomState['boardTiles']) {
+  for (let step = 1; step <= state.teams.length; step++) {
+    const index = (state.currentTurnTeamIndex + step) % state.teams.length;
+    if (tiles.some(tile => !tile.used && (!tile.ownerTeamId || tile.ownerTeamId === state.teams[index].id))) return index;
+  }
+  return state.currentTurnTeamIndex;
+}
+
+function reverseScoreEntry(teams: RoomState['teams'], entry: ScoreHistoryEntry) {
+  const winners = new Set(entry.teamIds ?? (entry.teamId ? [entry.teamId] : []));
+  return teams.map(team => ({
+    ...team, score: team.score - (entry.scoreChanges?.[team.id] ?? (winners.has(team.id) ? entry.delta : 0)),
+    correctCount: Math.max(0, team.correctCount - Number(!!entry.roundId && winners.has(team.id))),
+  }));
 }
 
 export function awardRoundAndReturnToBoard(
@@ -588,12 +659,20 @@ export function awardRoundAndReturnToBoard(
     return { ok: true, state };
   }
 
+  if (state.phase !== 'REVEAL' && state.phase !== 'AWARD') {
+    return { ok: false, state, error: 'اكشف الإجابة قبل اعتماد النقاط.' };
+  }
   const rawList = Array.isArray(winningTeamIdsInput)
     ? winningTeamIdsInput
     : winningTeamIdsInput
       ? [winningTeamIdsInput]
       : [];
 
+  if (!state.activeRound.isCorrectionMode && state.activeRound.orderPlay) {
+    const winner = state.activeRound.orderPlay.winner;
+    if (winner === undefined || (winner ? rawList.length !== 1 || rawList[0] !== winner : rawList.length !== 0))
+      return {ok:false,state,error:'اعتمد نتيجة ترتيب الفرق المسجّلة.'};
+  }
   const validTeamIds = Array.from(
     new Set(rawList.filter((id) => state.teams.some((t) => t.id === id))),
   );
@@ -605,39 +684,27 @@ export function awardRoundAndReturnToBoard(
   let workingTeams = state.teams.map((t) => ({ ...t }));
   let workingHistory = [...state.scoreHistory];
 
-  // If correcting a previous award for the same roundId, revert previous delta first (never sum!)
-  if (state.activeRound.isCorrectionMode && state.activeRound.awardedDelta > 0) {
-    const prevWinners = new Set(state.activeRound.winningTeamIds);
-    const prevDelta = state.activeRound.awardedDelta;
-    workingTeams = workingTeams.map((t) =>
-      prevWinners.has(t.id)
-        ? {
-            ...t,
-            score: Math.max(0, t.score - prevDelta),
-            correctCount: Math.max(0, t.correctCount - 1),
-          }
-        : t,
-    );
-    workingHistory = workingHistory.map((h) =>
-      h.roundId === state.activeRound?.roundId && !h.undone
-        ? { ...h, undone: true }
-        : h,
-    );
+  const round = state.activeRound;
+  const ownerTeamId = round.ownerTeamId ?? state.teams[state.currentTurnTeamIndex].id;
+  if (round.isCorrectionMode) {
+    const previous = workingHistory.find(h => h.roundId === round.roundId && !h.undone);
+    if (previous) {
+      workingTeams = reverseScoreEntry(workingTeams, previous);
+      workingHistory = workingHistory.map(h => h.id === previous.id ? { ...h, undone: true } : h);
+    }
   }
-
-  const pts = state.activeRound.effectivePoints;
-  if (finalWinnerIds.length > 0) {
-    const winnerSet = new Set(finalWinnerIds);
-    workingTeams = workingTeams.map((t) =>
-      winnerSet.has(t.id)
-        ? {
-            ...t,
-            score: t.score + pts,
-            correctCount: t.correctCount + 1,
-          }
-        : t,
-    );
-  }
+  const winnerSet = new Set(finalWinnerIds);
+  const ownerCorrect = winnerSet.has(ownerTeamId);
+  const changes: Record<string, number> = {};
+  workingTeams = workingTeams.map(team => {
+    const won = winnerSet.has(team.id);
+    const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints;
+    const penalty = ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
+    const delta = won ? reward : -penalty;
+    if (delta) changes[team.id] = delta;
+    return { ...team, score: team.score + delta, correctCount: team.correctCount + Number(won) };
+  });
+  const pts = finalWinnerIds.length ? changes[finalWinnerIds[0]] : 0;
 
   const winnerNames = workingTeams
     .filter((t) => finalWinnerIds.includes(t.id))
@@ -648,6 +715,8 @@ export function awardRoundAndReturnToBoard(
     id: `hist_${nowMs}`,
     actionId,
     roundId: state.activeRound.roundId,
+    questionId: state.activeRound.question.id,
+    ownerTeamId, lifeline: round.activeLifeline, scoreChanges: changes,
     teamId: finalWinnerIds[0] ?? null,
     teamIds: finalWinnerIds,
     delta: finalWinnerIds.length > 0 ? pts : 0,
@@ -690,7 +759,7 @@ export function awardRoundAndReturnToBoard(
     leadTeamName,
   );
 
-  const nextTurn = (state.currentTurnTeamIndex + 1) % Math.max(1, workingTeams.length);
+  const nextTurn = round.isCorrectionMode ? state.currentTurnTeamIndex : nextEligibleTurn(state, nextTiles);
 
   return {
     ok: true,
@@ -699,6 +768,7 @@ export function awardRoundAndReturnToBoard(
       phase: allDone ? 'FINAL' : 'BOARD',
       boardTiles: nextTiles,
       teams: workingTeams,
+      lastAward: {at:nowMs,changes},
       currentTurnTeamIndex: nextTurn,
       activeRound: null,
       scoreHistory: [entry, ...workingHistory].slice(0, 100),
@@ -717,7 +787,7 @@ export function reopenQuestionForCorrection(
   nowMs = Date.now(),
 ): { ok: boolean; error?: string; state: RoomState } {
   if (state.processedActionIds.includes(actionId)) return { ok: true, state };
-  if (state.phase !== 'BOARD') {
+  if (state.phase !== 'BOARD' && state.phase !== 'FINAL') {
     return { ok: false, error: 'أنهِ الجولة الحالية أولًا قبل تصحيح نتيجة سؤال سابق.', state };
   }
   const tile = state.boardTiles.find((t) => t.questionId === questionId && t.used);
@@ -727,9 +797,9 @@ export function reopenQuestionForCorrection(
   }
 
   const previousEntry = state.scoreHistory.find(
-    (h) => !h.undone && h.teamId !== undefined && h.reason.includes(question.categoryName) && h.delta > 0,
+    (h) => !h.undone && (h.questionId === questionId || (!h.questionId && h.roundId?.replace(/^(?:rnd|corr)_\d+_/, '') === questionId)),
   );
-  const prevWinners = tile.wonByTeamIds ?? (tile.wonByTeamId ? [tile.wonByTeamId] : []);
+  const prevWinners = previousEntry?.teamIds ?? (previousEntry?.teamId ? [previousEntry.teamId] : []);
   const awardedDelta = prevWinners.length > 0 ? (previousEntry?.delta || tile.points) : 0;
 
   return {
@@ -741,8 +811,9 @@ export function reopenQuestionForCorrection(
         roundId: previousEntry?.roundId || `corr_${nowMs}_${question.id}`,
         question,
         basePoints: tile.points,
-        effectivePoints: awardedDelta || tile.points,
-        activeLifeline: null,
+        ownerTeamId: previousEntry?.ownerTeamId ?? prevWinners[0],
+        effectivePoints: previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points,
+        activeLifeline: previousEntry?.lifeline ?? null,
         hintRevealed: true,
         twoAnswersActive: false,
         buzzerOpen: false,
@@ -756,6 +827,17 @@ export function reopenQuestionForCorrection(
       updatedAt: new Date(nowMs).toISOString(),
     },
   };
+}
+
+export function parkQuestion(state: RoomState, actionId: string, nowMs = Date.now()) {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  const round = state.activeRound;
+  if (!round || round.isCorrectionMode) return { ok: false, error: 'لا توجد جولة قابلة للحفظ.', state };
+  const timer = { ...state.timer, remainingMs: computeRemainingMs(state.timer, nowMs), running: false, startedAtMs: null };
+  const next: RoomState = { ...state, phase: 'BOARD', activeRound: null, timer,
+    parkedRounds: { ...state.parkedRounds, [round.question.id]: { round, timer, phase: state.phase } },
+    processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() };
+  return { ok: true, state: next };
 }
 
 export function skipActiveQuestion(
@@ -774,7 +856,7 @@ export function skipActiveQuestion(
       : t,
   );
   const allDone = nextTiles.every((t) => t.used);
-  const nextTurn = (state.currentTurnTeamIndex + 1) % Math.max(1, state.teams.length);
+  const nextTurn = nextEligibleTurn(state, nextTiles);
 
   return {
     ok: true,
@@ -808,7 +890,7 @@ export function manualAdjustScore(
   if (!target) return { ok: false, error: 'الفريق المطلوب غير موجود.', state };
 
   const nextTeams = state.teams.map((t) =>
-    t.id === teamId ? { ...t, score: Math.max(0, t.score + delta) } : t,
+    t.id === teamId ? { ...t, score: t.score + delta } : t,
   );
   const entry: ScoreHistoryEntry = {
     id: `adj_${nowMs}`,
@@ -843,22 +925,7 @@ export function undoLastScoreAction(
     return { ok: false, error: 'لا توجد حركة نقاط متاحة للتراجع.', state };
   }
 
-  const affectedIds = new Set(
-    lastActive.teamIds?.length ? lastActive.teamIds : lastActive.teamId ? [lastActive.teamId] : [],
-  );
-
-  const nextTeams = state.teams.map((t) =>
-    affectedIds.has(t.id)
-      ? {
-          ...t,
-          score: Math.max(0, t.score - lastActive.delta),
-          correctCount:
-            lastActive.roundId && lastActive.delta > 0
-              ? Math.max(0, t.correctCount - 1)
-              : t.correctCount,
-        }
-      : t,
-  );
+  const nextTeams = reverseScoreEntry(state.teams, lastActive);
 
   const nextHistory = state.scoreHistory.map((h) =>
     h.id === lastActive.id ? { ...h, undone: true } : h,
@@ -925,6 +992,7 @@ export function sanitizeStateForRole(
   const liveTimer: TimerState = {
     ...state.timer,
     remainingMs: computeRemainingMs(state.timer, nowMs),
+    startedAtMs: state.timer.running ? nowMs : null,
   };
 
   if (role === 'host') {
@@ -955,7 +1023,7 @@ export function sanitizeStateForRole(
       })),
       currentTurnTeamIndex: state.currentTurnTeamIndex,
       questionCounter: state.questionCounter,
-      activeRound: state.activeRound
+      activeRound: state.phase !== 'LIFELINE_PICK' && state.activeRound
         ? {
             roundId: state.activeRound.roundId,
             categoryName: state.activeRound.question.categoryName,
@@ -977,6 +1045,8 @@ export function sanitizeStateForRole(
   return {
     schemaVersion: 2,
     role: 'projector',
+    lastAward: state.lastAward,
+    matchEndsAt: state.matchEndsAt,
     roomCode: state.roomCode,
     deckId: state.deckId,
     deckTitle: state.deckTitle,
@@ -988,7 +1058,7 @@ export function sanitizeStateForRole(
     currentTurnTeamIndex: state.currentTurnTeamIndex,
     questionCounter: state.questionCounter,
     totalQuestions: state.totalQuestions,
-    activeRound: state.activeRound
+    activeRound: state.phase !== 'LIFELINE_PICK' && state.activeRound
       ? {
           roundId: state.activeRound.roundId,
           questionId: state.activeRound.question.id,
@@ -1000,6 +1070,7 @@ export function sanitizeStateForRole(
           prompt: state.activeRound.question.prompt,
           options: state.activeRound.question.options,
           orderItems: state.activeRound.question.orderItems,
+          orderPlay: state.activeRound.orderPlay,
           hint: state.activeRound.hintRevealed ? state.activeRound.question.hint : undefined,
           answer: canRevealAnswer ? state.activeRound.question.answer : undefined,
           acceptableAnswers: canRevealAnswer

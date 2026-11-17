@@ -56,6 +56,11 @@ class SoundManager {
     this.playTone(220, 0.3, 'sawtooth', 0.1, 0.16);
   }
 
+  playReveal() {
+    this.playTone(392, 0.13, 'triangle', 0.10);
+    this.playTone(587, 0.23, 'sine', 0.12, 0.09);
+  }
+
   playFoul() {
     this.playTone(190, 0.18, 'sawtooth', 0.14, 0);
     this.playTone(150, 0.28, 'sawtooth', 0.14, 0.14);

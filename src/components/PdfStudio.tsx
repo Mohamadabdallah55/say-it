@@ -64,6 +64,9 @@ export function PdfStudio({
   const [error, setError] = useState<string | null>(null);
   const [statusBanner, setStatusBanner] = useState<string | null>(null);
 
+  const [selectedQuestionId, setSelectedQuestionId] = useState('');
+  const [renaming, setRenaming] = useState(false);
+  const [categoryNames, setCategoryNames] = useState<Record<string,string>>({});
   const [editingQuestionId, setEditingQuestionId] = useState<string | null>(null);
   const [editDraft, setEditDraft] = useState<Partial<QuizQuestion>>({});
   const [candidateSwap, setCandidateSwap] = useState<{
@@ -84,8 +87,8 @@ export function PdfStudio({
   }, [deck]);
 
   // STAGE 1: Upload & Analyze PDF
-  const handleAnalyzePdf = async () => {
-    if (!selectedFile) {
+  const handleAnalyzePdf = async (file = selectedFile) => {
+    if (!file) {
       setError('يرجى اختيار ملف PDF أولًا.');
       return;
     }
@@ -94,7 +97,7 @@ export function PdfStudio({
     setBusyMessage('المرحلة 1/4: جارٍ استخراج النص وتحليل مفاهيم الدرس...');
     try {
       const formData = new FormData();
-      formData.append('file', selectedFile);
+      formData.append('file', file);
       formData.append('ageGroup', ageGroup);
 
       const res = await fetch('/api/pdf/analyze', { method: 'POST', body: formData });
@@ -102,6 +105,8 @@ export function PdfStudio({
       if (!res.ok) throw new Error(data.error || 'تعذر تحليل ملف PDF.');
 
       setAnalysis(data.report);
+      setDeck(null);
+      setPlan(null);
       if (data.cachedPlan) setPlan(data.cachedPlan);
       soundFX.playSurprise();
       setStep('analysis');
@@ -180,8 +185,9 @@ export function PdfStudio({
       | 'generate_backups'
       | 'change_difficulty'
       | 'change_type'
+      | 'edit_categories'
       | 'improve_wording',
-    extra?: { questionId?: string; targetDifficulty?: Difficulty; targetType?: QuestionType },
+    extra?: { questionId?: string; targetDifficulty?: Difficulty; targetType?: QuestionType; updatedCategories?: QuizDeck['categories'] },
   ) => {
     if (!deck) return;
     setError(null);
@@ -291,7 +297,7 @@ export function PdfStudio({
           </button>
 
           <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
-            استوديو تحويل PDF إلى مسابقة «سؤال النخبة»
+            استوديو تحويل PDF إلى مسابقة «يمكن هاي»
           </h1>
 
           <div className="flex items-center gap-1.5 text-xs font-black">
@@ -356,11 +362,12 @@ export function PdfStudio({
               </span>
               <input
                 type="file"
-                accept=".pdf,application/pdf"
+                disabled={Boolean(busyMessage)} accept=".pdf,application/pdf"
                 className="hidden"
                 onChange={(e) => {
                   const f = e.target.files?.[0] ?? null;
                   setSelectedFile(f);
+                  if (f) void handleAnalyzePdf(f);
                   setError(null);
                 }}
               />
@@ -399,7 +406,7 @@ export function PdfStudio({
             <button
               type="button"
               disabled={!selectedFile || Boolean(busyMessage)}
-              onClick={handleAnalyzePdf}
+              onClick={() => handleAnalyzePdf()}
               className="game-btn-3d w-full bg-[#7042A1] text-white font-display font-black text-xl py-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-6 h-6" />
@@ -626,7 +633,7 @@ export function PdfStudio({
                 </button>
                 <button
                   type="button"
-                  disabled={Boolean(busyMessage)}
+                  disabled={Boolean(busyMessage) || !plan.categories.length}
                   onClick={handleGenerateBoard}
                   className="game-btn-3d bg-[#00B978] text-white font-display font-black text-xl px-8 py-3.5 rounded-2xl flex items-center gap-2 cursor-pointer"
                 >
@@ -665,7 +672,7 @@ export function PdfStudio({
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {stats.needsReview > 0 && (
+                  {stats.needsReview > 0 && !deck.pdfAnalysis?.isReligiousContent && (
                     <button
                       type="button"
                       onClick={approveAllPending}
@@ -723,6 +730,17 @@ export function PdfStudio({
                   <RefreshCw className="w-3.5 h-3.5 text-[#F05B63]" />
                   <span>إعادة توليد المرفوض فقط</span>
                 </button>
+                <select aria-label="السؤال المحدد" value={selectedQuestionId} onChange={e => setSelectedQuestionId(e.target.value)}>
+                  <option value="">اختر سؤالًا</option>
+                  {deck.questions.map(q => <option key={q.id} value={q.id}>{q.categoryName} · {q.points} · {q.prompt.slice(0,30)}</option>)}
+                </select>
+                <button disabled={!selectedQuestionId || !!busyMessage} onClick={() => handleRegenerateAction('regenerate_question',{questionId:selectedQuestionId})}>استبدال المحدد</button>
+                <button disabled={!selectedQuestionId || !!busyMessage} onClick={() => handleRegenerateAction('improve_wording',{questionId:selectedQuestionId})}>تحسين السؤال</button>
+                <select aria-label="تغيير صعوبة السؤال" value="" disabled={!selectedQuestionId || !!busyMessage} onChange={e => handleRegenerateAction('change_difficulty',{questionId:selectedQuestionId,targetDifficulty:e.target.value as Difficulty})}>
+                  <option value="">تغيير الصعوبة</option><option value="easy">سهل · 200</option><option value="medium">متوسط · 400</option><option value="hard">صعب · 600</option>
+                </select>
+                <button onClick={() => {setCategoryNames({});setRenaming(!renaming)}}>تعديل الفئات</button>
+                {renaming && <div className="flex flex-wrap gap-2">{deck.categories.map(c => <input aria-label={c.name} key={c.id} value={categoryNames[c.id] ?? c.name} onChange={e=>setCategoryNames({...categoryNames,[c.id]:e.target.value})} />)}<button disabled={!!busyMessage} onClick={() => {void handleRegenerateAction('edit_categories',{updatedCategories:deck.categories.map(c=>({...c,name:categoryNames[c.id]?.trim() || c.name}))});setRenaming(false)}}>حفظ الفئات</button></div>}
               </div>
             </div>
 
@@ -812,6 +830,12 @@ export function PdfStudio({
 
                       {isEditing ? (
                         <div className="space-y-2">
+                          <select aria-label="فئة السؤال" value={editDraft.categoryId ?? item.categoryId} onChange={e => {const cat = deck.categories.find(c => c.id === e.target.value)!;setEditDraft({...editDraft,categoryId:cat.id,categoryName:cat.name})}}>
+                            {deck.categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                          </select>
+                          <select aria-label="نوع السؤال" value={editDraft.questionType ?? item.questionType} onChange={e => setEditDraft({...editDraft,questionType:e.target.value as QuestionType})}>
+                            {Object.entries(QUESTION_TYPE_LABELS).map(([v,name]) => <option key={v} value={v}>{name}</option>)}
+                          </select>
                           <textarea
                             rows={2}
                             value={editDraft.prompt ?? item.prompt}

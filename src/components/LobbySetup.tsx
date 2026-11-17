@@ -1,3 +1,4 @@
+import { GameLogo } from './GameLogo';
 import { useMemo, useState } from 'react';
 import {
   AlertTriangle,
@@ -11,9 +12,9 @@ import {
   Users,
   XCircle,
 } from 'lucide-react';
-import { runBoardPreflightCheck } from '../game/pdfValidation';
-import { ALL_CURATED_CATEGORIES, STARTER_DEMO_DECK } from '../game/starterDecks';
-import type { CommentaryMode, MatchSettings, QuizDeck } from '../game/types';
+import { LIFELINE_META, runBoardPreflightCheck } from '../game/pdfValidation';
+import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../game/starterDecks';
+import type { CommentaryMode, LifelineType, MatchSettings, QuizDeck } from '../game/types';
 import { soundFX } from '../utils/sound';
 
 interface LobbySetupProps {
@@ -64,6 +65,7 @@ export function LobbySetup({
   const [timerSeconds, setTimerSeconds] = useState<number>(45);
   const [lifelinesEnabled, setLifelinesEnabled] = useState<boolean>(true);
   const [maxLifelinesPerTeam, setMaxLifelinesPerTeam] = useState<number>(3);
+  const [cards, setCards] = useState<LifelineType[]>(['double_points','second_chance','swap_question']);
   const [buzzerMode, setBuzzerMode] = useState<boolean>(false);
   const [allowMultiTeamAward, setAllowMultiTeamAward] = useState<boolean>(false);
   const [commentaryMode, setCommentaryMode] = useState<CommentaryMode>('full');
@@ -72,78 +74,27 @@ export function LobbySetup({
 
   const selectedDeck = useMemo(() => {
     if (selectedDeckId === 'curated_custom') {
-      const pickedCats = ALL_CURATED_CATEGORIES.filter((c) => customCategories.includes(c.id));
-      return {
-        ...STARTER_DEMO_DECK,
-        id: 'curated_custom',
-        title: 'تشكيلة الفئات المختارة',
-        categories: pickedCats,
-        questions: decks.flatMap((d) => d.questions).length
-          ? STARTER_DEMO_DECK.questions
-          : STARTER_DEMO_DECK.questions,
-      };
+      return buildBoardDeckFromCategories(customCategories);
     }
     return decks.find((d) => d.id === selectedDeckId) ?? STARTER_DEMO_DECK;
   }, [selectedDeckId, customCategories, decks]);
 
   const activeCategoryIdsForPreflight = useMemo(() => {
-    if (selectedDeckId === 'curated_custom') return customCategories.slice(0, categoryCount);
+    if (selectedDeckId === 'curated_custom') return customCategories;
     return selectedDeck.categories.slice(0, categoryCount).map((c) => c.id);
   }, [selectedDeckId, customCategories, selectedDeck, categoryCount]);
 
   // Run live 10-point Preflight Check
   const preflight = useMemo(() => {
-    const deckForCheck: QuizDeck =
-      selectedDeckId === 'curated_custom'
-        ? {
-            ...STARTER_DEMO_DECK,
-            id: 'curated_custom',
-            categories: ALL_CURATED_CATEGORIES.filter((c) => customCategories.includes(c.id)),
-            // Import curated pool via STARTER_DEMO_DECK + extra curated handled cleanly below
-            questions: STARTER_DEMO_DECK.questions,
-          }
-        : selectedDeck;
-
-    // For curated_custom, inspect ALL_CURATED_CATEGORIES directly from starterDecks if needed
-    if (selectedDeckId === 'curated_custom') {
-      return {
-        canStart: customCategories.length >= 3 && teams.length >= 2 && teams.every((t) => t.name.trim()),
-        checks: [
-          {
-            id: 'curated_count',
-            label: `عدد الفئات المختارة (${customCategories.length} / ${categoryCount})`,
-            passed: customCategories.length >= 3 && customCategories.length <= 6,
-            severity: 'error' as const,
-          },
-          {
-            id: 'curated_tiers',
-            label: 'كل فئة مختارة تحتوي 200 و 400 و 600 + احتياطي',
-            passed: true,
-            severity: 'error' as const,
-          },
-          {
-            id: 'teams',
-            label: 'الفرق جاهزة (2–4 فرق)',
-            passed: teams.length >= 2 && teams.every((t) => t.name.trim().length > 0),
-            severity: 'error' as const,
-          },
-        ],
-        blockers:
-          customCategories.length < 3
-            ? ['اختر 3 فئات على الأقل للبدء.']
-            : [],
-        warnings: [],
-      };
-    }
-
     return runBoardPreflightCheck({
-      deck: deckForCheck,
+      deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
       teams,
       settings: {
-        categoryCount: Math.min(categoryCount, selectedDeck.categories.length),
+        categoryCount: selectedDeckId === 'curated_custom' ? customCategories.length : Math.min(categoryCount, selectedDeck.categories.length),
         timerSeconds,
         lifelinesEnabled,
+        cards,
         maxLifelinesPerTeam,
       },
     });
@@ -207,6 +158,7 @@ export function LobbySetup({
         categoryCount: effectiveCategoryCount,
         timerSeconds,
         lifelinesEnabled,
+        cards,
         maxLifelinesPerTeam,
         buzzerMode,
         allowMultiTeamAward,
@@ -254,9 +206,9 @@ export function LobbySetup({
             <span>العودة</span>
           </button>
           <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
-            إعداد مباراة سؤال النخبة
+            إعداد مباراة يمكن هاي
           </h1>
-          <div className="w-24 hidden sm:block" />
+          <GameLogo size="sm" className="hidden sm:block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -399,7 +351,7 @@ export function LobbySetup({
                       تشكيلة مخصصة من 7 فئات
                     </span>
                     <span className="text-[11px] font-bold bg-[#00B978] text-white px-2 py-0.5 rounded-md">
-                      مكتبة النخبة
+                      مكتبة يمكن هاي
                     </span>
                   </div>
                   <p className="text-xs text-[#291B40]/75">
@@ -511,7 +463,7 @@ export function LobbySetup({
                   <div>
                     <span className="font-bold text-sm block">تفعيل وسائل المساعدة</span>
                     <span className="text-[11px] text-[#291B40]/65">
-                      نقاط مضاعفة، تلميح، فرصة ثانية، تبديل، جرس ({maxLifelinesPerTeam} لكل فريق)
+                      قبل السؤال يختار الفريق بطاقة أو يتخطى. لكل فريق {maxLifelinesPerTeam} استخدامات، وكل بطاقة مرة واحدة للفريق.
                     </span>
                   </div>
                   <input
@@ -522,6 +474,10 @@ export function LobbySetup({
                   />
                 </label>
 
+                {lifelinesEnabled && <div className="flex flex-wrap gap-2">{(['double_points','pit','second_chance','swap_question'] as const).map(key =>
+                  <button key={key} type="button" aria-pressed={cards.includes(key)} title={LIFELINE_META[key].description}
+                    className={'game-btn-3d rounded-xl px-3 py-2 text-sm font-bold ' + (cards.includes(key) ? 'bg-[#7042A1] text-white' : 'bg-white')}
+                    onClick={() => setCards(old => old.includes(key) ? old.filter(k => k !== key) : [...old,key])}>{LIFELINE_META[key].label}</button>)}</div>}
                 {lifelinesEnabled && (
                   <div className="flex items-center justify-between bg-white border-2 border-[#291B40] rounded-xl px-3.5 py-2">
                     <span className="text-xs font-bold">عدد المساعدات المتساوية لكل فريق</span>

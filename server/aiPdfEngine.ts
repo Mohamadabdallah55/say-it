@@ -40,7 +40,7 @@ const CATEGORY_PALETTE: Array<{ iconKey: CategoryIconKey; color: string }> = [
   { iconKey: 'general', color: '#0EA5E9' },
 ];
 
-const GEMINI_MODEL = 'gemini-3-flash-preview';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3-flash-preview';
 
 function createAiClient(): GoogleGenAI {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -50,6 +50,7 @@ function createAiClient(): GoogleGenAI {
   return new GoogleGenAI({
     apiKey,
     httpOptions: {
+      timeout: 60000,
       headers: {
         'User-Agent': 'aistudio-build',
       },
@@ -153,10 +154,12 @@ export async function analyzePdfLesson(
   ageGroup: AgeGroup = 'mixed',
 ): Promise<{ cachedText: CachedPdfText; report: PdfAnalysisReport }> {
   const cachedText = await extractAndValidatePdf(buffer, fileName);
+  const saved = cachedText.analyses?.[ageGroup];
+  if (saved) return { cachedText, report: saved };
   const ai = createAiClient();
   const excerpt = cachedText.fullText.slice(0, 26000);
 
-  const prompt = `حلّل المستند التالي (ملف PDF بعنوان "${fileName}") والموجه لفئة (${ageGroup}) تمهيدًا لتحويله إلى مسابقة «سؤال النخبة» التنافسية.
+  const prompt = `حلّل المستند التالي (ملف PDF بعنوان "${fileName}") والموجه لفئة (${ageGroup}) تمهيدًا لتحويله إلى مسابقة «يمكن هاي» التنافسية.
 أجب بدقة تامة اعتمادًا على النص المرفق فقط، دون افتراض موضوع مسبق أو اختلاق أي معلومة:
 1. العنوان الدقيق والموضوع العام (subjectDomain).
 2. الموضوعات الرئيسية والموضوعات الفرعية الفعلية داخل النص.
@@ -218,6 +221,9 @@ ${excerpt}`;
   );
 
   const parsed = JSON.parse((response.text ?? '{}').trim()) as Partial<PdfAnalysisReport>;
+  if (!parsed.title?.trim() || !parsed.summary?.trim() || !Array.isArray(parsed.mainTopics) || !parsed.mainTopics.length) {
+    throw new Error('لم يُرجع النموذج تحليلًا مكتملًا. أعد المحاولة.');
+  }
   const report: PdfAnalysisReport = {
     fileName,
     fileHash: cachedText.fileHash,
@@ -238,6 +244,8 @@ ${excerpt}`;
     warnings: parsed.warnings ?? [],
   };
 
+  cachedText.analyses = { ...cachedText.analyses, [ageGroup]: report };
+  saveCachedPdfText(cachedText);
   return { cachedText, report };
 }
 
@@ -261,6 +269,7 @@ export async function planBoardFromPdf(params: {
 أجرِ فحص سعة حقيقي لكل فئة:
 - هل تحتوي مادة تكفي لبناء سؤال سهل (200) ومتوسط (400) وصعب (600) واحتياطي بدون حشو أو اختلاق؟
 - إن كان المحتوى غير كافٍ لـ ${desiredCount} فئات، اقترح عددًا أقل (3 أو 4) وأضف تحذيرًا واضحًا في warnings.
+- اختر iconKey بما يوافق موضوع الفئة من science أو history أو geography أو tech أو arabic أو puzzles أو sports أو skills أو islamic أو general أو pdf.
 - اقترح مثالًا مختصرًا لسؤال 200 و 400 و 600 في كل فئة.
 - اجعل pantomimeSuitable = false تمامًا إذا كان الموضوع دينيًا أو تجريديًا لا يناسبه تمثيل صامت، ولا تسمح أبدًا بتمثيل أي شخصية دينية.
 
@@ -351,14 +360,16 @@ ${cachedText.fullText.slice(0, 22000)}`;
     'tech',
   ]);
 
-  const categories: BoardPlanCategory[] = (parsed.categories ?? []).slice(0, 6).map((cat, idx) => {
+  const categories: BoardPlanCategory[] = (parsed.categories ?? []).filter(cat =>
+    cat.name?.trim() && cat.supportsEasy200 && cat.supportsMedium400 && cat.supportsHard600 &&
+    Number(cat.estimatedMaxQuestions) >= 3).slice(0, desiredCount).map((cat, idx) => {
     const pal = CATEGORY_PALETTE[idx % CATEGORY_PALETTE.length];
     const iconKey =
       cat.iconKey && validIcons.has(cat.iconKey as CategoryIconKey)
         ? (cat.iconKey as CategoryIconKey)
         : params.analysis.isReligiousContent
           ? 'islamic'
-          : pal.iconKey;
+          : 'pdf';
 
     return {
       id: `plan_cat_${idx + 1}`,
@@ -382,13 +393,10 @@ ${cachedText.fullText.slice(0, 22000)}`;
   const plan: BoardPlanPreview = {
     fileHash: params.fileHash,
     title: params.analysis.title,
-    recommendedCategoryCount: Math.max(
-      3,
-      Math.min(6, parsed.recommendedCategoryCount ?? categories.length),
-    ),
+    recommendedCategoryCount: categories.length,
     categories,
-    canBuildFull15Board: Boolean(parsed.canBuildFull15Board && categories.length >= 3),
-    warnings: parsed.warnings ?? [],
+    canBuildFull15Board: categories.length >= 5,
+    warnings: [...(parsed.warnings ?? []), ...(categories.length < desiredCount ? ['محتوى الدرس يدعم عددًا أقل من الفئات ذات المستويات الثلاثة.'] : [])],
     suggestedQuestionTypes: (parsed.suggestedQuestionTypes ?? [
       'direct_qa',
       'complete',
@@ -418,6 +426,7 @@ interface RawGeminiQuestion {
   options?: string[];
   correctOptionIndex?: number;
   orderItems?: string[];
+  correctOrder?: string[];
   hint?: string;
   explanation?: string;
   sourceSnippet?: string;
@@ -448,7 +457,7 @@ async function generateCategoryQuestionsBatch(params: {
 
   const avoidSlice = params.avoidPrompts.slice(-40).join(' | ');
 
-  const prompt = `أنت مصمم أسئلة مسابقة «سؤال النخبة» لطلبة الفئة (${params.ageGroup}).
+  const prompt = `أنت مصمم أسئلة مسابقة «يمكن هاي» لطلبة الفئة (${params.ageGroup}).
 ولّد أسئلة عالية الجودة لفئة واحدة فقط: «${params.category.name}» (${params.category.description || ''}) اعتمادًا حصريًا على النص المرفق.
 
 المطلوب بالضبط لهذه الفئة:
@@ -461,7 +470,7 @@ ${params.includeBackup ? '- سؤال احتياطي واحد (isBackup = true) �
 1. نوّع أنواع الأسئلة ولا تجعلها كلها اختيار من متعدد! الأنواع المتاحة: ${allowedTypesText}.
 2. لكل سؤال إجابة واضحة ومحددة (answer) + explanation مختصر + sourceSnippet مقتبس من النص ورقم صفحة حقيقي (1..${params.totalPages}) إن أمكن دون اختلاق.
 3. إذا كان questionType = "multiple_choice" أضف 4 خيارات في options وحدد correctOptionIndex.
-4. إذا كان questionType = "order_steps" أضف الخطوات غير مرتبة في orderItems واذكر الترتيب الصحيح في answer.
+4. إذا كان questionType = "order_steps" أضف الخطوات غير مرتبة في orderItems وأعد نفس العناصر بالترتيب الصحيح في correctOrder وفي الإجابة.
 5. لا تخترع أسئلة صعبة لا يدعمها النص؛ التزم بما في المستند فقط.
 6. إذا تضمن السؤال آية أو حديثًا أو حكمًا دينيًا اجعل isSensitiveReligious = true.
 7. تجنب تكرار هذه الأسئلة: ${avoidSlice || 'لا يوجد'}
@@ -489,6 +498,7 @@ ${params.sourceText.slice(0, 22000)}`;
               acceptableAnswers: { type: Type.ARRAY, items: { type: Type.STRING } },
               options: { type: Type.ARRAY, items: { type: Type.STRING } },
               correctOptionIndex: { type: Type.INTEGER },
+              correctOrder: { type: Type.ARRAY, items: { type: Type.STRING } },
               orderItems: { type: Type.ARRAY, items: { type: Type.STRING } },
               hint: { type: Type.STRING },
               explanation: { type: Type.STRING },
@@ -512,7 +522,18 @@ ${params.sourceText.slice(0, 22000)}`;
   );
 
   const raw = JSON.parse((response.text ?? '[]').trim());
-  return Array.isArray(raw) ? (raw as RawGeminiQuestion[]) : [];
+  if (!Array.isArray(raw)) throw new Error('استجابة النموذج ليست قائمة أسئلة صالحة.');
+  const pages = [...params.sourceText.matchAll(/\[صفحة (\d+)\] ([^\n]+)/g)];
+  return (raw as RawGeminiQuestion[]).flatMap(q => {
+    if (!q || !['easy', 'medium', 'hard'].includes(q.difficulty) || (q.questionType === 'pantomime_optional' && !pantAllowed)) return [];
+    if (!pages.length) return [q];
+    const quote = normalizeArabicText(q.sourceSnippet || '');
+    if (quote.length < 8) return [];
+    const matches = pages.filter(page => normalizeArabicText(page[2]).includes(quote));
+    if (!matches.length) return [];
+    const source = matches.find(page => Number(page[1]) === q.pageNumber) ?? (matches.length === 1 ? matches[0] : undefined);
+    return [{ ...q, pageNumber: source ? Number(source[1]) : undefined }];
+  });
 }
 
 // STAGE 4 EXECUTION: Generate approved Board Deck from Plan (category by category, saving after each batch)
@@ -542,6 +563,7 @@ export async function generateBoardFromPlan(params: {
     description: c.description,
     iconKey: c.iconKey,
     accentColor: c.accentColor,
+    topicCoverage: c.topicCoverage,
   }));
 
   let deck: QuizDeck = existingDeck ?? {
@@ -562,10 +584,18 @@ export async function generateBoardFromPlan(params: {
 
   let addedCount = 0;
   let rejectedCount = 0;
+  let batchError = '';
   let quotaStopped = false;
   const seenPrompts = new Set<string>(deck.questions.map((q) => normalizeArabicText(q.prompt)));
 
+  if (existingDeck && existingDeck.pdfAnalysis?.fileHash !== params.fileHash) {
+    throw new Error('لا يطابق الملف بنك الأسئلة المطلوب استكماله.');
+  }
   for (const planCat of params.plan.categories) {
+    const filled = new Set<string>(deck.questions.filter(q => q.categoryId === planCat.id && q.status !== 'rejected')
+      .map(q => q.isBackup ? 'backup' : q.difficulty));
+    const required = params.includeBackups === false ? ['easy', 'medium', 'hard'] : ['easy', 'medium', 'hard', 'backup'];
+    if (required.every(slot => filled.has(slot))) continue;
     try {
       const batch = await generateCategoryQuestionsBatch({
         sourceText: cachedText.fullText,
@@ -574,12 +604,14 @@ export async function generateBoardFromPlan(params: {
         isReligiousDoc: params.analysis.isReligiousContent,
         totalPages: cachedText.totalPages,
         includeBackup: params.includeBackups !== false,
-        avoidPrompts: deck.questions.map((q) => q.prompt),
+        avoidPrompts: [...deck.questions, ...(deck.rejectedLog ?? [])].map(q => q.prompt),
       });
 
       const rejectedEntries: RejectedQuestionLog[] = [];
 
       for (const item of batch) {
+        const slot = item.isBackup ? 'backup' : item.difficulty;
+        if (filled.has(slot)) continue;
         const diff: Difficulty =
           item.difficulty === 'easy' || item.difficulty === 'medium' || item.difficulty === 'hard'
             ? item.difficulty
@@ -588,6 +620,7 @@ export async function generateBoardFromPlan(params: {
         const validation = validateQuizQuestion(
           {
             ...item,
+            status: 'needs_review',
             categoryId: planCat.id,
             categoryName: planCat.name,
             difficulty: diff,
@@ -602,6 +635,7 @@ export async function generateBoardFromPlan(params: {
         );
 
         if (validation.valid && validation.normalized) {
+          filled.add(slot);
           seenPrompts.add(normalizeArabicText(validation.normalized.prompt));
           deck.questions.push(validation.normalized);
           addedCount += 1;
@@ -625,7 +659,9 @@ export async function generateBoardFromPlan(params: {
         saveDeck(deck);
         break;
       }
+      batchError = err instanceof SyntaxError ? 'استجابة النموذج ليست JSON صالحًا.' : 'تعذّر إكمال دفعة الأسئلة.';
       saveDeck(deck);
+      break;
     }
   }
 
@@ -636,7 +672,7 @@ export async function generateBoardFromPlan(params: {
     quotaStopped,
     message: quotaStopped
       ? `تم حفظ ${addedCount} سؤالًا بنجاح وتوقف التوليد مؤقتًا بسبب حصة النموذج.`
-      : `تم بناء اللوحة بـ ${addedCount} سؤالًا${rejectedCount > 0 ? ` (واستبعاد ${rejectedCount} سؤال مكرر أو غير مطابق)` : ''}.`,
+      : batchError ? `${batchError} حُفظ ${addedCount} سؤالًا. يمكنك استكمال الخانات الناقصة.` : `تم حفظ ${addedCount} سؤالًا${rejectedCount > 0 ? ` (واستبعاد ${rejectedCount} سؤال مكرر أو غير مطابق)` : ''}.`,
   };
 }
 
@@ -671,6 +707,7 @@ export async function runDeckRegenerationAction(params: {
   const cachedText = deck.pdfAnalysis?.fileHash
     ? getCachedPdfText(deck.pdfAnalysis.fileHash)
     : null;
+  if (deck.sourceType === 'pdf' && !cachedText) throw new Error('نص الدرس غير متاح. أعد رفع الملف قبل التوليد.');
   const sourceContext =
     cachedText?.fullText ||
     `موضوع المسابقة: ${deck.title}\nالفئات: ${deck.categories.map((c) => c.name).join('، ')}\nأمثلة: ${deck.questions
@@ -744,6 +781,7 @@ export async function runDeckRegenerationAction(params: {
         q.id === target.id
           ? {
               ...q,
+              status: 'needs_review' as const,
               prompt: parsed.prompt?.trim() || q.prompt,
               hint: parsed.hint?.trim() || q.hint,
               explanation: parsed.explanation?.trim() || q.explanation,
@@ -776,7 +814,7 @@ export async function runDeckRegenerationAction(params: {
       isReligiousDoc: Boolean(deck.pdfAnalysis?.isReligiousContent || oldQ.isSensitiveReligious),
       totalPages: deck.pdfAnalysis?.totalPages || 20,
       includeBackup: false,
-      avoidPrompts: deck.questions.map((q) => q.prompt),
+      avoidPrompts: [...deck.questions, ...(deck.rejectedLog ?? [])].map(q => q.prompt),
       extraInstruction,
     });
 
@@ -785,6 +823,7 @@ export async function runDeckRegenerationAction(params: {
       const val = validateQuizQuestion(
         {
           ...item,
+          status: 'needs_review',
           categoryId: oldQ.categoryId,
           categoryName: oldQ.categoryName,
           difficulty: oldQ.difficulty,
@@ -827,9 +866,11 @@ export async function runDeckRegenerationAction(params: {
               ),
           );
         })
-      : deck.categories.slice(0, 3);
+      : params.action === 'regenerate_rejected'
+        ? deck.categories.filter(cat => deck.questions.some(q => q.categoryId === cat.id && q.status === 'rejected'))
+        : deck.categories;
 
-  for (const cat of targetCats.length > 0 ? targetCats : deck.categories.slice(0, 2)) {
+  for (const cat of targetCats) {
     try {
       const batch = await generateCategoryQuestionsBatch({
         sourceText: sourceContext,
@@ -838,7 +879,7 @@ export async function runDeckRegenerationAction(params: {
         isReligiousDoc: Boolean(deck.pdfAnalysis?.isReligiousContent),
         totalPages: deck.pdfAnalysis?.totalPages || 20,
         includeBackup: true,
-        avoidPrompts: deck.questions.map((q) => q.prompt),
+        avoidPrompts: [...deck.questions, ...(deck.rejectedLog ?? [])].map(q => q.prompt),
         extraInstruction:
           params.action === 'generate_backups'
             ? 'ركّز على إنتاج سؤال احتياطي جديد ومميز لهذه الفئة.'
@@ -850,25 +891,31 @@ export async function runDeckRegenerationAction(params: {
           item.difficulty === 'easy' || item.difficulty === 'medium' || item.difficulty === 'hard'
             ? item.difficulty
             : 'medium';
+        const rejected = deck.questions.find(q => q.status === 'rejected' && q.categoryId === cat.id && q.difficulty === diff);
+        if (params.action === 'regenerate_rejected' && !rejected) continue;
+        if (params.action === 'complete_missing' && deck.questions.some(q => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && q.status !== 'rejected')) continue;
         const val = validateQuizQuestion(
           {
             ...item,
+            status: 'needs_review',
             categoryId: cat.id,
             categoryName: cat.name,
             difficulty: diff,
             points: pointsForDifficulty(diff),
-            isBackup: params.action === 'generate_backups' ? true : Boolean(item.isBackup),
+            isBackup: params.action === 'generate_backups' || (params.action === 'regenerate_rejected' && Boolean(rejected?.isBackup)),
+            isSensitiveReligious: Boolean(deck.pdfAnalysis?.isReligiousContent || item.isSensitiveReligious),
           },
           { existingPromptsNorm: seen },
         );
         if (val.valid && val.normalized) {
           seen.add(normalizeArabicText(val.normalized.prompt));
+          if (params.action === 'regenerate_rejected' && rejected) {
+            deck.rejectedLog = [...(deck.rejectedLog ?? []), {id: rejected.id, prompt: rejected.prompt, categoryName: cat.name, reason: 'رفض المشرف'}];
+            deck.questions = deck.questions.filter(q => q.id !== rejected.id);
+          }
           deck.questions.push(val.normalized);
           added += 1;
         }
-      }
-      if (params.action === 'regenerate_rejected' && added > 0) {
-        deck.questions = deck.questions.filter((q) => q.status !== 'rejected');
       }
       deck.updatedAt = new Date().toISOString();
       saveDeck(deck);
