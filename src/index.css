@@ -213,3 +213,7 @@
 }
 .audience-audio {background:#fff7dc;border-radius:50%;padding:6px;color:#392044;}
 @media (prefers-reduced-motion: reduce){.award-flash {animation:none;}}
+.lesson-illustration {display:grid;place-items:center;overflow:hidden;border-bottom:3px solid #291b40;background-image:radial-gradient(#fff5 1px,transparent 2px);background-size:10px 10px;}
+.lesson-illustration svg {height:100%;width:100%;}
+.lesson-concepts {position:absolute;inset:auto 8px 6px;display:flex;justify-content:space-between;gap:6px;z-index:2;pointer-events:none;}
+.lesson-concepts span {background:#fffbefef;color:#352744;border:1px solid #352744;border-radius:20px;padding:1px 6px;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:.72rem;}

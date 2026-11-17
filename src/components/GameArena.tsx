@@ -346,7 +346,7 @@ export function GameArena({
                       stagePulse ? 'ring-8 ring-[#00B978]' : ''
                     }`}
                   >
-                    <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} />
+                    <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
 
                     <div className="category-caption">
                       <div className="text-center">
@@ -979,7 +979,7 @@ export function GameArena({
                   className="game-btn-3d bg-[#FFD95A] text-[#291B40] py-2 px-2.5 rounded-xl font-black text-xs flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <QrCode className="w-3.5 h-3.5" />
-                  <span>بروجكتر / جرس</span>
+                  <span>ربط الأجهزة</span>
                 </button>
               </div>
 

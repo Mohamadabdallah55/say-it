@@ -563,6 +563,7 @@ export async function generateBoardFromPlan(params: {
     description: c.description,
     iconKey: c.iconKey,
     accentColor: c.accentColor,
+    topicCoverage: c.topicCoverage,
   }));
 
   let deck: QuizDeck = existingDeck ?? {

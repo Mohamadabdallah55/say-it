@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import http from 'node:http';
 import path from 'node:path';
+import { networkInterfaces } from 'node:os';
 import express from 'express';
 import multer from 'multer';
 import { createServer as createViteServer } from 'vite';
@@ -419,7 +420,13 @@ async function startServer() {
       process.env.APP_URL && process.env.APP_URL !== 'MY_APP_URL'
         ? process.env.APP_URL
         : `${req.protocol}://${req.get('host')}`;
-    const bundle = await roomManager.getShareBundle(req.params.code, origin);
+    const linkOrigin = new URL(origin);
+    if (['localhost','127.0.0.1','[::1]'].includes(linkOrigin.hostname)) {
+      const lan = Object.values(networkInterfaces()).flat().find(address =>
+        address?.family === 'IPv4' && !address.internal && /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(address.address));
+      if (lan) linkOrigin.hostname = lan.address;
+    }
+    const bundle = await roomManager.getShareBundle(req.params.code, linkOrigin.origin);
     res.json({ share: bundle });
   });
 

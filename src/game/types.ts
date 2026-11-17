@@ -52,6 +52,7 @@ export type CategoryIconKey =
   | 'tech';
 
 export interface DeckCategory {
+  topicCoverage?: string[];
   id: string;
   name: string;
   description?: string;
