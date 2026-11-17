@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   applyLifeline,
+  skipLifelinePick,
+  submitOrder,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
   createRoomState,
@@ -44,7 +46,9 @@ test('Full Quiz round: select tile -> start timer -> reveal answer -> award team
   let res = selectBoardTile(state, firstTile.questionId, 'act_1', 2000);
   assert.equal(res.ok, true);
   state = res.state;
-  assert.equal(state.phase, 'QUESTION_READY');
+  assert.equal(state.phase, 'LIFELINE_PICK');
+  state = skipLifelinePick(state,'pass').state;
+  assert.equal(state.phase,'QUESTION_READY');
 
   res = startChallengeTimer(state, 'act_2', 3000);
   assert.equal(res.ok, true);
@@ -79,6 +83,7 @@ test('Correction mode reverts previous award and applies corrected team without 
 
   const tile = state.boardTiles.find((t) => t.points === 400)!;
   state = selectBoardTile(state, tile.questionId, 's1', 2000).state;
+  state = skipLifelinePick(state, 'pass').state;
   state = revealAnswer(state, 'r1', 3000).state;
   state = awardRoundAndReturnToBoard(state, ['team_1'], 'a1', 4000).state;
   assert.equal(state.teams[0].score, 400);
@@ -111,6 +116,7 @@ test('Timer pause, resume, expiration, and non-negative clamp', () => {
   });
 
   state = selectBoardTile(state, state.boardTiles[0].questionId, 't1', 2000).state;
+  state = skipLifelinePick(state,'pass').state;
   state = startChallengeTimer(state, 't2', 3000).state;
   assert.equal(computeRemainingMs(state.timer, 8000), 15000);
 
@@ -177,6 +183,7 @@ test('Buzzer captures fastest team first and ignores duplicate press from same t
   });
 
   state = selectBoardTile(state, state.boardTiles[0].questionId, 'b1', 2000).state;
+  state = skipLifelinePick(state,'pass').state;
   state = startChallengeTimer(state, 'b2', 3000).state;
 
   let buzzRes = recordBuzzerPress(state, 'team_2', 3200);
@@ -206,6 +213,7 @@ test('Projector & Buzzer security boundary: zero answers leaked before REVEAL', 
   });
 
   state = selectBoardTile(state, state.boardTiles[0].questionId, 'sec1', 2000).state;
+  state = skipLifelinePick(state,'pass').state;
   const projDuringPlay = sanitizeStateForRole(state, 'projector', 2500);
   assert.equal(projDuringPlay.activeRound?.answer, undefined);
   assert.equal(projDuringPlay.activeRound?.explanation, undefined);
@@ -272,4 +280,68 @@ test('USB JSON export & import roundtrip preserves Quiz Show v2 schema and rejec
   };
   const rejectedLegacy = validateAndImportDeckJson(legacyV1, []);
   assert.equal(rejectedLegacy.valid, false);
+});
+
+test('400 point card selection survives a reload and applies exactly once', () => {
+  const board = createRoomState({ roomCode: 'CARDS', hostToken: 'h', buzzerToken: 'b',
+    deck: STARTER_DEMO_DECK, teams: TEAMS, nowMs: 1000 });
+  const tile = board.boardTiles.find(t => t.points === 400)!;
+  const selected = selectBoardTile(board, tile.questionId, 'choose', 2000).state;
+  assert.equal(selected.phase, 'LIFELINE_PICK');
+  assert.equal(sanitizeStateForRole(selected, 'projector').activeRound, null);
+  assert.equal(sanitizeStateForRole(selected, 'buzzer').activeRound, null);
+  assert.equal(startChallengeTimer(selected, 'early').ok, false);
+  for (const card of ['double_points', 'second_chance', 'swap_question'] as const) {
+    const result = applyLifeline(selected, card, 'pick', 3000);
+    assert.equal(result.ok, true);
+    const resumed = JSON.parse(JSON.stringify(result.state)) as typeof board;
+    assert.equal(resumed.phase, 'QUESTION_READY');
+    assert.equal(resumed.teams[0].lifelinesRemaining, selected.teams[0].lifelinesRemaining - 1);
+    assert.deepEqual(applyLifeline(resumed, card, 'pick', 4000).state, resumed);
+    if (card === 'double_points') assert.equal(resumed.activeRound?.effectivePoints, 800);
+    if (card === 'second_chance') assert.equal(resumed.timer.remainingMs, selected.timer.remainingMs + 15000);
+    if (card === 'swap_question') {
+      assert.notEqual(resumed.activeRound?.question.id, tile.questionId);
+      assert.equal(resumed.activeRound?.question.categoryId, tile.categoryId);
+    }
+  }
+  assert.deepEqual(skipLifelinePick(selected, 'skip').state.teams, selected.teams);
+});
+
+test('Owner doubles, opponents take face value, pit and correction restore all team balances', () => {
+  let board=createRoomState({roomCode:'PIT',hostToken:'h',buzzerToken:'b',deck:STARTER_DEMO_DECK,teams:TEAMS});
+  const q=board.boardTiles[0].questionId;
+  const selected=selectBoardTile(board,q,'select').state;
+  for (const card of ['double_points','pit'] as const) {
+    const revealed=revealAnswer(applyLifeline(selected,card,'card').state,'reveal').state;
+    const won=awardRoundAndReturnToBoard(revealed,['team_1'],'award').state;
+    assert.deepEqual(won.teams.map(t=>t.score),card==='pit'?[200,-200,-200]:[400,0,0]);
+    const corrected=reopenQuestionForCorrection(won,q,'correct').state;
+    board=awardRoundAndReturnToBoard(corrected,['team_2'],'replace').state;
+    assert.deepEqual(board.teams.map(t=>t.score),[0,200,0]);
+    assert.deepEqual(undoLastScoreAction(board,'undo').state.teams.map(t=>t.score),[0,0,0]);
+  }
+});
+
+test('Ordering passes to the next team, rejects repeated guesses and grades the correct permutation', () => {
+  const board=createRoomState({roomCode:'ORDER',hostToken:'h',buzzerToken:'b',deck:STARTER_DEMO_DECK,teams:TEAMS});
+  const q=board.questionPool.find(q=>q.questionType==='order_steps')!;
+  let round=skipLifelinePick(selectBoardTile(board,q.id,'select').state,'skip').state;
+  round=submitOrder(round,[0,1,2,3],'first').state;
+  assert.equal(round.activeRound?.orderPlay?.teamId,'team_2');
+  assert.equal(submitOrder(round,[0,1,2,3],'again').ok,false);
+  round=submitOrder(round,[1,3,2,0],'steal').state;
+  assert.equal(round.phase,'REVEAL');
+  assert.equal(awardRoundAndReturnToBoard(round,['team_1'],'wrong').ok,false);
+  assert.equal(awardRoundAndReturnToBoard(round,['team_2'],'correct').state.teams[1].score,600);
+});
+
+test('A rich bank gives teams distinct questions for the same point tile', () => {
+  const first=STARTER_DEMO_DECK.questions.find(q=>!q.isBackup)!;
+  const deck={...STARTER_DEMO_DECK,questions:[...STARTER_DEMO_DECK.questions,...[2,3].map(i=>({...first,id:first.id+i,prompt:'سؤال مستقل '+i}))]};
+  const board=createRoomState({roomCode:'RICH',hostToken:'h',buzzerToken:'b',deck,teams:TEAMS});
+  const owned=board.boardTiles.filter(t=>t.ownerTeamId);
+  assert.equal(owned.length,3);
+  assert.equal(selectBoardTile(board,owned[1].questionId,'wrongteam').ok,false);
+  assert.equal(selectBoardTile(board,owned[0].questionId,'own').ok,true);
 });

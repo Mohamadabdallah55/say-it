@@ -1,3 +1,4 @@
+import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import {
@@ -34,6 +35,8 @@ import type {
   SanitizedActiveRound,
 } from '../game/types';
 import { soundFX } from '../utils/sound';
+import { OrderAttempt } from './OrderAttempt';
+import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { GameLogo } from './GameLogo';
 
@@ -72,9 +75,11 @@ export function GameArena({
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const [stagePulse, setStagePulse] = useState(false);
+  const lastSceneRef = useRef<string | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
   const lastCommentaryIdRef = useRef<string | null>(null);
 
+  const [localAudio, setLocalAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
   const isHost = role === 'host';
 
   useEffect(() => {
@@ -86,7 +91,7 @@ export function GameArena({
         const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
-        if (mounted) setState(data.state);
+        if (mounted) setState(current => current ?? data.state);
       } catch (err) {
         if (mounted) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
       }
@@ -96,12 +101,11 @@ export function GameArena({
     const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const wsQs = new URLSearchParams({ room: roomCode, role });
     if (token) wsQs.set('token', token);
-    const ws = new WebSocket(`${proto}//${window.location.host}/ws?${wsQs.toString()}`);
-
-    ws.onmessage = (ev) => {
+    const disconnect = subscribeRoom(`${proto}//${window.location.host}/ws?${wsQs.toString()}`, (ev) => {
       try {
         const msg = JSON.parse(ev.data);
         if (msg.type === 'STATE_SYNC') {
+          setError(null);
           setState(msg.payload);
         } else if (msg.type === 'COMMAND_ERROR' || msg.type === 'ERROR') {
           setCommandError(msg.error);
@@ -109,13 +113,13 @@ export function GameArena({
       } catch {
         // ignore
       }
-    };
+    });
 
     const tick = setInterval(() => setNowMs(Date.now()), 250);
     return () => {
       mounted = false;
       clearInterval(tick);
-      ws.close();
+      disconnect();
     };
   }, [roomCode, role, token]);
 
@@ -128,13 +132,21 @@ export function GameArena({
   // Sound sync for commentary & last 5 seconds
   useEffect(() => {
     if (!state) return;
-    soundFX.enabled = state.settings.soundEnabled;
+    soundFX.enabled = state.settings.soundEnabled && (isHost || localAudio);
 
+    const scene = [state.phase,state.activeRound?.roundId,state.lastAward?.at].join('-');
+    if (lastSceneRef.current && lastSceneRef.current !== scene) {
+      if (state.phase === 'LIFELINE_PICK') soundFX.playSurprise();
+      if (state.phase === 'REVEAL') soundFX.playReveal();
+      if (state.phase === 'BOARD' && state.lastAward && Date.now()-state.lastAward.at < 1600)
+        Object.values(state.lastAward.changes).some(v=>v>0) ? soundFX.playCorrect() : soundFX.playFoul();
+    }
+    lastSceneRef.current = scene;
     if (state.commentary && state.commentary.id !== lastCommentaryIdRef.current) {
       lastCommentaryIdRef.current = state.commentary.id;
       if (state.commentary.eventType === 'victory') soundFX.playVictory();
     }
-  }, [state]);
+  }, [state, isHost, localAudio]);
 
   const remainingMs = useMemo(() => {
     if (!state) return 0;
@@ -175,6 +187,7 @@ export function GameArena({
         options: ar.question.options,
         correctOptionIndex: ar.question.correctOptionIndex,
         orderItems: ar.question.orderItems,
+        orderPlay: ar.orderPlay,
         hint: ar.question.hint,
         answer: ar.question.answer,
         acceptableAnswers: ar.question.acceptableAnswers,
@@ -232,11 +245,6 @@ export function GameArena({
   };
 
   const handleAwardTeams = async (teamIds: string[]) => {
-    if (teamIds.length > 0) {
-      soundFX.playCorrect();
-    } else {
-      soundFX.playClick();
-    }
     setStagePulse(true);
     setTimeout(() => setStagePulse(false), 340);
     await sendCommand('AWARD_ROUND', { winningTeamIds: teamIds });
@@ -264,25 +272,34 @@ export function GameArena({
     return (
       <div className="min-h-screen game-pattern-bg flex items-center justify-center p-4">
         <div className="game-card-frame rounded-3xl p-8 font-display font-black text-xl">
-          جارٍ تحميل مسابقة سؤال النخبة...
+          جارٍ تحميل مسابقة يمكن هاي...
         </div>
       </div>
     );
   }
 
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
+  const matchSeconds = Math.max(0, Math.ceil(((state.matchEndsAt ?? Date.parse(state.createdAt) + 20 * 60000) - nowMs) / 1000));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
   return (
     <div
-      className={`min-h-screen w-full game-pattern-bg p-3 md:p-5 ${
+      data-role={role} data-phase={state.phase}
+      className={`arena-stage min-h-screen w-full game-pattern-bg p-3 md:p-5 ${
         state.settings.reducedMotion ? 'reduced-motion' : ''
       }`}
     >
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      <div className="arena-layout">
         {/* MAIN STAGE (8 columns on desktop) */}
-        <div className="lg:col-span-8 xl:col-span-9 space-y-4">
-          {/* Commentary Banner */}
+        <div className="arena-main space-y-4">
+          <header className="stage-header">
+            <GameLogo size="sm" dark />
+            {!isHost && <button type="button" className="audience-audio" aria-pressed={localAudio} aria-label="صوت شاشة الجمهور"
+              onClick={()=>{const on=!localAudio; setLocalAudio(on); sessionStorage.setItem('yemken-projector-audio',on?'on':'off');
+                soundFX.enabled=on && state.settings.soundEnabled; if (on) soundFX.playClick();}}>
+              {localAudio ? <Volume2 size={20}/> : <VolumeX size={20}/>}</button>}
+            {state.phase !== 'FINAL' && <span>وقت المباراة <b dir="ltr">{Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}</b></span>}
+          </header>
           {state.commentary && (
             <motion.div
               key={state.commentary.id}
@@ -302,6 +319,9 @@ export function GameArena({
             </motion.div>
           )}
 
+          {state.lastAward && nowMs-state.lastAward.at < 1700 && state.phase==='BOARD' &&
+            <div className="award-flash" role="status" key={state.lastAward.at}>{state.teams.filter(t=>state.lastAward?.changes[t.id]).map(t=>
+              <strong key={t.id}>{t.name} <b dir="ltr">{state.lastAward!.changes[t.id]>0?'+':''}{state.lastAward!.changes[t.id]}</b></strong>)}</div>}
           {commandError && (
             <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-xl px-4 py-2 font-bold text-sm flex items-center justify-between">
               <span>{commandError}</span>
@@ -313,27 +333,22 @@ export function GameArena({
 
           {/* PHASE: BOARD */}
           {state.phase === 'BOARD' && (
-            <div
-              className={`grid gap-4 ${
-                state.categories.length <= 3
-                  ? 'grid-cols-1 md:grid-cols-3'
-                  : state.categories.length === 4
-                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
-                    : 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'
-              }`}
-            >
+            <section className="board-stage" aria-labelledby="board-title">
+              <div className="board-heading"><div><span>{state.deckTitle}</span><h1 id="board-title">لوحة الفئات</h1></div>
+                <div className="turn-ticket"><Flag size={20} /> دور {currentTeam?.name}</div></div>
+              <div className="category-grid" data-count={state.categories.length}>
               {state.categories.map((cat) => {
-                const catTiles = state.boardTiles.filter((t) => t.categoryId === cat.id);
+                const catTiles = state.boardTiles.filter(t => t.categoryId === cat.id && (!t.ownerTeamId || t.ownerTeamId === currentTeam.id));
                 return (
                   <div
                     key={cat.id}
-                    className={`game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
+                    className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
                       stagePulse ? 'ring-8 ring-[#00B978]' : ''
                     }`}
                   >
                     <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} />
 
-                    <div className="p-4 flex-1 flex flex-col justify-between gap-3">
+                    <div className="category-caption">
                       <div className="text-center">
                         <h2 className="font-display font-black text-xl text-[#291B40]">{cat.name}</h2>
                         {cat.description && (
@@ -343,7 +358,7 @@ export function GameArena({
                         )}
                       </div>
 
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="point-strip">
                         {catTiles.map((tile) => {
                           const winnerTeam = tile.wonByTeamId
                             ? state.teams.find((t) => t.id === tile.wonByTeamId)
@@ -355,6 +370,8 @@ export function GameArena({
                               <button
                                 type="button"
                                 disabled={!isHost || tile.used}
+                                data-used={tile.used}
+                                aria-label={cat.name + ' · ' + tile.points + ' نقطة' + (tile.used ? ' · مستهلك' : '')}
                                 onClick={() => {
                                   soundFX.playClick();
                                   sendCommand('SELECT_TILE', { questionId: tile.questionId });
@@ -370,7 +387,7 @@ export function GameArena({
                                 }`}
                               >
                                 <span className="text-lg md:text-xl tabular-nums leading-none">
-                                  {tile.used ? '✓' : tile.points}
+                                  {tile.used ? '✓ ' : ''}{tile.points}
                                 </span>
                                 <span className="text-[11px] font-bold opacity-90 mt-0.5">
                                   {winnerTeam ? winnerTeam.name : tile.skipped ? 'مُتخطّى' : tierLabel}
@@ -396,7 +413,15 @@ export function GameArena({
                   </div>
                 );
               })}
-            </div>
+              </div>
+            </section>
+          )}
+
+          {state.phase === 'LIFELINE_PICK' && (
+            <SpecialCards team={currentTeam.name} host={isHost} used={currentTeam.usedLifelines} allowed={state.settings.cards}
+              canSwap={'hasBackupQuestionsForActiveCategory' in state && state.hasBackupQuestionsForActiveCategory}
+              choose={lifeline => sendCommand('APPLY_LIFELINE', { lifeline })}
+              skip={() => sendCommand('SKIP_CARD_PICK')} />
           )}
 
           {/* PHASE: QUESTION_READY | PLAYING | TIME_UP | REVEAL */}
@@ -405,9 +430,9 @@ export function GameArena({
               state.phase === 'PLAYING' ||
               state.phase === 'TIME_UP' ||
               state.phase === 'REVEAL') && (
-              <div className="space-y-4">
+              <div className="round-scene space-y-4" key={roundMeta.roundId} data-revealed={state.phase === 'REVEAL'}>
                 <div
-                  className={`game-card-frame rounded-3xl p-5 md:p-8 space-y-5 transition ${
+                  className={`question-frame game-card-frame rounded-3xl p-5 md:p-8 space-y-5 transition ${
                     stagePulse ? 'ring-8 ring-[#00B978]' : ''
                   }`}
                 >
@@ -447,7 +472,7 @@ export function GameArena({
                   </div>
 
                   {/* Question Prompt Centerpiece */}
-                  <div className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-5 md:p-7 text-center shadow-[0_4px_0_rgba(41,27,64,0.12)]">
+                  <div className="question-face">
                     <p className="font-display font-black text-2xl md:text-3xl lg:text-4xl leading-relaxed text-[#291B40]">
                       {roundMeta.prompt}
                     </p>
@@ -481,7 +506,7 @@ export function GameArena({
                     )}
 
                     {/* Order Steps Items */}
-                    {roundMeta.questionType === 'order_steps' && roundMeta.orderItems && (
+                    {roundMeta.questionType === 'order_steps' && !roundMeta.orderPlay && roundMeta.orderItems && (
                       <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
                         {roundMeta.orderItems.map((stepText, idx) => (
                           <span
@@ -502,6 +527,12 @@ export function GameArena({
                     )}
                   </div>
 
+                  {roundMeta.orderPlay && state.phase !== 'REVEAL' && roundMeta.orderItems &&
+                    <OrderAttempt key={roundMeta.roundId + '-' + roundMeta.orderPlay.turns} host={isHost} items={roundMeta.orderItems}
+                      play={roundMeta.orderPlay} name={state.teams.find(t=>t.id===roundMeta.orderPlay?.teamId)?.name ?? ''}
+                      submit={indices=>sendCommand('SUBMIT_ORDER',{indices})}/>}
+                  {state.phase !== 'REVEAL' && !roundMeta.orderPlay && <div className="answer-order"><span>ترتيب الإجابة</span>
+                    {state.teams.map((_,i)=>{const team=state.teams[(i+state.currentTurnTeamIndex)%state.teams.length];return <b key={team.id} style={{borderColor:team.color}}>{i+1} · {team.name}</b>})}</div>}
                   {/* Revealed Hint */}
                   {roundMeta.hintRevealed && roundMeta.hint && (
                     <div className="bg-[#FFF2CD] border-2 border-[#E59A00] rounded-2xl px-4 py-3 flex items-center gap-2.5 font-bold text-sm">
@@ -542,7 +573,7 @@ export function GameArena({
                     <motion.div
                       initial={{ scale: 0.96, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      className="bg-[#00B978] text-white border-[3px] border-[#291B40] rounded-2xl p-5 text-center shadow-[0_5px_0_#291B40] space-y-2"
+                      className="answer-face"
                     >
                       <span className="text-xs font-bold opacity-90 block">الإجابة الصحيحة</span>
                       <p className="font-display font-black text-2xl md:text-3xl">{roundMeta.answer}</p>
@@ -554,6 +585,7 @@ export function GameArena({
                     </motion.div>
                   )}
 
+                  {isHost && state.phase !== 'REVEAL' && !roundMeta.isCorrectionMode && <button className="game-btn-3d bg-white rounded-xl px-3 py-2" onClick={() => sendCommand('PARK_QUESTION')}>احفظ الجولة وارجع للوحة</button>}
                   {/* HOST CONTROLS: Timer + Lifelines + Reveal */}
                   {isHost && state.phase !== 'REVEAL' && (
                     <div className="space-y-3 pt-2 border-t-2 border-[#291B40]/10">
@@ -611,7 +643,7 @@ export function GameArena({
                           </button>
                         </div>
 
-                        <button
+                        {!roundMeta.orderPlay && <button
                           type="button"
                           onClick={() => {
                             soundFX.playClick();
@@ -621,25 +653,26 @@ export function GameArena({
                         >
                           <Eye className="w-5 h-5" />
                           <span>كشف الإجابة</span>
-                        </button>
+                        </button>}
                       </div>
 
                       {/* Lifelines Drawer */}
                       {state.settings.lifelinesEnabled && currentTeam && (
-                        <div className="bg-[#FFF2CD]/70 border-2 border-[#291B40]/20 rounded-2xl p-3">
-                          <div className="flex items-center justify-between text-xs font-bold mb-2">
+                        <details className="bg-[#FFF2CD]/70 border-2 border-[#291B40]/20 rounded-2xl p-3">
+                          <summary className="text-sm font-bold mb-2 cursor-pointer">
                             <span>
                               وسائل مساعدة ({currentTeam.name} — متبقي {currentTeam.lifelinesRemaining})
                             </span>
-                          </div>
+                          </summary>
                           <div className="flex flex-wrap gap-2">
-                            {(Object.keys(LIFELINE_META) as LifelineType[]).map((lifeKey) => {
+                            {(state.settings.cards ?? Object.keys(LIFELINE_META) as LifelineType[]).map((lifeKey) => {
                               const meta = LIFELINE_META[lifeKey];
                               const disabled =
-                                currentTeam.lifelinesRemaining <= 0 ||
+                                currentTeam.lifelinesRemaining <= 0 || currentTeam.usedLifelines.includes(lifeKey) ||
                                 (meta.mcqOnly && roundMeta.questionType !== 'multiple_choice') ||
                                 (lifeKey === 'hint' && !roundMeta.hint) ||
-                                (Boolean(roundMeta.activeLifeline) && lifeKey !== 'second_chance');
+                                Boolean(roundMeta.activeLifeline) ||
+                                (lifeKey === 'swap_question' && !('hasBackupQuestionsForActiveCategory' in state && state.hasBackupQuestionsForActiveCategory));
 
                               return (
                                 <button
@@ -658,7 +691,7 @@ export function GameArena({
                               );
                             })}
                           </div>
-                        </div>
+                        </details>
                       )}
                     </div>
                   )}
@@ -666,15 +699,18 @@ export function GameArena({
 
                 {/* HOST AWARD PANEL: "مين جابها صح يا نشامى؟" */}
                 {isHost && state.phase === 'REVEAL' && (
-                  <div className="game-card-frame rounded-3xl p-5 md:p-6 space-y-3">
+                  <div className="award-panel game-card-frame rounded-3xl p-5 md:p-6 space-y-3">
                     <h3 className="font-display font-black text-xl text-center text-[#291B40]">
                       {roundMeta.isCorrectionMode
                         ? 'وضع التصحيح — اختر الفريق المستحق للنقاط:'
-                        : 'مين جابها صح يا نشامى؟'}
+                        : 'مين جاوب صح؟'}
                     </h3>
 
-                    {state.settings.allowMultiTeamAward ? (
-                      <div className="space-y-2.5">
+                    {roundMeta.orderPlay && !roundMeta.isCorrectionMode ? (
+                      <button className="game-btn-3d bg-[#7042A1] text-white p-3 rounded-xl" onClick={()=>handleAwardTeams(roundMeta.orderPlay?.winner ? [roundMeta.orderPlay.winner] : [])}>
+                        اعتماد النتيجة · {state.teams.find(t=>t.id===roundMeta.orderPlay?.winner)?.name ?? 'لا أحد'}</button>
+                    ) : state.settings.allowMultiTeamAward ? (
+                      <div className="award-teams">
                         {state.teams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           const checked = multiSelectedTeams.includes(team.id);
@@ -726,7 +762,7 @@ export function GameArena({
                         </div>
                       </div>
                     ) : (
-                      <div className="space-y-2.5">
+                      <div className="award-teams">
                         {state.teams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           return (
@@ -769,28 +805,28 @@ export function GameArena({
 
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
-            <div className="game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <Trophy className="w-16 h-16 text-[#FFD95A] drop-shadow-[0_4px_0_#291B40] mx-auto" />
+            <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
+              <GameLogo size="md" /><Trophy className="w-16 h-16 text-[#FFD95A] drop-shadow-[0_4px_0_#291B40] mx-auto" />
               <div>
                 <h2 className="font-display font-black text-3xl md:text-4xl text-[#291B40]">
-                  نتائج مسابقة سؤال النخبة!
+                  نتائج مسابقة يمكن هاي!
                 </h2>
                 {sortedStandings[0] && (
                   <p className="font-display font-black text-xl text-[#00B978] mt-2">
-                    المركز الأول: «{sortedStandings[0].name}» برصيد {sortedStandings[0].score} نقطة
+                    المركز الأول: «{sortedStandings.filter(t => t.score === sortedStandings[0].score).map(t => t.name).join(' و ')}» برصيد {sortedStandings[0].score} نقطة
                   </p>
                 )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {sortedStandings.map((t, idx) => (
+                {sortedStandings.map((t) => (
                   <div
                     key={t.id}
                     className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 space-y-1 shadow-[0_4px_0_#291B40]"
                   >
                     <div className="flex items-center justify-center gap-1.5 text-xs font-black text-[#7042A1]">
                       <Award className="w-4 h-4" />
-                      <span>المركز #{idx + 1}</span>
+                      <span>المركز #{sortedStandings.findIndex(team => team.score === t.score) + 1}</span>
                     </div>
                     <p className="font-display font-black text-xl" style={{ color: t.color }}>
                       {t.name}
@@ -803,12 +839,7 @@ export function GameArena({
                 ))}
               </div>
 
-              <div className="bg-[#FFF9E9] border-2 border-[#291B40]/20 rounded-2xl p-4 text-xs font-bold text-[#291B40]/80">
-                ملاحظة تربوية: تهدف هذه المسابقة إلى تثبيت الفهم والمراجعة الجماعية بعد الدرس في أجواء
-                تنافسية مشجعة للجميع.
-              </div>
-
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              {isHost && <div className="flex flex-wrap items-center justify-center gap-3">
                 <button
                   type="button"
                   onClick={onNewGame}
@@ -825,13 +856,14 @@ export function GameArena({
                   <Home className="w-5 h-5" />
                   <span>الرئيسية</span>
                 </button>
-              </div>
+              </div>}
             </div>
           )}
         </div>
 
         {/* SIDEBAR SCOREBOARD (4 columns on desktop) */}
-        <aside className="lg:col-span-4 xl:col-span-3 game-card-frame rounded-3xl p-4 md:p-5 space-y-4">
+        <aside className="score-rail game-card-frame rounded-3xl p-4 md:p-5 space-y-4">
+          <h2><Trophy size={23} /> سباق النقاط</h2>
           {/* Timer & Question Counter Pill */}
           <div className="flex items-center justify-between gap-2">
             <div className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-1.5 flex items-center gap-1.5 font-display font-black text-base tabular-nums">
@@ -848,7 +880,7 @@ export function GameArena({
           </div>
 
           {/* Teams List */}
-          <div className="space-y-3">
+          <div className="score-teams space-y-3">
             {state.teams.map((team, idx) => {
               const isTurn = idx === state.currentTurnTeamIndex && state.phase !== 'FINAL';
               return (
@@ -897,9 +929,7 @@ export function GameArena({
                       <span className="w-8" />
                     )}
 
-                    <span className="font-display font-black text-3xl tabular-nums text-[#291B40]">
-                      {team.score}
-                    </span>
+                    <motion.strong key={team.score} initial={{ scale: 0.88 }} animate={{ scale: 1 }} className="score-number" aria-live="polite">{team.score}</motion.strong>
 
                     {isHost ? (
                       <button
@@ -990,7 +1020,7 @@ export function GameArena({
           )}
 
           {!isHost && (
-            <div className="text-center text-xs font-bold text-[#291B40]/65 pt-2 border-t border-[#291B40]/15">
+            <div className="audience-room text-center text-xs font-bold text-[#291B40]/65 pt-2 border-t border-[#291B40]/15">
               شاشة عرض البروجكتر • الغرفة {state.roomCode}
             </div>
           )}
@@ -1015,7 +1045,12 @@ export function GameArena({
             {!shareBundle ? (
               <p className="text-center font-bold py-6">جارٍ توليد رموز QR...</p>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4 text-center space-y-2">
+                  <h4 className="font-display font-black text-base">جوال المشرف · رابط خاص</h4>
+                  <img src={shareBundle.hostQr} alt="رمز ربط جوال المشرف" className="mx-auto w-36 h-36"/>
+                  <input aria-label="رابط المشرف الخاص" readOnly value={shareBundle.hostUrl} dir="ltr" className="w-full text-[11px]"/>
+                </div>
                 <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4 text-center space-y-2">
                   <h4 className="font-display font-black text-base text-[#7042A1]">
                     شاشة البروجكتر (بدون إجابات)

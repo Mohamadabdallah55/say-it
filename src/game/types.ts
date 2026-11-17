@@ -32,6 +32,7 @@ export type QuestionType =
 export type LifelineType =
   | 'hint'
   | 'double_points'
+  | 'pit'
   | 'second_chance'
   | 'two_answers'
   | 'swap_question'
@@ -71,6 +72,7 @@ export interface QuizQuestion {
   options?: string[];
   correctOptionIndex?: number;
   orderItems?: string[];
+  correctOrder?: string[];
   hint?: string;
   explanation?: string;
   timeLimitSeconds?: number;
@@ -167,6 +169,10 @@ export interface TeamState {
 }
 
 export interface ScoreHistoryEntry {
+  ownerTeamId?: string;
+  lifeline?: LifelineType | null;
+  scoreChanges?: Record<string, number>;
+  questionId?: string;
   id: string;
   actionId: string;
   roundId?: string;
@@ -179,6 +185,7 @@ export interface ScoreHistoryEntry {
 }
 
 export interface MatchSettings {
+  cards?: LifelineType[];
   categoryCount: number;
   timerSeconds: number;
   lifelinesEnabled: boolean;
@@ -191,6 +198,7 @@ export interface MatchSettings {
 }
 
 export interface BoardTileState {
+  ownerTeamId?: string;
   questionId: string;
   categoryId: string;
   difficulty: Difficulty;
@@ -216,7 +224,16 @@ export interface BuzzerPress {
   pressedAtMs: number;
 }
 
+export interface OrderPlay {
+  teamId: string;
+  attempts: number[][];
+  turns: number;
+  winner?: string | null;
+}
+
 export interface ActiveRound {
+  ownerTeamId?: string;
+  orderPlay?: OrderPlay;
   roundId: string;
   question: QuizQuestion;
   basePoints: PointValue;
@@ -256,6 +273,10 @@ export interface PreflightResult {
 }
 
 export interface RoomState {
+  libraryId?: string;
+  lastAward?: { at: number; changes: Record<string, number> };
+  matchEndsAt?: number;
+  parkedRounds?: Record<string, { round: ActiveRound; timer: TimerState; phase: GamePhase }>;
   schemaVersion: 2;
   roomCode: string;
   hostToken: string;
@@ -282,6 +303,7 @@ export interface RoomState {
 }
 
 export interface SanitizedActiveRound {
+  orderPlay?: OrderPlay;
   roundId: string;
   questionId: string;
   categoryId: string;
@@ -312,6 +334,8 @@ export interface SanitizedActiveRound {
 }
 
 export interface PublicProjectorState {
+  lastAward?: { at: number; changes: Record<string, number> };
+  matchEndsAt?: number;
   schemaVersion: 2;
   role: 'projector';
   roomCode: string;

@@ -158,7 +158,7 @@ export function SavedLibrary({
                 <div>
                   <h2 className="font-display font-black text-lg">استيراد وتصدير عبر USB (JSON)</h2>
                   <p className="text-xs font-medium text-[#291B40]/75">
-                    انقل بنوك الأسئلة بين أجهزة المدرسة بدون إنترنت بصيغة سؤال النخبة v2
+                    انقل بنوك الأسئلة بين أجهزة المدرسة بدون إنترنت بصيغة يمكن هاي v2
                   </p>
                 </div>
               </div>

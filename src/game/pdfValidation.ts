@@ -35,9 +35,10 @@ export const LIFELINE_META: Record<
     label: 'تلميح',
     description: 'يُظهر تلميحًا مساعدًا إن كان متوفرًا للسؤال.',
   },
+  pit: { label: 'الحفرة', description: 'إذا أجاب صاحب الدور، يكسب قيمة السؤال وتُخصم نفس القيمة من كل خصم.' },
   double_points: {
     label: 'نقاط مضاعفة',
-    description: 'يضاعف نقاط هذا السؤال في حال الإجابة الصحيحة.',
+    description: 'يضاعف النقاط لصاحب الدور إذا أجاب صح. يحصل الفريق الآخر على القيمة الأصلية.',
   },
   second_chance: {
     label: 'فرصة ثانية',
@@ -72,6 +73,13 @@ export function difficultyForPoints(points: number): Difficulty {
   if (points <= 200) return 'easy';
   if (points <= 400) return 'medium';
   return 'hard';
+}
+
+export function resolveOrder(q: Partial<QuizQuestion>) {
+  const items = q.orderItems ?? [];
+  const ordered = q.correctOrder ?? q.answer?.split(/\s*(?:←|→|->)\s*/) ?? [];
+  if (items.length < 3 || items.length !== ordered.length || new Set(ordered).size !== items.length) return undefined;
+  return ordered.every(item => items.includes(item)) ? ordered : undefined;
 }
 
 export function normalizeArabicText(value: string): string {
@@ -192,6 +200,10 @@ export function validateQuizQuestion(
     return { valid: false, reason: 'رقم الصفحة المرجعي خارج نطاق صفحات الملف.' };
   }
 
+  const correctOrder = question.questionType === 'order_steps' ? resolveOrder(question) : undefined;
+  if (question.questionType === 'order_steps' && question.correctOrder && !correctOrder) {
+    return {valid: false, reason: 'الترتيب الصحيح يجب أن يضم كل الخطوات مرة واحدة.'};
+  }
   const promptNorm = normalizeArabicText(prompt);
   if (options?.existingPromptsNorm?.has(promptNorm)) {
     return { valid: false, reason: 'سؤال مكرر في نفس اللوحة أو البنك.' };
@@ -217,6 +229,7 @@ export function validateQuizQuestion(
     acceptableAnswers: (question.acceptableAnswers || []).map((a) => a.trim()).filter(Boolean),
     options: question.options?.map((o) => o.trim()).filter(Boolean),
     correctOptionIndex: question.correctOptionIndex,
+    correctOrder,
     orderItems: question.orderItems?.map((o) => o.trim()).filter(Boolean),
     hint: question.hint?.trim() || undefined,
     explanation: question.explanation?.trim() || undefined,
@@ -242,13 +255,13 @@ export function selectActiveBoardForDeck(
   deck: QuizDeck,
   requestedCategoryCount = 5,
   selectedCategoryIds?: string[],
+  teamCount = 1,
 ): {
   categories: DeckCategory[];
   tiles: BoardTileState[];
   questionPool: QuizQuestion[];
 } {
-  const usablePool = deck.questions.filter((q) => q.status === 'approved');
-  const poolToUse = usablePool.length > 0 ? usablePool : deck.questions.filter((q) => q.status !== 'rejected');
+  const poolToUse = deck.questions.filter(q => q.status === 'approved');
 
   const count = Math.max(3, Math.min(6, requestedCategoryCount || deck.categories.length || 5));
   const categories = selectedCategoryIds?.length
@@ -261,28 +274,16 @@ export function selectActiveBoardForDeck(
   for (const cat of categories) {
     const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
     for (const diff of difficulties) {
-      const primary = poolToUse.find(
-        (q) =>
-          q.categoryId === cat.id &&
-          q.difficulty === diff &&
-          !q.isBackup &&
-          !usedIds.has(q.id),
-      );
-      const backupFallback =
-        primary ??
-        poolToUse.find((q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id));
-
-      if (backupFallback) {
-        usedIds.add(backupFallback.id);
-        tiles.push({
-          questionId: backupFallback.id,
-          categoryId: cat.id,
-          difficulty: diff,
-          points: pointsForDifficulty(diff),
-          used: false,
-          wonByTeamId: null,
-        });
-      }
+      const available = poolToUse.filter(q => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id));
+      const fallback = poolToUse.find(q => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id));
+      const perTeam = teamCount > 1 && available.length >= teamCount;
+      const selected = perTeam ? available.slice(0, teamCount) : available.slice(0, 1);
+      if (!selected.length && fallback) selected.push(fallback);
+      selected.forEach((question, index) => {
+        usedIds.add(question.id);
+        tiles.push({ questionId: question.id, categoryId: cat.id, difficulty: diff, points: pointsForDifficulty(diff),
+          ownerTeamId: perTeam ? 'team_' + (index + 1) : undefined, used: false, wonByTeamId: null });
+      });
     }
   }
 
@@ -302,7 +303,7 @@ export function runBoardPreflightCheck(params: {
   const { deck, selectedCategoryIds, teams, settings } = params;
   const checks: PreflightCheckItem[] = [];
 
-  const desiredCount = Math.max(3, Math.min(6, settings.categoryCount ?? 5));
+  const desiredCount = Math.max(deck.sourceType === 'pdf' ? 1 : 3, Math.min(6, settings.categoryCount ?? 5));
   const selectedCats = selectedCategoryIds?.length
     ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id))
     : deck.categories.slice(0, desiredCount);
@@ -311,7 +312,7 @@ export function runBoardPreflightCheck(params: {
   checks.push({
     id: 'category_count',
     label: 'عدد الفئات مناسب للوحة اللعب',
-    passed: selectedCats.length >= 3 && selectedCats.length <= 6 && selectedCats.length === desiredCount,
+    passed: selectedCats.length >= (deck.sourceType === 'pdf' ? 1 : 3) && selectedCats.length <= 6 && selectedCats.length === desiredCount,
     severity: 'error',
     detail:
       selectedCats.length === desiredCount
@@ -475,7 +476,7 @@ export function sanitizeDeckForExport(deck: QuizDeck): Record<string, unknown> {
   return {
     schemaVersion: 2,
     exportedAt: new Date().toISOString(),
-    app: 'elite-quiz-show',
+    app: 'yemken-hay',
     deck: {
       id: deck.id,
       title: deck.title,
@@ -519,7 +520,7 @@ export function validateAndImportDeckJson(
   if (obj.schemaVersion === 1 || (obj.deck && Array.isArray((obj.deck as Record<string, unknown>).cards))) {
     return {
       valid: false,
-      errors: ['هذا الملف يعود لإصدار قديم (لعبة الكلمات الممنوعة v1) ولا يطابق مخطط سؤال النخبة v2.'],
+      errors: ['هذا الملف يعود لإصدار قديم (لعبة الكلمات الممنوعة v1) ولا يطابق مخطط يمكن هاي v2.'],
       warnings,
       importedCount: 0,
       skippedCount: 0,
@@ -535,7 +536,7 @@ export function validateAndImportDeckJson(
   ) {
     return {
       valid: false,
-      errors: ['هيكل الملف غير مطابق لبنك سؤال النخبة (تأكد من وجود العنوان والفئات والأسئلة).'],
+      errors: ['هيكل الملف غير مطابق لبنك يمكن هاي (تأكد من وجود العنوان والفئات والأسئلة).'],
       warnings,
       importedCount: 0,
       skippedCount: 0,

@@ -1,3 +1,4 @@
+import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useState } from 'react';
 import { BellRing, CheckCircle2, Clock, Sparkles, Trophy } from 'lucide-react';
 import { QUESTION_TYPE_LABELS } from '../game/pdfValidation';
@@ -39,22 +40,19 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
     loadInitial();
 
     const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const ws = new WebSocket(
-      `${proto}//${window.location.host}/ws?room=${encodeURIComponent(roomCode)}&role=buzzer&token=${encodeURIComponent(token)}`,
-    );
-    ws.onmessage = (ev) => {
+    const disconnect = subscribeRoom(`${proto}//${window.location.host}/ws?room=${encodeURIComponent(roomCode)}&role=buzzer&token=${encodeURIComponent(token)}`, (ev) => {
       try {
         const msg = JSON.parse(ev.data);
-        if (msg.type === 'STATE_SYNC') setState(msg.payload);
+        if (msg.type === 'STATE_SYNC') { setError(null); setState(msg.payload); }
         if (msg.type === 'ERROR') setError(msg.error);
       } catch {
         // ignore
       }
-    };
+    });
 
     return () => {
       active = false;
-      ws.close();
+      disconnect();
     };
   }, [roomCode, token]);
 
@@ -251,7 +249,7 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
 
       <div className="text-center text-xs font-bold text-[#291B40]/70 py-2 flex items-center justify-center gap-1">
         <Sparkles className="w-3.5 h-3.5" />
-        <span>سؤال النخبة — جرس الفرق الاختياري</span>
+        <span>يمكن هاي — جرس الفرق الاختياري</span>
       </div>
     </div>
   );

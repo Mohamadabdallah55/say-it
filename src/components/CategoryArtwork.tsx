@@ -11,13 +11,32 @@ export function CategoryArtwork({ iconKey, accentColor }: CategoryArtworkProps) 
       className="relative w-full h-32 rounded-t-[13px] overflow-hidden border-b-[3px] border-[#291B40] flex items-center justify-center"
       style={{ backgroundColor: accentColor }}
     >
-      <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 20%, #FFFFFF 0, #FFFFFF 18%, transparent 19%), radial-gradient(circle at 82% 78%, #291B40 0, #291B40 24%, transparent 25%)',
-        }}
-      />
+      <svg className="art-backdrop" viewBox="0 0 360 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path fill="#fff" opacity=".12" d="M180 124L5 0h52zM180 124L93 0h37zM180 124L168 0h25zM180 124L248 0h44zM180 124L335 0h25v30z"/>
+        <g stroke="#301d45" strokeWidth="2.5" strokeLinejoin="round" fill="none" opacity=".65">
+          {(iconKey === 'science' || iconKey === 'tech') && <>
+            <path d="m25 47 11-7 12 7v14l-12 7-11-7zm23 0 12-7 12 7v14l-12 7-12-7m257 5v35l-15 21h45l-15-21V52m-19 47h25"/>
+            <circle cx="313" cy="40" r="4"/><circle cx="327" cy="30" r="2"/>
+          </>}
+          {(iconKey === 'history' || iconKey === 'geography') && <>
+            <path fill="#ffde9c" d="m-10 112 53-53 49 47 30-24 44 36zm259 9 54-68 64 68z"/>
+            <path d="m43 59 5 47m254-54-7 63M0 122q76-20 128 0t134-2 110 0"/>
+          </>}
+          {(iconKey === 'general' || iconKey === 'sports') && <>
+            <path strokeDasharray="5 5" d="M-10 93q46-102 83-33t64-29m95 61q29-76 72-43t63-16"/>
+            <path fill="#fff2bb" d="m33 28 8 11 12 2-10 7 1 14-11-9-12 6 4-13-9-9 13-1zm272 58 22-12-8 21-5-7z"/>
+          </>}
+          {(iconKey === 'arabic' || iconKey === 'islamic' || iconKey === 'pdf') && <>
+            <path fill="#f8db98" d="m21 96 35-62 9 5-36 63-11 8zM301 45l33 9-12 55-33-7z"/>
+            <path d="m298 62 25 6m-27 3 24 6m-26 4 19 5M30 112q12-15 25-5t29-7"/>
+          </>}
+          {(iconKey === 'puzzles' || iconKey === 'skills') && <>
+            <path d="M11 90V40h55v38H33V57h17m233 27h46V45h-28v21h12m-18 31h46V30"/>
+            <circle cx="48" cy="91" r="4"/><circle cx="282" cy="84" r="4"/>
+          </>}
+        </g>
+        <ellipse cx="180" cy="122" rx="51" ry="6" fill="#291b40" opacity=".16"/>
+      </svg>
 
       {iconKey === 'general' && (
         <svg viewBox="0 0 120 90" className="w-28 h-24 drop-shadow-[0_4px_0_rgba(41,27,64,0.45)]" aria-hidden="true">

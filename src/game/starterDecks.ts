@@ -497,7 +497,7 @@ export const CURATED_QUESTIONS: QuizQuestion[] = [
 export const STARTER_DEMO_DECK: QuizDeck = {
   schemaVersion: 2,
   id: 'deck_starter_elite_quiz',
-  title: 'سؤال النخبة — الجولة الافتتاحية',
+  title: 'يمكن هاي — الجولة الافتتاحية',
   description:
     'مباراة افتراضية جاهزة من 5 فئات × 3 مستويات (15 سؤالًا متنوعًا + احتياطي) للمعلم والطلاب خلال 20 دقيقة.',
   sourceType: 'starter',
@@ -512,7 +512,7 @@ export const STARTER_DEMO_DECK: QuizDeck = {
 
 export function buildBoardDeckFromCategories(
   categoryIds: string[],
-  customTitle = 'مباراة بنك النخبة المختار',
+  customTitle = 'مباراة بنك يمكن هاي المختار',
 ): QuizDeck {
   const pickedCats = ALL_CURATED_CATEGORIES.filter((c) => categoryIds.includes(c.id));
   const finalCats = pickedCats.length >= 3 ? pickedCats.slice(0, 6) : STARTER_CATEGORIES;
@@ -522,7 +522,7 @@ export function buildBoardDeckFromCategories(
     schemaVersion: 2,
     id: `deck_curated_${Date.now()}`,
     title: customTitle,
-    description: 'بنك أسئلة مخصص من مكتبة النخبة التعليمية.',
+    description: 'بنك أسئلة مخصص من مكتبة يمكن هاي التعليمية.',
     sourceType: 'curated',
     ageGroup: 'mixed',
     createdAt: now,

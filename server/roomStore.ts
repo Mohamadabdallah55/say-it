@@ -20,6 +20,9 @@ import {
   startChallengeTimer,
   swapActiveWithBackup,
   undoLastScoreAction,
+  parkQuestion,
+  skipLifelinePick,
+  submitOrder,
 } from '../src/game/engine';
 import { runBoardPreflightCheck } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
@@ -30,7 +33,7 @@ import type {
   QuizDeck,
   RoomState,
 } from '../src/game/types';
-import { getDeckById, loadSavedRooms, persistRoomsMap } from './storage';
+import { currentLibraryId, getDeckById, loadSavedRooms, persistRoomsMap } from './storage';
 
 interface ConnectedClient {
   ws: WebSocket;
@@ -54,6 +57,12 @@ class RoomManager {
       let changed = false;
       for (const code of Object.keys(this.rooms)) {
         const room = this.rooms[code];
+        if (room.phase !== 'FINAL' && room.matchEndsAt && now >= room.matchEndsAt) {
+          this.rooms[code] = endMatchEarly(room, 'deadline-' + room.matchEndsAt, now).state;
+          this.broadcastRoom(code);
+          changed = true;
+          continue;
+        }
         if (room.phase === 'PLAYING' && room.timer.running) {
           const remaining = computeRemainingMs(room.timer, now);
           if (remaining <= 0) {
@@ -92,7 +101,9 @@ class RoomManager {
     if (params.deckId === 'curated_custom' && params.selectedCategoryIds?.length) {
       deck = buildBoardDeckFromCategories(params.selectedCategoryIds);
     } else if (params.deckId) {
-      deck = getDeckById(params.deckId) ?? STARTER_DEMO_DECK;
+      const saved = getDeckById(params.deckId);
+      if (!saved) throw new Error('البنك غير موجود في مكتبتك.');
+      deck = saved;
     }
 
     const preflight = runBoardPreflightCheck({
@@ -127,6 +138,7 @@ class RoomManager {
       nowMs: Date.now(),
     });
 
+    state.libraryId = currentLibraryId();
     this.rooms[roomCode] = state;
     persistRoomsMap(this.rooms);
     return state;
@@ -137,6 +149,7 @@ class RoomManager {
   }
 
   listRooms(): Array<{
+    hostToken: string;
     roomCode: string;
     deckTitle: string;
     phase: RoomState['phase'];
@@ -144,12 +157,13 @@ class RoomManager {
     questionCounter: number;
     totalQuestions: number;
     updatedAt: string;
-    hostToken: string;
   }> {
     return Object.values(this.rooms)
+      .filter(room => (room.libraryId ?? 'original') === currentLibraryId())
       .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
       .slice(0, 20)
       .map((r) => ({
+        hostToken: r.hostToken,
         roomCode: r.roomCode,
         deckTitle: r.deckTitle,
         phase: r.phase,
@@ -157,7 +171,7 @@ class RoomManager {
         questionCounter: r.questionCounter,
         totalQuestions: r.totalQuestions,
         updatedAt: r.updatedAt,
-        hostToken: r.hostToken,
+
       }));
   }
 
@@ -308,11 +322,20 @@ class RoomManager {
       case 'SELECT_TILE':
         result = selectBoardTile(room, String(payload.questionId || payload.cardId || ''), actionId, now);
         break;
+      case 'SUBMIT_ORDER':
+        result = submitOrder(room, payload.indices, actionId, now);
+        break;
+      case 'SKIP_CARD_PICK':
+        result = skipLifelinePick(room, actionId, now);
+        break;
       case 'APPLY_LIFELINE':
         result = applyLifeline(room, payload.lifeline as LifelineType, actionId, now);
         break;
       case 'SWAP_BACKUP':
         result = swapActiveWithBackup(room, actionId, now);
+        break;
+      case 'PARK_QUESTION':
+        result = parkQuestion(room, actionId, now);
         break;
       case 'SKIP_QUESTION':
         result = skipActiveQuestion(room, actionId, now);

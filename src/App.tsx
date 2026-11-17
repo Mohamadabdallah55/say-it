@@ -35,25 +35,30 @@ export default function App() {
 
   const refreshDecksAndRooms = useCallback(async () => {
     try {
-      const [dRes, rRes] = await Promise.all([fetch('/api/decks'), fetch('/api/rooms')]);
+      const dRes = await fetch('/api/decks');
+      const rRes = await fetch('/api/rooms');
       const dData = await dRes.json();
       const rData = await rRes.json();
       if (dData.decks) setDecks(dData.decks);
-      if (rData.rooms) setRooms(rData.rooms);
+      if (rData.rooms) setRooms(rData.rooms.flatMap((room: SavedRoomSummary) => {
+        const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
+        return hostToken ? [{ ...room, hostToken }] : [];
+      }));
     } catch {
       // ignore initial offline error
     }
   }, []);
 
   useEffect(() => {
-    refreshDecksAndRooms();
     const params = new URLSearchParams(window.location.search);
     const room = params.get('room');
     const role = params.get('role') as ClientRole | null;
     const token = params.get('token') || undefined;
     const autostart = params.get('autostart');
 
+    if (!room) refreshDecksAndRooms();
     if (room) {
+      if (role === 'host' && token) localStorage.setItem('yh-host-' + room.toUpperCase(), token);
       if (role === 'buzzer' && token) {
         setScreen({ name: 'buzzer', roomCode: room.toUpperCase(), token });
       } else {
@@ -83,6 +88,7 @@ export default function App() {
     buzzerToken: string;
   }) => {
     const url = new URL(window.location.href);
+    localStorage.setItem('yh-host-' + data.roomCode, data.hostToken);
     url.searchParams.set('room', data.roomCode);
     url.searchParams.set('role', 'host');
     url.searchParams.set('token', data.hostToken);
@@ -168,9 +174,7 @@ export default function App() {
         onSelectDeckToPlay={(deckId) => setScreen({ name: 'lobby', preselectDeckId: deckId })}
         onEditDeckInStudio={(deck) => setScreen({ name: 'pdf_studio', editDeck: deck })}
         onDecksChanged={(nextDecks) => setDecks(nextDecks)}
-        onResumeRoom={(roomCode, hostToken) =>
-          setScreen({ name: 'arena', roomCode, role: 'host', token: hostToken })
-        }
+        onResumeRoom={(roomCode, hostToken) => handleRoomCreated({ roomCode, hostToken, buzzerToken: '' })}
       />
     );
   }
