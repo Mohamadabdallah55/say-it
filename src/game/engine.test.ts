@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { buildApiFetch, installApiSessionFetch } from '../utils/clientSession';
 import {
   applyLifeline,
   skipLifelinePick,
@@ -345,3 +346,238 @@ test('A rich bank gives teams distinct questions for the same point tile', () =>
   assert.equal(selectBoardTile(board,owned[1].questionId,'wrongteam').ok,false);
   assert.equal(selectBoardTile(board,owned[0].questionId,'own').ok,true);
 });
+
+test('Team bundle PDF deck assigns 200/400/600 per team, enforces team count, and exposes subtopic before REVEAL without leaking answers', () => {
+  const teamBundleDeck = {
+    schemaVersion: 2 as const,
+    id: 'deck_pdf_teams',
+    title: 'صلح الحديبية',
+    description: 'حزم الفرق',
+    sourceType: 'pdf' as const,
+    boardMode: 'team_bundles' as const,
+    teamCount: 3,
+    ageGroup: 'mixed' as const,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    categories: [1, 2, 3].map((n) => ({
+      id: `team_${n}`,
+      name: `الفريق ${n}`,
+      iconKey: 'islamic' as const,
+      accentColor: '#7042A1',
+    })),
+    questions: [1, 2, 3].flatMap((n) =>
+      (['easy', 'medium', 'hard'] as const).map((difficulty, idx) => ({
+        id: `q_${n}_${difficulty}`,
+        categoryId: `team_${n}`,
+        categoryName: `الفريق ${n}`,
+        subtopic: `بند صلح الحديبية ${n}-${idx + 1}`,
+        difficulty,
+        points: (difficulty === 'easy' ? 200 : difficulty === 'medium' ? 400 : 600) as 200 | 400 | 600,
+        questionType: 'direct_qa' as const,
+        prompt: `سؤال ${n} بمستوى ${difficulty}`,
+        answer: `إجابة سرية ${n}-${difficulty}`,
+        explanation: 'شرح سري',
+        status: 'approved' as const,
+      })),
+    ),
+  };
+
+  // Preflight blocks mismatched team count (2 teams vs 3-team deck)
+  const badPreflight = runBoardPreflightCheck({
+    deck: teamBundleDeck,
+    teams: TEAMS.slice(0, 2),
+    settings: { timerSeconds: 45 },
+  });
+  assert.equal(badPreflight.canStart, false);
+
+  const okPreflight = runBoardPreflightCheck({
+    deck: teamBundleDeck,
+    teams: TEAMS,
+    settings: { timerSeconds: 45 },
+  });
+  assert.equal(okPreflight.canStart, true);
+
+  let state = createRoomState({
+    roomCode: 'TB101',
+    hostToken: 'h',
+    buzzerToken: 'b',
+    deck: teamBundleDeck,
+    teams: TEAMS,
+    nowMs: 1000,
+  });
+
+  assert.equal(state.boardMode, 'team_bundles');
+  assert.equal(state.boardTiles.length, 9);
+  // Synced team names onto columns
+  assert.equal(state.categories[0].name, 'فريق الصقور');
+  // Cannot open team_2 tile on team_1's turn
+  assert.equal(selectBoardTile(state, 'q_2_easy', 'wrong_turn', 2000).ok, false);
+
+  state = selectBoardTile(state, 'q_1_easy', 'open_own', 2000).state;
+  state = skipLifelinePick(state, 'skip_ll', 2500).state;
+  assert.equal(state.phase, 'QUESTION_READY');
+
+  const proj = sanitizeStateForRole(state, 'projector', 2600);
+  assert.equal(proj.boardMode, 'team_bundles');
+  assert.equal(proj.activeRound?.subtopic, 'بند صلح الحديبية 1-1');
+  assert.equal(proj.activeRound?.answer, undefined);
+  assert.equal(proj.activeRound?.explanation, undefined);
+});
+
+test('installApiSessionFetch handles getter-only prototype and non-configurable fetch without throwing', async () => {
+  const capturedHeaders: Headers[] = [];
+  const mockBaseFetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    capturedHeaders.push(new Headers(init?.headers));
+    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+  }) as typeof fetch;
+
+  // 1) Prototype has getter-only fetch (like #<Window> in browser / Cloud Run iframe)
+  const protoWithGetterOnlyFetch = {};
+  Object.defineProperty(protoWithGetterOnlyFetch, 'fetch', {
+    get: () => mockBaseFetch,
+    configurable: true,
+  });
+  const winLike = Object.create(protoWithGetterOnlyFetch) as { fetch?: typeof fetch };
+  assert.doesNotThrow(() => installApiSessionFetch(winLike));
+  await winLike.fetch!('/api/decks');
+  assert.ok(capturedHeaders[0]?.get('x-yh-library'));
+
+  // 2) Non-configurable own getter-only fetch must also never throw
+  const lockedWin = {} as { fetch?: typeof fetch };
+  Object.defineProperty(lockedWin, 'fetch', {
+    get: () => mockBaseFetch,
+    configurable: false,
+  });
+  assert.doesNotThrow(() => installApiSessionFetch(lockedWin));
+
+  // Explicit buildApiFetch still injects session header cleanly
+  const wrapped = buildApiFetch(mockBaseFetch);
+  await wrapped('/api/rooms');
+  assert.ok(capturedHeaders[1]?.get('x-yh-library'));
+});
+
+test('category_team_matrix deck builds 5 Core Categories × N teams × 3 tiers (45 tiles) and enforces preflight & turn ownership', async () => {
+  const { isCategoryTeamMatrixDeck } = await import('./pdfValidation');
+  const { buildRoomContextForAssistant } = await import('../../server/gameAssistant');
+
+  const matrixCategories = [1, 2, 3, 4, 5].map((n) => ({
+    id: `cat_${n}`,
+    name: `محور الدرس ${n}`,
+    iconKey: 'science' as const,
+    accentColor: '#7042A1',
+  }));
+
+  const matrixQuestions = matrixCategories.flatMap((cat, catIdx) =>
+    [0, 1, 2].flatMap((teamIndex) =>
+      (['easy', 'medium', 'hard'] as const).map((difficulty) => ({
+        id: `mq_${catIdx + 1}_t${teamIndex}_${difficulty}`,
+        categoryId: cat.id,
+        categoryName: cat.name,
+        teamIndex,
+        subtopic: `جزئية ${catIdx + 1}-${teamIndex + 1}`,
+        difficulty,
+        points: (difficulty === 'easy' ? 200 : difficulty === 'medium' ? 400 : 600) as 200 | 400 | 600,
+        questionType: 'direct_qa' as const,
+        prompt: `سؤال ${cat.name} للفريق ${teamIndex + 1} بمستوى ${difficulty}`,
+        answer: `إجابة مصفوفة سرية ${catIdx + 1}-${teamIndex}-${difficulty}`,
+        explanation: 'تفسير علمي دقيق من الدرس',
+        sourceSnippet: 'مقتبس علمي من الصفحة',
+        pageNumber: catIdx + 1,
+        status: 'approved' as const,
+      })),
+    ),
+  );
+
+  const fullMatrixDeck = {
+    schemaVersion: 2 as const,
+    id: 'deck_matrix_45',
+    title: 'درس المصفوفة المتكامل',
+    description: '5 فئات × 3 فرق × 3 مستويات',
+    sourceType: 'pdf' as const,
+    boardMode: 'category_team_matrix' as const,
+    teamCount: 3,
+    ageGroup: 'mixed' as const,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    categories: matrixCategories,
+    questions: matrixQuestions,
+  };
+
+  assert.equal(isCategoryTeamMatrixDeck(fullMatrixDeck), true);
+
+  // Removing 1 of 45 slots must cause preflight blocker
+  const brokenMatrixDeck = {
+    ...fullMatrixDeck,
+    questions: matrixQuestions.filter((q) => q.id !== 'mq_3_t1_medium'),
+  };
+  const badPreflight = runBoardPreflightCheck({
+    deck: brokenMatrixDeck,
+    teams: TEAMS,
+    settings: { categoryCount: 5, timerSeconds: 45 },
+  });
+  assert.equal(badPreflight.canStart, false);
+  assert.ok(badPreflight.blockers.some((b) => b.includes('خانات ناقصة')));
+
+  const goodPreflight = runBoardPreflightCheck({
+    deck: fullMatrixDeck,
+    teams: TEAMS,
+    settings: { categoryCount: 5, timerSeconds: 45 },
+  });
+  assert.equal(goodPreflight.canStart, true);
+
+  let state = createRoomState({
+    roomCode: 'MTX45',
+    hostToken: 'host_secret_mtx',
+    buzzerToken: 'buzz_secret_mtx',
+    deck: fullMatrixDeck,
+    teams: TEAMS,
+    nowMs: 1000,
+  });
+
+  assert.equal(state.boardMode, 'category_team_matrix');
+  assert.equal(state.categories.length, 5);
+  // Category names stay lesson topics, NOT team names!
+  assert.equal(state.categories[0].name, 'محور الدرس 1');
+  assert.equal(state.boardTiles.length, 45);
+
+  // Team 1 cannot open Team 2's matrix tile on Team 1's turn
+  assert.equal(selectBoardTile(state, 'mq_1_t1_easy', 'wrong_owner', 2000).ok, false);
+
+  state = selectBoardTile(state, 'mq_1_t0_easy', 'open_own', 2000).state;
+  state = skipLifelinePick(state, 'skip_ll', 2500).state;
+  assert.equal(state.phase, 'QUESTION_READY');
+
+  // Projector must never see secret answer before REVEAL
+  const proj = sanitizeStateForRole(state, 'projector', 2600);
+  assert.equal(proj.boardMode, 'category_team_matrix');
+  assert.equal(proj.activeRound?.answer, undefined);
+
+  // Assistant security boundary: projector before REVEAL cannot see answer; verified host can!
+  const ctxProjHidden = buildRoomContextForAssistant({
+    room: state,
+    role: 'projector',
+    hostVerified: false,
+  });
+  assert.equal(ctxProjHidden.canRevealAnswer, false);
+  assert.equal(ctxProjHidden.contextSummary.includes('إجابة مصفوفة سرية'), false);
+
+  const ctxHostVerified = buildRoomContextForAssistant({
+    room: state,
+    role: 'host',
+    hostVerified: true,
+  });
+  assert.equal(ctxHostVerified.canRevealAnswer, true);
+  assert.equal(ctxHostVerified.contextSummary.includes('إجابة مصفوفة سرية 1-0-easy'), true);
+
+  // After REVEAL, projector context may discuss the revealed answer
+  state = revealAnswer(state, 'rev_mtx', 3000).state;
+  const ctxProjRevealed = buildRoomContextForAssistant({
+    room: state,
+    role: 'projector',
+    hostVerified: false,
+  });
+  assert.equal(ctxProjRevealed.canRevealAnswer, true);
+  assert.equal(ctxProjRevealed.contextSummary.includes('إجابة مصفوفة سرية 1-0-easy'), true);
+});
+
+

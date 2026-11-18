@@ -30,6 +30,17 @@ import {
   runDeckRegenerationAction,
   type RegenerateQuizAction,
 } from './server/aiPdfEngine';
+import {
+  askGameAssistant,
+  type AssistantChatMessage,
+  type AssistantRoomContextInput,
+} from './server/gameAssistant';
+import { extractAndParsePdfWithGemini } from './server/pdfExtractorService';
+import {
+  formatGeminiError,
+  isQuotaError,
+  isServiceUnavailableError,
+} from './server/geminiHelpers';
 import { roomManager } from './server/roomStore';
 import {
   selectLibrary,
@@ -102,7 +113,12 @@ async function startServer() {
   });
 
   app.get('/api/health', (_req, res) => {
-    res.json({ ok: true, service: 'yemken-hay', version: 2 });
+    res.json({
+      ok: true,
+      service: 'yemken-hay',
+      version: 2,
+      aiConfigured: Boolean(process.env.GEMINI_API_KEY),
+    });
   });
 
   app.use(['/api/decks', '/api/pdf'], selectLibrary);
@@ -217,9 +233,6 @@ async function startServer() {
   app.post('/api/decks/:deckId/approve-all', (req, res) => {
     const deck = getDeckById(req.params.deckId);
     if (!deck) return res.status(404).json({ error: 'البنك غير موجود.' });
-    if (deck.pdfAnalysis?.isReligiousContent || deck.questions.some(q => q.isSensitiveReligious && q.status === 'needs_review')) {
-      return res.status(400).json({ error: 'راجع كل سؤال ديني واعتمده منفردًا.' });
-    }
     const updated = {
       ...deck,
       questions: deck.questions.map((q) =>
@@ -249,83 +262,202 @@ async function startServer() {
     res.json({ deck: updated });
   });
 
-  // --- 4-Stage AI PDF Engine Endpoints ---
-  app.post('/api/pdf/analyze', upload.single('file'), async (req, res) => {
-    try {
-      if (!req.file) {
-        return res.status(400).json({ error: 'يرجى اختيار ملف PDF أولًا.' });
-      }
-      const ageGroup = (req.body?.ageGroup as AgeGroup) || 'mixed';
-      const { report } = await analyzePdfLesson(
-        req.file.buffer,
-        req.file.originalname || 'lesson.pdf',
-        ageGroup,
-      );
-      const cachedPlan = getCachedPdfPlan(report.fileHash);
-      res.json({ report, cachedPlan: cachedPlan?.plan ?? null });
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : 'تعذر تحليل ملف PDF.';
-      const isClientPdfError =
-        msg.includes('ممسوح ضوئيًا') ||
-        msg.includes('ليس ملف PDF') ||
-        msg.includes('فارغ') ||
-        msg.includes('تالف') ||
-        msg.includes('فشل قراءة ملف PDF');
-      res.status(isClientPdfError ? 422 : 500).json({ error: msg });
+  const handlePdfAiError = (res: express.Response, err: unknown, fallbackMsg: string) => {
+    console.error('[PDF AI Endpoint Error]', err);
+    const rawMsg = err instanceof Error ? err.message : fallbackMsg;
+    const isClientPdfError =
+      rawMsg.includes('ممسوح ضوئيًا') ||
+      rawMsg.includes('ليس ملف PDF') ||
+      rawMsg.includes('فارغ') ||
+      rawMsg.includes('تالف') ||
+      rawMsg.includes('استخراج نص كافٍ') ||
+      rawMsg.includes('حجم ملف الـ PDF') ||
+      rawMsg.includes('فشل قراءة ملف PDF');
+    if (isClientPdfError) {
+      return res.status(422).json({ error: rawMsg });
     }
-  });
+    if (isQuotaError(err)) {
+      return res.status(429).json({ error: formatGeminiError(err) });
+    }
+    if (isServiceUnavailableError(err)) {
+      return res.status(503).json({ error: formatGeminiError(err) });
+    }
+    return res.status(500).json({ error: formatGeminiError(err) || fallbackMsg });
+  };
+
+  // --- 4-Stage AI PDF Engine Endpoints ---
+  const handlePdfUploadExtract = (
+    req: express.Request,
+    res: express.Response,
+    extractor: typeof extractAndParsePdfWithGemini,
+  ) => {
+    upload.single('file')(req, res, async (uploadErr) => {
+      if (uploadErr) {
+        const msg =
+          uploadErr instanceof multer.MulterError && uploadErr.code === 'LIMIT_FILE_SIZE'
+            ? 'حجم ملف الـ PDF يتجاوز الحد الأقصى المسموح به (20 ميجابايت).'
+            : 'تعذر رفع ملف الـ PDF. تأكد من سلامة الملف وحاول مجددًا.';
+        return res.status(400).json({ error: msg });
+      }
+      try {
+        if (!req.file) {
+          return res.status(400).json({ error: 'يرجى اختيار ملف PDF أولًا.' });
+        }
+        const ageGroup = (req.body?.ageGroup as AgeGroup) || 'mixed';
+        const { cachedText, report } = await extractor(
+          req.file.buffer,
+          req.file.originalname || 'lesson.pdf',
+          ageGroup,
+        );
+        const cachedPlan = getCachedPdfPlan(report.fileHash);
+        const validCachedPlan =
+          cachedPlan?.plan?.boardMode === 'category_team_matrix' ? cachedPlan.plan : null;
+        res.json({
+          report,
+          rawText: cachedText.fullText,
+          pages: cachedText.pages,
+          suggestedCategories: report.suggestedCategories ?? [],
+          cachedPlan: validCachedPlan,
+        });
+      } catch (err) {
+        handlePdfAiError(res, err, 'تعذر تحليل ملف PDF.');
+      }
+    });
+  };
+
+  app.post('/api/pdf/extract', (req, res) =>
+    handlePdfUploadExtract(req, res, extractAndParsePdfWithGemini),
+  );
+
+  app.post('/api/pdf/analyze', (req, res) =>
+    handlePdfUploadExtract(req, res, analyzePdfLesson),
+  );
 
   app.post('/api/pdf/plan-board', async (req, res) => {
     try {
-      const { fileHash, analysis, desiredCategoriesCount, ageGroup } = req.body as {
+      const {
+        fileHash,
+        analysis,
+        teamCount,
+        desiredCategoriesCount,
+        ageGroup,
+        rawText,
+        extractedText,
+        text,
+        pages,
+      } = req.body as {
         fileHash?: string;
         analysis?: PdfAnalysisReport;
+        teamCount?: number;
         desiredCategoriesCount?: number;
         ageGroup?: AgeGroup;
+        rawText?: string;
+        extractedText?: string;
+        text?: string;
+        pages?: Array<{ num: number; text: string }>;
       };
-      if (!fileHash || !analysis) {
+      if (!fileHash && !analysis) {
+        return res.status(400).json({ error: 'نتائج تحليل الملف مطلوبة قبل بناء خطة اللوحة.' });
+      }
+      if (!analysis) {
         return res.status(400).json({ error: 'نتائج تحليل الملف مطلوبة قبل بناء خطة اللوحة.' });
       }
       const plan = await planBoardFromPdf({
-        fileHash,
+        fileHash: fileHash || analysis.fileHash,
         analysis,
-        desiredCategoriesCount: Number(desiredCategoriesCount || 5),
+        teamCount: Number(teamCount ?? desiredCategoriesCount ?? 3),
         ageGroup: ageGroup || 'mixed',
+        rawText: rawText ?? extractedText ?? text,
+        pages,
       });
       res.json({ plan });
     } catch (err) {
-      res.status(500).json({
-        error: err instanceof Error ? err.message : 'تعذر إعداد خطة لوحة المسابقة.',
-      });
+      handlePdfAiError(res, err, 'تعذر إعداد خطة حزم الفرق.');
     }
   });
 
   app.post('/api/pdf/generate-board', async (req, res) => {
-    try {
-      const { fileHash, analysis, plan, ageGroup, includeBackups, existingDeckId } = req.body as {
-        fileHash?: string;
-        analysis?: PdfAnalysisReport;
-        plan?: BoardPlanPreview;
-        ageGroup?: AgeGroup;
-        includeBackups?: boolean;
-        existingDeckId?: string;
+    const {
+      fileHash,
+      analysis,
+      plan,
+      ageGroup,
+      includeBackups,
+      existingDeckId,
+      rawText,
+      extractedText,
+      text,
+      pages,
+      stream,
+    } = req.body as {
+      fileHash?: string;
+      analysis?: PdfAnalysisReport;
+      plan?: BoardPlanPreview;
+      ageGroup?: AgeGroup;
+      includeBackups?: boolean;
+      existingDeckId?: string;
+      rawText?: string;
+      extractedText?: string;
+      text?: string;
+      pages?: Array<{ num: number; text: string }>;
+      stream?: boolean;
+    };
+
+    if ((!fileHash && !analysis?.fileHash) || !analysis || !plan) {
+      return res.status(400).json({ error: 'خطة اللوحة مطلوبة قبل التوليد.' });
+    }
+
+    if (stream) {
+      res.setHeader('Content-Type', 'text/event-stream; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-cache, no-transform');
+      res.setHeader('Connection', 'keep-alive');
+      res.flushHeaders?.();
+
+      const writeEvent = (event: string, data: unknown) => {
+        if (!res.writableEnded) {
+          res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+        }
       };
-      if (!fileHash || !analysis || !plan) {
-        return res.status(400).json({ error: 'خطة اللوحة مطلوبة قبل التوليد.' });
+
+      try {
+        const result = await generateBoardFromPlan({
+          fileHash: fileHash || analysis.fileHash,
+          analysis,
+          plan,
+          ageGroup: ageGroup || 'mixed',
+          includeBackups: includeBackups !== false,
+          existingDeckId,
+          rawText: rawText ?? extractedText ?? text,
+          pages,
+          onProgress: (ev) => writeEvent('progress', ev),
+        });
+        writeEvent('done', result);
+        res.end();
+      } catch (err) {
+        const errorMsg = formatGeminiError(err) || 'تعذر توليد أسئلة اللوحة من الملف.';
+        writeEvent('error', {
+          error: errorMsg,
+          status: isQuotaError(err) ? 429 : isServiceUnavailableError(err) ? 503 : 500,
+        });
+        res.end();
       }
+      return;
+    }
+
+    try {
       const result = await generateBoardFromPlan({
-        fileHash,
+        fileHash: fileHash || analysis.fileHash,
         analysis,
         plan,
         ageGroup: ageGroup || 'mixed',
         includeBackups: includeBackups !== false,
         existingDeckId,
+        rawText: rawText ?? extractedText ?? text,
+        pages,
       });
       res.json(result);
     } catch (err) {
-      res.status(500).json({
-        error: err instanceof Error ? err.message : 'تعذر توليد أسئلة اللوحة من الملف.',
-      });
+      handlePdfAiError(res, err, 'تعذر توليد أسئلة اللوحة من الملف.');
     }
   });
 
@@ -359,9 +491,25 @@ async function startServer() {
       });
       res.json(result);
     } catch (err) {
-      res.status(500).json({
-        error: err instanceof Error ? err.message : 'تعذر تنفيذ عملية إعادة التوليد.',
-      });
+      handlePdfAiError(res, err, 'تعذر تنفيذ عملية إعادة التوليد.');
+    }
+  });
+
+  // --- AI Game Assistant & Referee ("نبيه — مساعد وحكم يمكن هاي") ---
+  app.post('/api/assistant/chat', async (req, res) => {
+    try {
+      const { message, history, roomContext } = req.body as {
+        message?: string;
+        history?: AssistantChatMessage[];
+        roomContext?: AssistantRoomContextInput;
+      };
+      if (!message || !message.trim()) {
+        return res.status(400).json({ error: 'يرجى كتابة سؤالك أولًا.' });
+      }
+      const result = await askGameAssistant({ message, history, roomContext });
+      res.json(result);
+    } catch (err) {
+      handlePdfAiError(res, err, 'تعذر التواصل مع المساعد الذكي حاليًا.');
     }
   });
 

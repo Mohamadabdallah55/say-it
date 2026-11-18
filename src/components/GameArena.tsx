@@ -39,6 +39,7 @@ import { OrderAttempt } from './OrderAttempt';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { GameLogo } from './GameLogo';
+import { GameAssistantBot } from './GameAssistantBot';
 
 interface GameArenaProps {
   roomCode: string;
@@ -180,6 +181,7 @@ export function GameArena({
         questionId: ar.question.id,
         categoryId: ar.question.categoryId,
         categoryName: ar.question.categoryName,
+        subtopic: ar.question.subtopic || ar.question.sourceRef,
         difficulty: ar.question.difficulty,
         points: ar.basePoints,
         questionType: ar.question.questionType,
@@ -208,6 +210,7 @@ export function GameArena({
     const sr = state.activeRound as SanitizedActiveRound;
     return {
       ...sr,
+      subtopic: sr.subtopic || sr.sourceRef,
       correctOptionIndex: undefined as number | undefined,
     };
   }, [state]);
@@ -279,6 +282,13 @@ export function GameArena({
   }
 
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
+  const isMatrixBoard = state.boardMode === 'category_team_matrix';
+  const isTeamBundlesBoard =
+    !isMatrixBoard &&
+    (state.boardMode === 'team_bundles' ||
+      (state.categories.length >= 2 &&
+        state.categories.length <= 4 &&
+        state.categories.every((c) => /^team_\d+$/.test(c.id))));
   const matchSeconds = Math.max(0, Math.ceil(((state.matchEndsAt ?? Date.parse(state.createdAt) + 20 * 60000) - nowMs) / 1000));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
@@ -294,11 +304,21 @@ export function GameArena({
         <div className="arena-main space-y-4">
           <header className="stage-header">
             <GameLogo size="sm" dark />
-            {!isHost && <button type="button" className="audience-audio" aria-pressed={localAudio} aria-label="صوت شاشة الجمهور"
-              onClick={()=>{const on=!localAudio; setLocalAudio(on); sessionStorage.setItem('yemken-projector-audio',on?'on':'off');
-                soundFX.enabled=on && state.settings.soundEnabled; if (on) soundFX.playClick();}}>
-              {localAudio ? <Volume2 size={20}/> : <VolumeX size={20}/>}</button>}
-            {state.phase !== 'FINAL' && <span>وقت المباراة <b dir="ltr">{Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}</b></span>}
+            <div className="flex items-center gap-2">
+              <GameAssistantBot
+                compact
+                roomCode={state.roomCode}
+                role={role}
+                token={token}
+                phase={state.phase}
+                activeQuestionPrompt={roundMeta?.prompt}
+              />
+              {!isHost && <button type="button" className="audience-audio" aria-pressed={localAudio} aria-label="صوت شاشة الجمهور"
+                onClick={()=>{const on=!localAudio; setLocalAudio(on); sessionStorage.setItem('yemken-projector-audio',on?'on':'off');
+                  soundFX.enabled=on && state.settings.soundEnabled; if (on) soundFX.playClick();}}>
+                {localAudio ? <Volume2 size={20}/> : <VolumeX size={20}/>}</button>}
+              {state.phase !== 'FINAL' && <span>وقت المباراة <b dir="ltr">{Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}</b></span>}
+            </div>
           </header>
           {state.commentary && (
             <motion.div
@@ -334,86 +354,365 @@ export function GameArena({
           {/* PHASE: BOARD */}
           {state.phase === 'BOARD' && (
             <section className="board-stage" aria-labelledby="board-title">
-              <div className="board-heading"><div><span>{state.deckTitle}</span><h1 id="board-title">لوحة الفئات</h1></div>
-                <div className="turn-ticket"><Flag size={20} /> دور {currentTeam?.name}</div></div>
-              <div className="category-grid" data-count={state.categories.length}>
-              {state.categories.map((cat) => {
-                const catTiles = state.boardTiles.filter(t => t.categoryId === cat.id && (!t.ownerTeamId || t.ownerTeamId === currentTeam.id));
-                return (
-                  <div
-                    key={cat.id}
-                    className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
-                      stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                    }`}
-                  >
-                    <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
+              <div className="board-heading">
+                <div>
+                  <span>{state.deckTitle}</span>
+                  <h1 id="board-title">
+                    {isMatrixBoard
+                      ? 'لوحة الفئات الـ 5 ومصفوفة الفرق'
+                      : isTeamBundlesBoard
+                        ? 'لوحة حزم الفرق المتنافسة'
+                        : 'لوحة الفئات'}
+                  </h1>
+                </div>
+                <div className="turn-ticket"><Flag size={20} /> دور {currentTeam?.name}</div>
+              </div>
 
-                    <div className="category-caption">
-                      <div className="text-center">
-                        <h2 className="font-display font-black text-xl text-[#291B40]">{cat.name}</h2>
-                        {cat.description && (
-                          <p className="text-xs font-medium text-[#291B40]/65 mt-0.5 line-clamp-1">
-                            {cat.description}
-                          </p>
-                        )}
-                      </div>
+              {isMatrixBoard ? (
+                <div className="category-grid matrix-grid" data-count={state.categories.length}>
+                  {state.categories.map((cat) => (
+                    <div
+                      key={cat.id}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
+                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
+                      }`}
+                    >
+                      <CategoryArtwork
+                        iconKey={cat.iconKey}
+                        accentColor={cat.accentColor}
+                        topic={cat.name}
+                        coverage={cat.topicCoverage}
+                      />
 
-                      <div className="point-strip">
-                        {catTiles.map((tile) => {
-                          const winnerTeam = tile.wonByTeamId
-                            ? state.teams.find((t) => t.id === tile.wonByTeamId)
-                            : null;
-                          const tierLabel =
-                            tile.points === 200 ? 'سهل' : tile.points === 400 ? 'متوسط' : 'صعب';
-                          return (
-                            <div key={tile.questionId} className="flex flex-col gap-1">
-                              <button
-                                type="button"
-                                disabled={!isHost || tile.used}
-                                data-used={tile.used}
-                                aria-label={cat.name + ' · ' + tile.points + ' نقطة' + (tile.used ? ' · مستهلك' : '')}
-                                onClick={() => {
-                                  soundFX.playClick();
-                                  sendCommand('SELECT_TILE', { questionId: tile.questionId });
-                                }}
-                                className={`game-btn-3d rounded-xl py-2.5 px-1 flex flex-col items-center justify-center font-display font-black cursor-pointer ${
-                                  tile.used
-                                    ? 'bg-[#E5E2D9] text-[#291B40]/45 !shadow-none'
-                                    : tile.points === 200
-                                      ? 'bg-[#7042A1] text-white'
-                                      : tile.points === 400
-                                        ? 'bg-[#5E3591] text-white'
-                                        : 'bg-[#42206B] text-[#FFD95A]'
+                      <div className="category-caption">
+                        <div className="text-center">
+                          <h2 className="font-display font-black text-lg md:text-xl text-[#291B40]">
+                            {cat.name}
+                          </h2>
+                          {cat.description && (
+                            <p className="text-xs font-medium text-[#291B40]/65 mt-0.5 line-clamp-1">
+                              {cat.description}
+                            </p>
+                          )}
+                        </div>
+
+                        <div className="matrix-team-rows">
+                          {state.teams.map((team, tIdx) => {
+                            const isTurnTeam = team.id === currentTeam?.id;
+                            const teamTiles = state.boardTiles
+                              .filter(
+                                (t) =>
+                                  t.categoryId === cat.id &&
+                                  (t.ownerTeamId === team.id || (!t.ownerTeamId && tIdx === 0)),
+                              )
+                              .sort((a, b) => a.points - b.points);
+
+                            return (
+                              <div
+                                key={team.id}
+                                className={`matrix-team-row rounded-xl px-2 py-1.5 border-2 transition ${
+                                  isTurnTeam
+                                    ? 'bg-[#FFFDF3] border-[#7042A1] shadow-[0_2px_0_#291B40]'
+                                    : 'bg-white/75 border-[#291B40]/15'
                                 }`}
                               >
-                                <span className="text-lg md:text-xl tabular-nums leading-none">
-                                  {tile.used ? '✓ ' : ''}{tile.points}
-                                </span>
-                                <span className="text-[11px] font-bold opacity-90 mt-0.5">
-                                  {winnerTeam ? winnerTeam.name : tile.skipped ? 'مُتخطّى' : tierLabel}
-                                </span>
-                              </button>
+                                <div className="flex items-center justify-between gap-1.5 mb-1">
+                                  <span className="flex items-center gap-1.5 text-[11px] font-black text-[#291B40] truncate">
+                                    <span
+                                      className="w-2.5 h-2.5 rounded-full shrink-0 border border-[#291B40]/40"
+                                      style={{ backgroundColor: team.color }}
+                                    />
+                                    <span className="truncate">{team.name}</span>
+                                  </span>
+                                  {isTurnTeam && (
+                                    <span
+                                      className="text-[10px] font-black text-white px-1.5 py-0.5 rounded-md shrink-0"
+                                      style={{ backgroundColor: team.color }}
+                                    >
+                                      دوره
+                                    </span>
+                                  )}
+                                </div>
 
-                              {isHost && tile.used && (
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    sendCommand('REOPEN_CORRECTION', { questionId: tile.questionId })
-                                  }
-                                  className="text-[10px] font-bold text-[#7042A1] hover:underline cursor-pointer text-center"
-                                >
-                                  تصحيح
-                                </button>
-                              )}
-                            </div>
-                          );
-                        })}
+                                <div className="grid grid-cols-3 gap-1.5">
+                                  {teamTiles.map((tile) => {
+                                    const winnerTeam = tile.wonByTeamId
+                                      ? state.teams.find((t) => t.id === tile.wonByTeamId)
+                                      : null;
+                                    const tierLabel =
+                                      tile.points === 200
+                                        ? 'سهل'
+                                        : tile.points === 400
+                                          ? 'متوسط'
+                                          : 'صعب';
+                                    const canClick =
+                                      isHost &&
+                                      !tile.used &&
+                                      (!tile.ownerTeamId || tile.ownerTeamId === currentTeam?.id);
+
+                                    return (
+                                      <div key={tile.questionId} className="flex flex-col gap-0.5">
+                                        <button
+                                          type="button"
+                                          disabled={!canClick}
+                                          data-used={tile.used}
+                                          aria-label={`${cat.name} · ${team.name} · ${tierLabel} ${tile.points} نقطة${tile.used ? ' · مستهلك' : ''}`}
+                                          onClick={() => {
+                                            soundFX.playClick();
+                                            sendCommand('SELECT_TILE', {
+                                              questionId: tile.questionId,
+                                            });
+                                          }}
+                                          className={`matrix-point-btn game-btn-3d rounded-lg py-1.5 px-1 flex flex-col items-center justify-center font-display font-black ${
+                                            tile.used
+                                              ? 'bg-[#E5E2D9] text-[#291B40]/45 !shadow-none'
+                                              : !canClick
+                                                ? 'bg-[#EDE7F6] text-[#291B40]/60 cursor-not-allowed'
+                                                : tile.points === 200
+                                                  ? 'bg-[#7042A1] text-white cursor-pointer'
+                                                  : tile.points === 400
+                                                    ? 'bg-[#5E3591] text-white cursor-pointer'
+                                                    : 'bg-[#42206B] text-[#FFD95A] cursor-pointer'
+                                          }`}
+                                        >
+                                          <span className="text-sm md:text-base tabular-nums leading-none">
+                                            {tile.used ? '✓' : tile.points}
+                                          </span>
+                                          <span className="text-[10px] font-bold opacity-90 leading-tight mt-0.5 truncate max-w-full">
+                                            {winnerTeam
+                                              ? winnerTeam.name
+                                              : tile.skipped
+                                                ? 'مُتخطّى'
+                                                : tierLabel}
+                                          </span>
+                                        </button>
+
+                                        {isHost && tile.used && (
+                                          <button
+                                            type="button"
+                                            onClick={() =>
+                                              sendCommand('REOPEN_CORRECTION', {
+                                                questionId: tile.questionId,
+                                              })
+                                            }
+                                            className="text-[10px] font-bold text-[#7042A1] hover:underline cursor-pointer text-center"
+                                          >
+                                            تصحيح
+                                          </button>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-              </div>
+                  ))}
+                </div>
+              ) : isTeamBundlesBoard ? (
+                <div
+                  className={`grid grid-cols-1 sm:grid-cols-2 ${
+                    state.categories.length >= 3 ? 'lg:grid-cols-3' : ''
+                  } ${state.categories.length === 4 ? 'xl:grid-cols-4' : ''} gap-4 pb-4`}
+                >
+                  {state.categories.map((cat, idx) => {
+                    const matchedTeam =
+                      state.teams.find((t) => t.id === cat.id) ?? state.teams[idx];
+                    const teamColor = matchedTeam?.color || cat.accentColor;
+                    const teamName = matchedTeam?.name || cat.name;
+                    const isTurnTeam = matchedTeam?.id === currentTeam?.id;
+                    const teamTiles = state.boardTiles
+                      .filter((t) => t.categoryId === cat.id)
+                      .sort((a, b) => a.points - b.points);
+
+                    return (
+                      <div
+                        key={cat.id}
+                        className={`game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition bg-gradient-to-b from-[#FFFCEE] to-[#FFF5D7] ${
+                          isTurnTeam ? 'ring-4 ring-[#7042A1]' : 'opacity-95'
+                        } ${stagePulse ? 'ring-8 ring-[#00B978]' : ''}`}
+                      >
+                        <div
+                          className="p-4 border-b-[3px] border-[#291B40] text-white flex items-center justify-between gap-2"
+                          style={{ backgroundColor: teamColor }}
+                        >
+                          <div>
+                            <span className="text-[11px] font-black bg-black/20 px-2 py-0.5 rounded-md inline-block mb-1">
+                              حزمة الفريق {idx + 1}
+                            </span>
+                            <h2 className="font-display font-black text-2xl leading-tight">
+                              {teamName}
+                            </h2>
+                          </div>
+                          <span
+                            className={`text-xs font-black px-2.5 py-1 rounded-xl border-2 border-[#291B40] ${
+                              isTurnTeam
+                                ? 'bg-[#FFD95A] text-[#291B40]'
+                                : 'bg-white/90 text-[#291B40]/75'
+                            }`}
+                          >
+                            {isTurnTeam ? 'الدور الحالي' : 'بانتظار الدور'}
+                          </span>
+                        </div>
+
+                        <div className="p-4 space-y-3">
+                          <div className="grid grid-cols-3 gap-2">
+                            {teamTiles.map((tile) => {
+                              const winnerTeam = tile.wonByTeamId
+                                ? state.teams.find((t) => t.id === tile.wonByTeamId)
+                                : null;
+                              const tierLabel =
+                                tile.points === 200
+                                  ? 'سهل'
+                                  : tile.points === 400
+                                    ? 'متوسط'
+                                    : 'صعب';
+                              const canClick =
+                                isHost &&
+                                !tile.used &&
+                                (!tile.ownerTeamId || tile.ownerTeamId === currentTeam?.id);
+
+                              return (
+                                <div key={tile.questionId} className="flex flex-col gap-1">
+                                  <button
+                                    type="button"
+                                    disabled={!canClick}
+                                    data-used={tile.used}
+                                    aria-label={`${teamName} · ${tierLabel} ${tile.points} نقطة${tile.used ? ' · مستهلك' : ''}`}
+                                    onClick={() => {
+                                      soundFX.playClick();
+                                      sendCommand('SELECT_TILE', { questionId: tile.questionId });
+                                    }}
+                                    className={`game-btn-3d rounded-xl py-3 px-1 flex flex-col items-center justify-center font-display font-black ${
+                                      tile.used
+                                        ? 'bg-[#E5E2D9] text-[#291B40]/45 !shadow-none'
+                                        : !canClick
+                                          ? 'bg-[#EDE7F6] text-[#291B40]/55 cursor-not-allowed'
+                                          : tile.points === 200
+                                            ? 'bg-[#7042A1] text-white cursor-pointer'
+                                            : tile.points === 400
+                                              ? 'bg-[#5E3591] text-white cursor-pointer'
+                                              : 'bg-[#42206B] text-[#FFD95A] cursor-pointer'
+                                    }`}
+                                  >
+                                    <span className="text-xl tabular-nums leading-none">
+                                      {tile.used ? '✓ ' : ''}
+                                      {tile.points}
+                                    </span>
+                                    <span className="text-[11px] font-bold opacity-90 mt-1">
+                                      {winnerTeam
+                                        ? winnerTeam.name
+                                        : tile.skipped
+                                          ? 'مُتخطّى'
+                                          : tierLabel}
+                                    </span>
+                                  </button>
+
+                                  {isHost && tile.used && (
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        sendCommand('REOPEN_CORRECTION', {
+                                          questionId: tile.questionId,
+                                        })
+                                      }
+                                      className="text-[10px] font-bold text-[#7042A1] hover:underline cursor-pointer text-center"
+                                    >
+                                      تصحيح
+                                    </button>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="category-grid" data-count={state.categories.length}>
+                {state.categories.map((cat) => {
+                  const catTiles = state.boardTiles.filter(t => t.categoryId === cat.id && (!t.ownerTeamId || t.ownerTeamId === currentTeam.id));
+                  return (
+                    <div
+                      key={cat.id}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
+                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
+                      }`}
+                    >
+                      <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
+
+                      <div className="category-caption">
+                        <div className="text-center">
+                          <h2 className="font-display font-black text-xl text-[#291B40]">{cat.name}</h2>
+                          {cat.description && (
+                            <p className="text-xs font-medium text-[#291B40]/65 mt-0.5 line-clamp-1">
+                              {cat.description}
+                            </p>
+                          )}
+                        </div>
+
+                        <div className="point-strip">
+                          {catTiles.map((tile) => {
+                            const winnerTeam = tile.wonByTeamId
+                              ? state.teams.find((t) => t.id === tile.wonByTeamId)
+                              : null;
+                            const tierLabel =
+                              tile.points === 200 ? 'سهل' : tile.points === 400 ? 'متوسط' : 'صعب';
+                            return (
+                              <div key={tile.questionId} className="flex flex-col gap-1">
+                                <button
+                                  type="button"
+                                  disabled={!isHost || tile.used}
+                                  data-used={tile.used}
+                                  aria-label={cat.name + ' · ' + tile.points + ' نقطة' + (tile.used ? ' · مستهلك' : '')}
+                                  onClick={() => {
+                                    soundFX.playClick();
+                                    sendCommand('SELECT_TILE', { questionId: tile.questionId });
+                                  }}
+                                  className={`game-btn-3d rounded-xl py-2.5 px-1 flex flex-col items-center justify-center font-display font-black cursor-pointer ${
+                                    tile.used
+                                      ? 'bg-[#E5E2D9] text-[#291B40]/45 !shadow-none'
+                                      : tile.points === 200
+                                        ? 'bg-[#7042A1] text-white'
+                                        : tile.points === 400
+                                          ? 'bg-[#5E3591] text-white'
+                                          : 'bg-[#42206B] text-[#FFD95A]'
+                                  }`}
+                                >
+                                  <span className="text-lg md:text-xl tabular-nums leading-none">
+                                    {tile.used ? '✓ ' : ''}{tile.points}
+                                  </span>
+                                  <span className="text-[11px] font-bold opacity-90 mt-0.5">
+                                    {winnerTeam ? winnerTeam.name : tile.skipped ? 'مُتخطّى' : tierLabel}
+                                  </span>
+                                </button>
+
+                                {isHost && tile.used && (
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      sendCommand('REOPEN_CORRECTION', { questionId: tile.questionId })
+                                    }
+                                    className="text-[10px] font-bold text-[#7042A1] hover:underline cursor-pointer text-center"
+                                  >
+                                    تصحيح
+                                  </button>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+                </div>
+              )}
             </section>
           )}
 
@@ -465,6 +764,11 @@ export function GameArena({
                       <span className="bg-white border-2 border-[#291B40] px-3 py-1 rounded-xl text-xs font-black">
                         {roundMeta.categoryName}
                       </span>
+                      {(roundMeta.subtopic || roundMeta.sourceRef) && (
+                        <span className="bg-[#FFD95A] text-[#291B40] border-2 border-[#291B40] px-3 py-1 rounded-xl text-xs font-black">
+                          الموضوع الفرعي: {roundMeta.subtopic || roundMeta.sourceRef}
+                        </span>
+                      )}
                       <span className="bg-[#EDE7F6] border-2 border-[#291B40] px-3 py-1 rounded-xl text-xs font-black text-[#7042A1]">
                         {QUESTION_TYPE_LABELS[roundMeta.questionType]}
                       </span>

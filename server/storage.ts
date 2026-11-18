@@ -26,13 +26,32 @@ export function currentLibraryId() {
 // Other browsers get a private library. Paired room links work on every device.
 export const selectLibrary: RequestHandler = (req, res, next) => {
   const cookie = /(?:^|; *)yh_library=([a-f0-9]{64})(?:;|$)/.exec(req.headers.cookie ?? '');
-  const key = cookie?.[1] ?? randomBytes(32).toString('hex');
-  if (!cookie) res.cookie('yh_library', key, { httpOnly: true, sameSite: 'strict', secure: req.secure, maxAge: 31536000000 });
+  const headerRaw = req.headers['x-yh-library'];
+  const headerKey =
+    typeof headerRaw === 'string' && /^[a-f0-9]{64}$/.test(headerRaw.trim())
+      ? headerRaw.trim()
+      : undefined;
+  const key = cookie?.[1] ?? headerKey ?? randomBytes(32).toString('hex');
+  const isHttps = req.secure || req.headers['x-forwarded-proto'] === 'https';
+  if (!cookie) {
+    res.cookie('yh_library', key, {
+      httpOnly: true,
+      sameSite: isHttps ? 'none' : 'lax',
+      secure: isHttps,
+      maxAge: 31536000000,
+    });
+  }
   fs.mkdirSync(DATA_DIR, { recursive: true });
   const ownerPath = path.join(DATA_DIR, '.library-owner');
-  const local = ['::1', '127.0.0.1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress ?? '') &&
-    ['localhost', '127.0.0.1', '[::1]'].includes(req.hostname) && !req.headers.forwarded && !req.headers['x-forwarded-for'];
-  if (local && !fs.existsSync(ownerPath)) {
+  const local =
+    ['::1', '127.0.0.1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress ?? '') &&
+    ['localhost', '127.0.0.1', '[::1]'].includes(req.hostname) &&
+    !req.headers.forwarded &&
+    !req.headers['x-forwarded-for'];
+  if (local && !cookie && !headerKey && !fs.existsSync(ownerPath)) {
+    try { fs.writeFileSync(ownerPath, key, { flag: 'wx', mode: 0o600 }); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
+  } else if (local && !fs.existsSync(ownerPath) && cookie) {
     try { fs.writeFileSync(ownerPath, key, { flag: 'wx', mode: 0o600 }); }
     catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
   }
@@ -42,9 +61,11 @@ export const selectLibrary: RequestHandler = (req, res, next) => {
 };
 
 let migrationChecked = false;
+const SHARED_PDF_CACHE_DIR = path.join(DATA_DIR, 'shared-pdf-cache');
 
 function ensureDirs(): void {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+  if (!fs.existsSync(SHARED_PDF_CACHE_DIR)) fs.mkdirSync(SHARED_PDF_CACHE_DIR, { recursive: true });
   if (!fs.existsSync(libraryPath('pdf-cache'))) fs.mkdirSync(libraryPath('pdf-cache'), { recursive: true });
   if (!fs.existsSync(libraryPath('pdf-plans'))) fs.mkdirSync(libraryPath('pdf-plans'), { recursive: true });
   backupLegacyV1Once();
@@ -96,20 +117,66 @@ export interface CachedPdfPlan {
 
 export function saveCachedPdfText(entry: CachedPdfText): void {
   ensureDirs();
+  const payload = JSON.stringify(entry, null, 2);
   const target = path.join(libraryPath('pdf-cache'), `${entry.fileHash}.json`);
-  fs.writeFileSync(target, JSON.stringify(entry, null, 2), 'utf-8');
+  fs.writeFileSync(target, payload, 'utf-8');
+  // Mirror by cryptographic 256-bit fileHash so session/cookie edge cases never lose extracted text
+  const sharedTarget = path.join(SHARED_PDF_CACHE_DIR, `${entry.fileHash}.json`);
+  fs.writeFileSync(sharedTarget, payload, 'utf-8');
 }
 
 export function getCachedPdfText(fileHash: string): CachedPdfText | null {
   ensureDirs();
   if (!/^[a-f0-9]{64}$/.test(fileHash)) return null;
   const target = path.join(libraryPath('pdf-cache'), `${fileHash}.json`);
-  if (!fs.existsSync(target)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(target, 'utf-8')) as CachedPdfText;
-  } catch {
-    return null;
+  const sharedTarget = path.join(SHARED_PDF_CACHE_DIR, `${fileHash}.json`);
+  const rootTarget = path.join(DATA_DIR, 'pdf-cache', `${fileHash}.json`);
+  const candidates: string[] = [];
+  if (fs.existsSync(target)) candidates.push(target);
+  if (fs.existsSync(sharedTarget)) candidates.push(sharedTarget);
+  if (fs.existsSync(rootTarget)) candidates.push(rootTarget);
+
+  const hasFastGemini = candidates.some((candidatePath) => {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(candidatePath, 'utf-8')) as CachedPdfText;
+      return Object.values(parsed.analyses ?? {}).some((a) => a?.extractionMethod === 'gemini_pdf');
+    } catch {
+      return false;
+    }
+  });
+
+  if (!hasFastGemini) {
+    const libsDir = path.join(DATA_DIR, 'libraries');
+    if (fs.existsSync(libsDir)) {
+      for (const libName of fs.readdirSync(libsDir)) {
+        const candidate = path.join(libsDir, libName, 'pdf-cache', `${fileHash}.json`);
+        if (fs.existsSync(candidate)) candidates.push(candidate);
+      }
+    }
   }
+
+  let best: CachedPdfText | null = null;
+  for (const candidatePath of candidates) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(candidatePath, 'utf-8')) as CachedPdfText;
+      const hasGeminiReport = Object.values(parsed.analyses ?? {}).some(
+        (a) => a?.extractionMethod === 'gemini_pdf',
+      );
+      if (!best) {
+        best = parsed;
+      } else {
+        const bestHasGemini = Object.values(best.analyses ?? {}).some(
+          (a) => a?.extractionMethod === 'gemini_pdf',
+        );
+        if ((hasGeminiReport && !bestHasGemini) || (hasGeminiReport === bestHasGemini && parsed.cachedAt > best.cachedAt)) {
+          best = parsed;
+        }
+      }
+    } catch {
+      // Skip corrupt cache file
+    }
+  }
+  return best;
 }
 
 export function saveCachedPdfPlan(entry: CachedPdfPlan): void {

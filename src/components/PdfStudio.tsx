@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
   AlertTriangle,
   ArrowRight,
@@ -17,6 +17,7 @@ import {
   XCircle,
 } from 'lucide-react';
 import {
+  isCategoryTeamMatrixDeck,
   pointsForDifficulty,
   QUESTION_TYPE_LABELS,
 } from '../game/pdfValidation';
@@ -31,12 +32,29 @@ import type {
   QuizQuestion,
 } from '../game/types';
 import { soundFX } from '../utils/sound';
+import { GameAssistantBot } from './GameAssistantBot';
 
 interface PdfStudioProps {
   initialDeck?: QuizDeck | null;
   onBack: () => void;
   onDeckSaved: (deck: QuizDeck) => void;
   onPlayDeck: (deckId: string) => void;
+}
+
+async function parseApiJson<T>(res: Response): Promise<T> {
+  const raw = await res.text();
+  if (!raw.trim()) {
+    throw new Error(`استجابة فارغة من الخادم (${res.status}).`);
+  }
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    throw new Error(
+      res.ok
+        ? 'تعذر قراءة استجابة الخادم بصيغة JSON.'
+        : `تعذر إكمال الطلب (${res.status}). حاول مجددًا.`,
+    );
+  }
 }
 
 export function PdfStudio({
@@ -50,19 +68,32 @@ export function PdfStudio({
   );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [ageGroup, setAgeGroup] = useState<AgeGroup>(initialDeck?.ageGroup ?? 'mixed');
-  const [desiredCategoryCount, setDesiredCategoryCount] = useState<number>(5);
+  const [teamCount, setTeamCount] = useState<number>(
+    initialDeck?.teamCount ?? (initialDeck?.boardMode === 'team_bundles' ? initialDeck.categories.length : 3),
+  );
+  const [focusedQuestionId, setFocusedQuestionId] = useState<string | null>(null);
 
   const [analysis, setAnalysis] = useState<PdfAnalysisReport | null>(
     initialDeck?.pdfAnalysis ?? null,
   );
+  const [rawText, setRawText] = useState<string>('');
+  const [extractedPages, setExtractedPages] = useState<Array<{ num: number; text: string }>>([]);
   const [plan, setPlan] = useState<BoardPlanPreview | null>(
     initialDeck?.boardPlan ?? null,
   );
   const [deck, setDeck] = useState<QuizDeck | null>(initialDeck ?? null);
 
   const [busyMessage, setBusyMessage] = useState<string | null>(null);
+  const [genProgress, setGenProgress] = useState<{
+    categoryIndex: number;
+    totalCategories: number;
+    generatedCount: number;
+    targetCount: number;
+    message: string;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [statusBanner, setStatusBanner] = useState<string | null>(null);
+  const inFlightRef = useRef(false);
 
   const [selectedQuestionId, setSelectedQuestionId] = useState('');
   const [renaming, setRenaming] = useState(false);
@@ -86,96 +117,196 @@ export function PdfStudio({
     };
   }, [deck]);
 
-  // STAGE 1: Upload & Analyze PDF
+  // STAGE 1: Upload & Extract/Analyze PDF via Gemini
   const handleAnalyzePdf = async (file = selectedFile) => {
+    if (inFlightRef.current) return;
     if (!file) {
       setError('يرجى اختيار ملف PDF أولًا.');
       return;
     }
+    const lowerName = file.name.toLowerCase();
+    if (!lowerName.endsWith('.pdf') && file.type !== 'application/pdf') {
+      setError('يرجى اختيار ملف بصيغة PDF صالحة (.pdf).');
+      return;
+    }
+    if (file.size === 0) {
+      setError('الملف المحدد فارغ.');
+      return;
+    }
+    if (file.size > 20 * 1024 * 1024) {
+      setError('حجم ملف الـ PDF يتجاوز الحد الأقصى المسموح به (20 ميجابايت).');
+      return;
+    }
+    inFlightRef.current = true;
     setError(null);
     setStatusBanner(null);
-    setBusyMessage('المرحلة 1/4: جارٍ استخراج النص وتحليل مفاهيم الدرس...');
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('ageGroup', ageGroup);
+      setBusyMessage('المرحلة 1/4: جارٍ استخراج النص والجداول والمواضيع الرئيسية والفرعية عبر Gemini...');
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('ageGroup', ageGroup);
 
-      const res = await fetch('/api/pdf/analyze', { method: 'POST', body: formData });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'تعذر تحليل ملف PDF.');
+        const res = await fetch('/api/pdf/extract', { method: 'POST', body: formData });
+        const data = await parseApiJson<{
+          error?: string;
+          report?: PdfAnalysisReport;
+          rawText?: string;
+          pages?: Array<{ num: number; text: string }>;
+          cachedPlan?: BoardPlanPreview | null;
+        }>(res);
+        if (!res.ok || !data.report) throw new Error(data.error || 'تعذر تحليل ملف PDF.');
 
-      setAnalysis(data.report);
-      setDeck(null);
-      setPlan(null);
-      if (data.cachedPlan) setPlan(data.cachedPlan);
-      soundFX.playSurprise();
-      setStep('analysis');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'خطأ في تحليل PDF.');
-    } finally {
-      setBusyMessage(null);
-    }
-  };
+        setAnalysis(data.report);
+        setRawText(typeof data.rawText === 'string' ? data.rawText : '');
+        setExtractedPages(Array.isArray(data.pages) ? data.pages : []);
+        setDeck(null);
+        setPlan(data.cachedPlan ?? null);
+        soundFX.playSurprise();
+        setStep('analysis');
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'خطأ في تحليل PDF.');
+      } finally {
+        inFlightRef.current = false;
+        setBusyMessage(null);
+      }
+    };
 
-  // STAGE 2 & 3 -> STAGE 4 Plan Preview
-  const handleBuildBoardPlan = async () => {
-    if (!analysis) return;
-    setError(null);
-    setBusyMessage('المرحلة 2–3/4: اشتقاق الفئات وفحص سعة 200 / 400 / 600...');
-    try {
-      const res = await fetch('/api/pdf/plan-board', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fileHash: analysis.fileHash,
-          analysis,
-          desiredCategoriesCount: desiredCategoryCount,
-          ageGroup,
-        }),
+    // STAGE 2 & 3 -> STAGE 4 Plan Preview (Mandatory 5 Core Categories × Team Count)
+    const handleBuildBoardPlan = async () => {
+      if (!analysis || inFlightRef.current) return;
+      inFlightRef.current = true;
+      setError(null);
+      setStatusBanner(null);
+      setBusyMessage(`المرحلة 2–3/4: تصميم خطة الفئات الـ 5 الرئيسية لـ ${teamCount} فرق متنافسة...`);
+      try {
+        const res = await fetch('/api/pdf/plan-board', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileHash: analysis.fileHash,
+            analysis,
+            teamCount,
+            ageGroup,
+            ...(rawText ? { rawText } : {}),
+            ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
+          }),
+        });
+        const data = await parseApiJson<{ error?: string; plan?: BoardPlanPreview }>(res);
+        if (!res.ok || !data.plan) throw new Error(data.error || 'تعذر بناء خطة الفئات الـ 5.');
+        setPlan(data.plan);
+        soundFX.playClick();
+        setStep('plan');
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'تعذر إعداد خطة الفئات الـ 5.');
+      } finally {
+        inFlightRef.current = false;
+        setBusyMessage(null);
+      }
+    };
+
+    // STAGE 4 Execution: Sequential 5-Category Batches via SSE + Self-Healing Validation
+    const handleGenerateBoard = async () => {
+      if (!analysis || !plan || inFlightRef.current) return;
+      inFlightRef.current = true;
+      setError(null);
+      setStatusBanner(null);
+      const effectiveTeams = plan.teamCount || teamCount || 3;
+      const targetCount = plan.categories.length * effectiveTeams * 3;
+      setGenProgress({
+        categoryIndex: 1,
+        totalCategories: plan.categories.length,
+        generatedCount: 0,
+        targetCount,
+        message: `جاري توليد أسئلة الفئة 1 من ${plan.categories.length}...`,
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'تعذر بناء خطة اللوحة.');
-      setPlan(data.plan);
-      soundFX.playClick();
-      setStep('plan');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'تعذر إعداد خطة اللوحة.');
-    } finally {
-      setBusyMessage(null);
-    }
-  };
+      setBusyMessage(`جاري توليد مصفوفة ${targetCount} سؤالًا (${plan.categories.length} فئات × ${effectiveTeams} فرق)...`);
 
-  // STAGE 4 Execution: Generate Board Questions
-  const handleGenerateBoard = async () => {
-    if (!analysis || !plan) return;
-    setError(null);
-    setBusyMessage('المرحلة 4/4: جارٍ توليد أسئلة اللوحة والاحتياطي وحفظ كل دفعة...');
-    try {
-      const res = await fetch('/api/pdf/generate-board', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fileHash: analysis.fileHash,
-          analysis,
-          plan,
-          ageGroup,
-          includeBackups: true,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'تعذر توليد لوحة الأسئلة.');
+      try {
+        const res = await fetch('/api/pdf/generate-board', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileHash: analysis.fileHash,
+            analysis,
+            plan,
+            ageGroup,
+            includeBackups: false,
+            stream: true,
+            ...(rawText ? { rawText } : {}),
+            ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
+          }),
+        });
 
-      setDeck(data.deck);
-      onDeckSaved(data.deck);
-      setStatusBanner(data.message);
-      soundFX.playCorrect();
-      setStep('review');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'خطأ في التوليد.');
-    } finally {
-      setBusyMessage(null);
-    }
-  };
+        const contentType = res.headers.get('content-type') || '';
+        let finalData: { error?: string; deck?: QuizDeck; message?: string } | null = null;
+
+        if (contentType.includes('text/event-stream') && res.body) {
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const blocks = buffer.split('\n\n');
+            buffer = blocks.pop() ?? '';
+
+            for (const block of blocks) {
+              const lines = block.split('\n');
+              let evName = 'message';
+              let evData = '';
+              for (const line of lines) {
+                if (line.startsWith('event:')) evName = line.slice(6).trim();
+                else if (line.startsWith('data:')) evData += line.slice(5).trim();
+              }
+              if (!evData) continue;
+              const payload = JSON.parse(evData) as {
+                categoryIndex?: number;
+                totalCategories?: number;
+                generatedCount?: number;
+                targetCount?: number;
+                message?: string;
+                deck?: QuizDeck;
+                error?: string;
+              };
+              if (evName === 'progress') {
+                setGenProgress({
+                  categoryIndex: payload.categoryIndex ?? 1,
+                  totalCategories: payload.totalCategories ?? plan.categories.length,
+                  generatedCount: payload.generatedCount ?? 0,
+                  targetCount: payload.targetCount ?? targetCount,
+                  message: payload.message || 'جاري توليد الأسئلة...',
+                });
+                if (payload.message) setBusyMessage(payload.message);
+              } else if (evName === 'done') {
+                finalData = payload;
+              } else if (evName === 'error') {
+                throw new Error(payload.error || 'تعذر توليد مصفوفة الأسئلة.');
+              }
+            }
+          }
+        } else {
+          finalData = await parseApiJson<{ error?: string; deck?: QuizDeck; message?: string }>(res);
+          if (!res.ok) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
+        }
+
+        if (!finalData?.deck) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
+
+        setDeck(finalData.deck);
+        setFocusedQuestionId(null);
+        onDeckSaved(finalData.deck);
+        setStatusBanner(finalData.message ?? null);
+        soundFX.playCorrect();
+        setStep('review');
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'خطأ في التوليد.');
+      } finally {
+        inFlightRef.current = false;
+        setBusyMessage(null);
+        setGenProgress(null);
+      }
+    };
 
   const handleRegenerateAction = async (
     action:
@@ -191,6 +322,7 @@ export function PdfStudio({
   ) => {
     if (!deck) return;
     setError(null);
+    setStatusBanner(null);
     setBusyMessage('جارٍ تنفيذ التحديث الذكي مع الحفاظ على جميع الأسئلة المعتمدة...');
     try {
       const res = await fetch('/api/pdf/regenerate', {
@@ -202,7 +334,16 @@ export function PdfStudio({
           ...extra,
         }),
       });
-      const data = await res.json();
+      const data = await parseApiJson<{
+        error?: string;
+        deck?: QuizDeck;
+        message?: string;
+        candidate?: {
+          oldQuestionId: string;
+          oldQuestion: QuizQuestion;
+          candidateQuestion: QuizQuestion;
+        };
+      }>(res);
       if (!res.ok) throw new Error(data.error || 'تعذر تنفيذ العملية.');
       if (data.candidate) {
         setCandidateSwap(data.candidate);
@@ -210,7 +351,7 @@ export function PdfStudio({
         setDeck(data.deck);
         onDeckSaved(data.deck);
       }
-      setStatusBanner(data.message);
+      setStatusBanner(data.message ?? null);
       soundFX.playClick();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'خطأ أثناء إعادة التوليد.');
@@ -221,6 +362,7 @@ export function PdfStudio({
 
   const handleConfirmSwap = async () => {
     if (!deck || !candidateSwap) return;
+    setError(null);
     try {
       const res = await fetch(
         `/api/decks/${deck.id}/questions/${candidateSwap.oldQuestionId}/confirm-replace`,
@@ -230,10 +372,13 @@ export function PdfStudio({
           body: JSON.stringify({ candidateQuestion: candidateSwap.candidateQuestion }),
         },
       );
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'تعذر الاستبدال.');
+      const data = await parseApiJson<{ error?: string; deck?: QuizDeck }>(res);
+      if (!res.ok || !data.deck) throw new Error(data.error || 'تعذر الاستبدال.');
       setDeck(data.deck);
       onDeckSaved(data.deck);
+      if (selectedQuestionId === candidateSwap.oldQuestionId) {
+        setSelectedQuestionId(candidateSwap.candidateQuestion.id);
+      }
       setCandidateSwap(null);
       setStatusBanner('تم اعتماد السؤال البديل بنجاح.');
     } catch (err) {
@@ -243,42 +388,70 @@ export function PdfStudio({
 
   const updateQuestionStatus = async (questionId: string, status: CardStatus) => {
     if (!deck) return;
-    const res = await fetch(`/api/decks/${deck.id}/questions/${questionId}/status`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
-    });
-    const data = await res.json();
-    if (res.ok && data.deck) {
-      setDeck(data.deck);
-      onDeckSaved(data.deck);
+    setError(null);
+    try {
+      const res = await fetch(`/api/decks/${deck.id}/questions/${questionId}/status`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      const data = await parseApiJson<{ error?: string; deck?: QuizDeck }>(res);
+      if (!res.ok) throw new Error(data.error || 'تعذر تحديث حالة السؤال.');
+      if (data.deck) {
+        setDeck(data.deck);
+        onDeckSaved(data.deck);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'تعذر تحديث حالة السؤال.');
     }
   };
 
   const saveQuestionEdit = async () => {
     if (!deck || !editingQuestionId) return;
-    const res = await fetch(`/api/decks/${deck.id}/questions/${editingQuestionId}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(editDraft),
-    });
-    const data = await res.json();
-    if (res.ok && data.deck) {
-      setDeck(data.deck);
-      onDeckSaved(data.deck);
-      setEditingQuestionId(null);
-      setStatusBanner('تم حفظ تعديل السؤال.');
+    setError(null);
+    try {
+      const res = await fetch(`/api/decks/${deck.id}/questions/${editingQuestionId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editDraft),
+      });
+      const data = await parseApiJson<{ error?: string; deck?: QuizDeck }>(res);
+      if (!res.ok) throw new Error(data.error || 'تعذر حفظ تعديل السؤال.');
+      if (data.deck) {
+        setDeck(data.deck);
+        onDeckSaved(data.deck);
+        setEditingQuestionId(null);
+        setStatusBanner('تم حفظ تعديل السؤال.');
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'تعذر حفظ تعديل السؤال.');
     }
   };
 
-  const approveAllPending = async () => {
+  const approveAllPending = async (launchMatch = false) => {
     if (!deck) return;
-    const res = await fetch(`/api/decks/${deck.id}/approve-all`, { method: 'POST' });
-    const data = await res.json();
-    if (res.ok && data.deck) {
-      setDeck(data.deck);
-      onDeckSaved(data.deck);
-      setStatusBanner('تم اعتماد جميع الأسئلة التي كانت بانتظار المراجعة.');
+    setError(null);
+    try {
+      let targetDeck = deck;
+      if (deck.questions.some((q) => q.status === 'needs_review')) {
+        const res = await fetch(`/api/decks/${deck.id}/approve-all`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ confirmSensitive: true }),
+        });
+        const data = await parseApiJson<{ error?: string; deck?: QuizDeck }>(res);
+        if (!res.ok || !data.deck) throw new Error(data.error || 'تعذر اعتماد الأسئلة.');
+        targetDeck = data.deck;
+        setDeck(data.deck);
+        onDeckSaved(data.deck);
+        setStatusBanner('تم اعتماد جميع الأسئلة بنجاح.');
+      }
+      if (launchMatch) {
+        soundFX.playStartRound();
+        onPlayDeck(targetDeck.id);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'تعذر اعتماد الأسئلة.');
     }
   };
 
@@ -287,14 +460,17 @@ export function PdfStudio({
       <div className="max-w-6xl mx-auto">
         {/* Header & 4-Step Indicator */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <button
-            type="button"
-            onClick={onBack}
-            className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-4 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer"
-          >
-            <ArrowRight className="w-4 h-4" />
-            <span>العودة</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onBack}
+              className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-4 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer"
+            >
+              <ArrowRight className="w-4 h-4" />
+              <span>العودة</span>
+            </button>
+            <GameAssistantBot compact />
+          </div>
 
           <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
             استوديو تحويل PDF إلى مسابقة «يمكن هاي»
@@ -304,8 +480,8 @@ export function PdfStudio({
             {[
               { id: 'upload', label: '1. رفع PDF' },
               { id: 'analysis', label: '2. التحليل' },
-              { id: 'plan', label: '3. خطة اللوحة' },
-              { id: 'review', label: '4. المراجعة والتشغيل' },
+              { id: 'plan', label: '3. الفئات الـ 5' },
+              { id: 'review', label: '4. المصفوفة والبدء' },
             ].map((s) => (
               <span
                 key={s.id}
@@ -320,9 +496,36 @@ export function PdfStudio({
         </div>
 
         {busyMessage && (
-          <div className="game-card-frame-sm rounded-2xl p-4 mb-5 flex items-center gap-3 bg-[#EDE7F6]">
-            <Loader2 className="w-6 h-6 text-[#7042A1] animate-spin shrink-0" />
-            <span className="font-display font-black text-base text-[#291B40]">{busyMessage}</span>
+          <div className="game-card-frame-sm rounded-2xl p-4 mb-5 space-y-2.5 bg-[#EDE7F6]">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <Loader2 className="w-6 h-6 text-[#7042A1] animate-spin shrink-0" />
+                <span className="font-display font-black text-base text-[#291B40]">{busyMessage}</span>
+              </div>
+              {genProgress && (
+                <span className="text-xs font-black bg-[#FFD95A] border-2 border-[#291B40] px-2.5 py-1 rounded-lg tabular-nums shrink-0">
+                  {genProgress.generatedCount} / {genProgress.targetCount} سؤال
+                </span>
+              )}
+            </div>
+            {genProgress && (
+              <div className="w-full h-3 bg-white border-2 border-[#291B40] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-[#00B978] transition-all duration-300"
+                  style={{
+                    width: `${Math.min(
+                      100,
+                      Math.max(
+                        8,
+                        Math.round(
+                          (genProgress.categoryIndex / Math.max(1, genProgress.totalCategories)) * 100,
+                        ),
+                      ),
+                    )}%`,
+                  }}
+                />
+              </div>
+            )}
           </div>
         )}
 
@@ -347,8 +550,9 @@ export function PdfStudio({
               <FileSearch className="w-12 h-12 text-[#7042A1] mx-auto" />
               <h2 className="font-display font-black text-2xl">ارفع ملف الدرس أو الملزمة (PDF)</h2>
               <p className="text-sm font-medium text-[#291B40]/80">
-                سيقوم المحرك بتحليل موضوعات الملف الفعلية أيًا كان تخصصه، ثم فحص سعة كل فئة
-                قبل اقتراح لوحة 200 / 400 / 600 للموافقة المسبقة.
+                سيقرأ المحرك كامل صفحات الدرس بعمق ويقسمه إلزاميًا إلى 5 فئات رئيسية شاملة، ثم يولّد
+                لكل فريق داخل كل فئة 3 أسئلة متكافئة (سهل 200 / متوسط 400 / صعب 600) مع تحقق ذاتي يمنع
+                أي فراغ أو تكرار.
               </p>
             </div>
 
@@ -362,13 +566,14 @@ export function PdfStudio({
               </span>
               <input
                 type="file"
-                disabled={Boolean(busyMessage)} accept=".pdf,application/pdf"
+                disabled={Boolean(busyMessage)}
+                accept=".pdf,application/pdf"
                 className="hidden"
                 onChange={(e) => {
                   const f = e.target.files?.[0] ?? null;
+                  e.target.value = '';
                   setSelectedFile(f);
                   if (f) void handleAnalyzePdf(f);
-                  setError(null);
                 }}
               />
             </label>
@@ -389,16 +594,18 @@ export function PdfStudio({
               </div>
 
               <div>
-                <label className="block text-sm font-bold mb-1.5">عدد الفئات المرغوب على اللوحة</label>
+                <label htmlFor="team-count-select" className="block text-sm font-bold mb-1.5">
+                  عدد الفرق المتنافسة (5 فئات × كل فريق × 3 مستويات)
+                </label>
                 <select
-                  value={desiredCategoryCount}
-                  onChange={(e) => setDesiredCategoryCount(Number(e.target.value))}
+                  id="team-count-select"
+                  value={teamCount}
+                  onChange={(e) => setTeamCount(Number(e.target.value))}
                   className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                 >
-                  <option value={3}>3 فئات (9 أسئلة سريعة)</option>
-                  <option value={4}>4 فئات (12 سؤالًا)</option>
-                  <option value={5}>5 فئات (15 سؤالًا — افتراضي)</option>
-                  <option value={6}>6 فئات (18 سؤالًا)</option>
+                  <option value={2}>فريقان (5 فئات × 2 × 3 = 30 سؤالًا)</option>
+                  <option value={3}>3 فرق (5 فئات × 3 × 3 = 45 سؤالًا — افتراضي)</option>
+                  <option value={4}>4 فرق (5 فئات × 4 × 3 = 60 سؤالًا)</option>
                 </select>
               </div>
             </div>
@@ -410,7 +617,7 @@ export function PdfStudio({
               className="game-btn-3d w-full bg-[#7042A1] text-white font-display font-black text-xl py-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-6 h-6" />
-              <span>تحليل الملف واستخراج المحاور</span>
+              <span>تحليل الملف واستخراج مواضيع الدرس</span>
             </button>
           </div>
         )}
@@ -445,13 +652,38 @@ export function PdfStudio({
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              {analysis.hypotheticalSections && analysis.hypotheticalSections.length > 0 && (
+                <div className="bg-[#EDE7F6] border-2 border-[#7042A1] rounded-2xl p-3.5 space-y-1">
+                  <p className="text-xs font-black text-[#7042A1] flex items-center gap-1.5">
+                    <AlertTriangle className="w-4 h-4 shrink-0" />
+                    <span>تنبيه: يحتوي الملف على أمثلة أو بيانات افتراضية تدريبية (مفصولة عن الوقائع):</span>
+                  </p>
+                  <ul className="list-disc pr-5 text-xs font-bold text-[#291B40]/85 space-y-0.5">
+                    {analysis.hypotheticalSections.map((sec, idx) => (
+                      <li key={idx}>{sec}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
                 <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
                   <h3 className="font-display font-black text-sm text-[#7042A1] mb-2">
-                    الموضوعات الرئيسية ({analysis.mainTopics.length})
+                    مواضيع الدرس الرئيسية ({analysis.mainTopics.length})
                   </h3>
                   <ul className="space-y-1 text-xs font-bold list-disc pr-4">
                     {analysis.mainTopics.map((t, i) => (
+                      <li key={i}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                  <h3 className="font-display font-black text-sm text-[#F05B63] mb-2">
+                    المواضيع الفرعية ({analysis.subTopics.length})
+                  </h3>
+                  <ul className="space-y-1 text-xs font-bold list-disc pr-4">
+                    {analysis.subTopics.slice(0, 10).map((t, i) => (
                       <li key={i}>{t}</li>
                     ))}
                   </ul>
@@ -480,6 +712,17 @@ export function PdfStudio({
                 </div>
               </div>
 
+              {analysis.warnings.length > 0 && (
+                <div className="bg-[#FFF2CD]/70 border border-[#E59A00] rounded-2xl p-3 space-y-1">
+                  {analysis.warnings.map((w, i) => (
+                    <p key={i} className="text-xs font-bold text-[#291B40] flex items-start gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-[#E59A00] shrink-0 mt-0.5" />
+                      <span>{w}</span>
+                    </p>
+                  ))}
+                </div>
+              )}
+
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <button
                   type="button"
@@ -489,39 +732,48 @@ export function PdfStudio({
                   رفع ملف آخر
                 </button>
 
-                <button
-                  type="button"
-                  disabled={Boolean(busyMessage)}
-                  onClick={handleBuildBoardPlan}
-                  className="game-btn-3d bg-[#00B978] text-white font-display font-black text-lg px-7 py-3 rounded-2xl flex items-center gap-2 cursor-pointer"
-                >
-                  <Layers className="w-5 h-5" />
-                  <span>عرض خطة اللوحة وفحص السعة (قبل التوليد)</span>
-                </button>
+                <div className="flex flex-wrap items-center gap-3">
+                  <select
+                    aria-label="عدد الفرق المتنافسة"
+                    value={teamCount}
+                    onChange={(e) => setTeamCount(Number(e.target.value))}
+                    className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
+                  >
+                    <option value={2}>فريقان (30 سؤالًا)</option>
+                    <option value={3}>3 فرق (45 سؤالًا)</option>
+                    <option value={4}>4 فرق (60 سؤالًا)</option>
+                  </select>
+                  <button
+                    type="button"
+                    disabled={Boolean(busyMessage)}
+                    onClick={handleBuildBoardPlan}
+                    className="game-btn-3d bg-[#00B978] text-white font-display font-black text-lg px-7 py-3 rounded-2xl flex items-center gap-2 cursor-pointer"
+                  >
+                    <Layers className="w-5 h-5" />
+                    <span>بناء خطة الفئات الـ 5 × {teamCount} فرق</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* STEP 3/4: Pre-Approval Board Plan Preview */}
+        {/* STEP 3/4: Pre-Approval 5 Core Categories × N Teams Matrix Plan */}
         {step === 'plan' && plan && (
           <div className="space-y-5">
             <div className="game-card-frame rounded-3xl p-6 space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <h2 className="font-display font-black text-2xl">خطة لوحة المسابقة المقترحة (معاينة قبل التوليد)</h2>
+                  <h2 className="font-display font-black text-2xl">
+                    خطة الفئات الـ 5 الرئيسية ({plan.categories.length} فئات × {plan.teamCount || teamCount} فرق)
+                  </h2>
                   <p className="text-xs font-bold text-[#291B40]/75 mt-0.5">
-                    يمكنك تعديل أسماء الفئات أو وصفها قبل الضغط على «ولّد لوحة المسابقة»
+                    داخل كل فئة سيتم توليد 3 أسئلة لكل فريق (سهل 200 / متوسط 400 / صعب 600) بتكافؤ تام ودون تكرار.
                   </p>
                 </div>
-                <span
-                  className={`px-3 py-1.5 rounded-xl border-2 border-[#291B40] font-black text-xs ${
-                    plan.canBuildFull15Board ? 'bg-[#E8F8F2] text-[#00B978]' : 'bg-[#FFF2CD] text-[#E59A00]'
-                  }`}
-                >
-                  {plan.canBuildFull15Board
-                    ? `السعة تدعم ${plan.categories.length} فئات كاملة`
-                    : `ينصح بـ ${plan.recommendedCategoryCount} فئات وفق عمق الملف`}
+                <span className="px-3 py-1.5 rounded-xl border-2 border-[#291B40] font-black text-xs bg-[#E8F8F2] text-[#00B978]">
+                  {plan.categories.length} فئات × {plan.teamCount || teamCount} فرق × 3 ={' '}
+                  {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا
                 </span>
               </div>
 
@@ -547,15 +799,16 @@ export function PdfStudio({
                         className="text-[11px] font-black text-white px-2.5 py-0.5 rounded-md"
                         style={{ backgroundColor: cat.accentColor }}
                       >
-                        فئة {idx + 1} • حتى {cat.estimatedMaxQuestions} أسئلة
+                        الفئة {idx + 1} من {plan.categories.length}
                       </span>
                       <span className="text-[11px] font-bold text-[#291B40]/70">
-                        {cat.pantomimeSuitable ? 'تمثيل صامت متاح' : 'أسئلة معرفية فقط'}
+                        {(plan.teamCount || teamCount) * 3} أسئلة ({plan.teamCount || teamCount} فرق)
                       </span>
                     </div>
 
                     <input
                       type="text"
+                      aria-label={`اسم الفئة ${idx + 1}`}
                       value={cat.name}
                       onChange={(e) =>
                         setPlan((prev) =>
@@ -572,8 +825,9 @@ export function PdfStudio({
                       className="font-display font-black text-base border-2 border-[#291B40]/30 rounded-lg px-2.5 py-1 outline-none focus:border-[#7042A1]"
                     />
 
-                    <input
-                      type="text"
+                    <textarea
+                      rows={2}
+                      aria-label={`وصف الفئة ${idx + 1}`}
                       value={cat.description}
                       onChange={(e) =>
                         setPlan((prev) =>
@@ -587,37 +841,31 @@ export function PdfStudio({
                             : prev,
                         )
                       }
-                      className="text-xs font-medium border border-[#291B40]/20 rounded-lg px-2.5 py-1 outline-none"
+                      className="text-xs font-medium border border-[#291B40]/20 rounded-lg px-2.5 py-1.5 outline-none resize-none leading-relaxed"
                     />
 
-                    <div className="flex gap-1.5 text-[11px] font-black">
-                      <span
-                        className={`px-2 py-0.5 rounded border ${
-                          cat.supportsEasy200 ? 'bg-[#E8F8F2] border-[#00B978]' : 'bg-[#FFE5E7] border-[#F05B63]'
-                        }`}
-                      >
-                        200 {cat.supportsEasy200 ? '✓' : '!'}
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 rounded border ${
-                          cat.supportsMedium400 ? 'bg-[#E8F8F2] border-[#00B978]' : 'bg-[#FFE5E7] border-[#F05B63]'
-                        }`}
-                      >
-                        400 {cat.supportsMedium400 ? '✓' : '!'}
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 rounded border ${
-                          cat.supportsHard600 ? 'bg-[#E8F8F2] border-[#00B978]' : 'bg-[#FFE5E7] border-[#F05B63]'
-                        }`}
-                      >
-                        600 {cat.supportsHard600 ? '✓' : '!'}
-                      </span>
-                    </div>
-
-                    <div className="bg-[#FFF9E9] rounded-xl p-2.5 text-[11px] space-y-1 border border-[#291B40]/15">
-                      <p><strong>200:</strong> {cat.sample200}</p>
-                      <p><strong>400:</strong> {cat.sample400}</p>
-                      <p><strong>600:</strong> {cat.sample600}</p>
+                    <div className="bg-[#FFF9E9] rounded-xl p-2.5 text-[11px] space-y-1.5 border border-[#291B40]/15">
+                      <div>
+                        <span className="inline-block bg-[#00B978] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                          سهل 200
+                        </span>
+                        {cat.subtopic200 && <strong className="text-[#7042A1]">{cat.subtopic200}: </strong>}
+                        <span>{cat.sample200}</span>
+                      </div>
+                      <div>
+                        <span className="inline-block bg-[#279ED6] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                          متوسط 400
+                        </span>
+                        {cat.subtopic400 && <strong className="text-[#7042A1]">{cat.subtopic400}: </strong>}
+                        <span>{cat.sample400}</span>
+                      </div>
+                      <div>
+                        <span className="inline-block bg-[#7042A1] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                          صعب 600
+                        </span>
+                        {cat.subtopic600 && <strong className="text-[#7042A1]">{cat.subtopic600}: </strong>}
+                        <span>{cat.sample600}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -638,7 +886,9 @@ export function PdfStudio({
                   className="game-btn-3d bg-[#00B978] text-white font-display font-black text-xl px-8 py-3.5 rounded-2xl flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-6 h-6" />
-                  <span>ولّد لوحة المسابقة</span>
+                  <span>
+                    ولّد مصفوفة {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا (5 دفعات + تحقق ذاتي)
+                  </span>
                 </button>
               </div>
             </div>
@@ -672,10 +922,10 @@ export function PdfStudio({
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {stats.needsReview > 0 && !deck.pdfAnalysis?.isReligiousContent && (
+                  {stats.needsReview > 0 && (
                     <button
                       type="button"
-                      onClick={approveAllPending}
+                      onClick={() => void approveAllPending(false)}
                       className="game-btn-3d bg-[#FFD95A] text-[#291B40] px-3.5 py-2 rounded-xl font-black text-xs flex items-center gap-1.5 cursor-pointer"
                     >
                       <Check className="w-4 h-4" />
@@ -693,11 +943,11 @@ export function PdfStudio({
 
                   <button
                     type="button"
-                    onClick={() => onPlayDeck(deck.id)}
+                    onClick={() => void approveAllPending(true)}
                     className="game-btn-3d bg-[#00B978] text-white px-5 py-2 rounded-xl font-display font-black text-sm flex items-center gap-1.5 cursor-pointer"
                   >
                     <Play className="w-4 h-4 fill-current" />
-                    <span>إعداد مباراة بهذا البنك</span>
+                    <span>اعتماد الكل والبدء</span>
                   </button>
                 </div>
               </div>
@@ -730,18 +980,288 @@ export function PdfStudio({
                   <RefreshCw className="w-3.5 h-3.5 text-[#F05B63]" />
                   <span>إعادة توليد المرفوض فقط</span>
                 </button>
-                <select aria-label="السؤال المحدد" value={selectedQuestionId} onChange={e => setSelectedQuestionId(e.target.value)}>
-                  <option value="">اختر سؤالًا</option>
-                  {deck.questions.map(q => <option key={q.id} value={q.id}>{q.categoryName} · {q.points} · {q.prompt.slice(0,30)}</option>)}
+                <select
+                  aria-label="السؤال المحدد"
+                  value={selectedQuestionId}
+                  onChange={(e) => setSelectedQuestionId(e.target.value)}
+                  className="bg-white border-2 border-[#291B40] rounded-xl px-2.5 py-1.5 text-xs font-bold max-w-[230px]"
+                >
+                  <option value="">اختر سؤالًا للتعديل الذكي</option>
+                  {deck.questions.map((q) => (
+                    <option key={q.id} value={q.id}>
+                      {q.categoryName} · {q.points} · {q.prompt.slice(0, 30)}
+                    </option>
+                  ))}
                 </select>
-                <button disabled={!selectedQuestionId || !!busyMessage} onClick={() => handleRegenerateAction('regenerate_question',{questionId:selectedQuestionId})}>استبدال المحدد</button>
-                <button disabled={!selectedQuestionId || !!busyMessage} onClick={() => handleRegenerateAction('improve_wording',{questionId:selectedQuestionId})}>تحسين السؤال</button>
-                <select aria-label="تغيير صعوبة السؤال" value="" disabled={!selectedQuestionId || !!busyMessage} onChange={e => handleRegenerateAction('change_difficulty',{questionId:selectedQuestionId,targetDifficulty:e.target.value as Difficulty})}>
-                  <option value="">تغيير الصعوبة</option><option value="easy">سهل · 200</option><option value="medium">متوسط · 400</option><option value="hard">صعب · 600</option>
+                <button
+                  type="button"
+                  disabled={!selectedQuestionId || Boolean(busyMessage)}
+                  onClick={() => handleRegenerateAction('regenerate_question', { questionId: selectedQuestionId })}
+                  className="bg-white border-2 border-[#291B40] hover:bg-[#FFF9E9] disabled:opacity-45 px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer"
+                >
+                  استبدال المحدد
+                </button>
+                <button
+                  type="button"
+                  disabled={!selectedQuestionId || Boolean(busyMessage)}
+                  onClick={() => handleRegenerateAction('improve_wording', { questionId: selectedQuestionId })}
+                  className="bg-white border-2 border-[#291B40] hover:bg-[#FFF9E9] disabled:opacity-45 px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer"
+                >
+                  تحسين السؤال
+                </button>
+                <select
+                  aria-label="تغيير صعوبة السؤال"
+                  value=""
+                  disabled={!selectedQuestionId || Boolean(busyMessage)}
+                  onChange={(e) => {
+                    const diff = e.target.value as Difficulty;
+                    if (diff) {
+                      void handleRegenerateAction('change_difficulty', {
+                        questionId: selectedQuestionId,
+                        targetDifficulty: diff,
+                      });
+                    }
+                  }}
+                  className="bg-white border-2 border-[#291B40] disabled:opacity-45 rounded-xl px-2.5 py-1.5 text-xs font-bold"
+                >
+                  <option value="">تغيير الصعوبة</option>
+                  <option value="easy">سهل · 200</option>
+                  <option value="medium">متوسط · 400</option>
+                  <option value="hard">صعب · 600</option>
                 </select>
-                <button onClick={() => {setCategoryNames({});setRenaming(!renaming)}}>تعديل الفئات</button>
-                {renaming && <div className="flex flex-wrap gap-2">{deck.categories.map(c => <input aria-label={c.name} key={c.id} value={categoryNames[c.id] ?? c.name} onChange={e=>setCategoryNames({...categoryNames,[c.id]:e.target.value})} />)}<button disabled={!!busyMessage} onClick={() => {void handleRegenerateAction('edit_categories',{updatedCategories:deck.categories.map(c=>({...c,name:categoryNames[c.id]?.trim() || c.name}))});setRenaming(false)}}>حفظ الفئات</button></div>}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCategoryNames({});
+                    setRenaming(!renaming);
+                  }}
+                  className="bg-white border-2 border-[#291B40] hover:bg-[#FFF9E9] px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer"
+                >
+                  تعديل أسماء الفرق
+                </button>
+                {renaming && (
+                  <div className="w-full flex flex-wrap items-center gap-2 pt-2 border-t border-[#291B40]/10">
+                    {deck.categories.map((c) => (
+                      <input
+                        aria-label={c.name}
+                        key={c.id}
+                        value={categoryNames[c.id] ?? c.name}
+                        onChange={(e) => setCategoryNames({ ...categoryNames, [c.id]: e.target.value })}
+                        className="bg-white border-2 border-[#291B40]/40 rounded-lg px-2.5 py-1 text-xs font-bold"
+                      />
+                    ))}
+                    <button
+                      type="button"
+                      disabled={Boolean(busyMessage)}
+                      onClick={() => {
+                        void handleRegenerateAction('edit_categories', {
+                          updatedCategories: deck.categories.map((c) => ({
+                            ...c,
+                            name: categoryNames[c.id]?.trim() || c.name,
+                          })),
+                        });
+                        setRenaming(false);
+                      }}
+                      className="bg-[#00B978] text-white border-2 border-[#291B40] px-3 py-1 rounded-lg text-xs font-black cursor-pointer"
+                    >
+                      حفظ الأسماء
+                    </button>
+                  </div>
+                )}
               </div>
+            </div>
+
+            {/* 5 Core Categories × Competing Team Bundles Matrix Preview */}
+            <div className="game-card-frame rounded-3xl p-5 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 className="font-display font-black text-lg text-[#291B40]">
+                    {isCategoryTeamMatrixDeck(deck)
+                      ? `مخطط المصفوفة: ${deck.categories.length} فئات رئيسية × ${deck.teamCount || 3} فرق`
+                      : 'مخطط حزم الأسئلة'}
+                  </h3>
+                  <p className="text-xs font-bold text-[#291B40]/70">
+                    اضغط على أي مستوى (200 / 400 / 600) لعرض تفاصيل السؤال وموضوعه الفرعي وشرحه
+                  </p>
+                </div>
+                {focusedQuestionId && (
+                  <button
+                    type="button"
+                    onClick={() => setFocusedQuestionId(null)}
+                    className="text-xs font-black text-[#7042A1] hover:underline cursor-pointer"
+                  >
+                    عرض كل الأسئلة ({deck.questions.length})
+                  </button>
+                )}
+              </div>
+
+              {isCategoryTeamMatrixDeck(deck) ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {deck.categories.map((cat, catIdx) => {
+                    const effectiveTeams = deck.teamCount || 3;
+                    const tiers: Array<{ diff: Difficulty; label: string; pts: number }> = [
+                      { diff: 'easy', label: 'سهل', pts: 200 },
+                      { diff: 'medium', label: 'متوسط', pts: 400 },
+                      { diff: 'hard', label: 'صعب', pts: 600 },
+                    ];
+                    const teamColors = ['#F05B63', '#279ED6', '#00B978', '#7042A1'];
+                    return (
+                      <div
+                        key={cat.id}
+                        className="bg-white border-[2.5px] border-[#291B40] rounded-2xl overflow-hidden shadow-[0_4px_0_#291B40] flex flex-col"
+                      >
+                        <div
+                          className="px-4 py-3 text-white border-b-2 border-[#291B40] flex items-center justify-between gap-2"
+                          style={{ backgroundColor: cat.accentColor }}
+                        >
+                          <span className="font-display font-black text-base leading-tight">
+                            {catIdx + 1}. {cat.name}
+                          </span>
+                          <span className="text-[11px] font-black bg-black/25 px-2 py-0.5 rounded-md shrink-0">
+                            {effectiveTeams * 3} أسئلة
+                          </span>
+                        </div>
+
+                        <div className="p-3 space-y-2.5 flex-1">
+                          {Array.from({ length: effectiveTeams }, (_, tIdx) => (
+                            <div
+                              key={tIdx}
+                              className="bg-[#FFF9E9] border border-[#291B40]/20 rounded-xl p-2 space-y-1.5"
+                            >
+                              <div className="flex items-center justify-between text-[11px] font-black">
+                                <span className="flex items-center gap-1.5">
+                                  <span
+                                    className="w-2.5 h-2.5 rounded-full inline-block border border-[#291B40]"
+                                    style={{ backgroundColor: teamColors[tIdx % teamColors.length] }}
+                                  />
+                                  <span>حزمة الفريق {tIdx + 1}</span>
+                                </span>
+                                <span className="text-[#291B40]/60">200 / 400 / 600</span>
+                              </div>
+                              <div className="grid grid-cols-3 gap-1.5">
+                                {tiers.map((tier) => {
+                                  const q =
+                                    deck.questions.find(
+                                      (item) =>
+                                        item.categoryId === cat.id &&
+                                        item.teamIndex === tIdx &&
+                                        item.difficulty === tier.diff &&
+                                        item.status !== 'rejected' &&
+                                        !item.isBackup,
+                                    ) ??
+                                    deck.questions.find(
+                                      (item) =>
+                                        item.categoryId === cat.id &&
+                                        item.teamIndex === tIdx &&
+                                        item.difficulty === tier.diff &&
+                                        item.status !== 'rejected',
+                                    );
+                                  const isFocused = q && focusedQuestionId === q.id;
+                                  return (
+                                    <button
+                                      key={tier.diff}
+                                      type="button"
+                                      disabled={!q}
+                                      onClick={() =>
+                                        q && setFocusedQuestionId(isFocused ? null : q.id)
+                                      }
+                                      className={`game-btn-3d rounded-lg py-1.5 px-1 flex flex-col items-center justify-center font-display font-black cursor-pointer ${
+                                        !q
+                                          ? 'bg-[#FFE5E7] text-[#F05B63]'
+                                          : isFocused
+                                            ? 'bg-[#FFD95A] text-[#291B40] ring-2 ring-[#7042A1]'
+                                            : q.status === 'approved'
+                                              ? 'bg-[#00B978] text-white'
+                                              : 'bg-[#7042A1] text-white'
+                                      }`}
+                                    >
+                                      <span className="text-sm tabular-nums leading-none">
+                                        {tier.pts}
+                                      </span>
+                                      <span className="text-[10px] font-bold mt-0.5">
+                                        {tier.label}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={`grid grid-cols-1 sm:grid-cols-2 ${deck.categories.length >= 3 ? 'lg:grid-cols-3' : ''} ${deck.categories.length === 4 ? 'xl:grid-cols-4' : ''} gap-4`}>
+                  {deck.categories.map((teamCol) => {
+                    const tiers: Array<{ diff: Difficulty; label: string; pts: number }> = [
+                      { diff: 'easy', label: 'سهل', pts: 200 },
+                      { diff: 'medium', label: 'متوسط', pts: 400 },
+                      { diff: 'hard', label: 'صعب', pts: 600 },
+                    ];
+                    return (
+                      <div
+                        key={teamCol.id}
+                        className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 space-y-3 shadow-[0_4px_0_#291B40]"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-display font-black text-lg text-[#291B40] flex items-center gap-2">
+                            <span
+                              className="w-3.5 h-3.5 rounded-full inline-block border border-[#291B40]"
+                              style={{ backgroundColor: teamCol.accentColor }}
+                            />
+                            <span>{teamCol.name}</span>
+                          </span>
+                          <span className="text-[11px] font-bold text-[#291B40]/65">
+                            3 أسئلة
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-2">
+                          {tiers.map((tier) => {
+                            const q =
+                              deck.questions.find(
+                                (item) =>
+                                  item.categoryId === teamCol.id &&
+                                  item.difficulty === tier.diff &&
+                                  item.status !== 'rejected' &&
+                                  !item.isBackup,
+                              ) ??
+                              deck.questions.find(
+                                (item) =>
+                                  item.categoryId === teamCol.id &&
+                                  item.difficulty === tier.diff &&
+                                  item.status !== 'rejected',
+                              );
+                            const isFocused = q && focusedQuestionId === q.id;
+                            return (
+                              <button
+                                key={tier.diff}
+                                type="button"
+                                disabled={!q}
+                                onClick={() => q && setFocusedQuestionId(q.id)}
+                                className={`game-btn-3d rounded-xl py-2 px-1 flex flex-col items-center justify-center font-display font-black cursor-pointer ${
+                                  !q
+                                    ? 'bg-[#FFE5E7] text-[#F05B63]'
+                                    : isFocused
+                                      ? 'bg-[#FFD95A] text-[#291B40] ring-2 ring-[#7042A1]'
+                                      : q.status === 'approved'
+                                        ? 'bg-[#00B978] text-white'
+                                        : 'bg-[#7042A1] text-white'
+                                }`}
+                              >
+                                <span className="text-base tabular-nums leading-none">{tier.pts}</span>
+                                <span className="text-[11px] font-bold mt-0.5">{tier.label}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Side-by-side Replacement Comparison Modal */}
@@ -785,8 +1305,12 @@ export function PdfStudio({
 
             {/* Questions Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {deck.questions.map((item) => {
+              {(focusedQuestionId
+                ? deck.questions.filter((q) => q.id === focusedQuestionId)
+                : deck.questions
+              ).map((item) => {
                 const isEditing = editingQuestionId === item.id;
+                const subtopicTitle = item.subtopic || item.sourceRef;
                 return (
                   <div
                     key={item.id}
@@ -798,9 +1322,19 @@ export function PdfStudio({
                           <span className="text-[11px] font-black bg-[#7042A1] text-white px-2 py-0.5 rounded-md">
                             {item.categoryName}
                           </span>
+                          {typeof item.teamIndex === 'number' && (
+                            <span className="text-[11px] font-black bg-[#291B40] text-[#FFD95A] px-2 py-0.5 rounded-md">
+                              فريق {item.teamIndex + 1}
+                            </span>
+                          )}
                           <span className="text-[11px] font-black bg-[#FFD95A] border border-[#291B40] px-2 py-0.5 rounded-md">
-                            {pointsForDifficulty(item.difficulty)}
+                            {item.difficulty === 'easy' ? 'سهل' : item.difficulty === 'medium' ? 'متوسط' : 'صعب'} {pointsForDifficulty(item.difficulty)}
                           </span>
+                          {subtopicTitle && (
+                            <span className="text-[11px] font-black bg-[#E8F8F2] text-[#007F52] border border-[#00B978]/40 px-2 py-0.5 rounded-md">
+                              الموضوع الفرعي: {subtopicTitle}
+                            </span>
+                          )}
                           <span className="text-[11px] font-bold bg-white border border-[#291B40]/30 px-2 py-0.5 rounded-md">
                             {QUESTION_TYPE_LABELS[item.questionType]}
                           </span>
@@ -830,12 +1364,39 @@ export function PdfStudio({
 
                       {isEditing ? (
                         <div className="space-y-2">
-                          <select aria-label="فئة السؤال" value={editDraft.categoryId ?? item.categoryId} onChange={e => {const cat = deck.categories.find(c => c.id === e.target.value)!;setEditDraft({...editDraft,categoryId:cat.id,categoryName:cat.name})}}>
-                            {deck.categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-                          </select>
-                          <select aria-label="نوع السؤال" value={editDraft.questionType ?? item.questionType} onChange={e => setEditDraft({...editDraft,questionType:e.target.value as QuestionType})}>
-                            {Object.entries(QUESTION_TYPE_LABELS).map(([v,name]) => <option key={v} value={v}>{name}</option>)}
-                          </select>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <select
+                              aria-label="فئة السؤال"
+                              value={editDraft.categoryId ?? item.categoryId}
+                              onChange={(e) => {
+                                const cat = deck.categories.find((c) => c.id === e.target.value);
+                                if (cat) {
+                                  setEditDraft({ ...editDraft, categoryId: cat.id, categoryName: cat.name });
+                                }
+                              }}
+                              className="w-full border-2 border-[#291B40]/40 rounded-xl p-1.5 text-xs font-bold bg-white"
+                            >
+                              {deck.categories.map((c) => (
+                                <option key={c.id} value={c.id}>
+                                  {c.name}
+                                </option>
+                              ))}
+                            </select>
+                            <select
+                              aria-label="نوع السؤال"
+                              value={editDraft.questionType ?? item.questionType}
+                              onChange={(e) =>
+                                setEditDraft({ ...editDraft, questionType: e.target.value as QuestionType })
+                              }
+                              className="w-full border-2 border-[#291B40]/40 rounded-xl p-1.5 text-xs font-bold bg-white"
+                            >
+                              {Object.entries(QUESTION_TYPE_LABELS).map(([v, name]) => (
+                                <option key={v} value={v}>
+                                  {name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
                           <textarea
                             rows={2}
                             value={editDraft.prompt ?? item.prompt}
@@ -916,7 +1477,14 @@ export function PdfStudio({
                           type="button"
                           onClick={() => {
                             setEditingQuestionId(item.id);
-                            setEditDraft({ prompt: item.prompt, answer: item.answer, hint: item.hint });
+                            setEditDraft({
+                              categoryId: item.categoryId,
+                              categoryName: item.categoryName,
+                              questionType: item.questionType,
+                              prompt: item.prompt,
+                              answer: item.answer,
+                              hint: item.hint,
+                            });
                           }}
                           className="bg-white border border-[#291B40]/30 px-2 py-1 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
                         >

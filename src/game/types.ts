@@ -77,6 +77,8 @@ export interface QuizQuestion {
   hint?: string;
   explanation?: string;
   timeLimitSeconds?: number;
+  subtopic?: string;
+  teamIndex?: number;
   sourceRef?: string;
   sourceSnippet?: string;
   pageNumber?: number;
@@ -85,6 +87,14 @@ export interface QuizQuestion {
   status: CardStatus;
   rejectionReason?: string;
   regeneratedCount?: number;
+}
+
+export interface SuggestedCategoryOutline {
+  name: string;
+  description: string;
+  iconKey: CategoryIconKey;
+  topicCoverage: string[];
+  hasHypotheticalData?: boolean;
 }
 
 export interface PdfAnalysisReport {
@@ -105,6 +115,9 @@ export interface PdfAnalysisReport {
   isReligiousContent: boolean;
   summary: string;
   warnings: string[];
+  hypotheticalSections?: string[];
+  suggestedCategories?: SuggestedCategoryOutline[];
+  extractionMethod?: 'gemini_pdf' | 'pdf_parse';
 }
 
 export interface BoardPlanCategory {
@@ -113,6 +126,10 @@ export interface BoardPlanCategory {
   description: string;
   iconKey: CategoryIconKey;
   accentColor: string;
+  teamIndex?: number;
+  subtopic200?: string;
+  subtopic400?: string;
+  subtopic600?: string;
   estimatedMaxQuestions: number;
   supportsEasy200: boolean;
   supportsMedium400: boolean;
@@ -128,6 +145,8 @@ export interface BoardPlanCategory {
 export interface BoardPlanPreview {
   fileHash: string;
   title: string;
+  boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
+  teamCount?: number;
   recommendedCategoryCount: number;
   categories: BoardPlanCategory[];
   canBuildFull15Board: boolean;
@@ -148,6 +167,8 @@ export interface QuizDeck {
   title: string;
   description: string;
   sourceType: 'starter' | 'curated' | 'pdf' | 'imported';
+  boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
+  teamCount?: number;
   ageGroup: AgeGroup;
   createdAt: string;
   updatedAt: string;
@@ -284,6 +305,7 @@ export interface RoomState {
   buzzerToken: string;
   deckId: string;
   deckTitle: string;
+  boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
   phase: GamePhase;
   settings: MatchSettings;
   categories: DeckCategory[];
@@ -309,6 +331,7 @@ export interface SanitizedActiveRound {
   questionId: string;
   categoryId: string;
   categoryName: string;
+  subtopic?: string;
   difficulty: Difficulty;
   points: PointValue;
   questionType: QuestionType;
@@ -342,6 +365,7 @@ export interface PublicProjectorState {
   roomCode: string;
   deckId: string;
   deckTitle: string;
+  boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
   phase: GamePhase;
   settings: MatchSettings;
   categories: DeckCategory[];

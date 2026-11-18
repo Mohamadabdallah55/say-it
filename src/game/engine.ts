@@ -1,6 +1,10 @@
 import { pickCommentary } from './commentary';
-import { selectActiveBoardForDeck } from './pdfValidation';
-import {resolveOrder} from './pdfValidation';
+import {
+  isCategoryTeamMatrixDeck,
+  isTeamBundleDeck,
+  resolveOrder,
+  selectActiveBoardForDeck,
+} from './pdfValidation';
 import type {
   ActiveRound,
   BuzzerViewState,
@@ -88,7 +92,9 @@ export function createRoomState(params: {
     ...params.settings,
   };
 
-  const { categories, tiles, questionPool } = selectActiveBoardForDeck(
+  const matrixMode = isCategoryTeamMatrixDeck(params.deck);
+  const teamBundlesMode = !matrixMode && isTeamBundleDeck(params.deck);
+  const { categories: rawCategories, tiles, questionPool: rawPool } = selectActiveBoardForDeck(
     params.deck,
     settings.categoryCount,
     params.selectedCategoryIds,
@@ -106,6 +112,22 @@ export function createRoomState(params: {
     usedLifelines: [],
   }));
 
+  const categories = teamBundlesMode
+    ? rawCategories.map((cat, idx) => ({
+        ...cat,
+        name: teams[idx]?.name || cat.name,
+        accentColor: teams[idx]?.color || cat.accentColor,
+      }))
+    : rawCategories;
+
+  const teamNameByCatId = new Map(categories.map((c) => [c.id, c.name]));
+  const questionPool = teamBundlesMode
+    ? rawPool.map((q) => ({
+        ...q,
+        categoryName: teamNameByCatId.get(q.categoryId) || q.categoryName,
+      }))
+    : rawPool;
+
   return {
     schemaVersion: 2,
     roomCode: params.roomCode,
@@ -113,6 +135,11 @@ export function createRoomState(params: {
     buzzerToken: params.buzzerToken,
     deckId: params.deck.id,
     deckTitle: params.deck.title,
+    boardMode: matrixMode
+      ? 'category_team_matrix'
+      : teamBundlesMode
+        ? 'team_bundles'
+        : 'categories',
     phase: 'BOARD',
     settings,
     categories,
@@ -1050,6 +1077,7 @@ export function sanitizeStateForRole(
     roomCode: state.roomCode,
     deckId: state.deckId,
     deckTitle: state.deckTitle,
+    boardMode: state.boardMode,
     phase: state.phase,
     settings: state.settings,
     categories: state.categories,
@@ -1064,6 +1092,7 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
+          subtopic: state.activeRound.question.subtopic || state.activeRound.question.sourceRef,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,

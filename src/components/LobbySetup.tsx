@@ -1,5 +1,6 @@
 import { GameLogo } from './GameLogo';
-import { useMemo, useState } from 'react';
+import { GameAssistantBot } from './GameAssistantBot';
+import { useEffect, useMemo, useState } from 'react';
 import {
   AlertTriangle,
   ArrowRight,
@@ -12,7 +13,12 @@ import {
   Users,
   XCircle,
 } from 'lucide-react';
-import { LIFELINE_META, runBoardPreflightCheck } from '../game/pdfValidation';
+import {
+  isCategoryTeamMatrixDeck,
+  isTeamBundleDeck,
+  LIFELINE_META,
+  runBoardPreflightCheck,
+} from '../game/pdfValidation';
 import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../game/starterDecks';
 import type { CommentaryMode, LifelineType, MatchSettings, QuizDeck } from '../game/types';
 import { soundFX } from '../utils/sound';
@@ -79,19 +85,65 @@ export function LobbySetup({
     return decks.find((d) => d.id === selectedDeckId) ?? STARTER_DEMO_DECK;
   }, [selectedDeckId, customCategories, decks]);
 
+  const isMatrixDeck = useMemo(() => isCategoryTeamMatrixDeck(selectedDeck), [selectedDeck]);
+  const isTeamBundle = useMemo(
+    () => !isMatrixDeck && isTeamBundleDeck(selectedDeck),
+    [isMatrixDeck, selectedDeck],
+  );
+  const lockedTeamCount = isMatrixDeck
+    ? Math.max(2, Math.min(4, selectedDeck.teamCount || 3))
+    : isTeamBundle
+      ? selectedDeck.teamCount || selectedDeck.categories.length
+      : null;
+
+  useEffect(() => {
+    if (!lockedTeamCount) return;
+    const defaultMatrixNames = ['النشامى', 'الصقور', 'النخبة', 'الروّاد'];
+    setTeams((prev) => {
+      if (prev.length === lockedTeamCount) return prev;
+      return Array.from({ length: lockedTeamCount }, (_, idx) => {
+        if (isMatrixDeck) {
+          return (
+            prev[idx] ?? {
+              name: defaultMatrixNames[idx] || `الفريق ${idx + 1}`,
+              color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
+              participantsCount: 5,
+            }
+          );
+        }
+        const cat = selectedDeck.categories[idx];
+        return (
+          prev[idx] ?? {
+            name: cat?.name || `الفريق ${idx + 1}`,
+            color: cat?.accentColor || TEAM_COLORS[idx % TEAM_COLORS.length].hex,
+            participantsCount: 5,
+          }
+        );
+      });
+    });
+  }, [isMatrixDeck, isTeamBundle, lockedTeamCount, selectedDeck]);
+
   const activeCategoryIdsForPreflight = useMemo(() => {
     if (selectedDeckId === 'curated_custom') return customCategories;
+    if (isMatrixDeck) return selectedDeck.categories.slice(0, 5).map((c) => c.id);
+    if (isTeamBundle) return selectedDeck.categories.map((c) => c.id);
     return selectedDeck.categories.slice(0, categoryCount).map((c) => c.id);
-  }, [selectedDeckId, customCategories, selectedDeck, categoryCount]);
+  }, [selectedDeckId, customCategories, selectedDeck, categoryCount, isMatrixDeck, isTeamBundle]);
 
   // Run live 10-point Preflight Check
   const preflight = useMemo(() => {
+    const effectiveCatCount =
+      selectedDeckId === 'curated_custom'
+        ? customCategories.length
+        : isMatrixDeck
+          ? Math.min(5, selectedDeck.categories.length)
+          : Math.min(categoryCount, selectedDeck.categories.length);
     return runBoardPreflightCheck({
       deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
       teams,
       settings: {
-        categoryCount: selectedDeckId === 'curated_custom' ? customCategories.length : Math.min(categoryCount, selectedDeck.categories.length),
+        categoryCount: effectiveCatCount,
         timerSeconds,
         lifelinesEnabled,
         cards,
@@ -103,10 +155,12 @@ export function LobbySetup({
     selectedDeck,
     customCategories,
     categoryCount,
+    isMatrixDeck,
     activeCategoryIdsForPreflight,
     teams,
     timerSeconds,
     lifelinesEnabled,
+    cards,
     maxLifelinesPerTeam,
   ]);
 
@@ -152,7 +206,9 @@ export function LobbySetup({
       const effectiveCategoryCount =
         selectedDeckId === 'curated_custom'
           ? customCategories.length
-          : Math.min(categoryCount, selectedDeck.categories.length);
+          : isMatrixDeck
+            ? Math.min(5, selectedDeck.categories.length)
+            : Math.min(categoryCount, selectedDeck.categories.length);
 
       const settings: MatchSettings = {
         categoryCount: effectiveCategoryCount,
@@ -208,7 +264,10 @@ export function LobbySetup({
           <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
             إعداد مباراة يمكن هاي
           </h1>
-          <GameLogo size="sm" className="hidden sm:block" />
+          <div className="flex items-center gap-2">
+            <GameAssistantBot compact />
+            <GameLogo size="sm" className="hidden sm:block" />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -222,43 +281,51 @@ export function LobbySetup({
                   <h2 className="font-display font-black text-xl">1. إعداد الفرق (2–4 فرق)</h2>
                 </div>
                 <div className="flex items-center gap-2">
-                  {[2, 3, 4].map((num) => (
-                    <button
-                      key={num}
-                      type="button"
-                      onClick={() => applyTeamCount(num)}
-                      className={`game-btn-3d px-3 py-1 rounded-lg font-display font-black text-sm cursor-pointer ${
-                        teams.length === num
-                          ? 'bg-[#7042A1] text-white'
-                          : 'bg-white text-[#291B40]'
-                      }`}
-                    >
-                      {num} فرق
-                    </button>
-                  ))}
+                  {lockedTeamCount ? (
+                    <span className="text-xs font-black bg-[#EDE7F6] text-[#7042A1] border-2 border-[#291B40] px-3 py-1 rounded-lg">
+                      مقفل على {lockedTeamCount} فرق ({isMatrixDeck ? 'حسب مصفوفة البنك' : 'حسب حزم البنك'})
+                    </span>
+                  ) : (
+                    [2, 3, 4].map((num) => (
+                      <button
+                        key={num}
+                        type="button"
+                        onClick={() => applyTeamCount(num)}
+                        className={`game-btn-3d px-3 py-1 rounded-lg font-display font-black text-sm cursor-pointer ${
+                          teams.length === num
+                            ? 'bg-[#7042A1] text-white'
+                            : 'bg-white text-[#291B40]'
+                        }`}
+                      >
+                        {num} فرق
+                      </button>
+                    ))
+                  )}
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {TEAM_PRESETS.map((preset) => (
-                  <button
-                    key={preset.name}
-                    type="button"
-                    onClick={() =>
-                      setTeams(
-                        preset.names.map((name, idx) => ({
-                          name,
-                          color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
-                          participantsCount: preset.count,
-                        })),
-                      )
-                    }
-                    className="text-xs font-bold bg-[#FFF2CD] border-2 border-[#291B40] px-2.5 py-1 rounded-lg hover:bg-[#FFD95A] cursor-pointer"
-                  >
-                    {preset.name}
-                  </button>
-                ))}
-              </div>
+              {!lockedTeamCount && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {TEAM_PRESETS.map((preset) => (
+                    <button
+                      key={preset.name}
+                      type="button"
+                      onClick={() =>
+                        setTeams(
+                          preset.names.map((name, idx) => ({
+                            name,
+                            color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
+                            participantsCount: preset.count,
+                          })),
+                        )
+                      }
+                      className="text-xs font-bold bg-[#FFF2CD] border-2 border-[#291B40] px-2.5 py-1 rounded-lg hover:bg-[#FFD95A] cursor-pointer"
+                    >
+                      {preset.name}
+                    </button>
+                  ))}
+                </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {teams.map((team, idx) => (
@@ -412,7 +479,7 @@ export function LobbySetup({
                 <h2 className="font-display font-black text-xl">3. قوانين اللوحة والمؤقت</h2>
               </div>
 
-              {selectedDeckId !== 'curated_custom' && (
+              {selectedDeckId !== 'curated_custom' && !isTeamBundle && !isMatrixDeck && (
                 <div>
                   <label className="block text-sm font-bold mb-1.5">
                     عدد الفئات على اللوحة (افتراضي 5 × 3 = 15 سؤالًا)
@@ -437,6 +504,18 @@ export function LobbySetup({
                       );
                     })}
                   </div>
+                </div>
+              )}
+
+              {isMatrixDeck && lockedTeamCount && (
+                <div className="bg-[#EDE7F6] border-2 border-[#291B40] rounded-xl p-3 text-xs font-bold text-[#291B40]">
+                  نظام مصفوفة النخبة: 5 فئات رئيسية × {lockedTeamCount} فرق × 3 مستويات = {5 * lockedTeamCount * 3} سؤالًا (سهل 200 / متوسط 400 / صعب 600).
+                </div>
+              )}
+
+              {isTeamBundle && lockedTeamCount && (
+                <div className="bg-[#EDE7F6] border-2 border-[#291B40] rounded-xl p-3 text-xs font-bold text-[#291B40]">
+                  وضع حزم الفرق مفعّل لهذا البنك: {lockedTeamCount} فرق × 3 أسئلة (سهل 200 / متوسط 400 / صعب 600).
                 </div>
               )}
 

@@ -234,7 +234,9 @@ export function validateQuizQuestion(
     hint: question.hint?.trim() || undefined,
     explanation: question.explanation?.trim() || undefined,
     timeLimitSeconds: question.timeLimitSeconds,
-    sourceRef: question.sourceRef?.trim() || undefined,
+    subtopic: question.subtopic?.trim() || question.sourceRef?.trim() || undefined,
+    teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,
+    sourceRef: question.sourceRef?.trim() || question.subtopic?.trim() || undefined,
     sourceSnippet: question.sourceSnippet?.trim() || undefined,
     pageNumber: question.pageNumber,
     isBackup: Boolean(question.isBackup),
@@ -251,6 +253,23 @@ export function isDeckReadyForPlay(deck: QuizDeck): boolean {
   return deck.questions.some((q) => q.status === 'approved');
 }
 
+export function isTeamBundleDeck(deck: Pick<QuizDeck, 'boardMode' | 'categories'>): boolean {
+  return (
+    deck.boardMode === 'team_bundles' ||
+    (deck.categories.length >= 2 &&
+      deck.categories.length <= 4 &&
+      deck.categories.every((c) => /^team_\d+$/.test(c.id)))
+  );
+}
+
+export function isCategoryTeamMatrixDeck(
+  deck: Pick<QuizDeck, 'boardMode' | 'categories' | 'questions'>,
+): boolean {
+  if (deck.boardMode === 'category_team_matrix') return true;
+  if (isTeamBundleDeck(deck)) return false;
+  return deck.categories.length === 5 && deck.questions.some((q) => typeof q.teamIndex === 'number');
+}
+
 export function selectActiveBoardForDeck(
   deck: QuizDeck,
   requestedCategoryCount = 5,
@@ -261,7 +280,116 @@ export function selectActiveBoardForDeck(
   tiles: BoardTileState[];
   questionPool: QuizQuestion[];
 } {
-  const poolToUse = deck.questions.filter(q => q.status === 'approved');
+  const poolToUse = deck.questions.filter((q) => q.status === 'approved');
+  const matrixMode = isCategoryTeamMatrixDeck(deck);
+  const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
+
+  if (matrixMode) {
+    const categories = deck.categories.slice(0, 5);
+    const effectiveTeamCount = Math.max(
+      2,
+      Math.min(4, teamCount > 1 ? teamCount : deck.teamCount || 3),
+    );
+    const tiles: BoardTileState[] = [];
+    const usedIds = new Set<string>();
+    const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
+
+    for (const cat of categories) {
+      for (let teamIdx = 0; teamIdx < effectiveTeamCount; teamIdx++) {
+        for (const diff of difficulties) {
+          const exactPrimary = poolToUse.find(
+            (q) =>
+              q.categoryId === cat.id &&
+              q.difficulty === diff &&
+              q.teamIndex === teamIdx &&
+              !q.isBackup &&
+              !usedIds.has(q.id),
+          );
+          const exactFallback = poolToUse.find(
+            (q) =>
+              q.categoryId === cat.id &&
+              q.difficulty === diff &&
+              q.teamIndex === teamIdx &&
+              !usedIds.has(q.id),
+          );
+          const unownedPrimary = poolToUse.find(
+            (q) =>
+              q.categoryId === cat.id &&
+              q.difficulty === diff &&
+              !q.isBackup &&
+              !usedIds.has(q.id),
+          );
+          const anyFallback = poolToUse.find(
+            (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+          );
+          const picked = exactPrimary ?? exactFallback ?? unownedPrimary ?? anyFallback;
+          if (picked) {
+            usedIds.add(picked.id);
+            tiles.push({
+              questionId: picked.id,
+              categoryId: cat.id,
+              difficulty: diff,
+              points: pointsForDifficulty(diff),
+              ownerTeamId: `team_${teamIdx + 1}`,
+              used: false,
+              wonByTeamId: null,
+            });
+          }
+        }
+      }
+    }
+
+    return {
+      categories,
+      tiles,
+      questionPool: poolToUse,
+    };
+  }
+
+  if (teamBundlesMode) {
+    const bundleCount = Math.max(
+      2,
+      Math.min(4, teamCount > 1 ? teamCount : deck.teamCount || deck.categories.length),
+    );
+    const categories = deck.categories.slice(0, bundleCount);
+    const tiles: BoardTileState[] = [];
+    const usedIds = new Set<string>();
+
+    categories.forEach((cat, catIdx) => {
+      const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
+      for (const diff of difficulties) {
+        const primary = poolToUse.find(
+          (q) =>
+            q.categoryId === cat.id &&
+            q.difficulty === diff &&
+            !q.isBackup &&
+            !usedIds.has(q.id),
+        );
+        const fallback = poolToUse.find(
+          (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+        );
+        const picked = primary ?? fallback;
+        if (picked) {
+          usedIds.add(picked.id);
+          tiles.push({
+            questionId: picked.id,
+            categoryId: cat.id,
+            difficulty: diff,
+            points: pointsForDifficulty(diff),
+            ownerTeamId: `team_${catIdx + 1}`,
+            used: false,
+            wonByTeamId: null,
+          });
+        }
+      }
+    });
+
+    return {
+      categories,
+      tiles,
+      questionPool: poolToUse,
+    };
+  }
 
   const count = Math.max(3, Math.min(6, requestedCategoryCount || deck.categories.length || 5));
   const categories = selectedCategoryIds?.length
@@ -274,15 +402,26 @@ export function selectActiveBoardForDeck(
   for (const cat of categories) {
     const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
     for (const diff of difficulties) {
-      const available = poolToUse.filter(q => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id));
-      const fallback = poolToUse.find(q => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id));
+      const available = poolToUse.filter(
+        (q) => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id),
+      );
+      const fallback = poolToUse.find(
+        (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+      );
       const perTeam = teamCount > 1 && available.length >= teamCount;
       const selected = perTeam ? available.slice(0, teamCount) : available.slice(0, 1);
       if (!selected.length && fallback) selected.push(fallback);
       selected.forEach((question, index) => {
         usedIds.add(question.id);
-        tiles.push({ questionId: question.id, categoryId: cat.id, difficulty: diff, points: pointsForDifficulty(diff),
-          ownerTeamId: perTeam ? 'team_' + (index + 1) : undefined, used: false, wonByTeamId: null });
+        tiles.push({
+          questionId: question.id,
+          categoryId: cat.id,
+          difficulty: diff,
+          points: pointsForDifficulty(diff),
+          ownerTeamId: perTeam ? 'team_' + (index + 1) : undefined,
+          used: false,
+          wonByTeamId: null,
+        });
       });
     }
   }
@@ -302,56 +441,135 @@ export function runBoardPreflightCheck(params: {
 }): PreflightResult {
   const { deck, selectedCategoryIds, teams, settings } = params;
   const checks: PreflightCheckItem[] = [];
+  const matrixMode = isCategoryTeamMatrixDeck(deck);
+  const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
 
-  const desiredCount = Math.max(deck.sourceType === 'pdf' ? 1 : 3, Math.min(6, settings.categoryCount ?? 5));
-  const selectedCats = selectedCategoryIds?.length
-    ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id))
-    : deck.categories.slice(0, desiredCount);
+  const inferredMatrixTeams =
+    deck.teamCount ||
+    Math.max(
+      2,
+      ...deck.questions.map((q) => (typeof q.teamIndex === 'number' ? q.teamIndex + 1 : 0)),
+    );
+  const expectedTeamBundles = matrixMode
+    ? inferredMatrixTeams
+    : deck.teamCount || deck.categories.length;
+  const desiredCount = matrixMode
+    ? 5
+    : teamBundlesMode
+      ? expectedTeamBundles
+      : Math.max(deck.sourceType === 'pdf' ? 1 : 3, Math.min(6, settings.categoryCount ?? 5));
+  const selectedCats = matrixMode
+    ? deck.categories.slice(0, 5)
+    : teamBundlesMode
+      ? deck.categories.slice(0, expectedTeamBundles)
+      : selectedCategoryIds?.length
+        ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id))
+        : deck.categories.slice(0, desiredCount);
 
-  // 1. Category count check
-  checks.push({
-    id: 'category_count',
-    label: 'عدد الفئات مناسب للوحة اللعب',
-    passed: selectedCats.length >= (deck.sourceType === 'pdf' ? 1 : 3) && selectedCats.length <= 6 && selectedCats.length === desiredCount,
-    severity: 'error',
-    detail:
-      selectedCats.length === desiredCount
-        ? `${selectedCats.length} فئات جاهزة`
-        : `المطلوب ${desiredCount} فئات، المتاح حاليًا ${selectedCats.length}`,
-  });
+  // 1. Category / Team Bundle / Matrix count check
+  if (matrixMode) {
+    const matchesTeams = teams.length === expectedTeamBundles && selectedCats.length === 5;
+    checks.push({
+      id: 'category_count',
+      label: 'اكتمال مصفوفة الفئات الـ 5 وعدد الفرق المتنافسة',
+      passed: matchesTeams,
+      severity: 'error',
+      detail: matchesTeams
+        ? `5 فئات رئيسية × ${expectedTeamBundles} فرق × 3 مستويات = ${5 * expectedTeamBundles * 3} سؤالًا`
+        : selectedCats.length !== 5
+          ? `يجب توفر 5 فئات رئيسية (المتاح ${selectedCats.length})`
+          : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
+    });
+  } else if (teamBundlesMode) {
+    const matchesTeams = teams.length === expectedTeamBundles && selectedCats.length === expectedTeamBundles;
+    checks.push({
+      id: 'category_count',
+      label: 'تطابق عدد الفرق مع حزم الأسئلة المخصصة',
+      passed: matchesTeams,
+      severity: 'error',
+      detail: matchesTeams
+        ? `${expectedTeamBundles} حزم فرق جاهزة (${expectedTeamBundles * 3} أسئلة)`
+        : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
+    });
+  } else {
+    checks.push({
+      id: 'category_count',
+      label: 'عدد الفئات مناسب للوحة اللعب',
+      passed: selectedCats.length >= (deck.sourceType === 'pdf' ? 1 : 3) && selectedCats.length <= 6 && selectedCats.length === desiredCount,
+      severity: 'error',
+      detail:
+        selectedCats.length === desiredCount
+          ? `${selectedCats.length} فئات جاهزة`
+          : `المطلوب ${desiredCount} فئات، المتاح حاليًا ${selectedCats.length}`,
+    });
+  }
 
-  // 2. Every category has 200, 400, 600 primary approved questions
+  // 2. Every category (and every team slot in matrixMode) has 200, 400, 600 approved questions
   const approvedPrimary = deck.questions.filter((q) => q.status === 'approved' && !q.isBackup);
   const missingSlots: string[] = [];
-  for (const cat of selectedCats) {
-    for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
-      const hasSlot = deck.questions.some(
-        (q) =>
-          q.categoryId === cat.id &&
-          q.difficulty === diff &&
-          q.status === 'approved' &&
-          !q.isBackup,
-      );
-      if (!hasSlot) {
-        // Check if a backup can fill it
-        const hasBackupSlot = deck.questions.some(
-          (q) => q.categoryId === cat.id && q.difficulty === diff && q.status === 'approved',
+  if (matrixMode) {
+    const approvedUsedIds = new Set<string>();
+    for (const cat of selectedCats) {
+      for (let teamIdx = 0; teamIdx < expectedTeamBundles; teamIdx++) {
+        for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
+          const match =
+            deck.questions.find(
+              (q) =>
+                q.categoryId === cat.id &&
+                q.difficulty === diff &&
+                q.teamIndex === teamIdx &&
+                q.status === 'approved' &&
+                !q.isBackup &&
+                !approvedUsedIds.has(q.id),
+            ) ??
+            deck.questions.find(
+              (q) =>
+                q.categoryId === cat.id &&
+                q.difficulty === diff &&
+                q.teamIndex === teamIdx &&
+                q.status === 'approved' &&
+                !approvedUsedIds.has(q.id),
+            );
+          if (match) {
+            approvedUsedIds.add(match.id);
+          } else {
+            missingSlots.push(`${cat.name} · فريق ${teamIdx + 1} (${pointsForDifficulty(diff)})`);
+          }
+        }
+      }
+    }
+  } else {
+    for (const cat of selectedCats) {
+      for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
+        const hasSlot = deck.questions.some(
+          (q) =>
+            q.categoryId === cat.id &&
+            q.difficulty === diff &&
+            q.status === 'approved' &&
+            !q.isBackup,
         );
-        if (!hasBackupSlot) {
-          missingSlots.push(`${cat.name} (${pointsForDifficulty(diff)})`);
+        if (!hasSlot) {
+          const hasBackupSlot = deck.questions.some(
+            (q) => q.categoryId === cat.id && q.difficulty === diff && q.status === 'approved',
+          );
+          if (!hasBackupSlot) {
+            missingSlots.push(`${cat.name} (${pointsForDifficulty(diff)})`);
+          }
         }
       }
     }
   }
   checks.push({
     id: 'all_tiers_present',
-    label: 'كل فئة تحتوي أسئلة سهل (200) ومتوسط (400) وصعب (600)',
+    label: matrixMode
+      ? 'كل فئة تحتوي 3 أسئلة معتمدة (200 / 400 / 600) لكل فريق'
+      : 'كل فئة تحتوي أسئلة سهل (200) ومتوسط (400) وصعب (600)',
     passed: missingSlots.length === 0 && selectedCats.length > 0,
     severity: 'error',
     detail:
       missingSlots.length === 0
         ? 'جميع الخانات مكتملة'
-        : `خانات ناقصة: ${missingSlots.slice(0, 4).join('، ')}`,
+        : `خانات ناقصة (${missingSlots.length}): ${missingSlots.slice(0, 4).join('، ')}`,
   });
 
   // 3 & 4. Clear prompt + valid answer on active questions
@@ -482,6 +700,8 @@ export function sanitizeDeckForExport(deck: QuizDeck): Record<string, unknown> {
       title: deck.title,
       description: deck.description,
       sourceType: deck.sourceType,
+      boardMode: deck.boardMode,
+      teamCount: deck.teamCount,
       ageGroup: deck.ageGroup,
       categories: deck.categories,
       questions: deck.questions.filter((q) => q.status !== 'rejected'),
@@ -601,6 +821,14 @@ export function validateAndImportDeckJson(
           ? candidateDeck.description.trim()
           : 'بنك مستورد بصيغة JSON',
       sourceType: 'imported',
+      boardMode:
+        candidateDeck.boardMode === 'category_team_matrix'
+          ? 'category_team_matrix'
+          : candidateDeck.boardMode === 'team_bundles'
+            ? 'team_bundles'
+            : 'categories',
+      teamCount:
+        typeof candidateDeck.teamCount === 'number' ? candidateDeck.teamCount : undefined,
       ageGroup:
         candidateDeck.ageGroup === 'kids_8_12' ||
         candidateDeck.ageGroup === 'teens_13_16' ||

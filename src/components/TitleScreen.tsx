@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { BookOpen, FileText, FolderArchive, Play, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 import { GameLogo } from './GameLogo';
+import { GameAssistantBot } from './GameAssistantBot';
 
 interface TitleScreenProps {
   onStartQuick: () => void;
@@ -40,18 +41,21 @@ export function TitleScreen({
           <span className="font-display font-bold text-sm text-[#291B40]">يمكن هاي</span>
         </div>
 
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleSound();
-          }}
-          className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-sm font-bold cursor-pointer"
-          aria-label={soundEnabled ? 'كتم الصوت' : 'تفعيل الصوت'}
-        >
-          {soundEnabled ? <Volume2 className="w-4 h-4 text-[#00B978]" /> : <VolumeX className="w-4 h-4 text-[#F05B63]" />}
-          <span>{soundEnabled ? 'الصوت مفعّل' : 'صامت'}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <GameAssistantBot compact />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleSound();
+            }}
+            className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-sm font-bold cursor-pointer"
+            aria-label={soundEnabled ? 'كتم الصوت' : 'تفعيل الصوت'}
+          >
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#00B978]" /> : <VolumeX className="w-4 h-4 text-[#F05B63]" />}
+            <span>{soundEnabled ? 'الصوت مفعّل' : 'صامت'}</span>
+          </button>
+        </div>
       </div>
 
       {/* Main Hero */}
