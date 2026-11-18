@@ -32,9 +32,6 @@ export type QuestionType =
 export type LifelineType =
   | 'hint'
   | 'double_points'
-  | 'triple'
-  | 'call'
-  | 'silence'
   | 'pit'
   | 'second_chance'
   | 'two_answers'

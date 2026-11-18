@@ -196,7 +196,7 @@ export function selectBoardTile(
     ok: true,
     state: {
       ...state,
-      phase: state.settings.lifelinesEnabled && (state.settings.cards ?? ['double_points','pit','second_chance','swap_question']).some(card => card !== 'call' && card !== 'swap_question' && !state.teams[state.currentTurnTeamIndex].usedLifelines.includes(card as LifelineType)) && state.teams[state.currentTurnTeamIndex].lifelinesRemaining > 0
+      phase: state.settings.lifelinesEnabled && (state.settings.cards ?? ['double_points','pit','second_chance','swap_question']).some(card => !state.teams[state.currentTurnTeamIndex].usedLifelines.includes(card as LifelineType)) && state.teams[state.currentTurnTeamIndex].lifelinesRemaining > 0
         ? 'LIFELINE_PICK' : 'QUESTION_READY',
       questionCounter: state.questionCounter + 1,
       activeRound,
@@ -249,11 +249,8 @@ export function applyLifeline(
   if (currentTeam.lifelinesRemaining <= 0) {
     return { ok: false, error: `استنفد فريق «${currentTeam.name}» جميع وسائل المساعدة المتاحة.`, state };
   }
-  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit','triple','call','silence'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
+  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
     return { ok: false, error: 'البطاقة غير متاحة.', state };
-  }
-  if (state.phase === 'LIFELINE_PICK' && (lifeline === 'call' || lifeline === 'swap_question')) {
-    return { ok: false, error: 'افتح السؤال أولًا لاستخدام البطاقة.', state };
   }
   if (state.activeRound.activeLifeline) {
     return { ok: false, error: 'تم تفعيل وسيلة مساعدة بالفعل في هذا السؤال.', state };
@@ -280,13 +277,10 @@ export function applyLifeline(
       return { ok: false, error: 'لا يتوفر تلميح مسجّل لهذا السؤال.', state };
     }
     nextRound = { ...nextRound, hintRevealed: true };
-  } else if (lifeline === 'call') {
-    nextTimer.remainingMs = computeRemainingMs(nextTimer, nowMs) + 30000;
-    nextTimer.startedAtMs = nextTimer.running ? nowMs : null;
-  } else if (lifeline === 'double_points' || lifeline === 'triple') {
+  } else if (lifeline === 'double_points') {
     nextRound = {
       ...nextRound,
-      effectivePoints: state.activeRound.basePoints * (lifeline === 'triple' ? 3 : 2),
+      effectivePoints: state.activeRound.basePoints * 2,
     };
   } else if (lifeline === 'second_chance') {
     if (nextTimer.secondChanceGranted) {
@@ -534,7 +528,6 @@ export function recordBuzzerPress(
   if (!state.activeRound || (state.phase !== 'QUESTION_READY' && state.phase !== 'PLAYING')) {
     return { ok: false, error: 'الجرس غير متاح الآن.', state };
   }
-  if (state.activeRound.activeLifeline === 'silence' && teamId !== state.teams[state.currentTurnTeamIndex].id) return { ok:false, state, error:'الإجابة لصاحب الدور فقط.' };
   if (!state.activeRound.buzzerOpen) {
     return { ok: false, error: 'الجرس غير مفعّل لهذا السؤال.', state };
   }
@@ -593,7 +586,7 @@ export function submitOrder(state: RoomState, indices: unknown, actionId: string
     return {ok:false, state, error:'جرّب الفريق السابق هذا الترتيب.'};
   const correct = attempt.length === key.length && attempt.every((v,i) => items[v] === key[i]);
   const turns = play.turns + 1;
-  const finished = correct || round.activeLifeline === 'silence' || turns >= state.teams.length;
+  const finished = correct || turns >= state.teams.length;
   const nextTeam = state.teams[(state.teams.findIndex(t => t.id === play.teamId) + 1) % state.teams.length];
   const next: RoomState = { ...state,
     activeRound: {...round, orderPlay:{teamId: finished ? play.teamId : nextTeam.id, turns,
@@ -693,7 +686,6 @@ export function awardRoundAndReturnToBoard(
 
   const round = state.activeRound;
   const ownerTeamId = round.ownerTeamId ?? state.teams[state.currentTurnTeamIndex].id;
-  if (round.activeLifeline === 'silence' && validTeamIds.some(id => id !== ownerTeamId)) return {ok:false,state,error:'الإجابة لصاحب الدور فقط.'};
   if (round.isCorrectionMode) {
     const previous = workingHistory.find(h => h.roundId === round.roundId && !h.undone);
     if (previous) {
@@ -708,8 +700,7 @@ export function awardRoundAndReturnToBoard(
     const won = winnerSet.has(team.id);
     const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints;
     const penalty = ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
-    const loss = team.id === ownerTeamId && round.activeLifeline === 'triple' ? round.basePoints * 3 : penalty;
-    const delta = won ? reward : -loss;
+    const delta = won ? reward : -penalty;
     if (delta) changes[team.id] = delta;
     return { ...team, score: team.score + delta, correctCount: team.correctCount + Number(won) };
   });
@@ -728,7 +719,7 @@ export function awardRoundAndReturnToBoard(
     ownerTeamId, lifeline: round.activeLifeline, scoreChanges: changes,
     teamId: finalWinnerIds[0] ?? null,
     teamIds: finalWinnerIds,
-    delta: finalWinnerIds.length > 0 ? pts : changes[ownerTeamId] ?? 0,
+    delta: finalWinnerIds.length > 0 ? pts : 0,
     reason:
       finalWinnerIds.length > 0
         ? `إجابة صحيحة (${state.activeRound.question.categoryName} - ${pts}) لـ ${winnerNames}`
@@ -821,7 +812,7 @@ export function reopenQuestionForCorrection(
         question,
         basePoints: tile.points,
         ownerTeamId: previousEntry?.ownerTeamId ?? prevWinners[0],
-        effectivePoints: tile.points * (previousEntry?.lifeline === 'triple' ? 3 : previousEntry?.lifeline === 'double_points' ? 2 : 1),
+        effectivePoints: previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points,
         activeLifeline: previousEntry?.lifeline ?? null,
         hintRevealed: true,
         twoAnswersActive: false,

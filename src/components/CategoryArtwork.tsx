@@ -23,9 +23,6 @@ export function CategoryArtwork({ iconKey, accentColor, topic = '', coverage = [
       </svg></div>;
   }
 
-  const cells: Partial<Record<CategoryIconKey, [number, number]>> = {islamic:[0,0],science:[1,0],history:[2,0],arabic:[3,0], geography:[0,1],sports:[2,1],puzzles:[3,1],tech:[1,2]};
-  const cell = /رياضيات|جبر|هندس/.test(subject) ? [1,1] : /البيئة|الطبيعة/.test(subject) ? [3,2] : cells[iconKey];
-  if (cell) return <svg className="subject-art" viewBox={`${cell[0]*380+42} ${cell[1]*326+35} 328 215`} preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href="/brand/subjects.jpeg" width="1536" height="1024"/></svg>;
   return (
     <div
       className="relative w-full h-32 rounded-t-[13px] overflow-hidden border-b-[3px] border-[#291B40] flex items-center justify-center"

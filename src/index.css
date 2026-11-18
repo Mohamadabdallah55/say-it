@@ -194,67 +194,26 @@
 .special-hand {grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));}
 .special-hand button:disabled:has(small) {filter:saturate(.85);}
 @media(max-width:600px){.special-hand{grid-template-columns:1fr;}}
-/* The board and the scoreboard retain their places throughout a round. */
+/* Projected play uses the full stage; the operator keeps the control rail on the phone. */
 @media(min-width:900px){
-  .arena-layout {direction:ltr;grid-template-columns:minmax(0,1fr) clamp(230px,21vw,320px);}
-  .arena-main,.score-rail {direction:rtl;}
-  .arena-main {grid-column:1;grid-row:1;}
-  .score-rail {grid-column:2;grid-row:1;min-height:calc(100svh - 40px);}
-  .arena-stage[data-phase=FINAL] .arena-main {grid-column:1/-1;}
+  .arena-stage[data-role=projector] .arena-layout {display:flex;flex-direction:column;align-items:stretch;max-width:1480px;gap:12px;}
+  .arena-stage[data-role=projector] .score-rail {order:-1;position:static;display:flex;align-items:center;gap:18px;border-radius:20px;padding:10px 18px;background:#fff9e9;color:#291b40;}
+  .arena-stage[data-role=projector] .score-rail>* {margin:0;}
+  .arena-stage[data-role=projector] .score-rail h2 {color:#51325f;font-size:1.1rem;}
+  .arena-stage[data-role=projector] .score-teams {display:flex;flex:1;gap:10px;}
+  .arena-stage[data-role=projector] .score-teams>div {flex:1;margin:0;display:flex;justify-content:space-between;align-items:center;padding:5px 12px;}
+  .arena-stage[data-role=projector] .score-teams>div>div {margin:0;}
+  .arena-stage[data-role=projector] .score-teams>div>div:last-child:not(:nth-child(2)),
+  .arena-stage[data-role=projector] .score-teams .w-8,.arena-stage[data-role=projector] .audience-room {display:none;}
+  .arena-stage[data-role=projector] .score-number {font-size:1.85rem;}
+  .arena-stage[data-role=projector] .question-frame,.arena-stage[data-role=projector] .special-stage {max-width:1100px;margin-inline:auto;}
+  .arena-stage[data-role=projector] .category-card>:first-child {height:clamp(85px,13.5vh,170px);}
+  .arena-stage[data-role=projector] .stage-header {padding-block:3px;}
   .arena-stage[data-phase=FINAL] .score-rail {display:none;}
 }
-.score-rail {background:linear-gradient(#fffdf4,#f6e9cc);}
-.score-rail > h2,.score-rail > div:last-child.text-center {color:#40254c;}
-.match-helper summary {cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:900;}
-.match-helper img {width:55px;animation:helper-bob 2.8s ease-in-out infinite;}
-.match-helper p {font-size:.9rem;margin-block:8px;}
-@keyframes helper-bob {50% {transform:translateY(-3px) rotate(-4deg);}}
-@media(prefers-reduced-motion:reduce){.match-helper img {animation:none;}}
-.lobby-hand {display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:9px;}
-.lobby-hand svg {height:48px;width:100%;}
-.special-hand button,.lobby-hand button {background:#fff5e7;color:#35203d;}
-.lobby-hand button[aria-pressed=true] {outline:3px solid #8a52bd;}
-.special-hand svg {height:85px;}
-details button svg:has(image) {display:inline-block;vertical-align:middle;width:42px;height:28px;}
-.subject-art {width:100%;display:block;}
-.stage-header img {width:82px;border-radius:8px;}
 .audience-audio {background:#fff7dc;border-radius:50%;padding:6px;color:#392044;}
 @media (prefers-reduced-motion: reduce){.award-flash {animation:none;}}
 .lesson-illustration {display:grid;place-items:center;overflow:hidden;border-bottom:3px solid #291b40;background-image:radial-gradient(#fff5 1px,transparent 2px);background-size:10px 10px;}
 .lesson-illustration svg {height:100%;width:100%;}
 .lesson-concepts {position:absolute;inset:auto 8px 6px;display:flex;justify-content:space-between;gap:6px;z-index:2;pointer-events:none;}
 .lesson-concepts span {background:#fffbefef;color:#352744;border:1px solid #352744;border-radius:20px;padding:1px 6px;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:.72rem;}
-.show-home,.setup-show {min-height:100svh;color:#281331}
-.show-home {background:#211028;padding:0 clamp(12px,3vw,52px) 24px;display:grid;align-content:center;gap:16px}
-.show-nav {display:flex;align-items:center;gap:12px;padding:10px 0;color:#fff5dc;font-weight:900}
-.show-nav strong {font-family:var(--font-display);font-size:1.4rem}
-.show-nav span {margin-inline-end:auto;letter-spacing:.13em;font-size:.74rem;color:#e2c6ed}
-.show-nav button,.lesson-nav button,.setup-sheet button,.setup-tabs button,.guide-dialog button {border:2px solid #352039;border-radius:12px;background:#fffaec;box-shadow:0 4px #48304a;color:#331d39;padding:8px 15px;font-weight:850;cursor:pointer}
-.show-nav button {min-height:42px;padding:5px 12px}.show-nav button img {height:31px}
-.show-banner {position:relative;width:min(100%,1550px);margin:auto}
-.show-banner>img {width:100%;border-radius:24px}
-.banner-actions {position:absolute;bottom:12.3%;right:6.2%;width:40%;display:flex;gap:2%}
-.banner-actions button {background:linear-gradient(#ae5adb,#5c2386);color:white;font-weight:950;font-size:clamp(.9rem,2.1vw,2rem);border:2px solid #351d3c;border-radius:1.25vw;box-shadow:0 .35vw #321837;width:58%;padding:.6vw;cursor:pointer}
-.banner-actions button+button {background:linear-gradient(white,#f9e8cc);color:#331836;width:42%}
-.lesson-nav,.setup-tabs,.team-count,.setup-topics,.rule-options,.rail-controls {display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.lesson-nav {justify-content:center}.lesson-nav button {display:flex;gap:9px;align-items:center}.lesson-nav button:first-child {background:#ffdb54}
-.guide-dialog {position:fixed;inset:0;margin:auto;width:min(430px,90vw);padding:26px;border:3px solid;border-radius:22px;background:#fff8df;box-shadow:0 0 0 100vmax #210c2ab8;z-index:10;line-height:1.8}.guide-dialog img {width:90px}.guide-dialog h2 {font-size:1.7rem;font-weight:950}
-.setup-show>.show-nav {background:#28152d;padding:10px 5vw}.setup-show .show-nav img {width:74px;border-radius:8px}.setup-show .show-nav button {margin-inline-start:auto}
-.setup-wrap {max-width:1000px;margin:auto;padding:clamp(18px,4vw,54px) 16px}.setup-tabs {margin-bottom:20px}
-.setup-tabs [aria-current],.setup-sheet .purple-action {background:linear-gradient(#9154ba,#57247d);color:white}
-.setup-sheet {padding:clamp(20px,3vw,42px);background:linear-gradient(#fffdf4,#faeed4);border:3px solid #311c34;border-radius:24px;box-shadow:0 7px #5c4053;animation:scene-arrive .22s ease-out}
-.setup-sheet h1 {font-size:clamp(26px,3.7vw,46px);font-weight:950;margin-bottom:24px}.setup-sheet h2 {font-size:1.32rem;font-weight:900;margin:20px 0 10px}
-.bank-options,.team-lineup {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(205px,100%),1fr));gap:12px}.bank-options button {display:grid;text-align:start;min-height:80px}.bank-options small,.lobby-hand small {font-size:.8rem}
-.setup-sheet button[aria-pressed=true] {outline:3px solid #8a4dba;outline-offset:1px}.setup-sheet button:disabled,.setup-tabs button:disabled {opacity:.55;cursor:default}
-.setup-sheet p,.setup-sheet details {margin:18px 0}.setup-sheet footer {display:flex;justify-content:end;gap:12px;margin-top:24px}
-.team-lineup {margin-top:20px}.team-lineup fieldset {padding:15px;border:1px solid #d4c5ac;border-inline-start-width:7px;border-radius:12px;background:#f6eddf}
-.team-lineup input,.rule-options select {background:white;border:2px solid #594059;border-radius:8px;padding:6px;width:100%;margin:6px 0}.team-lineup fieldset button {width:26px;height:26px;padding:0;border-radius:50%;margin:3px;box-shadow:none}
-.setup-sheet .lobby-hand {grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr))}.lobby-hand button {display:grid;justify-items:center;gap:8px}.lobby-hand svg {height:64px}
-.score-rail .stage-header {background:none;border:0;color:#33203d;padding:0}.score-rail .stage-header img {width:72px}
-.rail-controls button {font-weight:bold;font-size:.8rem}.reveal-action {display:flex;justify-content:center}.question-actions {display:grid;gap:12px}
-.arena-main {min-width:0}.arena-stage .question-face {border:0;background:transparent;min-height:0;padding:clamp(16px,3vw,48px) 10px}
-.arena-stage .round-scene,.arena-stage .special-stage {width:min(100%,1000px);margin-inline:auto}
-.arena-stage[data-phase=QUESTION_READY] .arena-main,.arena-stage[data-phase=PLAYING] .arena-main,.arena-stage[data-phase=LIFELINE_PICK] .arena-main {align-self:center}
-.award-teams {display:grid;grid-template-columns:1fr}.champion-mascot {width:clamp(110px,15vw,215px);border-radius:50%;margin:auto;border:4px solid #e4b52f}
-@media(min-width:901px){.arena-stage .category-grid[data-count="5"] .category-card {grid-column:span 2}.arena-stage .category-card>:first-child {height:clamp(124px,21vh,220px)}}
-@media(max-width:620px){.show-home {align-content:start;padding-top:10px}.show-banner {background:#ffcf23;border-radius:22px;padding-bottom:18px}.show-banner>img {content:url('/brand/match-logo.jpeg');min-height:220px;object-fit:cover}.banner-actions {position:static;width:auto;margin:12px}.banner-actions button {border-radius:10px;padding:12px}.lesson-nav {display:grid}.setup-sheet .lobby-hand {grid-template-columns:1fr 1fr}}

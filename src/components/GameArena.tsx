@@ -36,7 +36,7 @@ import type {
 } from '../game/types';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
-import { CardArt, SpecialCards } from './SpecialCards';
+import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { GameLogo } from './GameLogo';
 
@@ -292,6 +292,14 @@ export function GameArena({
       <div className="arena-layout">
         {/* MAIN STAGE (8 columns on desktop) */}
         <div className="arena-main space-y-4">
+          <header className="stage-header">
+            <GameLogo size="sm" dark />
+            {!isHost && <button type="button" className="audience-audio" aria-pressed={localAudio} aria-label="صوت شاشة الجمهور"
+              onClick={()=>{const on=!localAudio; setLocalAudio(on); sessionStorage.setItem('yemken-projector-audio',on?'on':'off');
+                soundFX.enabled=on && state.settings.soundEnabled; if (on) soundFX.playClick();}}>
+              {localAudio ? <Volume2 size={20}/> : <VolumeX size={20}/>}</button>}
+            {state.phase !== 'FINAL' && <span>وقت المباراة <b dir="ltr">{Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}</b></span>}
+          </header>
           {state.commentary && (
             <motion.div
               key={state.commentary.id}
@@ -411,7 +419,7 @@ export function GameArena({
 
           {state.phase === 'LIFELINE_PICK' && (
             <SpecialCards team={currentTeam.name} host={isHost} used={currentTeam.usedLifelines} allowed={state.settings.cards}
-              
+              canSwap={'hasBackupQuestionsForActiveCategory' in state && state.hasBackupQuestionsForActiveCategory}
               choose={lifeline => sendCommand('APPLY_LIFELINE', { lifeline })}
               skip={() => sendCommand('SKIP_CARD_PICK')} />
           )}
@@ -436,7 +444,7 @@ export function GameArena({
                       </span>
                       {roundMeta.effectivePoints > roundMeta.basePoints && (
                         <span className="bg-[#FFD95A] border-2 border-[#291B40] px-2.5 py-0.5 rounded-lg text-xs font-black">
-                          {roundMeta.activeLifeline === 'triple' ? 'افرد أوراقك ×3' : 'دبل ×2'}
+                          مضاعفة ×2
                         </span>
                       )}
                       {roundMeta.twoAnswersActive && (
@@ -524,7 +532,7 @@ export function GameArena({
                       play={roundMeta.orderPlay} name={state.teams.find(t=>t.id===roundMeta.orderPlay?.teamId)?.name ?? ''}
                       submit={indices=>sendCommand('SUBMIT_ORDER',{indices})}/>}
                   {state.phase !== 'REVEAL' && !roundMeta.orderPlay && <div className="answer-order"><span>ترتيب الإجابة</span>
-                    {state.teams.map((_,i)=>{const team=state.teams[(i+state.currentTurnTeamIndex)%state.teams.length];if (roundMeta.activeLifeline === 'silence' && i>0) return null; return <b key={team.id} style={{borderColor:team.color}}>{i+1} · {team.name}</b>})}</div>}
+                    {state.teams.map((_,i)=>{const team=state.teams[(i+state.currentTurnTeamIndex)%state.teams.length];return <b key={team.id} style={{borderColor:team.color}}>{i+1} · {team.name}</b>})}</div>}
                   {/* Revealed Hint */}
                   {roundMeta.hintRevealed && roundMeta.hint && (
                     <div className="bg-[#FFF2CD] border-2 border-[#E59A00] rounded-2xl px-4 py-3 flex items-center gap-2.5 font-bold text-sm">
@@ -577,9 +585,64 @@ export function GameArena({
                     </motion.div>
                   )}
 
+                  {isHost && state.phase !== 'REVEAL' && !roundMeta.isCorrectionMode && <button className="game-btn-3d bg-white rounded-xl px-3 py-2" onClick={() => sendCommand('PARK_QUESTION')}>احفظ الجولة وارجع للوحة</button>}
+                  {/* HOST CONTROLS: Timer + Lifelines + Reveal */}
                   {isHost && state.phase !== 'REVEAL' && (
-                    <div className="question-actions">
-                      <div className="reveal-action">
+                    <div className="space-y-3 pt-2 border-t-2 border-[#291B40]/10">
+                      {/* Timer + Core Host Buttons */}
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="flex flex-wrap gap-2">
+                          {state.timer.running ? (
+                            <button
+                              type="button"
+                              onClick={() => sendCommand('PAUSE_TIMER')}
+                              className="game-btn-3d bg-[#FFD95A] text-[#291B40] px-4 py-2.5 rounded-xl font-black text-sm flex items-center gap-1.5 cursor-pointer"
+                            >
+                              <Pause className="w-4 h-4" />
+                              <span>إيقاف المؤقت</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                soundFX.playStartRound();
+                                sendCommand(
+                                  state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
+                                    ? 'START_TIMER'
+                                    : 'RESUME_TIMER',
+                                );
+                              }}
+                              className="game-btn-3d bg-[#00B978] text-white px-4 py-2.5 rounded-xl font-black text-sm flex items-center gap-1.5 cursor-pointer"
+                            >
+                              <Play className="w-4 h-4 fill-current" />
+                              <span>
+                                {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
+                              </span>
+                            </button>
+                          )}
+
+                          {'hasBackupQuestionsForActiveCategory' in state &&
+                            state.hasBackupQuestionsForActiveCategory && (
+                              <button
+                                type="button"
+                                onClick={() => sendCommand('SWAP_BACKUP')}
+                                className="game-btn-3d bg-white text-[#291B40] px-3.5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+                              >
+                                <RefreshCw className="w-4 h-4 text-[#279ED6]" />
+                                <span>سؤال احتياطي</span>
+                              </button>
+                            )}
+
+                          <button
+                            type="button"
+                            onClick={() => sendCommand('SKIP_QUESTION')}
+                            className="game-btn-3d bg-white text-[#291B40] px-3.5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+                          >
+                            <SkipForward className="w-4 h-4 text-[#F05B63]" />
+                            <span>تخطي</span>
+                          </button>
+                        </div>
+
                         {!roundMeta.orderPlay && <button
                           type="button"
                           onClick={() => {
@@ -595,14 +658,14 @@ export function GameArena({
 
                       {/* Lifelines Drawer */}
                       {state.settings.lifelinesEnabled && currentTeam && (
-                        <details open className="bg-[#FFF2CD]/70 border-2 border-[#291B40]/20 rounded-2xl p-3">
+                        <details className="bg-[#FFF2CD]/70 border-2 border-[#291B40]/20 rounded-2xl p-3">
                           <summary className="text-sm font-bold mb-2 cursor-pointer">
                             <span>
                               وسائل مساعدة ({currentTeam.name} — متبقي {currentTeam.lifelinesRemaining})
                             </span>
                           </summary>
                           <div className="flex flex-wrap gap-2">
-                            {(state.settings.cards ?? Object.keys(LIFELINE_META) as LifelineType[]).filter(key => !['double_points','pit','second_chance','triple','silence'].includes(key)).map((lifeKey) => {
+                            {(state.settings.cards ?? Object.keys(LIFELINE_META) as LifelineType[]).map((lifeKey) => {
                               const meta = LIFELINE_META[lifeKey];
                               const disabled =
                                 currentTeam.lifelinesRemaining <= 0 || currentTeam.usedLifelines.includes(lifeKey) ||
@@ -623,7 +686,7 @@ export function GameArena({
                                   title={meta.description}
                                   className="game-btn-3d bg-white text-[#291B40] px-3 py-1.5 rounded-xl font-bold text-xs cursor-pointer disabled:opacity-40"
                                 >
-                                  <CardArt card={lifeKey}/>{meta.label}
+                                  {meta.label}
                                 </button>
                               );
                             })}
@@ -648,7 +711,7 @@ export function GameArena({
                         اعتماد النتيجة · {state.teams.find(t=>t.id===roundMeta.orderPlay?.winner)?.name ?? 'لا أحد'}</button>
                     ) : state.settings.allowMultiTeamAward ? (
                       <div className="award-teams">
-                        {state.teams.filter(t => roundMeta.activeLifeline !== 'silence' || t.id === currentTeam?.id).map((team) => {
+                        {state.teams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           const checked = multiSelectedTeams.includes(team.id);
                           return (
@@ -700,7 +763,7 @@ export function GameArena({
                       </div>
                     ) : (
                       <div className="award-teams">
-                        {state.teams.filter(t => roundMeta.activeLifeline !== 'silence' || t.id === currentTeam?.id).map((team) => {
+                        {state.teams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           return (
                             <button
@@ -743,7 +806,7 @@ export function GameArena({
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
             <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <img className="champion-mascot" src="/brand/champion.jpeg" alt="تميمة يمكن هاي تحتفل بالفائز"/>
+              <GameLogo size="md" /><Trophy className="w-16 h-16 text-[#FFD95A] drop-shadow-[0_4px_0_#291B40] mx-auto" />
               <div>
                 <h2 className="font-display font-black text-3xl md:text-4xl text-[#291B40]">
                   نتائج مسابقة يمكن هاي!
@@ -800,14 +863,7 @@ export function GameArena({
 
         {/* SIDEBAR SCOREBOARD (4 columns on desktop) */}
         <aside className="score-rail game-card-frame rounded-3xl p-4 md:p-5 space-y-4">
-          <header className="stage-header">
-            <GameLogo size="sm" dark />
-            {!isHost && <button type="button" className="audience-audio" aria-pressed={localAudio} aria-label="صوت شاشة الجمهور"
-              onClick={()=>{const on=!localAudio; setLocalAudio(on); sessionStorage.setItem('yemken-projector-audio',on?'on':'off');
-                soundFX.enabled=on && state.settings.soundEnabled; if (on) soundFX.playClick();}}>
-              {localAudio ? <Volume2 size={20}/> : <VolumeX size={20}/>}</button>}
-            {state.phase !== 'FINAL' && <span>وقت المباراة <b dir="ltr">{Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}</b></span>}
-          </header>
+          <h2><Trophy size={23} /> سباق النقاط</h2>
           {/* Timer & Question Counter Pill */}
           <div className="flex items-center justify-between gap-2">
             <div className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-1.5 flex items-center gap-1.5 font-display font-black text-base tabular-nums">
@@ -823,46 +879,6 @@ export function GameArena({
             </div>
           </div>
 
-          {isHost && roundMeta && ['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase) && <div className="rail-controls">
-                          {state.timer.running ? (
-                            <button
-                              type="button"
-                              onClick={() => sendCommand('PAUSE_TIMER')}
-                              className="game-btn-3d bg-[#FFD95A] text-[#291B40] px-4 py-2.5 rounded-xl font-black text-sm flex items-center gap-1.5 cursor-pointer"
-                            >
-                              <Pause className="w-4 h-4" />
-                              <span>إيقاف المؤقت</span>
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              onClick={() => {
-                                soundFX.playStartRound();
-                                sendCommand(
-                                  state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
-                                    ? 'START_TIMER'
-                                    : 'RESUME_TIMER',
-                                );
-                              }}
-                              className="game-btn-3d bg-[#00B978] text-white px-4 py-2.5 rounded-xl font-black text-sm flex items-center gap-1.5 cursor-pointer"
-                            >
-                              <Play className="w-4 h-4 fill-current" />
-                              <span>
-                                {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
-                              </span>
-                            </button>
-                          )}
-
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('SKIP_QUESTION')}
-                            className="game-btn-3d bg-white text-[#291B40] px-3.5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 cursor-pointer"
-                          >
-                            <SkipForward className="w-4 h-4 text-[#F05B63]" />
-                            <span>تخطي</span>
-                          </button>
-            {!roundMeta.isCorrectionMode && <button onClick={()=>sendCommand('PARK_QUESTION')}>احفظ الجولة</button>}
-          </div>}
           {/* Teams List */}
           <div className="score-teams space-y-3">
             {state.teams.map((team, idx) => {
@@ -945,10 +961,6 @@ export function GameArena({
             })}
           </div>
 
-          <details className="match-helper"><summary aria-label="مساعدة يمكن هاي"><img src="/brand/helper.png" alt="" />مساعد يمكن هاي</summary>
-            <p>اختاروا فئة من الدرس وقيمة السؤال. بعد كشف الجواب، المشرف بيعتمد الفريق اللي جاوب صح أو «لا أحد».</p>
-            {(state.settings.cards ?? []).map(card => <p key={card}><b>{LIFELINE_META[card].label}</b> · {LIFELINE_META[card].description}</p>)}
-          </details>
           {/* Host Utilities */}
           {isHost && (
             <div className="space-y-2 pt-2 border-t-2 border-[#291B40]/15">
