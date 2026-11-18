@@ -1,33 +1,31 @@
-import { GameLogo } from './GameLogo';
-import { GameAssistantBot } from './GameAssistantBot';
 import { useEffect, useMemo, useState } from 'react';
-import {
-  AlertTriangle,
-  ArrowRight,
-  BellRing,
-  CheckCircle2,
-  Clock,
-  Play,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  XCircle,
-} from 'lucide-react';
+import { Check, Info, Lightbulb, Play, Plus, Search, X } from 'lucide-react';
 import {
   isCategoryTeamMatrixDeck,
   isTeamBundleDeck,
   LIFELINE_META,
   runBoardPreflightCheck,
 } from '../game/pdfValidation';
-import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../game/starterDecks';
+import {
+  ALL_CURATED_CATEGORIES,
+  buildBoardDeckFromCategories,
+  CURATED_QUESTIONS,
+  STARTER_DEMO_DECK,
+} from '../game/starterDecks';
 import type { CommentaryMode, LifelineType, MatchSettings, QuizDeck } from '../game/types';
+import { CATEGORY_3D_ART, CATEGORY_TILE_ART, LIFELINE_CARD_ART } from '../utils/gameAssets';
 import { soundFX } from '../utils/sound';
+import { TopNavHeader } from './TopNavHeader';
 
 interface LobbySetupProps {
   decks: QuizDeck[];
   initialDeckId?: string;
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
   onBack: () => void;
   onGoToPdfStudio?: (deckId?: string) => void;
+  onOpenLibrary?: () => void;
+  onOpenSavedMatches?: () => void;
   onRoomCreated: (data: {
     roomCode: string;
     hostToken: string;
@@ -38,21 +36,30 @@ interface LobbySetupProps {
 const TEAM_COLORS = [
   { label: 'أحمر', hex: '#F05B63' },
   { label: 'أزرق', hex: '#279ED6' },
-  { label: 'أخضر', hex: '#00B978' },
-  { label: 'بنفسجي', hex: '#7042A1' },
+  { label: 'أخضر', hex: '#00A86B' },
+  { label: 'ذهبي', hex: '#E59A00' },
+  { label: 'بنفسجي', hex: '#63349B' },
+  { label: 'وردي', hex: '#D9468F' },
 ];
 
-const TEAM_PRESETS = [
-  { name: 'ثلاثة فرق (افتراضي 12–15 طالبًا)', names: ['النشامى', 'الصقور', 'النخبة'], count: 5 },
-  { name: 'فريقان (تحدي ثنائي سريع)', names: ['الفريق الأول', 'الفريق الثاني'], count: 6 },
-  { name: 'أربعة فرق (مجموعات صغيرة)', names: ['أبطال الفكر', 'صنّاع الأثر', 'روّاد القمة', 'نجوم التحدي'], count: 4 },
+const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
+  { key: 'two_answers', title: 'إجابتان', rule: LIFELINE_META.two_answers.description },
+  { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
+  { key: 'double_points', title: 'نقاط مضاعفة', rule: LIFELINE_META.double_points.description },
+  { key: 'second_chance', title: 'فرصة ثانية', rule: LIFELINE_META.second_chance.description },
+  { key: 'hint', title: 'ألو', rule: LIFELINE_META.hint.description },
+  { key: 'swap_question', title: 'شنّص', rule: LIFELINE_META.swap_question.description },
 ];
 
 export function LobbySetup({
   decks,
   initialDeckId,
+  soundEnabled = true,
+  onToggleSound,
   onBack,
   onGoToPdfStudio,
+  onOpenLibrary,
+  onOpenSavedMatches,
   onRoomCreated,
 }: LobbySetupProps) {
   const [selectedDeckId, setSelectedDeckId] = useState<string>(
@@ -62,19 +69,29 @@ export function LobbySetup({
     ALL_CURATED_CATEGORIES.slice(0, 5).map((c) => c.id),
   );
   const [teams, setTeams] = useState<Array<{ name: string; color: string; participantsCount: number }>>([
-    { name: 'النشامى', color: '#F05B63', participantsCount: 5 },
-    { name: 'الصقور', color: '#279ED6', participantsCount: 5 },
-    { name: 'النخبة', color: '#00B978', participantsCount: 5 },
+    { name: 'الفريق الأول', color: '#F05B63', participantsCount: 5 },
+    { name: 'الفريق الثاني', color: '#279ED6', participantsCount: 5 },
   ]);
 
   const [categoryCount, setCategoryCount] = useState<number>(5);
   const [timerSeconds, setTimerSeconds] = useState<number>(45);
   const [lifelinesEnabled, setLifelinesEnabled] = useState<boolean>(true);
   const [maxLifelinesPerTeam, setMaxLifelinesPerTeam] = useState<number>(3);
-  const [cards, setCards] = useState<LifelineType[]>(['double_points','second_chance','swap_question']);
+  const [cards, setCards] = useState<LifelineType[]>([
+    'two_answers',
+    'pit',
+    'double_points',
+    'hint',
+    'swap_question',
+  ]);
   const [buzzerMode, setBuzzerMode] = useState<boolean>(false);
   const [allowMultiTeamAward, setAllowMultiTeamAward] = useState<boolean>(false);
   const [commentaryMode, setCommentaryMode] = useState<CommentaryMode>('full');
+  const [categoryTab, setCategoryTab] = useState<'official' | 'decks'>(
+    initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? 'decks' : 'official',
+  );
+  const [searchQuery, setSearchQuery] = useState('');
+  const [infoTip, setInfoTip] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -98,7 +115,7 @@ export function LobbySetup({
 
   useEffect(() => {
     if (!lockedTeamCount) return;
-    const defaultMatrixNames = ['النشامى', 'الصقور', 'النخبة', 'الروّاد'];
+    const defaultMatrixNames = ['الفريق الأول', 'الفريق الثاني', 'الفريق الثالث', 'الفريق الرابع'];
     setTeams((prev) => {
       if (prev.length === lockedTeamCount) return prev;
       return Array.from({ length: lockedTeamCount }, (_, idx) => {
@@ -125,18 +142,17 @@ export function LobbySetup({
 
   const activeCategoryIdsForPreflight = useMemo(() => {
     if (selectedDeckId === 'curated_custom') return customCategories;
-    if (isMatrixDeck) return selectedDeck.categories.slice(0, 5).map((c) => c.id);
+    if (isMatrixDeck) return selectedDeck.categories.slice(0, 6).map((c) => c.id);
     if (isTeamBundle) return selectedDeck.categories.map((c) => c.id);
     return selectedDeck.categories.slice(0, categoryCount).map((c) => c.id);
   }, [selectedDeckId, customCategories, selectedDeck, categoryCount, isMatrixDeck, isTeamBundle]);
 
-  // Run live 10-point Preflight Check
   const preflight = useMemo(() => {
     const effectiveCatCount =
       selectedDeckId === 'curated_custom'
         ? customCategories.length
         : isMatrixDeck
-          ? Math.min(5, selectedDeck.categories.length)
+          ? Math.min(6, selectedDeck.categories.length)
           : Math.min(categoryCount, selectedDeck.categories.length);
     return runBoardPreflightCheck({
       deck: selectedDeck,
@@ -164,32 +180,42 @@ export function LobbySetup({
     maxLifelinesPerTeam,
   ]);
 
-  const applyTeamCount = (count: number) => {
+  const handleAddTeam = () => {
+    if (teams.length >= 4 || lockedTeamCount) return;
     soundFX.playClick();
-    setTeams((prev) => {
-      if (count > prev.length) {
-        const next = [...prev];
-        while (next.length < count) {
-          const idx = next.length;
-          next.push({
-            name: `الفريق ${idx + 1}`,
-            color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
-            participantsCount: 4,
-          });
-        }
-        return next;
-      }
-      return prev.slice(0, count);
-    });
+    const idx = teams.length;
+    const names = ['الفريق الأول', 'الفريق الثاني', 'الفريق الثالث', 'الفريق الرابع'];
+    setTeams((prev) => [
+      ...prev,
+      {
+        name: names[idx] || `الفريق ${idx + 1}`,
+        color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
+        participantsCount: 5,
+      },
+    ]);
+  };
+
+  const handleRemoveTeam = (idx: number) => {
+    if (teams.length <= 2 || lockedTeamCount) return;
+    soundFX.playClick();
+    setTeams((prev) => prev.filter((_, i) => i !== idx));
   };
 
   const toggleCustomCategory = (catId: string) => {
+    soundFX.playClick();
+    setSelectedDeckId('curated_custom');
     setCustomCategories((prev) => {
       if (prev.includes(catId)) {
-        if (prev.length <= 3) return prev;
+        if (prev.length <= 3) {
+          setInfoTip('الحد الأدنى لبدء اللوحة هو 3 فئات على الأقل.');
+          return prev;
+        }
         return prev.filter((id) => id !== catId);
       }
-      if (prev.length >= 6) return prev;
+      if (prev.length >= 6) {
+        setInfoTip('الحد الأقصى للوحة هو 6 فئات.');
+        return prev;
+      }
       return [...prev, catId];
     });
   };
@@ -197,7 +223,7 @@ export function LobbySetup({
   const handleStartMatch = async () => {
     setError(null);
     if (!preflight.canStart) {
-      setError(preflight.blockers[0] || 'يرجى استكمال فحص الجاهزية قبل بدء المباراة.');
+      setError(preflight.blockers[0] || 'يرجى استكمال إعداد الفرق والفئات قبل بدء اللعبة.');
       return;
     }
 
@@ -207,7 +233,7 @@ export function LobbySetup({
         selectedDeckId === 'curated_custom'
           ? customCategories.length
           : isMatrixDeck
-            ? Math.min(5, selectedDeck.categories.length)
+            ? Math.min(6, selectedDeck.categories.length)
             : Math.min(categoryCount, selectedDeck.categories.length);
 
       const settings: MatchSettings = {
@@ -249,111 +275,82 @@ export function LobbySetup({
     }
   };
 
+  const filteredCategories = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return ALL_CURATED_CATEGORIES;
+    return ALL_CURATED_CATEGORIES.filter(
+      (c) => c.name.toLowerCase().includes(q) || (c.description || '').toLowerCase().includes(q),
+    );
+  }, [searchQuery]);
+
+  const filteredDecks = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return decks;
+    return decks.filter(
+      (d) => d.title.toLowerCase().includes(q) || d.description.toLowerCase().includes(q),
+    );
+  }, [decks, searchQuery]);
+
+  const activeCategoryBadgeText =
+    selectedDeckId === 'curated_custom'
+      ? `${customCategories.length} / 6`
+      : isMatrixDeck
+        ? `${selectedDeck.categories.length} / ${selectedDeck.categories.length}`
+        : `${Math.min(categoryCount, selectedDeck.categories.length)} / 6`;
+
   return (
-    <div className="min-h-screen w-full game-pattern-bg px-4 py-6 md:py-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between gap-3 mb-6">
-          <button
-            type="button"
-            onClick={onBack}
-            className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-4 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer"
-          >
-            <ArrowRight className="w-4 h-4" />
-            <span>العودة</span>
-          </button>
-          <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
-            إعداد مباراة يمكن هاي
-          </h1>
-          <div className="flex items-center gap-2">
-            <GameAssistantBot compact />
-            <GameLogo size="sm" className="hidden sm:block" />
+    <div className="min-h-screen w-full game-pattern-bg flex flex-col pb-28">
+      {/* Persistent Dark Plum Top Navbar */}
+      <TopNavHeader
+        activePage="lobby"
+        soundEnabled={soundEnabled}
+        onToggleSound={onToggleSound}
+        onHome={onBack}
+        onBack={onBack}
+        onStartQuick={() => {}}
+        onOpenPdfStudio={() => onGoToPdfStudio?.()}
+        onOpenLibrary={() => onOpenLibrary?.()}
+        onOpenSavedMatches={() => onOpenSavedMatches?.()}
+      />
+
+      <div className="max-w-[1260px] w-full mx-auto px-3 sm:px-6 pt-4 space-y-6">
+        {/* Quiet Top Instruction Pill (matching screenshot) */}
+        <div className="flex justify-center">
+          <div className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-5 py-1.5 shadow-[0_3px_0_#1F112E] flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1F112E]">
+            <Lightbulb className="w-4 h-4 text-[#E59A00] shrink-0" />
+            <span>
+              {infoTip || 'مرّر فوق العناصر واضغط (i) لتفاصيل البطاقات والفئات، ثم اضغط ابدأ اللعبة'}
+            </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Right Column: Teams + Deck */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Teams Setup */}
-            <section className="game-card-frame rounded-2xl p-5">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-[#7042A1]" />
-                  <h2 className="font-display font-black text-xl">1. إعداد الفرق (2–4 فرق)</h2>
-                </div>
-                <div className="flex items-center gap-2">
-                  {lockedTeamCount ? (
-                    <span className="text-xs font-black bg-[#EDE7F6] text-[#7042A1] border-2 border-[#291B40] px-3 py-1 rounded-lg">
-                      مقفل على {lockedTeamCount} فرق ({isMatrixDeck ? 'حسب مصفوفة البنك' : 'حسب حزم البنك'})
-                    </span>
-                  ) : (
-                    [2, 3, 4].map((num) => (
-                      <button
-                        key={num}
-                        type="button"
-                        onClick={() => applyTeamCount(num)}
-                        className={`game-btn-3d px-3 py-1 rounded-lg font-display font-black text-sm cursor-pointer ${
-                          teams.length === num
-                            ? 'bg-[#7042A1] text-white'
-                            : 'bg-white text-[#291B40]'
-                        }`}
-                      >
-                        {num} فرق
-                      </button>
-                    ))
-                  )}
-                </div>
-              </div>
+        {/* Panels 1 & 2: Two-Column Clean Grid matching reference setup screen */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Panel 1 (RTL Right): الفرق */}
+          <section className="lg:col-span-6 shannes-panel p-5 sm:p-6 relative">
+            <span className="shannes-step-badge absolute -top-4 left-5">1</span>
 
-              {!lockedTeamCount && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {TEAM_PRESETS.map((preset) => (
-                    <button
-                      key={preset.name}
-                      type="button"
-                      onClick={() =>
-                        setTeams(
-                          preset.names.map((name, idx) => ({
-                            name,
-                            color: TEAM_COLORS[idx % TEAM_COLORS.length].hex,
-                            participantsCount: preset.count,
-                          })),
-                        )
-                      }
-                      className="text-xs font-bold bg-[#FFF2CD] border-2 border-[#291B40] px-2.5 py-1 rounded-lg hover:bg-[#FFD95A] cursor-pointer"
-                    >
-                      {preset.name}
-                    </button>
-                  ))}
-                </div>
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <h1 className="font-display font-black text-2xl text-[#1F112E]">الفرق</h1>
+              {lockedTeamCount && (
+                <span className="text-xs font-black bg-[#EDE7F6] text-[#63349B] border-2 border-[#1F112E] px-3 py-1 rounded-xl">
+                  مقفل على {lockedTeamCount} فرق حسب البنك
+                </span>
               )}
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {teams.map((team, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white border-2 border-[#291B40] rounded-xl p-3 flex flex-col gap-2"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-[#291B40]/70">الفريق {idx + 1}</span>
-                      <div className="flex items-center gap-1.5">
-                        {TEAM_COLORS.map((col) => (
-                          <button
-                            key={col.hex}
-                            type="button"
-                            onClick={() =>
-                              setTeams((prev) =>
-                                prev.map((t, i) => (i === idx ? { ...t, color: col.hex } : t)),
-                              )
-                            }
-                            className={`w-5 h-5 rounded-full border-2 cursor-pointer ${
-                              team.color === col.hex ? 'border-[#291B40] scale-110' : 'border-transparent'
-                            }`}
-                            style={{ backgroundColor: col.hex }}
-                            aria-label={`لون ${col.label}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
+            <div className="space-y-3">
+              {teams.map((team, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#F2ECE0] border border-[#1F112E]/20 rounded-2xl p-3.5 space-y-2.5"
+                  style={{ borderRight: `6px solid ${team.color}` }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-xs font-black text-[#1F112E]/80 whitespace-nowrap shrink-0">
+                      الفريق {idx + 1}
+                    </span>
+
                     <input
                       type="text"
                       value={team.name}
@@ -362,337 +359,667 @@ export function LobbySetup({
                           prev.map((t, i) => (i === idx ? { ...t, name: e.target.value } : t)),
                         )
                       }
-                      className="w-full border-2 border-[#291B40]/30 focus:border-[#7042A1] rounded-lg px-3 py-1.5 font-display font-bold text-sm outline-none"
-                      placeholder="اسم الفريق"
+                      aria-label={`اسم الفريق ${idx + 1}`}
+                      className="flex-1 bg-[#FFFDF7] border-2 border-[#1F112E] focus:border-[#63349B] rounded-xl px-3.5 py-2 font-display font-bold text-sm text-[#1F112E] outline-none"
+                      placeholder={`الفريق ${idx + 1}`}
                     />
+
+                    <button
+                      type="button"
+                      disabled={teams.length <= 2 || Boolean(lockedTeamCount)}
+                      onClick={() => handleRemoveTeam(idx)}
+                      aria-label={`حذف ${team.name}`}
+                      className="w-8 h-8 rounded-full border-2 border-[#1F112E]/30 bg-[#FFFDF7] hover:bg-[#FFE5E7] text-[#1F112E]/70 flex items-center justify-center shrink-0 cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
                   </div>
-                ))}
-              </div>
-            </section>
 
-            {/* Deck Selection */}
-            <section className="game-card-frame rounded-2xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-5 h-5 text-[#00B978]" />
-                <h2 className="font-display font-black text-xl">2. بنك الأسئلة ولوحة الفئات</h2>
-              </div>
+                  {/* Color Swatches */}
+                  <div className="flex items-center justify-end gap-2">
+                    {TEAM_COLORS.map((col) => {
+                      const active = team.color === col.hex;
+                      return (
+                        <button
+                          key={col.hex}
+                          type="button"
+                          onClick={() => {
+                            soundFX.playClick();
+                            setTeams((prev) =>
+                              prev.map((t, i) => (i === idx ? { ...t, color: col.hex } : t)),
+                            );
+                          }}
+                          className={`w-6 h-6 rounded-full border-2 transition-transform cursor-pointer ${
+                            active
+                              ? 'border-[#1F112E] ring-2 ring-offset-1 ring-[#1F112E] scale-110'
+                              : 'border-[#1F112E]/40 hover:scale-105'
+                          }`}
+                          style={{ backgroundColor: col.hex }}
+                          aria-label={`لون ${col.label} للفريق ${idx + 1}`}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                {decks.map((d) => (
-                  <button
-                    key={d.id}
-                    type="button"
-                    onClick={() => {
-                      setSelectedDeckId(d.id);
-                      if (d.categories.length >= 3 && d.categories.length <= 6) {
-                        setCategoryCount(Math.min(5, d.categories.length));
-                      }
-                    }}
-                    className={`text-right p-3.5 rounded-xl border-2 border-[#291B40] transition cursor-pointer ${
-                      selectedDeckId === d.id
-                        ? 'bg-[#EDE7F6] shadow-[0_3px_0_#291B40]'
-                        : 'bg-white hover:bg-[#FFF9E9]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="font-display font-black text-base text-[#291B40]">{d.title}</span>
-                      <span className="text-[11px] font-bold bg-[#FFD95A] border border-[#291B40] px-2 py-0.5 rounded-md">
-                        {d.categories.length} فئات • {d.questions.filter((q) => q.status === 'approved').length} سؤال
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#291B40]/75 line-clamp-2">{d.description}</p>
-                  </button>
-                ))}
+            {!lockedTeamCount && teams.length < 4 && (
+              <button
+                type="button"
+                onClick={handleAddTeam}
+                className="game-btn-3d w-full mt-4 bg-[#FFFDF7] text-[#1F112E] py-3 rounded-2xl font-display font-black text-sm flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Plus className="w-4 h-4" />
+                <span>إضافة فريق</span>
+              </button>
+            )}
+          </section>
+
+          {/* Panel 2 (RTL Left): إعدادات اللعبة */}
+          <section className="lg:col-span-6 shannes-panel p-5 sm:p-6 relative space-y-4">
+            <span className="shannes-step-badge absolute -top-4 left-5">2</span>
+
+            <h2 className="font-display font-black text-2xl text-[#1F112E]">إعدادات اللعبة</h2>
+
+            {/* Board / Mode Selector (3 segmented buttons matching reference) */}
+            <div>
+              <span className="block text-xs font-bold text-[#1F112E]/75 mb-2">نوع اللعبة</span>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFX.playClick();
+                    setSelectedDeckId(STARTER_DEMO_DECK.id);
+                    setCategoryTab('official');
+                  }}
+                  className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
+                    selectedDeckId === STARTER_DEMO_DECK.id
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
+                  }`}
+                >
+                  كلاسيكي
+                </button>
 
                 <button
                   type="button"
-                  onClick={() => setSelectedDeckId('curated_custom')}
-                  className={`text-right p-3.5 rounded-xl border-2 border-[#291B40] transition cursor-pointer ${
+                  onClick={() => {
+                    soundFX.playClick();
+                    setSelectedDeckId('curated_custom');
+                    setCategoryTab('official');
+                  }}
+                  className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
                     selectedDeckId === 'curated_custom'
-                      ? 'bg-[#E8F8F2] shadow-[0_3px_0_#291B40]'
-                      : 'bg-white hover:bg-[#FFF9E9]'
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="font-display font-black text-base text-[#291B40]">
-                      تشكيلة مخصصة من 7 فئات
-                    </span>
-                    <span className="text-[11px] font-bold bg-[#00B978] text-white px-2 py-0.5 rounded-md">
-                      مكتبة يمكن هاي
-                    </span>
-                  </div>
-                  <p className="text-xs text-[#291B40]/75">
-                    اختر 3 إلى 6 فئات من المكتبة الجاهزة لإنشاء لوحتك.
-                  </p>
+                  تشكيلة مخصصة
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFX.playClick();
+                    const firstPdf = decks.find((d) => d.sourceType === 'pdf');
+                    if (firstPdf) {
+                      setSelectedDeckId(firstPdf.id);
+                      setCategoryTab('decks');
+                    } else {
+                      onGoToPdfStudio?.();
+                    }
+                  }}
+                  className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
+                    selectedDeck.sourceType === 'pdf'
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
+                  }`}
+                >
+                  بنوك PDF
+                </button>
+              </div>
+            </div>
+
+            {/* Clean Toggle Switches matching reference */}
+            <div className="space-y-2.5">
+              <div className="bg-[#F2ECE0] border border-[#1F112E]/20 rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+                <div>
+                  <span className="font-display font-black text-sm text-[#1F112E] block">
+                    وضع الجرس الاختياري
+                  </span>
+                  <span className="text-[11px] font-medium text-[#1F112E]/65">
+                    يفتح شاشة جرس سريع للفرق أثناء السؤال
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={buzzerMode}
+                  aria-label="تفعيل وضع الجرس الاختياري"
+                  data-checked={buzzerMode}
+                  onClick={() => {
+                    soundFX.playClick();
+                    setBuzzerMode((p) => !p);
+                  }}
+                  className="shannes-switch"
+                >
+                  <span className="shannes-switch-thumb" />
                 </button>
               </div>
 
-              {selectedDeckId === 'curated_custom' && (
-                <div className="bg-white border-2 border-[#291B40] rounded-xl p-3">
-                  <p className="text-xs font-bold mb-2">
-                    اختر من 3 إلى 6 فئات ({customCategories.length} مختارة):
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {ALL_CURATED_CATEGORIES.map((cat) => {
-                      const active = customCategories.includes(cat.id);
-                      return (
-                        <button
-                          key={cat.id}
-                          type="button"
-                          onClick={() => toggleCustomCategory(cat.id)}
-                          className={`px-3 py-1.5 rounded-lg border-2 border-[#291B40] text-xs font-bold cursor-pointer ${
-                            active ? 'text-white' : 'bg-[#FFF9E9] text-[#291B40]'
-                          }`}
-                          style={active ? { backgroundColor: cat.accentColor } : undefined}
-                        >
-                          {cat.name}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </section>
-
-            {error && (
-              <div className="bg-[#FFE5E7] border-2 border-[#F05B63] text-[#291B40] font-bold text-sm p-3 rounded-xl">
-                {error}
-              </div>
-            )}
-
-            <button
-              type="button"
-              disabled={creating || !preflight.canStart}
-              onClick={handleStartMatch}
-              className="game-btn-3d w-full bg-[#00B978] text-white font-display font-black text-xl py-4 rounded-2xl flex items-center justify-center gap-3 cursor-pointer"
-            >
-              <Play className="w-6 h-6 fill-current" />
-              <span>{creating ? 'جارٍ تجهيز اللوحة...' : 'ابدأ المسابقة الآن!'}</span>
-            </button>
-          </div>
-
-          {/* Left Column: Match Rules + 10-Point Preflight Check */}
-          <div className="lg:col-span-5 space-y-6">
-            <section className="game-card-frame rounded-2xl p-5 space-y-4">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-[#F05B63]" />
-                <h2 className="font-display font-black text-xl">3. قوانين اللوحة والمؤقت</h2>
-              </div>
-
-              {selectedDeckId !== 'curated_custom' && !isTeamBundle && !isMatrixDeck && (
+              <div className="bg-[#F2ECE0] border border-[#1F112E]/20 rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
                 <div>
-                  <label className="block text-sm font-bold mb-1.5">
-                    عدد الفئات على اللوحة (افتراضي 5 × 3 = 15 سؤالًا)
-                  </label>
-                  <div className="grid grid-cols-4 gap-2">
-                    {[3, 4, 5, 6].map((cnt) => {
-                      const available = selectedDeck.categories.length >= cnt;
-                      return (
-                        <button
-                          key={cnt}
-                          type="button"
-                          disabled={!available}
-                          onClick={() => setCategoryCount(cnt)}
-                          className={`py-2 rounded-xl border-2 border-[#291B40] font-display font-black text-sm cursor-pointer disabled:opacity-40 ${
-                            categoryCount === cnt
-                              ? 'bg-[#7042A1] text-white'
-                              : 'bg-white text-[#291B40]'
-                          }`}
-                        >
-                          {cnt} فئات
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <span className="font-display font-black text-sm text-[#1F112E] block">
+                    قرمز ونقّي (تعدد الفائزين)
+                  </span>
+                  <span className="text-[11px] font-medium text-[#1F112E]/65">
+                    السماح بمنح نقاط السؤال لأكثر من فريق عند التعادل
+                  </span>
                 </div>
-              )}
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={allowMultiTeamAward}
+                  aria-label="السماح بأكثر من فريق فائز"
+                  data-checked={allowMultiTeamAward}
+                  onClick={() => {
+                    soundFX.playClick();
+                    setAllowMultiTeamAward((p) => !p);
+                  }}
+                  className="shannes-switch"
+                >
+                  <span className="shannes-switch-thumb" />
+                </button>
+              </div>
 
-              {isMatrixDeck && lockedTeamCount && (
-                <div className="bg-[#EDE7F6] border-2 border-[#291B40] rounded-xl p-3 text-xs font-bold text-[#291B40]">
-                  نظام مصفوفة النخبة: 5 فئات رئيسية × {lockedTeamCount} فرق × 3 مستويات = {5 * lockedTeamCount * 3} سؤالًا (سهل 200 / متوسط 400 / صعب 600).
-                </div>
-              )}
-
-              {isTeamBundle && lockedTeamCount && (
-                <div className="bg-[#EDE7F6] border-2 border-[#291B40] rounded-xl p-3 text-xs font-bold text-[#291B40]">
-                  وضع حزم الفرق مفعّل لهذا البنك: {lockedTeamCount} فرق × 3 أسئلة (سهل 200 / متوسط 400 / صعب 600).
-                </div>
-              )}
-
-              <div>
-                <label className="block text-sm font-bold mb-1.5">وقت السؤال الأساسي</label>
-                <div className="grid grid-cols-4 gap-2">
+              <div className="bg-[#F2ECE0] border border-[#1F112E]/20 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
+                <span className="font-display font-black text-sm text-[#1F112E]">
+                  وقت السؤال الأساسي
+                </span>
+                <div className="flex items-center gap-1.5">
                   {[30, 45, 60, 90].map((sec) => (
                     <button
                       key={sec}
                       type="button"
-                      onClick={() => setTimerSeconds(sec)}
-                      className={`py-2 rounded-xl border-2 border-[#291B40] font-display font-black text-sm cursor-pointer ${
-                        timerSeconds === sec ? 'bg-[#FFD95A] text-[#291B40]' : 'bg-white text-[#291B40]'
+                      onClick={() => {
+                        soundFX.playClick();
+                        setTimerSeconds(sec);
+                      }}
+                      className={`px-2.5 py-1 rounded-lg border-2 border-[#1F112E] font-display font-black text-xs cursor-pointer ${
+                        timerSeconds === sec
+                          ? 'bg-[#FFE047] text-[#1F112E]'
+                          : 'bg-[#FFFDF7] text-[#1F112E]'
                       }`}
                     >
-                      {sec} ث
+                      {sec}ث
                     </button>
                   ))}
                 </div>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 gap-2.5 pt-1">
-                <label className="flex items-center justify-between bg-white border-2 border-[#291B40] rounded-xl px-3.5 py-2.5 cursor-pointer">
-                  <div>
-                    <span className="font-bold text-sm block">تفعيل وسائل المساعدة</span>
-                    <span className="text-[11px] text-[#291B40]/65">
-                      قبل السؤال يختار الفريق بطاقة أو يتخطى. لكل فريق {maxLifelinesPerTeam} استخدامات، وكل بطاقة مرة واحدة للفريق.
-                    </span>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={lifelinesEnabled}
-                    onChange={(e) => setLifelinesEnabled(e.target.checked)}
-                    className="w-5 h-5 accent-[#7042A1]"
-                  />
-                </label>
-
-                {lifelinesEnabled && <div className="flex flex-wrap gap-2">{(['double_points','pit','second_chance','swap_question'] as const).map(key =>
-                  <button key={key} type="button" aria-pressed={cards.includes(key)} title={LIFELINE_META[key].description}
-                    className={'game-btn-3d rounded-xl px-3 py-2 text-sm font-bold ' + (cards.includes(key) ? 'bg-[#7042A1] text-white' : 'bg-white')}
-                    onClick={() => setCards(old => old.includes(key) ? old.filter(k => k !== key) : [...old,key])}>{LIFELINE_META[key].label}</button>)}</div>}
-                {lifelinesEnabled && (
-                  <div className="flex items-center justify-between bg-white border-2 border-[#291B40] rounded-xl px-3.5 py-2">
-                    <span className="text-xs font-bold">عدد المساعدات المتساوية لكل فريق</span>
-                    <div className="flex gap-1.5">
-                      {[1, 2, 3].map((n) => (
-                        <button
-                          key={n}
-                          type="button"
-                          onClick={() => setMaxLifelinesPerTeam(n)}
-                          className={`px-2.5 py-1 rounded-lg border border-[#291B40] text-xs font-black cursor-pointer ${
-                            maxLifelinesPerTeam === n ? 'bg-[#7042A1] text-white' : 'bg-[#FFF9E9]'
-                          }`}
-                        >
-                          {n}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <label className="flex items-center justify-between bg-white border-2 border-[#291B40] rounded-xl px-3.5 py-2.5 cursor-pointer">
-                  <div className="flex items-center gap-2">
-                    <BellRing className="w-4 h-4 text-[#F05B63]" />
-                    <div>
-                      <span className="font-bold text-sm block">تفعيل وضع الجرس الاختياري</span>
-                      <span className="text-[11px] text-[#291B40]/65">
-                        يسمح لـ 2–3 هواتف جرس للفرق فقط دون إجبار كل طالب على هاتف
-                      </span>
-                    </div>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={buzzerMode}
-                    onChange={(e) => setBuzzerMode(e.target.checked)}
-                    className="w-5 h-5 accent-[#F05B63]"
-                  />
-                </label>
-
-                <label className="flex items-center justify-between bg-white border-2 border-[#291B40] rounded-xl px-3.5 py-2.5 cursor-pointer">
-                  <div>
-                    <span className="font-bold text-sm block">السماح بأكثر من فريق فائز في السؤال</span>
-                    <span className="text-[11px] text-[#291B40]/65">
-                      مفيد في الأسئلة التحليلية أو عند تعادل الإجابات
-                    </span>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={allowMultiTeamAward}
-                    onChange={(e) => setAllowMultiTeamAward(e.target.checked)}
-                    className="w-5 h-5 accent-[#00B978]"
-                  />
-                </label>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold mb-1.5">التعليقات التفاعلية الأردنية</label>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { id: 'full' as const, label: 'كامل' },
-                    { id: 'light' as const, label: 'خفيف' },
-                    { id: 'off' as const, label: 'إيقاف' },
-                  ].map((m) => (
-                    <button
-                      key={m.id}
-                      type="button"
-                      onClick={() => setCommentaryMode(m.id)}
-                      className={`py-2 rounded-xl border-2 border-[#291B40] font-bold text-sm cursor-pointer ${
-                        commentaryMode === m.id ? 'bg-[#279ED6] text-white' : 'bg-white text-[#291B40]'
-                      }`}
-                    >
-                      {m.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Preflight Check Panel */}
-            <section className="game-card-frame rounded-2xl p-5">
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#00B978]" />
-                  <h2 className="font-display font-black text-lg">فحص الجاهزية قبل البدء</h2>
-                </div>
+            {/* Available Power Cards Panel (matching Image 7) */}
+            <div className="space-y-3 pt-1">
+              <div className="flex items-center justify-between">
                 <span
-                  className={`text-xs font-black px-2.5 py-1 rounded-lg border-2 border-[#291B40] ${
-                    preflight.canStart
-                      ? 'bg-[#00B978] text-white'
-                      : 'bg-[#F05B63] text-white'
-                  }`}
+                  dir="ltr"
+                  className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs tabular-nums"
                 >
-                  {preflight.canStart ? 'جاهز للعب' : 'يتطلب معالجة'}
+                  {lifelinesEnabled ? `${cards.length} / ${SELECTABLE_POWER_CARDS.length}` : '0 / 6'}
+                </span>
+                <span className="font-display font-black text-sm text-[#1F112E]">
+                  البطاقات المتاحة
                 </span>
               </div>
 
-              <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
-                {preflight.checks.map((chk) => (
-                  <div
-                    key={chk.id}
-                    className={`flex items-start gap-2 rounded-lg px-2.5 py-1.5 text-xs border ${
-                      chk.passed
-                        ? 'bg-[#E8F8F2] border-[#00B978]/40 text-[#291B40]'
-                        : chk.severity === 'error'
-                          ? 'bg-[#FFE5E7] border-[#F05B63]/50 text-[#291B40]'
-                          : 'bg-[#FFF2CD] border-[#E59A00]/50 text-[#291B40]'
-                    }`}
-                  >
-                    {chk.passed ? (
-                      <CheckCircle2 className="w-4 h-4 text-[#00B978] shrink-0 mt-0.5" />
-                    ) : chk.severity === 'error' ? (
-                      <XCircle className="w-4 h-4 text-[#F05B63] shrink-0 mt-0.5" />
-                    ) : (
-                      <AlertTriangle className="w-4 h-4 text-[#E59A00] shrink-0 mt-0.5" />
-                    )}
-                    <div>
-                      <span className="font-bold">{chk.label}</span>
-                      {chk.detail && (
-                        <p className="text-[11px] opacity-80">{chk.detail}</p>
-                      )}
-                    </div>
+              <div className="bg-[#F2ECE0] border-2 border-[#1F112E]/20 rounded-2xl p-3 space-y-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <span className="font-display font-black text-xs sm:text-sm text-[#1F112E] block">
+                      تفعيل البطاقات الخاصة
+                    </span>
+                    <span className="text-[11px] font-medium text-[#1F112E]/65">
+                      لكل فريق {maxLifelinesPerTeam} استخدامات متساوية في المباراة
+                    </span>
                   </div>
-                ))}
-              </div>
 
-              {!preflight.canStart && onGoToPdfStudio && selectedDeckId !== 'curated_custom' && (
+                  <div className="flex items-center gap-2">
+                    {lifelinesEnabled && (
+                      <div className="flex items-center gap-1 bg-[#FFFDF7] border border-[#1F112E]/30 rounded-lg p-0.5">
+                        {[1, 2, 3].map((n) => (
+                          <button
+                            key={n}
+                            type="button"
+                            onClick={() => setMaxLifelinesPerTeam(n)}
+                            className={`w-6 h-6 rounded-md text-xs font-black cursor-pointer ${
+                              maxLifelinesPerTeam === n
+                                ? 'bg-[#63349B] text-white'
+                                : 'text-[#1F112E]'
+                            }`}
+                          >
+                            {n}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={lifelinesEnabled}
+                      aria-label="تفعيل البطاقات الخاصة"
+                      data-checked={lifelinesEnabled}
+                      onClick={() => {
+                        soundFX.playClick();
+                        setLifelinesEnabled((p) => !p);
+                      }}
+                      className="shannes-switch"
+                    >
+                      <span className="shannes-switch-thumb" />
+                    </button>
+                  </div>
+                </div>
+
+                {lifelinesEnabled && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                    {SELECTABLE_POWER_CARDS.map((card) => {
+                      const active = cards.includes(card.key);
+                      const art = LIFELINE_CARD_ART[card.key];
+                      return (
+                        <div
+                          key={card.key}
+                          className={`relative rounded-2xl bg-[#FDF3EB] p-2.5 flex flex-col items-center text-center transition ${
+                            active
+                              ? 'border-[2.5px] border-[#63349B] shadow-[0_3px_0_#63349B]'
+                              : 'border-2 border-[#1F112E]/25 opacity-85 hover:opacity-100'
+                          }`}
+                        >
+                          <div className="w-full flex items-center justify-between mb-1">
+                            <button
+                              type="button"
+                              onClick={() => setInfoTip(`${card.title}: ${card.rule}`)}
+                              aria-label={`معلومات بطاقة ${card.title}`}
+                              className="w-6 h-6 rounded-full border-[1.5px] border-[#1F112E]/60 bg-[#FFFDF7] text-[#1F112E] flex items-center justify-center cursor-pointer hover:bg-[#FFE047]"
+                            >
+                              <Info className="w-3.5 h-3.5" />
+                            </button>
+
+                            <button
+                              type="button"
+                              aria-pressed={active}
+                              aria-label={`${active ? 'إلغاء' : 'تفعيل'} بطاقة ${card.title}`}
+                              onClick={() => {
+                                soundFX.playClick();
+                                setCards((old) =>
+                                  old.includes(card.key)
+                                    ? old.filter((k) => k !== card.key)
+                                    : [...old, card.key],
+                                );
+                              }}
+                              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
+                                active
+                                  ? 'bg-[#63349B] border-[#1F112E] text-white'
+                                  : 'bg-[#FFFDF7] border-[#1F112E]/40 text-transparent'
+                              }`}
+                            >
+                              <Check className="w-3.5 h-3.5 stroke-[3]" />
+                            </button>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() => {
+                              soundFX.playClick();
+                              setCards((old) =>
+                                old.includes(card.key)
+                                  ? old.filter((k) => k !== card.key)
+                                  : [...old, card.key],
+                              );
+                            }}
+                            className="w-full flex flex-col items-center cursor-pointer"
+                          >
+                            <img
+                              src={art}
+                              alt={card.title}
+                              referrerPolicy="no-referrer"
+                              className="h-14 w-auto object-contain mb-1 select-none"
+                            />
+                            <span className="font-display font-black text-xs text-[#1F112E]">
+                              {card.title}
+                            </span>
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-[11px] font-bold text-[#1F112E]/70">التعليق الصوتي الأردني</span>
+                  <div className="flex gap-1">
+                    {(
+                      [
+                        { id: 'full', label: 'كامل' },
+                        { id: 'light', label: 'خفيف' },
+                        { id: 'off', label: 'إيقاف' },
+                      ] as const
+                    ).map((m) => (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => setCommentaryMode(m.id)}
+                        className={`px-2.5 py-0.5 rounded-lg border border-[#1F112E] text-[11px] font-bold cursor-pointer ${
+                          commentaryMode === m.id
+                            ? 'bg-[#279ED6] text-white'
+                            : 'bg-[#FFFDF7] text-[#1F112E]'
+                        }`}
+                      >
+                        {m.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Full-Width Section: الفئات (exact reference Image 8 layout) */}
+        <section className="shannes-panel p-5 sm:p-6 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <h2 className="font-display font-black text-2xl text-[#1F112E]">الفئات</h2>
+              <span
+                dir="ltr"
+                className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs tabular-nums"
+              >
+                {activeCategoryBadgeText}
+              </span>
+
+              <div className="flex items-center gap-1.5 mr-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFX.playClick();
+                    setCategoryTab('official');
+                  }}
+                  className={`game-btn-3d px-4 py-1.5 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
+                    categoryTab === 'official'
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
+                  }`}
+                >
+                  الفئات الرسمية
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFX.playClick();
+                    setCategoryTab('decks');
+                  }}
+                  className={`game-btn-3d px-4 py-1.5 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
+                    categoryTab === 'decks'
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
+                  }`}
+                >
+                  بنوك الـ PDF والمحفوظة ({decks.length})
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {selectedDeckId !== 'curated_custom' && !isTeamBundle && !isMatrixDeck && (
+                <div className="flex items-center gap-1">
+                  {[3, 4, 5, 6].map((cnt) => (
+                    <button
+                      key={cnt}
+                      type="button"
+                      disabled={selectedDeck.categories.length < cnt}
+                      onClick={() => setCategoryCount(cnt)}
+                      className={`px-2.5 py-1 rounded-lg border-2 border-[#1F112E] text-xs font-black cursor-pointer disabled:opacity-40 ${
+                        categoryCount === cnt
+                          ? 'bg-[#FFE047] text-[#1F112E]'
+                          : 'bg-[#FFFDF7] text-[#1F112E]'
+                      }`}
+                    >
+                      {cnt}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={() => {
+                  soundFX.playClick();
+                  setSelectedDeckId('curated_custom');
+                  setCustomCategories(ALL_CURATED_CATEGORIES.slice(0, 3).map((c) => c.id));
+                  setCategoryTab('official');
+                }}
+                className="text-xs font-bold text-[#1F112E]/60 hover:text-[#1F112E] cursor-pointer"
+              >
+                إعادة الافتراضي
+              </button>
+            </div>
+          </div>
+
+          {/* Search Input matching reference */}
+          <div className="relative">
+            <Search className="w-4 h-4 text-[#1F112E]/50 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="ابحث عن فئة أو بنك أسئلة..."
+              className="w-full bg-[#FFFDF7] border-2 border-[#1F112E] focus:border-[#63349B] rounded-2xl pr-4 pl-11 py-2.5 font-bold text-sm text-[#1F112E] outline-none"
+            />
+          </div>
+
+          {!preflight.canStart && (
+            <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-[#1F112E]">
+              <span>{preflight.blockers[0]}</span>
+              {onGoToPdfStudio && selectedDeckId !== 'curated_custom' && (
                 <button
                   type="button"
                   onClick={() => onGoToPdfStudio(selectedDeckId)}
-                  className="mt-3 w-full game-btn-3d bg-[#FFD95A] text-[#291B40] font-bold text-sm py-2 rounded-xl cursor-pointer"
+                  className="game-btn-3d bg-[#FFE047] px-3 py-1 rounded-xl text-xs font-black cursor-pointer"
                 >
-                  مراجعة الأسئلة الناقصة أو بانتظار الاعتماد في الاستوديو
+                  اعتماد الأسئلة في الاستوديو
                 </button>
               )}
-            </section>
-          </div>
+            </div>
+          )}
+
+          {error && (
+            <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-2xl px-4 py-2.5 text-sm font-bold text-[#1F112E]">
+              {error}
+            </div>
+          )}
+
+          {/* Green Section Bar + 3D Illustrated Cards Grid */}
+          {categoryTab === 'official' ? (
+            <div className="space-y-4">
+              <div className="bg-[#00A86B] border-2 border-[#1F112E] rounded-xl px-4 py-2 text-white font-display font-black text-base shadow-[0_3px_0_#1F112E]">
+                فئات مكتبة يمكن هاي
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredCategories.map((cat) => {
+                  const isSelected =
+                    selectedDeckId === 'curated_custom'
+                      ? customCategories.includes(cat.id)
+                      : activeCategoryIdsForPreflight.includes(cat.id);
+                  const catQuestionCount = CURATED_QUESTIONS.filter(
+                    (item) => item.categoryId === cat.id && !item.isBackup,
+                  ).length;
+                  const artSrc = CATEGORY_TILE_ART[cat.iconKey] || CATEGORY_TILE_ART.general;
+
+                  return (
+                    <div
+                      key={cat.id}
+                      className={`group relative rounded-[22px] overflow-hidden border-[2.5px] transition-all select-none ${
+                        isSelected
+                          ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_6px_0_#63349B]'
+                          : 'border-[#1F112E] shadow-[0_4px_0_#1F112E] opacity-90 hover:opacity-100'
+                      }`}
+                      style={{ backgroundColor: cat.accentColor }}
+                    >
+                      {/* Top Overlay Controls (matching reference cards: (i) + count badge) */}
+                      <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between pointer-events-none">
+                        <button
+                          type="button"
+                          onClick={() => setInfoTip(`${cat.name}: ${cat.description || 'أسئلة متنوعة'}`)}
+                          aria-label={`تفاصيل ${cat.name}`}
+                          className="pointer-events-auto w-7 h-7 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer"
+                        >
+                          <Info className="w-3.5 h-3.5" />
+                        </button>
+
+                        <div className="flex items-center gap-1.5">
+                          <span className="bg-[#FFFDF7]/95 border-2 border-[#1F112E] rounded-full px-2.5 py-0.5 text-[11px] font-black text-[#1F112E] tabular-nums">
+                            {catQuestionCount} أسئلة
+                          </span>
+                          {isSelected && (
+                            <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center">
+                              <Check className="w-4 h-4 stroke-[3]" />
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => toggleCustomCategory(cat.id)}
+                        aria-pressed={isSelected}
+                        aria-label={`${isSelected ? 'إلغاء اختيار' : 'اختيار'} فئة ${cat.name}`}
+                        className="w-full text-right block cursor-pointer"
+                      >
+                        {/* 3D Artwork Body */}
+                        <div className="h-44 sm:h-48 w-full overflow-hidden flex items-center justify-center">
+                          <img
+                            src={artSrc}
+                            alt={cat.name}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-200"
+                          />
+                        </div>
+
+                        {/* Cream Pill Title Strip at Bottom */}
+                        <div className="bg-gradient-to-t from-black/25 to-transparent p-3 pt-1">
+                          <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-base text-[#1F112E] shadow-[0_2px_0_#1F112E]">
+                            {cat.name}
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="bg-[#63349B] border-2 border-[#1F112E] rounded-xl px-4 py-2 text-white font-display font-black text-base shadow-[0_3px_0_#1F112E]">
+                بنوك المسابقات ودروس الـ PDF
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredDecks.map((d) => {
+                  const isSelected = selectedDeckId === d.id;
+                  const approvedCount = d.questions.filter((q) => q.status === 'approved').length;
+                  const firstIcon = d.categories[0]?.iconKey ?? 'general';
+                  const artSrc =
+                    d.sourceType === 'pdf'
+                      ? CATEGORY_3D_ART.pdf
+                      : CATEGORY_3D_ART[firstIcon] || CATEGORY_3D_ART.general;
+
+                  return (
+                    <div
+                      key={d.id}
+                      onClick={() => {
+                        soundFX.playClick();
+                        setSelectedDeckId(d.id);
+                        if (d.categories.length >= 3 && d.categories.length <= 6) {
+                          setCategoryCount(Math.min(6, Math.max(3, d.categories.length)));
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedDeckId(d.id);
+                        }
+                      }}
+                      className={`group relative rounded-[22px] overflow-hidden border-[2.5px] transition-all cursor-pointer select-none ${
+                        isSelected
+                          ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_6px_0_#63349B]'
+                          : 'border-[#1F112E] shadow-[0_4px_0_#1F112E] opacity-90 hover:opacity-100'
+                      }`}
+                      style={{ backgroundColor: d.categories[0]?.accentColor || '#63349B' }}
+                    >
+                      <div className="absolute top-3 inset-x-3 z-10 flex items-center justify-between pointer-events-none">
+                        <span className="bg-[#FFE047] border-2 border-[#1F112E] rounded-full px-2.5 py-0.5 text-[11px] font-black text-[#1F112E]">
+                          {d.sourceType === 'pdf' ? 'PDF' : 'جاهز'}
+                        </span>
+
+                        <div className="flex items-center gap-1.5">
+                          <span className="bg-[#FFFDF7]/95 border-2 border-[#1F112E] rounded-full px-2.5 py-0.5 text-[11px] font-black text-[#1F112E] tabular-nums">
+                            {d.categories.length} فئات · {approvedCount} سؤال
+                          </span>
+                          {isSelected && (
+                            <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center">
+                              <Check className="w-4 h-4 stroke-[3]" />
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="h-44 w-full overflow-hidden flex items-center justify-center p-2">
+                        <img
+                          src={artSrc}
+                          alt={d.title}
+                          referrerPolicy="no-referrer"
+                          className="h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-200"
+                        />
+                      </div>
+
+                      <div className="bg-gradient-to-t from-black/25 to-transparent p-3 pt-1">
+                        <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-sm sm:text-base text-[#1F112E] truncate shadow-[0_2px_0_#1F112E]">
+                          {d.title}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
+
+      {/* Floating Bottom Action Dock (exact match to reference Images 6-8) */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,540px)] bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
+        <div className="text-right">
+          <span className="text-[11px] font-bold text-[#1F112E]/65 block">اللوحة</span>
+          <span
+            className={`font-display font-black text-sm sm:text-base ${
+              preflight.canStart ? 'text-[#00A86B]' : 'text-[#F05B63]'
+            }`}
+          >
+            {preflight.canStart ? 'جاهزة للعب' : 'تحتاج استكمال'}
+          </span>
         </div>
+
+        <button
+          type="button"
+          disabled={creating || !preflight.canStart}
+          onClick={handleStartMatch}
+          className="game-btn-purple px-7 py-2.5 rounded-xl font-display font-black text-base sm:text-lg flex items-center gap-2 whitespace-nowrap cursor-pointer"
+        >
+          <span>{creating ? 'جارٍ البدء...' : 'ابدأ اللعبة'}</span>
+          <Play className="w-4 h-4 fill-current rotate-180" />
+        </button>
       </div>
     </div>
   );

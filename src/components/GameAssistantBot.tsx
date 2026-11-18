@@ -16,6 +16,7 @@ interface GameAssistantBotProps {
   phase?: string;
   activeQuestionPrompt?: string;
   compact?: boolean;
+  triggerVariant?: 'pill' | 'icon';
 }
 
 function NabeehMascotSvg({ className = 'w-6 h-6' }: { className?: string }) {
@@ -48,6 +49,7 @@ export function GameAssistantBot({
   phase,
   activeQuestionPrompt,
   compact = false,
+  triggerVariant = 'pill',
 }: GameAssistantBotProps) {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_GREETING]);
@@ -126,12 +128,16 @@ export function GameAssistantBot({
         }}
         title="نبيه — مساعد وحكم يمكن هاي"
         aria-label="فتح نبيه المساعد والحكم الذكي"
-        className={`game-btn-3d bg-[#FFD95A] text-[#291B40] rounded-xl font-display font-black flex items-center gap-2 cursor-pointer shrink-0 ${
-          compact ? 'px-2.5 py-1.5 text-xs' : 'px-3.5 py-1.5 text-sm'
-        }`}
+        className={
+          triggerVariant === 'icon'
+            ? 'game-btn-3d bg-[#FFE047] text-[#1F112E] w-9 h-9 rounded-xl flex items-center justify-center shrink-0 cursor-pointer'
+            : `game-btn-3d bg-[#FFD95A] text-[#291B40] rounded-xl font-display font-black flex items-center gap-2 cursor-pointer shrink-0 ${
+                compact ? 'px-2.5 py-1.5 text-xs' : 'px-3.5 py-1.5 text-sm'
+              }`
+        }
       >
-        <NabeehMascotSvg className={compact ? 'w-5 h-5' : 'w-6 h-6'} />
-        <span>نبيه الحكم</span>
+        <NabeehMascotSvg className={triggerVariant === 'icon' ? 'w-5 h-5' : compact ? 'w-5 h-5' : 'w-6 h-6'} />
+        {triggerVariant !== 'icon' && <span>نبيه الحكم</span>}
       </button>
 
       {open &&

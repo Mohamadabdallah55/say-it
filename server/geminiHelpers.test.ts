@@ -4,15 +4,19 @@ import {
   areQuestionsNearDuplicate,
   buildCategoryFocusedExcerpt,
   buildFallbackTextFromAnalysis,
+  buildPageRangeExcerpt,
   buildRepresentativeExcerpt,
+  computeBoardCoverageMetrics,
   formatGeminiError,
   isAuthOrKeyError,
+  isGenericCategoryName,
   isModelNotFoundError,
   isQuotaError,
   isServiceUnavailableError,
   isUnsupportedThinkingError,
   matchSourcePageNumber,
   normalizeRawGeminiQuestion,
+  partitionPagesIntoRanges,
   safeParseJsonResponse,
   stripCodeFences,
 } from './geminiHelpers';
@@ -174,5 +178,89 @@ test('buildCategoryFocusedExcerpt prioritizes pages matching category keywords',
   assert.match(excerpt, /\[صفحة 9\]/);
   assert.match(excerpt, /بيعة الرضوان/);
 });
+
+test('partitionPagesIntoRanges covers 100% of document pages for 4 and 5 categories without gaps', () => {
+  const pages14 = Array.from({ length: 14 }, (_, i) => ({ num: i + 1, text: `نص الصفحة ${i + 1}` }));
+  const r5 = partitionPagesIntoRanges(pages14, 14, 5);
+  assert.equal(r5.length, 5);
+  assert.equal(r5[0].startPage, 1);
+  assert.equal(r5[r5.length - 1].endPage, 14);
+  const covered5 = new Set<number>();
+  for (const r of r5) {
+    assert.ok(r.startPage <= r.endPage);
+    for (let p = r.startPage; p <= r.endPage; p++) covered5.add(p);
+  }
+  assert.equal(covered5.size, 14);
+
+  const pages10 = Array.from({ length: 10 }, (_, i) => ({ num: i + 1, text: `صفحة ${i + 1}` }));
+  const r4 = partitionPagesIntoRanges(pages10, 10, 4);
+  assert.equal(r4.length, 4);
+  assert.equal(r4[0].startPage, 1);
+  assert.equal(r4[3].endPage, 10);
+});
+
+test('isGenericCategoryName rejects boilerplate templates and accepts lesson-specific names', () => {
+  assert.equal(isGenericCategoryName('المفاهيم والمصطلحات التاريخية'), true);
+  assert.equal(isGenericCategoryName('التسلسل والخط الزمني'), true);
+  assert.equal(isGenericCategoryName('تحليل البيانات والاستدلال'), true);
+  assert.equal(isGenericCategoryName('العلل والأسباب والنتائج'), true);
+  assert.equal(isGenericCategoryName('المحور الرئيسي 2'), true);
+
+  assert.equal(isGenericCategoryName('بيعة الرضوان ومهمة عثمان'), false);
+  assert.equal(isGenericCategoryName('بنود المعاهدة ومفاوضات سهيل'), false);
+  assert.equal(isGenericCategoryName('قضية أبي جندل ومشورة أم سلمة'), false);
+});
+
+test('computeBoardCoverageMetrics verifies 100% coverage and detects uncovered pages', () => {
+  const full = computeBoardCoverageMetrics({
+    categories: [
+      { name: 'الخروج للعمرة', pageRange: { startPage: 1, endPage: 3 }, coveredSubtopics: ['مكة', 'الإحرام'] },
+      { name: 'بيعة الرضوان', pageRange: { startPage: 4, endPage: 6 }, coveredSubtopics: ['عثمان بن عفان', 'الشجرة'] },
+      { name: 'بنود المعاهدة', pageRange: { startPage: 7, endPage: 10 }, coveredSubtopics: ['سهيل بن عمرو', 'الهدنة'] },
+    ],
+    totalPages: 10,
+    readablePages: 10,
+    analysis: {
+      mainTopics: ['الخروج للعمرة', 'بيعة الرضوان', 'بنود المعاهدة'],
+      subTopics: ['الإحرام', 'عثمان بن عفان', 'الهدنة'],
+    },
+  });
+  assert.equal(full.isFullCoverage, true);
+  assert.equal(full.pageCoveragePercent, 100);
+  assert.equal(full.coveredPageCount, 10);
+  assert.deepEqual(full.uncoveredPages, []);
+
+  const partial = computeBoardCoverageMetrics({
+    categories: [
+      { name: 'المحور الأول', pageRange: { startPage: 1, endPage: 3 } },
+      { name: 'المحور الثاني', pageRange: { startPage: 7, endPage: 10 } },
+    ],
+    totalPages: 10,
+    readablePages: 10,
+  });
+  assert.equal(partial.isFullCoverage, false);
+  assert.deepEqual(partial.uncoveredPages, [4, 5, 6]);
+  assert.equal(partial.pageCoveragePercent, 70);
+});
+
+test('buildPageRangeExcerpt prioritizes assigned pageRange over distant pages', () => {
+  const pages = Array.from({ length: 10 }, (_, idx) => ({
+    num: idx + 1,
+    text: `محتوى تفصيلي للصفحة ${idx + 1}: ${
+      idx >= 5 && idx <= 7 ? 'بنود صلح الحديبية وموقف سهيل بن عمرو' : 'موضوعات أخرى متفرقة'
+    } `.repeat(15),
+  }));
+  const fullText = pages.map((p) => `[صفحة ${p.num}] ${p.text}`).join('\n');
+  const excerpt = buildPageRangeExcerpt(
+    pages,
+    fullText,
+    { startPage: 6, endPage: 8 },
+    ['سهيل بن عمرو'],
+    2200,
+  );
+  assert.match(excerpt, /\[صفحة 6\]/);
+  assert.match(excerpt, /\[صفحة 7\]/);
+});
+
 
 

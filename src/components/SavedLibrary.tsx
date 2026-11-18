@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
-  ArrowRight,
   BookOpen,
   Download,
   Edit3,
@@ -9,6 +8,7 @@ import {
   Upload,
 } from 'lucide-react';
 import type { QuizDeck, TeamState } from '../game/types';
+import { TopNavHeader } from './TopNavHeader';
 
 interface SavedRoomSummary {
   roomCode: string;
@@ -25,6 +25,10 @@ interface SavedLibraryProps {
   mode: 'decks' | 'matches';
   decks: QuizDeck[];
   rooms: SavedRoomSummary[];
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
+  onStartQuick?: () => void;
+  onOpenPdfStudio?: () => void;
   onBack: () => void;
   onSelectDeckToPlay: (deckId: string) => void;
   onEditDeckInStudio: (deck: QuizDeck) => void;
@@ -36,6 +40,10 @@ export function SavedLibrary({
   mode,
   decks,
   rooms,
+  soundEnabled = true,
+  onToggleSound,
+  onStartQuick,
+  onOpenPdfStudio,
   onBack,
   onSelectDeckToPlay,
   onEditDeckInStudio,
@@ -43,6 +51,10 @@ export function SavedLibrary({
   onResumeRoom,
 }: SavedLibraryProps) {
   const [tab, setTab] = useState<'decks' | 'matches'>(mode);
+
+  useEffect(() => {
+    setTab(mode);
+  }, [mode]);
   const [importError, setImportError] = useState<string | null>(null);
   const [importNotice, setImportNotice] = useState<string | null>(null);
   const [pendingOverwrite, setPendingOverwrite] = useState<{
@@ -116,48 +128,59 @@ export function SavedLibrary({
   };
 
   return (
-    <div className="min-h-screen w-full game-pattern-bg px-4 py-6">
-      <div className="max-w-6xl mx-auto space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={onBack}
-            className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-4 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer"
-          >
-            <ArrowRight className="w-4 h-4" />
-            <span>العودة</span>
-          </button>
+    <div className="min-h-screen w-full flex flex-col bg-[#240E35]">
+      <TopNavHeader
+        activePage="library"
+        soundEnabled={soundEnabled}
+        onToggleSound={onToggleSound}
+        onHome={onBack}
+        onBack={onBack}
+        onStartQuick={() => (onStartQuick ? onStartQuick() : onBack())}
+        onOpenPdfStudio={() => (onOpenPdfStudio ? onOpenPdfStudio() : onBack())}
+        onOpenLibrary={() => setTab('decks')}
+        onOpenSavedMatches={() => setTab('matches')}
+      />
 
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => setTab('decks')}
-              className={`game-btn-3d px-5 py-2 rounded-xl font-display font-black text-sm cursor-pointer ${
-                tab === 'decks' ? 'bg-[#7042A1] text-white' : 'bg-[#FFF9E9] text-[#291B40]'
-              }`}
-            >
-              بنوك الأسئلة ({decks.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setTab('matches')}
-              className={`game-btn-3d px-5 py-2 rounded-xl font-display font-black text-sm cursor-pointer ${
-                tab === 'matches' ? 'bg-[#279ED6] text-white' : 'bg-[#FFF9E9] text-[#291B40]'
-              }`}
-            >
-              المباريات المحفوظة ({rooms.length})
-            </button>
+      <main className="flex-1 w-full game-pattern-bg px-4 py-6">
+        <div className="max-w-6xl mx-auto space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="shannes-step-badge shrink-0">{tab === 'decks' ? 'بنوك' : 'حفظ'}</span>
+              <h1 className="font-display font-black text-2xl md:text-3xl text-[#1F112E]">
+                {tab === 'decks' ? 'مكتبة بنوك الأسئلة' : 'المباريات المحفوظة'}
+              </h1>
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setTab('decks')}
+                className={`game-btn-3d px-5 py-2 rounded-xl font-display font-black text-sm cursor-pointer ${
+                  tab === 'decks' ? 'bg-[#63349B] text-white' : 'bg-[#FFFDF7] text-[#1F112E]'
+                }`}
+              >
+                بنوك الأسئلة ({decks.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setTab('matches')}
+                className={`game-btn-3d px-5 py-2 rounded-xl font-display font-black text-sm cursor-pointer ${
+                  tab === 'matches' ? 'bg-[#63349B] text-white' : 'bg-[#FFFDF7] text-[#1F112E]'
+                }`}
+              >
+                المباريات المحفوظة ({rooms.length})
+              </button>
+            </div>
           </div>
-        </div>
 
         {tab === 'decks' && (
           <>
-            <div className="game-card-frame rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="shannes-panel p-4 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[#7042A1]" />
+                <BookOpen className="w-5 h-5 text-[#63349B]" />
                 <div>
-                  <h2 className="font-display font-black text-lg">استيراد وتصدير عبر USB (JSON)</h2>
-                  <p className="text-xs font-medium text-[#291B40]/75">
+                  <h2 className="font-display font-black text-lg text-[#1F112E]">استيراد وتصدير عبر USB (JSON)</h2>
+                  <p className="text-xs font-medium text-[#1F112E]/75">
                     انقل بنوك الأسئلة بين أجهزة المدرسة بدون إنترنت بصيغة يمكن هاي v2
                   </p>
                 </div>
@@ -324,7 +347,8 @@ export function SavedLibrary({
             )}
           </div>
         )}
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

@@ -1,10 +1,15 @@
 import { pickCommentary } from './commentary';
 import {
+  IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
+  isInQuestionLifeline,
+  isPreQuestionLifeline,
   isTeamBundleDeck,
+  PRE_QUESTION_LIFELINES,
   resolveOrder,
   selectActiveBoardForDeck,
 } from './pdfValidation';
+export { IN_QUESTION_LIFELINES, PRE_QUESTION_LIFELINES };
 import type {
   ActiveRound,
   BuzzerViewState,
@@ -219,12 +224,25 @@ export function selectBoardTile(
     isCorrectionMode: false,
   };
 
+  const configuredCards =
+    state.settings.cards ?? ['double_points', 'pit', 'second_chance', 'swap_question', 'hint'];
+  const currentTeam = state.teams[state.currentTurnTeamIndex];
+  const hasAvailablePreQuestionCard = configuredCards.some(
+    (card) =>
+      PRE_QUESTION_LIFELINES.includes(card as LifelineType) &&
+      !currentTeam.usedLifelines.includes(card as LifelineType),
+  );
+
   return {
     ok: true,
     state: {
       ...state,
-      phase: state.settings.lifelinesEnabled && (state.settings.cards ?? ['double_points','pit','second_chance','swap_question']).some(card => !state.teams[state.currentTurnTeamIndex].usedLifelines.includes(card as LifelineType)) && state.teams[state.currentTurnTeamIndex].lifelinesRemaining > 0
-        ? 'LIFELINE_PICK' : 'QUESTION_READY',
+      phase:
+        state.settings.lifelinesEnabled &&
+        hasAvailablePreQuestionCard &&
+        currentTeam.lifelinesRemaining > 0
+          ? 'LIFELINE_PICK'
+          : 'QUESTION_READY',
       questionCounter: state.questionCounter + 1,
       activeRound,
       timer: {
@@ -279,13 +297,34 @@ export function applyLifeline(
   if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
     return { ok: false, error: 'البطاقة غير متاحة.', state };
   }
-  if (state.activeRound.activeLifeline) {
+  const prevLifeline = state.activeRound.activeLifeline;
+  if (prevLifeline === lifeline) {
+    return { ok: false, error: 'تم تفعيل هذه البطاقة بالفعل في هذا السؤال.', state };
+  }
+  if (
+    isPreQuestionLifeline(lifeline) &&
+    prevLifeline &&
+    isPreQuestionLifeline(prevLifeline)
+  ) {
     return { ok: false, error: 'تم تفعيل وسيلة مساعدة بالفعل في هذا السؤال.', state };
+  }
+  if (lifeline === 'hint' && state.activeRound.hintRevealed) {
+    return { ok: false, error: 'تم تفعيل بطاقة ألو بالفعل في هذا السؤال.', state };
+  }
+  if (lifeline === 'swap_question' && state.activeRound.swappedFromQuestionId) {
+    return { ok: false, error: 'تم تبديل السؤال بالفعل في هذه الجولة.', state };
+  }
+  if (isInQuestionLifeline(lifeline) && state.phase === 'LIFELINE_PICK') {
+    // Allow direct calls in tests or transitions while defaulting to keeping active scoring card
   }
 
   let nextRound: ActiveRound = {
     ...state.activeRound,
-    activeLifeline: lifeline,
+    activeLifeline:
+      isInQuestionLifeline(lifeline) &&
+      (prevLifeline === 'pit' || prevLifeline === 'double_points' || prevLifeline === 'two_answers')
+        ? prevLifeline
+        : lifeline,
   };
   let nextTimer = { ...state.timer };
   let nextBoardTiles = state.boardTiles;
@@ -300,9 +339,6 @@ export function applyLifeline(
     }
     nextRound = { ...nextRound, twoAnswersActive: true };
   } else if (lifeline === 'hint') {
-    if (!state.activeRound.question.hint) {
-      return { ok: false, error: 'لا يتوفر تلميح مسجّل لهذا السؤال.', state };
-    }
     nextRound = { ...nextRound, hintRevealed: true };
   } else if (lifeline === 'double_points') {
     nextRound = {
@@ -1106,6 +1142,9 @@ export function sanitizeStateForRole(
             ? state.activeRound.question.acceptableAnswers
             : undefined,
           explanation: canRevealAnswer ? state.activeRound.question.explanation : undefined,
+          imageUrl: state.activeRound.question.imageUrl,
+          imageBase64: state.activeRound.question.imageBase64,
+          imageCaption: state.activeRound.question.imageCaption,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,
           basePoints: state.activeRound.basePoints,

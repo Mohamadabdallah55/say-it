@@ -15,6 +15,7 @@ import type {
   CategoryIconKey,
   DeckCategory,
   Difficulty,
+  ExtractedPdfVisual,
   PdfAnalysisReport,
   QuestionType,
   QuizDeck,
@@ -26,11 +27,15 @@ import {
   areQuestionsNearDuplicate,
   buildCategoryFocusedExcerpt,
   buildFallbackTextFromAnalysis,
+  buildPageRangeExcerpt,
   buildRepresentativeExcerpt,
+  computeBoardCoverageMetrics,
   formatGeminiError,
+  isGenericCategoryName,
   isQuotaError,
   matchSourcePageNumber,
   normalizeRawGeminiQuestion,
+  partitionPagesIntoRanges,
 } from './geminiHelpers';
 import {
   extractAndParsePdfWithGemini,
@@ -43,6 +48,7 @@ import {
   getDeckById,
   saveCachedPdfPlan,
   saveCachedPdfText,
+  saveCachedPdfVisuals,
   saveDeck,
 } from './storage';
 
@@ -62,6 +68,7 @@ const CORE_CATEGORY_PALETTE: Array<{ iconKey: CategoryIconKey; color: string }> 
   { iconKey: 'history', color: '#00B978' },
   { iconKey: 'skills', color: '#F05B63' },
   { iconKey: 'arabic', color: '#E59A00' },
+  { iconKey: 'geography', color: '#0E7C7B' },
 ];
 
 const VALID_ICON_KEYS = new Set<CategoryIconKey>([
@@ -183,12 +190,13 @@ function resolvePdfTextContext(params: {
   };
 }
 
-// STAGE 2 -> STAGE 3: Mandatory 5 Core Categories Plan for N Competing Teams (5 × N × 3 Matrix)
+// STAGE 2 -> STAGE 3: Configurable K Core Categories (3-6, default 5) × N Teams Matrix with 100% Page Coverage
 export async function planBoardFromPdf(params: {
   fileHash: string;
   analysis: PdfAnalysisReport;
   teamCount?: number;
   desiredCategoriesCount?: number;
+  categoryCount?: number;
   ageGroup?: AgeGroup;
   rawText?: string;
   extractedText?: string;
@@ -204,9 +212,10 @@ export async function planBoardFromPdf(params: {
     fallbackTitle: params.analysis?.title,
   });
 
-  const teamCount = Math.max(
-    2,
-    Math.min(4, Number(params.teamCount ?? params.desiredCategoriesCount ?? 3) || 3),
+  const teamCount = Math.max(2, Math.min(4, Number(params.teamCount ?? 3) || 3));
+  const categoryCount = Math.max(
+    3,
+    Math.min(6, Number(params.desiredCategoriesCount ?? params.categoryCount ?? 5) || 5),
   );
 
   const cachedPlan = getCachedPdfPlan(params.fileHash);
@@ -214,42 +223,63 @@ export async function planBoardFromPdf(params: {
     cachedPlan?.plan &&
     cachedPlan.plan.boardMode === 'category_team_matrix' &&
     cachedPlan.plan.teamCount === teamCount &&
-    cachedPlan.plan.categories.length === 5
+    cachedPlan.plan.recommendedCategoryCount === categoryCount &&
+    cachedPlan.plan.categories.length === categoryCount &&
+    Boolean(cachedPlan.plan.coverageReport)
   ) {
     return cachedPlan.plan;
   }
 
+  const pagePartitions = partitionPagesIntoRanges(
+    resolvedText.pages,
+    resolvedText.totalPages,
+    categoryCount,
+  );
+  const partitionMapText = pagePartitions
+    .map((p, idx) => `- الفئة رقم ${idx + 1}: الصفحات ${p.startPage} إلى ${p.endPage}`)
+    .join('\n');
+
   const excerpt = buildRepresentativeExcerpt(resolvedText.pages, resolvedText.fullText, 28000);
   const suggestedSeeds = (params.analysis.suggestedCategories ?? [])
-    .map((c, idx) => `${idx + 1}. ${c.name}: ${c.description} (${c.topicCoverage.join('، ')})`)
+    .filter((c) => !isGenericCategoryName(c.name))
+    .map(
+      (c, idx) =>
+        `${idx + 1}. ${c.name}${c.pageRange ? ` (ص ${c.pageRange.startPage}–${c.pageRange.endPage})` : ''}: ${c.description} (${c.topicCoverage.join('، ')})`,
+    )
     .join('\n');
 
   const hypotheticalNote = params.analysis.hypotheticalSections?.length
-    ? `تنبيه مهم حول الأقسام المستبعدة/الافتراضية في الملف:\n- ${params.analysis.hypotheticalSections.join('\n- ')}\nاستبعد أي إرشادات للمعلم أو جداول تدريبية فارغة من الأسئلة الأساسية وركّز على صلب المادة العلمية والمفاهيم والعلل والتسلسل والمقارنات.`
+    ? `تنبيه مهم حول الأقسام المستبعدة/الافتراضية في الملف:\n- ${params.analysis.hypotheticalSections.join('\n- ')}\nاستبعد أي إرشادات للمعلم أو جداول تدريبية فارغة من الأسئلة الأساسية وركّز على صلب المادة العلمية.`
     : '';
 
-  const prompt = `بناءً على الفهم التربوي والعلمي العميق لدرس "${params.analysis.title}" (المجال: ${params.analysis.subjectDomain}) والنص الكامل المرفق، صمّم خطة مصفوفة مسابقة «يمكن هاي» لـ **5 فئات رئيسية شاملة** و**${teamCount} فرق متنافسة** (إجمالي ${5 * teamCount * 3} سؤالًا: في كل فئة 3 أسئلة لكل فريق).
+  const totalQuestions = categoryCount * teamCount * 3;
+  const prompt = `بناءً على الفهم التربوي والعلمي العميق لكامل صفحات درس "${params.analysis.title}" (المجال: ${params.analysis.subjectDomain}) والنص المرفق، صمّم خطة مصفوفة مسابقة «يمكن هاي» لـ **${categoryCount} فئات رئيسية متخصصة** و**${teamCount} فرق متنافسة** (إجمالي ${totalQuestions} سؤالًا: في كل فئة 3 أسئلة لكل فريق).
 
-القواعد الإلزامية لتصميم الفئات الـ 5:
-1. يجب إرجاع **5 فئات رئيسية بالضبط** (categories.length === 5) تغطي كافة محاور الدرس من بدايته إلى نهايته دون فجوات أو تداخل.
-2. استبعد تمامًا أي صفحات إرشادية للمعلم أو جداول أنشطة فارغة إلا إذا كانت جزءًا أساسيًا من المادة العلمية.
-3. ركّز في الفئات على المفاهيم العميقة، العلل والأسباب، التسلسل الزمني/المنطقي، والمقارنات والاستنتاجات.
-4. في كل فئة يجب أن تدعم المادة العلمية توليد ${teamCount} أسئلة مميزة ومتكافئة الصعوبة لكل مستوى:
+القواعد الصارمة الإلزامية لتصميم الفئات الـ ${categoryCount}:
+1. **منع الفئات القالبية العامة نهائيًا**: يُمنع منعًا باتًا استخدام أي اسم عام أو جامد يتكرر بين الدروس مثل: "المفاهيم والمصطلحات التاريخية"، "التسلسل والخط الزمني"، "تحليل البيانات والاستدلال"، "العلل والأسباب والنتائج"، "المفاهيم والأسس الرئيسية"، أو "المقارنات والفروق الدقيقة". يجب أن يكون اسم كل فئة مشتقًا مباشرة من العناوين والأحداث والشخصيات والمحاور الفعلية داخل هذا الدرس تحديدًا.
+2. **التغطية الشاملة 100% لكامل صفحات الملف (الصفحة 1 حتى الصفحة ${resolvedText.totalPages})**: التزم بتقسيم الدرس إلى ${categoryCount} نطاقات متتالية ومتوازنة وفق خريطة الصفحات التالية دون إهمال وسط الدرس أو نهايته:
+${partitionMapText}
+3. في كل فئة، حدد pageRange ({ startPage, endPage }) و coveredSubtopics و topicCoverage بحيث تغطي الفئات الـ ${categoryCount} مجتمعةً جميع فقرات وأفكار الدرس بنسبة 100%.
+4. استبعد تمامًا أي صفحات إرشادية للمعلم أو جداول أنشطة فارغة إلا إذا كانت جزءًا أساسيًا من المادة العلمية.
+5. في كل فئة يجب أن تدعم المادة العلمية توليد ${teamCount} أسئلة مميزة ومتكافئة الصعوبة وموزعة على زوايا ومواضيع فرعية مختلفة لكل مستوى:
    - سهل (200 نقطة): استيعاب مباشر وذكي للمعلومات الأساسية في الفئة.
    - متوسط (400 نقطة): فهم وتحليل (تعليل، تسلسل، سبب ونتيجة، تفسير موقف).
    - صعب (600 نقطة): تفكير عالٍ واستنتاج عميق (مقارنة دقيقة، استنتاج قاعدة، كشف خطأ خفي، أو ربط مفاهيم).
-5. لكل فئة أرجع:
-   - name: اسم الفئة الرئيسية بالعربية.
+6. لكل فئة أرجع:
+   - name: اسم الفئة المشتق من محتوى الدرس الفعلي بالعربية (غير قالبي).
    - description: وصف تربوي دقيق لما تشمله الفئة.
    - iconKey: من [general, science, history, arabic, puzzles, sports, islamic, pdf, skills, geography, tech].
-   - topicCoverage: قائمة الموضوعات الفرعية الدقيقة داخل هذه الفئة (3 إلى 6 موضوعات لتغطية أسئلة الفرق المختلفة دون تكرار).
-   - subtopic200، subtopic400، subtopic600: محور فرعي مناسب لكل مستوى.
+   - pageRange: { startPage, endPage } مطابق لنطاق صفحاتها.
+   - coveredSubtopics: 4 إلى 6 موضوعات فرعية دقيقة من داخل هذا النطاق لتوزيع أسئلة الفرق عليها دون تكدس.
+   - topicCoverage: نفس القائمة الشاملة للموضوعات الفرعية المغطاة.
+   - subtopic200، subtopic400، subtopic600: محور فرعي مميز لكل مستوى.
    - sample200، sample400، sample600: نموذج فكرة سؤال عملي لكل مستوى.
    - supportsEasy200، supportsMedium400، supportsHard600: true.
 
-${suggestedSeeds ? `الفئات المقترحة من التحليل المبدئي:\n${suggestedSeeds}\n` : ''}
+${suggestedSeeds ? `بذور محاور متخصصة من التحليل المبدئي:\n${suggestedSeeds}\n` : ''}
 المواضيع الرئيسية: ${params.analysis.mainTopics.join('، ') || 'غير محددة'}
 المواضيع الفرعية: ${params.analysis.subTopics.join('، ') || 'غير محددة'}
+الشخصيات والأحداث: ${(params.analysis.peopleAndEvents ?? []).slice(0, 8).join('، ') || 'مذكورة في النص'}
 العلل والأسباب: ${(params.analysis.causesAndEffects ?? []).slice(0, 6).join('، ') || 'مذكورة في النص'}
 المقارنات والاستنتاجات: ${(params.analysis.relationshipsAndConclusions ?? []).slice(0, 6).join('، ') || 'مذكورة في النص'}
 ${hypotheticalNote ? `\n${hypotheticalNote}` : ''}
@@ -264,6 +294,8 @@ ${excerpt}`;
       name?: string;
       description?: string;
       iconKey?: string;
+      pageRange?: { startPage?: number; endPage?: number };
+      coveredSubtopics?: string[];
       topicCoverage?: string[];
       subtopic200?: string;
       subtopic400?: string;
@@ -277,11 +309,10 @@ ${excerpt}`;
     }>;
   }>({
     contents: prompt,
-    contextLabel: 'إعداد خطة الـ 5 فئات الرئيسية من الدرس',
+    contextLabel: `إعداد خطة ${categoryCount} فئات متخصصة من الدرس`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
-      systemInstruction:
-        'أنت خبير مناهج ومصمم مسابقات تعليمية عربية. قسّم الدرس دائمًا إلى 5 فئات رئيسية شاملة تغطي كامل الدرس (المفاهيم، العلل، التسلسل، المقارنات، الاستنتاجات) وتصلح لتوليد أسئلة متكافئة لـ 2–4 فرق في 3 مستويات. التزم بالعربية الفصحى السليمة فقط.',
+      systemInstruction: `أنت خبير مناهج ومصمم مسابقات تعليمية عربية. قسّم الدرس إلى ${categoryCount} فئات متخصصة مشتقة مباشرة من عناوين وأفكار الدرس الفعلية، موزعة على نطاقات صفحات متتالية تغطي 100% من الملف من الصفحة 1 حتى الأخيرة، وامنع الأسماء القالبية العامة نهائيًا.`,
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
@@ -296,6 +327,15 @@ ${excerpt}`;
                 name: { type: Type.STRING },
                 description: { type: Type.STRING },
                 iconKey: { type: Type.STRING },
+                pageRange: {
+                  type: Type.OBJECT,
+                  properties: {
+                    startPage: { type: Type.INTEGER },
+                    endPage: { type: Type.INTEGER },
+                  },
+                  required: ['startPage', 'endPage'],
+                },
+                coveredSubtopics: { type: Type.ARRAY, items: { type: Type.STRING } },
                 topicCoverage: { type: Type.ARRAY, items: { type: Type.STRING } },
                 subtopic200: { type: Type.STRING },
                 subtopic400: { type: Type.STRING },
@@ -311,6 +351,8 @@ ${excerpt}`;
                 'name',
                 'description',
                 'iconKey',
+                'pageRange',
+                'coveredSubtopics',
                 'topicCoverage',
                 'subtopic200',
                 'subtopic400',
@@ -330,43 +372,87 @@ ${excerpt}`;
     },
   });
 
-  const fallbackTopics =
-    params.analysis.subTopics.length > 0
-      ? params.analysis.subTopics
-      : params.analysis.mainTopics.length > 0
-        ? params.analysis.mainTopics
-        : [params.analysis.title || 'محور الدرس'];
+  const fallbackTopics = Array.from(
+    new Set(
+      [
+        ...(params.analysis.mainTopics ?? []),
+        ...(params.analysis.subTopics ?? []),
+        ...(params.analysis.peopleAndEvents ?? []),
+        ...(params.analysis.conceptsAndTerms ?? []),
+      ]
+        .map((s) => s?.trim())
+        .filter((s): s is string => Boolean(s) && !isGenericCategoryName(s)),
+    ),
+  );
+  const safeFallbackTopics =
+    fallbackTopics.length > 0 ? fallbackTopics : [params.analysis.title || 'محور الدرس'];
 
-  const fallbackSuggested = params.analysis.suggestedCategories ?? [];
+  const fallbackSuggested = (params.analysis.suggestedCategories ?? []).filter(
+    (c) => !isGenericCategoryName(c.name),
+  );
   const rawCats = (parsed.categories ?? []).filter((c) => Boolean(c?.name?.trim()));
+  const usedCatNames = new Set<string>();
 
-  const categories: BoardPlanCategory[] = Array.from({ length: 5 }, (_, idx) => {
+  const categories: BoardPlanCategory[] = Array.from({ length: categoryCount }, (_, idx) => {
     const pal = CORE_CATEGORY_PALETTE[idx % CORE_CATEGORY_PALETTE.length];
+    const partition = pagePartitions[idx];
     const raw = rawCats[idx];
     const seed = fallbackSuggested[idx];
-    const fallbackTopic = fallbackTopics[idx % fallbackTopics.length];
+    const fallbackTopic = safeFallbackTopics[idx % safeFallbackTopics.length];
 
-    const name = raw?.name?.trim() || seed?.name?.trim() || `المحور الرئيسي ${idx + 1}: ${fallbackTopic}`;
+    const candidateNames = [
+      raw?.name?.trim(),
+      seed?.name?.trim(),
+      safeFallbackTopics.find((t) => !usedCatNames.has(t)),
+      fallbackTopic,
+    ].filter((n): n is string => Boolean(n));
+
+    let chosenName =
+      candidateNames.find((n) => !isGenericCategoryName(n) && !usedCatNames.has(n)) ||
+      candidateNames.find((n) => !isGenericCategoryName(n)) ||
+      `${params.analysis.title.trim().slice(0, 26)} (ص ${partition.startPage}–${partition.endPage})`;
+    if (usedCatNames.has(chosenName)) {
+      chosenName = `${chosenName} (${partition.startPage}–${partition.endPage})`;
+    }
+    usedCatNames.add(chosenName);
+
+    const rawStart = raw?.pageRange?.startPage;
+    const rawEnd = raw?.pageRange?.endPage;
+    const hasValidRange =
+      typeof rawStart === 'number' &&
+      typeof rawEnd === 'number' &&
+      rawStart >= 1 &&
+      rawEnd >= rawStart &&
+      rawEnd <= resolvedText.totalPages;
+
+    const startPage = hasValidRange ? Math.round(rawStart) : partition.startPage;
+    const endPage = hasValidRange ? Math.round(rawEnd) : partition.endPage;
+
     const t200 =
       raw?.subtopic200?.trim() ||
+      raw?.coveredSubtopics?.[0] ||
       raw?.topicCoverage?.[0] ||
       seed?.topicCoverage?.[0] ||
-      fallbackTopics[(idx * 3) % fallbackTopics.length];
+      safeFallbackTopics[(idx * 3) % safeFallbackTopics.length];
     const t400 =
       raw?.subtopic400?.trim() ||
+      raw?.coveredSubtopics?.[1] ||
       raw?.topicCoverage?.[1] ||
       seed?.topicCoverage?.[1] ||
-      fallbackTopics[(idx * 3 + 1) % fallbackTopics.length];
+      safeFallbackTopics[(idx * 3 + 1) % safeFallbackTopics.length];
     const t600 =
       raw?.subtopic600?.trim() ||
+      raw?.coveredSubtopics?.[2] ||
       raw?.topicCoverage?.[2] ||
       seed?.topicCoverage?.[2] ||
-      fallbackTopics[(idx * 3 + 2) % fallbackTopics.length];
+      safeFallbackTopics[(idx * 3 + 2) % safeFallbackTopics.length];
 
     const coverage = Array.from(
       new Set(
         [
+          ...(raw?.coveredSubtopics ?? []),
           ...(raw?.topicCoverage ?? []),
+          ...(seed?.coveredSubtopics ?? []),
           ...(seed?.topicCoverage ?? []),
           t200,
           t400,
@@ -386,13 +472,15 @@ ${excerpt}`;
 
     return {
       id: `cat_${idx + 1}`,
-      name,
+      name: chosenName,
       description:
         raw?.description?.trim() ||
         seed?.description?.trim() ||
-        `محور أساسي يغطي: ${coverage.slice(0, 3).join('، ')}`,
+        `محور متخصص من الدرس يغطي: ${coverage.slice(0, 3).join('، ')}`,
       iconKey: resolvedIcon,
       accentColor: pal.color,
+      pageRange: { startPage, endPage },
+      coveredSubtopics: coverage,
       subtopic200: t200,
       subtopic400: t400,
       subtopic600: t600,
@@ -408,6 +496,27 @@ ${excerpt}`;
     };
   });
 
+  // Self-check coverage: ensure 100% page span coverage across all categories
+  let coverageReport = computeBoardCoverageMetrics({
+    categories,
+    totalPages: resolvedText.totalPages,
+    readablePages: resolvedText.pages.length,
+    analysis: params.analysis,
+  });
+
+  if (!coverageReport.isFullCoverage) {
+    categories.forEach((cat, idx) => {
+      const part = pagePartitions[idx];
+      cat.pageRange = { startPage: part.startPage, endPage: part.endPage };
+    });
+    coverageReport = computeBoardCoverageMetrics({
+      categories,
+      totalPages: resolvedText.totalPages,
+      readablePages: resolvedText.pages.length,
+      analysis: params.analysis,
+    });
+  }
+
   const allTiersSupported = categories.every(
     (c) => c.supportsEasy200 && c.supportsMedium400 && c.supportsHard600,
   );
@@ -417,9 +526,10 @@ ${excerpt}`;
     title: params.analysis.title,
     boardMode: 'category_team_matrix',
     teamCount,
-    recommendedCategoryCount: 5,
+    recommendedCategoryCount: categoryCount,
     categories,
     canBuildFull15Board: allTiersSupported,
+    coverageReport,
     warnings: parsed.warnings ?? [],
     suggestedQuestionTypes: (parsed.suggestedQuestionTypes ?? [
       'direct_qa',
@@ -459,14 +569,148 @@ interface RawGeminiQuestion {
   explanation?: string;
   sourceSnippet?: string;
   pageNumber?: number;
+  visualId?: string;
+  imageUrl?: string;
+  imageBase64?: string;
+  imageCaption?: string;
   isBackup?: boolean;
   isSensitiveReligious?: boolean;
+}
+
+function stripVisualImageDataUrl(raw?: string): { mimeType: string; data: string } | null {
+  if (!raw || typeof raw !== 'string') return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const m = /^data:(image\/[a-zA-Z0-9+.-]+);base64,(.+)$/.exec(trimmed);
+  if (m) {
+    return { mimeType: m[1], data: m[2] };
+  }
+  if (/^[A-Za-z0-9+/=]{32,}$/.test(trimmed)) {
+    return { mimeType: 'image/jpeg', data: trimmed };
+  }
+  return null;
+}
+
+function resolveExtractedVisualsContext(params: {
+  fileHash?: string;
+  analysis?: PdfAnalysisReport | null;
+  incomingVisuals?: ExtractedPdfVisual[];
+}): ExtractedPdfVisual[] {
+  const fromReq = Array.isArray(params.incomingVisuals)
+    ? params.incomingVisuals.filter(
+        (v) => v && typeof v.id === 'string' && typeof v.imageBase64 === 'string' && v.imageBase64.length > 0,
+      )
+    : [];
+  const fileHash = params.fileHash || params.analysis?.fileHash || '';
+  if (fromReq.length > 0) {
+    if (/^[a-f0-9]{64}$/.test(fileHash)) {
+      try {
+        saveCachedPdfVisuals(fileHash, fromReq);
+      } catch {
+        // Non-fatal cache write failure
+      }
+    }
+    return fromReq;
+  }
+  const fromAnalysis = params.analysis?.extractedVisuals;
+  if (Array.isArray(fromAnalysis) && fromAnalysis.length > 0) {
+    return fromAnalysis;
+  }
+  if (fileHash) {
+    const cached = getCachedPdfText(fileHash);
+    if (Array.isArray(cached?.extractedVisuals) && cached.extractedVisuals.length > 0) {
+      return cached.extractedVisuals;
+    }
+  }
+  return [];
+}
+
+function selectVisualsForRange(
+  visuals: ExtractedPdfVisual[],
+  pageRange?: { startPage: number; endPage: number },
+  limit = 4,
+): ExtractedPdfVisual[] {
+  if (!visuals.length) return [];
+  if (!pageRange) return visuals.slice(0, limit);
+  const inRange = visuals.filter(
+    (v) => v.pageNumber >= pageRange.startPage && v.pageNumber <= pageRange.endPage,
+  );
+  if (inRange.length > 0) {
+    return inRange.slice(0, limit);
+  }
+  const center = (pageRange.startPage + pageRange.endPage) / 2;
+  return [...visuals]
+    .filter((v) => Math.abs(v.pageNumber - center) <= 2)
+    .sort((a, b) => Math.abs(a.pageNumber - center) - Math.abs(b.pageNumber - center))
+    .slice(0, Math.min(2, limit));
+}
+
+function buildVisualPromptSection(visuals: ExtractedPdfVisual[]): string {
+  if (!visuals.length) return '';
+  const catalog = visuals
+    .map(
+      (v) =>
+        `- visualId="${v.id}" | صفحة ${v.pageNumber} | النوع: ${v.visualType || 'diagram'} | الوصف: ${v.caption}`,
+    )
+    .join('\n');
+  return `\nالصور والمخططات المستخرجة المتاحة لهذه الدفعة:\n${catalog}\nتعليمات الأسئلة البصرية الإلزامية عند ملاءمة المحتوى:\n- إذا وُجدت صورة أو خريطة أو رسم بياني مناسب في القائمة أعلاه (ومرفق مع الطلب)، صِغ سؤالًا أو سؤالين على الأقل يعتمدان مباشرة على تحليل هذه الصورة (مثل: «تأمل الشكل/الخريطة/الرسم المرفق ثم أجب...» أو «ما الدلالة العلمية للجزء الموضح في الشكل المرفق؟»)، وأرجع الحقل visualId مطابقًا لمعرّف الصورة المختارة و imageCaption بوصف واضح ومختصر لا يكشف الإجابة، و pageNumber مطابقًا لرقم صفحتها.\n- في الأسئلة النصية التي لا تعتمد على صورة، اترك visualId فارغًا.`;
+}
+
+function buildMultimodalContents(
+  promptText: string,
+  visuals: ExtractedPdfVisual[],
+):
+  | string
+  | { parts: Array<{ inlineData?: { mimeType: string; data: string }; text?: string }> } {
+  const attached = visuals
+    .map((v) => ({ visual: v, media: stripVisualImageDataUrl(v.imageBase64) }))
+    .filter((x): x is { visual: ExtractedPdfVisual; media: { mimeType: string; data: string } } =>
+      Boolean(x.media),
+    );
+  if (attached.length === 0) {
+    return promptText;
+  }
+  const parts: Array<{ inlineData?: { mimeType: string; data: string }; text?: string }> = [
+    { text: promptText },
+  ];
+  for (const item of attached) {
+    parts.push({
+      text: `[صورة مرجعية: visualId="${item.visual.id}" | صفحة ${item.visual.pageNumber} | ${item.visual.caption}]`,
+    });
+    parts.push({ inlineData: item.media });
+  }
+  return { parts };
+}
+
+function attachVisualMediaToQuestion(
+  item: RawGeminiQuestion,
+  visuals: ExtractedPdfVisual[],
+): RawGeminiQuestion {
+  if (!visuals.length) return item;
+  const visualId = typeof item.visualId === 'string' ? item.visualId.trim() : '';
+  let matched = visualId ? visuals.find((v) => v.id === visualId) : undefined;
+  if (!matched && /الشكل المرفق|الصورة المرفقة|الخريطة المرفقة|الرسم المرفق|الجدول المرفق/.test(item.prompt || '')) {
+    matched = visuals.find((v) => v.pageNumber === item.pageNumber) ?? visuals[0];
+  }
+  if (!matched) {
+    return item;
+  }
+  return {
+    ...item,
+    imageBase64: matched.imageBase64,
+    imageCaption:
+      typeof item.imageCaption === 'string' && item.imageCaption.trim()
+        ? item.imageCaption.trim()
+        : matched.caption,
+    pageNumber: matched.pageNumber,
+  };
 }
 
 function normalizeGeminiQuestionList(
   rawList: RawGeminiQuestion[],
   pages: Array<{ num: number; text: string }>,
   pantAllowed: boolean,
+  visuals: ExtractedPdfVisual[] = [],
 ): RawGeminiQuestion[] {
   return rawList.flatMap((q) => {
     if (!q || typeof q !== 'object') return [];
@@ -486,19 +730,22 @@ function normalizeGeminiQuestionList(
       ? (normalized.questionType as QuestionType)
       : 'direct_qa';
     const matchedPage = matchSourcePageNumber(pages, normalized.sourceSnippet, normalized.pageNumber);
-    return [
-      {
-        ...normalized,
-        teamIndex:
-          typeof normalized.teamIndex === 'number' && Number.isFinite(normalized.teamIndex)
-            ? Math.max(0, Math.round(normalized.teamIndex))
-            : undefined,
-        difficulty,
-        questionType,
-        subtopic: normalized.subtopic?.trim(),
-        pageNumber: matchedPage ?? (pages[0]?.num || 1),
-      },
-    ];
+    const baseItem: RawGeminiQuestion = {
+      ...normalized,
+      teamIndex:
+        typeof normalized.teamIndex === 'number' && Number.isFinite(normalized.teamIndex)
+          ? Math.max(0, Math.round(normalized.teamIndex))
+          : undefined,
+      difficulty,
+      questionType,
+      subtopic: normalized.subtopic?.trim(),
+      visualId: typeof q.visualId === 'string' ? q.visualId.trim() : undefined,
+      imageCaption: typeof q.imageCaption === 'string' ? q.imageCaption.trim() : undefined,
+      imageUrl: typeof q.imageUrl === 'string' ? q.imageUrl.trim() : undefined,
+      imageBase64: typeof q.imageBase64 === 'string' ? q.imageBase64.trim() : undefined,
+      pageNumber: matchedPage ?? (pages[0]?.num || 1),
+    };
+    return [attachVisualMediaToQuestion(baseItem, visuals)];
   });
 }
 
@@ -532,6 +779,7 @@ function buildStrictAccuracyRules(params: {
 async function generateCategoryMatrixBatch(params: {
   categoryPlan: BoardPlanCategory;
   categoryNumber: number;
+  totalCategories: number;
   teamCount: number;
   sourceText: string;
   pages: Array<{ num: number; text: string }>;
@@ -539,45 +787,79 @@ async function generateCategoryMatrixBatch(params: {
   ageGroup: AgeGroup;
   totalPages: number;
   avoidPrompts: string[];
+  visuals?: ExtractedPdfVisual[];
 }): Promise<RawGeminiQuestion[]> {
   const allowedTypesText = Object.entries(QUESTION_TYPE_LABELS)
     .filter(([k]) => k !== 'pantomime_optional')
     .map(([k, label]) => `${k} (${label})`)
     .join('، ');
 
+  const subtopicsPool = Array.from(
+    new Set(
+      [
+        ...(params.categoryPlan.coveredSubtopics ?? []),
+        ...params.categoryPlan.topicCoverage,
+        params.categoryPlan.subtopic200 || '',
+        params.categoryPlan.subtopic400 || '',
+        params.categoryPlan.subtopic600 || '',
+      ]
+        .map((s) => s.trim())
+        .filter(Boolean),
+    ),
+  );
+
   const keywords = [
     params.categoryPlan.name,
     params.categoryPlan.description,
-    ...params.categoryPlan.topicCoverage,
-    params.categoryPlan.subtopic200 || '',
-    params.categoryPlan.subtopic400 || '',
-    params.categoryPlan.subtopic600 || '',
+    ...subtopicsPool,
   ].filter(Boolean);
 
-  const excerpt = buildCategoryFocusedExcerpt(
+  const excerpt = buildPageRangeExcerpt(
     params.pages,
     params.sourceText,
+    params.categoryPlan.pageRange,
     keywords,
     28000,
   );
 
+  const startP = params.categoryPlan.pageRange?.startPage ?? 1;
+  const endP = params.categoryPlan.pageRange?.endPage ?? params.totalPages;
+  const rangeSpan = Math.max(1, endP - startP + 1);
+  const tiersOrder: Difficulty[] = ['easy', 'medium', 'hard'];
+  const categoryVisuals = selectVisualsForRange(
+    params.visuals ?? [],
+    params.categoryPlan.pageRange,
+    4,
+  );
+
   const expectedSlotsText = Array.from({ length: params.teamCount }, (_, teamIdx) => {
-    return `- الفريق رقم teamIndex=${teamIdx} (team_${teamIdx + 1}): سؤال easy (200) + سؤال medium (400) + سؤال hard (600)`;
+    const slotAssignments = tiersOrder
+      .map((diff, dIdx) => {
+        const subtopicIdx = (teamIdx * tiersOrder.length + dIdx) % Math.max(1, subtopicsPool.length);
+        const targetSubtopic = subtopicsPool[subtopicIdx] || params.categoryPlan.name;
+        const targetPage = startP + ((teamIdx * tiersOrder.length + dIdx) % rangeSpan);
+        const pts = pointsForDifficulty(diff);
+        return `${diff} (${pts} — المحور الفرعي المقترح: «${targetSubtopic}» نحو ص ${targetPage})`;
+      })
+      .join(' + ');
+    return `- الفريق رقم teamIndex=${teamIdx} (team_${teamIdx + 1}): ${slotAssignments}`;
   }).join('\n');
 
   const prompt = `أنت خبير وضع اختبارات تعليمية عربية لمسابقة «يمكن هاي» (الفئة العمرية: ${params.ageGroup}).
-أنت الآن في **الدفعة ${params.categoryNumber} من 5**: الفئة الرئيسية هي «${params.categoryPlan.name}».
+أنت الآن في **الدفعة ${params.categoryNumber} من ${params.totalCategories}**: الفئة الرئيسية هي «${params.categoryPlan.name}» (نطاق الصفحات الأساسي: ص ${startP} إلى ص ${endP}).
 وصف الفئة: ${params.categoryPlan.description}
-الموضوعات الفرعية المغطاة: ${params.categoryPlan.topicCoverage.join('، ')}
+الموضوعات الفرعية المغطاة: ${subtopicsPool.join('، ')}
 مستويات هذه الفئة:
 - سهل (200): ${params.categoryPlan.subtopic200 || ''} — ${params.categoryPlan.sample200}
 - متوسط (400): ${params.categoryPlan.subtopic400 || ''} — ${params.categoryPlan.sample400}
 - صعب (600): ${params.categoryPlan.subtopic600 || ''} — ${params.categoryPlan.sample600}
 
-المطلوب في هذا الطلب: توليد **${params.teamCount * 3} سؤالًا** بالضبط تنتمي حصريًا إلى فئة «${params.categoryPlan.name}» وموزعة على الفرق والمستويات كالتالي:
+توزيع الأسئلة بذكاء على كل زوايا الفئة (Subtopic Dispersion):
+يُمنع منعًا باتًا تكديس الأسئلة حول فقرة واحدة أو صفحة واحدة! وزّع الأسئلة الـ ${params.teamCount * 3} على كافة المحاور الفرعية والصفحات في النطاق (ص ${startP}–${endP}) وفق التوزيع التالي:
 ${expectedSlotsText}
 
-تأكد من إرجاع teamIndex رقميًا (من 0 إلى ${params.teamCount - 1}) و difficulty ("easy" | "medium" | "hard") لكل سؤال، مع عدم وجود أي سؤالين متشابهين في المعلومة أو الصياغة.
+تأكد من إرجاع teamIndex رقميًا (من 0 إلى ${params.teamCount - 1}) و difficulty ("easy" | "medium" | "hard") لكل سؤال، مع اختلاف زاوية كل سؤال وموضوعه الفرعي عن بقية الأسئلة.
+${buildVisualPromptSection(categoryVisuals)}
 
 ${buildStrictAccuracyRules({
   totalPages: params.totalPages,
@@ -586,18 +868,18 @@ ${buildStrictAccuracyRules({
   avoidPrompts: params.avoidPrompts,
 })}
 
-نص الدرس (تركيز على صفحات الفئة):
+نص الدرس (تركيز على نطاق صفحات الفئة ص ${startP}–${endP}):
 ${excerpt}`;
 
   const parsed = await generateStructuredJsonWithFallback<{
     questions?: RawGeminiQuestion[];
   }>({
-    contents: prompt,
-    contextLabel: `توليد أسئلة الفئة ${params.categoryNumber} من 5 (${params.categoryPlan.name})`,
+    contents: buildMultimodalContents(prompt, categoryVisuals),
+    contextLabel: `توليد أسئلة الفئة ${params.categoryNumber} من ${params.totalCategories} (${params.categoryPlan.name})`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
       systemInstruction:
-        'أنت خبير تربوي ومصمم أسئلة مسابقات عربية. ولّد جميع أسئلة هذه الفئة فقط بدقة عالية وتكافؤ تام بين الفرق المتنافسة وتدرج معرفي واضح (200/400/600) دون أي تكرار أو هلوسة.',
+        'أنت خبير تربوي ومصمم أسئلة مسابقات عربية. ولّد جميع أسئلة هذه الفئة فقط بدقة عالية وتكافؤ تام بين الفرق المتنافسة وتوزيع ذكي على كافة زوايا وصفحات الفئة وتدرج معرفي واضح (200/400/600) وادمج الأسئلة البصرية على الصور والمخططات المرفقة متى توفرت دون أي تكرار أو هلوسة.',
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
@@ -622,6 +904,8 @@ ${excerpt}`;
                 explanation: { type: Type.STRING },
                 sourceSnippet: { type: Type.STRING },
                 pageNumber: { type: Type.INTEGER },
+                visualId: { type: Type.STRING },
+                imageCaption: { type: Type.STRING },
                 isSensitiveReligious: { type: Type.BOOLEAN },
               },
               required: [
@@ -647,7 +931,12 @@ ${excerpt}`;
     throw new Error(`استجابة النموذج لم تتضمن أسئلة الفئة «${params.categoryPlan.name}».`);
   }
 
-  return normalizeGeminiQuestionList(parsed.questions, params.pages, false);
+  return normalizeGeminiQuestionList(
+    parsed.questions,
+    params.pages,
+    false,
+    params.visuals ?? [],
+  );
 }
 
 interface MissingMatrixSlot {
@@ -721,6 +1010,7 @@ async function generateMissingMatrixSlotsBatch(params: {
   ageGroup: AgeGroup;
   totalPages: number;
   avoidPrompts: string[];
+  visuals?: ExtractedPdfVisual[];
 }): Promise<Array<RawGeminiQuestion & { categoryId?: string }>> {
   const allowedTypesText = Object.entries(QUESTION_TYPE_LABELS)
     .filter(([k]) => k !== 'pantomime_optional')
@@ -736,6 +1026,7 @@ async function generateMissingMatrixSlotsBatch(params: {
     keywords,
     28000,
   );
+  const batchVisuals = (params.visuals ?? []).slice(0, 4);
 
   const slotsDesc = params.missingSlots
     .map(
@@ -750,6 +1041,7 @@ async function generateMissingMatrixSlotsBatch(params: {
 ${slotsDesc}
 
 أرجع سؤالًا واحدًا لكل خانة أعلاه بنفس categoryId و teamIndex و difficulty دون أي تكرار أو تشابه مع الأسئلة المستبعدة أو الموجودة.
+${buildVisualPromptSection(batchVisuals)}
 
 ${buildStrictAccuracyRules({
   totalPages: params.totalPages,
@@ -764,12 +1056,12 @@ ${excerpt}`;
   const parsed = await generateStructuredJsonWithFallback<{
     slots?: Array<RawGeminiQuestion & { categoryId?: string }>;
   }>({
-    contents: prompt,
+    contents: buildMultimodalContents(prompt, batchVisuals),
     contextLabel: `التحقق الذاتي واستكمال ${params.missingSlots.length} خانة ناقصة`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
       systemInstruction:
-        'أنت خبير وضع اختبارات تعليمية عربية. استكمل جميع الخانات الناقصة في المصفوفة بأسئلة جديدة وفريدة ومطابقة تمامًا للمستوى المطلوب والنص المرفق.',
+        'أنت خبير وضع اختبارات تعليمية عربية. استكمل جميع الخانات الناقصة في المصفوفة بأسئلة جديدة وفريدة ومطابقة تمامًا للمستوى المطلوب والنص والصور المرفقة.',
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
@@ -795,6 +1087,8 @@ ${excerpt}`;
                 explanation: { type: Type.STRING },
                 sourceSnippet: { type: Type.STRING },
                 pageNumber: { type: Type.INTEGER },
+                visualId: { type: Type.STRING },
+                imageCaption: { type: Type.STRING },
                 isSensitiveReligious: { type: Type.BOOLEAN },
               },
               required: [
@@ -817,7 +1111,12 @@ ${excerpt}`;
     },
   });
 
-  return normalizeGeminiQuestionList(parsed?.slots ?? [], params.pages, false);
+  return normalizeGeminiQuestionList(
+    parsed?.slots ?? [],
+    params.pages,
+    false,
+    params.visuals ?? [],
+  );
 }
 
 // STAGE 4 EXECUTION: Sequential 5-Category Batches + Live Progress + Self-Healing Matrix Validation
@@ -832,6 +1131,7 @@ export async function generateBoardFromPlan(params: {
   extractedText?: string;
   text?: string;
   pages?: Array<{ num: number; text: string }>;
+  extractedVisuals?: ExtractedPdfVisual[];
   onProgress?: (event: GenerationProgressEvent) => void;
 }): Promise<{
   deck: QuizDeck;
@@ -848,13 +1148,22 @@ export async function generateBoardFromPlan(params: {
     pages: params.pages,
     fallbackTitle: params.plan?.title || params.analysis?.title,
   });
+  const resolvedVisuals = resolveExtractedVisualsContext({
+    fileHash: params.fileHash,
+    analysis: params.analysis,
+    incomingVisuals: params.extractedVisuals,
+  });
 
   const existingDeck = params.existingDeckId ? getDeckById(params.existingDeckId) : undefined;
   if (existingDeck && existingDeck.pdfAnalysis?.fileHash !== params.fileHash) {
     throw new Error('لا يطابق الملف بنك الأسئلة المطلوب استكماله.');
   }
 
-  const categoryPlans = params.plan.categories.slice(0, 5);
+  const catCount = Math.max(
+    3,
+    Math.min(6, params.plan.recommendedCategoryCount || params.plan.categories.length || 5),
+  );
+  const categoryPlans = params.plan.categories.slice(0, catCount);
   const teamCount = Math.max(2, Math.min(4, params.plan.teamCount || 3));
   const targetTotalQuestions = categoryPlans.length * teamCount * 3;
 
@@ -864,6 +1173,8 @@ export async function generateBoardFromPlan(params: {
     description: c.description,
     iconKey: c.iconKey,
     accentColor: c.accentColor || CORE_CATEGORY_PALETTE[idx % CORE_CATEGORY_PALETTE.length].color,
+    pageRange: c.pageRange,
+    coveredSubtopics: c.coveredSubtopics ?? c.topicCoverage,
     topicCoverage: c.topicCoverage,
   }));
 
@@ -1005,6 +1316,7 @@ export async function generateBoardFromPlan(params: {
       const batch = await generateCategoryMatrixBatch({
         categoryPlan: catPlan,
         categoryNumber: catIdx + 1,
+        totalCategories: categoryPlans.length,
         teamCount,
         sourceText: resolvedText.fullText,
         pages,
@@ -1012,6 +1324,7 @@ export async function generateBoardFromPlan(params: {
         ageGroup: params.ageGroup,
         totalPages: resolvedText.totalPages,
         avoidPrompts: [...seenPromptsRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
+        visuals: resolvedVisuals,
       });
 
       const occupied = new Set<string>(
@@ -1087,6 +1400,7 @@ export async function generateBoardFromPlan(params: {
         ageGroup: params.ageGroup,
         totalPages: resolvedText.totalPages,
         avoidPrompts: [...seenPromptsRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
+        visuals: resolvedVisuals,
       });
 
       const remainingAfterHeal = new Set(
@@ -1192,7 +1506,7 @@ export async function generateBoardFromPlan(params: {
     message: quotaStopped
       ? errorDetail || 'توقف التوليد مؤقتًا بسبب الحصة، وتم حفظ الأسئلة المولدة.'
       : remainingMissing.length === 0
-        ? `تم بناء مصفوفة كاملة من ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × 3 مستويات) عبر 5 دفعات متسلسلة وتحقق ذاتي${
+        ? `تم بناء مصفوفة كاملة من ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × 3 مستويات) عبر ${categoryPlans.length} دفعات متسلسلة وتحقق ذاتي${
             rejectedCount > 0 ? ` (مع استبدال ${rejectedCount} سؤال مكرر أو مستبعد تلقائيًا)` : ''
           }.`
         : `تم توليد ${addedCount} سؤالًا (${finalPrimaryCount}/${targetTotalQuestions})؛ يمكنك استخدام «استكمال الخانات الناقصة» لإكمال المتبقي (${remainingMissing.length}).`,
@@ -1211,6 +1525,8 @@ async function generateSingleReplacementQuestion(params: {
   totalPages: number;
   avoidPrompts: string[];
   extraInstruction?: string;
+  visuals?: ExtractedPdfVisual[];
+  pageRange?: { startPage: number; endPage: number };
 }): Promise<RawGeminiQuestion[]> {
   const pantAllowed = false;
   const allowedTypesText = Object.entries(QUESTION_TYPE_LABELS)
@@ -1224,11 +1540,13 @@ async function generateSingleReplacementQuestion(params: {
     28000,
   );
   const pts = pointsForDifficulty(params.difficulty);
+  const scopedVisuals = selectVisualsForRange(params.visuals ?? [], params.pageRange, 3);
 
   const prompt = `أنت مصمم أسئلة مسابقة «يمكن هاي» لطلبة الفئة (${params.ageGroup}).
 ولّد سؤالًا بديلًا واحدًا فقط لصالح «${params.teamOrCatName}» بمستوى ${params.difficulty} (${pts} نقطة) اعتمادًا حصريًا على النص المرفق.
 ${params.subtopic ? `الموضوع الفرعي المستهدف: ${params.subtopic}` : ''}
 ${params.extraInstruction ? `توجيه إضافي: ${params.extraInstruction}` : ''}
+${buildVisualPromptSection(scopedVisuals)}
 
 ${buildStrictAccuracyRules({
   totalPages: params.totalPages,
@@ -1241,7 +1559,7 @@ ${buildStrictAccuracyRules({
 ${excerpt}`;
 
   const raw = await generateStructuredJsonWithFallback<RawGeminiQuestion[]>({
-    contents: prompt,
+    contents: buildMultimodalContents(prompt, scopedVisuals),
     contextLabel: `توليد سؤال بديل (${params.teamOrCatName})`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
@@ -1267,6 +1585,8 @@ ${excerpt}`;
             explanation: { type: Type.STRING },
             sourceSnippet: { type: Type.STRING },
             pageNumber: { type: Type.INTEGER },
+            visualId: { type: Type.STRING },
+            imageCaption: { type: Type.STRING },
             isSensitiveReligious: { type: Type.BOOLEAN },
           },
           required: [
@@ -1288,6 +1608,7 @@ ${excerpt}`;
     raw,
     extractPagesList(params.pages, params.sourceText),
     pantAllowed,
+    params.visuals ?? [],
   );
 }
 
@@ -1324,6 +1645,10 @@ export async function runDeckRegenerationAction(params: {
     analysis: deck.pdfAnalysis,
     ageGroup: deck.ageGroup,
     fallbackTitle: deck.title,
+  });
+  const resolvedVisuals = resolveExtractedVisualsContext({
+    fileHash: deck.pdfAnalysis?.fileHash,
+    analysis: deck.pdfAnalysis,
   });
   const sourceContext =
     !resolvedText.usedAnalysisFallback || deck.pdfAnalysis
@@ -1445,6 +1770,8 @@ export async function runDeckRegenerationAction(params: {
       totalPages: resolvedText.totalPages,
       avoidPrompts: [...deck.questions, ...(deck.rejectedLog ?? [])].map((q) => q.prompt),
       extraInstruction,
+      visuals: resolvedVisuals,
+      pageRange: cat.pageRange,
     });
 
     const seen = new Set(deck.questions.map((q) => normalizeArabicText(q.prompt)));
@@ -1606,6 +1933,7 @@ export async function runDeckRegenerationAction(params: {
       ageGroup: deck.ageGroup,
       totalPages: resolvedText.totalPages,
       avoidPrompts: [...seenRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
+      visuals: resolvedVisuals,
     });
 
     for (let i = 0; i < missingSlots.length; i++) {

@@ -19,6 +19,7 @@ import type {
   ClientRole,
   DeckCategory,
   Difficulty,
+  ExtractedPdfVisual,
   PdfAnalysisReport,
   QuestionType,
   QuizQuestion,
@@ -35,7 +36,10 @@ import {
   type AssistantChatMessage,
   type AssistantRoomContextInput,
 } from './server/gameAssistant';
-import { extractAndParsePdfWithGemini } from './server/pdfExtractorService';
+import {
+  detectVisualRegionsFromPageImages,
+  extractAndParsePdfWithGemini,
+} from './server/pdfExtractorService';
 import {
   formatGeminiError,
   isQuotaError,
@@ -48,10 +52,18 @@ import {
   getCachedPdfPlan,
   getDeckById,
   loadDecks,
+  saveCachedPdfVisuals,
   saveDeck,
 } from './server/storage';
 
-const PORT = Number(process.env.PORT || 3000);
+const portFlagIdx = process.argv.indexOf('--port');
+const cliPort = portFlagIdx >= 0 ? Number(process.argv[portFlagIdx + 1]) : NaN;
+const PORT =
+  Number.isFinite(cliPort) && cliPort > 0
+    ? cliPort
+    : process.env.NODE_ENV === 'production'
+      ? Number(process.env.PORT || 3000)
+      : 3000;
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 20 * 1024 * 1024 },
@@ -59,7 +71,7 @@ const upload = multer({
 
 async function startServer() {
   const app = express();
-  app.use(express.json({ limit: '6mb' }));
+  app.use(express.json({ limit: '25mb' }));
 
   const server = http.createServer(app);
   const wss = new WebSocketServer({ server, path: '/ws' });
@@ -316,6 +328,7 @@ async function startServer() {
           report,
           rawText: cachedText.fullText,
           pages: cachedText.pages,
+          extractedVisuals: cachedText.extractedVisuals ?? [],
           suggestedCategories: report.suggestedCategories ?? [],
           cachedPlan: validCachedPlan,
         });
@@ -333,6 +346,54 @@ async function startServer() {
     handlePdfUploadExtract(req, res, analyzePdfLesson),
   );
 
+  app.post('/api/pdf/detect-images', async (req, res) => {
+    try {
+      const { pages, subjectHint } = req.body as {
+        pages?: Array<{ pageNumber?: number; imageBase64?: string }>;
+        subjectHint?: string;
+      };
+      if (!Array.isArray(pages) || pages.length === 0) {
+        return res.json({ detections: [] });
+      }
+      const cleanPages = pages
+        .filter(
+          (p): p is { pageNumber: number; imageBase64: string } =>
+            Boolean(p) &&
+            typeof p.pageNumber === 'number' &&
+            typeof p.imageBase64 === 'string' &&
+            p.imageBase64.length > 32,
+        )
+        .slice(0, 6);
+      const detections = await detectVisualRegionsFromPageImages({
+        pages: cleanPages,
+        subjectHint: typeof subjectHint === 'string' ? subjectHint : undefined,
+      });
+      res.json({ detections });
+    } catch (err) {
+      handlePdfAiError(res, err, 'تعذر اكتشاف الصور والأشكال من صفحات الـ PDF.');
+    }
+  });
+
+  app.post('/api/pdf/save-visuals', (req, res) => {
+    const { fileHash, extractedVisuals } = req.body as {
+      fileHash?: string;
+      extractedVisuals?: ExtractedPdfVisual[];
+    };
+    if (!fileHash || !/^[a-f0-9]{64}$/.test(fileHash) || !Array.isArray(extractedVisuals)) {
+      return res.status(400).json({ error: 'بيانات الصور المستخرجة غير صالحة.' });
+    }
+    const cleanVisuals = extractedVisuals.filter(
+      (v): v is ExtractedPdfVisual =>
+        Boolean(v) &&
+        typeof v.id === 'string' &&
+        typeof v.pageNumber === 'number' &&
+        typeof v.imageBase64 === 'string' &&
+        typeof v.caption === 'string',
+    );
+    const updated = saveCachedPdfVisuals(fileHash, cleanVisuals);
+    res.json({ ok: true, cached: Boolean(updated), count: cleanVisuals.length });
+  });
+
   app.post('/api/pdf/plan-board', async (req, res) => {
     try {
       const {
@@ -340,6 +401,7 @@ async function startServer() {
         analysis,
         teamCount,
         desiredCategoriesCount,
+        categoryCount,
         ageGroup,
         rawText,
         extractedText,
@@ -350,6 +412,7 @@ async function startServer() {
         analysis?: PdfAnalysisReport;
         teamCount?: number;
         desiredCategoriesCount?: number;
+        categoryCount?: number;
         ageGroup?: AgeGroup;
         rawText?: string;
         extractedText?: string;
@@ -365,7 +428,8 @@ async function startServer() {
       const plan = await planBoardFromPdf({
         fileHash: fileHash || analysis.fileHash,
         analysis,
-        teamCount: Number(teamCount ?? desiredCategoriesCount ?? 3),
+        teamCount: Number(teamCount ?? 3),
+        desiredCategoriesCount: Number(desiredCategoriesCount ?? categoryCount ?? 5),
         ageGroup: ageGroup || 'mixed',
         rawText: rawText ?? extractedText ?? text,
         pages,
@@ -388,6 +452,7 @@ async function startServer() {
       extractedText,
       text,
       pages,
+      extractedVisuals,
       stream,
     } = req.body as {
       fileHash?: string;
@@ -400,6 +465,7 @@ async function startServer() {
       extractedText?: string;
       text?: string;
       pages?: Array<{ num: number; text: string }>;
+      extractedVisuals?: ExtractedPdfVisual[];
       stream?: boolean;
     };
 
@@ -429,6 +495,7 @@ async function startServer() {
           existingDeckId,
           rawText: rawText ?? extractedText ?? text,
           pages,
+          extractedVisuals,
           onProgress: (ev) => writeEvent('progress', ev),
         });
         writeEvent('done', result);
@@ -454,6 +521,7 @@ async function startServer() {
         existingDeckId,
         rawText: rawText ?? extractedText ?? text,
         pages,
+        extractedVisuals,
       });
       res.json(result);
     } catch (err) {
@@ -611,7 +679,10 @@ async function startServer() {
     });
   } else {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        hmr: process.env.DISABLE_HMR === 'true' ? false : { server },
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);

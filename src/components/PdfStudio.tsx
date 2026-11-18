@@ -1,22 +1,22 @@
 import { useMemo, useRef, useState } from 'react';
 import {
   AlertTriangle,
-  ArrowRight,
   Check,
   CheckCircle2,
   Download,
   Edit3,
-  FileSearch,
   Layers,
   Loader2,
   Play,
   RefreshCw,
   ShieldAlert,
   Sparkles,
+  Trash2,
   Upload,
   XCircle,
 } from 'lucide-react';
 import {
+  getQuestionImageSrc,
   isCategoryTeamMatrixDeck,
   pointsForDifficulty,
   QUESTION_TYPE_LABELS,
@@ -26,16 +26,24 @@ import type {
   BoardPlanPreview,
   CardStatus,
   Difficulty,
+  ExtractedPdfVisual,
   PdfAnalysisReport,
   QuestionType,
   QuizDeck,
   QuizQuestion,
 } from '../game/types';
+import { extractAndCropPdfVisuals } from '../utils/pdfImageExtractor';
 import { soundFX } from '../utils/sound';
-import { GameAssistantBot } from './GameAssistantBot';
+import { QuestionMedia } from './QuestionMedia';
+import { TopNavHeader } from './TopNavHeader';
 
 interface PdfStudioProps {
   initialDeck?: QuizDeck | null;
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
+  onStartQuick?: () => void;
+  onOpenLibrary?: () => void;
+  onOpenSavedMatches?: () => void;
   onBack: () => void;
   onDeckSaved: (deck: QuizDeck) => void;
   onPlayDeck: (deckId: string) => void;
@@ -59,6 +67,11 @@ async function parseApiJson<T>(res: Response): Promise<T> {
 
 export function PdfStudio({
   initialDeck,
+  soundEnabled = true,
+  onToggleSound,
+  onStartQuick,
+  onOpenLibrary,
+  onOpenSavedMatches,
   onBack,
   onDeckSaved,
   onPlayDeck,
@@ -68,6 +81,15 @@ export function PdfStudio({
   );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [ageGroup, setAgeGroup] = useState<AgeGroup>(initialDeck?.ageGroup ?? 'mixed');
+  const [categoryCount, setCategoryCount] = useState<number>(
+    initialDeck?.boardPlan?.recommendedCategoryCount ??
+      (initialDeck &&
+      initialDeck.boardMode === 'category_team_matrix' &&
+      initialDeck.categories.length >= 3 &&
+      initialDeck.categories.length <= 6
+        ? initialDeck.categories.length
+        : 5),
+  );
   const [teamCount, setTeamCount] = useState<number>(
     initialDeck?.teamCount ?? (initialDeck?.boardMode === 'team_bundles' ? initialDeck.categories.length : 3),
   );
@@ -78,6 +100,9 @@ export function PdfStudio({
   );
   const [rawText, setRawText] = useState<string>('');
   const [extractedPages, setExtractedPages] = useState<Array<{ num: number; text: string }>>([]);
+  const [extractedVisuals, setExtractedVisuals] = useState<ExtractedPdfVisual[]>(
+    initialDeck?.pdfAnalysis?.extractedVisuals ?? [],
+  );
   const [plan, setPlan] = useState<BoardPlanPreview | null>(
     initialDeck?.boardPlan ?? null,
   );
@@ -152,15 +177,47 @@ export function PdfStudio({
           report?: PdfAnalysisReport;
           rawText?: string;
           pages?: Array<{ num: number; text: string }>;
+          extractedVisuals?: ExtractedPdfVisual[];
           cachedPlan?: BoardPlanPreview | null;
         }>(res);
         if (!res.ok || !data.report) throw new Error(data.error || 'تعذر تحليل ملف PDF.');
 
+        let visuals = Array.isArray(data.extractedVisuals) ? data.extractedVisuals : [];
+        if (visuals.length === 0) {
+          try {
+            const visualResult = await extractAndCropPdfVisuals(file, {
+              subjectHint: data.report.title,
+              onProgress: (msg) => setBusyMessage(msg),
+            });
+            visuals = visualResult.visuals;
+            if (visuals.length > 0 && data.report.fileHash) {
+              void fetch('/api/pdf/save-visuals', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  fileHash: data.report.fileHash,
+                  extractedVisuals: visuals,
+                }),
+              }).catch(() => undefined);
+            }
+          } catch (visualErr) {
+            console.warn('[PdfStudio] Visual extraction skipped:', visualErr);
+          }
+        }
+
         setAnalysis(data.report);
         setRawText(typeof data.rawText === 'string' ? data.rawText : '');
         setExtractedPages(Array.isArray(data.pages) ? data.pages : []);
+        setExtractedVisuals(visuals);
         setDeck(null);
-        setPlan(data.cachedPlan ?? null);
+        const matchingCachedPlan =
+          data.cachedPlan &&
+          data.cachedPlan.categories.length === categoryCount &&
+          data.cachedPlan.teamCount === teamCount &&
+          Boolean(data.cachedPlan.coverageReport)
+            ? data.cachedPlan
+            : null;
+        setPlan(matchingCachedPlan);
         soundFX.playSurprise();
         setStep('analysis');
       } catch (err) {
@@ -171,13 +228,15 @@ export function PdfStudio({
       }
     };
 
-    // STAGE 2 & 3 -> STAGE 4 Plan Preview (Mandatory 5 Core Categories × Team Count)
+    // STAGE 2 & 3 -> STAGE 4 Plan Preview (Configurable K Core Categories × Team Count + Coverage Map)
     const handleBuildBoardPlan = async () => {
       if (!analysis || inFlightRef.current) return;
       inFlightRef.current = true;
       setError(null);
       setStatusBanner(null);
-      setBusyMessage(`المرحلة 2–3/4: تصميم خطة الفئات الـ 5 الرئيسية لـ ${teamCount} فرق متنافسة...`);
+      setBusyMessage(
+        `المرحلة 2–3/4: تصميم خطة ${categoryCount} فئات رئيسية متخصصة لـ ${teamCount} فرق وتوزيع التغطية على كامل الصفحات...`,
+      );
       try {
         const res = await fetch('/api/pdf/plan-board', {
           method: 'POST',
@@ -186,18 +245,19 @@ export function PdfStudio({
             fileHash: analysis.fileHash,
             analysis,
             teamCount,
+            desiredCategoriesCount: categoryCount,
             ageGroup,
             ...(rawText ? { rawText } : {}),
             ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
           }),
         });
         const data = await parseApiJson<{ error?: string; plan?: BoardPlanPreview }>(res);
-        if (!res.ok || !data.plan) throw new Error(data.error || 'تعذر بناء خطة الفئات الـ 5.');
+        if (!res.ok || !data.plan) throw new Error(data.error || `تعذر بناء خطة الفئات الـ ${categoryCount}.`);
         setPlan(data.plan);
         soundFX.playClick();
         setStep('plan');
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'تعذر إعداد خطة الفئات الـ 5.');
+        setError(err instanceof Error ? err.message : `تعذر إعداد خطة الفئات الـ ${categoryCount}.`);
       } finally {
         inFlightRef.current = false;
         setBusyMessage(null);
@@ -234,6 +294,7 @@ export function PdfStudio({
             stream: true,
             ...(rawText ? { rawText } : {}),
             ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
+            ...(extractedVisuals.length > 0 ? { extractedVisuals } : {}),
           }),
         });
 
@@ -456,62 +517,71 @@ export function PdfStudio({
   };
 
   return (
-    <div className="min-h-screen w-full game-pattern-bg px-4 py-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header & 4-Step Indicator */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={onBack}
-              className="game-btn-3d bg-[#FFF9E9] text-[#291B40] px-4 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer"
-            >
-              <ArrowRight className="w-4 h-4" />
-              <span>العودة</span>
-            </button>
-            <GameAssistantBot compact />
-          </div>
+    <div className="min-h-screen w-full flex flex-col bg-[#240E35]">
+      <TopNavHeader
+        activePage="pdf_studio"
+        soundEnabled={soundEnabled}
+        onToggleSound={onToggleSound}
+        onHome={onBack}
+        onBack={onBack}
+        onStartQuick={() => (onStartQuick ? onStartQuick() : onBack())}
+        onOpenPdfStudio={() => undefined}
+        onOpenLibrary={() => (onOpenLibrary ? onOpenLibrary() : onBack())}
+        onOpenSavedMatches={() => (onOpenSavedMatches ? onOpenSavedMatches() : onBack())}
+      />
 
-          <h1 className="font-display font-black text-2xl md:text-3xl text-[#291B40]">
-            استوديو تحويل PDF إلى مسابقة «يمكن هاي»
-          </h1>
+      <main className="flex-1 w-full game-pattern-bg px-4 py-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Sub-Header & 4-Step Indicator */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <div className="flex items-center gap-3">
+              <span className="shannes-step-badge shrink-0">PDF</span>
+              <div>
+                <h1 className="font-display font-black text-2xl md:text-3xl text-[#1F112E]">
+                  استوديو تحويل PDF إلى مسابقة «يمكن هاي»
+                </h1>
+                <p className="text-xs font-bold text-[#1F112E]/70">
+                  تحليل ذكي لكامل صفحات الدرس وبناء مصفوفة أسئلة متوازنة للفرق
+                </p>
+              </div>
+            </div>
 
-          <div className="flex items-center gap-1.5 text-xs font-black">
-            {[
-              { id: 'upload', label: '1. رفع PDF' },
-              { id: 'analysis', label: '2. التحليل' },
-              { id: 'plan', label: '3. الفئات الـ 5' },
-              { id: 'review', label: '4. المصفوفة والبدء' },
-            ].map((s) => (
-              <span
-                key={s.id}
-                className={`px-2.5 py-1 rounded-lg border-2 border-[#291B40] ${
-                  step === s.id ? 'bg-[#7042A1] text-white' : 'bg-[#FFF9E9] text-[#291B40]/70'
-                }`}
-              >
-                {s.label}
-              </span>
-            ))}
+            <div className="flex flex-wrap items-center gap-1.5 text-xs font-black">
+              {[
+                { id: 'upload', label: '1. رفع PDF' },
+                { id: 'analysis', label: '2. التحليل' },
+                { id: 'plan', label: `3. الفئات (${plan?.categories.length ?? categoryCount})` },
+                { id: 'review', label: '4. المصفوفة والبدء' },
+              ].map((s) => (
+                <span
+                  key={s.id}
+                  className={`px-3 py-1.5 rounded-xl border-2 border-[#1F112E] shadow-[0_2px_0_#1F112E] ${
+                    step === s.id ? 'bg-[#63349B] text-white' : 'bg-[#FFFDF7] text-[#1F112E]/75'
+                  }`}
+                >
+                  {s.label}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
 
         {busyMessage && (
           <div className="game-card-frame-sm rounded-2xl p-4 mb-5 space-y-2.5 bg-[#EDE7F6]">
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <Loader2 className="w-6 h-6 text-[#7042A1] animate-spin shrink-0" />
-                <span className="font-display font-black text-base text-[#291B40]">{busyMessage}</span>
+                <Loader2 className="w-6 h-6 text-[#63349B] animate-spin shrink-0" />
+                <span className="font-display font-black text-base text-[#1F112E]">{busyMessage}</span>
               </div>
               {genProgress && (
-                <span className="text-xs font-black bg-[#FFD95A] border-2 border-[#291B40] px-2.5 py-1 rounded-lg tabular-nums shrink-0">
+                <span className="text-xs font-black bg-[#FFE047] border-2 border-[#1F112E] px-2.5 py-1 rounded-lg tabular-nums shrink-0">
                   {genProgress.generatedCount} / {genProgress.targetCount} سؤال
                 </span>
               )}
             </div>
             {genProgress && (
-              <div className="w-full h-3 bg-white border-2 border-[#291B40] rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-white border-2 border-[#1F112E] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#00B978] transition-all duration-300"
+                  className="h-full bg-[#00A86B] transition-all duration-300"
                   style={{
                     width: `${Math.min(
                       100,
@@ -530,38 +600,44 @@ export function PdfStudio({
         )}
 
         {error && (
-          <div className="bg-[#FFE5E7] border-2 border-[#F05B63] text-[#291B40] font-bold text-sm p-3.5 rounded-2xl mb-5 flex items-center gap-2">
+          <div className="bg-[#FFE5E7] border-2 border-[#F05B63] text-[#1F112E] font-bold text-sm p-3.5 rounded-2xl mb-5 flex items-center gap-2">
             <AlertTriangle className="w-5 h-5 text-[#F05B63] shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
         {statusBanner && (
-          <div className="bg-[#E8F8F2] border-2 border-[#00B978] text-[#291B40] font-bold text-sm p-3.5 rounded-2xl mb-5 flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#00B978] shrink-0" />
+          <div className="bg-[#E8F8F2] border-2 border-[#00A86B] text-[#1F112E] font-bold text-sm p-3.5 rounded-2xl mb-5 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5 text-[#00A86B] shrink-0" />
             <span>{statusBanner}</span>
           </div>
         )}
 
         {/* STEP 1: Upload PDF */}
         {step === 'upload' && (
-          <div className="game-card-frame rounded-3xl p-6 md:p-8 max-w-3xl mx-auto space-y-6">
+          <div className="shannes-panel p-6 md:p-8 max-w-4xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <FileSearch className="w-12 h-12 text-[#7042A1] mx-auto" />
-              <h2 className="font-display font-black text-2xl">ارفع ملف الدرس أو الملزمة (PDF)</h2>
-              <p className="text-sm font-medium text-[#291B40]/80">
-                سيقرأ المحرك كامل صفحات الدرس بعمق ويقسمه إلزاميًا إلى 5 فئات رئيسية شاملة، ثم يولّد
-                لكل فريق داخل كل فئة 3 أسئلة متكافئة (سهل 200 / متوسط 400 / صعب 600) مع تحقق ذاتي يمنع
-                أي فراغ أو تكرار.
+              <img
+                src="/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png"
+                alt="رفع وتحليل ملف الدرس"
+                referrerPolicy="no-referrer"
+                className="w-24 h-24 object-contain mx-auto drop-shadow-[0_4px_0_rgba(31,17,46,0.2)] select-none"
+              />
+              <h2 className="font-display font-black text-2xl text-[#1F112E]">ارفع ملف الدرس أو الملزمة (PDF)</h2>
+              <p className="text-sm font-medium text-[#1F112E]/80">
+                سيقرأ المحرك كامل صفحات الدرس بعمق ويقسمه من الصفحة الأولى للأخيرة إلى{' '}
+                <strong className="text-[#63349B]">{categoryCount} فئات رئيسية متخصصة</strong> مشتقة من محتوى
+                الدرس، ثم يولّد لكل فريق داخل كل فئة 3 أسئلة متكافئة (سهل 200 / متوسط 400 / صعب 600) بتغطية
+                شاملة ودون تكرار.
               </p>
             </div>
 
-            <label className="block border-[3px] border-dashed border-[#7042A1] bg-white rounded-2xl p-8 text-center cursor-pointer hover:bg-[#FFF9E9] transition">
-              <Upload className="w-10 h-10 text-[#7042A1] mx-auto mb-2" />
+            <label className="block border-[3px] border-dashed border-[#63349B] bg-white rounded-2xl p-8 text-center cursor-pointer hover:bg-[#FFF9E9] transition">
+              <Upload className="w-10 h-10 text-[#63349B] mx-auto mb-2" />
               <span className="font-display font-black text-lg block mb-1">
                 {selectedFile ? selectedFile.name : 'اختر ملف PDF من جهازك'}
               </span>
-              <span className="text-xs font-bold text-[#291B40]/65">
+              <span className="text-xs font-bold text-[#1F112E]/65">
                 حتى 20 ميجابايت • يدعم اللغة العربية والإنجليزية
               </span>
               <input
@@ -578,10 +654,13 @@ export function PdfStudio({
               />
             </label>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-bold mb-1.5">الفئة العمرية للطلبة</label>
+                <label htmlFor="age-group-select" className="block text-sm font-bold mb-1.5">
+                  الفئة العمرية للطلبة
+                </label>
                 <select
+                  id="age-group-select"
                   value={ageGroup}
                   onChange={(e) => setAgeGroup(e.target.value as AgeGroup)}
                   className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
@@ -594,8 +673,25 @@ export function PdfStudio({
               </div>
 
               <div>
+                <label htmlFor="category-count-select" className="block text-sm font-bold mb-1.5">
+                  عدد الفئات الرئيسية
+                </label>
+                <select
+                  id="category-count-select"
+                  value={categoryCount}
+                  onChange={(e) => setCategoryCount(Number(e.target.value))}
+                  className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
+                >
+                  <option value={3}>3 فئات ({3 * teamCount * 3} سؤالًا)</option>
+                  <option value={4}>4 فئات ({4 * teamCount * 3} سؤالًا)</option>
+                  <option value={5}>5 فئات — افتراضي ({5 * teamCount * 3} سؤالًا)</option>
+                  <option value={6}>6 فئات ({6 * teamCount * 3} سؤالًا)</option>
+                </select>
+              </div>
+
+              <div>
                 <label htmlFor="team-count-select" className="block text-sm font-bold mb-1.5">
-                  عدد الفرق المتنافسة (5 فئات × كل فريق × 3 مستويات)
+                  عدد الفرق المتنافسة
                 </label>
                 <select
                   id="team-count-select"
@@ -603,9 +699,9 @@ export function PdfStudio({
                   onChange={(e) => setTeamCount(Number(e.target.value))}
                   className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                 >
-                  <option value={2}>فريقان (5 فئات × 2 × 3 = 30 سؤالًا)</option>
-                  <option value={3}>3 فرق (5 فئات × 3 × 3 = 45 سؤالًا — افتراضي)</option>
-                  <option value={4}>4 فرق (5 فئات × 4 × 3 = 60 سؤالًا)</option>
+                  <option value={2}>فريقان ({categoryCount * 6} سؤالًا)</option>
+                  <option value={3}>3 فرق ({categoryCount * 9} سؤالًا)</option>
+                  <option value={4}>4 فرق ({categoryCount * 12} سؤالًا)</option>
                 </select>
               </div>
             </div>
@@ -723,6 +819,63 @@ export function PdfStudio({
                 </div>
               )}
 
+              {/* Extracted Diagrams & Images Gallery */}
+              <div className="bg-[#FFFDF7] border-2 border-[#291B40]/20 rounded-2xl p-4 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <h3 className="font-display font-black text-sm text-[#63349B]">
+                      الصور والخرائط والمخططات المستخرجة ({extractedVisuals.length})
+                    </h3>
+                    <p className="text-[11px] font-bold text-[#291B40]/70">
+                      تُدمج الصور الملائمة تلقائيًا داخل الأسئلة مع ميزة الضغط للتكبير أثناء اللعب.
+                    </p>
+                  </div>
+                </div>
+
+                {extractedVisuals.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {extractedVisuals.map((vis) => (
+                      <div
+                        key={vis.id}
+                        className="bg-white border-2 border-[#291B40]/25 rounded-2xl p-3 flex flex-col justify-between gap-2"
+                      >
+                        <QuestionMedia
+                          imageSrc={vis.imageBase64}
+                          caption={vis.caption}
+                          pageNumber={vis.pageNumber}
+                          compact
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updated = extractedVisuals.filter((v) => v.id !== vis.id);
+                            setExtractedVisuals(updated);
+                            if (analysis.fileHash) {
+                              void fetch('/api/pdf/save-visuals', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                  fileHash: analysis.fileHash,
+                                  extractedVisuals: updated,
+                                }),
+                              }).catch(() => undefined);
+                            }
+                          }}
+                          className="inline-flex items-center justify-center gap-1 rounded-xl border border-[#F05B63]/40 bg-[#FFE5E7]/70 px-2.5 py-1 text-[11px] font-black text-[#C4343D] hover:bg-[#F05B63] hover:text-white cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>إزالة هذه الصورة</span>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs font-bold text-[#291B40]/60">
+                    لم تُرصد صور أو مخططات توضيحية قابلة للقص في صفحات هذا الملف — سيتم توليد الأسئلة من النص العلمي مباشرة.
+                  </p>
+                )}
+              </div>
+
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <button
                   type="button"
@@ -734,14 +887,25 @@ export function PdfStudio({
 
                 <div className="flex flex-wrap items-center gap-3">
                   <select
+                    aria-label="عدد الفئات الرئيسية"
+                    value={categoryCount}
+                    onChange={(e) => setCategoryCount(Number(e.target.value))}
+                    className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
+                  >
+                    <option value={3}>3 فئات ({3 * teamCount * 3} سؤالًا)</option>
+                    <option value={4}>4 فئات ({4 * teamCount * 3} سؤالًا)</option>
+                    <option value={5}>5 فئات ({5 * teamCount * 3} سؤالًا)</option>
+                    <option value={6}>6 فئات ({6 * teamCount * 3} سؤالًا)</option>
+                  </select>
+                  <select
                     aria-label="عدد الفرق المتنافسة"
                     value={teamCount}
                     onChange={(e) => setTeamCount(Number(e.target.value))}
                     className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                   >
-                    <option value={2}>فريقان (30 سؤالًا)</option>
-                    <option value={3}>3 فرق (45 سؤالًا)</option>
-                    <option value={4}>4 فرق (60 سؤالًا)</option>
+                    <option value={2}>فريقان ({categoryCount * 6} سؤالًا)</option>
+                    <option value={3}>3 فرق ({categoryCount * 9} سؤالًا)</option>
+                    <option value={4}>4 فرق ({categoryCount * 12} سؤالًا)</option>
                   </select>
                   <button
                     type="button"
@@ -750,7 +914,7 @@ export function PdfStudio({
                     className="game-btn-3d bg-[#00B978] text-white font-display font-black text-lg px-7 py-3 rounded-2xl flex items-center gap-2 cursor-pointer"
                   >
                     <Layers className="w-5 h-5" />
-                    <span>بناء خطة الفئات الـ 5 × {teamCount} فرق</span>
+                    <span>بناء خطة {categoryCount} فئات × {teamCount} فرق</span>
                   </button>
                 </div>
               </div>
@@ -758,17 +922,17 @@ export function PdfStudio({
           </div>
         )}
 
-        {/* STEP 3/4: Pre-Approval 5 Core Categories × N Teams Matrix Plan */}
+        {/* STEP 3/4: Pre-Approval K Core Categories × N Teams Matrix Plan + Full Coverage Map */}
         {step === 'plan' && plan && (
           <div className="space-y-5">
             <div className="game-card-frame rounded-3xl p-6 space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h2 className="font-display font-black text-2xl">
-                    خطة الفئات الـ 5 الرئيسية ({plan.categories.length} فئات × {plan.teamCount || teamCount} فرق)
+                    خطة الفئات المتخصصة ({plan.categories.length} فئات × {plan.teamCount || teamCount} فرق)
                   </h2>
                   <p className="text-xs font-bold text-[#291B40]/75 mt-0.5">
-                    داخل كل فئة سيتم توليد 3 أسئلة لكل فريق (سهل 200 / متوسط 400 / صعب 600) بتكافؤ تام ودون تكرار.
+                    مشتقة مباشرة من محتوى الدرس مع خريطة تغطية كاملة من الصفحة الأولى حتى الأخيرة وتوزيع متوازن للمواضيع الفرعية.
                   </p>
                 </div>
                 <span className="px-3 py-1.5 rounded-xl border-2 border-[#291B40] font-black text-xs bg-[#E8F8F2] text-[#00B978]">
@@ -776,6 +940,49 @@ export function PdfStudio({
                   {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا
                 </span>
               </div>
+
+              {plan.coverageReport && (
+                <div
+                  className={`rounded-2xl border-2 p-4 space-y-2 ${
+                    plan.coverageReport.isFullCoverage
+                      ? 'bg-[#E8F8F2] border-[#00B978]'
+                      : 'bg-[#FFF2CD] border-[#E59A00]'
+                  }`}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 font-display font-black text-sm text-[#291B40]">
+                      <CheckCircle2
+                        className={`w-5 h-5 shrink-0 ${
+                          plan.coverageReport.isFullCoverage ? 'text-[#00B978]' : 'text-[#E59A00]'
+                        }`}
+                      />
+                      <span>تقرير التحقق من التغطية الشاملة للملف</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-xs font-black">
+                      <span className="bg-white border border-[#291B40]/30 px-2.5 py-1 rounded-lg tabular-nums">
+                        تغطية الصفحات: {plan.coverageReport.pageCoveragePercent}% ({plan.coverageReport.coveredPageCount} /{' '}
+                        {plan.coverageReport.totalPages})
+                      </span>
+                      <span className="bg-white border border-[#291B40]/30 px-2.5 py-1 rounded-lg tabular-nums">
+                        تغطية المحاور: {plan.coverageReport.subtopicCoveragePercent}%
+                      </span>
+                      <span
+                        className={`px-2.5 py-1 rounded-lg text-white ${
+                          plan.coverageReport.isFullCoverage ? 'bg-[#00B978]' : 'bg-[#E59A00]'
+                        }`}
+                      >
+                        {plan.coverageReport.isFullCoverage ? 'تغطية مكتملة 100%' : 'تغطية جزئية'}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-xs font-bold text-[#291B40]/85">{plan.coverageReport.summary}</p>
+                  {plan.coverageReport.uncoveredPages.length > 0 && (
+                    <p className="text-[11px] font-bold text-[#B77900]">
+                      صفحات لم تُغطَّ بالكامل: {plan.coverageReport.uncoveredPages.join('، ')}
+                    </p>
+                  )}
+                </div>
+              )}
 
               {plan.warnings.length > 0 && (
                 <div className="bg-[#FFF2CD] border-2 border-[#E59A00] rounded-2xl p-3.5 space-y-1">
@@ -789,86 +996,112 @@ export function PdfStudio({
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {plan.categories.map((cat, idx) => (
-                  <div
-                    key={cat.id}
-                    className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 flex flex-col gap-2.5 shadow-[0_4px_0_#291B40]"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className="text-[11px] font-black text-white px-2.5 py-0.5 rounded-md"
-                        style={{ backgroundColor: cat.accentColor }}
-                      >
-                        الفئة {idx + 1} من {plan.categories.length}
-                      </span>
-                      <span className="text-[11px] font-bold text-[#291B40]/70">
-                        {(plan.teamCount || teamCount) * 3} أسئلة ({plan.teamCount || teamCount} فرق)
-                      </span>
+                {plan.categories.map((cat, idx) => {
+                  const subtopicsList =
+                    cat.coveredSubtopics && cat.coveredSubtopics.length > 0
+                      ? cat.coveredSubtopics
+                      : cat.topicCoverage;
+                  return (
+                    <div
+                      key={cat.id}
+                      className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 flex flex-col gap-2.5 shadow-[0_4px_0_#291B40]"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-1.5">
+                        <span
+                          className="text-[11px] font-black text-white px-2.5 py-0.5 rounded-md"
+                          style={{ backgroundColor: cat.accentColor }}
+                        >
+                          الفئة {idx + 1} من {plan.categories.length}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          {cat.pageRange && (
+                            <span className="text-[10px] font-black bg-[#EDE7F6] text-[#7042A1] border border-[#7042A1]/30 px-2 py-0.5 rounded-md tabular-nums">
+                              ص {cat.pageRange.startPage}–{cat.pageRange.endPage}
+                            </span>
+                          )}
+                          <span className="text-[11px] font-bold text-[#291B40]/70">
+                            {(plan.teamCount || teamCount) * 3} أسئلة
+                          </span>
+                        </div>
+                      </div>
+
+                      <input
+                        type="text"
+                        aria-label={`اسم الفئة ${idx + 1}`}
+                        value={cat.name}
+                        onChange={(e) =>
+                          setPlan((prev) =>
+                            prev
+                              ? {
+                                  ...prev,
+                                  categories: prev.categories.map((c) =>
+                                    c.id === cat.id ? { ...c, name: e.target.value } : c,
+                                  ),
+                                }
+                              : prev,
+                          )
+                        }
+                        className="font-display font-black text-base border-2 border-[#291B40]/30 rounded-lg px-2.5 py-1 outline-none focus:border-[#7042A1]"
+                      />
+
+                      <textarea
+                        rows={2}
+                        aria-label={`وصف الفئة ${idx + 1}`}
+                        value={cat.description}
+                        onChange={(e) =>
+                          setPlan((prev) =>
+                            prev
+                              ? {
+                                  ...prev,
+                                  categories: prev.categories.map((c) =>
+                                    c.id === cat.id ? { ...c, description: e.target.value } : c,
+                                  ),
+                                }
+                              : prev,
+                          )
+                        }
+                        className="text-xs font-medium border border-[#291B40]/20 rounded-lg px-2.5 py-1.5 outline-none resize-none leading-relaxed"
+                      />
+
+                      {subtopicsList && subtopicsList.length > 0 && (
+                        <div className="flex flex-wrap gap-1">
+                          {subtopicsList.slice(0, 5).map((sub, sIdx) => (
+                            <span
+                              key={sIdx}
+                              className="text-[10px] font-bold bg-[#FFF2CD] border border-[#291B40]/20 text-[#291B40] px-2 py-0.5 rounded-md"
+                            >
+                              {sub}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="bg-[#FFF9E9] rounded-xl p-2.5 text-[11px] space-y-1.5 border border-[#291B40]/15">
+                        <div>
+                          <span className="inline-block bg-[#00B978] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                            سهل 200
+                          </span>
+                          {cat.subtopic200 && <strong className="text-[#7042A1]">{cat.subtopic200}: </strong>}
+                          <span>{cat.sample200}</span>
+                        </div>
+                        <div>
+                          <span className="inline-block bg-[#279ED6] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                            متوسط 400
+                          </span>
+                          {cat.subtopic400 && <strong className="text-[#7042A1]">{cat.subtopic400}: </strong>}
+                          <span>{cat.sample400}</span>
+                        </div>
+                        <div>
+                          <span className="inline-block bg-[#7042A1] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                            صعب 600
+                          </span>
+                          {cat.subtopic600 && <strong className="text-[#7042A1]">{cat.subtopic600}: </strong>}
+                          <span>{cat.sample600}</span>
+                        </div>
+                      </div>
                     </div>
-
-                    <input
-                      type="text"
-                      aria-label={`اسم الفئة ${idx + 1}`}
-                      value={cat.name}
-                      onChange={(e) =>
-                        setPlan((prev) =>
-                          prev
-                            ? {
-                                ...prev,
-                                categories: prev.categories.map((c) =>
-                                  c.id === cat.id ? { ...c, name: e.target.value } : c,
-                                ),
-                              }
-                            : prev,
-                        )
-                      }
-                      className="font-display font-black text-base border-2 border-[#291B40]/30 rounded-lg px-2.5 py-1 outline-none focus:border-[#7042A1]"
-                    />
-
-                    <textarea
-                      rows={2}
-                      aria-label={`وصف الفئة ${idx + 1}`}
-                      value={cat.description}
-                      onChange={(e) =>
-                        setPlan((prev) =>
-                          prev
-                            ? {
-                                ...prev,
-                                categories: prev.categories.map((c) =>
-                                  c.id === cat.id ? { ...c, description: e.target.value } : c,
-                                ),
-                              }
-                            : prev,
-                        )
-                      }
-                      className="text-xs font-medium border border-[#291B40]/20 rounded-lg px-2.5 py-1.5 outline-none resize-none leading-relaxed"
-                    />
-
-                    <div className="bg-[#FFF9E9] rounded-xl p-2.5 text-[11px] space-y-1.5 border border-[#291B40]/15">
-                      <div>
-                        <span className="inline-block bg-[#00B978] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                          سهل 200
-                        </span>
-                        {cat.subtopic200 && <strong className="text-[#7042A1]">{cat.subtopic200}: </strong>}
-                        <span>{cat.sample200}</span>
-                      </div>
-                      <div>
-                        <span className="inline-block bg-[#279ED6] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                          متوسط 400
-                        </span>
-                        {cat.subtopic400 && <strong className="text-[#7042A1]">{cat.subtopic400}: </strong>}
-                        <span>{cat.sample400}</span>
-                      </div>
-                      <div>
-                        <span className="inline-block bg-[#7042A1] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                          صعب 600
-                        </span>
-                        {cat.subtopic600 && <strong className="text-[#7042A1]">{cat.subtopic600}: </strong>}
-                        <span>{cat.sample600}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
@@ -887,7 +1120,8 @@ export function PdfStudio({
                 >
                   <Sparkles className="w-6 h-6" />
                   <span>
-                    ولّد مصفوفة {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا (5 دفعات + تحقق ذاتي)
+                    ولّد مصفوفة {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا (
+                    {plan.categories.length} دفعات + تحقق ذاتي)
                   </span>
                 </button>
               </div>
@@ -1037,7 +1271,7 @@ export function PdfStudio({
                   }}
                   className="bg-white border-2 border-[#291B40] hover:bg-[#FFF9E9] px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer"
                 >
-                  تعديل أسماء الفرق
+                  {isCategoryTeamMatrixDeck(deck) ? 'تعديل أسماء الفئات' : 'تعديل أسماء الفرق'}
                 </button>
                 {renaming && (
                   <div className="w-full flex flex-wrap items-center gap-2 pt-2 border-t border-[#291B40]/10">
@@ -1071,7 +1305,7 @@ export function PdfStudio({
               </div>
             </div>
 
-            {/* 5 Core Categories × Competing Team Bundles Matrix Preview */}
+            {/* Configurable Core Categories × Competing Team Bundles Matrix Preview */}
             <div className="game-card-frame rounded-3xl p-5 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
@@ -1117,9 +1351,16 @@ export function PdfStudio({
                           <span className="font-display font-black text-base leading-tight">
                             {catIdx + 1}. {cat.name}
                           </span>
-                          <span className="text-[11px] font-black bg-black/25 px-2 py-0.5 rounded-md shrink-0">
-                            {effectiveTeams * 3} أسئلة
-                          </span>
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            {cat.pageRange && (
+                              <span className="text-[10px] font-black bg-white/20 px-2 py-0.5 rounded-md tabular-nums">
+                                ص {cat.pageRange.startPage}–{cat.pageRange.endPage}
+                              </span>
+                            )}
+                            <span className="text-[11px] font-black bg-black/25 px-2 py-0.5 rounded-md">
+                              {effectiveTeams * 3} أسئلة
+                            </span>
+                          </div>
                         </div>
 
                         <div className="p-3 space-y-2.5 flex-1">
@@ -1269,15 +1510,31 @@ export function PdfStudio({
               <div className="game-card-frame rounded-3xl p-5 bg-[#EDE7F6] space-y-4">
                 <h3 className="font-display font-black text-lg">مقارنة السؤال البديل قبل الاعتماد</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                  <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4 space-y-2">
                     <span className="text-xs font-black text-[#F05B63] block mb-1">السؤال الحالي</span>
+                    {getQuestionImageSrc(candidateSwap.oldQuestion) && (
+                      <QuestionMedia
+                        imageSrc={getQuestionImageSrc(candidateSwap.oldQuestion)}
+                        caption={candidateSwap.oldQuestion.imageCaption}
+                        pageNumber={candidateSwap.oldQuestion.pageNumber}
+                        compact
+                      />
+                    )}
                     <p className="font-bold text-sm mb-2">{candidateSwap.oldQuestion.prompt}</p>
                     <p className="text-xs font-bold text-[#00B978]">
                       الإجابة: {candidateSwap.oldQuestion.answer}
                     </p>
                   </div>
-                  <div className="bg-white border-2 border-[#00B978] rounded-2xl p-4">
+                  <div className="bg-white border-2 border-[#00B978] rounded-2xl p-4 space-y-2">
                     <span className="text-xs font-black text-[#00B978] block mb-1">السؤال البديل المقترح</span>
+                    {getQuestionImageSrc(candidateSwap.candidateQuestion) && (
+                      <QuestionMedia
+                        imageSrc={getQuestionImageSrc(candidateSwap.candidateQuestion)}
+                        caption={candidateSwap.candidateQuestion.imageCaption}
+                        pageNumber={candidateSwap.candidateQuestion.pageNumber}
+                        compact
+                      />
+                    )}
                     <p className="font-bold text-sm mb-2">{candidateSwap.candidateQuestion.prompt}</p>
                     <p className="text-xs font-bold text-[#00B978]">
                       الإجابة: {candidateSwap.candidateQuestion.answer}
@@ -1311,6 +1568,7 @@ export function PdfStudio({
               ).map((item) => {
                 const isEditing = editingQuestionId === item.id;
                 const subtopicTitle = item.subtopic || item.sourceRef;
+                const questionImageSrc = getQuestionImageSrc(item);
                 return (
                   <div
                     key={item.id}
@@ -1333,6 +1591,11 @@ export function PdfStudio({
                           {subtopicTitle && (
                             <span className="text-[11px] font-black bg-[#E8F8F2] text-[#007F52] border border-[#00B978]/40 px-2 py-0.5 rounded-md">
                               الموضوع الفرعي: {subtopicTitle}
+                            </span>
+                          )}
+                          {questionImageSrc && (
+                            <span className="text-[11px] font-black bg-[#EDE7F6] text-[#63349B] border border-[#63349B]/35 px-2 py-0.5 rounded-md">
+                              صورة مرفقة
                             </span>
                           )}
                           <span className="text-[11px] font-bold bg-white border border-[#291B40]/30 px-2 py-0.5 rounded-md">
@@ -1417,6 +1680,36 @@ export function PdfStudio({
                             className="w-full border border-[#291B40]/40 rounded-xl p-2 text-xs font-medium bg-white"
                             placeholder="تلميح اختياري"
                           />
+                          {getQuestionImageSrc({
+                            imageUrl: editDraft.imageUrl ?? item.imageUrl,
+                            imageBase64: editDraft.imageBase64 ?? item.imageBase64,
+                          }) && (
+                            <div className="space-y-1.5 bg-[#FFF9E9] border border-[#291B40]/20 rounded-xl p-2">
+                              <input
+                                type="text"
+                                value={editDraft.imageCaption ?? item.imageCaption ?? ''}
+                                onChange={(e) =>
+                                  setEditDraft((p) => ({ ...p, imageCaption: e.target.value }))
+                                }
+                                className="w-full border border-[#291B40]/40 rounded-lg p-1.5 text-xs font-medium bg-white"
+                                placeholder="وصف الصورة المرفقة"
+                              />
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setEditDraft((p) => ({
+                                    ...p,
+                                    imageUrl: '',
+                                    imageBase64: '',
+                                    imageCaption: '',
+                                  }))
+                                }
+                                className="text-[11px] font-black text-[#F05B63] hover:underline cursor-pointer"
+                              >
+                                إزالة الصورة المرفقة من هذا السؤال
+                              </button>
+                            </div>
+                          )}
                           <div className="flex gap-2">
                             <button
                               type="button"
@@ -1436,6 +1729,14 @@ export function PdfStudio({
                         </div>
                       ) : (
                         <>
+                          {questionImageSrc && (
+                            <QuestionMedia
+                              imageSrc={questionImageSrc}
+                              caption={item.imageCaption}
+                              pageNumber={item.pageNumber}
+                              compact
+                            />
+                          )}
                           <p className="font-display font-black text-base text-[#291B40] mb-1.5">
                             {item.prompt}
                           </p>
@@ -1484,6 +1785,9 @@ export function PdfStudio({
                               prompt: item.prompt,
                               answer: item.answer,
                               hint: item.hint,
+                              imageUrl: item.imageUrl,
+                              imageBase64: item.imageBase64,
+                              imageCaption: item.imageCaption,
                             });
                           }}
                           className="bg-white border border-[#291B40]/30 px-2 py-1 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
@@ -1537,7 +1841,8 @@ export function PdfStudio({
             </div>
           </div>
         )}
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

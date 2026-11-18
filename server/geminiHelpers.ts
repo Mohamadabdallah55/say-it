@@ -1,5 +1,9 @@
 import { normalizeArabicText } from '../src/game/pdfValidation';
-import type { PdfAnalysisReport } from '../src/game/types';
+import type {
+  CoverageValidationReport,
+  PageRange,
+  PdfAnalysisReport,
+} from '../src/game/types';
 
 export function stripCodeFences(raw: string): string {
   let cleaned = raw.trim();
@@ -488,4 +492,291 @@ export function buildFallbackTextFromAnalysis(
 
   return lines.join('\n\n');
 }
+
+export interface PartitionedPageRange extends PageRange {
+  categoryIndex: number;
+  pageNums: number[];
+}
+
+export function partitionPagesIntoRanges(
+  pages: Array<{ num: number; text: string }>,
+  totalPages: number,
+  categoryCount: number,
+): PartitionedPageRange[] {
+  const count = Math.max(1, Math.min(8, Math.round(categoryCount)));
+  const uniqueSortedPages = Array.from(
+    new Set(
+      pages
+        .map((p) => p.num)
+        .filter((n) => typeof n === 'number' && Number.isFinite(n) && n >= 1),
+    ),
+  ).sort((a, b) => a - b);
+
+  const effectiveTotal = Math.max(
+    1,
+    totalPages || 0,
+    uniqueSortedPages[uniqueSortedPages.length - 1] || 0,
+  );
+
+  // If readable pages are sparse or fewer than categoryCount, partition the 1..effectiveTotal span cleanly
+  const pageSequence =
+    uniqueSortedPages.length >= count
+      ? uniqueSortedPages
+      : Array.from({ length: effectiveTotal }, (_, idx) => idx + 1);
+
+  const n = pageSequence.length;
+  const ranges: PartitionedPageRange[] = [];
+
+  for (let i = 0; i < count; i++) {
+    const startIdx = Math.min(n - 1, Math.floor((i * n) / count));
+    const rawEndIdx = Math.min(n - 1, Math.floor(((i + 1) * n) / count) - 1);
+    const endIdx = Math.max(startIdx, rawEndIdx);
+
+    const startPage = i === 0 ? 1 : pageSequence[startIdx];
+    const endPage =
+      i === count - 1
+        ? effectiveTotal
+        : Math.max(startPage, pageSequence[endIdx]);
+
+    const sliceNums: number[] = [];
+    for (let p = startPage; p <= endPage; p++) {
+      sliceNums.push(p);
+    }
+
+    ranges.push({
+      categoryIndex: i,
+      startPage,
+      endPage,
+      pageNums: sliceNums,
+    });
+  }
+
+  return ranges;
+}
+
+export function buildPageRangeExcerpt(
+  pages: Array<{ num: number; text: string }>,
+  fullText: string,
+  pageRange: PageRange | undefined,
+  keywords: string[],
+  maxChars = 28000,
+): string {
+  if (fullText.length <= maxChars) return fullText;
+  if (!pages.length) return fullText.slice(0, maxChars);
+
+  const start = Math.max(1, pageRange?.startPage ?? 1);
+  const end = Math.max(start, pageRange?.endPage ?? pages[pages.length - 1].num);
+
+  const keywordTokens = Array.from(
+    new Set(
+      keywords
+        .flatMap((k) => tokenizeNormalized(k, 3))
+        .filter((w) => !ARABIC_STOPWORDS.has(w)),
+    ),
+  );
+
+  const selectedIndices = new Set<number>();
+  let estimatedChars = 0;
+
+  const tryAdd = (idx: number) => {
+    if (idx < 0 || idx >= pages.length || selectedIndices.has(idx)) return;
+    const cost = pages[idx].text.length + 16;
+    if (estimatedChars === 0 || estimatedChars + cost <= maxChars) {
+      selectedIndices.add(idx);
+      estimatedChars += cost;
+    }
+  };
+
+  // 1. Prioritize ALL pages inside this category's assigned pageRange first
+  for (let i = 0; i < pages.length; i++) {
+    const p = pages[i];
+    if (p.num >= start && p.num <= end) {
+      tryAdd(i);
+    }
+  }
+
+  // 2. Include opening framing page (page 0) and adjacent transition pages for context
+  tryAdd(0);
+  const minInRangeIdx = pages.findIndex((p) => p.num >= start);
+  if (minInRangeIdx > 0) tryAdd(minInRangeIdx - 1);
+  let maxInRangeIdx = -1;
+  for (let i = pages.length - 1; i >= 0; i--) {
+    if (pages[i].num <= end) {
+      maxInRangeIdx = i;
+      break;
+    }
+  }
+  if (maxInRangeIdx >= 0 && maxInRangeIdx + 1 < pages.length) tryAdd(maxInRangeIdx + 1);
+
+  // 3. Score remaining pages by keyword hits to include cross-references
+  const scored = pages
+    .map((p, idx) => {
+      if (selectedIndices.has(idx)) return { idx, score: -1 };
+      const pageNorm = normalizeArabicText(p.text);
+      let score = 0;
+      for (const kw of keywordTokens) {
+        if (pageNorm.includes(kw)) score += 3;
+      }
+      return { idx, score };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.idx - b.idx);
+
+  for (const item of scored) {
+    if (estimatedChars >= maxChars * 0.96) break;
+    tryAdd(item.idx);
+  }
+
+  const ordered = Array.from(selectedIndices).sort((a, b) => a - b);
+  return ordered
+    .map((idx) => `[صفحة ${pages[idx].num}] ${pages[idx].text}`)
+    .join('\n')
+    .slice(0, maxChars);
+}
+
+const BANNED_GENERIC_CATEGORY_NAMES = [
+  'المفاهيم والمصطلحات',
+  'المفاهيم والمصطلحات التاريخية',
+  'المفاهيم والمصطلحات العلمية',
+  'المفاهيم والأسس الرئيسية',
+  'المفاهيم الأساسية',
+  'السياق والمفاهيم الأساسية',
+  'التسلسل والخط الزمني',
+  'التسلسل والأحداث المحورية',
+  'تحليل البيانات والاستدلال',
+  'تحليل البيانات والاستنتاج',
+  'العلل والأسباب والنتائج',
+  'العلل والأسباب',
+  'المقارنات والفروق الدقيقة',
+  'المقارنات والاستنتاجات',
+  'الاستنتاجات والتطبيقات العملية',
+  'الأفكار الرئيسية',
+  'معلومات عامة',
+  'ملخص الدرس',
+  'الأسئلة العامة',
+].map((s) => normalizeArabicText(s));
+
+const BANNED_GENERIC_REGEXES = [
+  /^(?:المفاهيم|المصطلحات)(?:\s+و(?:المصطلحات|الاسس|المفاهيم))?(?:\s+(?:التاريخيه|العلميه|الدينيه|الرئيسيه|الاساسيه|العامه))?$/,
+  /^(?:التسلسل|الخط\s+الزمني)(?:\s+و(?:الخط\s+الزمني|الاحداث(?:\s+المحوريه)?))?$/,
+  /^(?:تحليل\s+البيانات|البيانات\s+والاستدلال)(?:\s+و(?:الاستدلال|الاستنتاج))?$/,
+  /^(?:العلل\s+والاسباب|الاسباب\s+والنتائج)(?:\s+والنتائج)?$/,
+  /^(?:المقارنات|الاستنتاجات)(?:\s+و(?:الفروق(?:\s+الدقيقه)?|الاستنتاجات|التطبيقات(?:\s+العمليه)?))?$/,
+  /^المحور\s+(?:الرئيسي\s+)?\d+$/,
+  /^فئه\s+\d+$/,
+];
+
+export function isGenericCategoryName(name: string | undefined): boolean {
+  const trimmed = (name || '').trim();
+  if (trimmed.length < 3) return true;
+  const norm = normalizeArabicText(trimmed);
+  if (BANNED_GENERIC_CATEGORY_NAMES.includes(norm)) return true;
+  return BANNED_GENERIC_REGEXES.some((re) => re.test(norm));
+}
+
+export function computeBoardCoverageMetrics(params: {
+  categories: Array<{
+    name: string;
+    pageRange?: PageRange;
+    coveredSubtopics?: string[];
+    topicCoverage?: string[];
+  }>;
+  totalPages: number;
+  readablePages: number;
+  analysis?: Partial<PdfAnalysisReport> | null;
+}): CoverageValidationReport {
+  const totalPages = Math.max(1, params.totalPages || params.readablePages || 1);
+  const readablePages = Math.max(1, Math.min(totalPages, params.readablePages || totalPages));
+
+  const coveredPageSet = new Set<number>();
+  for (const cat of params.categories) {
+    if (!cat.pageRange) continue;
+    const start = Math.max(1, Math.min(totalPages, Math.round(cat.pageRange.startPage)));
+    const end = Math.max(start, Math.min(totalPages, Math.round(cat.pageRange.endPage)));
+    for (let p = start; p <= end; p++) {
+      coveredPageSet.add(p);
+    }
+  }
+
+  const uncoveredPages: number[] = [];
+  for (let p = 1; p <= totalPages; p++) {
+    if (!coveredPageSet.has(p)) uncoveredPages.push(p);
+  }
+
+  const coveredPageCount = coveredPageSet.size;
+  const pageCoveragePercent = Math.min(
+    100,
+    Math.round((coveredPageCount / totalPages) * 100),
+  );
+
+  const analysisSubtopics = Array.from(
+    new Set(
+      [
+        ...(params.analysis?.subTopics ?? []),
+        ...(params.analysis?.mainTopics ?? []),
+      ]
+        .map((s) => s?.trim())
+        .filter(Boolean) as string[],
+    ),
+  );
+
+  const categorySubtopics = Array.from(
+    new Set(
+      params.categories
+        .flatMap((c) => [...(c.coveredSubtopics ?? []), ...(c.topicCoverage ?? [])])
+        .map((s) => s?.trim())
+        .filter(Boolean) as string[],
+    ),
+  );
+
+  let matchedAnalysisSubtopics = 0;
+  if (analysisSubtopics.length > 0) {
+    const catNormCorpus = normalizeArabicText(
+      [
+        ...categorySubtopics,
+        ...params.categories.map((c) => c.name),
+      ].join(' | '),
+    );
+    for (const st of analysisSubtopics) {
+      const tokens = tokenizeNormalized(st, 3).filter((w) => !ARABIC_STOPWORDS.has(w));
+      if (tokens.length === 0) {
+        if (catNormCorpus.includes(normalizeArabicText(st))) matchedAnalysisSubtopics += 1;
+      } else {
+        const hits = tokens.filter((t) => catNormCorpus.includes(t)).length;
+        if (hits >= Math.max(1, Math.ceil(tokens.length * 0.5))) {
+          matchedAnalysisSubtopics += 1;
+        }
+      }
+    }
+  }
+
+  const totalSubtopics = Math.max(analysisSubtopics.length, categorySubtopics.length, 1);
+  const coveredSubtopicsCount =
+    analysisSubtopics.length > 0
+      ? Math.max(matchedAnalysisSubtopics, Math.min(totalSubtopics, categorySubtopics.length))
+      : categorySubtopics.length;
+  const subtopicCoveragePercent = Math.min(
+    100,
+    Math.round((coveredSubtopicsCount / totalSubtopics) * 100),
+  );
+
+  const isFullCoverage = uncoveredPages.length === 0 && pageCoveragePercent === 100;
+  const summary = isFullCoverage
+    ? `تغطية شاملة بنسبة 100% لكامل صفحات الملف (1–${totalPages}) عبر ${params.categories.length} فئات من صلب الدرس.`
+    : `تغطية ${pageCoveragePercent}% من صفحات الدرس (${coveredPageCount}/${totalPages} صفحة) عبر ${params.categories.length} فئات.`;
+
+  return {
+    totalPages,
+    readablePages,
+    coveredPageCount,
+    pageCoveragePercent,
+    totalSubtopics,
+    coveredSubtopicsCount,
+    subtopicCoveragePercent,
+    uncoveredPages,
+    isFullCoverage,
+    summary,
+  };
+}
+
 

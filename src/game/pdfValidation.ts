@@ -27,35 +27,63 @@ export const QUESTION_TYPE_LABELS: Record<QuestionType, string> = {
   pantomime_optional: 'تمثيل صامت (اختياري)',
 };
 
+export const PRE_QUESTION_LIFELINES: LifelineType[] = [
+  'two_answers',
+  'pit',
+  'double_points',
+  'second_chance',
+  'buzzer_challenge',
+];
+
+export const IN_QUESTION_LIFELINES: LifelineType[] = ['swap_question', 'hint'];
+
+export function isPreQuestionLifeline(lifeline: LifelineType): boolean {
+  return PRE_QUESTION_LIFELINES.includes(lifeline);
+}
+
+export function isInQuestionLifeline(lifeline: LifelineType): boolean {
+  return IN_QUESTION_LIFELINES.includes(lifeline);
+}
+
 export const LIFELINE_META: Record<
   LifelineType,
-  { label: string; description: string; mcqOnly?: boolean }
+  { label: string; description: string; mcqOnly?: boolean; timing?: 'pre_question' | 'in_question' }
 > = {
   hint: {
-    label: 'تلميح',
-    description: 'يُظهر تلميحًا مساعدًا إن كان متوفرًا للسؤال.',
+    label: 'ألو (مساعدة / تلميح)',
+    description: 'تُستخدم بعد ظهور السؤال: اتصال بصديق أو إظهار تلميح السؤال.',
+    timing: 'in_question',
   },
-  pit: { label: 'الحفرة', description: 'إذا أجاب صاحب الدور، يكسب قيمة السؤال وتُخصم نفس القيمة من كل خصم.' },
+  pit: {
+    label: 'الحفرة',
+    description: 'اطرح نقاطك من جميع الخصوم إذا أجبت إجابة صحيحة.',
+    timing: 'pre_question',
+  },
   double_points: {
     label: 'نقاط مضاعفة',
-    description: 'يضاعف النقاط لصاحب الدور إذا أجاب صح. يحصل الفريق الآخر على القيمة الأصلية.',
+    description: 'ضاعف نقاط هذا السؤال لصاحب الدور عند الإجابة الصحيحة.',
+    timing: 'pre_question',
   },
   second_chance: {
     label: 'فرصة ثانية',
     description: 'يمنح الفريق محاولة إضافية ووقتًا إضافيًا (+15 ثانية).',
+    timing: 'pre_question',
   },
   two_answers: {
-    label: 'جاوب جوابين',
-    description: 'يسمح باختيار خيارين — متاح فقط لأسئلة الاختيار من متعدد.',
+    label: 'إجابتان',
+    description: 'لديك فرصتان للإجابة (لأسئلة الاختيار من متعدد).',
     mcqOnly: true,
+    timing: 'pre_question',
   },
   swap_question: {
-    label: 'تبديل السؤال',
-    description: 'يستبدل السؤال الحالي بسؤال احتياطي من نفس البنك.',
+    label: 'شنّص (بدّل السؤال)',
+    description: 'تُستخدم بعد ظهور السؤال: استبدل السؤال الحالي بسؤال بديل بنفس القيمة.',
+    timing: 'in_question',
   },
   buzzer_challenge: {
     label: 'تحدي الجرس',
     description: 'يفتح السؤال للتنافس السريع عبر جرس الفرق.',
+    timing: 'pre_question',
   },
 };
 
@@ -73,6 +101,16 @@ export function difficultyForPoints(points: number): Difficulty {
   if (points <= 200) return 'easy';
   if (points <= 400) return 'medium';
   return 'hard';
+}
+
+export function getQuestionImageSrc(
+  q?: { imageUrl?: string; imageBase64?: string } | null,
+): string | undefined {
+  const url = typeof q?.imageUrl === 'string' ? q.imageUrl.trim() : '';
+  if (url) return url;
+  const b64 = typeof q?.imageBase64 === 'string' ? q.imageBase64.trim() : '';
+  if (b64) return b64;
+  return undefined;
 }
 
 export function resolveOrder(q: Partial<QuizQuestion>) {
@@ -233,6 +271,18 @@ export function validateQuizQuestion(
     orderItems: question.orderItems?.map((o) => o.trim()).filter(Boolean),
     hint: question.hint?.trim() || undefined,
     explanation: question.explanation?.trim() || undefined,
+    imageUrl:
+      typeof question.imageUrl === 'string' && question.imageUrl.trim()
+        ? question.imageUrl.trim()
+        : undefined,
+    imageBase64:
+      typeof question.imageBase64 === 'string' && question.imageBase64.trim()
+        ? question.imageBase64.trim()
+        : undefined,
+    imageCaption:
+      typeof question.imageCaption === 'string' && question.imageCaption.trim()
+        ? question.imageCaption.trim()
+        : undefined,
     timeLimitSeconds: question.timeLimitSeconds,
     subtopic: question.subtopic?.trim() || question.sourceRef?.trim() || undefined,
     teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,
@@ -267,7 +317,11 @@ export function isCategoryTeamMatrixDeck(
 ): boolean {
   if (deck.boardMode === 'category_team_matrix') return true;
   if (isTeamBundleDeck(deck)) return false;
-  return deck.categories.length === 5 && deck.questions.some((q) => typeof q.teamIndex === 'number');
+  return (
+    deck.categories.length >= 3 &&
+    deck.categories.length <= 6 &&
+    deck.questions.some((q) => typeof q.teamIndex === 'number')
+  );
 }
 
 export function selectActiveBoardForDeck(
@@ -285,7 +339,14 @@ export function selectActiveBoardForDeck(
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
 
   if (matrixMode) {
-    const categories = deck.categories.slice(0, 5);
+    const matrixCatCount = Math.max(
+      3,
+      Math.min(
+        6,
+        deck.boardPlan?.recommendedCategoryCount || deck.categories.length || requestedCategoryCount || 5,
+      ),
+    );
+    const categories = deck.categories.slice(0, matrixCatCount);
     const effectiveTeamCount = Math.max(
       2,
       Math.min(4, teamCount > 1 ? teamCount : deck.teamCount || 3),
@@ -453,13 +514,17 @@ export function runBoardPreflightCheck(params: {
   const expectedTeamBundles = matrixMode
     ? inferredMatrixTeams
     : deck.teamCount || deck.categories.length;
+  const expectedMatrixCategories = Math.max(
+    3,
+    Math.min(6, deck.boardPlan?.recommendedCategoryCount || deck.categories.length || 5),
+  );
   const desiredCount = matrixMode
-    ? 5
+    ? expectedMatrixCategories
     : teamBundlesMode
       ? expectedTeamBundles
       : Math.max(deck.sourceType === 'pdf' ? 1 : 3, Math.min(6, settings.categoryCount ?? 5));
   const selectedCats = matrixMode
-    ? deck.categories.slice(0, 5)
+    ? deck.categories.slice(0, expectedMatrixCategories)
     : teamBundlesMode
       ? deck.categories.slice(0, expectedTeamBundles)
       : selectedCategoryIds?.length
@@ -468,16 +533,17 @@ export function runBoardPreflightCheck(params: {
 
   // 1. Category / Team Bundle / Matrix count check
   if (matrixMode) {
-    const matchesTeams = teams.length === expectedTeamBundles && selectedCats.length === 5;
+    const matchesTeams =
+      teams.length === expectedTeamBundles && selectedCats.length === expectedMatrixCategories;
     checks.push({
       id: 'category_count',
-      label: 'اكتمال مصفوفة الفئات الـ 5 وعدد الفرق المتنافسة',
+      label: `اكتمال مصفوفة الفئات الـ ${expectedMatrixCategories} وعدد الفرق المتنافسة`,
       passed: matchesTeams,
       severity: 'error',
       detail: matchesTeams
-        ? `5 فئات رئيسية × ${expectedTeamBundles} فرق × 3 مستويات = ${5 * expectedTeamBundles * 3} سؤالًا`
-        : selectedCats.length !== 5
-          ? `يجب توفر 5 فئات رئيسية (المتاح ${selectedCats.length})`
+        ? `${expectedMatrixCategories} فئات رئيسية × ${expectedTeamBundles} فرق × 3 مستويات = ${expectedMatrixCategories * expectedTeamBundles * 3} سؤالًا`
+        : selectedCats.length !== expectedMatrixCategories
+          ? `يجب توفر ${expectedMatrixCategories} فئات رئيسية (المتاح ${selectedCats.length})`
           : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
     });
   } else if (teamBundlesMode) {

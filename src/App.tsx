@@ -137,10 +137,20 @@ export default function App() {
       <LobbySetup
         decks={decks}
         initialDeckId={screen.preselectDeckId}
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
         onBack={() => setScreen({ name: 'title' })}
         onGoToPdfStudio={(deckId) => {
           const found = decks.find((d) => d.id === deckId) ?? null;
           setScreen({ name: 'pdf_studio', editDeck: found });
+        }}
+        onOpenLibrary={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'decks' });
+        }}
+        onOpenSavedMatches={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'matches' });
         }}
         onRoomCreated={handleRoomCreated}
       />
@@ -151,6 +161,20 @@ export default function App() {
     return (
       <PdfStudio
         initialDeck={screen.editDeck}
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
+        onStartQuick={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'lobby' });
+        }}
+        onOpenLibrary={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'decks' });
+        }}
+        onOpenSavedMatches={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'matches' });
+        }}
         onBack={() => {
           refreshDecksAndRooms();
           setScreen({ name: 'title' });
@@ -170,6 +194,10 @@ export default function App() {
         mode={screen.mode}
         decks={decks}
         rooms={rooms}
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
+        onStartQuick={() => setScreen({ name: 'lobby' })}
+        onOpenPdfStudio={() => setScreen({ name: 'pdf_studio', editDeck: null })}
         onBack={() => setScreen({ name: 'title' })}
         onSelectDeckToPlay={(deckId) => setScreen({ name: 'lobby', preselectDeckId: deckId })}
         onEditDeckInStudio={(deck) => setScreen({ name: 'pdf_studio', editDeck: deck })}

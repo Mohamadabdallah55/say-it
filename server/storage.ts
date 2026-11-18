@@ -4,7 +4,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import type { RequestHandler } from 'express';
 import path from 'node:path';
 import { STARTER_DEMO_DECK } from '../src/game/starterDecks';
-import type { BoardPlanPreview, PdfAnalysisReport, QuizDeck, RoomState } from '../src/game/types';
+import type { BoardPlanPreview, ExtractedPdfVisual, PdfAnalysisReport, QuizDeck, RoomState } from '../src/game/types';
 
 const DATA_DIR = path.resolve(process.env.YEMKEN_DATA_DIR || '.data');
 const LEGACY_BACKUP_DIR = path.join(DATA_DIR, 'backup-v1-legacy');
@@ -105,6 +105,7 @@ export interface CachedPdfText {
   pages: Array<{ num: number; text: string }>;
   fullText: string;
   analyses?: Partial<Record<string, PdfAnalysisReport>>;
+  extractedVisuals?: ExtractedPdfVisual[];
   cachedAt: string;
 }
 
@@ -117,12 +118,34 @@ export interface CachedPdfPlan {
 
 export function saveCachedPdfText(entry: CachedPdfText): void {
   ensureDirs();
-  const payload = JSON.stringify(entry, null, 2);
-  const target = path.join(libraryPath('pdf-cache'), `${entry.fileHash}.json`);
+  const existing = entry.extractedVisuals === undefined ? getCachedPdfText(entry.fileHash) : null;
+  const merged: CachedPdfText =
+    existing?.extractedVisuals && !entry.extractedVisuals
+      ? { ...entry, extractedVisuals: existing.extractedVisuals }
+      : entry;
+  const payload = JSON.stringify(merged, null, 2);
+  const target = path.join(libraryPath('pdf-cache'), `${merged.fileHash}.json`);
   fs.writeFileSync(target, payload, 'utf-8');
   // Mirror by cryptographic 256-bit fileHash so session/cookie edge cases never lose extracted text
-  const sharedTarget = path.join(SHARED_PDF_CACHE_DIR, `${entry.fileHash}.json`);
+  const sharedTarget = path.join(SHARED_PDF_CACHE_DIR, `${merged.fileHash}.json`);
   fs.writeFileSync(sharedTarget, payload, 'utf-8');
+}
+
+export function saveCachedPdfVisuals(
+  fileHash: string,
+  visuals: ExtractedPdfVisual[],
+): CachedPdfText | null {
+  ensureDirs();
+  if (!/^[a-f0-9]{64}$/.test(fileHash)) return null;
+  const existing = getCachedPdfText(fileHash);
+  if (!existing) return null;
+  const updated: CachedPdfText = {
+    ...existing,
+    extractedVisuals: visuals,
+    cachedAt: new Date().toISOString(),
+  };
+  saveCachedPdfText(updated);
+  return updated;
 }
 
 export function getCachedPdfText(fileHash: string): CachedPdfText | null {

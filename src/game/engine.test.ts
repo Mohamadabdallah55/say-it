@@ -580,4 +580,174 @@ test('category_team_matrix deck builds 5 Core Categories × N teams × 3 tiers (
   assert.equal(ctxProjRevealed.contextSummary.includes('إجابة مصفوفة سرية 1-0-easy'), true);
 });
 
+test('configurable 4-category × 3-team matrix deck (36 tiles) passes preflight and initializes room cleanly', () => {
+  const cats4 = [1, 2, 3, 4].map((n) => ({
+    id: `cat4_${n}`,
+    name: `محور الحديبية ${n}`,
+    iconKey: 'history' as const,
+    accentColor: '#7042A1',
+    pageRange: { startPage: (n - 1) * 3 + 1, endPage: n * 3 },
+  }));
 
+  const q36 = cats4.flatMap((cat, catIdx) =>
+    [0, 1, 2].flatMap((teamIndex) =>
+      (['easy', 'medium', 'hard'] as const).map((difficulty) => ({
+        id: `q4_${catIdx}_${teamIndex}_${difficulty}`,
+        categoryId: cat.id,
+        categoryName: cat.name,
+        teamIndex,
+        subtopic: `محور فرعي ${catIdx + 1}-${teamIndex + 1}`,
+        difficulty,
+        points: (difficulty === 'easy' ? 200 : difficulty === 'medium' ? 400 : 600) as 200 | 400 | 600,
+        questionType: 'direct_qa' as const,
+        prompt: `سؤال ${cat.name} للفريق ${teamIndex + 1} (${difficulty})`,
+        answer: `جواب ${catIdx + 1}-${teamIndex}-${difficulty}`,
+        status: 'approved' as const,
+      })),
+    ),
+  );
+
+  const deck36 = {
+    schemaVersion: 2 as const,
+    id: 'deck_matrix_36',
+    title: 'صلح الحديبية (4 فئات)',
+    description: '4 فئات × 3 فرق × 3 مستويات',
+    sourceType: 'pdf' as const,
+    boardMode: 'category_team_matrix' as const,
+    teamCount: 3,
+    ageGroup: 'mixed' as const,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    categories: cats4,
+    questions: q36,
+  };
+
+  const pf = runBoardPreflightCheck({
+    deck: deck36,
+    teams: TEAMS,
+    settings: { categoryCount: 4, timerSeconds: 45 },
+  });
+  assert.equal(pf.canStart, true);
+
+  const room36 = createRoomState({
+    roomCode: 'MTX36',
+    hostToken: 'host_36',
+    buzzerToken: 'buzz_36',
+    deck: deck36,
+    teams: TEAMS,
+    settings: { categoryCount: 4 },
+    nowMs: 1000,
+  });
+
+  assert.equal(room36.boardMode, 'category_team_matrix');
+  assert.equal(room36.categories.length, 4);
+  assert.equal(room36.boardTiles.length, 36);
+});
+
+test('Question schema imageBase64/imageUrl/imageCaption survive validation and projector sanitization without leaking answers', () => {
+  const sampleImg = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/';
+  const validated = validateQuizQuestion({
+    id: 'vis_q1',
+    categoryId: 'cat_general',
+    categoryName: 'العلوم والطبيعة',
+    difficulty: 'medium',
+    points: 400,
+    questionType: 'direct_qa',
+    prompt: 'تأمل الشكل المرفق ثم حدد العملية المشار إليها بالسهم الأعلى؟',
+    answer: 'التبخر',
+    explanation: 'تصعد جزيئات الماء بفعل حرارة الشمس.',
+    imageBase64: sampleImg,
+    imageCaption: 'مخطط دورة الماء في الطبيعة',
+    pageNumber: 3,
+  });
+  assert.equal(validated.valid, true);
+  assert.equal(validated.normalized?.imageBase64, sampleImg);
+  assert.equal(validated.normalized?.imageCaption, 'مخطط دورة الماء في الطبيعة');
+
+  const visualDeck = {
+    ...STARTER_DEMO_DECK,
+    questions: [validated.normalized!, ...STARTER_DEMO_DECK.questions.slice(1)],
+  };
+  let state = createRoomState({
+    roomCode: 'VIS01',
+    hostToken: 'host_vis',
+    buzzerToken: 'buzz_vis',
+    deck: visualDeck,
+    teams: TEAMS,
+    nowMs: 1000,
+  });
+  state = selectBoardTile(state, 'vis_q1', 'sel_vis', 2000).state;
+  state = skipLifelinePick(state, 'skip_vis', 2500).state;
+
+  const proj = sanitizeStateForRole(state, 'projector', 2600);
+  assert.equal(proj.activeRound?.imageBase64, sampleImg);
+  assert.equal(proj.activeRound?.imageCaption, 'مخطط دورة الماء في الطبيعة');
+  assert.equal(proj.activeRound?.answer, undefined);
+  assert.equal(proj.activeRound?.explanation, undefined);
+
+  const buzzer = sanitizeStateForRole(state, 'buzzer', 2600);
+  assert.equal(buzzer.activeRound?.prompt.includes('الشكل المرفق'), true);
+  assert.equal('answer' in (buzzer.activeRound ?? {}), false);
+
+  state = revealAnswer(state, 'rev_vis', 2900).state;
+  const projRevealed = sanitizeStateForRole(state, 'projector', 3000);
+  assert.equal(projRevealed.activeRound?.imageBase64, sampleImg);
+  assert.equal(projRevealed.activeRound?.pageNumber, 3);
+});
+
+test('In-question lifelines (شنّص swap_question & ألو hint) work after question appears while LIFELINE_PICK skips if only in-question cards are enabled', () => {
+  // 1) Only in-question cards enabled -> skip LIFELINE_PICK and go straight to QUESTION_READY
+  let onlyInQ = createRoomState({
+    roomCode: 'INQ01',
+    hostToken: 'h_inq',
+    buzzerToken: 'b_inq',
+    deck: STARTER_DEMO_DECK,
+    teams: TEAMS,
+    settings: { cards: ['swap_question', 'hint'], maxLifelinesPerTeam: 3 },
+    nowMs: 1000,
+  });
+
+  const qWithoutHint = {
+    ...onlyInQ.questionPool[0],
+    hint: undefined,
+  };
+  onlyInQ = {
+    ...onlyInQ,
+    questionPool: [qWithoutHint, ...onlyInQ.questionPool.slice(1)],
+  };
+
+  onlyInQ = selectBoardTile(onlyInQ, qWithoutHint.id, 'sel_inq', 2000).state;
+  assert.equal(onlyInQ.phase, 'QUESTION_READY');
+
+  // ألو (hint) activates cleanly even when question has no preset hint
+  const aloRes = applyLifeline(onlyInQ, 'hint', 'use_alo', 2200);
+  assert.equal(aloRes.ok, true);
+  assert.equal(aloRes.state.activeRound?.hintRevealed, true);
+  assert.equal(aloRes.state.teams[0].usedLifelines.includes('hint'), true);
+
+  // 2) Pre-question card (double_points) + in-question شنّص preserves double_points reward
+  let combo = createRoomState({
+    roomCode: 'CMB01',
+    hostToken: 'h_cmb',
+    buzzerToken: 'b_cmb',
+    deck: STARTER_DEMO_DECK,
+    teams: TEAMS,
+    settings: {
+      cards: ['two_answers', 'pit', 'double_points', 'hint', 'swap_question'],
+      maxLifelinesPerTeam: 3,
+    },
+    nowMs: 1000,
+  });
+  const tile400 = combo.boardTiles.find((t) => t.points === 400)!;
+  combo = selectBoardTile(combo, tile400.questionId, 'sel_c', 2000).state;
+  assert.equal(combo.phase, 'LIFELINE_PICK');
+
+  combo = applyLifeline(combo, 'double_points', 'pre_dbl', 2500).state;
+  assert.equal(combo.phase, 'QUESTION_READY');
+  assert.equal(combo.activeRound?.effectivePoints, 800);
+
+  const swapped = applyLifeline(combo, 'swap_question', 'in_swap', 3000);
+  assert.equal(swapped.ok, true);
+  assert.notEqual(swapped.state.activeRound?.question.id, tile400.questionId);
+  assert.equal(swapped.state.activeRound?.effectivePoints, 800);
+});

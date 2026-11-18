@@ -8,7 +8,12 @@ import type {
   SuggestedCategoryOutline,
 } from '../src/game/types';
 import { generateStructuredJsonWithFallback } from './geminiClient';
-import { buildRepresentativeExcerpt } from './geminiHelpers';
+import {
+  buildRepresentativeExcerpt,
+  isGenericCategoryName,
+  partitionPagesIntoRanges,
+} from './geminiHelpers';
+import { normalizeBoundingBox } from '../src/utils/pdfImageCropMath';
 import { getCachedPdfText, saveCachedPdfText, type CachedPdfText } from './storage';
 
 const MAX_INLINE_PDF_BYTES = 18 * 1024 * 1024;
@@ -52,6 +57,8 @@ interface GeminiPdfExtractionPayload {
     description?: string;
     iconKey?: string;
     topicCoverage?: string[];
+    coveredSubtopics?: string[];
+    pageRange?: { startPage?: number; endPage?: number };
     hasHypotheticalData?: boolean;
   }>;
   extractedPages?: GeminiExtractedPage[];
@@ -136,32 +143,40 @@ export async function extractAndParsePdfWithGemini(
   const fileHash = crypto.createHash('sha256').update(buffer).digest('hex');
   const existingCache = getCachedPdfText(fileHash);
   const existingReport = existingCache?.analyses?.[ageGroup];
-  if (existingCache && existingReport && existingReport.extractionMethod) {
+  if (
+    existingCache &&
+    existingReport &&
+    existingReport.extractionMethod &&
+    existingReport.suggestedCategories?.every((c) => Boolean(c.pageRange))
+  ) {
     return { cachedText: existingCache, report: existingReport };
   }
 
   const parsedFallback = await quickInspectPdfParse(buffer);
   const useInlineGeminiPdf = buffer.length <= MAX_INLINE_PDF_BYTES;
+  const pageCountHint = parsedFallback.totalPages || 'آخر صفحة';
 
   const instructionText = `أنت خبير تربوي ومحلل مناهج فائق الدقة لاستخراج وتحليل ملفات PDF باللغة العربية والإنجليزية لإنشاء مسابقة «يمكن هاي» للطلبة (الفئة العمرية: ${ageGroup}).
-المطلوب قراءة كامل صفحات ملف الـ PDF المرفق ("${fileName}") قراءة عميقة لفهم السياق التربوي والعلمي للدرس من بدايته إلى نهايته (وليس التقاط كلمات مفتاحية سطحية)، وإرجاع كائن JSON منظم يتضمن:
-1. استخراج النص النظيف لكل صفحة في extractedPages (من الصفحة 1 إلى ${parsedFallback.totalPages || 'آخر صفحة'}) مع:
+المطلوب قراءة كامل صفحات ملف الـ PDF المرفق ("${fileName}") من الصفحة 1 إلى الصفحة ${pageCountHint} قراءة عميقة لفهم السياق التربوي والعلمي للدرس دون إهمال وسط الملف أو نهايته، وإرجاع كائن JSON منظم يتضمن:
+1. استخراج النص النظيف لكل صفحة في extractedPages (من الصفحة 1 إلى ${pageCountHint}) مع:
    - تصحيح اتجاه الجداول العلمية وتحويل كل جدول مهم إلى سطور واضحة تربط العمود بالقيمة.
    - الحفاظ على الآيات والأرقام والتواريخ والمصطلحات بدقة تامة دون خلط أو اختراع.
 2. title: عنوان دقيق للوثيقة، و subjectDomain: المجال العلمي أو التاريخي أو التعليمي، و summary: ملخص عربي شامل للدرس.
-3. التحليل التربوي العميق:
-   - mainTopics و subTopics: كافة محاور الدرس من البداية للنهاية.
+3. التحليل التربوي العميق لكامل الصفحات:
+   - mainTopics و subTopics: كافة محاور الدرس وعناوينه الفرعية من الصفحة الأولى إلى الأخيرة.
    - conceptsAndTerms: المفاهيم والمصطلحات العلمية والتاريخية الدقيقة.
    - facts: الحقائق والبيانات الموثقة الصريحة فقط.
    - causesAndEffects: العلل والأسباب والنتائج والعوامل المؤثرة.
    - peopleAndEvents: الشخصيات والأحداث والتسلسل الزمني أو المنطقي.
    - relationshipsAndConclusions: المقارنات العميقة، الفروقات الدقيقة، القواعد والاستنتاجات التربوية.
    - educationalObjectives: الأهداف التعليمية للدرس.
-4. hypotheticalSections: استبعد تلقائيًا أي صفحات إرشادية موجهة للمعلم، أو جداول تدريبية فارغة، أو نماذج أنشطة افتراضية/تصورية لا تمثل وقائع الدرس العلمية الأساسية (إلا إذا كانت جزءًا صريحًا من المادة العلمية نفسها)، واذكر هذه الأجزاء المستبعدة أو الافتراضية هنا مع أرقام صفحاتها حتى لا تختلط بالأسئلة الأساسية!
+4. hypotheticalSections: استبعد تلقائيًا أي صفحات إرشادية موجهة للمعلم، أو جداول تدريبية فارغة، أو نماذج أنشطة افتراضية لا تمثل وقائع الدرس الأساسية، واذكر أرقام صفحاتها هنا.
 5. isReligiousContent: true إذا اشتمل النص على آيات قرآنية أو أحاديث نبوية أو أحكام شرعية أو أنبياء وصحابة.
-6. suggestedCategories (إلزامي 5 فئات رئيسية بالضبط — لا أقل ولا أكثر):
-   قسّم محتوى الدرس العلمي بالكامل إلى **5 فئات رئيسية متوازنة وشاملة** تغطي الدرس من بدايته إلى نهايته (مثل: السياق والمفاهيم الأساسية، العلل والأسباب، التسلسل والأحداث، المقارنات والاستنتاجات، الآثار والتطبيقات أو حسب محاور الدرس الحقيقية).
-   لكل فئة أرجع: name (اسم عربي جذاب وواضح)، description (وصف تربوي للمحور)، iconKey من [general, science, history, arabic, puzzles, sports, islamic, pdf, skills, geography, tech]، topicCoverage (قائمة موضوعاتها الفرعية)، و hasHypotheticalData.
+6. suggestedCategories (اقترح 5 إلى 6 محاور فعلية متوازنة تغطي 100% من صفحات الملف):
+   - ممنوع منعًا باتًا استخدام أي اسم عام أو قالبي مثل: "المفاهيم والمصطلحات التاريخية"، "التسلسل والخط الزمني"، "تحليل البيانات والاستدلال"، "المفاهيم والأسس الرئيسية"، "العلل والأسباب والنتائج"، "المقارنات والفروق الدقيقة"، أو "الاستنتاجات والتطبيقات".
+   - يجب أن يكون اسم كل فئة مشتقًا مباشرة من العناوين والأحداث والشخصيات والموضوعات الفعلية داخل هذا الدرس تحديدًا (مثال لدرس سيرة: "بيعة الرضوان ومهمة عثمان" أو "بنود المعاهدة ومفاوضات سهيل"؛ ومثال لدرس علوم: "التبخر وتأثير حرارة الشمس" أو "تكوّن الغيوم ونويات التكاثف").
+   - قسّم صفحات المحتوى الفعلي إلى نطاقات متتالية ومتوازنة تغطي من الصفحة 1 إلى آخر صفحة دون ترك أي فجوة.
+   - لكل فئة أرجع: name (اسم عربي خاص بمحتوى الدرس)، description (وصف تربوي للمحور)، iconKey من [general, science, history, arabic, puzzles, sports, islamic, pdf, skills, geography, tech]، pageRange ({ startPage, endPage })، coveredSubtopics / topicCoverage (قائمة موضوعاتها الفرعية الدقيقة من تلك الصفحات)، و hasHypotheticalData.
 7. warnings: تحذيرات موضوعية بالعربية فقط حول حدود النص أو الصفحات المستبعدة.
 
 التزم باللغة العربية السليمة في جميع الحقول الوصفية والفئات والتحذيرات، ولا تختلق أي رقم أو حقيقة غير واردة في الملف.`;
@@ -207,7 +222,7 @@ export async function extractAndParsePdfWithGemini(
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
       systemInstruction:
-        'أنت محلل مستندات عربي فائق الدقة. اقرأ الجداول والأرقام والسياق بدقة، وافصل تمامًا بين الوقائع الموثقة والبيانات الافتراضية التدريبية، واكتب جميع الأوصاف والفئات والتحذيرات بالعربية الفصحى الواضحة.',
+        'أنت محلل مستندات عربي فائق الدقة. اقرأ كامل صفحات المستند من البداية للنهاية واستخرج فئات متخصصة مشتقة من عناوين وأفكار الدرس الفعلية مع ربط كل فئة بنطاق صفحاتها ومواضيعها الفرعية، وامنع الأسماء القالبية العامة نهائيًا.',
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
@@ -234,10 +249,19 @@ export async function extractAndParsePdfWithGemini(
                 name: { type: Type.STRING },
                 description: { type: Type.STRING },
                 iconKey: { type: Type.STRING },
+                pageRange: {
+                  type: Type.OBJECT,
+                  properties: {
+                    startPage: { type: Type.INTEGER },
+                    endPage: { type: Type.INTEGER },
+                  },
+                  required: ['startPage', 'endPage'],
+                },
+                coveredSubtopics: { type: Type.ARRAY, items: { type: Type.STRING } },
                 topicCoverage: { type: Type.ARRAY, items: { type: Type.STRING } },
                 hasHypotheticalData: { type: Type.BOOLEAN },
               },
-              required: ['name', 'description', 'iconKey', 'topicCoverage'],
+              required: ['name', 'description', 'iconKey', 'pageRange', 'topicCoverage'],
             },
           },
           extractedPages: {
@@ -303,57 +327,89 @@ export async function extractAndParsePdfWithGemini(
     finalPages.length,
   );
 
+  const defaultRanges = partitionPagesIntoRanges(finalPages, totalPages, 5);
+  const domainPadPool = Array.from(
+    new Set(
+      [
+        ...(parsed.mainTopics ?? []),
+        ...(parsed.subTopics ?? []),
+        ...(parsed.peopleAndEvents ?? []),
+        ...(parsed.conceptsAndTerms ?? []),
+      ]
+        .map((s) => s?.trim())
+        .filter((s): s is string => Boolean(s) && !isGenericCategoryName(s)),
+    ),
+  );
+
   const rawSuggested: SuggestedCategoryOutline[] = (parsed.suggestedCategories ?? [])
     .filter((c) => Boolean(c.name?.trim()))
-    .slice(0, 5)
-    .map((c) => ({
-      name: c.name!.trim(),
-      description: c.description?.trim() || 'محور رئيسي مستخلص من محتوى الدرس',
-      iconKey:
-        c.iconKey && VALID_ICON_KEYS.has(c.iconKey as CategoryIconKey)
-          ? (c.iconKey as CategoryIconKey)
-          : parsed.isReligiousContent
-            ? 'islamic'
-            : 'pdf',
-      topicCoverage: (c.topicCoverage ?? []).filter(Boolean),
-      hasHypotheticalData: Boolean(c.hasHypotheticalData),
-    }));
+    .slice(0, 6)
+    .map((c, idx) => {
+      const rangeFallback = defaultRanges[idx % defaultRanges.length];
+      const startPage = Math.max(
+        1,
+        Math.min(totalPages, Math.round(c.pageRange?.startPage ?? rangeFallback.startPage)),
+      );
+      const endPage = Math.max(
+        startPage,
+        Math.min(totalPages, Math.round(c.pageRange?.endPage ?? rangeFallback.endPage)),
+      );
+      const rawName = c.name!.trim();
+      const safeName = !isGenericCategoryName(rawName)
+        ? rawName
+        : domainPadPool[idx % Math.max(1, domainPadPool.length)]?.slice(0, 48) ||
+          `${(parsed.title?.trim() || fileName.replace(/\.pdf$/i, '')).slice(0, 28)} (${startPage}–${endPage})`;
 
-  // Enforce mandatory 5 Core Categories even if Gemini returned fewer than 5
-  const padPool = [
-    ...(parsed.mainTopics ?? []),
-    ...(parsed.subTopics ?? []),
-    ...(parsed.causesAndEffects ?? []),
-    ...(parsed.relationshipsAndConclusions ?? []),
-  ]
-    .map((s) => s?.trim())
-    .filter(Boolean) as string[];
-  const defaultFocusLabels = [
-    'المفاهيم والأسس الرئيسية',
-    'العلل والأسباب والنتائج',
-    'التسلسل والأحداث المحورية',
-    'المقارنات والفروق الدقيقة',
-    'الاستنتاجات والتطبيقات العملية',
-  ];
+      const coverage = Array.from(
+        new Set(
+          [...(c.coveredSubtopics ?? []), ...(c.topicCoverage ?? [])]
+            .map((t) => t?.trim())
+            .filter(Boolean) as string[],
+        ),
+      );
+
+      return {
+        name: safeName,
+        description: c.description?.trim() || `محور متخصص من الدرس يغطي الصفحات ${startPage}–${endPage}`,
+        iconKey:
+          c.iconKey && VALID_ICON_KEYS.has(c.iconKey as CategoryIconKey)
+            ? (c.iconKey as CategoryIconKey)
+            : parsed.isReligiousContent
+              ? 'islamic'
+              : 'pdf',
+        pageRange: { startPage, endPage },
+        coveredSubtopics: coverage,
+        topicCoverage: coverage,
+        hasHypotheticalData: Boolean(c.hasHypotheticalData),
+      };
+    });
+
+  // Pad up to 5 real lesson-derived categories (never using generic boilerplate labels)
   const existingCatNames = new Set(rawSuggested.map((c) => c.name));
   let padIdx = 0;
   while (rawSuggested.length < 5) {
-    const candidateTopic = padPool[padIdx];
-    const fallbackName =
-      candidateTopic && !existingCatNames.has(candidateTopic)
-        ? candidateTopic.slice(0, 48)
-        : defaultFocusLabels[rawSuggested.length] || `المحور الأساسي ${rawSuggested.length + 1}`;
+    const slotIdx = rawSuggested.length;
+    const rangeFallback = defaultRanges[slotIdx % defaultRanges.length];
+    const candidateTopic = domainPadPool.find((t) => !existingCatNames.has(t)) ?? domainPadPool[padIdx % Math.max(1, domainPadPool.length)];
+    const fallbackName = candidateTopic
+      ? candidateTopic.slice(0, 48)
+      : `${parsed.title.trim().slice(0, 28)} (ص ${rangeFallback.startPage}–${rangeFallback.endPage})`;
     existingCatNames.add(fallbackName);
+    const subSlice = (parsed.subTopics ?? []).slice(slotIdx * 2, slotIdx * 2 + 3).filter(Boolean);
+    const coverage = subSlice.length ? subSlice : candidateTopic ? [candidateTopic] : [parsed.title.trim()];
+
     rawSuggested.push({
       name: fallbackName,
-      description: `محور أساسي يغطي: ${candidateTopic || parsed.title}`,
+      description: `محور متخصص يغطي: ${coverage.slice(0, 3).join('، ')}`,
       iconKey: parsed.isReligiousContent ? 'islamic' : 'pdf',
-      topicCoverage: candidateTopic ? [candidateTopic] : parsed.subTopics?.slice(0, 2) ?? [parsed.title],
+      pageRange: { startPage: rangeFallback.startPage, endPage: rangeFallback.endPage },
+      coveredSubtopics: coverage,
+      topicCoverage: coverage,
       hasHypotheticalData: false,
     });
     padIdx += 1;
   }
-  const suggestedCategories = rawSuggested.slice(0, 5);
+  const suggestedCategories = rawSuggested.slice(0, 6);
 
   const report: PdfAnalysisReport = {
     fileName,
@@ -394,4 +450,128 @@ export async function extractAndParsePdfWithGemini(
 
   saveCachedPdfText(cachedEntry);
   return { cachedText: cachedEntry, report };
+}
+
+export interface PdfPageImageInput {
+  pageNumber: number;
+  imageBase64: string;
+}
+
+export interface DetectedVisualRegion {
+  pageNumber: number;
+  bounding_box: [number, number, number, number];
+  caption: string;
+  visualType: string;
+}
+
+function stripDataUrlPrefix(base64OrDataUrl: string): { mimeType: string; data: string } {
+  const trimmed = base64OrDataUrl.trim();
+  const m = /^data:(image\/[a-zA-Z0-9+.-]+);base64,(.+)$/.exec(trimmed);
+  if (m) {
+    return { mimeType: m[1], data: m[2] };
+  }
+  return { mimeType: 'image/jpeg', data: trimmed };
+}
+
+export async function detectVisualRegionsFromPageImages(params: {
+  pages: PdfPageImageInput[];
+  subjectHint?: string;
+}): Promise<DetectedVisualRegion[]> {
+  const validPages = (params.pages ?? [])
+    .filter(
+      (p) =>
+        p &&
+        typeof p.pageNumber === 'number' &&
+        Number.isFinite(p.pageNumber) &&
+        typeof p.imageBase64 === 'string' &&
+        p.imageBase64.trim().length > 32,
+    )
+    .slice(0, 6);
+
+  if (validPages.length === 0) return [];
+
+  const parts: Array<{ inlineData?: { mimeType: string; data: string }; text?: string }> = [];
+  for (const page of validPages) {
+    const { mimeType, data } = stripDataUrlPrefix(page.imageBase64);
+    parts.push({ text: `=== صفحة رقم ${Math.round(page.pageNumber)} ===` });
+    parts.push({ inlineData: { mimeType, data } });
+  }
+
+  parts.push({
+    text: `حلّل صور صفحات ملف الـ PDF المعروضة أعلاه${
+      params.subjectHint ? ` (موضوع الدرس: ${params.subjectHint})` : ''
+    } وحدّد كل صورة علمية أو خريطة أو رسم بياني أو شكل توضيحي أو مخطط مفاهيمي أو جدول بصري مهم يصلح لصياغة سؤال تعليمي عليه.
+
+القواعد الصارمة:
+1. تجاهل تمامًا: الشعارات الزخرفية، الترويسات المتكررة، أرقام الصفحات، الإطارات الجمالية، والنصوص العادية غير المصحوبة بشكل بصري.
+2. إذا لم تحتوي الصفحة على أي شكل أو خريطة أو صورة تعليمية مهمة، لا ترجع أي مربع لها.
+3. أرجع لكل عنصر بصري مهم:
+   - pageNumber: رقم الصفحة المطابق للتسمية (=== صفحة رقم X ===).
+   - bounding_box: مصفوفة من 4 أعداد صحيحة [ymin, xmin, ymax, xmax] بمقياس 0 إلى 1000 بدقة تغطي حدود الرسم أو الصورة كاملة مع هامش بسيط يضم تسمياته إن وجدت.
+   - caption: وصف عربي دقيق ومختصر يشرح ما يعرضه الشكل أو الخريطة أو الرسم البياني (بدون كشف إجابة سؤال مستقبلي إن أمكن، بل وصف موضوعي لما يظهر بالصورة).
+   - visualType: أحد القيم [map, diagram, chart, photo, illustration, table].`,
+  });
+
+  const parsed = await generateStructuredJsonWithFallback<{
+    detections?: Array<{
+      pageNumber?: number;
+      bounding_box?: number[];
+      caption?: string;
+      visualType?: string;
+    }>;
+  }>({
+    contents: { parts },
+    contextLabel: 'اكتشاف الصور والمخططات وإحداثيات القص من صفحات PDF',
+    config: {
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+      systemInstruction:
+        'أنت محلل رؤية حاسوبية وتربوي متخصص في المناهج. استخرج إحداثيات [ymin, xmin, ymax, xmax] بمقياس 0..1000 للصور والخرائط والرسوم البيانية والمخططات العلمية فقط بدقة عالية، وتجاهل النصوص العادية والشعارات الزخرفية.',
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          detections: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                pageNumber: { type: Type.INTEGER },
+                bounding_box: {
+                  type: Type.ARRAY,
+                  items: { type: Type.INTEGER },
+                },
+                caption: { type: Type.STRING },
+                visualType: { type: Type.STRING },
+              },
+              required: ['pageNumber', 'bounding_box', 'caption', 'visualType'],
+            },
+          },
+        },
+        required: ['detections'],
+      },
+    },
+  });
+
+  const validPageSet = new Set(validPages.map((p) => Math.round(p.pageNumber)));
+  const results: DetectedVisualRegion[] = [];
+
+  for (const det of parsed.detections ?? []) {
+    if (!det || typeof det.pageNumber !== 'number' || !Array.isArray(det.bounding_box)) continue;
+    const pageNum = Math.round(det.pageNumber);
+    if (!validPageSet.has(pageNum)) continue;
+    const normBox = normalizeBoundingBox(det.bounding_box);
+    if (!normBox) continue;
+    const caption = typeof det.caption === 'string' ? det.caption.trim() : '';
+    if (!caption) continue;
+    const visualType =
+      typeof det.visualType === 'string' && det.visualType.trim() ? det.visualType.trim() : 'diagram';
+    results.push({
+      pageNumber: pageNum,
+      bounding_box: normBox,
+      caption,
+      visualType,
+    });
+  }
+
+  return results;
 }

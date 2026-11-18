@@ -51,13 +51,31 @@ export type CategoryIconKey =
   | 'geography'
   | 'tech';
 
+export interface PageRange {
+  startPage: number;
+  endPage: number;
+}
+
 export interface DeckCategory {
   topicCoverage?: string[];
+  coveredSubtopics?: string[];
+  pageRange?: PageRange;
   id: string;
   name: string;
   description?: string;
   iconKey: CategoryIconKey;
   accentColor: string;
+}
+
+export interface ExtractedPdfVisual {
+  id: string;
+  pageNumber: number;
+  boundingBox: [number, number, number, number];
+  caption: string;
+  visualType?: string;
+  imageBase64: string;
+  width?: number;
+  height?: number;
 }
 
 export interface QuizQuestion {
@@ -76,6 +94,9 @@ export interface QuizQuestion {
   correctOrder?: string[];
   hint?: string;
   explanation?: string;
+  imageUrl?: string;
+  imageBase64?: string;
+  imageCaption?: string;
   timeLimitSeconds?: number;
   subtopic?: string;
   teamIndex?: number;
@@ -94,7 +115,22 @@ export interface SuggestedCategoryOutline {
   description: string;
   iconKey: CategoryIconKey;
   topicCoverage: string[];
+  coveredSubtopics?: string[];
+  pageRange?: PageRange;
   hasHypotheticalData?: boolean;
+}
+
+export interface CoverageValidationReport {
+  totalPages: number;
+  readablePages: number;
+  coveredPageCount: number;
+  pageCoveragePercent: number;
+  totalSubtopics: number;
+  coveredSubtopicsCount: number;
+  subtopicCoveragePercent: number;
+  uncoveredPages: number[];
+  isFullCoverage: boolean;
+  summary: string;
 }
 
 export interface PdfAnalysisReport {
@@ -117,6 +153,7 @@ export interface PdfAnalysisReport {
   warnings: string[];
   hypotheticalSections?: string[];
   suggestedCategories?: SuggestedCategoryOutline[];
+  extractedVisuals?: ExtractedPdfVisual[];
   extractionMethod?: 'gemini_pdf' | 'pdf_parse';
 }
 
@@ -127,6 +164,8 @@ export interface BoardPlanCategory {
   iconKey: CategoryIconKey;
   accentColor: string;
   teamIndex?: number;
+  pageRange?: PageRange;
+  coveredSubtopics?: string[];
   subtopic200?: string;
   subtopic400?: string;
   subtopic600?: string;
@@ -150,6 +189,7 @@ export interface BoardPlanPreview {
   recommendedCategoryCount: number;
   categories: BoardPlanCategory[];
   canBuildFull15Board: boolean;
+  coverageReport?: CoverageValidationReport;
   warnings: string[];
   suggestedQuestionTypes: QuestionType[];
 }
@@ -342,6 +382,9 @@ export interface SanitizedActiveRound {
   answer?: string;
   acceptableAnswers?: string[];
   explanation?: string;
+  imageUrl?: string;
+  imageBase64?: string;
+  imageCaption?: string;
   sourceRef?: string;
   pageNumber?: number;
   basePoints: PointValue;
