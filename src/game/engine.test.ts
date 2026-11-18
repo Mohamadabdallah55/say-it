@@ -292,7 +292,8 @@ test('400 point card selection survives a reload and applies exactly once', () =
   assert.equal(sanitizeStateForRole(selected, 'buzzer').activeRound, null);
   assert.equal(startChallengeTimer(selected, 'early').ok, false);
   for (const card of ['double_points', 'second_chance', 'swap_question'] as const) {
-    const result = applyLifeline(selected, card, 'pick', 3000);
+    const ready = card === 'swap_question' ? skipLifelinePick(selected,'pass').state : selected;
+    const result = applyLifeline(ready, card, 'pick', 3000);
     assert.equal(result.ok, true);
     const resumed = JSON.parse(JSON.stringify(result.state)) as typeof board;
     assert.equal(resumed.phase, 'QUESTION_READY');
@@ -344,4 +345,32 @@ test('A rich bank gives teams distinct questions for the same point tile', () =>
   assert.equal(owned.length,3);
   assert.equal(selectBoardTile(board,owned[1].questionId,'wrongteam').ok,false);
   assert.equal(selectBoardTile(board,owned[0].questionId,'own').ok,true);
+});
+
+test('Triple wager reverses all balances on correction, undo and repeated awards', () => {
+  const board = createRoomState({roomCode:'TRIPLE',hostToken:'h',buzzerToken:'b',deck:STARTER_DEMO_DECK,teams:TEAMS});
+  const tile = board.boardTiles.find(tile => tile.points === 200)!;
+  const pick = selectBoardTile(board,tile.questionId,'pick').state;
+  const turn = applyLifeline(pick,'triple','use').state;
+  const won = awardRoundAndReturnToBoard(revealAnswer(turn,'show').state,'team_1','award').state;
+  assert.deepEqual(won.teams.map(t=>t.score),[600,0,0]);
+  for (const winner of ['team_2',null]) {
+    const fix = reopenQuestionForCorrection(won,tile.questionId,'fix').state;
+    const lost = awardRoundAndReturnToBoard(fix,winner,'replace').state;
+    assert.deepEqual(lost.teams.map(t=>t.score),[-600,winner?200:0,0]);
+    assert.deepEqual(awardRoundAndReturnToBoard(lost,winner,'replace').state,lost);
+    assert.deepEqual(undoLastScoreAction(lost,'undo').state.teams.map(t=>t.score),[0,0,0]);
+  }
+});
+
+test('Call and swap unlock inside the question, silence limits scoring to the owner', () => {
+  const board=createRoomState({roomCode:'CALL',hostToken:'h',buzzerToken:'b',deck:STARTER_DEMO_DECK,teams:TEAMS});
+  const pick=selectBoardTile(board,board.boardTiles[0].questionId,'pick').state;
+  for (const key of ['call','swap_question'] as const) assert.equal(applyLifeline(pick,key,'early').ok,false);
+  const ready=skipLifelinePick(pick,'skip').state;
+  const call=applyLifeline(ready,'call','call').state;
+  assert.equal(call.timer.remainingMs,ready.timer.remainingMs+30000);
+  const silent=revealAnswer(applyLifeline(pick,'silence','silent').state,'show').state;
+  assert.equal(awardRoundAndReturnToBoard(silent,'team_2','opponent').ok,false);
+  assert.equal(awardRoundAndReturnToBoard(silent,'team_1','owner').ok,true);
 });

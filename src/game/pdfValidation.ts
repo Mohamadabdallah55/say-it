@@ -35,6 +35,9 @@ export const LIFELINE_META: Record<
     label: 'تلميح',
     description: 'يُظهر تلميحًا مساعدًا إن كان متوفرًا للسؤال.',
   },
+  triple: { label: 'افرد أوراقك', description: 'صاحب البطاقة يربح ثلاثة أضعاف قيمة السؤال إذا أصاب، ويخسرها إذا أخطأ.' },
+  call: { label: 'ألو', description: 'استعن بزميل خارج الفريق. تُضاف ٣٠ ثانية للتشاور.' },
+  silence: { label: 'صمت', description: 'صاحب الدور وحده يحق له الإجابة على هذا السؤال.' },
   pit: { label: 'الحفرة', description: 'إذا أجاب صاحب الدور، يكسب قيمة السؤال وتُخصم نفس القيمة من كل خصم.' },
   double_points: {
     label: 'نقاط مضاعفة',
@@ -50,7 +53,7 @@ export const LIFELINE_META: Record<
     mcqOnly: true,
   },
   swap_question: {
-    label: 'تبديل السؤال',
+    label: 'بدّل السؤال',
     description: 'يستبدل السؤال الحالي بسؤال احتياطي من نفس البنك.',
   },
   buzzer_challenge: {
