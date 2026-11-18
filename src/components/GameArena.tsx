@@ -1,6 +1,6 @@
 import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowRight,
   Award,
@@ -34,12 +34,13 @@ import type {
   PublicProjectorState,
   SanitizedActiveRound,
 } from '../game/types';
-import { LIFELINE_CARD_ART } from '../utils/gameAssets';
+import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
+import { ScoreCounter } from './ScoreCounter';
 import { CornerStarMascot } from './CornerStarMascot';
 import { GameLogo } from './GameLogo';
 import { GameAssistantBot } from './GameAssistantBot';
@@ -78,7 +79,7 @@ export function GameArena({
   const [shareOpen, setShareOpen] = useState(false);
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
-  const [stagePulse, setStagePulse] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const lastSceneRef = useRef<string | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
   const lastCommentaryIdRef = useRef<string | null>(null);
@@ -254,8 +255,6 @@ export function GameArena({
   };
 
   const handleAwardTeams = async (teamIds: string[]) => {
-    setStagePulse(true);
-    setTimeout(() => setStagePulse(false), 340);
     await sendCommand('AWARD_ROUND', { winningTeamIds: teamIds });
   };
 
@@ -287,6 +286,8 @@ export function GameArena({
     );
   }
 
+  const animateRound = !state.settings.reducedMotion && !prefersReducedMotion;
+  const answerTeams = [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
   const isTeamBundlesBoard =
@@ -303,7 +304,7 @@ export function GameArena({
 
   return (
     <div
-      data-role={role} data-phase={state.phase}
+      data-role={role} data-phase={state.phase} data-question-scene={Boolean(roundMeta && ['QUESTION_READY','PLAYING','TIME_UP','REVEAL'].includes(state.phase))}
       className={`arena-stage min-h-screen w-full p-3 md:p-5 ${
         state.settings.reducedMotion ? 'reduced-motion' : ''
       }`}
@@ -424,9 +425,7 @@ export function GameArena({
                   {state.categories.map((cat) => (
                     <div
                       key={cat.id}
-                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
-                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                      }`}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
                       <CategoryArtwork
                         iconKey={cat.iconKey}
@@ -584,7 +583,7 @@ export function GameArena({
                         key={cat.id}
                         className={`game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition bg-gradient-to-b from-[#FFFCEE] to-[#FFF5D7] ${
                           isTurnTeam ? 'ring-4 ring-[#7042A1]' : 'opacity-95'
-                        } ${stagePulse ? 'ring-8 ring-[#00B978]' : ''}`}
+                        }`}
                       >
                         <div
                           className="p-4 border-b-[3px] border-[#291B40] text-white flex items-center justify-between gap-2"
@@ -691,9 +690,7 @@ export function GameArena({
                   return (
                     <div
                       key={cat.id}
-                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
-                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                      }`}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
                       <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
 
@@ -799,7 +796,7 @@ export function GameArena({
               >
                 {/* Mobile centered timer pill directly above question card (matches Screenshot 4) */}
                 {state.phase !== 'REVEAL' && (
-                  <div className="flex justify-center md:hidden">
+                  <div className="scene-timer justify-center">
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FAF7EE] px-4 py-1 font-mono text-base font-black tabular-nums shadow-[0_3px_0_#1F112E] ${
                         remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'
@@ -811,10 +808,11 @@ export function GameArena({
                   </div>
                 )}
 
-                <div
-                  className={`question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5 transition ${
-                    stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                  }`}
+                <motion.div
+                  layout={animateRound && "position"}
+                  layoutDependency={state.phase}
+                  transition={{ layout: { duration: 0.32, ease: "easeOut" } }}
+                  className={`question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5 transition`}
                 >
                   {/* Card Meta Header: [Category Pill] [Difficulty Pill] on right, [Points] on left */}
                   <div className="flex flex-wrap items-center justify-between gap-2.5">
@@ -865,7 +863,7 @@ export function GameArena({
                     </div>
 
                     <span className="font-display font-black text-lg md:text-2xl text-[#1F112E] tabular-nums">
-                      {roundMeta.effectivePoints} نقطة
+                      {roundMeta.basePoints} نقطة
                     </span>
                   </div>
 
@@ -988,8 +986,9 @@ export function GameArena({
                   {/* REVEAL: Emerald Answer Box inside the same cream card (matches Screenshot 1) */}
                   {state.phase === 'REVEAL' && roundMeta.answer && (
                     <motion.div
-                      initial={{ scale: 0.96, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
+                      initial={animateRound ? { y: 10, opacity: 0 } : false}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.24, ease: "easeOut" }}
                       className="answer-face space-y-1.5"
                     >
                       <span className="text-xs md:text-sm font-bold text-white/90 block">
@@ -1042,12 +1041,7 @@ export function GameArena({
                                   }}
                                   className="game-btn-3d bg-white hover:bg-[#FFF9E9] text-[#1F112E] border-2 border-[#1F112E] rounded-2xl px-4 py-2 font-display font-black text-sm shadow-[0_3px_0_#1F112E] flex items-center gap-2 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
                                 >
-                                  <img
-                                    src={LIFELINE_CARD_ART.swap_question}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="w-6 h-6 object-contain"
-                                  />
+                                  <PowerCardIcon card="swap_question" small />
                                   <span>شنّص (بدّل السؤال)</span>
                                 </button>
                               )}
@@ -1066,12 +1060,7 @@ export function GameArena({
                                   }}
                                   className="game-btn-3d bg-white hover:bg-[#FFF9E9] text-[#1F112E] border-2 border-[#1F112E] rounded-2xl px-4 py-2 font-display font-black text-sm shadow-[0_3px_0_#1F112E] flex items-center gap-2 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
                                 >
-                                  <img
-                                    src={LIFELINE_CARD_ART.hint}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="w-6 h-6 object-contain"
-                                  />
+                                  <PowerCardIcon card="hint" small />
                                   <span>ألو (مساعدة)</span>
                                 </button>
                               )}
@@ -1096,59 +1085,9 @@ export function GameArena({
                         </button>
                       )}
 
-                      {/* Compact Secondary Timer / Skip / Park Controls */}
-                      <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-                        {state.timer.running ? (
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('PAUSE_TIMER')}
-                            className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Pause className="w-3.5 h-3.5" />
-                            <span>إيقاف المؤقت</span>
-                          </button>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              soundFX.playStartRound();
-                              sendCommand(
-                                state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
-                                  ? 'START_TIMER'
-                                  : 'RESUME_TIMER',
-                              );
-                            }}
-                            className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                            <span>
-                              {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
-                            </span>
-                          </button>
-                        )}
-
-                        <button
-                          type="button"
-                          onClick={() => sendCommand('SKIP_QUESTION')}
-                          className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                        >
-                          <SkipForward className="w-3.5 h-3.5 text-[#F05B63]" />
-                          <span>تخطي</span>
-                        </button>
-
-                        {!roundMeta.isCorrectionMode && (
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('PARK_QUESTION')}
-                            className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs cursor-pointer"
-                          >
-                            العودة للوحة
-                          </button>
-                        )}
-                      </div>
                     </div>
                   )}
-                </div>
+                </motion.div>
 
                 {/* SEPARATE TURN ORDER BAR BELOW QUESTION CARD (matches Screenshots 2 & 4) */}
                 {state.phase !== 'REVEAL' && !roundMeta.orderPlay && (
@@ -1202,7 +1141,7 @@ export function GameArena({
                       </button>
                     ) : state.settings.allowMultiTeamAward ? (
                       <div className="award-teams">
-                        {state.teams.map((team) => {
+                        {answerTeams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           const checked = multiSelectedTeams.includes(team.id);
                           return (
@@ -1254,7 +1193,7 @@ export function GameArena({
                       </div>
                     ) : (
                       <div className="award-teams">
-                        {state.teams.map((team) => {
+                        {answerTeams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           return (
                             <button
@@ -1297,39 +1236,15 @@ export function GameArena({
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
             <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <GameLogo size="md" /><Trophy className="w-16 h-16 text-[#FFD95A] drop-shadow-[0_4px_0_#291B40] mx-auto" />
-              <div>
-                <h2 className="font-display font-black text-3xl md:text-4xl text-[#291B40]">
-                  نتائج مسابقة يمكن هاي!
-                </h2>
-                {sortedStandings[0] && (
-                  <p className="font-display font-black text-xl text-[#00B978] mt-2">
-                    المركز الأول: «{sortedStandings.filter(t => t.score === sortedStandings[0].score).map(t => t.name).join(' و ')}» برصيد {sortedStandings[0].score} نقطة
-                  </p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {sortedStandings.map((t) => (
-                  <div
-                    key={t.id}
-                    className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 space-y-1 shadow-[0_4px_0_#291B40]"
-                  >
-                    <div className="flex items-center justify-center gap-1.5 text-xs font-black text-[#7042A1]">
-                      <Award className="w-4 h-4" />
-                      <span>المركز #{sortedStandings.findIndex(team => team.score === t.score) + 1}</span>
-                    </div>
-                    <p className="font-display font-black text-xl" style={{ color: t.color }}>
-                      {t.name}
-                    </p>
-                    <p className="font-display font-black text-3xl tabular-nums">{t.score}</p>
-                    <p className="text-xs font-bold text-[#291B40]/70">
-                      إجابات صحيحة: {t.correctCount}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
+              <div className="victory-cup"><Trophy aria-hidden="true"/></div>
+              <div className="winner-heading"><p>نتائج المباراة</p><h1>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).map(t=>t.name).join(' و ')}</h1>
+                <strong>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).length>1?'تعادل في المركز الأول':'بطل المباراة'} · {sortedStandings[0].score} نقطة</strong></div>
+              <ol className="finish-standings">{sortedStandings.map((team,index)=>{
+                const rank = sortedStandings.findIndex(t=>t.score===team.score)+1;
+                return <li key={team.id} data-rank={rank} style={{borderInlineStartColor:team.color,animationDelay:index*100+'ms'}}>
+                  <b>{rank}</b><span>{team.name}<small>{team.correctCount} إجابات صحيحة</small></span><strong>{team.score}</strong>
+                </li>;
+              })}</ol>
               {isHost && <div className="flex flex-wrap items-center justify-center gap-3">
                 <button
                   type="button"
@@ -1363,7 +1278,7 @@ export function GameArena({
 
               <button
                 type="button"
-                disabled={!isHost}
+                disabled={!isHost || !['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase)}
                 onClick={() => {
                   if (!isHost) return;
                   if (state.timer.running) sendCommand('PAUSE_TIMER');
@@ -1381,6 +1296,57 @@ export function GameArena({
               </button>
             </div>
 
+            {isHost && roundMeta && ['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase) && (
+<div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                        {state.timer.running ? (
+                          <button
+                            type="button"
+                            onClick={() => sendCommand('PAUSE_TIMER')}
+                            className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                          >
+                            <Pause className="w-3.5 h-3.5" />
+                            <span>إيقاف المؤقت</span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              soundFX.playStartRound();
+                              sendCommand(
+                                state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
+                                  ? 'START_TIMER'
+                                  : 'RESUME_TIMER',
+                              );
+                            }}
+                            className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                          >
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                            <span>
+                              {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
+                            </span>
+                          </button>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => sendCommand('SKIP_QUESTION')}
+                          className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                        >
+                          <SkipForward className="w-3.5 h-3.5 text-[#F05B63]" />
+                          <span>تخطي</span>
+                        </button>
+
+                        {!roundMeta.isCorrectionMode && (
+                          <button
+                            type="button"
+                            onClick={() => sendCommand('PARK_QUESTION')}
+                            className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs cursor-pointer"
+                          >
+                            العودة للوحة
+                          </button>
+                        )}
+                      </div>
+            )}
             {/* Teams Score Cards */}
             <div className="rail-teams-wrap">
               <div
@@ -1393,6 +1359,7 @@ export function GameArena({
                   return (
                     <div
                       key={team.id}
+                      data-turn={isTurn}
                       className={`bg-white rounded-2xl px-3 py-2.5 transition ${
                         isTurn
                           ? 'border-[2.5px] ring-2 ring-offset-2 ring-[#FAF7EE] shadow-[0_3px_0_rgba(31,17,46,0.16)]'
@@ -1428,15 +1395,7 @@ export function GameArena({
                           <span className="w-7" />
                         )}
 
-                        <motion.strong
-                          key={team.score}
-                          initial={{ scale: 0.88 }}
-                          animate={{ scale: 1 }}
-                          className="score-number font-display font-black text-[#1F112E]"
-                          aria-live="polite"
-                        >
-                          {team.score}
-                        </motion.strong>
+                        <ScoreCounter score={team.score} reduced={state.settings.reducedMotion}/>
 
                         {isHost ? (
                           <button
@@ -1465,14 +1424,15 @@ export function GameArena({
           </div>
 
           {/* Bottom Mascot + Compact Utility Bar (matches Screenshots 1, 2, 3) */}
-          <div className="rail-actions space-y-2 pt-2">
-            {isHost && (
-              <div className="flex items-end justify-between gap-2">
-                <CornerStarMascot
+          <div className="mascot-track"><CornerStarMascot key={state.lastAward?.at} celebrating={Boolean(state.lastAward && nowMs-state.lastAward.at < 1500)}
                   commentaryText={state.commentary?.text}
                   commentaryId={state.commentary?.id}
                   commentaryMode={state.settings.commentaryMode}
-                />
+                /></div>
+          <div className="rail-actions space-y-2 pt-2">
+            {isHost && (
+              <div className="flex items-end justify-between gap-2">
+
 
                 <div className="flex items-center gap-1.5 pb-1">
                   <button

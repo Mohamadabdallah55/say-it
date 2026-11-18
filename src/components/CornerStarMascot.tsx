@@ -13,6 +13,7 @@ const JORDANIAN_QUIPS = [
 ];
 
 interface CornerStarMascotProps {
+  celebrating?: boolean;
   commentaryText?: string | null;
   commentaryId?: string | null;
   commentaryMode?: CommentaryMode;
@@ -22,6 +23,7 @@ export function CornerStarMascot({
   commentaryText,
   commentaryId,
   commentaryMode = 'full',
+  celebrating = false,
 }: CornerStarMascotProps) {
   const [bubbleText, setBubbleText] = useState<string | null>(null);
   const [quipIdx, setQuipIdx] = useState(0);
@@ -80,7 +82,7 @@ export function CornerStarMascot({
         title="اضغط لعبارة أردنية تشجيعية"
         className="group relative flex h-14 w-14 items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 active:translate-y-0"
       >
-        <svg viewBox="0 0 80 80" className="h-14 w-14 drop-shadow-[0_3px_0_rgba(31,17,46,0.35)]" aria-hidden="true">
+        <svg data-cheering={celebrating} viewBox="0 0 80 80" className="h-14 w-14 drop-shadow-[0_3px_0_rgba(31,17,46,0.35)]" aria-hidden="true">
           <path
             d="M40 6 L49 26 L71 29 L55 44 L59 66 L40 55 L21 66 L25 44 L9 29 L31 26 Z"
             fill="#FFE047"
