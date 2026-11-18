@@ -40,6 +40,7 @@ import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
+import { ScoreCounter } from './ScoreCounter';
 import { CornerStarMascot } from './CornerStarMascot';
 import { GameLogo } from './GameLogo';
 import { GameAssistantBot } from './GameAssistantBot';
@@ -1247,39 +1248,15 @@ export function GameArena({
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
             <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <GameLogo size="md" /><Trophy className="w-16 h-16 text-[#FFD95A] drop-shadow-[0_4px_0_#291B40] mx-auto" />
-              <div>
-                <h2 className="font-display font-black text-3xl md:text-4xl text-[#291B40]">
-                  نتائج مسابقة يمكن هاي!
-                </h2>
-                {sortedStandings[0] && (
-                  <p className="font-display font-black text-xl text-[#00B978] mt-2">
-                    المركز الأول: «{sortedStandings.filter(t => t.score === sortedStandings[0].score).map(t => t.name).join(' و ')}» برصيد {sortedStandings[0].score} نقطة
-                  </p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {sortedStandings.map((t) => (
-                  <div
-                    key={t.id}
-                    className="bg-white border-[2.5px] border-[#291B40] rounded-2xl p-4 space-y-1 shadow-[0_4px_0_#291B40]"
-                  >
-                    <div className="flex items-center justify-center gap-1.5 text-xs font-black text-[#7042A1]">
-                      <Award className="w-4 h-4" />
-                      <span>المركز #{sortedStandings.findIndex(team => team.score === t.score) + 1}</span>
-                    </div>
-                    <p className="font-display font-black text-xl" style={{ color: t.color }}>
-                      {t.name}
-                    </p>
-                    <p className="font-display font-black text-3xl tabular-nums">{t.score}</p>
-                    <p className="text-xs font-bold text-[#291B40]/70">
-                      إجابات صحيحة: {t.correctCount}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
+              <div className="victory-cup"><Trophy aria-hidden="true"/></div>
+              <div className="winner-heading"><p>نتائج المباراة</p><h1>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).map(t=>t.name).join(' و ')}</h1>
+                <strong>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).length>1?'تعادل في المركز الأول':'بطل المباراة'} · {sortedStandings[0].score} نقطة</strong></div>
+              <ol className="finish-standings">{sortedStandings.map((team,index)=>{
+                const rank = sortedStandings.findIndex(t=>t.score===team.score)+1;
+                return <li key={team.id} data-rank={rank} style={{borderInlineStartColor:team.color,animationDelay:index*100+'ms'}}>
+                  <b>{rank}</b><span>{team.name}<small>{team.correctCount} إجابات صحيحة</small></span><strong>{team.score}</strong>
+                </li>;
+              })}</ol>
               {isHost && <div className="flex flex-wrap items-center justify-center gap-3">
                 <button
                   type="button"
@@ -1429,15 +1406,7 @@ export function GameArena({
                           <span className="w-7" />
                         )}
 
-                        <motion.strong
-                          key={team.score}
-                          initial={{ scale: 0.88 }}
-                          animate={{ scale: 1 }}
-                          className="score-number font-display font-black text-[#1F112E]"
-                          aria-live="polite"
-                        >
-                          {team.score}
-                        </motion.strong>
+                        <ScoreCounter score={team.score} reduced={state.settings.reducedMotion}/>
 
                         {isHost ? (
                           <button
@@ -1466,14 +1435,15 @@ export function GameArena({
           </div>
 
           {/* Bottom Mascot + Compact Utility Bar (matches Screenshots 1, 2, 3) */}
-          <div className="rail-actions space-y-2 pt-2">
-            {isHost && (
-              <div className="flex items-end justify-between gap-2">
-                <CornerStarMascot
+          <div className="mascot-track"><CornerStarMascot key={state.lastAward?.at} celebrating={Boolean(state.lastAward && nowMs-state.lastAward.at < 1500)}
                   commentaryText={state.commentary?.text}
                   commentaryId={state.commentary?.id}
                   commentaryMode={state.settings.commentaryMode}
-                />
+                /></div>
+          <div className="rail-actions space-y-2 pt-2">
+            {isHost && (
+              <div className="flex items-end justify-between gap-2">
+
 
                 <div className="flex items-center gap-1.5 pb-1">
                   <button
