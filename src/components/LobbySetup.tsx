@@ -12,8 +12,9 @@ import {
   CURATED_QUESTIONS,
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
-import type { CommentaryMode, LifelineType, MatchSettings, QuizDeck } from '../game/types';
-import { CATEGORY_3D_ART, CATEGORY_TILE_ART, LIFELINE_CARD_ART } from '../utils/gameAssets';
+import type { LifelineType, MatchSettings, QuizDeck } from '../game/types';
+import { CATEGORY_3D_ART } from '../utils/gameAssets';
+import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
 
@@ -46,7 +47,6 @@ const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: st
   { key: 'two_answers', title: 'إجابتان', rule: LIFELINE_META.two_answers.description },
   { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
   { key: 'double_points', title: 'نقاط مضاعفة', rule: LIFELINE_META.double_points.description },
-  { key: 'second_chance', title: 'فرصة ثانية', rule: LIFELINE_META.second_chance.description },
   { key: 'hint', title: 'ألو', rule: LIFELINE_META.hint.description },
   { key: 'swap_question', title: 'شنّص', rule: LIFELINE_META.swap_question.description },
 ];
@@ -74,19 +74,17 @@ export function LobbySetup({
   ]);
 
   const [categoryCount, setCategoryCount] = useState<number>(5);
-  const [timerSeconds, setTimerSeconds] = useState<number>(45);
-  const [lifelinesEnabled, setLifelinesEnabled] = useState<boolean>(true);
-  const [maxLifelinesPerTeam, setMaxLifelinesPerTeam] = useState<number>(3);
+  const timerSeconds = 45;
+
+  const maxLifelinesPerTeam = 3;
   const [cards, setCards] = useState<LifelineType[]>([
     'two_answers',
     'pit',
     'double_points',
-    'hint',
-    'swap_question',
   ]);
+  const lifelinesEnabled = cards.length > 0;
   const [buzzerMode, setBuzzerMode] = useState<boolean>(false);
   const [allowMultiTeamAward, setAllowMultiTeamAward] = useState<boolean>(false);
-  const [commentaryMode, setCommentaryMode] = useState<CommentaryMode>('full');
   const [categoryTab, setCategoryTab] = useState<'official' | 'decks'>(
     initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? 'decks' : 'official',
   );
@@ -244,7 +242,7 @@ export function LobbySetup({
         maxLifelinesPerTeam,
         buzzerMode,
         allowMultiTeamAward,
-        commentaryMode,
+        commentaryMode: 'full',
         soundEnabled: true,
         reducedMotion: false,
       };
@@ -533,30 +531,6 @@ export function LobbySetup({
                 </button>
               </div>
 
-              <div className="bg-[#F2ECE0] border border-[#1F112E]/20 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
-                <span className="font-display font-black text-sm text-[#1F112E]">
-                  وقت السؤال الأساسي
-                </span>
-                <div className="flex items-center gap-1.5">
-                  {[30, 45, 60, 90].map((sec) => (
-                    <button
-                      key={sec}
-                      type="button"
-                      onClick={() => {
-                        soundFX.playClick();
-                        setTimerSeconds(sec);
-                      }}
-                      className={`px-2.5 py-1 rounded-lg border-2 border-[#1F112E] font-display font-black text-xs cursor-pointer ${
-                        timerSeconds === sec
-                          ? 'bg-[#FFE047] text-[#1F112E]'
-                          : 'bg-[#FFFDF7] text-[#1F112E]'
-                      }`}
-                    >
-                      {sec}ث
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Available Power Cards Panel (matching Image 7) */}
@@ -566,7 +540,7 @@ export function LobbySetup({
                   dir="ltr"
                   className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs tabular-nums"
                 >
-                  {lifelinesEnabled ? `${cards.length} / ${SELECTABLE_POWER_CARDS.length}` : '0 / 6'}
+                  {cards.length} / {SELECTABLE_POWER_CARDS.length}
                 </span>
                 <span className="font-display font-black text-sm text-[#1F112E]">
                   البطاقات المتاحة
@@ -574,57 +548,9 @@ export function LobbySetup({
               </div>
 
               <div className="bg-[#F2ECE0] border-2 border-[#1F112E]/20 rounded-2xl p-3 space-y-3">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <span className="font-display font-black text-xs sm:text-sm text-[#1F112E] block">
-                      تفعيل البطاقات الخاصة
-                    </span>
-                    <span className="text-[11px] font-medium text-[#1F112E]/65">
-                      لكل فريق {maxLifelinesPerTeam} استخدامات متساوية في المباراة
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    {lifelinesEnabled && (
-                      <div className="flex items-center gap-1 bg-[#FFFDF7] border border-[#1F112E]/30 rounded-lg p-0.5">
-                        {[1, 2, 3].map((n) => (
-                          <button
-                            key={n}
-                            type="button"
-                            onClick={() => setMaxLifelinesPerTeam(n)}
-                            className={`w-6 h-6 rounded-md text-xs font-black cursor-pointer ${
-                              maxLifelinesPerTeam === n
-                                ? 'bg-[#63349B] text-white'
-                                : 'text-[#1F112E]'
-                            }`}
-                          >
-                            {n}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                    <button
-                      type="button"
-                      role="switch"
-                      aria-checked={lifelinesEnabled}
-                      aria-label="تفعيل البطاقات الخاصة"
-                      data-checked={lifelinesEnabled}
-                      onClick={() => {
-                        soundFX.playClick();
-                        setLifelinesEnabled((p) => !p);
-                      }}
-                      className="shannes-switch"
-                    >
-                      <span className="shannes-switch-thumb" />
-                    </button>
-                  </div>
-                </div>
-
-                {lifelinesEnabled && (
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                     {SELECTABLE_POWER_CARDS.map((card) => {
                       const active = cards.includes(card.key);
-                      const art = LIFELINE_CARD_ART[card.key];
                       return (
                         <div
                           key={card.key}
@@ -678,12 +604,7 @@ export function LobbySetup({
                             }}
                             className="w-full flex flex-col items-center cursor-pointer"
                           >
-                            <img
-                              src={art}
-                              alt={card.title}
-                              referrerPolicy="no-referrer"
-                              className="h-14 w-auto object-contain mb-1 select-none"
-                            />
+                            <span className="grid h-14 place-items-center"><PowerCardIcon card={card.key} /></span>
                             <span className="font-display font-black text-xs text-[#1F112E]">
                               {card.title}
                             </span>
@@ -692,33 +613,6 @@ export function LobbySetup({
                       );
                     })}
                   </div>
-                )}
-
-                <div className="flex items-center justify-between pt-1">
-                  <span className="text-[11px] font-bold text-[#1F112E]/70">التعليق الصوتي الأردني</span>
-                  <div className="flex gap-1">
-                    {(
-                      [
-                        { id: 'full', label: 'كامل' },
-                        { id: 'light', label: 'خفيف' },
-                        { id: 'off', label: 'إيقاف' },
-                      ] as const
-                    ).map((m) => (
-                      <button
-                        key={m.id}
-                        type="button"
-                        onClick={() => setCommentaryMode(m.id)}
-                        className={`px-2.5 py-0.5 rounded-lg border border-[#1F112E] text-[11px] font-bold cursor-pointer ${
-                          commentaryMode === m.id
-                            ? 'bg-[#279ED6] text-white'
-                            : 'bg-[#FFFDF7] text-[#1F112E]'
-                        }`}
-                      >
-                        {m.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -768,40 +662,6 @@ export function LobbySetup({
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              {selectedDeckId !== 'curated_custom' && !isTeamBundle && !isMatrixDeck && (
-                <div className="flex items-center gap-1">
-                  {[3, 4, 5, 6].map((cnt) => (
-                    <button
-                      key={cnt}
-                      type="button"
-                      disabled={selectedDeck.categories.length < cnt}
-                      onClick={() => setCategoryCount(cnt)}
-                      className={`px-2.5 py-1 rounded-lg border-2 border-[#1F112E] text-xs font-black cursor-pointer disabled:opacity-40 ${
-                        categoryCount === cnt
-                          ? 'bg-[#FFE047] text-[#1F112E]'
-                          : 'bg-[#FFFDF7] text-[#1F112E]'
-                      }`}
-                    >
-                      {cnt}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              <button
-                type="button"
-                onClick={() => {
-                  soundFX.playClick();
-                  setSelectedDeckId('curated_custom');
-                  setCustomCategories(ALL_CURATED_CATEGORIES.slice(0, 3).map((c) => c.id));
-                  setCategoryTab('official');
-                }}
-                className="text-xs font-bold text-[#1F112E]/60 hover:text-[#1F112E] cursor-pointer"
-              >
-                إعادة الافتراضي
-              </button>
-            </div>
           </div>
 
           {/* Search Input matching reference */}
@@ -853,7 +713,7 @@ export function LobbySetup({
                   const catQuestionCount = CURATED_QUESTIONS.filter(
                     (item) => item.categoryId === cat.id && !item.isBackup,
                   ).length;
-                  const artSrc = CATEGORY_TILE_ART[cat.iconKey] || CATEGORY_TILE_ART.general;
+                  const artSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
 
                   return (
                     <div
@@ -901,7 +761,7 @@ export function LobbySetup({
                             src={artSrc}
                             alt={cat.name}
                             referrerPolicy="no-referrer"
-                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-200"
+                            className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200"
                           />
                         </div>
 

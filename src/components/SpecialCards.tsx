@@ -1,6 +1,6 @@
 import { LIFELINE_META, PRE_QUESTION_LIFELINES } from '../game/pdfValidation';
 import type { LifelineType } from '../game/types';
-import { LIFELINE_CARD_ART } from '../utils/gameAssets';
+import { PowerCardIcon } from './PowerCardIcon';
 
 const PRE_QUESTION_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
   { key: 'two_answers', title: 'إجابتان', rule: 'لديك فرصتان للإجابة' },
@@ -79,7 +79,6 @@ export function SpecialCards({
         >
           {visibleCards.map((card) => {
             const spent = used.includes(card.key);
-            const artSrc = LIFELINE_CARD_ART[card.key];
             return (
               <button
                 type="button"
@@ -94,12 +93,7 @@ export function SpecialCards({
                       : 'cursor-default'
                 }`}
               >
-                <img
-                  src={artSrc}
-                  alt={card.title}
-                  referrerPolicy="no-referrer"
-                  className="w-16 h-16 md:w-20 md:h-20 object-contain select-none"
-                />
+                <PowerCardIcon card={card.key} />
                 <strong className="font-display font-black text-lg text-[#1F112E]">
                   {card.title}
                 </strong>

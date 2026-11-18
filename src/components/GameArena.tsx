@@ -34,7 +34,7 @@ import type {
   PublicProjectorState,
   SanitizedActiveRound,
 } from '../game/types';
-import { LIFELINE_CARD_ART } from '../utils/gameAssets';
+import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
@@ -1041,12 +1041,7 @@ export function GameArena({
                                   }}
                                   className="game-btn-3d bg-white hover:bg-[#FFF9E9] text-[#1F112E] border-2 border-[#1F112E] rounded-2xl px-4 py-2 font-display font-black text-sm shadow-[0_3px_0_#1F112E] flex items-center gap-2 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
                                 >
-                                  <img
-                                    src={LIFELINE_CARD_ART.swap_question}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="w-6 h-6 object-contain"
-                                  />
+                                  <PowerCardIcon card="swap_question" small />
                                   <span>شنّص (بدّل السؤال)</span>
                                 </button>
                               )}
@@ -1065,12 +1060,7 @@ export function GameArena({
                                   }}
                                   className="game-btn-3d bg-white hover:bg-[#FFF9E9] text-[#1F112E] border-2 border-[#1F112E] rounded-2xl px-4 py-2 font-display font-black text-sm shadow-[0_3px_0_#1F112E] flex items-center gap-2 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
                                 >
-                                  <img
-                                    src={LIFELINE_CARD_ART.hint}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="w-6 h-6 object-contain"
-                                  />
+                                  <PowerCardIcon card="hint" small />
                                   <span>ألو (مساعدة)</span>
                                 </button>
                               )}
