@@ -315,3 +315,30 @@
   .matrix-point-btn {min-height:38px;border-width:2px;}
 }
 
+
+/* Question and answer share one stage for every lesson format. */
+.scene-timer {display:none}
+.arena-stage[data-question-scene=true] .round-scene {max-width:min(90%,1000px);margin:auto;}
+.arena-stage[data-question-scene=true] .question-frame,
+.arena-stage[data-question-scene=true] .award-panel,
+.arena-stage[data-question-scene=true] .score-rail {background:linear-gradient(#fffdf4,#f6ebcf);border-radius:22px;box-shadow:0 5px #cbbd9f,0 8px #281733;}
+.arena-stage[data-question-scene=true] .question-face {padding-block:clamp(14px,3vh,38px);}
+.arena-stage[data-question-scene=true] .answer-face {background:linear-gradient(#52bc88,#19744b);}
+.award-panel {animation:scene-arrive .22s ease-out both;}
+.award-teams>button {min-height:48px;}
+@media(min-width:901px){
+  .arena-stage[data-question-scene=true] .arena-layout {display:grid;grid-template-columns:clamp(230px,22vw,315px) minmax(0,1fr);align-items:center;direction:rtl;min-height:calc(100svh - 40px);}
+  .arena-stage[data-question-scene=true] .score-rail {grid-column:1;grid-row:1;min-height:calc(100svh - 40px);flex-direction:column;align-items:stretch;}
+  .arena-stage[data-question-scene=true] .score-rail .score-teams {display:flex;flex-direction:column;}
+  .arena-stage[data-question-scene=true] .arena-main {grid-column:2;min-width:0;}
+}
+@media(max-width:900px){
+  .arena-stage[data-question-scene=true] .arena-layout {display:flex;flex-direction:column;}
+  .arena-stage[data-question-scene=true] .score-rail {width:100%;min-height:0;}
+  .arena-stage[data-question-scene=true] .score-teams {display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;}
+  .arena-stage[data-question-scene=true] .score-teams>div {min-width:min(120px,44%);}
+  .arena-stage[data-question-scene=true] .round-scene {max-width:100%;}
+  .scene-timer {display:flex;}
+}
+@media(prefers-reduced-motion:reduce){.award-panel {animation:none}}
+.reduced-motion .award-panel {animation:none}

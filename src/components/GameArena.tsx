@@ -303,7 +303,7 @@ export function GameArena({
 
   return (
     <div
-      data-role={role} data-phase={state.phase}
+      data-role={role} data-phase={state.phase} data-question-scene={Boolean(roundMeta && ['QUESTION_READY','PLAYING','TIME_UP','REVEAL'].includes(state.phase))}
       className={`arena-stage min-h-screen w-full p-3 md:p-5 ${
         state.settings.reducedMotion ? 'reduced-motion' : ''
       }`}
@@ -799,7 +799,7 @@ export function GameArena({
               >
                 {/* Mobile centered timer pill directly above question card (matches Screenshot 4) */}
                 {state.phase !== 'REVEAL' && (
-                  <div className="flex justify-center md:hidden">
+                  <div className="scene-timer justify-center">
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FAF7EE] px-4 py-1 font-mono text-base font-black tabular-nums shadow-[0_3px_0_#1F112E] ${
                         remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'
@@ -1096,56 +1096,6 @@ export function GameArena({
                         </button>
                       )}
 
-                      {/* Compact Secondary Timer / Skip / Park Controls */}
-                      <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-                        {state.timer.running ? (
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('PAUSE_TIMER')}
-                            className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Pause className="w-3.5 h-3.5" />
-                            <span>إيقاف المؤقت</span>
-                          </button>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              soundFX.playStartRound();
-                              sendCommand(
-                                state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
-                                  ? 'START_TIMER'
-                                  : 'RESUME_TIMER',
-                              );
-                            }}
-                            className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                            <span>
-                              {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
-                            </span>
-                          </button>
-                        )}
-
-                        <button
-                          type="button"
-                          onClick={() => sendCommand('SKIP_QUESTION')}
-                          className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                        >
-                          <SkipForward className="w-3.5 h-3.5 text-[#F05B63]" />
-                          <span>تخطي</span>
-                        </button>
-
-                        {!roundMeta.isCorrectionMode && (
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('PARK_QUESTION')}
-                            className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs cursor-pointer"
-                          >
-                            العودة للوحة
-                          </button>
-                        )}
-                      </div>
                     </div>
                   )}
                 </div>
@@ -1363,7 +1313,7 @@ export function GameArena({
 
               <button
                 type="button"
-                disabled={!isHost}
+                disabled={!isHost || !['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase)}
                 onClick={() => {
                   if (!isHost) return;
                   if (state.timer.running) sendCommand('PAUSE_TIMER');
@@ -1381,6 +1331,57 @@ export function GameArena({
               </button>
             </div>
 
+            {isHost && roundMeta && ['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase) && (
+<div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                        {state.timer.running ? (
+                          <button
+                            type="button"
+                            onClick={() => sendCommand('PAUSE_TIMER')}
+                            className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                          >
+                            <Pause className="w-3.5 h-3.5" />
+                            <span>إيقاف المؤقت</span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              soundFX.playStartRound();
+                              sendCommand(
+                                state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
+                                  ? 'START_TIMER'
+                                  : 'RESUME_TIMER',
+                              );
+                            }}
+                            className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                          >
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                            <span>
+                              {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
+                            </span>
+                          </button>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => sendCommand('SKIP_QUESTION')}
+                          className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                        >
+                          <SkipForward className="w-3.5 h-3.5 text-[#F05B63]" />
+                          <span>تخطي</span>
+                        </button>
+
+                        {!roundMeta.isCorrectionMode && (
+                          <button
+                            type="button"
+                            onClick={() => sendCommand('PARK_QUESTION')}
+                            className="bg-white border-2 border-[#1F112E]/40 hover:border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs cursor-pointer"
+                          >
+                            العودة للوحة
+                          </button>
+                        )}
+                      </div>
+            )}
             {/* Teams Score Cards */}
             <div className="rail-teams-wrap">
               <div

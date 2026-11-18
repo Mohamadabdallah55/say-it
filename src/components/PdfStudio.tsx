@@ -46,7 +46,7 @@ interface PdfStudioProps {
   onOpenSavedMatches?: () => void;
   onBack: () => void;
   onDeckSaved: (deck: QuizDeck) => void;
-  onPlayDeck: (deckId: string) => void;
+  onPlayDeck: (deck: QuizDeck) => void;
 }
 
 async function parseApiJson<T>(res: Response): Promise<T> {
@@ -509,7 +509,7 @@ export function PdfStudio({
       }
       if (launchMatch) {
         soundFX.playStartRound();
-        onPlayDeck(targetDeck.id);
+        onPlayDeck(targetDeck);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'تعذر اعتماد الأسئلة.');

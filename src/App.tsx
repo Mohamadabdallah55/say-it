@@ -180,9 +180,9 @@ export default function App() {
           setScreen({ name: 'title' });
         }}
         onDeckSaved={() => refreshDecksAndRooms()}
-        onPlayDeck={(deckId) => {
-          refreshDecksAndRooms();
-          setScreen({ name: 'lobby', preselectDeckId: deckId });
+        onPlayDeck={(lesson) => {
+          setDecks(current => [lesson, ...current.filter(deck => deck.id !== lesson.id)]);
+          setScreen({ name: 'lobby', preselectDeckId: lesson.id });
         }}
       />
     );
