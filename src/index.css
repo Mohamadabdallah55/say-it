@@ -366,3 +366,22 @@
 .finish-standings strong {font-size:1.65rem;}
 @media(prefers-reduced-motion:reduce){.mascot-track *,.victory-cup,.finish-standings li,.counter-change {animation:none!important;}}
 .reduced-motion :is(.mascot-track *,.victory-cup,.finish-standings li,.counter-change) {animation:none!important;}
+
+@media (prefers-reduced-motion: no-preference) {
+  .arena-stage:not(.reduced-motion) .special-hand > button {
+    animation: deal-in .3s cubic-bezier(.2,.7,.25,1) backwards;
+  }
+  .arena-stage:not(.reduced-motion) .special-hand > button:nth-child(2) {animation-delay:45ms;}
+  .arena-stage:not(.reduced-motion) .special-hand > button:nth-child(3) {animation-delay:90ms;}
+  .arena-stage:not(.reduced-motion) .award-panel {animation-delay:110ms;}
+  .arena-stage:not(.reduced-motion) .score-teams > [data-turn=true] {animation:turn-in .32s ease-out;}
+}
+@keyframes deal-in {
+  from {opacity:0;transform:translateY(15px) rotate(2deg);}
+  to {opacity:1;transform:none;}
+}
+@keyframes turn-in {
+  0% {transform:scale(.97);}
+  65% {transform:scale(1.025);}
+  100% {transform:none;}
+}

@@ -1,6 +1,6 @@
 import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowRight,
   Award,
@@ -79,7 +79,7 @@ export function GameArena({
   const [shareOpen, setShareOpen] = useState(false);
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
-  const [stagePulse, setStagePulse] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const lastSceneRef = useRef<string | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
   const lastCommentaryIdRef = useRef<string | null>(null);
@@ -255,8 +255,6 @@ export function GameArena({
   };
 
   const handleAwardTeams = async (teamIds: string[]) => {
-    setStagePulse(true);
-    setTimeout(() => setStagePulse(false), 340);
     await sendCommand('AWARD_ROUND', { winningTeamIds: teamIds });
   };
 
@@ -288,6 +286,8 @@ export function GameArena({
     );
   }
 
+  const animateRound = !state.settings.reducedMotion && !prefersReducedMotion;
+  const answerTeams = [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
   const isTeamBundlesBoard =
@@ -425,9 +425,7 @@ export function GameArena({
                   {state.categories.map((cat) => (
                     <div
                       key={cat.id}
-                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
-                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                      }`}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
                       <CategoryArtwork
                         iconKey={cat.iconKey}
@@ -585,7 +583,7 @@ export function GameArena({
                         key={cat.id}
                         className={`game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition bg-gradient-to-b from-[#FFFCEE] to-[#FFF5D7] ${
                           isTurnTeam ? 'ring-4 ring-[#7042A1]' : 'opacity-95'
-                        } ${stagePulse ? 'ring-8 ring-[#00B978]' : ''}`}
+                        }`}
                       >
                         <div
                           className="p-4 border-b-[3px] border-[#291B40] text-white flex items-center justify-between gap-2"
@@ -692,9 +690,7 @@ export function GameArena({
                   return (
                     <div
                       key={cat.id}
-                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition ${
-                        stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                      }`}
+                      className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
                       <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
 
@@ -812,10 +808,11 @@ export function GameArena({
                   </div>
                 )}
 
-                <div
-                  className={`question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5 transition ${
-                    stagePulse ? 'ring-8 ring-[#00B978]' : ''
-                  }`}
+                <motion.div
+                  layout={animateRound && "position"}
+                  layoutDependency={state.phase}
+                  transition={{ layout: { duration: 0.32, ease: "easeOut" } }}
+                  className={`question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5 transition`}
                 >
                   {/* Card Meta Header: [Category Pill] [Difficulty Pill] on right, [Points] on left */}
                   <div className="flex flex-wrap items-center justify-between gap-2.5">
@@ -866,7 +863,7 @@ export function GameArena({
                     </div>
 
                     <span className="font-display font-black text-lg md:text-2xl text-[#1F112E] tabular-nums">
-                      {roundMeta.effectivePoints} نقطة
+                      {roundMeta.basePoints} نقطة
                     </span>
                   </div>
 
@@ -989,8 +986,9 @@ export function GameArena({
                   {/* REVEAL: Emerald Answer Box inside the same cream card (matches Screenshot 1) */}
                   {state.phase === 'REVEAL' && roundMeta.answer && (
                     <motion.div
-                      initial={{ scale: 0.96, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
+                      initial={animateRound ? { y: 10, opacity: 0 } : false}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.24, ease: "easeOut" }}
                       className="answer-face space-y-1.5"
                     >
                       <span className="text-xs md:text-sm font-bold text-white/90 block">
@@ -1099,7 +1097,7 @@ export function GameArena({
 
                     </div>
                   )}
-                </div>
+                </motion.div>
 
                 {/* SEPARATE TURN ORDER BAR BELOW QUESTION CARD (matches Screenshots 2 & 4) */}
                 {state.phase !== 'REVEAL' && !roundMeta.orderPlay && (
@@ -1153,7 +1151,7 @@ export function GameArena({
                       </button>
                     ) : state.settings.allowMultiTeamAward ? (
                       <div className="award-teams">
-                        {state.teams.map((team) => {
+                        {answerTeams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           const checked = multiSelectedTeams.includes(team.id);
                           return (
@@ -1205,7 +1203,7 @@ export function GameArena({
                       </div>
                     ) : (
                       <div className="award-teams">
-                        {state.teams.map((team) => {
+                        {answerTeams.map((team) => {
                           const isTurn = team.id === currentTeam?.id;
                           return (
                             <button
@@ -1371,6 +1369,7 @@ export function GameArena({
                   return (
                     <div
                       key={team.id}
+                      data-turn={isTurn}
                       className={`bg-white rounded-2xl px-3 py-2.5 transition ${
                         isTurn
                           ? 'border-[2.5px] ring-2 ring-offset-2 ring-[#FAF7EE] shadow-[0_3px_0_rgba(31,17,46,0.16)]'
