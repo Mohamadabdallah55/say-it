@@ -778,17 +778,19 @@ export function awardRoundAndReturnToBoard(
   }
   const winnerSet = new Set(finalWinnerIds);
   const ownerCorrect = winnerSet.has(ownerTeamId);
+  const pitTriggered = ownerCorrect && round.activeLifeline === 'pit';
   const changes: Record<string, number> = {};
   workingTeams = workingTeams.map(team => {
     const won = winnerSet.has(team.id);
     const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints;
     const stakeLost = team.id === ownerTeamId && !ownerCorrect && round.activeLifeline === 'show_cards';
-    const penalty = stakeLost ? 3 * round.basePoints : ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
-    const delta = won ? reward : -penalty;
+    let delta = won ? reward : 0;
+    if (stakeLost) delta = -3 * round.basePoints;
+    if (pitTriggered) delta = team.id === ownerTeamId ? round.basePoints : -round.basePoints;
     if (delta) changes[team.id] = delta;
     return { ...team, score: team.score + delta, correctCount: team.correctCount + Number(won) };
   });
-  const pts = finalWinnerIds.length ? changes[finalWinnerIds[0]] : 0;
+  const pts = finalWinnerIds.length ? (pitTriggered ? round.basePoints : changes[finalWinnerIds[0]]) : 0;
 
   const winnerNames = workingTeams
     .filter((t) => finalWinnerIds.includes(t.id))
