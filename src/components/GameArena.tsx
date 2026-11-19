@@ -307,7 +307,7 @@ export function GameArena({
     <div
       data-role={role} data-phase={state.phase} data-question-scene={Boolean(roundMeta && ['QUESTION_READY','PLAYING','TIME_UP','REVEAL'].includes(state.phase))}
       className={`arena-stage min-h-screen w-full p-3 md:p-5 ${
-        state.settings.reducedMotion ? 'reduced-motion' : ''
+        !animateRound ? 'reduced-motion' : ''
       }`}
     >
       {/* Subtle decorative golden halftone silhouettes matching reference stage */}
@@ -364,7 +364,7 @@ export function GameArena({
           {state.commentary && isBoardOrFinal && (
             <motion.div
               key={state.commentary.id}
-              initial={{ opacity: 0, y: -8 }}
+              initial={animateRound ? { opacity: 0, y: -8 } : false}
               animate={{ opacity: 1, y: 0 }}
               className="bg-[#7042A1] text-[#FFD95A] border-[3px] border-[#291B40] rounded-2xl px-4 py-2.5 shadow-[0_4px_0_#291B40] flex items-center justify-between gap-3"
             >
@@ -414,7 +414,7 @@ export function GameArena({
                     لوحة الفئات
                   </h1>
                 </div>
-                <div className="turn-ticket"><Flag size={20} /> دور {currentTeam?.name}</div>
+                <div className="turn-ticket" key={currentTeam?.id}><Flag size={20} /> دور {currentTeam?.name}</div>
               </div>
 
                 <div className="category-grid" data-count={state.categories.length}>
@@ -740,9 +740,9 @@ export function GameArena({
                   {/* REVEAL: Emerald Answer Box inside the same cream card (matches Screenshot 1) */}
                   {state.phase === 'REVEAL' && roundMeta.answer && (
                     <motion.div
-                      initial={animateRound ? { y: 10, opacity: 0 } : false}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.24, ease: "easeOut" }}
+                      initial={animateRound ? { y: 14, opacity: 0, scale: 0.97 } : false}
+                      animate={{ y: 0, opacity: 1, scale: 1 }}
+                      transition={animateRound ? { type: "spring", stiffness: 300, damping: 25, opacity: { duration: 0.18 } } : { duration: 0 }}
                       className="answer-face space-y-1.5"
                     >
                       <span className="text-xs md:text-sm font-bold text-white/90 block">
@@ -1176,11 +1176,14 @@ export function GameArena({
           </div>
 
           {/* Bottom Mascot + Compact Utility Bar (matches Screenshots 1, 2, 3) */}
-          <div className="mascot-track"><CornerStarMascot key={state.lastAward?.at} celebrating={Boolean(state.lastAward && nowMs-state.lastAward.at < 1500)}
+          <div className="mascot-track">
+                <CornerStarMascot celebrating={Boolean(state.lastAward && nowMs - state.lastAward.at < 1500)}
+                  reducedMotion={!animateRound}
                   commentaryText={state.commentary?.text}
                   commentaryId={state.commentary?.id}
                   commentaryMode={state.settings.commentaryMode}
-                /></div>
+                />
+          </div>
           <div className="rail-actions space-y-2 pt-2">
             {isHost && (
               <div className="flex items-end justify-between gap-2">
