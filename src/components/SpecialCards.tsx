@@ -71,7 +71,7 @@ export function SpecialCards({
         </div>
 
         <div
-          className={`grid gap-3 md:gap-4 ${
+          className={`round-card-picker grid gap-3 md:gap-4 ${
             visibleCards.length <= 2
               ? 'grid-cols-1 sm:grid-cols-2'
               : visibleCards.length === 4
