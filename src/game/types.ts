@@ -30,6 +30,8 @@ export type QuestionType =
   | 'pantomime_optional';
 
 export type LifelineType =
+  | 'silence'
+  | 'show_cards'
   | 'hint'
   | 'double_points'
   | 'pit'
@@ -247,6 +249,7 @@ export interface ScoreHistoryEntry {
 }
 
 export interface MatchSettings {
+  countUp?: boolean;
   cards?: LifelineType[];
   categoryCount: number;
   timerSeconds: number;
@@ -272,6 +275,7 @@ export interface BoardTileState {
 }
 
 export interface TimerState {
+  elapsedMs?: number;
   durationSeconds: number;
   remainingMs: number;
   running: boolean;
@@ -366,6 +370,7 @@ export interface RoomState {
 }
 
 export interface SanitizedActiveRound {
+  ownerTeamId?: string;
   orderPlay?: OrderPlay;
   roundId: string;
   questionId: string;
@@ -439,6 +444,7 @@ export interface BuzzerViewState {
     points: PointValue;
     questionType: QuestionType;
     prompt: string;
+    exclusiveTeamId?: string;
     buzzerOpen: boolean;
     buzzerQueue: BuzzerPress[];
   } | null;

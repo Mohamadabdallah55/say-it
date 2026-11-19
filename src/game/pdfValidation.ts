@@ -31,6 +31,8 @@ export const PRE_QUESTION_LIFELINES: LifelineType[] = [
   'two_answers',
   'pit',
   'double_points',
+  'silence',
+  'show_cards',
   'second_chance',
   'buzzer_challenge',
 ];
@@ -64,6 +66,8 @@ export const LIFELINE_META: Record<
     description: 'ضاعف نقاط هذا السؤال لصاحب الدور عند الإجابة الصحيحة.',
     timing: 'pre_question',
   },
+  silence: { label: 'صمت', description: 'صاحب الدور وحده يحق له الإجابة عن السؤال.', timing: 'pre_question' },
+  show_cards: { label: 'افرد أوراقك', description: 'يكسب صاحب الدور ثلاثة أضعاف نقاط السؤال إذا أجاب صح، ويخسر ثلاثة أضعافها إذا أخطأ.', timing: 'pre_question' },
   second_chance: {
     label: 'فرصة ثانية',
     description: 'يمنح الفريق محاولة إضافية ووقتًا إضافيًا (+15 ثانية).',

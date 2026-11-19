@@ -26,7 +26,7 @@ import {
   VolumeX,
   X,
 } from 'lucide-react';
-import { computeRemainingMs } from '../game/engine';
+import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -158,10 +158,10 @@ export function GameArena({
     return computeRemainingMs(state.timer, nowMs);
   }, [state, nowMs]);
 
-  const remainingSec = Math.ceil(remainingMs / 1000);
+  const remainingSec = state?.settings.countUp ? Math.floor(elapsedQuestionMs(state.timer, nowMs) / 1000) : Math.ceil(remainingMs / 1000);
 
   useEffect(() => {
-    if (!state || state.phase !== 'PLAYING' || !state.timer.running) {
+    if (!state || state.settings.countUp || state.phase !== 'PLAYING' || !state.timer.running) {
       lastSoundSecondRef.current = null;
       return;
     }
@@ -187,6 +187,7 @@ export function GameArena({
         categoryName: ar.question.categoryName,
         subtopic: ar.question.subtopic || ar.question.sourceRef,
         difficulty: ar.question.difficulty,
+        ownerTeamId: ar.ownerTeamId,
         points: ar.basePoints,
         questionType: ar.question.questionType,
         prompt: ar.question.prompt,
@@ -287,7 +288,7 @@ export function GameArena({
   }
 
   const animateRound = !state.settings.reducedMotion && !prefersReducedMotion;
-  const answerTeams = [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
+  const answerTeams = roundMeta?.activeLifeline === 'silence' ? state.teams.filter(t => t.id === roundMeta.ownerTeamId) : [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
   const isTeamBundlesBoard =
@@ -799,7 +800,7 @@ export function GameArena({
                   <div className="scene-timer justify-center">
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FAF7EE] px-4 py-1 font-mono text-base font-black tabular-nums shadow-[0_3px_0_#1F112E] ${
-                        remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'
+                        !state.settings.countUp && remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'
                       }`}
                     >
                       {String(Math.floor(remainingSec / 60)).padStart(1, '0')}:
@@ -845,9 +846,14 @@ export function GameArena({
                             : 'صعب'}
                       </span>
 
-                      {roundMeta.effectivePoints > roundMeta.basePoints && (
+                      {roundMeta.activeLifeline === 'double_points' && (
                         <span className="rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-2.5 py-1 text-xs font-black text-[#1F112E]">
                           نقاط مضاعفة ×2
+                        </span>
+                      )}
+                      {(roundMeta.activeLifeline === 'silence' || roundMeta.activeLifeline === 'show_cards') && (
+                        <span className="rounded-xl border-2 px-2.5 py-1 text-xs font-black">
+                          {roundMeta.activeLifeline === 'silence' ? 'صمت' : 'افرد أوراقك'}
                         </span>
                       )}
                       {roundMeta.activeLifeline === 'pit' && (
@@ -1093,9 +1099,7 @@ export function GameArena({
                 {state.phase !== 'REVEAL' && !roundMeta.orderPlay && (
                   <div className="rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FAF7EE] px-5 py-3 shadow-[0_4px_0_#1F112E] flex flex-wrap items-center justify-center gap-2.5 font-display font-black text-sm md:text-base text-[#1F112E]">
                     <span className="text-[#1F112E]/75 font-bold">ترتيب الإجابة:</span>
-                    {state.teams.map((_, i) => {
-                      const team =
-                        state.teams[(i + state.currentTurnTeamIndex) % state.teams.length];
+                    {answerTeams.map((team, i) => {
                       return (
                         <span key={team.id} className="inline-flex items-center gap-2">
                           {i > 0 && (
@@ -1289,7 +1293,7 @@ export function GameArena({
                 aria-label="مؤقت السؤال"
                 className="bg-white border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-mono font-black text-sm md:text-base tabular-nums shadow-[0_2px_0_#1F112E] flex items-center gap-1.5 cursor-pointer disabled:cursor-default"
               >
-                <span className={remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'}>
+                <span className={!state.settings.countUp && remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'}>
                   {String(Math.floor(remainingSec / 60)).padStart(1, '0')}:
                   {String(remainingSec % 60).padStart(2, '0')}
                 </span>

@@ -121,7 +121,9 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
     );
   }
 
+  const silenced = Boolean(state.activeRound?.exclusiveTeamId && state.activeRound.exclusiveTeamId !== myTeam?.id);
   const canBuzz =
+    !silenced &&
     Boolean(myTeam) &&
     Boolean(state.activeRound?.buzzerOpen) &&
     (state.phase === 'QUESTION_READY' || state.phase === 'PLAYING') &&
@@ -216,7 +218,7 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
                   className="game-btn-3d w-full h-40 rounded-3xl bg-[#F05B63] text-white font-display font-black text-3xl flex flex-col items-center justify-center gap-2 cursor-pointer disabled:bg-gray-400"
                 >
                   <BellRing className="w-12 h-12" />
-                  <span>{state.activeRound.buzzerOpen ? 'اضغط الجرس!' : 'الجرس مغلق حاليًا'}</span>
+                  <span>{silenced ? 'صمت · الإجابة لصاحب الدور' : state.activeRound.buzzerOpen ? 'اضغط الجرس!' : 'الجرس مغلق حاليًا'}</span>
                 </button>
               )}
             </div>

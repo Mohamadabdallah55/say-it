@@ -1,6 +1,8 @@
 import type { CategoryIconKey, LifelineType } from '../game/types';
 
 export const LIFELINE_CARD_ART: Record<LifelineType, string> = {
+  silence: '/assets/cards/card_silence.png',
+  show_cards: '/assets/cards/card_second_chance.png',
   double_points: '/assets/cards/card_double.png',
   pit: '/assets/cards/card_pit.png',
   second_chance: '/assets/cards/card_second_chance.png',

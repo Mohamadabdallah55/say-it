@@ -1,23 +1,12 @@
-import { Banknote, BellRing, Hand, Phone, Shovel, TimerReset } from 'lucide-react';
 import type { LifelineType } from '../game/types';
-import { GameLogo } from './GameLogo';
-
-const symbols = {
-  double_points: [Banknote, '#598653'],
-  pit: [Shovel, '#99622f'],
-  two_answers: [Hand, '#d74e64'],
-  hint: [Phone, '#118d74'],
-  second_chance: [TimerReset, '#ac7525'],
-  buzzer_challenge: [BellRing, '#6951a0'],
-} as const;
+import { LIFELINE_CARD_ART } from '../utils/gameAssets';
 
 export function PowerCardIcon({ card, small = false }: { card: LifelineType; small?: boolean }) {
-  if (card === 'swap_question') {
-    return <span aria-hidden="true"><GameLogo variant="badge" className={small ? '!w-10' : '!w-20'} /></span>;
-  }
-  const [Symbol, color] = symbols[card];
-  return <span aria-hidden="true" className="inline-flex items-center justify-center" style={{ color }}>
-    <Symbol size={small ? 22 : 36} strokeWidth={2.3} />
-    {card === 'two_answers' && <Symbol size={small ? 18 : 28} strokeWidth={2.3} />}
-  </span>;
+  return (
+    <img
+      src={LIFELINE_CARD_ART[card]}
+      alt=""
+      className={small ? 'h-6 w-6 object-contain' : 'h-14 w-full object-contain select-none'}
+    />
+  );
 }
