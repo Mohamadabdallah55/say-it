@@ -40,6 +40,7 @@ import {
   detectVisualRegionsFromPageImages,
   extractAndParsePdfWithGemini,
 } from './server/pdfExtractorService';
+import { PRIMARY_GEMINI_MODEL } from './server/geminiClient';
 import {
   formatGeminiError,
   isQuotaError,
@@ -130,6 +131,7 @@ async function startServer() {
       service: 'yemken-hay',
       version: 2,
       aiConfigured: Boolean(process.env.GEMINI_API_KEY),
+      aiModel: PRIMARY_GEMINI_MODEL,
     });
   });
 

@@ -146,7 +146,7 @@ ${contextSummary}`;
     const reply = await callGeminiContentWithFallback({
       contents: prompt,
       config: {
-        thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+        thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
         systemInstruction,
       },
     });

@@ -1,5 +1,6 @@
 import {
   GoogleGenAI,
+  ThinkingLevel,
   type GenerateContentConfig,
   type GenerateContentParameters,
 } from '@google/genai';
@@ -13,10 +14,39 @@ import {
   safeParseJsonResponse,
 } from './geminiHelpers';
 
-// Free-tier, fast & capable Gemini 4 Flash as primary model (per gemini-api skill),
-// with free-tier Flash Lite & 2.5 Flash fallbacks for high resilience.
-export const PRIMARY_GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-4-hydrogen';
-export const FALLBACK_GEMINI_MODELS = ['gemini-3.1-flash-lite', 'gemini-2.5-flash'];
+// Fastest, always-free-tier Gemini 3.1 Flash Lite as primary model,
+// with free-tier Gemini 4 Flash & 2.5 Flash fallbacks for high resilience.
+export const PRIMARY_GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
+export const FALLBACK_GEMINI_MODELS = ['gemini-4-hydrogen', 'gemini-2.5-flash'];
+
+export function adaptConfigForModel(
+  model: string,
+  config: GenerateContentConfig,
+): GenerateContentConfig {
+  if (!config.thinkingConfig) return config;
+
+  const isGemini3Or4 = model.startsWith('gemini-3') || model.startsWith('gemini-4');
+  if (!isGemini3Or4) {
+    const { thinkingConfig: _removed, ...rest } = config;
+    return rest;
+  }
+
+  // ThinkingLevel.MINIMAL is supported on gemini-3.1-flash-lite, not on gemini-4-* (400 error).
+  if (
+    model.startsWith('gemini-4') &&
+    config.thinkingConfig.thinkingLevel === ThinkingLevel.MINIMAL
+  ) {
+    return {
+      ...config,
+      thinkingConfig: {
+        ...config.thinkingConfig,
+        thinkingLevel: ThinkingLevel.LOW,
+      },
+    };
+  }
+
+  return config;
+}
 
 export function createAiClient(apiVersion: 'v1beta' | 'v1' = 'v1beta'): GoogleGenAI {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -79,19 +109,20 @@ export async function callGeminiContentWithFallback(params: {
       continue;
     }
     const ai = createAiClient(apiVersion);
+    const modelConfig = adaptConfigForModel(model, params.config);
     try {
       const response = await withRetries(() =>
         ai.models.generateContent({
           model,
           contents: params.contents,
-          config: params.config,
+          config: modelConfig,
         }),
       );
       return response.text;
     } catch (err) {
       lastErr = err;
-      if (isUnsupportedThinkingError(err) && params.config.thinkingConfig) {
-        const { thinkingConfig: _removed, ...restConfig } = params.config;
+      if (isUnsupportedThinkingError(err) && modelConfig.thinkingConfig) {
+        const { thinkingConfig: _removed, ...restConfig } = modelConfig;
         try {
           const retryRes = await withRetries(() =>
             ai.models.generateContent({

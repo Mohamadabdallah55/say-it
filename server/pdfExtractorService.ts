@@ -220,7 +220,7 @@ export async function extractAndParsePdfWithGemini(
     contents,
     contextLabel: 'استخراج وتحليل ملف الـ PDF عبر Gemini',
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction:
         'أنت محلل مستندات عربي فائق الدقة. اقرأ كامل صفحات المستند من البداية للنهاية واستخرج فئات متخصصة مشتقة من عناوين وأفكار الدرس الفعلية مع ربط كل فئة بنطاق صفحاتها ومواضيعها الفرعية، وامنع الأسماء القالبية العامة نهائيًا.',
       responseMimeType: 'application/json',
@@ -523,7 +523,7 @@ export async function detectVisualRegionsFromPageImages(params: {
     contents: { parts },
     contextLabel: 'اكتشاف الصور والمخططات وإحداثيات القص من صفحات PDF',
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
       systemInstruction:
         'أنت محلل رؤية حاسوبية وتربوي متخصص في المناهج. استخرج إحداثيات [ymin, xmin, ymax, xmax] بمقياس 0..1000 للصور والخرائط والرسوم البيانية والمخططات العلمية فقط بدقة عالية، وتجاهل النصوص العادية والشعارات الزخرفية.',
       responseMimeType: 'application/json',

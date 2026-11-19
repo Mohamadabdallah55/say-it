@@ -311,7 +311,7 @@ ${excerpt}`;
     contents: prompt,
     contextLabel: `إعداد خطة ${categoryCount} فئات متخصصة من الدرس`,
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction: `أنت خبير مناهج ومصمم مسابقات تعليمية عربية. قسّم الدرس إلى ${categoryCount} فئات متخصصة مشتقة مباشرة من عناوين وأفكار الدرس الفعلية، موزعة على نطاقات صفحات متتالية تغطي 100% من الملف من الصفحة 1 حتى الأخيرة، وامنع الأسماء القالبية العامة نهائيًا.`,
       responseMimeType: 'application/json',
       responseSchema: {
@@ -877,7 +877,7 @@ ${excerpt}`;
     contents: buildMultimodalContents(prompt, categoryVisuals),
     contextLabel: `توليد أسئلة الفئة ${params.categoryNumber} من ${params.totalCategories} (${params.categoryPlan.name})`,
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction:
         'أنت خبير تربوي ومصمم أسئلة مسابقات عربية. ولّد جميع أسئلة هذه الفئة فقط بدقة عالية وتكافؤ تام بين الفرق المتنافسة وتوزيع ذكي على كافة زوايا وصفحات الفئة وتدرج معرفي واضح (200/400/600) وادمج الأسئلة البصرية على الصور والمخططات المرفقة متى توفرت دون أي تكرار أو هلوسة.',
       responseMimeType: 'application/json',
@@ -1059,7 +1059,7 @@ ${excerpt}`;
     contents: buildMultimodalContents(prompt, batchVisuals),
     contextLabel: `التحقق الذاتي واستكمال ${params.missingSlots.length} خانة ناقصة`,
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction:
         'أنت خبير وضع اختبارات تعليمية عربية. استكمل جميع الخانات الناقصة في المصفوفة بأسئلة جديدة وفريدة ومطابقة تمامًا للمستوى المطلوب والنص والصور المرفقة.',
       responseMimeType: 'application/json',
@@ -1562,7 +1562,7 @@ ${excerpt}`;
     contents: buildMultimodalContents(prompt, scopedVisuals),
     contextLabel: `توليد سؤال بديل (${params.teamOrCatName})`,
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction:
         'أنت خبير وضع اختبارات تعليمية عربية فائق الدقة. لا تخترع أي معلومة، ولا تكرر أي سؤال سابق، واربط السؤال باسم موضوعه الفرعي.',
       responseMimeType: 'application/json',
@@ -1711,7 +1711,7 @@ export async function runDeckRegenerationAction(params: {
 الشرح الحالي: ${target.explanation || ''}`,
       contextLabel: 'تحسين صياغة السؤال',
       config: {
-        thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+        thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
         responseMimeType: 'application/json',
         responseSchema: {
           type: Type.OBJECT,

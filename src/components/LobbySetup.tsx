@@ -21,7 +21,6 @@ import { TopNavHeader } from './TopNavHeader';
 interface LobbySetupProps {
   decks: QuizDeck[];
   initialDeckId?: string;
-  approvedLesson?: QuizDeck;
   soundEnabled?: boolean;
   onToggleSound?: () => void;
   onBack: () => void;
@@ -57,7 +56,6 @@ const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: st
 export function LobbySetup({
   decks,
   initialDeckId,
-  approvedLesson,
   soundEnabled = true,
   onToggleSound,
   onBack,
@@ -101,9 +99,8 @@ export function LobbySetup({
     if (selectedDeckId === 'curated_custom') {
       return buildBoardDeckFromCategories(customCategories);
     }
-    if (approvedLesson?.id === selectedDeckId) return approvedLesson;
     return decks.find((d) => d.id === selectedDeckId) ?? STARTER_DEMO_DECK;
-  }, [selectedDeckId, customCategories, decks, approvedLesson]);
+  }, [selectedDeckId, customCategories, decks]);
 
   const isMatrixDeck = useMemo(() => isCategoryTeamMatrixDeck(selectedDeck), [selectedDeck]);
   const isTeamBundle = useMemo(
@@ -232,12 +229,9 @@ export function LobbySetup({
     });
   };
 
-  const deckLoaded = selectedDeckId === 'curated_custom' || selectedDeck.id === selectedDeckId;
-  const canStartMatch = deckLoaded && preflight.canStart;
-
   const handleStartMatch = async () => {
     setError(null);
-    if (!canStartMatch) {
+    if (!preflight.canStart) {
       setError(preflight.blockers[0] || 'يرجى استكمال إعداد الفرق والفئات قبل بدء اللعبة.');
       return;
     }
@@ -864,19 +858,19 @@ export function LobbySetup({
       {/* Floating Bottom Action Dock (exact match to reference Images 6-8) */}
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,540px)] bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
         <div className="text-right">
-          <span className="text-[11px] font-bold text-[#1F112E]/65 block">{selectedDeck.sourceType === 'pdf' ? selectedDeck.title : 'اللوحة'}</span>
+          <span className="text-[11px] font-bold text-[#1F112E]/65 block">اللوحة</span>
           <span
             className={`font-display font-black text-sm sm:text-base ${
-              canStartMatch ? 'text-[#00A86B]' : 'text-[#F05B63]'
+              preflight.canStart ? 'text-[#00A86B]' : 'text-[#F05B63]'
             }`}
           >
-            {!deckLoaded ? 'بانتظار تحميل البنك' : canStartMatch ? 'جاهزة للعب' : 'تحتاج استكمال'}
+            {preflight.canStart ? 'جاهزة للعب' : 'تحتاج استكمال'}
           </span>
         </div>
 
         <button
           type="button"
-          disabled={creating || !canStartMatch}
+          disabled={creating || !preflight.canStart}
           onClick={handleStartMatch}
           className="game-btn-purple px-7 py-2.5 rounded-xl font-display font-black text-base sm:text-lg flex items-center gap-2 whitespace-nowrap cursor-pointer"
         >
