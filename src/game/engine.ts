@@ -46,6 +46,21 @@ export function computeRemainingMs(timer: TimerState, nowMs = Date.now()): numbe
   return Math.max(0, timer.remainingMs - elapsed);
 }
 
+export function elapsedQuestionMs(timer: TimerState, nowMs: number) {
+  return (timer.elapsedMs ?? 0) + (timer.running && timer.startedAtMs !== null ? Math.max(0, nowMs - timer.startedAtMs) : 0);
+}
+
+function snapshotTimer(timer: TimerState, nowMs: number): TimerState {
+  return { ...timer, remainingMs: computeRemainingMs(timer, nowMs),
+    ...(timer.elapsedMs !== undefined && { elapsedMs: elapsedQuestionMs(timer, nowMs) }),
+    startedAtMs: timer.running ? nowMs : null };
+}
+
+function openQuestion(state: RoomState, nowMs: number): RoomState {
+  if (!state.settings.countUp || state.phase !== 'QUESTION_READY') return state;
+  return { ...state, phase: 'PLAYING', timer: { ...state.timer, elapsedMs: 0, running: true, startedAtMs: nowMs } };
+}
+
 function getLeaderTeamId(teams: TeamState[]): string | null {
   if (teams.length === 0) return null;
   const sorted = [...teams].sort((a, b) => b.score - a.score);
@@ -198,7 +213,7 @@ export function selectBoardTile(
     const remaining = { ...state.parkedRounds };
     delete remaining[questionId];
     return { ok: true, state: { ...state, phase: parked.phase, activeRound: parked.round,
-      timer: parked.timer, parkedRounds: remaining,
+      timer: parked.timer.elapsedMs !== undefined && parked.phase === 'PLAYING' ? { ...parked.timer, running: true, startedAtMs: nowMs } : parked.timer, parkedRounds: remaining,
       processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() } };
   }
   const durationSec = question.timeLimitSeconds || state.settings.timerSeconds;
@@ -235,7 +250,7 @@ export function selectBoardTile(
 
   return {
     ok: true,
-    state: {
+    state: openQuestion({
       ...state,
       phase:
         state.settings.lifelinesEnabled &&
@@ -256,7 +271,7 @@ export function selectBoardTile(
       recentCommentaryTexts: cmt.updatedRecent,
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       updatedAt: new Date(nowMs).toISOString(),
-    },
+    }, nowMs),
   };
 }
 
@@ -265,7 +280,7 @@ export function skipLifelinePick(state: RoomState, actionId: string, nowMs = Dat
   if (state.phase !== 'LIFELINE_PICK') return { ok: false, error: 'اختيار البطاقات مغلق.', state };
   const next: RoomState = { ...state, phase: 'QUESTION_READY', updatedAt: new Date(nowMs).toISOString(),
     processedActionIds: [...state.processedActionIds, actionId].slice(-200) };
-  return { ok: true, state: next };
+  return { ok: true, state: openQuestion(next, nowMs) };
 }
 
 export function applyLifeline(
@@ -294,7 +309,7 @@ export function applyLifeline(
   if (currentTeam.lifelinesRemaining <= 0) {
     return { ok: false, error: `استنفد فريق «${currentTeam.name}» جميع وسائل المساعدة المتاحة.`, state };
   }
-  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
+  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit','silence','show_cards'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
     return { ok: false, error: 'البطاقة غير متاحة.', state };
   }
   const prevLifeline = state.activeRound.activeLifeline;
@@ -322,7 +337,7 @@ export function applyLifeline(
     ...state.activeRound,
     activeLifeline:
       isInQuestionLifeline(lifeline) &&
-      (prevLifeline === 'pit' || prevLifeline === 'double_points' || prevLifeline === 'two_answers')
+      prevLifeline && isPreQuestionLifeline(prevLifeline)
         ? prevLifeline
         : lifeline,
   };
@@ -340,6 +355,8 @@ export function applyLifeline(
     nextRound = { ...nextRound, twoAnswersActive: true };
   } else if (lifeline === 'hint') {
     nextRound = { ...nextRound, hintRevealed: true };
+  } else if (lifeline === 'show_cards') {
+    nextRound.effectivePoints = nextRound.basePoints * 3;
   } else if (lifeline === 'double_points') {
     nextRound = {
       ...nextRound,
@@ -403,7 +420,7 @@ export function applyLifeline(
 
   return {
     ok: true,
-    state: {
+    state: openQuestion({
       ...state,
       phase: state.phase === 'LIFELINE_PICK' ? 'QUESTION_READY' : state.phase,
       teams: nextTeams,
@@ -414,7 +431,7 @@ export function applyLifeline(
       recentCommentaryTexts: cmt.updatedRecent,
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       updatedAt: new Date(nowMs).toISOString(),
-    },
+    }, nowMs),
   };
 }
 
@@ -525,7 +542,7 @@ export function pauseChallengeTimer(
     state: {
       ...state,
       timer: {
-        ...state.timer,
+        ...snapshotTimer(state.timer, nowMs),
         remainingMs: remaining,
         running: false,
         startedAtMs: null,
@@ -591,6 +608,7 @@ export function recordBuzzerPress(
   if (!state.activeRound || (state.phase !== 'QUESTION_READY' && state.phase !== 'PLAYING')) {
     return { ok: false, error: 'الجرس غير متاح الآن.', state };
   }
+  if (state.activeRound.activeLifeline === 'silence' && teamId !== state.activeRound.ownerTeamId) return { ok: false, state, error: 'الإجابة لصاحب بطاقة صمت فقط.' };
   if (!state.activeRound.buzzerOpen) {
     return { ok: false, error: 'الجرس غير مفعّل لهذا السؤال.', state };
   }
@@ -649,7 +667,7 @@ export function submitOrder(state: RoomState, indices: unknown, actionId: string
     return {ok:false, state, error:'جرّب الفريق السابق هذا الترتيب.'};
   const correct = attempt.length === key.length && attempt.every((v,i) => items[v] === key[i]);
   const turns = play.turns + 1;
-  const finished = correct || turns >= state.teams.length;
+  const finished = correct || round.activeLifeline === 'silence' || turns >= state.teams.length;
   const nextTeam = state.teams[(state.teams.findIndex(t => t.id === play.teamId) + 1) % state.teams.length];
   const next: RoomState = { ...state,
     activeRound: {...round, orderPlay:{teamId: finished ? play.teamId : nextTeam.id, turns,
@@ -677,7 +695,7 @@ export function revealAnswer(
       ...state,
       phase: 'REVEAL',
       timer: {
-        ...state.timer,
+        ...snapshotTimer(state.timer, nowMs),
         remainingMs: remaining,
         running: false,
         startedAtMs: null,
@@ -749,6 +767,8 @@ export function awardRoundAndReturnToBoard(
 
   const round = state.activeRound;
   const ownerTeamId = round.ownerTeamId ?? state.teams[state.currentTurnTeamIndex].id;
+  if (round.activeLifeline === 'silence' && validTeamIds.some(id => id !== ownerTeamId))
+    return { ok: false, state, error: 'الإجابة لصاحب بطاقة صمت فقط.' };
   if (round.isCorrectionMode) {
     const previous = workingHistory.find(h => h.roundId === round.roundId && !h.undone);
     if (previous) {
@@ -762,7 +782,8 @@ export function awardRoundAndReturnToBoard(
   workingTeams = workingTeams.map(team => {
     const won = winnerSet.has(team.id);
     const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints;
-    const penalty = ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
+    const stakeLost = team.id === ownerTeamId && !ownerCorrect && round.activeLifeline === 'show_cards';
+    const penalty = stakeLost ? 3 * round.basePoints : ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
     const delta = won ? reward : -penalty;
     if (delta) changes[team.id] = delta;
     return { ...team, score: team.score + delta, correctCount: team.correctCount + Number(won) };
@@ -875,7 +896,7 @@ export function reopenQuestionForCorrection(
         question,
         basePoints: tile.points,
         ownerTeamId: previousEntry?.ownerTeamId ?? prevWinners[0],
-        effectivePoints: previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points,
+        effectivePoints: previousEntry?.lifeline === 'show_cards' ? tile.points * 3 : previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points,
         activeLifeline: previousEntry?.lifeline ?? null,
         hintRevealed: true,
         twoAnswersActive: false,
@@ -896,7 +917,7 @@ export function parkQuestion(state: RoomState, actionId: string, nowMs = Date.no
   if (state.processedActionIds.includes(actionId)) return { ok: true, state };
   const round = state.activeRound;
   if (!round || round.isCorrectionMode) return { ok: false, error: 'لا توجد جولة قابلة للحفظ.', state };
-  const timer = { ...state.timer, remainingMs: computeRemainingMs(state.timer, nowMs), running: false, startedAtMs: null };
+  const timer = { ...snapshotTimer(state.timer, nowMs), running: false, startedAtMs: null };
   const next: RoomState = { ...state, phase: 'BOARD', activeRound: null, timer,
     parkedRounds: { ...state.parkedRounds, [round.question.id]: { round, timer, phase: state.phase } },
     processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() };
@@ -1052,11 +1073,7 @@ export function sanitizeStateForRole(
   role: ClientRole,
   nowMs = Date.now(),
 ): HostViewState | PublicProjectorState | BuzzerViewState {
-  const liveTimer: TimerState = {
-    ...state.timer,
-    remainingMs: computeRemainingMs(state.timer, nowMs),
-    startedAtMs: state.timer.running ? nowMs : null,
-  };
+  const liveTimer = snapshotTimer(state.timer, nowMs);
 
   if (role === 'host') {
     const { hostToken: _ht, buzzerToken: _bt, processedActionIds: _pa, ...rest } = state;
@@ -1093,6 +1110,7 @@ export function sanitizeStateForRole(
             points: state.activeRound.basePoints,
             questionType: state.activeRound.question.questionType,
             prompt: state.activeRound.question.prompt,
+            exclusiveTeamId: state.activeRound.activeLifeline === 'silence' ? state.activeRound.ownerTeamId : undefined,
             buzzerOpen: state.activeRound.buzzerOpen,
             buzzerQueue: state.activeRound.buzzerQueue,
           }
@@ -1147,6 +1165,7 @@ export function sanitizeStateForRole(
           imageCaption: state.activeRound.question.imageCaption,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,
+          ownerTeamId: state.activeRound.ownerTeamId,
           basePoints: state.activeRound.basePoints,
           effectivePoints: state.activeRound.effectivePoints,
           activeLifeline: state.activeRound.activeLifeline,

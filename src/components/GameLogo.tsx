@@ -54,16 +54,11 @@ export function GameLogo({
   }
 
   return (
-    <span
-      className={`inline-flex items-center justify-center overflow-hidden rounded-xl border-2 border-[#291B40] bg-[#FFC800] shadow-[0_3px_0_#291B40] ${sizeClass} ${className}`}
-    >
-      <img
-        src={LOGO_ASSET_PATH}
-        alt="شعار مسابقة يمكن هاي"
-        referrerPolicy="no-referrer"
-        onError={() => setImgFailed(true)}
-        className="w-full h-auto block object-contain scale-105"
-      />
-    </span>
+    <img
+      src="/brand/header-mascot.png"
+      alt="يمكن هاي"
+      onError={() => setImgFailed(true)}
+      className={`inline-block h-auto object-contain select-none ${sizeClass} ${className}`}
+    />
   );
 }

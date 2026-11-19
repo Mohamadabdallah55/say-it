@@ -751,3 +751,27 @@ test('In-question lifelines (شنّص swap_question & ألو hint) work after qu
   assert.notEqual(swapped.state.activeRound?.question.id, tile400.questionId);
   assert.equal(swapped.state.activeRound?.effectivePoints, 800);
 });
+
+test('automatic question clock, exclusive silence and triple stakes', () => {
+  const board = createRoomState({ roomCode: 'RULES', hostToken: 'h', buzzerToken: 'b',
+    deck: STARTER_DEMO_DECK, teams: TEAMS, settings: { countUp: true, buzzerMode: true, cards: ['show_cards', 'silence'] } });
+  const tile = board.boardTiles[0];
+  const pick = selectBoardTile(board, tile.questionId, 'select', 1000).state;
+  assert.equal(pick.timer.running, false);
+  const skipped = skipLifelinePick(pick, 'skip', 1500).state;
+  assert.equal(skipped.timer.startedAtMs, 1500);
+  const silent = applyLifeline(pick, 'silence', 'silence', 2000).state;
+  assert.equal(recordBuzzerPress(silent, 'team_2', 2500).ok, false);
+  assert.equal(recordBuzzerPress(silent, 'team_1', 2500).ok, true);
+  const revealed = revealAnswer(silent, 'reveal', 68000).state;
+  assert.equal(revealed.timer.elapsedMs, 66000);
+  assert.equal(revealed.timer.running, false);
+  assert.equal(awardRoundAndReturnToBoard(revealed, ['team_2'], 'other').ok, false);
+  const triple = applyLifeline(pick, 'show_cards', 'triple', 2000).state;
+  const answer = revealAnswer(triple, 'reveal', 3000).state;
+  const loss = awardRoundAndReturnToBoard(answer, ['team_2'], 'award').state;
+  assert.deepEqual(loss.teams.map(t => t.score), [-3*tile.points, tile.points, 0]);
+  const correction = reopenQuestionForCorrection(loss, tile.questionId, 'correct').state;
+  assert.deepEqual(awardRoundAndReturnToBoard(correction, ['team_1'], 'award2').state.teams.map(t => t.score), [3*tile.points,0,0]);
+  assert.equal(awardRoundAndReturnToBoard(answer, [], 'none').state.teams[0].score, -3*tile.points);
+});

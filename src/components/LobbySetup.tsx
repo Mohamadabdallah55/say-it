@@ -44,6 +44,8 @@ const TEAM_COLORS = [
 ];
 
 const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
+  { key: 'silence', title: 'صمت', rule: LIFELINE_META.silence.description },
+  { key: 'show_cards', title: 'افرد أوراقك', rule: LIFELINE_META.show_cards.description },
   { key: 'two_answers', title: 'إجابتان', rule: LIFELINE_META.two_answers.description },
   { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
   { key: 'double_points', title: 'نقاط مضاعفة', rule: LIFELINE_META.double_points.description },
@@ -177,6 +179,15 @@ export function LobbySetup({
     cards,
     maxLifelinesPerTeam,
   ]);
+
+  const toggleCard = (card: LifelineType) => {
+    soundFX.playClick();
+    setCards(selected => {
+      if (selected.includes(card)) return selected.filter(key => key !== card);
+      const other = card === 'hint' ? 'swap_question' : card === 'swap_question' ? 'hint' : null;
+      return [...selected.filter(key => key !== other), card];
+    });
+  };
 
   const handleAddTeam = () => {
     if (teams.length >= 4 || lockedTeamCount) return;
@@ -574,14 +585,7 @@ export function LobbySetup({
                               type="button"
                               aria-pressed={active}
                               aria-label={`${active ? 'إلغاء' : 'تفعيل'} بطاقة ${card.title}`}
-                              onClick={() => {
-                                soundFX.playClick();
-                                setCards((old) =>
-                                  old.includes(card.key)
-                                    ? old.filter((k) => k !== card.key)
-                                    : [...old, card.key],
-                                );
-                              }}
+                              onClick={() => toggleCard(card.key)}
                               className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
                                 active
                                   ? 'bg-[#63349B] border-[#1F112E] text-white'
@@ -594,14 +598,7 @@ export function LobbySetup({
 
                           <button
                             type="button"
-                            onClick={() => {
-                              soundFX.playClick();
-                              setCards((old) =>
-                                old.includes(card.key)
-                                  ? old.filter((k) => k !== card.key)
-                                  : [...old, card.key],
-                              );
-                            }}
+                            onClick={() => toggleCard(card.key)}
                             className="w-full flex flex-col items-center cursor-pointer"
                           >
                             <span className="grid h-14 place-items-center"><PowerCardIcon card={card.key} /></span>

@@ -63,7 +63,7 @@ class RoomManager {
           changed = true;
           continue;
         }
-        if (room.phase === 'PLAYING' && room.timer.running) {
+        if (room.phase === 'PLAYING' && room.timer.running && room.timer.elapsedMs === undefined) {
           const remaining = computeRemainingMs(room.timer, now);
           if (remaining <= 0) {
             const res = expireChallengeTimer(room, now);
@@ -106,6 +106,7 @@ class RoomManager {
       deck = saved;
     }
 
+    if (params.settings?.cards?.includes('hint') && params.settings.cards.includes('swap_question')) throw new Error('اختر شنّص أو ألو فقط.');
     const preflight = runBoardPreflightCheck({
       deck,
       selectedCategoryIds:
@@ -132,7 +133,7 @@ class RoomManager {
       buzzerToken,
       deck,
       teams: params.teams,
-      settings: params.settings,
+      settings: { ...params.settings, countUp: true },
       selectedCategoryIds:
         params.deckId === 'curated_custom' ? undefined : params.selectedCategoryIds,
       nowMs: Date.now(),
@@ -388,6 +389,10 @@ class RoomManager {
           ...room.settings,
           ...(payload as Partial<MatchSettings>),
         };
+        if (payload.cards && nextSettings.cards?.includes('hint') && nextSettings.cards.includes('swap_question')) {
+          result = { ok: false, state: room, error: 'اختر شنّص أو ألو فقط.' };
+          break;
+        }
         result = {
           ok: true,
           state: {
