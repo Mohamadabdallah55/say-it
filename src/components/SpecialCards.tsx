@@ -6,7 +6,7 @@ const PRE_QUESTION_CARDS: Array<{ key: LifelineType; title: string; rule: string
   { key: 'silence', title: 'صمت', rule: LIFELINE_META.silence.description },
   { key: 'show_cards', title: 'افرد أوراقك', rule: LIFELINE_META.show_cards.description },
   { key: 'two_answers', title: 'إجابتان', rule: 'لديك فرصتان للإجابة' },
-  { key: 'pit', title: 'الحفرة', rule: 'اطرح نقاطك من جميع الخصوم' },
+  { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
   { key: 'double_points', title: 'نقاط مضاعفة', rule: 'ضاعف نقاط هذا السؤال' },
   {
     key: 'second_chance',

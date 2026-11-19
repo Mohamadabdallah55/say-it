@@ -58,7 +58,7 @@ export const LIFELINE_META: Record<
   },
   pit: {
     label: 'الحفرة',
-    description: 'اطرح نقاطك من جميع الخصوم إذا أجبت إجابة صحيحة.',
+    description: 'إذا أجاب صاحب البطاقة صح، يكسب نقاط السؤال وتُخصم القيمة نفسها من كل فريق آخر.',
     timing: 'pre_question',
   },
   double_points: {

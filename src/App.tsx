@@ -10,7 +10,7 @@ import { soundFX } from './utils/sound';
 
 type ViewScreen =
   | { name: 'title' }
-  | { name: 'lobby'; preselectDeckId?: string }
+  | { name: 'lobby'; preselectDeckId?: string; approvedLesson?: QuizDeck }
   | { name: 'pdf_studio'; editDeck?: QuizDeck | null }
   | { name: 'library'; mode: 'decks' | 'matches' }
   | { name: 'arena'; roomCode: string; role: 'host' | 'projector'; token?: string }
@@ -73,6 +73,10 @@ export default function App() {
       setScreen({ name: 'lobby' });
     }
   }, [refreshDecksAndRooms]);
+
+  const rememberDeck = (deck: QuizDeck) => {
+    setDecks(current => [deck, ...current.filter(item => item.id !== deck.id)]);
+  };
 
   const toggleSound = () => {
     setSoundEnabled((prev) => {
@@ -137,6 +141,7 @@ export default function App() {
       <LobbySetup
         decks={decks}
         initialDeckId={screen.preselectDeckId}
+        approvedLesson={screen.approvedLesson}
         soundEnabled={soundEnabled}
         onToggleSound={toggleSound}
         onBack={() => setScreen({ name: 'title' })}
@@ -179,10 +184,9 @@ export default function App() {
           refreshDecksAndRooms();
           setScreen({ name: 'title' });
         }}
-        onDeckSaved={() => refreshDecksAndRooms()}
+        onDeckSaved={rememberDeck}
         onPlayDeck={(lesson) => {
-          setDecks(current => [lesson, ...current.filter(deck => deck.id !== lesson.id)]);
-          setScreen({ name: 'lobby', preselectDeckId: lesson.id });
+          setScreen({ name: 'lobby', preselectDeckId: lesson.id, approvedLesson: lesson });
         }}
       />
     );

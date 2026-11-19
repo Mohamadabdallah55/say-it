@@ -324,6 +324,19 @@ test('Owner doubles, opponents take face value, pit and correction restore all t
   }
 });
 
+test('pit charges every opponent the face value even when a co-winner is selected first', () => {
+  const board = createRoomState({ roomCode: 'PIT400', hostToken: 'h', buzzerToken: 'b',
+    deck: STARTER_DEMO_DECK, teams: TEAMS, settings: { allowMultiTeamAward: true } });
+  const tile = board.boardTiles.find(t => t.points === 400)!;
+  const pick = selectBoardTile(board, tile.questionId, 'pick').state;
+  const reveal = revealAnswer(applyLifeline(pick, 'pit', 'pit').state, 'reveal').state;
+  const scored = awardRoundAndReturnToBoard(reveal, ['team_2', 'team_1'], 'award').state;
+  assert.deepEqual(scored.teams.map(t => t.score), [400, -400, -400]);
+  assert.equal(scored.scoreHistory.at(-1)?.delta, 400);
+  assert.deepEqual(undoLastScoreAction(scored, 'undo').state.teams.map(t => t.score), [0, 0, 0]);
+  assert.deepEqual(awardRoundAndReturnToBoard(reveal, [], 'none').state.teams.map(t => t.score), [0, 0, 0]);
+});
+
 test('Ordering passes to the next team, rejects repeated guesses and grades the correct permutation', () => {
   const board=createRoomState({roomCode:'ORDER',hostToken:'h',buzzerToken:'b',deck:STARTER_DEMO_DECK,teams:TEAMS});
   const q=board.questionPool.find(q=>q.questionType==='order_steps')!;
