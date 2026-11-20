@@ -318,6 +318,9 @@ export function GameArena({
         <span className="absolute bottom-[12%] right-[24%] flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#B9921F] bg-[#E8C138]/30 rotate-12 font-black text-[#9C7610]">⚄</span>
       </div>
 
+      {state.phase === 'BOARD' && state.questionCounter === 0 && animateRound && (
+        <div className="match-opening-wipe" aria-hidden="true" />
+      )}
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
         <div className="arena-main space-y-4">
@@ -988,7 +991,12 @@ export function GameArena({
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
             <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <div className="victory-cup"><Trophy aria-hidden="true"/></div>
+              <div className="victory-cup">
+                <div className="victory-sparks" aria-hidden="true">
+                  <i /><i /><i /><i /><i /><i />
+                </div>
+                <Trophy aria-hidden="true" />
+              </div>
               <div className="winner-heading"><p>نتائج المباراة</p><h1>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).map(t=>t.name).join(' و ')}</h1>
                 <strong>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).length>1?'تعادل في المركز الأول':'بطل المباراة'} · {sortedStandings[0].score} نقطة</strong></div>
               <ol className="finish-standings">{sortedStandings.map((team,index)=>{

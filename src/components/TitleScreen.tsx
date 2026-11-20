@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
 import {
   BookOpen,
   Crown,
@@ -67,7 +66,7 @@ export function TitleScreen({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#240E35] flex flex-col justify-between">
+    <div className="game-title min-h-screen w-full bg-[#240E35] flex flex-col justify-between">
       {/* Unified Dark Plum Top Navbar */}
       <TopNavHeader
         activePage="title"
@@ -83,6 +82,11 @@ export function TitleScreen({
       {/* Expanded Golden Halftone Banner + Bottom Mode Switcher */}
       <div className="flex-1 flex flex-col items-center justify-between px-2.5 sm:px-4 lg:px-6 py-2.5 sm:py-4 gap-3.5">
         <div className="w-full max-w-[1520px] flex-1 flex flex-col justify-between hero-halftone-stage border-[3px] border-[#1F112E] rounded-[28px] shadow-[0_8px_0_#12061D] p-5 sm:p-8 lg:px-12 lg:py-9">
+          <div className="opening-glints" aria-hidden="true">
+            <Sparkles />
+            <Sparkles />
+            <Sparkles />
+          </div>
           {/* Clean Top Corner Control inside Banner (matching reference screenshot) */}
           <div className="flex items-center justify-start mb-3">
             <button
@@ -101,27 +105,22 @@ export function TitleScreen({
           <main className="my-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 py-2 sm:py-4">
             {/* RTL Right Column: Mascot Logo + Tagline + Exact Two Buttons */}
             <div className="lg:col-span-6 flex flex-col items-center text-center space-y-6">
-              <motion.div
-                initial={{ y: 8, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.25 }}
-                className="w-full flex justify-center"
-              >
+              <div className="opening-logo w-full flex justify-center">
                 <GameLogo size="lg" variant="hero" className="lg:!w-[min(90vw,520px)]" />
-              </motion.div>
+              </div>
 
-              <h1 className="font-display font-black text-xl sm:text-2xl md:text-[30px] text-[#1F112E] leading-snug">
+              <h1 className="opening-tagline font-display font-black text-xl sm:text-2xl md:text-[30px] text-[#1F112E] leading-snug">
                 فرق، وفئات، ومنافسة على شاشة واحدة.
               </h1>
 
-              <div className="flex flex-wrap items-center justify-center gap-3.5 w-full max-w-md pt-1">
+              <div className="opening-actions flex flex-wrap items-center justify-center gap-3.5 w-full max-w-md pt-1">
                 <button
                   type="button"
                   onClick={() => {
                     soundFX.playClick();
                     onStartQuick();
                   }}
-                  className="game-btn-purple flex-1 min-w-[175px] font-display font-black text-lg sm:text-xl py-3.5 px-7 rounded-2xl flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer"
+                  className="opening-start game-btn-purple flex-1 min-w-[175px] font-display font-black text-lg sm:text-xl py-3.5 px-7 rounded-2xl flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer"
                 >
                   <span>ابدأ اللعب</span>
                   <Play className="w-4 h-4 fill-current rotate-180" />
@@ -143,7 +142,7 @@ export function TitleScreen({
             {/* RTL Left Column: Scoreboard Strip + Tilted Question Showcase Card */}
             <div className="lg:col-span-6 flex flex-col items-center justify-center gap-6">
               {/* Sample Team Score Pills */}
-              <div className="flex flex-wrap items-center justify-center gap-3.5 w-full">
+              <div className="opening-scores flex flex-wrap items-center justify-center gap-3.5 w-full">
                 <div className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-xl px-4 py-2 shadow-[0_4px_0_#1F112E] flex items-center gap-3 text-sm sm:text-base font-black text-[#1F112E]">
                   <span className="flex items-center gap-1.5">
                     <Crown className="w-4 h-4 text-[#63349B]" />
@@ -168,10 +167,10 @@ export function TitleScreen({
               </div>
 
               {/* Clean Tilted Cream Card with Purple Stack Shadow */}
-              <div className="relative w-full max-w-[490px] pt-3 pb-4">
+              <div className="opening-preview relative w-full max-w-[490px] pt-3 pb-4">
                 <div className="relative bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-[24px] px-6 pt-8 pb-6 sm:px-8 shadow-[6px_7px_0_#6A3BA4] lg:-rotate-1 hover:rotate-0 transition-transform duration-200 text-center space-y-5">
                   {/* Overlapping Category Pill Tab (top right) */}
-                  <span className="absolute -top-4 right-5 bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-4 py-1 font-display font-black text-xs sm:text-sm text-[#1F112E] shadow-[0_3px_0_#1F112E]">
+                  <span key={currentSample.category} className="sample-change absolute -top-4 right-5 bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-4 py-1 font-display font-black text-xs sm:text-sm text-[#1F112E] shadow-[0_3px_0_#1F112E]">
                     {currentSample.category}
                   </span>
 
@@ -186,7 +185,7 @@ export function TitleScreen({
                     <RefreshCw className="w-3.5 h-3.5" />
                   </button>
 
-                  <p className="font-display font-black text-xl sm:text-[26px] text-[#1F112E] leading-relaxed min-h-[4rem] flex items-center justify-center pt-1">
+                  <p key={currentSample.prompt} className="sample-change font-display font-black text-xl sm:text-[26px] text-[#1F112E] leading-relaxed min-h-[4rem] flex items-center justify-center pt-1">
                     {currentSample.prompt}
                   </p>
 
@@ -199,7 +198,7 @@ export function TitleScreen({
                       الإجابة
                     </span>
                     <span className="h-5 w-[1.5px] bg-white/30 shrink-0" aria-hidden="true" />
-                    <span className="flex-1 font-display font-black text-base sm:text-xl leading-tight text-[#FFE047] text-center">
+                    <span key={String(answerRevealed)} className="sample-change flex-1 font-display font-black text-base sm:text-xl leading-tight text-[#FFE047] text-center">
                       {answerRevealed ? currentSample.answer : 'اضغط لكشف الإجابة'}
                     </span>
                   </button>
@@ -230,7 +229,7 @@ export function TitleScreen({
         {/* Bottom Dark-Plum Mode Switcher Dock (matching reference bottom bar) */}
         <nav
           aria-label="أوضاع المسابقة والأدوات"
-          className="w-full max-w-[1520px] flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pb-1"
+          className="opening-dock w-full max-w-[1520px] flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pb-1"
         >
           <button
             type="button"
@@ -295,7 +294,7 @@ export function TitleScreen({
       {/* How To Play Modal */}
       {showHowToPlay && (
         <div
-          className="fixed inset-0 z-50 bg-black/55 flex items-center justify-center p-4"
+          className="opening-dialog fixed inset-0 z-50 bg-black/55 flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="how-to-play-title"
