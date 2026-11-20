@@ -852,7 +852,13 @@ export function awardRoundAndReturnToBoard(
       phase: allDone ? 'FINAL' : 'BOARD',
       boardTiles: nextTiles,
       teams: workingTeams,
-      lastAward: {at:nowMs,changes},
+      lastAward: {
+        at: nowMs,
+        changes: round.isCorrectionMode
+          ? Object.fromEntries(workingTeams.map((team, index) => [team.id, team.score - state.teams[index].score]))
+          : changes,
+        ...(round.isCorrectionMode && { corrected: true }),
+      },
       currentTurnTeamIndex: nextTurn,
       activeRound: null,
       scoreHistory: [entry, ...workingHistory].slice(0, 100),
@@ -911,6 +917,30 @@ export function reopenQuestionForCorrection(
       updatedAt: new Date(nowMs).toISOString(),
     },
   };
+}
+
+export function correctLastAnswer(
+  state: RoomState,
+  expectedResultId: string,
+  teamId: string | null,
+  actionId: string,
+  nowMs = Date.now(),
+) {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  const result = state.scoreHistory.find(entry => !entry.undone && entry.questionId);
+  if (state.phase !== 'BOARD' || !result?.questionId || result.actionId !== expectedResultId) {
+    return { ok: false, state, error: 'تغيّرت نتيجة الجولة. افتح التصحيح مرة ثانية.' };
+  }
+  if (teamId !== null && !state.teams.some(team => team.id === teamId)) {
+    return { ok: false, state, error: 'اختر فريقًا من المباراة.' };
+  }
+  if (state.settings.allowMultiTeamAward || state.boardMode === 'team_bundles' || state.boardMode === 'category_team_matrix') {
+    return { ok: false, state, error: 'استخدم التصحيح من بطاقة السؤال.' };
+  }
+  const reopened = reopenQuestionForCorrection(state, result.questionId, `${actionId}:reopen`, nowMs);
+  if (!reopened.ok) return reopened;
+  const awarded = awardRoundAndReturnToBoard(reopened.state, teamId, actionId, nowMs);
+  return awarded.ok ? awarded : { ...awarded, state };
 }
 
 export function parkQuestion(state: RoomState, actionId: string, nowMs = Date.now()) {

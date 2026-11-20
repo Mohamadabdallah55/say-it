@@ -53,6 +53,12 @@ class SoundManager {
     this.playTone(740, 0.14, 'triangle', 0.08, 0.065);
   }
 
+  playScoreCorrection() {
+    this.playTone(370, 0.1, 'triangle', 0.07);
+    this.playTone(554, 0.14, 'sine', 0.08, 0.075);
+    this.playTone(740, 0.18, 'sine', 0.07, 0.15);
+  }
+
   playTurnPass() {
     this.playTone(440, 0.11, 'sine', 0.07);
     this.playTone(330, 0.13, 'sine', 0.06, 0.07);

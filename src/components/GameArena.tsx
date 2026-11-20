@@ -90,6 +90,8 @@ export function GameArena({
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [error, setError] = useState<string | null>(null);
   const [commandError, setCommandError] = useState<string | null>(null);
+  const [correction, setCorrection] = useState<{ resultId: string; teamId?: string | null } | null>(null);
+  const [correcting, setCorrecting] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
@@ -167,7 +169,8 @@ export function GameArena({
     if (previous && state.phase === 'BOARD' && state.lastAward && scene.award !== previous.award &&
         Date.now() - state.lastAward.at < 1600) {
       const changes = Object.values(state.lastAward.changes);
-      if (changes.some(change => change > 0)) soundFX.playCorrect();
+      if (state.lastAward.corrected) soundFX.playScoreCorrection();
+      else if (changes.some(change => change > 0)) soundFX.playCorrect();
       else if (changes.some(change => change < 0)) soundFX.playFoul();
       else soundFX.playTurnPass();
     }
@@ -241,7 +244,7 @@ export function GameArena({
   }, [state]);
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
-    if (!isHost) return;
+    if (!isHost) return false;
     setCommandError(null);
     const actionId = `act_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
     try {
@@ -253,11 +256,13 @@ export function GameArena({
       const data = await res.json();
       if (!res.ok) {
         setCommandError(data.error || 'تعذر تنفيذ الأمر.');
-        return;
+        return false;
       }
       if (data.state) setState(data.state);
+      return true;
     } catch {
       setCommandError('فشل الاتصال بالخادم لتنفيذ الأمر.');
+      return false;
     }
   };
 
@@ -317,11 +322,21 @@ export function GameArena({
   const matchSeconds = Math.max(0, Math.ceil(((state.matchEndsAt ?? Date.parse(state.createdAt) + 20 * 60000) - nowMs) / 1000));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
-  const recentAward = state.phase === 'BOARD' && state.lastAward && nowMs - state.lastAward.at < 3600
+  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
     ? state.lastAward : null;
   const awardChanges = recentAward
     ? state.teams.map(team => ({ team, change: recentAward.changes[team.id] ?? 0 })).filter(({ change }) => change !== 0)
     : [];
+  const isClassicBoard = !isMatrixBoard && !isTeamBundlesBoard && !state.settings.allowMultiTeamAward;
+  const previousAnswer = state.role === 'host' && state.phase === 'BOARD' && isClassicBoard
+    ? state.scoreHistory.find(entry => !entry.undone && entry.questionId)
+    : undefined;
+  const confirmedChoice = correction?.teamId;
+  const correctionOptions = previousAnswer?.lifeline === 'silence'
+    ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
+    : state.teams;
+  const showScoreMoment = isClassicBoard && recentAward && awardChanges.length > 0 &&
+    nowMs - recentAward.at < 1750 && !correction && animateRound;
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
@@ -389,6 +404,20 @@ export function GameArena({
                 )}
               </div>
             </header>
+          )}
+          {showScoreMoment && (
+            <div className="score-moment" key={recentAward.at} aria-hidden="true">
+              <div className="score-moment-card">
+                <Award size={28} />
+                <h2>{recentAward.corrected ? 'تصحيح الرصيد' : 'حصيلة السؤال'}</h2>
+                {awardChanges.map(({ team, change }) => (
+                  <div className="score-moment-row" key={team.id} data-loss={change < 0}>
+                    <span><i style={{ background: team.color }} />{team.name}</span>
+                    <strong dir="ltr">{change > 0 ? '+' : ''}{change}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
           <div className="round-edges" aria-label="متابعة الجولة">
             <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
@@ -528,6 +557,15 @@ export function GameArena({
                   );
                 })}
                 </div>
+              {previousAnswer && (
+                <div className="last-answer-action">
+                  <button type="button" className="game-btn-3d rounded-xl bg-[#fff9e5] px-4 py-2 font-bold"
+                    onClick={() => { setCommandError(null); setCorrection({ resultId: previousAnswer.actionId }); }}>
+                    <RefreshCw size={16} aria-hidden="true" />
+                    تصحيح نتيجة السؤال السابق
+                  </button>
+                </div>
+              )}
             </section>
           )}
 
@@ -1048,7 +1086,7 @@ export function GameArena({
             {/* Mobile Compact Action Row + Question Badge + Timer (matches Screenshot 4) */}
             <div className="flex items-center justify-between gap-2">
               <div className="bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-display font-black text-sm text-[#1F112E] tabular-nums shadow-[0_2px_0_#1F112E]">
-                السؤال {state.questionCounter}
+                السؤال {isClassicBoard && state.phase === 'BOARD' ? Math.min(state.totalQuestions, state.questionCounter + 1) : state.questionCounter}
               </div>
 
               <button
@@ -1293,6 +1331,55 @@ export function GameArena({
           </div>
         </aside>
       </div>
+
+      {correction && previousAnswer && (
+        <dialog
+          ref={dialog => { if (dialog && !dialog.open) dialog.showModal(); }}
+          className="last-answer-dialog"
+          aria-labelledby="last-answer-title"
+          onCancel={event => { event.preventDefault(); if (!correcting) setCorrection(null); }}
+        >
+          <header>
+            <h2 id="last-answer-title">تصحيح نتيجة السؤال السابق</h2>
+            <button type="button" aria-label="إغلاق التصحيح" disabled={correcting} onClick={() => setCorrection(null)}>
+              <X size={20} />
+            </button>
+          </header>
+          {confirmedChoice === undefined ? (
+            <div className="last-answer-options">
+              {correctionOptions.map(team => (
+                <button key={team.id} type="button" disabled={team.id === previousAnswer.teamId}
+                  onClick={() => setCorrection({ ...correction, teamId: team.id })}>
+                  <i style={{ background: team.color }} />
+                  <span>{team.name}</span>
+                  {team.id === previousAnswer.teamId && <small>المجيب الحالي</small>}
+                </button>
+              ))}
+              <button type="button" disabled={previousAnswer.teamId === null}
+                onClick={() => setCorrection({ ...correction, teamId: null })}>لا أحد</button>
+            </div>
+          ) : (
+            <p>{confirmedChoice === null ? 'اعتماد السؤال بلا إجابة صحيحة؟' : `اعتماد «${state.teams.find(team => team.id === confirmedChoice)?.name}» فريقًا مجيبًا؟`}</p>
+          )}
+          {commandError && <p role="alert" className="text-[#ae2440]">{commandError}</p>}
+          <footer>
+            {confirmedChoice !== undefined && (
+              <button type="button" className="game-btn-purple rounded-xl px-4 py-2" disabled={correcting}
+                onClick={async () => {
+                  setCorrecting(true);
+                  const ok = await sendCommand('CORRECT_LAST_ANSWER', {
+                    expectedResultId: correction.resultId,
+                    teamId: confirmedChoice,
+                  });
+                  setCorrecting(false);
+                  if (ok) setCorrection(null);
+                }}>تأكيد التصحيح</button>
+            )}
+            <button type="button" className="game-btn-3d rounded-xl bg-white px-4 py-2" disabled={correcting}
+              onClick={() => setCorrection(null)}>إلغاء</button>
+          </footer>
+        </dialog>
+      )}
 
       {/* QR Share Modal (Projector + Optional Team Buzzer) */}
       {shareOpen && (

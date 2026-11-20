@@ -5,6 +5,7 @@ import {
   applyLifeline,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
+  correctLastAnswer,
   createRoomState,
   endMatchEarly,
   expireChallengeTimer,
@@ -365,6 +366,9 @@ class RoomManager {
         result = awardRoundAndReturnToBoard(room, ids, actionId, now);
         break;
       }
+      case 'CORRECT_LAST_ANSWER':
+        result = correctLastAnswer(room, String(payload.expectedResultId ?? ''), payload.teamId === null ? null : String(payload.teamId ?? ''), actionId, now);
+        break;
       case 'REOPEN_CORRECTION':
         result = reopenQuestionForCorrection(room, String(payload.questionId || ''), actionId, now);
         break;
