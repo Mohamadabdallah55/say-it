@@ -29,7 +29,7 @@ export function ScoreCounter({score, reduced}: {score:number; reduced:boolean}) 
     const timer = window.setTimeout(()=>setDelta(0),1200);
     return () => {cancelAnimationFrame(frame); window.clearTimeout(timer);};
   },[score,reduced]);
-  return <span className="counter-wrap"><strong className="score-number" aria-hidden="true">{value}</strong>
+  return <span className="counter-wrap"><strong className="score-number" dir="ltr" aria-hidden="true">{value}</strong>
     <span className="sr-only" aria-live="polite">{score} نقطة</span>
     {delta!==0 && <b key={score} className="counter-change" data-loss={delta<0} dir="ltr" aria-hidden="true">{delta>0?'+':''}{delta}</b>}
   </span>;

@@ -272,8 +272,6 @@
 .order-attempt {text-align:center;display:grid;gap:12px;font-weight:750;}
 .order-attempt [aria-pressed=true],.order-attempt footer button:first-child {background:#603687;color:white;}
 .order-attempt button:disabled {opacity:.6;}
-.award-flash {position:fixed;z-index:5;bottom:6%;left:50%;transform:translateX(-50%);display:flex;gap:12px;pointer-events:none;}
-.award-flash strong {background:#332040;color:#ffdc70;border:2px solid #ffdc70;border-radius:32px;padding:10px 20px;box-shadow:0 4px #291b40;}
 .special-hand {grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));}
 .special-hand button:disabled:has(small) {filter:saturate(.85);}
 @media(max-width:600px){.special-hand{grid-template-columns:1fr;}}
@@ -294,7 +292,6 @@
   .arena-stage[data-phase=FINAL] .score-rail {display:none;}
 }
 .audience-audio {background:#fff7dc;border-radius:50%;padding:6px;color:#392044;}
-@media (prefers-reduced-motion: reduce){.award-flash {animation:none;}}
 .lesson-illustration {display:grid;place-items:center;overflow:hidden;border-bottom:3px solid #291b40;background-image:radial-gradient(#fff5 1px,transparent 2px);background-size:10px 10px;}
 .lesson-illustration svg {height:100%;width:100%;}
 .lesson-concepts {position:absolute;inset:auto 8px 6px;display:flex;justify-content:space-between;gap:6px;z-index:2;pointer-events:none;}
@@ -418,7 +415,6 @@
   .arena-stage:not(.reduced-motion) .award-teams > button { animation:scene-arrive .32s ease-out 120ms backwards; }
   .arena-stage:not(.reduced-motion) .award-teams > button:nth-child(2) { animation-delay:165ms; }
   .arena-stage:not(.reduced-motion) .award-teams > button:nth-child(n+3) { animation-delay:210ms; }
-  .arena-stage:not(.reduced-motion) .award-flash strong { animation:award-pop .42s cubic-bezier(.2,.85,.3,1.15) both; }
   .arena-stage:not(.reduced-motion) .answer-face::after { animation:answer-sheen .65s .08s ease-out both; }
   .star-float { animation:star-hover 3.6s ease-in-out infinite; }
   .star-eyes { animation:star-blink 5.4s linear infinite; }
@@ -477,10 +473,7 @@
   28% { opacity:1; }
   100% { opacity:0; transform:translateX(45%); }
 }
-@keyframes award-pop {
-  from { opacity:0; transform:translateY(12px) scale(.82); }
-  to { opacity:1; transform:none; }
-}
+
 
 /* Opening, match setup and results share the same short, layered entrances. */
 .game-title .hero-halftone-stage {
@@ -605,4 +598,79 @@
   24% { opacity: 1; }
   74% { opacity: .85; }
   100% { opacity: 0; transform: translate(var(--spark-x),var(--spark-y)) rotate(var(--spark-spin)); }
+}
+
+.round-edges {
+  min-height: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 12px;
+  row-gap: 8px;
+  font-weight: 800;
+  font-size: .84rem;
+}
+.round-edge-step,
+.round-edge-commentary,
+.round-edge-change {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border: 2px solid #382246;
+  border-radius: 12px;
+  box-shadow: 0 2px #382246;
+}
+.round-edge-step {
+  background: #fff9e5;
+  color: #382246;
+}
+.round-edge-step[data-clock=ended] {
+  background: #ffebe8;
+  color: #8d3442;
+}
+.round-edge-step svg,
+.round-edge-commentary svg { flex-shrink: 0; }
+.round-edge-commentary {
+  max-inline-size: min(100%, 430px);
+  margin-inline-start: auto;
+  background: #533272;
+  color: #fff3ce;
+}
+.round-edge-award {
+  margin-inline-start: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 7px;
+}
+.round-edge-change {
+  background: #fff9e5;
+  color: #382246;
+}
+.round-edge-change b { color: #12654b; }
+.round-edge-change[data-negative=true] b { color: #a22242; }
+.score-teams [data-round-change=gain] { --score-pulse: #20956b66; }
+.score-teams [data-round-change=loss] { --score-pulse: #d0446066; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .round-edge-step { animation: edge-right .32s cubic-bezier(.2,.7,.3,1) backwards; }
+  .round-edge-commentary,
+  .round-edge-change { animation: edge-left .37s cubic-bezier(.18,.8,.3,1) backwards; }
+  .round-edge-change:nth-child(2) { animation-delay: 55ms; }
+  .round-edge-change:nth-child(n+3) { animation-delay: 110ms; }
+  .arena-stage:not(.reduced-motion) .score-teams [data-round-change] { animation: score-pulse .7s ease-out; }
+}
+@keyframes edge-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes edge-left {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes score-pulse {
+  0%,100% { outline: 5px solid transparent; outline-offset: 3px; }
+  25% { outline: 3px solid var(--score-pulse); outline-offset: 4px; }
 }
