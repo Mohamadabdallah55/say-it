@@ -6,12 +6,99 @@ import type {
 } from '../src/game/types';
 
 export function stripCodeFences(raw: string): string {
-  let cleaned = raw.trim();
+  let cleaned = raw.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
   if (cleaned.startsWith('```')) {
     cleaned = cleaned.replace(/^```(?:json|JSON)?\s*\n?/, '');
     cleaned = cleaned.replace(/\n?\s*```\s*$/, '');
   }
   return cleaned.trim();
+}
+
+export function coerceStringArray(val: unknown): string[] {
+  if (val == null) return [];
+  if (Array.isArray(val)) {
+    const out: string[] = [];
+    for (const item of val) {
+      if (typeof item === 'string') {
+        const t = item.trim();
+        if (t) out.push(t);
+      } else if (typeof item === 'number' || typeof item === 'boolean') {
+        out.push(String(item));
+      } else if (Array.isArray(item)) {
+        out.push(...coerceStringArray(item));
+      } else if (item && typeof item === 'object') {
+        const parts = Object.values(item as Record<string, unknown>)
+          .flatMap((v) => coerceStringArray(v))
+          .filter(Boolean);
+        if (parts.length > 0) out.push(parts.join(' — '));
+      }
+    }
+    return out;
+  }
+  if (typeof val === 'string') {
+    const trimmed = val.trim();
+    if (!trimmed) return [];
+    if (trimmed.includes('\n')) {
+      return trimmed
+        .split(/\r?\n+/)
+        .map((s) => s.replace(/^[-•*\d.)\s]+/, '').trim())
+        .filter(Boolean);
+    }
+    return [trimmed];
+  }
+  if (typeof val === 'object') {
+    const out: string[] = [];
+    for (const [k, v] of Object.entries(val as Record<string, unknown>)) {
+      const nested = coerceStringArray(v);
+      if (nested.length > 0) {
+        if (/^(?:cause|effect|item|text|title|name|point|value|label)$/i.test(k)) {
+          out.push(...nested);
+        } else {
+          out.push(...nested.map((s) => (s.includes(':') ? s : `${k}: ${s}`)));
+        }
+      }
+    }
+    return out;
+  }
+  return [];
+}
+
+export function normalizePdfAnalysisReport(
+  raw: Partial<PdfAnalysisReport> | undefined | null,
+  fallbackTitle = 'الدرس التعليمي',
+): PdfAnalysisReport {
+  const src = raw ?? {};
+  const mainTopics = coerceStringArray(src.mainTopics);
+  return {
+    fileName: typeof src.fileName === 'string' && src.fileName.trim() ? src.fileName.trim() : 'lesson.pdf',
+    fileHash: typeof src.fileHash === 'string' ? src.fileHash : '',
+    totalPages: typeof src.totalPages === 'number' && Number.isFinite(src.totalPages) ? Math.max(1, src.totalPages) : 1,
+    readablePages: typeof src.readablePages === 'number' && Number.isFinite(src.readablePages) ? Math.max(0, src.readablePages) : 1,
+    sourceFiles: Array.isArray(src.sourceFiles) ? src.sourceFiles : undefined,
+    title: typeof src.title === 'string' && src.title.trim() ? src.title.trim() : fallbackTitle,
+    subjectDomain: typeof src.subjectDomain === 'string' && src.subjectDomain.trim() ? src.subjectDomain.trim() : 'محتوى تعليمي عام',
+    mainTopics: mainTopics.length > 0 ? mainTopics : [typeof src.title === 'string' && src.title.trim() ? src.title.trim() : fallbackTitle],
+    subTopics: coerceStringArray(src.subTopics),
+    facts: coerceStringArray(src.facts),
+    conceptsAndTerms: coerceStringArray(src.conceptsAndTerms),
+    causesAndEffects: coerceStringArray(src.causesAndEffects),
+    peopleAndEvents: coerceStringArray(src.peopleAndEvents),
+    relationshipsAndConclusions: coerceStringArray(src.relationshipsAndConclusions),
+    educationalObjectives: coerceStringArray(src.educationalObjectives),
+    isReligiousContent: Boolean(src.isReligiousContent),
+    summary: typeof src.summary === 'string' ? src.summary.trim() : '',
+    warnings: coerceStringArray(src.warnings),
+    hypotheticalSections: coerceStringArray(src.hypotheticalSections),
+    suggestedCategories: Array.isArray(src.suggestedCategories)
+      ? src.suggestedCategories.map((c) => ({
+          ...c,
+          topicCoverage: coerceStringArray(c?.topicCoverage),
+          coveredSubtopics: coerceStringArray(c?.coveredSubtopics),
+        }))
+      : undefined,
+    extractedVisuals: Array.isArray(src.extractedVisuals) ? src.extractedVisuals : undefined,
+    extractionMethod: src.extractionMethod,
+  };
 }
 
 export function safeParseJsonResponse<T>(text: string | undefined, contextLabel: string): T {
@@ -119,8 +206,14 @@ export function formatGeminiError(err: unknown): string {
   const msg = getErrorText(err);
   const lower = msg.toLowerCase();
 
+  if (msg.includes('Ollama') || lower.includes('11434') || lower.includes('econnrefused')) {
+    if (msg.startsWith('تعذّر') || msg.startsWith('تعذر') || msg.startsWith('لم ') || msg.startsWith('خطأ ')) {
+      return msg;
+    }
+    return 'تعذّر الاتصال بمحرك Ollama المحلي. تأكد من تشغيل Ollama ووجود نموذج Qwen على جهازك (دون الحاجة لمفتاح API أو اشتراك).';
+  }
   if (msg.includes('GEMINI_API_KEY')) {
-    return 'مفتاح Gemini API غير مهيأ على الخادم (GEMINI_API_KEY). يرجى التحقق من إعدادات المفاتيح (Settings > Secrets).';
+    return 'مفتاح Gemini API غير مهيأ على الخادم (GEMINI_API_KEY). يمكنك تشغيل Ollama محليًا دون أي مفتاح API.';
   }
   if (isAuthOrKeyError(err)) {
     return 'مفتاح Gemini API غير صالح أو لا يملك الصلاحية المطلوبة. تحقق من المفتاح في لوحة Settings > Secrets.';
@@ -141,16 +234,18 @@ export function formatGeminiError(err: unknown): string {
     lower.includes('fetch failed') ||
     lower.includes('econnreset')
   ) {
-    return 'انتهت مهلة الاتصال بخدمة Gemini أو تعذر الوصول للخادم. تحقق من الاتصال وأعد المحاولة.';
+    return 'انتهت مهلة الاتصال بخدمة الذكاء الاصطناعي أو تعذر الوصول للخادم. تحقق من تشغيل الخدمة وأعد المحاولة.';
   }
   if (
     msg.startsWith('لم ') ||
     msg.startsWith('استجابة النموذج') ||
     msg.startsWith('أعاد نموذج') ||
+    msg.startsWith('أعاد النموذج') ||
     msg.startsWith('الملف') ||
     msg.startsWith('تعذّر') ||
     msg.startsWith('تعذر') ||
     msg.startsWith('فشل ') ||
+    msg.startsWith('خطأ ') ||
     msg.startsWith('نص الدرس') ||
     msg.startsWith('لا يطابق') ||
     msg.startsWith('السؤال ') ||
@@ -456,7 +551,7 @@ export function buildFallbackTextFromAnalysis(
     lines.push(`ملخص الدرس: ${analysis.summary.trim()}`);
   }
 
-  const listSections: Array<[string, string[] | undefined]> = [
+  const listSections: Array<[string, unknown]> = [
     ['المواضيع الرئيسية', analysis.mainTopics],
     ['المواضيع الفرعية', analysis.subTopics],
     ['الحقائق الموثقة', analysis.facts],
@@ -470,21 +565,21 @@ export function buildFallbackTextFromAnalysis(
   ];
 
   for (const [label, items] of listSections) {
-    const clean = (items ?? []).map((item) => item?.trim()).filter(Boolean);
+    const clean = coerceStringArray(items);
     if (clean.length > 0) {
       lines.push(`${label}:\n- ${clean.join('\n- ')}`);
     }
   }
 
-  if (analysis.suggestedCategories?.length) {
+  if (Array.isArray(analysis.suggestedCategories) && analysis.suggestedCategories.length > 0) {
     const cats = analysis.suggestedCategories
       .filter((c) => c?.name?.trim())
-      .map(
-        (c) =>
-          `${c.name.trim()}${c.description?.trim() ? `: ${c.description.trim()}` : ''}${
-            c.topicCoverage?.length ? ` (${c.topicCoverage.join('، ')})` : ''
-          }`,
-      );
+      .map((c) => {
+        const cov = coerceStringArray(c.topicCoverage);
+        return `${c.name.trim()}${c.description?.trim() ? `: ${c.description.trim()}` : ''}${
+          cov.length ? ` (${cov.join('، ')})` : ''
+        }`;
+      });
     if (cats.length > 0) {
       lines.push(`المحاور المستخرجة:\n- ${cats.join('\n- ')}`);
     }
@@ -712,20 +807,19 @@ export function computeBoardCoverageMetrics(params: {
   const analysisSubtopics = Array.from(
     new Set(
       [
-        ...(params.analysis?.subTopics ?? []),
-        ...(params.analysis?.mainTopics ?? []),
-      ]
-        .map((s) => s?.trim())
-        .filter(Boolean) as string[],
+        ...coerceStringArray(params.analysis?.subTopics),
+        ...coerceStringArray(params.analysis?.mainTopics),
+      ],
     ),
   );
 
   const categorySubtopics = Array.from(
     new Set(
       params.categories
-        .flatMap((c) => [...(c.coveredSubtopics ?? []), ...(c.topicCoverage ?? [])])
-        .map((s) => s?.trim())
-        .filter(Boolean) as string[],
+        .flatMap((c) => [
+          ...coerceStringArray(c.coveredSubtopics),
+          ...coerceStringArray(c.topicCoverage),
+        ]),
     ),
   );
 

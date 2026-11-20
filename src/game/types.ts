@@ -72,6 +72,9 @@ export interface DeckCategory {
 export interface ExtractedPdfVisual {
   id: string;
   pageNumber: number;
+  sourceFileName?: string;
+  sourcePageNumber?: number;
+  isStandaloneImage?: boolean;
   boundingBox: [number, number, number, number];
   caption: string;
   visualType?: string;
@@ -104,7 +107,9 @@ export interface QuizQuestion {
   teamIndex?: number;
   sourceRef?: string;
   sourceSnippet?: string;
+  sourceFileName?: string;
   pageNumber?: number;
+  verificationStatus?: 'verified' | 'unverified';
   isBackup?: boolean;
   isSensitiveReligious?: boolean;
   status: CardStatus;
@@ -135,11 +140,21 @@ export interface CoverageValidationReport {
   summary: string;
 }
 
+export interface SourceFileSummary {
+  fileName: string;
+  fileType: 'pdf' | 'image';
+  fileHash: string;
+  totalPages: number;
+  readablePages: number;
+  scannedPagesCount?: number;
+}
+
 export interface PdfAnalysisReport {
   fileName: string;
   fileHash: string;
   totalPages: number;
   readablePages: number;
+  sourceFiles?: SourceFileSummary[];
   title: string;
   subjectDomain: string;
   mainTopics: string[];
@@ -156,7 +171,7 @@ export interface PdfAnalysisReport {
   hypotheticalSections?: string[];
   suggestedCategories?: SuggestedCategoryOutline[];
   extractedVisuals?: ExtractedPdfVisual[];
-  extractionMethod?: 'gemini_pdf' | 'pdf_parse';
+  extractionMethod?: 'gemini_pdf' | 'pdf_parse' | 'ollama_pymupdf' | 'ollama_vision' | 'local_hybrid';
 }
 
 export interface BoardPlanCategory {
@@ -188,6 +203,7 @@ export interface BoardPlanPreview {
   title: string;
   boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
   teamCount?: number;
+  selectedDifficulties?: Difficulty[];
   recommendedCategoryCount: number;
   categories: BoardPlanCategory[];
   canBuildFull15Board: boolean;
@@ -211,6 +227,7 @@ export interface QuizDeck {
   sourceType: 'starter' | 'curated' | 'pdf' | 'imported';
   boardMode?: 'categories' | 'team_bundles' | 'category_team_matrix';
   teamCount?: number;
+  selectedDifficulties?: Difficulty[];
   ageGroup: AgeGroup;
   createdAt: string;
   updatedAt: string;

@@ -13,9 +13,13 @@ import {
   isUnsupportedThinkingError,
   safeParseJsonResponse,
 } from './geminiHelpers';
+import {
+  callOllamaChat,
+  discoverOllamaModels,
+  generateStructuredJsonLocal,
+} from './localAiClient';
 
-// Fastest, always-free-tier Gemini 3.1 Flash Lite as primary model,
-// with free-tier Gemini 4 Flash & 2.5 Flash fallbacks for high resilience.
+// Optional Gemini fallback models (only used if Ollama is offline AND GEMINI_API_KEY is configured)
 export const PRIMARY_GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 export const FALLBACK_GEMINI_MODELS = ['gemini-4-hydrogen', 'gemini-2.5-flash'];
 
@@ -81,7 +85,58 @@ async function withRetries<T>(fn: () => Promise<T>, maxRetries = 1): Promise<T> 
   throw lastErr;
 }
 
-export async function callGeminiContentWithFallback(params: {
+function extractPromptAndImages(contents: GenerateContentParameters['contents']): {
+  promptText: string;
+  imagesBase64: string[];
+  hasNonImageBinary: boolean;
+} {
+  if (typeof contents === 'string') {
+    return { promptText: contents, imagesBase64: [], hasNonImageBinary: false };
+  }
+  if (contents && typeof contents === 'object' && 'parts' in contents && Array.isArray(contents.parts)) {
+    const textChunks: string[] = [];
+    const imagesBase64: string[] = [];
+    let hasNonImageBinary = false;
+    for (const part of contents.parts) {
+      if (!part || typeof part !== 'object') continue;
+      if ('text' in part && typeof part.text === 'string' && part.text.trim()) {
+        textChunks.push(part.text);
+      } else if ('inlineData' in part && part.inlineData && typeof part.inlineData.data === 'string') {
+        const mime = (part.inlineData.mimeType || '').toLowerCase();
+        if (mime.startsWith('image/')) {
+          imagesBase64.push(part.inlineData.data);
+        } else {
+          hasNonImageBinary = true;
+        }
+      }
+    }
+    return {
+      promptText: textChunks.join('\n\n'),
+      imagesBase64,
+      hasNonImageBinary,
+    };
+  }
+  return {
+    promptText: JSON.stringify(contents ?? ''),
+    imagesBase64: [],
+    hasNonImageBinary: false,
+  };
+}
+
+function shouldUseGeminiFixtureOnly(): boolean {
+  return (
+    process.env.AI_ENGINE === 'gemini' ||
+    (process.env.GEMINI_API_KEY === 'fixture-only' && !process.env.OLLAMA_BASE_URL)
+  );
+}
+
+async function canUseLocalOllama(): Promise<boolean> {
+  if (shouldUseGeminiFixtureOnly()) return false;
+  const probe = await discoverOllamaModels(2000);
+  return probe.reachable && probe.models.length > 0;
+}
+
+async function callGeminiRemoteOnly(params: {
   contents: GenerateContentParameters['contents'];
   config: GenerateContentConfig;
 }): Promise<string | undefined> {
@@ -164,19 +219,82 @@ export async function callGeminiContentWithFallback(params: {
   throw lastErr;
 }
 
+export async function callGeminiContentWithFallback(params: {
+  contents: GenerateContentParameters['contents'];
+  config: GenerateContentConfig;
+}): Promise<string | undefined> {
+  const sysText =
+    typeof params.config.systemInstruction === 'string'
+      ? params.config.systemInstruction
+      : undefined;
+  const extracted = extractPromptAndImages(params.contents);
+
+  if (!extracted.hasNonImageBinary && (await canUseLocalOllama())) {
+    const res = await callOllamaChat({
+      systemInstruction: sysText,
+      promptText: extracted.promptText,
+      imagesBase64: extracted.imagesBase64,
+      requireVision: extracted.imagesBase64.length > 0,
+      formatJson: params.config.responseMimeType === 'application/json',
+    });
+    return res.text;
+  }
+
+  if (process.env.GEMINI_API_KEY) {
+    return callGeminiRemoteOnly(params);
+  }
+
+  // Force explicit local Ollama call so user gets clear local Ollama instructions (never asking for API key!)
+  const res = await callOllamaChat({
+    systemInstruction: sysText,
+    promptText: extracted.promptText,
+    imagesBase64: extracted.imagesBase64,
+    requireVision: extracted.imagesBase64.length > 0,
+    formatJson: params.config.responseMimeType === 'application/json',
+  });
+  return res.text;
+}
+
 export async function generateStructuredJsonWithFallback<T>(params: {
   contents: GenerateContentParameters['contents'];
   config: GenerateContentConfig;
   contextLabel: string;
 }): Promise<T> {
   try {
-    const rawText = await callGeminiContentWithFallback({
-      contents: params.contents,
-      config: params.config,
+    const sysText =
+      typeof params.config.systemInstruction === 'string'
+        ? params.config.systemInstruction
+        : undefined;
+    const extracted = extractPromptAndImages(params.contents);
+
+    if (!extracted.hasNonImageBinary && (await canUseLocalOllama())) {
+      return await generateStructuredJsonLocal<T>({
+        systemInstruction: sysText,
+        promptText: extracted.promptText,
+        imagesBase64: extracted.imagesBase64,
+        requireVision: extracted.imagesBase64.length > 0,
+        contextLabel: params.contextLabel,
+      });
+    }
+
+    if (process.env.GEMINI_API_KEY) {
+      const rawText = await callGeminiRemoteOnly({
+        contents: params.contents,
+        config: params.config,
+      });
+      return safeParseJsonResponse<T>(rawText, params.contextLabel);
+    }
+
+    // No GEMINI_API_KEY -> invoke local Ollama directly (with clear local connection diagnostics if offline)
+    return await generateStructuredJsonLocal<T>({
+      systemInstruction: sysText,
+      promptText: extracted.promptText,
+      imagesBase64: extracted.imagesBase64,
+      requireVision: extracted.imagesBase64.length > 0,
+      contextLabel: params.contextLabel,
     });
-    return safeParseJsonResponse<T>(rawText, params.contextLabel);
   } catch (err) {
-    console.error(`[geminiClient] ${params.contextLabel} failed:`, err);
+    console.error(`[aiClient] ${params.contextLabel} failed:`, err);
     if (isQuotaError(err)) {
       throw err;
     }

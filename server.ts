@@ -38,8 +38,11 @@ import {
 } from './server/gameAssistant';
 import {
   detectVisualRegionsFromPageImages,
+  extractAndAnalyzeBatch,
   extractAndParsePdfWithGemini,
+  type ClientRenderedPageRef,
 } from './server/pdfExtractorService';
+import { getLocalAiStatus } from './server/localAiClient';
 import { PRIMARY_GEMINI_MODEL } from './server/geminiClient';
 import {
   formatGeminiError,
@@ -48,13 +51,16 @@ import {
 } from './server/geminiHelpers';
 import { roomManager } from './server/roomStore';
 import {
-  selectLibrary,
   deleteDeckById,
+  deleteGenerationJob,
   getCachedPdfPlan,
   getDeckById,
+  getGenerationJob,
+  listResumableGenerationJobs,
   loadDecks,
   saveCachedPdfVisuals,
   saveDeck,
+  selectLibrary,
 } from './server/storage';
 
 const portFlagIdx = process.argv.indexOf('--port');
@@ -67,7 +73,7 @@ const PORT =
       : 3000;
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 20 * 1024 * 1024 },
+  limits: { fileSize: 25 * 1024 * 1024, files: 24 },
 });
 
 async function startServer() {
@@ -125,14 +131,21 @@ async function startServer() {
     }
   });
 
-  app.get('/api/health', (_req, res) => {
+  app.get('/api/health', async (_req, res) => {
+    const localAi = await getLocalAiStatus().catch(() => null);
     res.json({
       ok: true,
       service: 'yemken-hay',
       version: 2,
-      aiConfigured: Boolean(process.env.GEMINI_API_KEY),
-      aiModel: PRIMARY_GEMINI_MODEL,
+      aiConfigured: Boolean(localAi?.engine === 'ollama' || process.env.GEMINI_API_KEY),
+      aiModel: localAi?.selectedTextModel || PRIMARY_GEMINI_MODEL,
+      localAi,
     });
+  });
+
+  app.get('/api/local-ai/status', async (_req, res) => {
+    const status = await getLocalAiStatus();
+    res.json(status);
   });
 
   app.use(['/api/decks', '/api/pdf'], selectLibrary);
@@ -286,6 +299,7 @@ async function startServer() {
       rawMsg.includes('تالف') ||
       rawMsg.includes('استخراج نص كافٍ') ||
       rawMsg.includes('حجم ملف الـ PDF') ||
+      rawMsg.includes('صيغة الملف') ||
       rawMsg.includes('فشل قراءة ملف PDF');
     if (isClientPdfError) {
       return res.status(422).json({ error: rawMsg });
@@ -299,30 +313,61 @@ async function startServer() {
     return res.status(500).json({ error: formatGeminiError(err) || fallbackMsg });
   };
 
-  // --- 4-Stage AI PDF Engine Endpoints ---
-  const handlePdfUploadExtract = (
-    req: express.Request,
-    res: express.Response,
-    extractor: typeof extractAndParsePdfWithGemini,
-  ) => {
-    upload.single('file')(req, res, async (uploadErr) => {
+  // --- 4-Stage Multi-File Local/Hybrid AI Engine Endpoints ---
+  const handlePdfUploadExtract = (req: express.Request, res: express.Response) => {
+    upload.fields([
+      { name: 'files', maxCount: 24 },
+      { name: 'file', maxCount: 1 },
+    ])(req, res, async (uploadErr) => {
       if (uploadErr) {
         const msg =
           uploadErr instanceof multer.MulterError && uploadErr.code === 'LIMIT_FILE_SIZE'
-            ? 'حجم ملف الـ PDF يتجاوز الحد الأقصى المسموح به (20 ميجابايت).'
-            : 'تعذر رفع ملف الـ PDF. تأكد من سلامة الملف وحاول مجددًا.';
+            ? 'حجم أحد الملفات يتجاوز الحد الأقصى المسموح به (25 ميجابايت للملف).'
+            : 'تعذر رفع الملفات. تأكد من سلامة الملفات وحاول مجددًا.';
         return res.status(400).json({ error: msg });
       }
       try {
-        if (!req.file) {
-          return res.status(400).json({ error: 'يرجى اختيار ملف PDF أولًا.' });
+        const uploadedRecord = (req.files ?? {}) as Record<string, Express.Multer.File[]>;
+        const filesList: Express.Multer.File[] = [
+          ...(uploadedRecord.files ?? []),
+          ...(uploadedRecord.file ?? []),
+          ...(req.file ? [req.file] : []),
+        ];
+        if (filesList.length === 0) {
+          return res.status(400).json({ error: 'يرجى اختيار ملف PDF أو صورة أولًا.' });
         }
         const ageGroup = (req.body?.ageGroup as AgeGroup) || 'mixed';
-        const { cachedText, report } = await extractor(
-          req.file.buffer,
-          req.file.originalname || 'lesson.pdf',
-          ageGroup,
-        );
+        let clientRenderedPages: ClientRenderedPageRef[] | undefined;
+        if (typeof req.body?.clientRenderedPages === 'string' && req.body.clientRenderedPages.trim()) {
+          try {
+            const parsedPages = JSON.parse(req.body.clientRenderedPages);
+            if (Array.isArray(parsedPages)) {
+              clientRenderedPages = parsedPages as ClientRenderedPageRef[];
+            }
+          } catch {
+            // Ignore malformed optional client-rendered pages JSON
+          }
+        }
+
+        const { cachedText, report } =
+          filesList.length === 1 &&
+          filesList[0].originalname.toLowerCase().endsWith('.pdf') &&
+          process.env.AI_ENGINE === 'gemini'
+            ? await extractAndParsePdfWithGemini(
+                filesList[0].buffer,
+                filesList[0].originalname || 'lesson.pdf',
+                ageGroup,
+              )
+            : await extractAndAnalyzeBatch({
+                files: filesList.map((f) => ({
+                  buffer: f.buffer,
+                  fileName: f.originalname || 'lesson.pdf',
+                  mimeType: f.mimetype,
+                })),
+                ageGroup,
+                clientRenderedPages,
+              });
+
         const cachedPlan = getCachedPdfPlan(report.fileHash);
         const validCachedPlan =
           cachedPlan?.plan?.boardMode === 'category_team_matrix' ? cachedPlan.plan : null;
@@ -330,23 +375,36 @@ async function startServer() {
           report,
           rawText: cachedText.fullText,
           pages: cachedText.pages,
+          sourceFiles: cachedText.sourceFiles ?? report.sourceFiles ?? [],
           extractedVisuals: cachedText.extractedVisuals ?? [],
           suggestedCategories: report.suggestedCategories ?? [],
           cachedPlan: validCachedPlan,
         });
       } catch (err) {
-        handlePdfAiError(res, err, 'تعذر تحليل ملف PDF.');
+        handlePdfAiError(res, err, 'تعذر تحليل الملفات المرفوعة.');
       }
     });
   };
 
-  app.post('/api/pdf/extract', (req, res) =>
-    handlePdfUploadExtract(req, res, extractAndParsePdfWithGemini),
-  );
+  app.post('/api/pdf/extract', (req, res) => handlePdfUploadExtract(req, res));
 
-  app.post('/api/pdf/analyze', (req, res) =>
-    handlePdfUploadExtract(req, res, analyzePdfLesson),
-  );
+  app.post('/api/pdf/analyze', (req, res) => handlePdfUploadExtract(req, res));
+
+  app.get('/api/pdf/jobs', (req, res) => {
+    const includeCompleted = req.query.all === '1';
+    res.json({ jobs: listResumableGenerationJobs(includeCompleted) });
+  });
+
+  app.get('/api/pdf/jobs/:jobId', (req, res) => {
+    const job = getGenerationJob(req.params.jobId);
+    if (!job) return res.status(404).json({ error: 'جلسة التوليد غير موجودة.' });
+    res.json({ job });
+  });
+
+  app.delete('/api/pdf/jobs/:jobId', (req, res) => {
+    const deleted = deleteGenerationJob(req.params.jobId);
+    res.json({ ok: deleted, jobs: listResumableGenerationJobs(false) });
+  });
 
   app.post('/api/pdf/detect-images', async (req, res) => {
     try {
@@ -404,6 +462,7 @@ async function startServer() {
         teamCount,
         desiredCategoriesCount,
         categoryCount,
+        selectedDifficulties,
         ageGroup,
         rawText,
         extractedText,
@@ -415,6 +474,7 @@ async function startServer() {
         teamCount?: number;
         desiredCategoriesCount?: number;
         categoryCount?: number;
+        selectedDifficulties?: Difficulty[];
         ageGroup?: AgeGroup;
         rawText?: string;
         extractedText?: string;
@@ -432,6 +492,7 @@ async function startServer() {
         analysis,
         teamCount: Number(teamCount ?? 3),
         desiredCategoriesCount: Number(desiredCategoriesCount ?? categoryCount ?? 5),
+        selectedDifficulties,
         ageGroup: ageGroup || 'mixed',
         rawText: rawText ?? extractedText ?? text,
         pages,
@@ -448,6 +509,8 @@ async function startServer() {
       analysis,
       plan,
       ageGroup,
+      selectedDifficulties,
+      resumeJobId,
       includeBackups,
       existingDeckId,
       rawText,
@@ -461,6 +524,8 @@ async function startServer() {
       analysis?: PdfAnalysisReport;
       plan?: BoardPlanPreview;
       ageGroup?: AgeGroup;
+      selectedDifficulties?: Difficulty[];
+      resumeJobId?: string;
       includeBackups?: boolean;
       existingDeckId?: string;
       rawText?: string;
@@ -471,7 +536,12 @@ async function startServer() {
       stream?: boolean;
     };
 
-    if ((!fileHash && !analysis?.fileHash) || !analysis || !plan) {
+    const savedJob = resumeJobId ? getGenerationJob(resumeJobId) : null;
+    const effectiveAnalysis = analysis ?? savedJob?.analysis;
+    const effectivePlan = plan ?? savedJob?.plan;
+    const effectiveFileHash = fileHash || effectiveAnalysis?.fileHash || savedJob?.fileHash || '';
+
+    if (!effectiveFileHash || !effectiveAnalysis || !effectivePlan) {
       return res.status(400).json({ error: 'خطة اللوحة مطلوبة قبل التوليد.' });
     }
 
@@ -487,18 +557,24 @@ async function startServer() {
         }
       };
 
+      let latestJobId = resumeJobId;
       try {
         const result = await generateBoardFromPlan({
-          fileHash: fileHash || analysis.fileHash,
-          analysis,
-          plan,
-          ageGroup: ageGroup || 'mixed',
+          fileHash: effectiveFileHash,
+          analysis: effectiveAnalysis,
+          plan: effectivePlan,
+          ageGroup: ageGroup || savedJob?.ageGroup || 'mixed',
+          selectedDifficulties: selectedDifficulties ?? savedJob?.selectedDifficulties,
+          resumeJobId,
           includeBackups: includeBackups !== false,
           existingDeckId,
           rawText: rawText ?? extractedText ?? text,
           pages,
           extractedVisuals,
-          onProgress: (ev) => writeEvent('progress', ev),
+          onProgress: (ev) => {
+            if (ev.jobId) latestJobId = ev.jobId;
+            writeEvent('progress', ev);
+          },
         });
         writeEvent('done', result);
         res.end();
@@ -506,6 +582,7 @@ async function startServer() {
         const errorMsg = formatGeminiError(err) || 'تعذر توليد أسئلة اللوحة من الملف.';
         writeEvent('error', {
           error: errorMsg,
+          jobId: latestJobId,
           status: isQuotaError(err) ? 429 : isServiceUnavailableError(err) ? 503 : 500,
         });
         res.end();
@@ -515,10 +592,12 @@ async function startServer() {
 
     try {
       const result = await generateBoardFromPlan({
-        fileHash: fileHash || analysis.fileHash,
-        analysis,
-        plan,
-        ageGroup: ageGroup || 'mixed',
+        fileHash: effectiveFileHash,
+        analysis: effectiveAnalysis,
+        plan: effectivePlan,
+        ageGroup: ageGroup || savedJob?.ageGroup || 'mixed',
+        selectedDifficulties: selectedDifficulties ?? savedJob?.selectedDifficulties,
+        resumeJobId,
         includeBackups: includeBackups !== false,
         existingDeckId,
         rawText: rawText ?? extractedText ?? text,

@@ -292,7 +292,15 @@ export function validateQuizQuestion(
     teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,
     sourceRef: question.sourceRef?.trim() || question.subtopic?.trim() || undefined,
     sourceSnippet: question.sourceSnippet?.trim() || undefined,
+    sourceFileName:
+      typeof question.sourceFileName === 'string' && question.sourceFileName.trim()
+        ? question.sourceFileName.trim()
+        : undefined,
     pageNumber: question.pageNumber,
+    verificationStatus:
+      question.verificationStatus === 'verified' || question.verificationStatus === 'unverified'
+        ? question.verificationStatus
+        : undefined,
     isBackup: Boolean(question.isBackup),
     isSensitiveReligious: isSensitive,
     status,
@@ -328,6 +336,17 @@ export function isCategoryTeamMatrixDeck(
   );
 }
 
+export function resolveDeckDifficulties(
+  deck: Pick<QuizDeck, 'selectedDifficulties' | 'boardPlan'>,
+): Difficulty[] {
+  const raw = deck.selectedDifficulties ?? deck.boardPlan?.selectedDifficulties;
+  const order: Difficulty[] = ['easy', 'medium', 'hard'];
+  if (!Array.isArray(raw) || raw.length === 0) return order;
+  const validSet = new Set(raw.filter((d): d is Difficulty => d === 'easy' || d === 'medium' || d === 'hard'));
+  const ordered = order.filter((d) => validSet.has(d));
+  return ordered.length > 0 ? ordered : order;
+}
+
 export function selectActiveBoardForDeck(
   deck: QuizDeck,
   requestedCategoryCount = 5,
@@ -341,6 +360,7 @@ export function selectActiveBoardForDeck(
   const poolToUse = deck.questions.filter((q) => q.status === 'approved');
   const matrixMode = isCategoryTeamMatrixDeck(deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
+  const difficulties = resolveDeckDifficulties(deck);
 
   if (matrixMode) {
     const matrixCatCount = Math.max(
@@ -357,7 +377,6 @@ export function selectActiveBoardForDeck(
     );
     const tiles: BoardTileState[] = [];
     const usedIds = new Set<string>();
-    const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
 
     for (const cat of categories) {
       for (let teamIdx = 0; teamIdx < effectiveTeamCount; teamIdx++) {
@@ -421,7 +440,6 @@ export function selectActiveBoardForDeck(
     const usedIds = new Set<string>();
 
     categories.forEach((cat, catIdx) => {
-      const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
       for (const diff of difficulties) {
         const primary = poolToUse.find(
           (q) =>
@@ -465,7 +483,6 @@ export function selectActiveBoardForDeck(
   const usedIds = new Set<string>();
 
   for (const cat of categories) {
-    const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
     for (const diff of difficulties) {
       const available = poolToUse.filter(
         (q) => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id),
@@ -535,6 +552,9 @@ export function runBoardPreflightCheck(params: {
         ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id))
         : deck.categories.slice(0, desiredCount);
 
+  const activeDifficulties = resolveDeckDifficulties(deck);
+  const tiersSummaryText = activeDifficulties.map((d) => pointsForDifficulty(d)).join(' / ');
+
   // 1. Category / Team Bundle / Matrix count check
   if (matrixMode) {
     const matchesTeams =
@@ -545,7 +565,7 @@ export function runBoardPreflightCheck(params: {
       passed: matchesTeams,
       severity: 'error',
       detail: matchesTeams
-        ? `${expectedMatrixCategories} فئات رئيسية × ${expectedTeamBundles} فرق × 3 مستويات = ${expectedMatrixCategories * expectedTeamBundles * 3} سؤالًا`
+        ? `${expectedMatrixCategories} فئات رئيسية × ${expectedTeamBundles} فرق × ${activeDifficulties.length} مستويات = ${expectedMatrixCategories * expectedTeamBundles * activeDifficulties.length} سؤالًا`
         : selectedCats.length !== expectedMatrixCategories
           ? `يجب توفر ${expectedMatrixCategories} فئات رئيسية (المتاح ${selectedCats.length})`
           : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
@@ -558,7 +578,7 @@ export function runBoardPreflightCheck(params: {
       passed: matchesTeams,
       severity: 'error',
       detail: matchesTeams
-        ? `${expectedTeamBundles} حزم فرق جاهزة (${expectedTeamBundles * 3} أسئلة)`
+        ? `${expectedTeamBundles} حزم فرق جاهزة (${expectedTeamBundles * activeDifficulties.length} أسئلة)`
         : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
     });
   } else {
@@ -574,14 +594,14 @@ export function runBoardPreflightCheck(params: {
     });
   }
 
-  // 2. Every category (and every team slot in matrixMode) has 200, 400, 600 approved questions
+  // 2. Every category (and every team slot in matrixMode) has selected difficulty approved questions
   const approvedPrimary = deck.questions.filter((q) => q.status === 'approved' && !q.isBackup);
   const missingSlots: string[] = [];
   if (matrixMode) {
     const approvedUsedIds = new Set<string>();
     for (const cat of selectedCats) {
       for (let teamIdx = 0; teamIdx < expectedTeamBundles; teamIdx++) {
-        for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
+        for (const diff of activeDifficulties) {
           const match =
             deck.questions.find(
               (q) =>
@@ -610,7 +630,7 @@ export function runBoardPreflightCheck(params: {
     }
   } else {
     for (const cat of selectedCats) {
-      for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
+      for (const diff of activeDifficulties) {
         const hasSlot = deck.questions.some(
           (q) =>
             q.categoryId === cat.id &&
@@ -632,8 +652,8 @@ export function runBoardPreflightCheck(params: {
   checks.push({
     id: 'all_tiers_present',
     label: matrixMode
-      ? 'كل فئة تحتوي 3 أسئلة معتمدة (200 / 400 / 600) لكل فريق'
-      : 'كل فئة تحتوي أسئلة سهل (200) ومتوسط (400) وصعب (600)',
+      ? `كل فئة تحتوي ${activeDifficulties.length} أسئلة معتمدة (${tiersSummaryText}) لكل فريق`
+      : `كل فئة تحتوي المستويات المختارة (${tiersSummaryText})`,
     passed: missingSlots.length === 0 && selectedCats.length > 0,
     severity: 'error',
     detail:
@@ -772,6 +792,7 @@ export function sanitizeDeckForExport(deck: QuizDeck): Record<string, unknown> {
       sourceType: deck.sourceType,
       boardMode: deck.boardMode,
       teamCount: deck.teamCount,
+      selectedDifficulties: deck.selectedDifficulties,
       ageGroup: deck.ageGroup,
       categories: deck.categories,
       questions: deck.questions.filter((q) => q.status !== 'rejected'),

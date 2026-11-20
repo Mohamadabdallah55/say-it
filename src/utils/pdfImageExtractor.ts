@@ -132,22 +132,53 @@ function cropCanvasRegion(
 }
 
 /**
+ * Renders PDF pages as compact JPEG base64 images so local Vision OCR can read
+ * scanned PDF pages even if server-side PyMuPDF isn't available.
+ */
+export async function renderPdfPagesForServerOcr(
+  files: File[],
+  maxPagesPerFile = 10,
+): Promise<Array<{ fileName: string; pageNumber: number; imageBase64: string }>> {
+  const results: Array<{ fileName: string; pageNumber: number; imageBase64: string }> = [];
+  for (const file of files) {
+    const isPdf =
+      file.name.toLowerCase().endsWith('.pdf') || file.type === 'application/pdf';
+    if (!isPdf) continue;
+    try {
+      const { rendered } = await renderPdfPages(file);
+      for (const page of rendered.slice(0, maxPagesPerFile)) {
+        results.push({
+          fileName: file.name,
+          pageNumber: page.pageNumber,
+          imageBase64: page.detectionImageBase64,
+        });
+      }
+    } catch {
+      // Non-fatal fallback
+    }
+  }
+  return results;
+}
+
+/**
  * 1. Renders PDF pages to images via pdf.js + HTML5 Canvas.
- * 2. Asks Gemini via /api/pdf/detect-images for bounding_box [ymin, xmin, ymax, xmax] (0..1000) & captions.
- * 3. Crops detected regions via HTML5 Canvas and returns base64 images tagged with pageNumber.
+ * 2. Asks Vision engine via /api/pdf/detect-images for bounding_box [ymin, xmin, ymax, xmax] (0..1000) & captions.
+ * 3. Crops detected regions via HTML5 Canvas and returns base64 images tagged with pageNumber & sourceFileName.
  */
 export async function extractAndCropPdfVisuals(
   file: File,
   options?: {
     subjectHint?: string;
+    pageOffset?: number;
     onProgress?: (msg: string) => void;
   },
-): Promise<{ visuals: ExtractedPdfVisual[]; warning?: string }> {
+): Promise<{ visuals: ExtractedPdfVisual[]; totalPages: number; warning?: string }> {
   const onProgress = options?.onProgress;
   const subjectHint = options?.subjectHint;
-  const { rendered } = await renderPdfPages(file, onProgress);
+  const pageOffset = options?.pageOffset ?? 0;
+  const { totalPages, rendered } = await renderPdfPages(file, onProgress);
   if (rendered.length === 0) {
-    return { visuals: [] };
+    return { visuals: [], totalPages };
   }
 
   const canvasByPage = new Map<number, HTMLCanvasElement>(
@@ -169,8 +200,8 @@ export async function extractAndCropPdfVisuals(
     const lastP = batch[batch.length - 1].pageNumber;
     onProgress?.(
       firstP === lastP
-        ? `تحديد الصور والمخططات التوضيحية في الصفحة ${firstP}...`
-        : `تحديد الصور والمخططات التوضيحية (الصفحات ${firstP}–${lastP})...`,
+        ? `تحديد الصور والمخططات التوضيحية في ${file.name} (ص ${firstP})...`
+        : `تحديد الصور والمخططات التوضيحية في ${file.name} (${firstP}–${lastP})...`,
     );
 
     try {
@@ -229,9 +260,12 @@ export async function extractAndCropPdfVisuals(
     if (!sourceCanvas) continue;
     const cropped = cropCanvasRegion(sourceCanvas, det.boundingBox);
     if (!cropped) continue;
+    const globalPage = pageOffset + det.pageNumber;
     visuals.push({
-      id: `vis_p${det.pageNumber}_${i + 1}`,
-      pageNumber: det.pageNumber,
+      id: `vis_p${globalPage}_${i + 1}`,
+      pageNumber: globalPage,
+      sourceFileName: file.name,
+      sourcePageNumber: det.pageNumber,
       boundingBox: det.boundingBox,
       caption: det.caption,
       visualType: det.visualType,
@@ -245,9 +279,49 @@ export async function extractAndCropPdfVisuals(
 
   return {
     visuals,
+    totalPages,
     warning:
       hadDetectionError && visuals.length === 0
         ? 'تعذر فحص بعض الصور والمخططات من الصفحات تلقائيًا؛ تم متابعة التحليل النصي بالكامل.'
         : undefined,
   };
 }
+
+/**
+ * Extracts & crops useful visual figures across all PDFs in a multi-file batch.
+ */
+export async function extractAndCropBatchVisuals(
+  files: File[],
+  options?: {
+    subjectHint?: string;
+    onProgress?: (msg: string) => void;
+  },
+): Promise<{ visuals: ExtractedPdfVisual[]; warning?: string }> {
+  const allVisuals: ExtractedPdfVisual[] = [];
+  let pageOffset = 0;
+  let lastWarning: string | undefined;
+
+  for (const file of files) {
+    const isPdf =
+      file.name.toLowerCase().endsWith('.pdf') || file.type === 'application/pdf';
+    if (!isPdf) {
+      pageOffset += 1;
+      continue;
+    }
+    try {
+      const res = await extractAndCropPdfVisuals(file, {
+        subjectHint: options?.subjectHint,
+        pageOffset,
+        onProgress: options?.onProgress,
+      });
+      allVisuals.push(...res.visuals);
+      pageOffset += res.totalPages || 1;
+      if (res.warning) lastWarning = res.warning;
+    } catch {
+      pageOffset += 1;
+    }
+  }
+
+  return { visuals: allVisuals, warning: lastWarning };
+}
+

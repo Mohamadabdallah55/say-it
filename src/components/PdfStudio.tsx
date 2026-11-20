@@ -1,18 +1,23 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AlertTriangle,
   Check,
   CheckCircle2,
+  Cpu,
   Download,
   Edit3,
+  FileText,
+  Image as ImageIcon,
   Layers,
   Loader2,
   Play,
   RefreshCw,
+  RotateCcw,
   ShieldAlert,
   Sparkles,
   Trash2,
   Upload,
+  X,
   XCircle,
 } from 'lucide-react';
 import {
@@ -20,6 +25,7 @@ import {
   isCategoryTeamMatrixDeck,
   pointsForDifficulty,
   QUESTION_TYPE_LABELS,
+  resolveDeckDifficulties,
 } from '../game/pdfValidation';
 import type {
   AgeGroup,
@@ -32,10 +38,64 @@ import type {
   QuizDeck,
   QuizQuestion,
 } from '../game/types';
-import { extractAndCropPdfVisuals } from '../utils/pdfImageExtractor';
+import {
+  extractAndCropBatchVisuals,
+  renderPdfPagesForServerOcr,
+} from '../utils/pdfImageExtractor';
 import { soundFX } from '../utils/sound';
 import { QuestionMedia } from './QuestionMedia';
 import { TopNavHeader } from './TopNavHeader';
+
+interface LocalAiStatusSummary {
+  engine: 'ollama' | 'gemini_fallback' | 'unavailable';
+  ollamaReachable: boolean;
+  baseUrl: string;
+  installedModels: string[];
+  selectedTextModel: string | null;
+  selectedVisionModel: string | null;
+  pymupdfAvailable: boolean;
+  pymupdfVersion?: string;
+  geminiFallbackConfigured?: boolean;
+  message: string;
+}
+
+interface ResumableJobSummary {
+  jobId: string;
+  title: string;
+  fileNames: string[];
+  ageGroup: AgeGroup;
+  status: 'in_progress' | 'paused' | 'completed' | 'failed';
+  completedCategoryIds: string[];
+  addedCount: number;
+  targetQuestions: number;
+  selectedDifficulties: Difficulty[];
+  lastError?: string;
+  updatedAt: string;
+  deck: QuizDeck;
+  analysis: PdfAnalysisReport;
+  plan: BoardPlanPreview;
+}
+
+const ACTIVE_JOB_STORAGE_KEY = 'yemken-active-pdf-job';
+const DIFFICULTY_OPTIONS: Array<{ id: Difficulty; label: string; pts: number }> = [
+  { id: 'easy', label: 'سهل', pts: 200 },
+  { id: 'medium', label: 'متوسط', pts: 400 },
+  { id: 'hard', label: 'صعب', pts: 600 },
+];
+
+function isSupportedBatchFile(file: File): boolean {
+  const lower = file.name.toLowerCase();
+  return (
+    lower.endsWith('.pdf') ||
+    file.type === 'application/pdf' ||
+    /\.(png|jpe?g|webp|gif|bmp)$/i.test(lower) ||
+    file.type.startsWith('image/')
+  );
+}
+
+function isPdfBatchFile(file: File): boolean {
+  return file.name.toLowerCase().endsWith('.pdf') || file.type === 'application/pdf';
+}
 
 interface PdfStudioProps {
   initialDeck?: QuizDeck | null;
@@ -79,7 +139,7 @@ export function PdfStudio({
   const [step, setStep] = useState<'upload' | 'analysis' | 'plan' | 'review'>(
     initialDeck ? 'review' : 'upload',
   );
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [ageGroup, setAgeGroup] = useState<AgeGroup>(initialDeck?.ageGroup ?? 'mixed');
   const [categoryCount, setCategoryCount] = useState<number>(
     initialDeck?.boardPlan?.recommendedCategoryCount ??
@@ -93,7 +153,12 @@ export function PdfStudio({
   const [teamCount, setTeamCount] = useState<number>(
     initialDeck?.teamCount ?? (initialDeck?.boardMode === 'team_bundles' ? initialDeck.categories.length : 3),
   );
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(
+    initialDeck ? resolveDeckDifficulties(initialDeck) : ['easy', 'medium', 'hard'],
+  );
   const [focusedQuestionId, setFocusedQuestionId] = useState<string | null>(null);
+  const [localStatus, setLocalStatus] = useState<LocalAiStatusSummary | null>(null);
+  const [resumableJobs, setResumableJobs] = useState<ResumableJobSummary[]>([]);
 
   const [analysis, setAnalysis] = useState<PdfAnalysisReport | null>(
     initialDeck?.pdfAnalysis ?? null,
@@ -131,6 +196,39 @@ export function PdfStudio({
     candidateQuestion: QuizQuestion;
   } | null>(null);
 
+  const refreshLocalAndJobs = async () => {
+    try {
+      const [statusRes, jobsRes] = await Promise.all([
+        fetch('/api/local-ai/status'),
+        fetch('/api/pdf/jobs'),
+      ]);
+      if (statusRes.ok) {
+        setLocalStatus((await statusRes.json()) as LocalAiStatusSummary);
+      }
+      if (jobsRes.ok) {
+        const jobsData = (await jobsRes.json()) as { jobs?: ResumableJobSummary[] };
+        setResumableJobs(Array.isArray(jobsData.jobs) ? jobsData.jobs : []);
+      }
+    } catch {
+      // Non-fatal status check
+    }
+  };
+
+  useEffect(() => {
+    void refreshLocalAndJobs();
+  }, []);
+
+  const toggleDifficulty = (diff: Difficulty) => {
+    setSelectedDifficulties((prev) => {
+      if (prev.includes(diff)) {
+        if (prev.length === 1) return prev; // keep at least 1 tier active
+        return prev.filter((d) => d !== diff);
+      }
+      const order: Difficulty[] = ['easy', 'medium', 'hard'];
+      return order.filter((d) => d === diff || prev.includes(d));
+    });
+  };
+
   const stats = useMemo(() => {
     if (!deck) return { total: 0, approved: 0, needsReview: 0, rejected: 0, backups: 0 };
     return {
@@ -142,55 +240,78 @@ export function PdfStudio({
     };
   }, [deck]);
 
-  // STAGE 1: Upload & Extract/Analyze PDF via Gemini
-  const handleAnalyzePdf = async (file = selectedFile) => {
+  // STAGE 1: Upload & Extract/Analyze Multiple PDFs + Images via Local PyMuPDF + Ollama Vision/Qwen
+  const handleAnalyzePdf = async (filesInput = selectedFiles) => {
     if (inFlightRef.current) return;
-    if (!file) {
-      setError('يرجى اختيار ملف PDF أولًا.');
+    if (!filesInput.length) {
+      setError('يرجى اختيار ملف PDF أو صورة واحدة على الأقل.');
       return;
     }
-    const lowerName = file.name.toLowerCase();
-    if (!lowerName.endsWith('.pdf') && file.type !== 'application/pdf') {
-      setError('يرجى اختيار ملف بصيغة PDF صالحة (.pdf).');
-      return;
+    for (const f of filesInput) {
+      if (!isSupportedBatchFile(f)) {
+        setError(`صيغة الملف «${f.name}» غير مدعومة. الصيغ المدعومة: PDF، PNG، JPG، WEBP.`);
+        return;
+      }
+      if (f.size === 0) {
+        setError(`الملف «${f.name}» فارغ.`);
+        return;
+      }
+      if (f.size > 25 * 1024 * 1024) {
+        setError(`حجم الملف «${f.name}» يتجاوز الحد الأقصى المسموح به (25 ميجابايت).`);
+        return;
+      }
     }
-    if (file.size === 0) {
-      setError('الملف المحدد فارغ.');
-      return;
-    }
-    if (file.size > 20 * 1024 * 1024) {
-      setError('حجم ملف الـ PDF يتجاوز الحد الأقصى المسموح به (20 ميجابايت).');
-      return;
-    }
+
     inFlightRef.current = true;
     setError(null);
     setStatusBanner(null);
-      setBusyMessage('المرحلة 1/4: جارٍ استخراج النص والجداول والمواضيع الرئيسية والفرعية عبر Gemini...');
-      try {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('ageGroup', ageGroup);
+    setBusyMessage(
+      filesInput.length > 1
+        ? `المرحلة 1/4: جارٍ استخراج النصوص والصور من ${filesInput.length} ملفات وتحليلها بعمق...`
+        : 'المرحلة 1/4: جارٍ استخراج النص والجداول والصور وفهم كامل صفحات المحتوى...',
+    );
 
-        const res = await fetch('/api/pdf/extract', { method: 'POST', body: formData });
-        const data = await parseApiJson<{
-          error?: string;
-          report?: PdfAnalysisReport;
-          rawText?: string;
-          pages?: Array<{ num: number; text: string }>;
-          extractedVisuals?: ExtractedPdfVisual[];
-          cachedPlan?: BoardPlanPreview | null;
-        }>(res);
-        if (!res.ok || !data.report) throw new Error(data.error || 'تعذر تحليل ملف PDF.');
+    try {
+      const formData = new FormData();
+      for (const f of filesInput) {
+        formData.append('files', f);
+      }
+      formData.append('ageGroup', ageGroup);
 
-        let visuals = Array.isArray(data.extractedVisuals) ? data.extractedVisuals : [];
-        if (visuals.length === 0) {
-          try {
-            const visualResult = await extractAndCropPdfVisuals(file, {
-              subjectHint: data.report.title,
-              onProgress: (msg) => setBusyMessage(msg),
-            });
-            visuals = visualResult.visuals;
-            if (visuals.length > 0 && data.report.fileHash) {
+      // If server PyMuPDF is absent and PDFs are present, pre-render pages client-side so scanned PDFs still get OCR
+      const pdfFiles = filesInput.filter(isPdfBatchFile);
+      if (pdfFiles.length > 0 && localStatus && !localStatus.pymupdfAvailable) {
+        setBusyMessage('جارٍ تجهيز معاينة صفحات PDF للقراءة البصرية عند الحاجة...');
+        const preRendered = await renderPdfPagesForServerOcr(pdfFiles, 6);
+        if (preRendered.length > 0) {
+          formData.append('clientRenderedPages', JSON.stringify(preRendered));
+        }
+      }
+
+      setBusyMessage(
+        'المرحلة 1/4: جارٍ استخراج المحتوى وفهم الأفكار والصور عبر المحرك المحلي...',
+      );
+      const res = await fetch('/api/pdf/extract', { method: 'POST', body: formData });
+      const data = await parseApiJson<{
+        error?: string;
+        report?: PdfAnalysisReport;
+        rawText?: string;
+        pages?: Array<{ num: number; text: string }>;
+        extractedVisuals?: ExtractedPdfVisual[];
+        cachedPlan?: BoardPlanPreview | null;
+      }>(res);
+      if (!res.ok || !data.report) throw new Error(data.error || 'تعذر تحليل الملفات المرفوعة.');
+
+      let visuals = Array.isArray(data.extractedVisuals) ? data.extractedVisuals : [];
+      if (pdfFiles.length > 0 && !visuals.some((v) => !v.isStandaloneImage)) {
+        try {
+          const visualResult = await extractAndCropBatchVisuals(filesInput, {
+            subjectHint: data.report.title,
+            onProgress: (msg) => setBusyMessage(msg),
+          });
+          if (visualResult.visuals.length > 0) {
+            visuals = [...visuals, ...visualResult.visuals];
+            if (data.report.fileHash) {
               void fetch('/api/pdf/save-visuals', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -200,174 +321,225 @@ export function PdfStudio({
                 }),
               }).catch(() => undefined);
             }
-          } catch (visualErr) {
-            console.warn('[PdfStudio] Visual extraction skipped:', visualErr);
           }
+        } catch (visualErr) {
+          console.warn('[PdfStudio] Visual extraction skipped:', visualErr);
         }
-
-        setAnalysis(data.report);
-        setRawText(typeof data.rawText === 'string' ? data.rawText : '');
-        setExtractedPages(Array.isArray(data.pages) ? data.pages : []);
-        setExtractedVisuals(visuals);
-        setDeck(null);
-        const matchingCachedPlan =
-          data.cachedPlan &&
-          data.cachedPlan.categories.length === categoryCount &&
-          data.cachedPlan.teamCount === teamCount &&
-          Boolean(data.cachedPlan.coverageReport)
-            ? data.cachedPlan
-            : null;
-        setPlan(matchingCachedPlan);
-        soundFX.playSurprise();
-        setStep('analysis');
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'خطأ في تحليل PDF.');
-      } finally {
-        inFlightRef.current = false;
-        setBusyMessage(null);
       }
-    };
 
-    // STAGE 2 & 3 -> STAGE 4 Plan Preview (Configurable K Core Categories × Team Count + Coverage Map)
-    const handleBuildBoardPlan = async () => {
-      if (!analysis || inFlightRef.current) return;
-      inFlightRef.current = true;
-      setError(null);
-      setStatusBanner(null);
-      setBusyMessage(
-        `المرحلة 2–3/4: تصميم خطة ${categoryCount} فئات رئيسية متخصصة لـ ${teamCount} فرق وتوزيع التغطية على كامل الصفحات...`,
-      );
-      try {
-        const res = await fetch('/api/pdf/plan-board', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fileHash: analysis.fileHash,
-            analysis,
-            teamCount,
-            desiredCategoriesCount: categoryCount,
-            ageGroup,
-            ...(rawText ? { rawText } : {}),
-            ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
-          }),
-        });
-        const data = await parseApiJson<{ error?: string; plan?: BoardPlanPreview }>(res);
-        if (!res.ok || !data.plan) throw new Error(data.error || `تعذر بناء خطة الفئات الـ ${categoryCount}.`);
-        setPlan(data.plan);
-        soundFX.playClick();
-        setStep('plan');
-      } catch (err) {
-        setError(err instanceof Error ? err.message : `تعذر إعداد خطة الفئات الـ ${categoryCount}.`);
-      } finally {
-        inFlightRef.current = false;
-        setBusyMessage(null);
-      }
-    };
+      setAnalysis(data.report);
+      setRawText(typeof data.rawText === 'string' ? data.rawText : '');
+      setExtractedPages(Array.isArray(data.pages) ? data.pages : []);
+      setExtractedVisuals(visuals);
+      setDeck(null);
+      const matchingCachedPlan =
+        data.cachedPlan &&
+        data.cachedPlan.categories.length === categoryCount &&
+        data.cachedPlan.teamCount === teamCount &&
+        Boolean(data.cachedPlan.coverageReport)
+          ? data.cachedPlan
+          : null;
+      setPlan(matchingCachedPlan);
+      soundFX.playSurprise();
+      setStep('analysis');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'خطأ في تحليل الملفات.');
+    } finally {
+      inFlightRef.current = false;
+      setBusyMessage(null);
+    }
+  };
 
-    // STAGE 4 Execution: Sequential 5-Category Batches via SSE + Self-Healing Validation
-    const handleGenerateBoard = async () => {
-      if (!analysis || !plan || inFlightRef.current) return;
-      inFlightRef.current = true;
-      setError(null);
-      setStatusBanner(null);
-      const effectiveTeams = plan.teamCount || teamCount || 3;
-      const targetCount = plan.categories.length * effectiveTeams * 3;
-      setGenProgress({
-        categoryIndex: 1,
-        totalCategories: plan.categories.length,
-        generatedCount: 0,
-        targetCount,
-        message: `جاري توليد أسئلة الفئة 1 من ${plan.categories.length}...`,
+  // STAGE 2 & 3 -> STAGE 4 Plan Preview (Configurable K Core Categories × Team Count × Difficulties)
+  const handleBuildBoardPlan = async () => {
+    if (!analysis || inFlightRef.current) return;
+    inFlightRef.current = true;
+    setError(null);
+    setStatusBanner(null);
+    setBusyMessage(
+      `المرحلة 2–3/4: تصميم خطة ${categoryCount} فئات رئيسية متخصصة لـ ${teamCount} فرق وتوزيع التغطية على كامل المحتوى...`,
+    );
+    try {
+      const res = await fetch('/api/pdf/plan-board', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fileHash: analysis.fileHash,
+          analysis,
+          teamCount,
+          desiredCategoriesCount: categoryCount,
+          selectedDifficulties,
+          ageGroup,
+          ...(rawText ? { rawText } : {}),
+          ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
+        }),
       });
-      setBusyMessage(`جاري توليد مصفوفة ${targetCount} سؤالًا (${plan.categories.length} فئات × ${effectiveTeams} فرق)...`);
+      const data = await parseApiJson<{ error?: string; plan?: BoardPlanPreview }>(res);
+      if (!res.ok || !data.plan) throw new Error(data.error || `تعذر بناء خطة الفئات الـ ${categoryCount}.`);
+      setPlan(data.plan);
+      soundFX.playClick();
+      setStep('plan');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : `تعذر إعداد خطة الفئات الـ ${categoryCount}.`);
+    } finally {
+      inFlightRef.current = false;
+      setBusyMessage(null);
+    }
+  };
 
-      try {
-        const res = await fetch('/api/pdf/generate-board', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fileHash: analysis.fileHash,
-            analysis,
-            plan,
-            ageGroup,
-            includeBackups: false,
-            stream: true,
-            ...(rawText ? { rawText } : {}),
-            ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
-            ...(extractedVisuals.length > 0 ? { extractedVisuals } : {}),
-          }),
-        });
+  // STAGE 4 Execution: Sequential K-Category Batches via SSE + Checkpoint Resume + Self-Healing
+  const handleGenerateBoard = async (resumeJob?: ResumableJobSummary) => {
+    const activeAnalysis = resumeJob?.analysis ?? analysis;
+    const activePlan = resumeJob?.plan ?? plan;
+    if ((!activeAnalysis || !activePlan) || inFlightRef.current) return;
 
-        const contentType = res.headers.get('content-type') || '';
-        let finalData: { error?: string; deck?: QuizDeck; message?: string } | null = null;
+    if (resumeJob) {
+      setAnalysis(resumeJob.analysis);
+      setPlan(resumeJob.plan);
+      setSelectedDifficulties(resumeJob.selectedDifficulties);
+    }
 
-        if (contentType.includes('text/event-stream') && res.body) {
-          const reader = res.body.getReader();
-          const decoder = new TextDecoder();
-          let buffer = '';
+    inFlightRef.current = true;
+    setError(null);
+    setStatusBanner(null);
+    const activeDiffs =
+      resumeJob?.selectedDifficulties ??
+      activePlan.selectedDifficulties ??
+      selectedDifficulties;
+    const effectiveTeams = activePlan.teamCount || teamCount || 3;
+    const targetCount = activePlan.categories.length * effectiveTeams * activeDiffs.length;
 
-          while (true) {
-            const { value, done } = await reader.read();
-            if (done) break;
-            buffer += decoder.decode(value, { stream: true });
-            const blocks = buffer.split('\n\n');
-            buffer = blocks.pop() ?? '';
+    setGenProgress({
+      categoryIndex: Math.max(1, (resumeJob?.completedCategoryIds.length ?? 0) + 1),
+      totalCategories: activePlan.categories.length,
+      generatedCount: resumeJob?.addedCount ?? 0,
+      targetCount,
+      message: resumeJob
+        ? `جاري استئناف توليد «${resumeJob.title}» من حيث توقف...`
+        : `جاري توليد أسئلة الفئة 1 من ${activePlan.categories.length}...`,
+    });
+    setBusyMessage(
+      resumeJob
+        ? `استئناف التوليد المحفوظ (${resumeJob.completedCategoryIds.length}/${activePlan.categories.length} فئات منجزة)...`
+        : `جاري توليد مصفوفة ${targetCount} سؤالًا (${activePlan.categories.length} فئات × ${effectiveTeams} فرق)...`,
+    );
 
-            for (const block of blocks) {
-              const lines = block.split('\n');
-              let evName = 'message';
-              let evData = '';
-              for (const line of lines) {
-                if (line.startsWith('event:')) evName = line.slice(6).trim();
-                else if (line.startsWith('data:')) evData += line.slice(5).trim();
-              }
-              if (!evData) continue;
-              const payload = JSON.parse(evData) as {
-                categoryIndex?: number;
-                totalCategories?: number;
-                generatedCount?: number;
-                targetCount?: number;
-                message?: string;
-                deck?: QuizDeck;
-                error?: string;
-              };
-              if (evName === 'progress') {
-                setGenProgress({
-                  categoryIndex: payload.categoryIndex ?? 1,
-                  totalCategories: payload.totalCategories ?? plan.categories.length,
-                  generatedCount: payload.generatedCount ?? 0,
-                  targetCount: payload.targetCount ?? targetCount,
-                  message: payload.message || 'جاري توليد الأسئلة...',
-                });
-                if (payload.message) setBusyMessage(payload.message);
-              } else if (evName === 'done') {
-                finalData = payload;
-              } else if (evName === 'error') {
-                throw new Error(payload.error || 'تعذر توليد مصفوفة الأسئلة.');
+    try {
+      const res = await fetch('/api/pdf/generate-board', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fileHash: activeAnalysis.fileHash,
+          analysis: activeAnalysis,
+          plan: activePlan,
+          ageGroup: resumeJob?.ageGroup ?? ageGroup,
+          selectedDifficulties: activeDiffs,
+          ...(resumeJob ? { resumeJobId: resumeJob.jobId } : {}),
+          includeBackups: false,
+          stream: true,
+          ...(rawText ? { rawText } : {}),
+          ...(extractedPages.length > 0 ? { pages: extractedPages } : {}),
+          ...(extractedVisuals.length > 0 ? { extractedVisuals } : {}),
+        }),
+      });
+
+      const contentType = res.headers.get('content-type') || '';
+      let finalData: { error?: string; deck?: QuizDeck; message?: string } | null = null;
+
+      if (contentType.includes('text/event-stream') && res.body) {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const blocks = buffer.split('\n\n');
+          buffer = blocks.pop() ?? '';
+
+          for (const block of blocks) {
+            const lines = block.split('\n');
+            let evName = 'message';
+            let evData = '';
+            for (const line of lines) {
+              if (line.startsWith('event:')) evName = line.slice(6).trim();
+              else if (line.startsWith('data:')) evData += line.slice(5).trim();
+            }
+            if (!evData) continue;
+            const payload = JSON.parse(evData) as {
+              jobId?: string;
+              categoryIndex?: number;
+              totalCategories?: number;
+              generatedCount?: number;
+              targetCount?: number;
+              message?: string;
+              deck?: QuizDeck;
+              error?: string;
+            };
+            if (payload.jobId) {
+              try {
+                window.localStorage.setItem(ACTIVE_JOB_STORAGE_KEY, payload.jobId);
+              } catch {
+                // Ignore storage quota
               }
             }
+            if (evName === 'progress') {
+              setGenProgress({
+                categoryIndex: payload.categoryIndex ?? 1,
+                totalCategories: payload.totalCategories ?? activePlan.categories.length,
+                generatedCount: payload.generatedCount ?? 0,
+                targetCount: payload.targetCount ?? targetCount,
+                message: payload.message || 'جاري توليد الأسئلة...',
+              });
+              if (payload.message) setBusyMessage(payload.message);
+            } else if (evName === 'done') {
+              finalData = payload;
+            } else if (evName === 'error') {
+              throw new Error(payload.error || 'تعذر توليد مصفوفة الأسئلة.');
+            }
           }
-        } else {
-          finalData = await parseApiJson<{ error?: string; deck?: QuizDeck; message?: string }>(res);
-          if (!res.ok) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
         }
-
-        if (!finalData?.deck) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
-
-        setDeck(finalData.deck);
-        setFocusedQuestionId(null);
-        onDeckSaved(finalData.deck);
-        setStatusBanner(finalData.message ?? null);
-        soundFX.playCorrect();
-        setStep('review');
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'خطأ في التوليد.');
-      } finally {
-        inFlightRef.current = false;
-        setBusyMessage(null);
-        setGenProgress(null);
+      } else {
+        finalData = await parseApiJson<{ error?: string; deck?: QuizDeck; message?: string }>(res);
+        if (!res.ok) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
       }
-    };
+
+      if (!finalData?.deck) throw new Error(finalData?.error || 'تعذر توليد مصفوفة الأسئلة.');
+
+      try {
+        window.localStorage.removeItem(ACTIVE_JOB_STORAGE_KEY);
+      } catch {
+        // Ignore storage errors
+      }
+      setDeck(finalData.deck);
+      setFocusedQuestionId(null);
+      onDeckSaved(finalData.deck);
+      setStatusBanner(finalData.message ?? null);
+      soundFX.playCorrect();
+      setStep('review');
+      void refreshLocalAndJobs();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'خطأ في التوليد.');
+      void refreshLocalAndJobs();
+    } finally {
+      inFlightRef.current = false;
+      setBusyMessage(null);
+      setGenProgress(null);
+    }
+  };
+
+  const handleDeleteJob = async (jobId: string) => {
+    try {
+      const res = await fetch(`/api/pdf/jobs/${jobId}`, { method: 'DELETE' });
+      if (res.ok) {
+        const data = (await res.json()) as { jobs?: ResumableJobSummary[] };
+        setResumableJobs(Array.isArray(data.jobs) ? data.jobs : []);
+      }
+    } catch {
+      // Ignore delete error
+    }
+  };
 
   const handleRegenerateAction = async (
     action:
@@ -613,46 +785,187 @@ export function PdfStudio({
           </div>
         )}
 
-        {/* STEP 1: Upload PDF */}
+        {/* STEP 1: Upload Multiple PDFs & Images + Local Engine Status + Difficulty Selector */}
         {step === 'upload' && (
           <div className="shannes-panel p-6 md:p-8 max-w-4xl mx-auto space-y-6">
             <div className="text-center space-y-2">
               <img
                 src="/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png"
-                alt="رفع وتحليل ملف الدرس"
+                alt="رفع وتحليل ملفات الدرس"
                 referrerPolicy="no-referrer"
                 className="w-24 h-24 object-contain mx-auto drop-shadow-[0_4px_0_rgba(31,17,46,0.2)] select-none"
               />
-              <h2 className="font-display font-black text-2xl text-[#1F112E]">ارفع ملف الدرس أو الملزمة (PDF)</h2>
+              <h2 className="font-display font-black text-2xl text-[#1F112E]">
+                ارفع ملفات الدرس والصور (PDF / PNG / JPG)
+              </h2>
               <p className="text-sm font-medium text-[#1F112E]/80">
-                سيقرأ المحرك كامل صفحات الدرس بعمق ويقسمه من الصفحة الأولى للأخيرة إلى{' '}
-                <strong className="text-[#63349B]">{categoryCount} فئات رئيسية متخصصة</strong> مشتقة من محتوى
-                الدرس، ثم يولّد لكل فريق داخل كل فئة 3 أسئلة متكافئة (سهل 200 / متوسط 400 / صعب 600) بتغطية
-                شاملة ودون تكرار.
+                يدعم رفع عدة ملفات PDF وصور دفعة واحدة؛ يقرأ المحرك المحلي النصوص والجداول والصور والصفحات
+                المصوّرة بعمق ويقسمها إلى{' '}
+                <strong className="text-[#63349B]">{categoryCount} فئات رئيسية متخصصة</strong> بمستويات
+                الصعوبة المختارة دون قيود تسجيل دخول أو مفاتيح مدفوعة.
               </p>
             </div>
+
+            {/* Local AI Engine Status Bar (No login / No API Key / No Quota) */}
+            {localStatus && (
+              <div
+                className={`rounded-2xl border-2 px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs font-bold ${
+                  localStatus.engine === 'ollama'
+                    ? 'bg-[#E8F8F2] border-[#00A86B] text-[#1F112E]'
+                    : 'bg-[#FFF9E9] border-[#E59A00] text-[#1F112E]'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <Cpu className={`w-4 h-4 shrink-0 ${localStatus.engine === 'ollama' ? 'text-[#00A86B]' : 'text-[#E59A00]'}`} />
+                  <span>
+                    {localStatus.ollamaReachable
+                      ? `المحرك المحلي متصل (Ollama): ${localStatus.selectedTextModel || 'Qwen'}${
+                          localStatus.selectedVisionModel ? ` + الرؤية البصرية (${localStatus.selectedVisionModel})` : ''
+                        }`
+                      : localStatus.message}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="bg-white border border-[#291B40]/25 px-2 py-0.5 rounded-lg">
+                    PyMuPDF: {localStatus.pymupdfAvailable ? `مفعّل (${localStatus.pymupdfVersion || 'fitz'})` : 'احتياطي المتصفح'}
+                  </span>
+                  <span className="bg-white border border-[#291B40]/25 px-2 py-0.5 rounded-lg">
+                    توليد محلي بدون قيود
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Resumable Interrupted Jobs Banner */}
+            {resumableJobs.length > 0 && (
+              <div className="bg-[#EDE7F6] border-2 border-[#63349B] rounded-2xl p-4 space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-display font-black text-sm text-[#1F112E] flex items-center gap-2">
+                    <RotateCcw className="w-4 h-4 text-[#63349B]" />
+                    <span>جلسات توليد محفوظة قابلة للاستئناف ({resumableJobs.length})</span>
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  {resumableJobs.slice(0, 3).map((job) => (
+                    <div
+                      key={job.jobId}
+                      className="bg-white border-2 border-[#291B40]/20 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2"
+                    >
+                      <div className="min-w-0">
+                        <p className="font-display font-black text-sm text-[#1F112E] truncate">
+                          {job.title}
+                        </p>
+                        <p className="text-[11px] font-bold text-[#291B40]/70">
+                          أُنجز {job.completedCategoryIds.length} / {job.plan.categories.length} فئات (
+                          {job.deck.questions.length} سؤالًا محفوظًا)
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <button
+                          type="button"
+                          disabled={Boolean(busyMessage)}
+                          onClick={() => void handleGenerateBoard(job)}
+                          className="game-btn-3d bg-[#00B978] text-white px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 cursor-pointer"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          <span>استئناف التوليد</span>
+                        </button>
+                        {job.deck.questions.length > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setAnalysis(job.analysis);
+                              setPlan(job.plan);
+                              setDeck(job.deck);
+                              setStep('review');
+                            }}
+                            className="bg-white border-2 border-[#291B40]/30 px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer"
+                          >
+                            مراجعة الموجود
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          aria-label={`حذف جلسة ${job.title}`}
+                          onClick={() => void handleDeleteJob(job.jobId)}
+                          className="bg-[#FFE5E7] text-[#C4343D] px-2.5 py-1.5 rounded-xl text-xs font-black cursor-pointer"
+                        >
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <label className="block border-[3px] border-dashed border-[#63349B] bg-white rounded-2xl p-8 text-center cursor-pointer hover:bg-[#FFF9E9] transition">
               <Upload className="w-10 h-10 text-[#63349B] mx-auto mb-2" />
               <span className="font-display font-black text-lg block mb-1">
-                {selectedFile ? selectedFile.name : 'اختر ملف PDF من جهازك'}
+                {selectedFiles.length > 0
+                  ? `تم اختيار ${selectedFiles.length} ${selectedFiles.length === 1 ? 'ملف' : 'ملفات'} — اضغط لإضافة المزيد`
+                  : 'اختر ملفات PDF أو صورًا من جهازك (متعدد)'}
               </span>
               <span className="text-xs font-bold text-[#1F112E]/65">
-                حتى 20 ميجابايت • يدعم اللغة العربية والإنجليزية
+                يدعم رفع عدة ملفات PDF + صور (PNG / JPG / WEBP) حتى 25 ميجابايت للملف • عربي وإنجليزي
               </span>
               <input
                 type="file"
+                multiple
                 disabled={Boolean(busyMessage)}
-                accept=".pdf,application/pdf"
+                accept=".pdf,application/pdf,.png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
                 className="hidden"
                 onChange={(e) => {
-                  const f = e.target.files?.[0] ?? null;
+                  const chosen = Array.from(e.target.files ?? []);
                   e.target.value = '';
-                  setSelectedFile(f);
-                  if (f) void handleAnalyzePdf(f);
+                  if (!chosen.length) return;
+                  setSelectedFiles((prev) => {
+                    const seen = new Set(prev.map((f) => `${f.name}:${f.size}`));
+                    const next = [...prev];
+                    for (const f of chosen) {
+                      if (!seen.has(`${f.name}:${f.size}`)) next.push(f);
+                    }
+                    return next;
+                  });
                 }}
               />
             </label>
+
+            {selectedFiles.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {selectedFiles.map((file, idx) => {
+                  const isPdf = isPdfBatchFile(file);
+                  return (
+                    <div
+                      key={`${file.name}-${idx}`}
+                      className="flex items-center gap-2 bg-white border-2 border-[#291B40] rounded-xl px-3 py-1.5 text-xs font-bold"
+                    >
+                      {isPdf ? (
+                        <FileText className="w-4 h-4 text-[#7042A1] shrink-0" />
+                      ) : (
+                        <ImageIcon className="w-4 h-4 text-[#00A86B] shrink-0" />
+                      )}
+                      <span className="max-w-[200px] truncate">{file.name}</span>
+                      <span className="text-[10px] text-[#291B40]/60 tabular-nums">
+                        {(file.size / (1024 * 1024) >= 0.1
+                          ? `${(file.size / (1024 * 1024)).toFixed(1)} MB`
+                          : `${Math.max(1, Math.round(file.size / 1024))} KB`)}
+                      </span>
+                      <button
+                        type="button"
+                        aria-label={`إزالة ${file.name}`}
+                        onClick={() =>
+                          setSelectedFiles((prev) => prev.filter((_, i) => i !== idx))
+                        }
+                        className="text-[#F05B63] hover:text-[#B91C1C] cursor-pointer"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
@@ -682,10 +995,10 @@ export function PdfStudio({
                   onChange={(e) => setCategoryCount(Number(e.target.value))}
                   className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                 >
-                  <option value={3}>3 فئات ({3 * teamCount * 3} سؤالًا)</option>
-                  <option value={4}>4 فئات ({4 * teamCount * 3} سؤالًا)</option>
-                  <option value={5}>5 فئات — افتراضي ({5 * teamCount * 3} سؤالًا)</option>
-                  <option value={6}>6 فئات ({6 * teamCount * 3} سؤالًا)</option>
+                  <option value={3}>3 فئات ({3 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                  <option value={4}>4 فئات ({4 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                  <option value={5}>5 فئات — افتراضي ({5 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                  <option value={6}>6 فئات ({6 * teamCount * selectedDifficulties.length} سؤالًا)</option>
                 </select>
               </div>
 
@@ -699,21 +1012,55 @@ export function PdfStudio({
                   onChange={(e) => setTeamCount(Number(e.target.value))}
                   className="w-full bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                 >
-                  <option value={2}>فريقان ({categoryCount * 6} سؤالًا)</option>
-                  <option value={3}>3 فرق ({categoryCount * 9} سؤالًا)</option>
-                  <option value={4}>4 فرق ({categoryCount * 12} سؤالًا)</option>
+                  <option value={2}>فريقان ({categoryCount * 2 * selectedDifficulties.length} سؤالًا)</option>
+                  <option value={3}>3 فرق ({categoryCount * 3 * selectedDifficulties.length} سؤالًا)</option>
+                  <option value={4}>4 فرق ({categoryCount * 4 * selectedDifficulties.length} سؤالًا)</option>
                 </select>
+              </div>
+            </div>
+
+            {/* Difficulty Levels Selector (200 / 400 / 600) */}
+            <div className="bg-white border-2 border-[#291B40] rounded-2xl p-3.5 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <span className="font-display font-black text-sm text-[#1F112E] block">
+                  مستويات الصعوبة المختارة
+                </span>
+                <span className="text-[11px] font-bold text-[#1F112E]/65">
+                  إجمالي الأسئلة المستهدفة: {categoryCount * teamCount * selectedDifficulties.length} سؤالًا
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {DIFFICULTY_OPTIONS.map((opt) => {
+                  const active = selectedDifficulties.includes(opt.id);
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => toggleDifficulty(opt.id)}
+                      className={`px-3.5 py-2 rounded-xl border-2 border-[#291B40] text-xs font-black transition cursor-pointer ${
+                        active
+                          ? 'bg-[#63349B] text-white shadow-[0_2px_0_#291B40]'
+                          : 'bg-[#FFF9E9] text-[#1F112E]/70'
+                      }`}
+                    >
+                      {opt.label} ({opt.pts})
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             <button
               type="button"
-              disabled={!selectedFile || Boolean(busyMessage)}
+              disabled={selectedFiles.length === 0 || Boolean(busyMessage)}
               onClick={() => handleAnalyzePdf()}
-              className="game-btn-3d w-full bg-[#7042A1] text-white font-display font-black text-xl py-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer"
+              className="game-btn-3d w-full bg-[#7042A1] text-white font-display font-black text-xl py-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
             >
               <Sparkles className="w-6 h-6" />
-              <span>تحليل الملف واستخراج مواضيع الدرس</span>
+              <span>
+                تحليل {selectedFiles.length > 1 ? `الملفات الـ ${selectedFiles.length}` : 'الملف'} واستخراج
+                مواضيع الدرس
+              </span>
             </button>
           </div>
         )}
@@ -731,12 +1078,33 @@ export function PdfStudio({
                   <p className="text-sm font-medium text-[#291B40]/80 mt-1">{analysis.summary}</p>
                 </div>
                 <div className="bg-white border-2 border-[#291B40] rounded-xl px-4 py-2 text-center">
-                  <span className="text-xs font-bold block">الصفحات المقروءة</span>
+                  <span className="text-xs font-bold block">الصفحات / الوحدات المقروءة</span>
                   <span className="font-display font-black text-xl tabular-nums">
                     {analysis.readablePages} / {analysis.totalPages}
                   </span>
                 </div>
               </div>
+
+              {analysis.sourceFiles && analysis.sourceFiles.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {analysis.sourceFiles.map((sf, idx) => (
+                    <span
+                      key={`${sf.fileHash}-${idx}`}
+                      className="inline-flex items-center gap-1.5 bg-[#FFFDF7] border border-[#291B40]/30 rounded-xl px-3 py-1 text-xs font-bold"
+                    >
+                      {sf.fileType === 'pdf' ? (
+                        <FileText className="w-3.5 h-3.5 text-[#7042A1]" />
+                      ) : (
+                        <ImageIcon className="w-3.5 h-3.5 text-[#00A86B]" />
+                      )}
+                      <span>{sf.fileName}</span>
+                      <span className="text-[#291B40]/60">
+                        ({sf.fileType === 'pdf' ? `${sf.totalPages} صفحة` : 'صورة'})
+                      </span>
+                    </span>
+                  ))}
+                </div>
+              )}
 
               {analysis.isReligiousContent && (
                 <div className="bg-[#FFF2CD] border-2 border-[#E59A00] rounded-2xl p-3.5 flex items-start gap-2.5">
@@ -748,7 +1116,7 @@ export function PdfStudio({
                 </div>
               )}
 
-              {analysis.hypotheticalSections && analysis.hypotheticalSections.length > 0 && (
+              {Array.isArray(analysis.hypotheticalSections) && analysis.hypotheticalSections.length > 0 && (
                 <div className="bg-[#EDE7F6] border-2 border-[#7042A1] rounded-2xl p-3.5 space-y-1">
                   <p className="text-xs font-black text-[#7042A1] flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4 shrink-0" />
@@ -763,52 +1131,62 @@ export function PdfStudio({
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
-                  <h3 className="font-display font-black text-sm text-[#7042A1] mb-2">
-                    مواضيع الدرس الرئيسية ({analysis.mainTopics.length})
-                  </h3>
-                  <ul className="space-y-1 text-xs font-bold list-disc pr-4">
-                    {analysis.mainTopics.map((t, i) => (
-                      <li key={i}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
+                {(() => {
+                  const mainTopicsList = Array.isArray(analysis.mainTopics) ? analysis.mainTopics : [];
+                  const subTopicsList = Array.isArray(analysis.subTopics) ? analysis.subTopics : [];
+                  const conceptsList = Array.isArray(analysis.conceptsAndTerms) ? analysis.conceptsAndTerms : [];
+                  const objectivesList = Array.isArray(analysis.educationalObjectives) ? analysis.educationalObjectives : [];
+                  return (
+                    <>
+                      <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                        <h3 className="font-display font-black text-sm text-[#7042A1] mb-2">
+                          مواضيع الدرس الرئيسية ({mainTopicsList.length})
+                        </h3>
+                        <ul className="space-y-1 text-xs font-bold list-disc pr-4">
+                          {mainTopicsList.map((t, i) => (
+                            <li key={i}>{t}</li>
+                          ))}
+                        </ul>
+                      </div>
 
-                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
-                  <h3 className="font-display font-black text-sm text-[#F05B63] mb-2">
-                    المواضيع الفرعية ({analysis.subTopics.length})
-                  </h3>
-                  <ul className="space-y-1 text-xs font-bold list-disc pr-4">
-                    {analysis.subTopics.slice(0, 10).map((t, i) => (
-                      <li key={i}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
+                      <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                        <h3 className="font-display font-black text-sm text-[#F05B63] mb-2">
+                          المواضيع الفرعية ({subTopicsList.length})
+                        </h3>
+                        <ul className="space-y-1 text-xs font-bold list-disc pr-4">
+                          {subTopicsList.slice(0, 10).map((t, i) => (
+                            <li key={i}>{t}</li>
+                          ))}
+                        </ul>
+                      </div>
 
-                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
-                  <h3 className="font-display font-black text-sm text-[#00B978] mb-2">
-                    المفاهيم والحقائق ({analysis.conceptsAndTerms.length})
-                  </h3>
-                  <ul className="space-y-1 text-xs font-bold list-disc pr-4">
-                    {analysis.conceptsAndTerms.slice(0, 8).map((t, i) => (
-                      <li key={i}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
+                      <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                        <h3 className="font-display font-black text-sm text-[#00B978] mb-2">
+                          المفاهيم والحقائق ({conceptsList.length})
+                        </h3>
+                        <ul className="space-y-1 text-xs font-bold list-disc pr-4">
+                          {conceptsList.slice(0, 8).map((t, i) => (
+                            <li key={i}>{t}</li>
+                          ))}
+                        </ul>
+                      </div>
 
-                <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
-                  <h3 className="font-display font-black text-sm text-[#279ED6] mb-2">
-                    الأهداف والعلاقات ({analysis.educationalObjectives.length})
-                  </h3>
-                  <ul className="space-y-1 text-xs font-bold list-disc pr-4">
-                    {analysis.educationalObjectives.slice(0, 6).map((t, i) => (
-                      <li key={i}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
+                      <div className="bg-white border-2 border-[#291B40] rounded-2xl p-4">
+                        <h3 className="font-display font-black text-sm text-[#279ED6] mb-2">
+                          الأهداف والعلاقات ({objectivesList.length})
+                        </h3>
+                        <ul className="space-y-1 text-xs font-bold list-disc pr-4">
+                          {objectivesList.slice(0, 6).map((t, i) => (
+                            <li key={i}>{t}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
 
-              {analysis.warnings.length > 0 && (
+              {Array.isArray(analysis.warnings) && analysis.warnings.length > 0 && (
                 <div className="bg-[#FFF2CD]/70 border border-[#E59A00] rounded-2xl p-3 space-y-1">
                   {analysis.warnings.map((w, i) => (
                     <p key={i} className="text-xs font-bold text-[#291B40] flex items-start gap-1.5">
@@ -892,10 +1270,10 @@ export function PdfStudio({
                     onChange={(e) => setCategoryCount(Number(e.target.value))}
                     className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                   >
-                    <option value={3}>3 فئات ({3 * teamCount * 3} سؤالًا)</option>
-                    <option value={4}>4 فئات ({4 * teamCount * 3} سؤالًا)</option>
-                    <option value={5}>5 فئات ({5 * teamCount * 3} سؤالًا)</option>
-                    <option value={6}>6 فئات ({6 * teamCount * 3} سؤالًا)</option>
+                    <option value={3}>3 فئات ({3 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                    <option value={4}>4 فئات ({4 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                    <option value={5}>5 فئات ({5 * teamCount * selectedDifficulties.length} سؤالًا)</option>
+                    <option value={6}>6 فئات ({6 * teamCount * selectedDifficulties.length} سؤالًا)</option>
                   </select>
                   <select
                     aria-label="عدد الفرق المتنافسة"
@@ -903,9 +1281,9 @@ export function PdfStudio({
                     onChange={(e) => setTeamCount(Number(e.target.value))}
                     className="bg-white border-2 border-[#291B40] rounded-xl px-3 py-2.5 font-bold text-sm"
                   >
-                    <option value={2}>فريقان ({categoryCount * 6} سؤالًا)</option>
-                    <option value={3}>3 فرق ({categoryCount * 9} سؤالًا)</option>
-                    <option value={4}>4 فرق ({categoryCount * 12} سؤالًا)</option>
+                    <option value={2}>فريقان ({categoryCount * 2 * selectedDifficulties.length} سؤالًا)</option>
+                    <option value={3}>3 فرق ({categoryCount * 3 * selectedDifficulties.length} سؤالًا)</option>
+                    <option value={4}>4 فرق ({categoryCount * 4 * selectedDifficulties.length} سؤالًا)</option>
                   </select>
                   <button
                     type="button"
@@ -923,7 +1301,11 @@ export function PdfStudio({
         )}
 
         {/* STEP 3/4: Pre-Approval K Core Categories × N Teams Matrix Plan + Full Coverage Map */}
-        {step === 'plan' && plan && (
+        {step === 'plan' && plan && (() => {
+          const planDiffs = plan.selectedDifficulties ?? selectedDifficulties;
+          const totalPlanQuestions =
+            plan.categories.length * (plan.teamCount || teamCount) * planDiffs.length;
+          return (
           <div className="space-y-5">
             <div className="game-card-frame rounded-3xl p-6 space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -936,8 +1318,8 @@ export function PdfStudio({
                   </p>
                 </div>
                 <span className="px-3 py-1.5 rounded-xl border-2 border-[#291B40] font-black text-xs bg-[#E8F8F2] text-[#00B978]">
-                  {plan.categories.length} فئات × {plan.teamCount || teamCount} فرق × 3 ={' '}
-                  {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا
+                  {plan.categories.length} فئات × {plan.teamCount || teamCount} فرق × {planDiffs.length} ={' '}
+                  {totalPlanQuestions} سؤالًا
                 </span>
               </div>
 
@@ -1020,7 +1402,7 @@ export function PdfStudio({
                             </span>
                           )}
                           <span className="text-[11px] font-bold text-[#291B40]/70">
-                            {(plan.teamCount || teamCount) * 3} أسئلة
+                            {(plan.teamCount || teamCount) * planDiffs.length} أسئلة
                           </span>
                         </div>
                       </div>
@@ -1077,27 +1459,33 @@ export function PdfStudio({
                       )}
 
                       <div className="bg-[#FFF9E9] rounded-xl p-2.5 text-[11px] space-y-1.5 border border-[#291B40]/15">
-                        <div>
-                          <span className="inline-block bg-[#00B978] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                            سهل 200
-                          </span>
-                          {cat.subtopic200 && <strong className="text-[#7042A1]">{cat.subtopic200}: </strong>}
-                          <span>{cat.sample200}</span>
-                        </div>
-                        <div>
-                          <span className="inline-block bg-[#279ED6] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                            متوسط 400
-                          </span>
-                          {cat.subtopic400 && <strong className="text-[#7042A1]">{cat.subtopic400}: </strong>}
-                          <span>{cat.sample400}</span>
-                        </div>
-                        <div>
-                          <span className="inline-block bg-[#7042A1] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
-                            صعب 600
-                          </span>
-                          {cat.subtopic600 && <strong className="text-[#7042A1]">{cat.subtopic600}: </strong>}
-                          <span>{cat.sample600}</span>
-                        </div>
+                        {planDiffs.includes('easy') && (
+                          <div>
+                            <span className="inline-block bg-[#00B978] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                              سهل 200
+                            </span>
+                            {cat.subtopic200 && <strong className="text-[#7042A1]">{cat.subtopic200}: </strong>}
+                            <span>{cat.sample200}</span>
+                          </div>
+                        )}
+                        {planDiffs.includes('medium') && (
+                          <div>
+                            <span className="inline-block bg-[#279ED6] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                              متوسط 400
+                            </span>
+                            {cat.subtopic400 && <strong className="text-[#7042A1]">{cat.subtopic400}: </strong>}
+                            <span>{cat.sample400}</span>
+                          </div>
+                        )}
+                        {planDiffs.includes('hard') && (
+                          <div>
+                            <span className="inline-block bg-[#7042A1] text-white px-1.5 py-0.5 rounded text-[10px] font-black ml-1">
+                              صعب 600
+                            </span>
+                            {cat.subtopic600 && <strong className="text-[#7042A1]">{cat.subtopic600}: </strong>}
+                            <span>{cat.sample600}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
@@ -1115,19 +1503,19 @@ export function PdfStudio({
                 <button
                   type="button"
                   disabled={Boolean(busyMessage) || !plan.categories.length}
-                  onClick={handleGenerateBoard}
+                  onClick={() => void handleGenerateBoard()}
                   className="game-btn-3d bg-[#00B978] text-white font-display font-black text-xl px-8 py-3.5 rounded-2xl flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-6 h-6" />
                   <span>
-                    ولّد مصفوفة {plan.categories.length * (plan.teamCount || teamCount) * 3} سؤالًا (
-                    {plan.categories.length} دفعات + تحقق ذاتي)
+                    ولّد مصفوفة {totalPlanQuestions} سؤالًا ({plan.categories.length} دفعات + تحقق ذاتي)
                   </span>
                 </button>
               </div>
             </div>
           </div>
-        )}
+          );
+        })()}
 
         {/* STEP 4: Review & Sticky 8-Button Regeneration Toolbar */}
         {step === 'review' && deck && (
@@ -1333,11 +1721,8 @@ export function PdfStudio({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {deck.categories.map((cat, catIdx) => {
                     const effectiveTeams = deck.teamCount || 3;
-                    const tiers: Array<{ diff: Difficulty; label: string; pts: number }> = [
-                      { diff: 'easy', label: 'سهل', pts: 200 },
-                      { diff: 'medium', label: 'متوسط', pts: 400 },
-                      { diff: 'hard', label: 'صعب', pts: 600 },
-                    ];
+                    const activeDiffs = resolveDeckDifficulties(deck);
+                    const tiers = DIFFICULTY_OPTIONS.filter((t) => activeDiffs.includes(t.id));
                     const teamColors = ['#F05B63', '#279ED6', '#00B978', '#7042A1'];
                     return (
                       <div
@@ -1358,7 +1743,7 @@ export function PdfStudio({
                               </span>
                             )}
                             <span className="text-[11px] font-black bg-black/25 px-2 py-0.5 rounded-md">
-                              {effectiveTeams * 3} أسئلة
+                              {effectiveTeams * tiers.length} أسئلة
                             </span>
                           </div>
                         </div>
@@ -1377,16 +1762,18 @@ export function PdfStudio({
                                   />
                                   <span>حزمة الفريق {tIdx + 1}</span>
                                 </span>
-                                <span className="text-[#291B40]/60">200 / 400 / 600</span>
+                                <span className="text-[#291B40]/60">
+                                  {tiers.map((t) => t.pts).join(' / ')}
+                                </span>
                               </div>
-                              <div className="grid grid-cols-3 gap-1.5">
+                              <div className={`grid gap-1.5 ${tiers.length === 1 ? 'grid-cols-1' : tiers.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                                 {tiers.map((tier) => {
                                   const q =
                                     deck.questions.find(
                                       (item) =>
                                         item.categoryId === cat.id &&
                                         item.teamIndex === tIdx &&
-                                        item.difficulty === tier.diff &&
+                                        item.difficulty === tier.id &&
                                         item.status !== 'rejected' &&
                                         !item.isBackup,
                                     ) ??
@@ -1394,13 +1781,13 @@ export function PdfStudio({
                                       (item) =>
                                         item.categoryId === cat.id &&
                                         item.teamIndex === tIdx &&
-                                        item.difficulty === tier.diff &&
+                                        item.difficulty === tier.id &&
                                         item.status !== 'rejected',
                                     );
                                   const isFocused = q && focusedQuestionId === q.id;
                                   return (
                                     <button
-                                      key={tier.diff}
+                                      key={tier.id}
                                       type="button"
                                       disabled={!q}
                                       onClick={() =>
@@ -1436,11 +1823,8 @@ export function PdfStudio({
               ) : (
                 <div className={`grid grid-cols-1 sm:grid-cols-2 ${deck.categories.length >= 3 ? 'lg:grid-cols-3' : ''} ${deck.categories.length === 4 ? 'xl:grid-cols-4' : ''} gap-4`}>
                   {deck.categories.map((teamCol) => {
-                    const tiers: Array<{ diff: Difficulty; label: string; pts: number }> = [
-                      { diff: 'easy', label: 'سهل', pts: 200 },
-                      { diff: 'medium', label: 'متوسط', pts: 400 },
-                      { diff: 'hard', label: 'صعب', pts: 600 },
-                    ];
+                    const activeDiffs = resolveDeckDifficulties(deck);
+                    const tiers = DIFFICULTY_OPTIONS.filter((t) => activeDiffs.includes(t.id));
                     return (
                       <div
                         key={teamCol.id}
@@ -1455,30 +1839,30 @@ export function PdfStudio({
                             <span>{teamCol.name}</span>
                           </span>
                           <span className="text-[11px] font-bold text-[#291B40]/65">
-                            3 أسئلة
+                            {tiers.length} أسئلة
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className={`grid gap-2 ${tiers.length === 1 ? 'grid-cols-1' : tiers.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                           {tiers.map((tier) => {
                             const q =
                               deck.questions.find(
                                 (item) =>
                                   item.categoryId === teamCol.id &&
-                                  item.difficulty === tier.diff &&
+                                  item.difficulty === tier.id &&
                                   item.status !== 'rejected' &&
                                   !item.isBackup,
                               ) ??
                               deck.questions.find(
                                 (item) =>
                                   item.categoryId === teamCol.id &&
-                                  item.difficulty === tier.diff &&
+                                  item.difficulty === tier.id &&
                                   item.status !== 'rejected',
                               );
                             const isFocused = q && focusedQuestionId === q.id;
                             return (
                               <button
-                                key={tier.diff}
+                                key={tier.id}
                                 type="button"
                                 disabled={!q}
                                 onClick={() => q && setFocusedQuestionId(q.id)}
@@ -1746,9 +2130,18 @@ export function PdfStudio({
                           {item.explanation && (
                             <p className="text-[11px] text-[#291B40]/75">{item.explanation}</p>
                           )}
-                          {item.sourceSnippet && (
-                            <p className="text-[10px] text-[#291B40]/60 mt-1">
-                              المرجع {item.pageNumber ? `(ص ${item.pageNumber})` : ''}: «{item.sourceSnippet.slice(0, 120)}»
+                          {(item.sourceSnippet || item.sourceFileName || item.pageNumber) && (
+                            <p className="text-[10px] text-[#291B40]/65 mt-1 flex flex-wrap items-center gap-1.5">
+                              {item.verificationStatus === 'verified' && (
+                                <span className="bg-[#E8F8F2] text-[#007F52] border border-[#00B978]/35 px-1.5 py-0.5 rounded font-black">
+                                  موثق
+                                </span>
+                              )}
+                              <span>
+                                المرجع {item.sourceFileName ? `(${item.sourceFileName}` : ''}
+                                {item.pageNumber ? `${item.sourceFileName ? ' · ' : '('}ص ${item.pageNumber})` : item.sourceFileName ? ')' : ''}:
+                                {item.sourceSnippet ? ` «${item.sourceSnippet.slice(0, 120)}»` : ''}
+                              </span>
                             </p>
                           )}
                         </>

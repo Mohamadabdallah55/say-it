@@ -45,7 +45,7 @@ export function buildRoomContextForAssistant(params: {
     `المرحلة الحالية: ${room.phase}`,
     `نظام اللوحة: ${
       room.boardMode === 'category_team_matrix'
-        ? 'مصفوفة 5 فئات × أسئلة مخصصة لكل فريق (200 / 400 / 600)'
+        ? `مصفوفة ${room.categories.length} فئات × أسئلة مخصصة لكل فريق`
         : room.boardMode === 'team_bundles'
           ? 'حزم الفرق'
           : 'لوحة الفئات'

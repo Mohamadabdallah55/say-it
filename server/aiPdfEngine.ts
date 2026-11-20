@@ -5,6 +5,7 @@ import {
   normalizeArabicText,
   pointsForDifficulty,
   QUESTION_TYPE_LABELS,
+  resolveDeckDifficulties,
   SUPPORTED_QUESTION_TYPES,
   validateQuizQuestion,
 } from '../src/game/pdfValidation';
@@ -29,11 +30,13 @@ import {
   buildFallbackTextFromAnalysis,
   buildPageRangeExcerpt,
   buildRepresentativeExcerpt,
+  coerceStringArray,
   computeBoardCoverageMetrics,
   formatGeminiError,
   isGenericCategoryName,
   isQuotaError,
   matchSourcePageNumber,
+  normalizePdfAnalysisReport,
   normalizeRawGeminiQuestion,
   partitionPagesIntoRanges,
 } from './geminiHelpers';
@@ -43,16 +46,24 @@ import {
   validatePdfBuffer,
 } from './pdfExtractorService';
 import {
+  evaluateQuestionQuality,
+  type SourceUnitRef,
+} from './questionQualityGuard';
+import {
   getCachedPdfPlan,
   getCachedPdfText,
   getDeckById,
+  getGenerationJob,
   saveCachedPdfPlan,
   saveCachedPdfText,
   saveCachedPdfVisuals,
   saveDeck,
+  saveGenerationJob,
+  type GenerationJobCheckpoint,
 } from './storage';
 
 export interface GenerationProgressEvent {
+  jobId?: string;
   stage: 'category' | 'healing' | 'complete';
   categoryIndex: number;
   totalCategories: number;
@@ -60,6 +71,23 @@ export interface GenerationProgressEvent {
   generatedCount: number;
   targetCount: number;
   message: string;
+}
+
+const ALL_DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+
+function normalizeSelectedDifficulties(raw?: Difficulty[]): Difficulty[] {
+  if (!Array.isArray(raw) || raw.length === 0) return [...ALL_DIFFICULTIES];
+  const valid = new Set(
+    raw.filter((d): d is Difficulty => d === 'easy' || d === 'medium' || d === 'hard'),
+  );
+  const ordered = ALL_DIFFICULTIES.filter((d) => valid.has(d));
+  return ordered.length > 0 ? ordered : [...ALL_DIFFICULTIES];
+}
+
+function sameDifficultySelection(a?: Difficulty[], b?: Difficulty[]): boolean {
+  const left = normalizeSelectedDifficulties(a);
+  const right = normalizeSelectedDifficulties(b);
+  return left.length === right.length && left.every((val, idx) => val === right[idx]);
 }
 
 const CORE_CATEGORY_PALETTE: Array<{ iconKey: CategoryIconKey; color: string }> = [
@@ -109,19 +137,33 @@ function resolvePdfTextContext(params: {
 }): {
   fullText: string;
   pages: Array<{ num: number; text: string }>;
+  sourceUnits: SourceUnitRef[];
   totalPages: number;
   usedAnalysisFallback: boolean;
 } {
   const fileHash = params.fileHash || params.analysis?.fileHash || '';
+  const defaultFileName = params.analysis?.fileName || 'lesson.pdf';
   const cachedText = fileHash ? getCachedPdfText(fileHash) : null;
   if (cachedText && cachedText.fullText.trim().length > 0) {
     const pages = extractPagesList(cachedText.pages, cachedText.fullText);
+    const finalPages = pages.length > 0 ? pages : [{ num: 1, text: cachedText.fullText }];
+    const sourceUnits: SourceUnitRef[] =
+      Array.isArray(cachedText.pageUnits) && cachedText.pageUnits.length > 0
+        ? cachedText.pageUnits
+        : finalPages.map((p) => ({
+            num: p.num,
+            text: p.text,
+            sourceFileName: cachedText.fileName || defaultFileName,
+            sourcePageNumber: p.num,
+            unitType: 'pdf_page' as const,
+          }));
     return {
       fullText: cachedText.fullText,
-      pages: pages.length > 0 ? pages : [{ num: 1, text: cachedText.fullText }],
+      pages: finalPages,
+      sourceUnits,
       totalPages: Math.max(
         1,
-        cachedText.totalPages || pages.length || params.analysis?.totalPages || 1,
+        cachedText.totalPages || finalPages.length || params.analysis?.totalPages || 1,
       ),
       usedAnalysisFallback: false,
     };
@@ -154,15 +196,23 @@ function resolvePdfTextContext(params: {
       finalPages[finalPages.length - 1]?.num || 0,
       finalPages.length,
     );
+    const sourceUnits: SourceUnitRef[] = finalPages.map((p) => ({
+      num: p.num,
+      text: p.text,
+      sourceFileName: defaultFileName,
+      sourcePageNumber: p.num,
+      unitType: 'pdf_page',
+    }));
 
     if (/^[a-f0-9]{64}$/.test(fileHash)) {
       try {
         saveCachedPdfText({
           fileHash,
-          fileName: params.analysis?.fileName || 'lesson.pdf',
+          fileName: defaultFileName,
           totalPages,
           readablePages: finalPages.length,
           pages: finalPages,
+          pageUnits: sourceUnits,
           fullText,
           analyses: params.analysis ? { [params.ageGroup || 'mixed']: params.analysis } : undefined,
           cachedAt: new Date().toISOString(),
@@ -175,6 +225,7 @@ function resolvePdfTextContext(params: {
     return {
       fullText,
       pages: finalPages,
+      sourceUnits,
       totalPages,
       usedAnalysisFallback: false,
     };
@@ -185,6 +236,15 @@ function resolvePdfTextContext(params: {
   return {
     fullText: fallbackText,
     pages: [{ num: 1, text: fallbackText }],
+    sourceUnits: [
+      {
+        num: 1,
+        text: fallbackText,
+        sourceFileName: defaultFileName,
+        sourcePageNumber: 1,
+        unitType: 'pdf_page',
+      },
+    ],
     totalPages,
     usedAnalysisFallback: true,
   };
@@ -197,19 +257,21 @@ export async function planBoardFromPdf(params: {
   teamCount?: number;
   desiredCategoriesCount?: number;
   categoryCount?: number;
+  selectedDifficulties?: Difficulty[];
   ageGroup?: AgeGroup;
   rawText?: string;
   extractedText?: string;
   text?: string;
   pages?: Array<{ num: number; text: string }>;
 }): Promise<BoardPlanPreview> {
+  const safeAnalysis = normalizePdfAnalysisReport(params.analysis, params.analysis?.title);
   const resolvedText = resolvePdfTextContext({
     fileHash: params.fileHash,
-    analysis: params.analysis,
+    analysis: safeAnalysis,
     ageGroup: params.ageGroup,
     rawText: params.rawText ?? params.extractedText ?? params.text,
     pages: params.pages,
-    fallbackTitle: params.analysis?.title,
+    fallbackTitle: safeAnalysis.title,
   });
 
   const teamCount = Math.max(2, Math.min(4, Number(params.teamCount ?? 3) || 3));
@@ -217,6 +279,7 @@ export async function planBoardFromPdf(params: {
     3,
     Math.min(6, Number(params.desiredCategoriesCount ?? params.categoryCount ?? 5) || 5),
   );
+  const selectedDifficulties = normalizeSelectedDifficulties(params.selectedDifficulties);
 
   const cachedPlan = getCachedPdfPlan(params.fileHash);
   if (
@@ -225,6 +288,7 @@ export async function planBoardFromPdf(params: {
     cachedPlan.plan.teamCount === teamCount &&
     cachedPlan.plan.recommendedCategoryCount === categoryCount &&
     cachedPlan.plan.categories.length === categoryCount &&
+    sameDifficultySelection(cachedPlan.plan.selectedDifficulties, selectedDifficulties) &&
     Boolean(cachedPlan.plan.coverageReport)
   ) {
     return cachedPlan.plan;
@@ -239,21 +303,35 @@ export async function planBoardFromPdf(params: {
     .map((p, idx) => `- الفئة رقم ${idx + 1}: الصفحات ${p.startPage} إلى ${p.endPage}`)
     .join('\n');
 
-  const excerpt = buildRepresentativeExcerpt(resolvedText.pages, resolvedText.fullText, 28000);
-  const suggestedSeeds = (params.analysis.suggestedCategories ?? [])
+  const excerpt = buildRepresentativeExcerpt(resolvedText.pages, resolvedText.fullText, 24000);
+  const suggestedSeeds = (safeAnalysis.suggestedCategories ?? [])
     .filter((c) => !isGenericCategoryName(c.name))
     .map(
       (c, idx) =>
-        `${idx + 1}. ${c.name}${c.pageRange ? ` (ص ${c.pageRange.startPage}–${c.pageRange.endPage})` : ''}: ${c.description} (${c.topicCoverage.join('، ')})`,
+        `${idx + 1}. ${c.name}${c.pageRange ? ` (ص ${c.pageRange.startPage}–${c.pageRange.endPage})` : ''}: ${c.description} (${coerceStringArray(c.topicCoverage).join('، ')})`,
     )
     .join('\n');
 
-  const hypotheticalNote = params.analysis.hypotheticalSections?.length
-    ? `تنبيه مهم حول الأقسام المستبعدة/الافتراضية في الملف:\n- ${params.analysis.hypotheticalSections.join('\n- ')}\nاستبعد أي إرشادات للمعلم أو جداول تدريبية فارغة من الأسئلة الأساسية وركّز على صلب المادة العلمية.`
+  const hypotheticalNote = safeAnalysis.hypotheticalSections?.length
+    ? `تنبيه مهم حول الأقسام المستبعدة/الافتراضية في الملف:\n- ${safeAnalysis.hypotheticalSections.join('\n- ')}\nاستبعد أي إرشادات للمعلم أو جداول تدريبية فارغة من الأسئلة الأساسية وركّز على صلب المادة العلمية.`
     : '';
 
-  const totalQuestions = categoryCount * teamCount * 3;
-  const prompt = `بناءً على الفهم التربوي والعلمي العميق لكامل صفحات درس "${params.analysis.title}" (المجال: ${params.analysis.subjectDomain}) والنص المرفق، صمّم خطة مصفوفة مسابقة «يمكن هاي» لـ **${categoryCount} فئات رئيسية متخصصة** و**${teamCount} فرق متنافسة** (إجمالي ${totalQuestions} سؤالًا: في كل فئة 3 أسئلة لكل فريق).
+  const tierDescriptions = [
+    selectedDifficulties.includes('easy')
+      ? '   - سهل (200 نقطة): استيعاب مباشر وذكي للمعلومات الأساسية في الفئة.'
+      : null,
+    selectedDifficulties.includes('medium')
+      ? '   - متوسط (400 نقطة): فهم وتحليل (تعليل، تسلسل، سبب ونتيجة، تفسير موقف).'
+      : null,
+    selectedDifficulties.includes('hard')
+      ? '   - صعب (600 نقطة): تفكير عالٍ واستنتاج عميق (مقارنة دقيقة، استنتاج قاعدة، كشف خطأ خفي، أو ربط مفاهيم).'
+      : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  const totalQuestions = categoryCount * teamCount * selectedDifficulties.length;
+  const prompt = `بناءً على الفهم التربوي والعلمي العميق لكامل صفحات درس "${safeAnalysis.title}" (المجال: ${safeAnalysis.subjectDomain}) والنص المرفق، صمّم خطة مصفوفة مسابقة «يمكن هاي» لـ **${categoryCount} فئات رئيسية متخصصة** و**${teamCount} فرق متنافسة** (إجمالي ${totalQuestions} سؤالًا: في كل فئة ${selectedDifficulties.length} أسئلة لكل فريق للمستويات: ${selectedDifficulties.map((d) => pointsForDifficulty(d)).join(' / ')}).
 
 القواعد الصارمة الإلزامية لتصميم الفئات الـ ${categoryCount}:
 1. **منع الفئات القالبية العامة نهائيًا**: يُمنع منعًا باتًا استخدام أي اسم عام أو جامد يتكرر بين الدروس مثل: "المفاهيم والمصطلحات التاريخية"، "التسلسل والخط الزمني"، "تحليل البيانات والاستدلال"، "العلل والأسباب والنتائج"، "المفاهيم والأسس الرئيسية"، أو "المقارنات والفروق الدقيقة". يجب أن يكون اسم كل فئة مشتقًا مباشرة من العناوين والأحداث والشخصيات والمحاور الفعلية داخل هذا الدرس تحديدًا.
@@ -261,10 +339,8 @@ export async function planBoardFromPdf(params: {
 ${partitionMapText}
 3. في كل فئة، حدد pageRange ({ startPage, endPage }) و coveredSubtopics و topicCoverage بحيث تغطي الفئات الـ ${categoryCount} مجتمعةً جميع فقرات وأفكار الدرس بنسبة 100%.
 4. استبعد تمامًا أي صفحات إرشادية للمعلم أو جداول أنشطة فارغة إلا إذا كانت جزءًا أساسيًا من المادة العلمية.
-5. في كل فئة يجب أن تدعم المادة العلمية توليد ${teamCount} أسئلة مميزة ومتكافئة الصعوبة وموزعة على زوايا ومواضيع فرعية مختلفة لكل مستوى:
-   - سهل (200 نقطة): استيعاب مباشر وذكي للمعلومات الأساسية في الفئة.
-   - متوسط (400 نقطة): فهم وتحليل (تعليل، تسلسل، سبب ونتيجة، تفسير موقف).
-   - صعب (600 نقطة): تفكير عالٍ واستنتاج عميق (مقارنة دقيقة، استنتاج قاعدة، كشف خطأ خفي، أو ربط مفاهيم).
+5. في كل فئة يجب أن تدعم المادة العلمية توليد ${teamCount} أسئلة مميزة ومتكافئة الصعوبة وموزعة على زوايا ومواضيع فرعية مختلفة لكل مستوى مختار:
+${tierDescriptions}
 6. لكل فئة أرجع:
    - name: اسم الفئة المشتق من محتوى الدرس الفعلي بالعربية (غير قالبي).
    - description: وصف تربوي دقيق لما تشمله الفئة.
@@ -277,11 +353,11 @@ ${partitionMapText}
    - supportsEasy200، supportsMedium400، supportsHard600: true.
 
 ${suggestedSeeds ? `بذور محاور متخصصة من التحليل المبدئي:\n${suggestedSeeds}\n` : ''}
-المواضيع الرئيسية: ${params.analysis.mainTopics.join('، ') || 'غير محددة'}
-المواضيع الفرعية: ${params.analysis.subTopics.join('، ') || 'غير محددة'}
-الشخصيات والأحداث: ${(params.analysis.peopleAndEvents ?? []).slice(0, 8).join('، ') || 'مذكورة في النص'}
-العلل والأسباب: ${(params.analysis.causesAndEffects ?? []).slice(0, 6).join('، ') || 'مذكورة في النص'}
-المقارنات والاستنتاجات: ${(params.analysis.relationshipsAndConclusions ?? []).slice(0, 6).join('، ') || 'مذكورة في النص'}
+المواضيع الرئيسية: ${safeAnalysis.mainTopics.join('، ') || 'غير محددة'}
+المواضيع الفرعية: ${safeAnalysis.subTopics.join('، ') || 'غير محددة'}
+الشخصيات والأحداث: ${safeAnalysis.peopleAndEvents.slice(0, 8).join('، ') || 'مذكورة في النص'}
+العلل والأسباب: ${safeAnalysis.causesAndEffects.slice(0, 6).join('، ') || 'مذكورة في النص'}
+المقارنات والاستنتاجات: ${safeAnalysis.relationshipsAndConclusions.slice(0, 6).join('، ') || 'مذكورة في النص'}
 ${hypotheticalNote ? `\n${hypotheticalNote}` : ''}
 
 النص المستخرج:
@@ -375,22 +451,23 @@ ${excerpt}`;
   const fallbackTopics = Array.from(
     new Set(
       [
-        ...(params.analysis.mainTopics ?? []),
-        ...(params.analysis.subTopics ?? []),
-        ...(params.analysis.peopleAndEvents ?? []),
-        ...(params.analysis.conceptsAndTerms ?? []),
+        ...safeAnalysis.mainTopics,
+        ...safeAnalysis.subTopics,
+        ...safeAnalysis.peopleAndEvents,
+        ...safeAnalysis.conceptsAndTerms,
       ]
-        .map((s) => s?.trim())
-        .filter((s): s is string => Boolean(s) && !isGenericCategoryName(s)),
+        .filter((s) => !isGenericCategoryName(s)),
     ),
   );
   const safeFallbackTopics =
-    fallbackTopics.length > 0 ? fallbackTopics : [params.analysis.title || 'محور الدرس'];
+    fallbackTopics.length > 0 ? fallbackTopics : [safeAnalysis.title || 'محور الدرس'];
 
-  const fallbackSuggested = (params.analysis.suggestedCategories ?? []).filter(
+  const fallbackSuggested = (safeAnalysis.suggestedCategories ?? []).filter(
     (c) => !isGenericCategoryName(c.name),
   );
-  const rawCats = (parsed.categories ?? []).filter((c) => Boolean(c?.name?.trim()));
+  const rawCats = (Array.isArray(parsed.categories) ? parsed.categories : []).filter((c) =>
+    Boolean(c?.name?.trim()),
+  );
   const usedCatNames = new Set<string>();
 
   const categories: BoardPlanCategory[] = Array.from({ length: categoryCount }, (_, idx) => {
@@ -410,7 +487,7 @@ ${excerpt}`;
     let chosenName =
       candidateNames.find((n) => !isGenericCategoryName(n) && !usedCatNames.has(n)) ||
       candidateNames.find((n) => !isGenericCategoryName(n)) ||
-      `${params.analysis.title.trim().slice(0, 26)} (ص ${partition.startPage}–${partition.endPage})`;
+      `${safeAnalysis.title.trim().slice(0, 26)} (ص ${partition.startPage}–${partition.endPage})`;
     if (usedCatNames.has(chosenName)) {
       chosenName = `${chosenName} (${partition.startPage}–${partition.endPage})`;
     }
@@ -428,37 +505,40 @@ ${excerpt}`;
     const startPage = hasValidRange ? Math.round(rawStart) : partition.startPage;
     const endPage = hasValidRange ? Math.round(rawEnd) : partition.endPage;
 
+    const rawCovered = coerceStringArray(raw?.coveredSubtopics);
+    const rawCoverage = coerceStringArray(raw?.topicCoverage);
+    const seedCovered = coerceStringArray(seed?.coveredSubtopics);
+    const seedCoverage = coerceStringArray(seed?.topicCoverage);
+
     const t200 =
       raw?.subtopic200?.trim() ||
-      raw?.coveredSubtopics?.[0] ||
-      raw?.topicCoverage?.[0] ||
-      seed?.topicCoverage?.[0] ||
+      rawCovered[0] ||
+      rawCoverage[0] ||
+      seedCoverage[0] ||
       safeFallbackTopics[(idx * 3) % safeFallbackTopics.length];
     const t400 =
       raw?.subtopic400?.trim() ||
-      raw?.coveredSubtopics?.[1] ||
-      raw?.topicCoverage?.[1] ||
-      seed?.topicCoverage?.[1] ||
+      rawCovered[1] ||
+      rawCoverage[1] ||
+      seedCoverage[1] ||
       safeFallbackTopics[(idx * 3 + 1) % safeFallbackTopics.length];
     const t600 =
       raw?.subtopic600?.trim() ||
-      raw?.coveredSubtopics?.[2] ||
-      raw?.topicCoverage?.[2] ||
-      seed?.topicCoverage?.[2] ||
+      rawCovered[2] ||
+      rawCoverage[2] ||
+      seedCoverage[2] ||
       safeFallbackTopics[(idx * 3 + 2) % safeFallbackTopics.length];
 
     const coverage = Array.from(
-      new Set(
-        [
-          ...(raw?.coveredSubtopics ?? []),
-          ...(raw?.topicCoverage ?? []),
-          ...(seed?.coveredSubtopics ?? []),
-          ...(seed?.topicCoverage ?? []),
-          t200,
-          t400,
-          t600,
-        ].filter(Boolean) as string[],
-      ),
+      new Set([
+        ...rawCovered,
+        ...rawCoverage,
+        ...seedCovered,
+        ...seedCoverage,
+        t200,
+        t400,
+        t600,
+      ].filter(Boolean)),
     );
 
     const resolvedIcon: CategoryIconKey =
@@ -466,7 +546,7 @@ ${excerpt}`;
         ? (raw.iconKey as CategoryIconKey)
         : seed?.iconKey && VALID_ICON_KEYS.has(seed.iconKey)
           ? seed.iconKey
-          : params.analysis.isReligiousContent
+          : safeAnalysis.isReligiousContent
             ? 'islamic'
             : pal.iconKey;
 
@@ -484,10 +564,13 @@ ${excerpt}`;
       subtopic200: t200,
       subtopic400: t400,
       subtopic600: t600,
-      estimatedMaxQuestions: teamCount * 3,
-      supportsEasy200: raw?.supportsEasy200 !== false,
-      supportsMedium400: raw?.supportsMedium400 !== false,
-      supportsHard600: raw?.supportsHard600 !== false,
+      estimatedMaxQuestions: teamCount * selectedDifficulties.length,
+      supportsEasy200:
+        selectedDifficulties.includes('easy') && raw?.supportsEasy200 !== false,
+      supportsMedium400:
+        selectedDifficulties.includes('medium') && raw?.supportsMedium400 !== false,
+      supportsHard600:
+        selectedDifficulties.includes('hard') && raw?.supportsHard600 !== false,
       sample200: raw?.sample200?.trim() || `استيعاب مباشر: ${t200}`,
       sample400: raw?.sample400?.trim() || `تعليل وربط: ${t400}`,
       sample600: raw?.sample600?.trim() || `مقارنة واستنتاج عميق: ${t600}`,
@@ -501,7 +584,7 @@ ${excerpt}`;
     categories,
     totalPages: resolvedText.totalPages,
     readablePages: resolvedText.pages.length,
-    analysis: params.analysis,
+    analysis: safeAnalysis,
   });
 
   if (!coverageReport.isFullCoverage) {
@@ -513,38 +596,44 @@ ${excerpt}`;
       categories,
       totalPages: resolvedText.totalPages,
       readablePages: resolvedText.pages.length,
-      analysis: params.analysis,
+      analysis: safeAnalysis,
     });
   }
 
   const allTiersSupported = categories.every(
-    (c) => c.supportsEasy200 && c.supportsMedium400 && c.supportsHard600,
+    (c) =>
+      (!selectedDifficulties.includes('easy') || c.supportsEasy200) &&
+      (!selectedDifficulties.includes('medium') || c.supportsMedium400) &&
+      (!selectedDifficulties.includes('hard') || c.supportsHard600),
   );
 
   const plan: BoardPlanPreview = {
     fileHash: params.fileHash,
-    title: params.analysis.title,
+    title: safeAnalysis.title,
     boardMode: 'category_team_matrix',
     teamCount,
+    selectedDifficulties,
     recommendedCategoryCount: categoryCount,
     categories,
     canBuildFull15Board: allTiersSupported,
     coverageReport,
-    warnings: parsed.warnings ?? [],
-    suggestedQuestionTypes: (parsed.suggestedQuestionTypes ?? [
-      'direct_qa',
-      'analysis_reasoning',
-      'true_false_explain',
-      'spot_error',
-      'connect_two',
-      'order_steps',
-      'multiple_choice',
-    ]) as QuestionType[],
+    warnings: coerceStringArray(parsed.warnings),
+    suggestedQuestionTypes: (Array.isArray(parsed.suggestedQuestionTypes) && parsed.suggestedQuestionTypes.length > 0
+      ? parsed.suggestedQuestionTypes
+      : [
+          'direct_qa',
+          'analysis_reasoning',
+          'true_false_explain',
+          'spot_error',
+          'connect_two',
+          'order_steps',
+          'multiple_choice',
+        ]) as QuestionType[],
   };
 
   saveCachedPdfPlan({
     fileHash: params.fileHash,
-    analysis: params.analysis,
+    analysis: safeAnalysis,
     plan,
     updatedAt: new Date().toISOString(),
   });
@@ -568,6 +657,7 @@ interface RawGeminiQuestion {
   hint?: string;
   explanation?: string;
   sourceSnippet?: string;
+  sourceFileName?: string;
   pageNumber?: number;
   visualId?: string;
   imageUrl?: string;
@@ -702,7 +792,8 @@ function attachVisualMediaToQuestion(
       typeof item.imageCaption === 'string' && item.imageCaption.trim()
         ? item.imageCaption.trim()
         : matched.caption,
-    pageNumber: matched.pageNumber,
+    sourceFileName: matched.sourceFileName ?? item.sourceFileName,
+    pageNumber: matched.sourcePageNumber ?? matched.pageNumber,
   };
 }
 
@@ -711,6 +802,7 @@ function normalizeGeminiQuestionList(
   pages: Array<{ num: number; text: string }>,
   pantAllowed: boolean,
   visuals: ExtractedPdfVisual[] = [],
+  sourceUnits: SourceUnitRef[] = [],
 ): RawGeminiQuestion[] {
   return rawList.flatMap((q) => {
     if (!q || typeof q !== 'object') return [];
@@ -730,6 +822,9 @@ function normalizeGeminiQuestionList(
       ? (normalized.questionType as QuestionType)
       : 'direct_qa';
     const matchedPage = matchSourcePageNumber(pages, normalized.sourceSnippet, normalized.pageNumber);
+    const matchedUnit = matchedPage
+      ? sourceUnits.find((u) => u.num === matchedPage || u.sourcePageNumber === matchedPage)
+      : undefined;
     const baseItem: RawGeminiQuestion = {
       ...normalized,
       teamIndex:
@@ -739,11 +834,14 @@ function normalizeGeminiQuestionList(
       difficulty,
       questionType,
       subtopic: normalized.subtopic?.trim(),
+      sourceFileName:
+        (typeof q.sourceFileName === 'string' && q.sourceFileName.trim()) ||
+        matchedUnit?.sourceFileName,
       visualId: typeof q.visualId === 'string' ? q.visualId.trim() : undefined,
       imageCaption: typeof q.imageCaption === 'string' ? q.imageCaption.trim() : undefined,
       imageUrl: typeof q.imageUrl === 'string' ? q.imageUrl.trim() : undefined,
       imageBase64: typeof q.imageBase64 === 'string' ? q.imageBase64.trim() : undefined,
-      pageNumber: matchedPage ?? (pages[0]?.num || 1),
+      pageNumber: matchedUnit?.sourcePageNumber ?? matchedPage ?? (pages[0]?.num || 1),
     };
     return [attachVisualMediaToQuestion(baseItem, visuals)];
   });
@@ -754,26 +852,41 @@ function buildStrictAccuracyRules(params: {
   hypotheticalSections?: string[];
   allowedTypesText: string;
   avoidPrompts: string[];
+  selectedDifficulties?: Difficulty[];
 }): string {
   const avoidSlice = params.avoidPrompts.slice(-60).join(' | ');
+  const activeDiffs = normalizeSelectedDifficulties(params.selectedDifficulties);
+  const diffLines = [
+    activeDiffs.includes('easy')
+      ? '   - easy (200 نقطة): استيعاب مباشر وواضح لكنه ذكي للمعلومات المحورية في الفئة (غير سطحي).'
+      : null,
+    activeDiffs.includes('medium')
+      ? '   - medium (400 نقطة): فهم وتحليل (تعليل/لماذا، تسلسل، سبب ونتيجة، تفسير موقف أو قرار).'
+      : null,
+    activeDiffs.includes('hard')
+      ? '   - hard (600 نقطة): تفكير عالٍ واستنتاج عميق (مقارنة دقيقة، استنتاج قاعدة أو نتيجة، كشف خطأ خفي أو استثناء، أو الربط بين مفهومين).'
+      : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
   const hypoNote = params.hypotheticalSections?.length
     ? `\nالأقسام المستبعدة/الافتراضية في المستند:\n- ${params.hypotheticalSections.join('\n- ')}\nتجنب تمامًا توليد أسئلة من صفحات إرشادات المعلم أو الجداول التدريبية الفارغة إلا إذا كانت جزءًا صريحًا من المادة العلمية (وإذا استُخدمت بيانات تدريبية اذكر أنها مثال تدريبي ولا تنسبها للوقائع الحقيقية).`
     : '';
 
   return `القواعد الصارمة للدقة التربوية والمعرفية:
-1. التزم حرفيًا بالحقائق والأرقام والتواريخ والعلاقات الواردة في النص فقط؛ لا تخترع أي معلومة.
+1. التزم حرفيًا بالحقائق والأرقام والتواريخ والعلاقات الواردة في النص والصور المرفقة فقط؛ يُمنع منعًا باتًا اختلاق أو افتراض أي معلومة من خارجها.
 2. التدرج المعرفي الصارم:
-   - easy (200 نقطة): استيعاب مباشر وواضح لكنه ذكي للمعلومات المحورية في الفئة (غير سطحي).
-   - medium (400 نقطة): فهم وتحليل (تعليل/لماذا، تسلسل، سبب ونتيجة، تفسير موقف أو قرار).
-   - hard (600 نقطة): تفكير عالٍ واستنتاج عميق (مقارنة دقيقة، استنتاج قاعدة أو نتيجة، كشف خطأ خفي أو استثناء، أو الربط بين مفهومين).
+${diffLines}
 3. التكافؤ والعدل بين الفرق: داخل نفس الفئة ونفس مستوى الصعوبة، يجب أن تكون أسئلة الفرق المتنافسة متساوية تمامًا في الصعوبة ومبنية على حقائق وزوايا وصياغات مختلفة تمامًا حتى لا يستفيد أي فريق من سماع سؤال فريق آخر.
-4. نوّع أنواع الأسئلة ولا تحصرها في الاختيار من متعدد! الأنواع المتاحة: ${params.allowedTypesText}.
-5. حقل subtopic إلزامي لكل سؤال: اسم الموضوع الفرعي الدقيق من الدرس.
-6. حقول إلزامية لكل سؤال: answer (إجابة نموذجية كاملة وواضحة)، explanation (تفسير تعليمي موجز يوضح السبب والدليل)، sourceSnippet (مقتبس حرفي من النص يثبت المعلومة)، pageNumber (رقم الصفحة الحقيقي 1..${params.totalPages}).
-7. إذا كان questionType = "multiple_choice" أضف 4 خيارات مميزة في options وحدد correctOptionIndex واجعل answer مطابقًا تمامًا للخيار الصحيح.
-8. إذا كان questionType = "order_steps" أضف العناصر غير مرتبة في orderItems وأعد نفس العناصر بالترتيب الصحيح في correctOrder واجعل answer يربطها بـ « ← ».
-9. إذا تضمن السؤال آية قرآنية أو حديثًا أو حكمًا شرعيًا أو سيرة نبوية اجعل isSensitiveReligious = true.
-10. ممنوع تكرار أو إعادة صياغة أي من الأسئلة السابقة التالية: ${avoidSlice || 'لا يوجد'}${hypoNote}`;
+4. منع الأسئلة التافهة والبديهية والتي تكشف إجابتها: يُمنع طرح سؤال يحتوي على إجابته، أو سؤال عن اسم الملف/عدد الصفحات/إجابة نعم أو لا مجردة.
+5. نوّع أنواع الأسئلة ولا تحصرها في الاختيار من متعدد! الأنواع المتاحة: ${params.allowedTypesText}.
+6. حقل subtopic إلزامي لكل سؤال: اسم الموضوع الفرعي الدقيق من الدرس.
+7. حقول إلزامية لكل سؤال: answer (إجابة نموذجية كاملة وواضحة)، explanation (تفسير تعليمي موجز يوضح السبب والدليل)، sourceSnippet (مقتبس حرفي من النص يثبت المعلومة)، pageNumber (رقم الصفحة الحقيقي 1..${params.totalPages}) و sourceFileName إن تعددت الملفات.
+8. إذا كان questionType = "multiple_choice" أضف 4 خيارات مميزة في options وحدد correctOptionIndex واجعل answer مطابقًا تمامًا للخيار الصحيح.
+9. إذا كان questionType = "order_steps" أضف العناصر غير مرتبة في orderItems وأعد نفس العناصر بالترتيب الصحيح في correctOrder واجعل answer يربطها بـ « ← ».
+10. إذا تضمن السؤال آية قرآنية أو حديثًا أو حكمًا شرعيًا أو سيرة نبوية اجعل isSensitiveReligious = true.
+11. ممنوع تكرار أو إعادة صياغة فكرة أي من الأسئلة السابقة التالية: ${avoidSlice || 'لا يوجد'}${hypoNote}`;
 }
 
 async function generateCategoryMatrixBatch(params: {
@@ -781,8 +894,10 @@ async function generateCategoryMatrixBatch(params: {
   categoryNumber: number;
   totalCategories: number;
   teamCount: number;
+  selectedDifficulties: Difficulty[];
   sourceText: string;
   pages: Array<{ num: number; text: string }>;
+  sourceUnits: SourceUnitRef[];
   analysis: PdfAnalysisReport;
   ageGroup: AgeGroup;
   totalPages: number;
@@ -797,8 +912,8 @@ async function generateCategoryMatrixBatch(params: {
   const subtopicsPool = Array.from(
     new Set(
       [
-        ...(params.categoryPlan.coveredSubtopics ?? []),
-        ...params.categoryPlan.topicCoverage,
+        ...coerceStringArray(params.categoryPlan.coveredSubtopics),
+        ...coerceStringArray(params.categoryPlan.topicCoverage),
         params.categoryPlan.subtopic200 || '',
         params.categoryPlan.subtopic400 || '',
         params.categoryPlan.subtopic600 || '',
@@ -819,13 +934,13 @@ async function generateCategoryMatrixBatch(params: {
     params.sourceText,
     params.categoryPlan.pageRange,
     keywords,
-    28000,
+    24000,
   );
 
   const startP = params.categoryPlan.pageRange?.startPage ?? 1;
   const endP = params.categoryPlan.pageRange?.endPage ?? params.totalPages;
   const rangeSpan = Math.max(1, endP - startP + 1);
-  const tiersOrder: Difficulty[] = ['easy', 'medium', 'hard'];
+  const tiersOrder = normalizeSelectedDifficulties(params.selectedDifficulties);
   const categoryVisuals = selectVisualsForRange(
     params.visuals ?? [],
     params.categoryPlan.pageRange,
@@ -845,20 +960,32 @@ async function generateCategoryMatrixBatch(params: {
     return `- الفريق رقم teamIndex=${teamIdx} (team_${teamIdx + 1}): ${slotAssignments}`;
   }).join('\n');
 
+  const tierHints = [
+    tiersOrder.includes('easy')
+      ? `- سهل (200): ${params.categoryPlan.subtopic200 || ''} — ${params.categoryPlan.sample200}`
+      : null,
+    tiersOrder.includes('medium')
+      ? `- متوسط (400): ${params.categoryPlan.subtopic400 || ''} — ${params.categoryPlan.sample400}`
+      : null,
+    tiersOrder.includes('hard')
+      ? `- صعب (600): ${params.categoryPlan.subtopic600 || ''} — ${params.categoryPlan.sample600}`
+      : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
   const prompt = `أنت خبير وضع اختبارات تعليمية عربية لمسابقة «يمكن هاي» (الفئة العمرية: ${params.ageGroup}).
 أنت الآن في **الدفعة ${params.categoryNumber} من ${params.totalCategories}**: الفئة الرئيسية هي «${params.categoryPlan.name}» (نطاق الصفحات الأساسي: ص ${startP} إلى ص ${endP}).
 وصف الفئة: ${params.categoryPlan.description}
 الموضوعات الفرعية المغطاة: ${subtopicsPool.join('، ')}
-مستويات هذه الفئة:
-- سهل (200): ${params.categoryPlan.subtopic200 || ''} — ${params.categoryPlan.sample200}
-- متوسط (400): ${params.categoryPlan.subtopic400 || ''} — ${params.categoryPlan.sample400}
-- صعب (600): ${params.categoryPlan.subtopic600 || ''} — ${params.categoryPlan.sample600}
+المستويات المطلوبة لهذه الفئة:
+${tierHints}
 
 توزيع الأسئلة بذكاء على كل زوايا الفئة (Subtopic Dispersion):
-يُمنع منعًا باتًا تكديس الأسئلة حول فقرة واحدة أو صفحة واحدة! وزّع الأسئلة الـ ${params.teamCount * 3} على كافة المحاور الفرعية والصفحات في النطاق (ص ${startP}–${endP}) وفق التوزيع التالي:
+يُمنع منعًا باتًا تكديس الأسئلة حول فقرة واحدة أو صفحة واحدة! وزّع الأسئلة الـ ${params.teamCount * tiersOrder.length} على كافة المحاور الفرعية والصفحات في النطاق (ص ${startP}–${endP}) وفق التوزيع التالي:
 ${expectedSlotsText}
 
-تأكد من إرجاع teamIndex رقميًا (من 0 إلى ${params.teamCount - 1}) و difficulty ("easy" | "medium" | "hard") لكل سؤال، مع اختلاف زاوية كل سؤال وموضوعه الفرعي عن بقية الأسئلة.
+تأكد من إرجاع teamIndex رقميًا (من 0 إلى ${params.teamCount - 1}) و difficulty من (${tiersOrder.map((d) => `"${d}"`).join(' | ')}) لكل سؤال، مع اختلاف زاوية كل سؤال وموضوعه الفرعي عن بقية الأسئلة.
 ${buildVisualPromptSection(categoryVisuals)}
 
 ${buildStrictAccuracyRules({
@@ -866,6 +993,7 @@ ${buildStrictAccuracyRules({
   hypotheticalSections: params.analysis.hypotheticalSections,
   allowedTypesText,
   avoidPrompts: params.avoidPrompts,
+  selectedDifficulties: tiersOrder,
 })}
 
 نص الدرس (تركيز على نطاق صفحات الفئة ص ${startP}–${endP}):
@@ -879,7 +1007,7 @@ ${excerpt}`;
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
       systemInstruction:
-        'أنت خبير تربوي ومصمم أسئلة مسابقات عربية. ولّد جميع أسئلة هذه الفئة فقط بدقة عالية وتكافؤ تام بين الفرق المتنافسة وتوزيع ذكي على كافة زوايا وصفحات الفئة وتدرج معرفي واضح (200/400/600) وادمج الأسئلة البصرية على الصور والمخططات المرفقة متى توفرت دون أي تكرار أو هلوسة.',
+        'أنت خبير تربوي ومصمم أسئلة مسابقات عربية. ولّد جميع أسئلة هذه الفئة فقط بدقة عالية وتكافؤ تام بين الفرق المتنافسة وتوزيع ذكي على كافة زوايا وصفحات الفئة وتدرج معرفي واضح وادمج الأسئلة البصرية على الصور والمخططات المرفقة متى توفرت دون أي تكرار أو هلوسة.',
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
@@ -903,6 +1031,7 @@ ${excerpt}`;
                 hint: { type: Type.STRING },
                 explanation: { type: Type.STRING },
                 sourceSnippet: { type: Type.STRING },
+                sourceFileName: { type: Type.STRING },
                 pageNumber: { type: Type.INTEGER },
                 visualId: { type: Type.STRING },
                 imageCaption: { type: Type.STRING },
@@ -936,6 +1065,7 @@ ${excerpt}`;
     params.pages,
     false,
     params.visuals ?? [],
+    params.sourceUnits,
   );
 }
 
@@ -951,9 +1081,10 @@ function findMissingMatrixSlots(
   deck: QuizDeck,
   categories: Array<{ id: string; name: string; subtopic200?: string; subtopic400?: string; subtopic600?: string; topicCoverage?: string[] }>,
   teamCount: number,
+  selectedDifficulties?: Difficulty[],
 ): MissingMatrixSlot[] {
   const missing: MissingMatrixSlot[] = [];
-  const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
+  const difficulties = normalizeSelectedDifficulties(selectedDifficulties ?? deck.selectedDifficulties);
   for (const cat of categories) {
     for (let teamIdx = 0; teamIdx < teamCount; teamIdx++) {
       for (const diff of difficulties) {
@@ -1006,11 +1137,13 @@ async function generateMissingMatrixSlotsBatch(params: {
   missingSlots: MissingMatrixSlot[];
   sourceText: string;
   pages: Array<{ num: number; text: string }>;
+  sourceUnits?: SourceUnitRef[];
   analysis: PdfAnalysisReport;
   ageGroup: AgeGroup;
   totalPages: number;
   avoidPrompts: string[];
   visuals?: ExtractedPdfVisual[];
+  selectedDifficulties?: Difficulty[];
 }): Promise<Array<RawGeminiQuestion & { categoryId?: string }>> {
   const allowedTypesText = Object.entries(QUESTION_TYPE_LABELS)
     .filter(([k]) => k !== 'pantomime_optional')
@@ -1024,7 +1157,7 @@ async function generateMissingMatrixSlotsBatch(params: {
     params.pages,
     params.sourceText,
     keywords,
-    28000,
+    24000,
   );
   const batchVisuals = (params.visuals ?? []).slice(0, 4);
 
@@ -1048,6 +1181,7 @@ ${buildStrictAccuracyRules({
   hypotheticalSections: params.analysis.hypotheticalSections,
   allowedTypesText,
   avoidPrompts: params.avoidPrompts,
+  selectedDifficulties: params.selectedDifficulties,
 })}
 
 النص:
@@ -1086,6 +1220,7 @@ ${excerpt}`;
                 hint: { type: Type.STRING },
                 explanation: { type: Type.STRING },
                 sourceSnippet: { type: Type.STRING },
+                sourceFileName: { type: Type.STRING },
                 pageNumber: { type: Type.INTEGER },
                 visualId: { type: Type.STRING },
                 imageCaption: { type: Type.STRING },
@@ -1116,15 +1251,18 @@ ${excerpt}`;
     params.pages,
     false,
     params.visuals ?? [],
+    params.sourceUnits ?? [],
   );
 }
 
-// STAGE 4 EXECUTION: Sequential 5-Category Batches + Live Progress + Self-Healing Matrix Validation
+// STAGE 4 EXECUTION: Sequential K-Category Batches + Checkpoint Persistence/Resume + Self-Healing Matrix Validation
 export async function generateBoardFromPlan(params: {
   fileHash: string;
   analysis: PdfAnalysisReport;
   plan: BoardPlanPreview;
   ageGroup: AgeGroup;
+  selectedDifficulties?: Difficulty[];
+  resumeJobId?: string;
   includeBackups?: boolean;
   existingDeckId?: string;
   rawText?: string;
@@ -1135,37 +1273,51 @@ export async function generateBoardFromPlan(params: {
   onProgress?: (event: GenerationProgressEvent) => void;
 }): Promise<{
   deck: QuizDeck;
+  jobId: string;
   addedCount: number;
   rejectedCount: number;
   quotaStopped: boolean;
   message: string;
 }> {
+  const resumedJob = params.resumeJobId ? getGenerationJob(params.resumeJobId) : null;
+  const effectiveAnalysis = normalizePdfAnalysisReport(
+    resumedJob?.analysis ?? params.analysis,
+    params.plan?.title || params.analysis?.title,
+  );
+  const effectivePlan = resumedJob?.plan ?? params.plan;
+  const effectiveAgeGroup = resumedJob?.ageGroup ?? params.ageGroup;
+  const selectedDifficulties = normalizeSelectedDifficulties(
+    params.selectedDifficulties ??
+      resumedJob?.selectedDifficulties ??
+      effectivePlan.selectedDifficulties,
+  );
+
   const resolvedText = resolvePdfTextContext({
-    fileHash: params.fileHash,
-    analysis: params.analysis,
-    ageGroup: params.ageGroup,
+    fileHash: params.fileHash || effectiveAnalysis.fileHash,
+    analysis: effectiveAnalysis,
+    ageGroup: effectiveAgeGroup,
     rawText: params.rawText ?? params.extractedText ?? params.text,
     pages: params.pages,
-    fallbackTitle: params.plan?.title || params.analysis?.title,
+    fallbackTitle: effectivePlan?.title || effectiveAnalysis?.title,
   });
   const resolvedVisuals = resolveExtractedVisualsContext({
-    fileHash: params.fileHash,
-    analysis: params.analysis,
+    fileHash: params.fileHash || effectiveAnalysis.fileHash,
+    analysis: effectiveAnalysis,
     incomingVisuals: params.extractedVisuals,
   });
 
   const existingDeck = params.existingDeckId ? getDeckById(params.existingDeckId) : undefined;
-  if (existingDeck && existingDeck.pdfAnalysis?.fileHash !== params.fileHash) {
+  if (existingDeck && existingDeck.pdfAnalysis?.fileHash !== (params.fileHash || effectiveAnalysis.fileHash)) {
     throw new Error('لا يطابق الملف بنك الأسئلة المطلوب استكماله.');
   }
 
   const catCount = Math.max(
     3,
-    Math.min(6, params.plan.recommendedCategoryCount || params.plan.categories.length || 5),
+    Math.min(6, effectivePlan.recommendedCategoryCount || effectivePlan.categories.length || 5),
   );
-  const categoryPlans = params.plan.categories.slice(0, catCount);
-  const teamCount = Math.max(2, Math.min(4, params.plan.teamCount || 3));
-  const targetTotalQuestions = categoryPlans.length * teamCount * 3;
+  const categoryPlans = effectivePlan.categories.slice(0, catCount);
+  const teamCount = Math.max(2, Math.min(4, effectivePlan.teamCount || 3));
+  const targetTotalQuestions = categoryPlans.length * teamCount * selectedDifficulties.length;
 
   const categories: DeckCategory[] = categoryPlans.map((c, idx) => ({
     id: c.id || `cat_${idx + 1}`,
@@ -1178,33 +1330,87 @@ export async function generateBoardFromPlan(params: {
     topicCoverage: c.topicCoverage,
   }));
 
-  const deck: QuizDeck = existingDeck ?? {
-    schemaVersion: 2,
-    id: `deck_quiz_${params.fileHash.slice(0, 10)}_${Date.now()}`,
-    title: params.plan.title || params.analysis.title,
-    description: `مسابقة النخبة: ${categoryPlans.length} فئات رئيسية × ${teamCount} فرق (${targetTotalQuestions} سؤالًا) من ملف: ${params.analysis.fileName}`,
-    sourceType: 'pdf',
-    boardMode: 'category_team_matrix',
-    teamCount,
-    ageGroup: params.ageGroup,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    categories,
-    questions: [],
-    pdfAnalysis: params.analysis,
-    boardPlan: {
-      ...params.plan,
+  const effectiveFileHash = params.fileHash || effectiveAnalysis.fileHash;
+  const deck: QuizDeck =
+    resumedJob?.deck ??
+    existingDeck ?? {
+      schemaVersion: 2,
+      id: `deck_quiz_${effectiveFileHash.slice(0, 10)}_${Date.now()}`,
+      title: effectivePlan.title || effectiveAnalysis.title,
+      description: `مسابقة النخبة: ${categoryPlans.length} فئات رئيسية × ${teamCount} فرق (${targetTotalQuestions} سؤالًا) من: ${effectiveAnalysis.fileName}`,
+      sourceType: 'pdf',
       boardMode: 'category_team_matrix',
       teamCount,
-      recommendedCategoryCount: categoryPlans.length,
-    },
-    rejectedLog: [],
-  };
+      selectedDifficulties,
+      ageGroup: effectiveAgeGroup,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      categories,
+      questions: [],
+      pdfAnalysis: effectiveAnalysis,
+      boardPlan: {
+        ...effectivePlan,
+        boardMode: 'category_team_matrix',
+        teamCount,
+        selectedDifficulties,
+        recommendedCategoryCount: categoryPlans.length,
+      },
+      rejectedLog: [],
+    };
+  deck.selectedDifficulties = selectedDifficulties;
 
-  let addedCount = 0;
-  let rejectedCount = 0;
+  const jobId =
+    resumedJob?.jobId ?? `job_${effectiveFileHash.slice(0, 10)}_${Date.now()}`;
+  const completedCategoryIds = new Set<string>(resumedJob?.completedCategoryIds ?? []);
+  let addedCount = resumedJob?.addedCount ?? 0;
+  let rejectedCount = resumedJob?.rejectedCount ?? 0;
   let quotaStopped = false;
   let errorDetail = '';
+  const jobCreatedAt = resumedJob?.createdAt ?? new Date().toISOString();
+
+  const persistCheckpoint = (
+    status: GenerationJobCheckpoint['status'],
+    healingDone: boolean,
+    lastError?: string,
+  ) => {
+    const fileNames =
+      effectiveAnalysis.sourceFiles?.map((f) => f.fileName) ?? [effectiveAnalysis.fileName];
+    const checkpoint: GenerationJobCheckpoint = {
+      jobId,
+      fileHash: effectiveFileHash,
+      title: deck.title,
+      fileNames,
+      ageGroup: effectiveAgeGroup,
+      selectedDifficulties,
+      analysis: effectiveAnalysis,
+      plan: {
+        ...effectivePlan,
+        teamCount,
+        selectedDifficulties,
+        recommendedCategoryCount: categoryPlans.length,
+      },
+      deck: {
+        ...deck,
+        updatedAt: new Date().toISOString(),
+      },
+      completedCategoryIds: Array.from(completedCategoryIds),
+      healingDone,
+      status,
+      lastError,
+      addedCount,
+      rejectedCount,
+      targetQuestions: targetTotalQuestions,
+      createdAt: jobCreatedAt,
+      updatedAt: new Date().toISOString(),
+    };
+    try {
+      saveGenerationJob(checkpoint);
+    } catch (saveErr) {
+      console.warn('[aiPdfEngine] Failed to persist generation checkpoint:', saveErr);
+    }
+  };
+
+  persistCheckpoint('in_progress', Boolean(resumedJob?.healingDone));
 
   const seenPromptsNorm = new Set<string>(
     deck.questions.map((q) => normalizeArabicText(q.prompt)),
@@ -1213,11 +1419,11 @@ export async function generateBoardFromPlan(params: {
   const pages = resolvedText.pages;
 
   const fallbackTopics =
-    params.analysis.subTopics.length > 0
-      ? params.analysis.subTopics
-      : params.analysis.mainTopics.length > 0
-        ? params.analysis.mainTopics
-        : [params.analysis.title];
+    effectiveAnalysis.subTopics.length > 0
+      ? effectiveAnalysis.subTopics
+      : effectiveAnalysis.mainTopics.length > 0
+        ? effectiveAnalysis.mainTopics
+        : [effectiveAnalysis.title];
 
   const tryAcceptMatrixCandidate = (paramsAccept: {
     item: RawGeminiQuestion;
@@ -1226,25 +1432,6 @@ export async function generateBoardFromPlan(params: {
     diff: Difficulty;
   }): boolean => {
     const { item, catPlan, teamIdx, diff } = paramsAccept;
-    const dupReason = isDuplicateQuestionPrompt(
-      item.prompt || '',
-      seenPromptsNorm,
-      seenPromptsRaw,
-    );
-    if (dupReason) {
-      rejectedCount += 1;
-      deck.rejectedLog = [
-        ...(deck.rejectedLog ?? []),
-        {
-          id: `rej_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
-          prompt: item.prompt || 'سؤال مكرر',
-          reason: dupReason,
-          categoryName: catPlan.name,
-        },
-      ];
-      return false;
-    }
-
     const fallbackSubtopic =
       diff === 'easy'
         ? catPlan.subtopic200
@@ -1257,8 +1444,8 @@ export async function generateBoardFromPlan(params: {
       catPlan.topicCoverage[teamIdx % Math.max(1, catPlan.topicCoverage.length)] ||
       fallbackTopics[teamIdx % fallbackTopics.length];
 
-    const validation = validateQuizQuestion(
-      {
+    const quality = evaluateQuestionQuality({
+      candidate: {
         ...item,
         status: 'needs_review',
         categoryId: catPlan.id,
@@ -1270,18 +1457,20 @@ export async function generateBoardFromPlan(params: {
         points: pointsForDifficulty(diff),
         isBackup: false,
         isSensitiveReligious:
-          Boolean(item.isSensitiveReligious) || params.analysis.isReligiousContent,
+          Boolean(item.isSensitiveReligious) || effectiveAnalysis.isReligiousContent,
       },
-      {
-        totalPages: resolvedText.totalPages,
-        existingPromptsNorm: seenPromptsNorm,
-      },
-    );
+      totalPages: resolvedText.totalPages,
+      existingPromptsNorm: seenPromptsNorm,
+      existingPromptsRaw: seenPromptsRaw,
+      sourceUnits: resolvedText.sourceUnits,
+      visuals: resolvedVisuals,
+      defaultSourceFileName: effectiveAnalysis.fileName,
+    });
 
-    if (validation.valid && validation.normalized) {
-      seenPromptsNorm.add(normalizeArabicText(validation.normalized.prompt));
-      seenPromptsRaw.push(validation.normalized.prompt);
-      deck.questions.push(validation.normalized);
+    if (quality.passed && quality.normalizedQuestion) {
+      seenPromptsNorm.add(normalizeArabicText(quality.normalizedQuestion.prompt));
+      seenPromptsRaw.push(quality.normalizedQuestion.prompt);
+      deck.questions.push(quality.normalizedQuestion);
       addedCount += 1;
       return true;
     }
@@ -1292,7 +1481,7 @@ export async function generateBoardFromPlan(params: {
       {
         id: `rej_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
         prompt: item.prompt || 'سؤال مستبعد',
-        reason: validation.reason || 'لم يستوفِ معايير الجودة أو المصدر.',
+        reason: quality.reason || 'لم يستوفِ معايير الجودة أو المصدر.',
         categoryName: catPlan.name,
       },
     ];
@@ -1300,10 +1489,25 @@ export async function generateBoardFromPlan(params: {
   };
 
   try {
-    // 1. Sequential Category-by-Category Generation (5 ordered requests)
+    // 1. Sequential Category-by-Category Generation with per-category checkpointing
     for (let catIdx = 0; catIdx < categoryPlans.length; catIdx++) {
       const catPlan = categoryPlans[catIdx];
+      if (completedCategoryIds.has(catPlan.id)) {
+        params.onProgress?.({
+          jobId,
+          stage: 'category',
+          categoryIndex: catIdx + 1,
+          totalCategories: categoryPlans.length,
+          categoryName: catPlan.name,
+          generatedCount: deck.questions.filter((q) => q.status !== 'rejected' && !q.isBackup).length,
+          targetCount: targetTotalQuestions,
+          message: `تم تخطي الفئة ${catIdx + 1} (${catPlan.name}) لاستكمالها مسبقًا...`,
+        });
+        continue;
+      }
+
       params.onProgress?.({
+        jobId,
         stage: 'category',
         categoryIndex: catIdx + 1,
         totalCategories: categoryPlans.length,
@@ -1318,10 +1522,12 @@ export async function generateBoardFromPlan(params: {
         categoryNumber: catIdx + 1,
         totalCategories: categoryPlans.length,
         teamCount,
+        selectedDifficulties,
         sourceText: resolvedText.fullText,
         pages,
-        analysis: params.analysis,
-        ageGroup: params.ageGroup,
+        sourceUnits: resolvedText.sourceUnits,
+        analysis: effectiveAnalysis,
+        ageGroup: effectiveAgeGroup,
         totalPages: resolvedText.totalPages,
         avoidPrompts: [...seenPromptsRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
         visuals: resolvedVisuals,
@@ -1339,9 +1545,9 @@ export async function generateBoardFromPlan(params: {
       const leftovers: RawGeminiQuestion[] = [];
       for (const item of batch) {
         const diff: Difficulty =
-          item.difficulty === 'easy' || item.difficulty === 'medium' || item.difficulty === 'hard'
+          selectedDifficulties.includes(item.difficulty)
             ? item.difficulty
-            : 'medium';
+            : selectedDifficulties[0];
         const rawTeamIdx =
           typeof item.teamIndex === 'number' &&
           item.teamIndex >= 0 &&
@@ -1357,12 +1563,12 @@ export async function generateBoardFromPlan(params: {
         }
       }
 
-      // Second pass inside category: assign remaining valid batch items to open slots in same difficulty
+      // Second pass inside category: assign remaining valid batch items to open slots in matching difficulties
       for (const item of leftovers) {
         const diff: Difficulty =
-          item.difficulty === 'easy' || item.difficulty === 'medium' || item.difficulty === 'hard'
+          selectedDifficulties.includes(item.difficulty)
             ? item.difficulty
-            : 'medium';
+            : selectedDifficulties[0];
         let openTeamIdx = -1;
         for (let t = 0; t < teamCount; t++) {
           if (!occupied.has(`${t}:${diff}`)) {
@@ -1375,15 +1581,29 @@ export async function generateBoardFromPlan(params: {
           if (ok) occupied.add(`${openTeamIdx}:${diff}`);
         }
       }
+
+      // Persist deck + checkpoint right after every completed category batch
+      completedCategoryIds.add(catPlan.id);
+      if (deck.questions.length > 0) {
+        deck.updatedAt = new Date().toISOString();
+        saveDeck(deck);
+      }
+      persistCheckpoint('in_progress', false);
     }
 
-    // 2. Self-Healing Validation Phase (guarantees 5 × N × 3 with ZERO missing slots)
+    // 2. Self-Healing Validation Phase (guarantees K × N × selectedDifficulties with ZERO missing slots)
     const MAX_HEAL_PASSES = 2;
     for (let healPass = 1; healPass <= MAX_HEAL_PASSES; healPass++) {
-      const missingSlots = findMissingMatrixSlots(deck, categoryPlans, teamCount);
+      const missingSlots = findMissingMatrixSlots(
+        deck,
+        categoryPlans,
+        teamCount,
+        selectedDifficulties,
+      );
       if (missingSlots.length === 0) break;
 
       params.onProgress?.({
+        jobId,
         stage: 'healing',
         categoryIndex: categoryPlans.length,
         totalCategories: categoryPlans.length,
@@ -1396,11 +1616,13 @@ export async function generateBoardFromPlan(params: {
         missingSlots,
         sourceText: resolvedText.fullText,
         pages,
-        analysis: params.analysis,
-        ageGroup: params.ageGroup,
+        sourceUnits: resolvedText.sourceUnits,
+        analysis: effectiveAnalysis,
+        ageGroup: effectiveAgeGroup,
         totalPages: resolvedText.totalPages,
         avoidPrompts: [...seenPromptsRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
         visuals: resolvedVisuals,
+        selectedDifficulties,
       });
 
       const remainingAfterHeal = new Set(
@@ -1409,10 +1631,9 @@ export async function generateBoardFromPlan(params: {
 
       for (let i = 0; i < healedBatch.length; i++) {
         const item = healedBatch[i];
-        const diff: Difficulty =
-          item.difficulty === 'easy' || item.difficulty === 'medium' || item.difficulty === 'hard'
-            ? item.difficulty
-            : missingSlots[i]?.difficulty ?? 'medium';
+        const diff: Difficulty = selectedDifficulties.includes(item.difficulty)
+          ? item.difficulty
+          : missingSlots[i]?.difficulty ?? selectedDifficulties[0];
 
         let matchedSlot = missingSlots.find(
           (s) =>
@@ -1456,19 +1677,30 @@ export async function generateBoardFromPlan(params: {
           );
         }
       }
+
+      if (deck.questions.length > 0) {
+        deck.updatedAt = new Date().toISOString();
+        saveDeck(deck);
+      }
+      persistCheckpoint('in_progress', false);
     }
 
-    if (addedCount > 0 || existingDeck) {
+    if (addedCount > 0 || existingDeck || resumedJob) {
       deck.updatedAt = new Date().toISOString();
       saveDeck(deck);
     }
+    persistCheckpoint('completed', true);
   } catch (err) {
+    errorDetail = formatGeminiError(err);
+    if (deck.questions.length > 0 || existingDeck) {
+      deck.updatedAt = new Date().toISOString();
+      saveDeck(deck);
+    }
+    persistCheckpoint('paused', false, errorDetail);
+
     if (isQuotaError(err)) {
       quotaStopped = true;
-      errorDetail = formatGeminiError(err);
-      if (deck.questions.length > 0 || existingDeck) {
-        saveDeck(deck);
-      } else {
+      if (deck.questions.length === 0 && !existingDeck) {
         throw new Error(errorDetail);
       }
     } else {
@@ -1476,7 +1708,7 @@ export async function generateBoardFromPlan(params: {
     }
   }
 
-  if (addedCount === 0 && !existingDeck) {
+  if (addedCount === 0 && !existingDeck && !resumedJob) {
     throw new Error(
       errorDetail ||
         'لم ينجح توليد مصفوفة الأسئلة من هذا الدرس. أعد المحاولة.',
@@ -1484,9 +1716,15 @@ export async function generateBoardFromPlan(params: {
   }
 
   const finalPrimaryCount = deck.questions.filter((q) => q.status !== 'rejected' && !q.isBackup).length;
-  const remainingMissing = findMissingMatrixSlots(deck, categoryPlans, teamCount);
+  const remainingMissing = findMissingMatrixSlots(
+    deck,
+    categoryPlans,
+    teamCount,
+    selectedDifficulties,
+  );
 
   params.onProgress?.({
+    jobId,
     stage: 'complete',
     categoryIndex: categoryPlans.length,
     totalCategories: categoryPlans.length,
@@ -1494,19 +1732,20 @@ export async function generateBoardFromPlan(params: {
     targetCount: targetTotalQuestions,
     message:
       remainingMissing.length === 0
-        ? `اكتملت المصفوفة بنجاح: ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × 3 مستويات).`
+        ? `اكتملت المصفوفة بنجاح: ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × ${selectedDifficulties.length} مستويات).`
         : `تم توليد ${finalPrimaryCount} من أصل ${targetTotalQuestions} سؤالًا.`,
   });
 
   return {
     deck,
+    jobId,
     addedCount,
     rejectedCount,
     quotaStopped,
     message: quotaStopped
-      ? errorDetail || 'توقف التوليد مؤقتًا بسبب الحصة، وتم حفظ الأسئلة المولدة.'
+      ? errorDetail || 'توقف التوليد مؤقتًا، وتم حفظ التقدم ويمكنك استئنافه من حيث توقف.'
       : remainingMissing.length === 0
-        ? `تم بناء مصفوفة كاملة من ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × 3 مستويات) عبر ${categoryPlans.length} دفعات متسلسلة وتحقق ذاتي${
+        ? `تم بناء مصفوفة كاملة من ${finalPrimaryCount} سؤالًا (${categoryPlans.length} فئات × ${teamCount} فرق × ${selectedDifficulties.length} مستويات) عبر ${categoryPlans.length} دفعات متسلسلة وتحقق ذاتي${
             rejectedCount > 0 ? ` (مع استبدال ${rejectedCount} سؤال مكرر أو مستبعد تلقائيًا)` : ''
           }.`
         : `تم توليد ${addedCount} سؤالًا (${finalPrimaryCount}/${targetTotalQuestions})؛ يمكنك استخدام «استكمال الخانات الناقصة» لإكمال المتبقي (${remainingMissing.length}).`,
@@ -1777,14 +2016,13 @@ export async function runDeckRegenerationAction(params: {
     const seen = new Set(deck.questions.map((q) => normalizeArabicText(q.prompt)));
     const rawList = deck.questions.map((q) => q.prompt);
     for (const item of batch) {
-      if (isDuplicateQuestionPrompt(item.prompt || '', seen, rawList)) continue;
       const candidateType =
         params.action === 'change_type' && params.targetType
           ? params.targetType
           : item.questionType;
       const subtopic = item.subtopic?.trim() || oldQ.subtopic || oldQ.sourceRef;
-      const val = validateQuizQuestion(
-        {
+      const quality = evaluateQuestionQuality({
+        candidate: {
           ...item,
           status: 'needs_review',
           categoryId: oldQ.categoryId,
@@ -1797,18 +2035,20 @@ export async function runDeckRegenerationAction(params: {
           questionType: candidateType,
           isBackup: oldQ.isBackup,
         },
-        {
-          totalPages: resolvedText.totalPages,
-          existingPromptsNorm: seen,
-        },
-      );
-      if (val.valid && val.normalized) {
+        totalPages: resolvedText.totalPages,
+        existingPromptsNorm: seen,
+        existingPromptsRaw: rawList,
+        sourceUnits: resolvedText.sourceUnits,
+        visuals: resolvedVisuals,
+        defaultSourceFileName: deck.pdfAnalysis?.fileName,
+      });
+      if (quality.passed && quality.normalizedQuestion) {
         return {
           deck,
           candidate: {
             oldQuestionId: oldQ.id,
             oldQuestion: oldQ,
-            candidateQuestion: val.normalized,
+            candidateQuestion: quality.normalizedQuestion,
           },
           message: 'تم توليد سؤال بديل للمعاينة والمقارنة.',
         };
@@ -1821,7 +2061,7 @@ export async function runDeckRegenerationAction(params: {
   const seenRaw = deck.questions.map((q) => q.prompt);
   const matrixMode = isCategoryTeamMatrixDeck(deck);
   const teamCount = Math.max(2, Math.min(4, deck.teamCount || 3));
-  const tiers: Difficulty[] = ['easy', 'medium', 'hard'];
+  const tiers = resolveDeckDifficulties(deck);
 
   const missingSlots: Array<{
     cat: DeckCategory;
@@ -1846,7 +2086,7 @@ export async function runDeckRegenerationAction(params: {
         (q) => q.categoryId === cat.id && q.isBackup && q.status !== 'rejected',
       );
       if (!hasBackup) {
-        missingSlots.push({ cat, difficulty: 'medium' });
+        missingSlots.push({ cat, difficulty: tiers[Math.min(1, tiers.length - 1)] });
       }
     }
   } else if (matrixMode) {
@@ -1911,6 +2151,7 @@ export async function runDeckRegenerationAction(params: {
       }),
       sourceText: sourceContext,
       pages: resolvedText.pages,
+      sourceUnits: resolvedText.sourceUnits,
       analysis: deck.pdfAnalysis ?? {
         fileName: 'lesson.pdf',
         fileHash: '',
@@ -1934,6 +2175,7 @@ export async function runDeckRegenerationAction(params: {
       totalPages: resolvedText.totalPages,
       avoidPrompts: [...seenRaw, ...(deck.rejectedLog ?? []).map((r) => r.prompt)],
       visuals: resolvedVisuals,
+      selectedDifficulties: tiers,
     });
 
     for (let i = 0; i < missingSlots.length; i++) {
@@ -1946,7 +2188,6 @@ export async function runDeckRegenerationAction(params: {
             (r.difficulty === slot.difficulty || params.action === 'generate_backups'),
         ) ?? healedBatch[i];
       if (!match) continue;
-      if (isDuplicateQuestionPrompt(match.prompt || '', seenNorm, seenRaw)) continue;
 
       const subtopic =
         match.subtopic?.trim() ||
@@ -1954,8 +2195,8 @@ export async function runDeckRegenerationAction(params: {
         deck.pdfAnalysis?.subTopics?.[0] ||
         deck.pdfAnalysis?.mainTopics?.[0];
 
-      const val = validateQuizQuestion(
-        {
+      const quality = evaluateQuestionQuality({
+        candidate: {
           ...match,
           status: 'needs_review',
           categoryId: slot.cat.id,
@@ -1970,15 +2211,17 @@ export async function runDeckRegenerationAction(params: {
             deck.pdfAnalysis?.isReligiousContent || match.isSensitiveReligious,
           ),
         },
-        {
-          totalPages: resolvedText.totalPages,
-          existingPromptsNorm: seenNorm,
-        },
-      );
+        totalPages: resolvedText.totalPages,
+        existingPromptsNorm: seenNorm,
+        existingPromptsRaw: seenRaw,
+        sourceUnits: resolvedText.sourceUnits,
+        visuals: resolvedVisuals,
+        defaultSourceFileName: deck.pdfAnalysis?.fileName,
+      });
 
-      if (val.valid && val.normalized) {
-        seenNorm.add(normalizeArabicText(val.normalized.prompt));
-        seenRaw.push(val.normalized.prompt);
+      if (quality.passed && quality.normalizedQuestion) {
+        seenNorm.add(normalizeArabicText(quality.normalizedQuestion.prompt));
+        seenRaw.push(quality.normalizedQuestion.prompt);
         if (slot.rejectedId) {
           const rejected = deck.questions.find((q) => q.id === slot.rejectedId);
           if (rejected) {
@@ -1994,7 +2237,7 @@ export async function runDeckRegenerationAction(params: {
             deck.questions = deck.questions.filter((q) => q.id !== slot.rejectedId);
           }
         }
-        deck.questions.push(val.normalized);
+        deck.questions.push(quality.normalizedQuestion);
         added += 1;
       }
     }

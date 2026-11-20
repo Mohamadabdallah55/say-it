@@ -4,7 +4,16 @@ import { createHash, randomBytes } from 'node:crypto';
 import type { RequestHandler } from 'express';
 import path from 'node:path';
 import { STARTER_DEMO_DECK } from '../src/game/starterDecks';
-import type { BoardPlanPreview, ExtractedPdfVisual, PdfAnalysisReport, QuizDeck, RoomState } from '../src/game/types';
+import type {
+  AgeGroup,
+  BoardPlanPreview,
+  Difficulty,
+  ExtractedPdfVisual,
+  PdfAnalysisReport,
+  QuizDeck,
+  RoomState,
+  SourceFileSummary,
+} from '../src/game/types';
 
 const DATA_DIR = path.resolve(process.env.YEMKEN_DATA_DIR || '.data');
 const LEGACY_BACKUP_DIR = path.join(DATA_DIR, 'backup-v1-legacy');
@@ -68,6 +77,7 @@ function ensureDirs(): void {
   if (!fs.existsSync(SHARED_PDF_CACHE_DIR)) fs.mkdirSync(SHARED_PDF_CACHE_DIR, { recursive: true });
   if (!fs.existsSync(libraryPath('pdf-cache'))) fs.mkdirSync(libraryPath('pdf-cache'), { recursive: true });
   if (!fs.existsSync(libraryPath('pdf-plans'))) fs.mkdirSync(libraryPath('pdf-plans'), { recursive: true });
+  if (!fs.existsSync(libraryPath('generation-jobs'))) fs.mkdirSync(libraryPath('generation-jobs'), { recursive: true });
   backupLegacyV1Once();
 }
 
@@ -97,12 +107,22 @@ export function backupLegacyV1Once(): void {
   }
 }
 
+export interface CachedPageUnit {
+  num: number;
+  text: string;
+  sourceFileName?: string;
+  sourcePageNumber?: number;
+  unitType?: 'pdf_page' | 'image_file';
+}
+
 export interface CachedPdfText {
   fileHash: string;
   fileName: string;
   totalPages: number;
   readablePages: number;
   pages: Array<{ num: number; text: string }>;
+  pageUnits?: CachedPageUnit[];
+  sourceFiles?: SourceFileSummary[];
   fullText: string;
   analyses?: Partial<Record<string, PdfAnalysisReport>>;
   extractedVisuals?: ExtractedPdfVisual[];
@@ -113,6 +133,27 @@ export interface CachedPdfPlan {
   fileHash: string;
   analysis: PdfAnalysisReport;
   plan: BoardPlanPreview;
+  updatedAt: string;
+}
+
+export interface GenerationJobCheckpoint {
+  jobId: string;
+  fileHash: string;
+  title: string;
+  fileNames: string[];
+  ageGroup: AgeGroup;
+  selectedDifficulties: Difficulty[];
+  analysis: PdfAnalysisReport;
+  plan: BoardPlanPreview;
+  deck: QuizDeck;
+  completedCategoryIds: string[];
+  healingDone: boolean;
+  status: 'in_progress' | 'paused' | 'completed' | 'failed';
+  lastError?: string;
+  addedCount: number;
+  rejectedCount: number;
+  targetQuestions: number;
+  createdAt: string;
   updatedAt: string;
 }
 
@@ -218,6 +259,56 @@ export function getCachedPdfPlan(fileHash: string): CachedPdfPlan | null {
   } catch {
     return null;
   }
+}
+
+export function saveGenerationJob(job: GenerationJobCheckpoint): void {
+  ensureDirs();
+  const safeId = job.jobId.replace(/[^a-zA-Z0-9_-]/g, '');
+  if (!safeId) return;
+  const target = path.join(libraryPath('generation-jobs'), `${safeId}.json`);
+  fs.writeFileSync(target, JSON.stringify({ ...job, jobId: safeId }, null, 2), 'utf-8');
+}
+
+export function getGenerationJob(jobId: string): GenerationJobCheckpoint | null {
+  ensureDirs();
+  const safeId = jobId.replace(/[^a-zA-Z0-9_-]/g, '');
+  if (!safeId) return null;
+  const target = path.join(libraryPath('generation-jobs'), `${safeId}.json`);
+  if (!fs.existsSync(target)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(target, 'utf-8')) as GenerationJobCheckpoint;
+  } catch {
+    return null;
+  }
+}
+
+export function listResumableGenerationJobs(includeCompleted = false): GenerationJobCheckpoint[] {
+  ensureDirs();
+  const dir = libraryPath('generation-jobs');
+  if (!fs.existsSync(dir)) return [];
+  const items: GenerationJobCheckpoint[] = [];
+  for (const file of fs.readdirSync(dir)) {
+    if (!file.endsWith('.json')) continue;
+    try {
+      const parsed = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf-8')) as GenerationJobCheckpoint;
+      if (!parsed?.jobId || !parsed?.plan || !parsed?.analysis) continue;
+      if (!includeCompleted && parsed.status === 'completed') continue;
+      items.push(parsed);
+    } catch {
+      // Skip corrupt job file
+    }
+  }
+  return items.sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''));
+}
+
+export function deleteGenerationJob(jobId: string): boolean {
+  ensureDirs();
+  const safeId = jobId.replace(/[^a-zA-Z0-9_-]/g, '');
+  if (!safeId) return false;
+  const target = path.join(libraryPath('generation-jobs'), `${safeId}.json`);
+  if (!fs.existsSync(target)) return false;
+  fs.unlinkSync(target);
+  return true;
 }
 
 function isOriginalOpeningTitle(title: string) {
