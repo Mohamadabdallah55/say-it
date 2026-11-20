@@ -481,3 +481,128 @@
   from { opacity:0; transform:translateY(12px) scale(.82); }
   to { opacity:1; transform:none; }
 }
+
+/* Opening, match setup and results share the same short, layered entrances. */
+.game-title .hero-halftone-stage {
+  position: relative;
+  isolation: isolate;
+}
+.opening-glints {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.opening-glints svg {
+  position: absolute;
+  color: #fff8c9;
+  opacity: 0;
+}
+.opening-glints svg:nth-child(1) { inset: 20% 12% auto auto; width: 30px; height: 30px; }
+.opening-glints svg:nth-child(2) { inset: 31% 45% auto auto; width: 19px; height: 19px; }
+.opening-glints svg:nth-child(3) { inset: auto 17% 18% auto; width: 24px; height: 24px; }
+.opening-start {
+  position: relative;
+  overflow: hidden;
+}
+.opening-start::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg, transparent 36%, #ffffff55 49%, transparent 62%);
+}
+.match-opening-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at 55% 25%, #fff7c5, #fad64b 80%);
+}
+.victory-cup { position: relative; }
+.victory-sparks { position: absolute; inset: 50%; pointer-events: none; }
+.victory-sparks i {
+  position: absolute;
+  width: 9px;
+  height: 15px;
+  border-radius: 3px;
+  background: #7042a1;
+  opacity: 0;
+  --spark-x: -94px;
+  --spark-y: -32px;
+  --spark-spin: -90deg;
+}
+.victory-sparks i:nth-child(2) { --spark-x: 90px; --spark-y: -34px; --spark-spin: 90deg; background: #258c75; }
+.victory-sparks i:nth-child(3) { --spark-x: -62px; --spark-y: -54px; --spark-spin: -32deg; background: #da6380; }
+.victory-sparks i:nth-child(4) { --spark-x: 58px; --spark-y: -53px; --spark-spin: 53deg; }
+.victory-sparks i:nth-child(5) { --spark-x: -118px; --spark-y: 13px; --spark-spin: -120deg; background: #258c75; }
+.victory-sparks i:nth-child(6) { --spark-x: 115px; --spark-y: 13px; --spark-spin: 120deg; background: #da6380; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .game-title .hero-halftone-stage { animation: opening-stage .54s cubic-bezier(.2,.7,.25,1) both; }
+  .opening-logo { animation: opening-logo .78s .09s cubic-bezier(.2,.8,.25,1) backwards; }
+  .opening-tagline { animation: opening-rise .40s .22s ease-out backwards; }
+  .opening-actions { animation: opening-rise .45s .29s ease-out backwards; }
+  .opening-start::after { animation: answer-sheen .72s .58s ease-out both; }
+  .opening-scores > div { animation: turn-in .40s .22s ease-out backwards; }
+  .opening-scores > div:nth-child(2) { animation-delay: .28s; }
+  .opening-preview { animation: opening-preview .64s .17s cubic-bezier(.22,.8,.28,1) backwards; }
+  .opening-dock { animation: opening-rise .46s .33s ease-out backwards; }
+  .opening-glints svg { animation: opening-glint .95s .25s ease-out both; }
+  .opening-glints svg:nth-child(2) { animation-delay: .35s; }
+  .opening-glints svg:nth-child(3) { animation-delay: .43s; }
+  .sample-change { animation: opening-rise .28s ease-out backwards; }
+  .opening-dialog { animation: opening-fade .19s ease-out both; }
+  .opening-dialog > div { animation: opening-stage .32s cubic-bezier(.18,.8,.26,1) both; }
+  .game-lobby .lobby-panel { animation: opening-rise .42s .04s ease-out backwards; }
+  .game-lobby .lobby-panel:nth-child(2) { animation-delay: .11s; }
+  .game-lobby .lobby-dock { animation: opening-dock .42s .14s cubic-bezier(.2,.8,.25,1) backwards; }
+  .match-opening-wipe { animation: match-opening-wipe .64s cubic-bezier(.26,.7,.25,1) both; }
+  .podium-stage .winner-heading { animation: opening-rise .48s .13s ease-out backwards; }
+  .victory-sparks i { animation: victory-spark .96s .18s cubic-bezier(.19,.65,.37,1) both; }
+  .victory-sparks i:nth-child(even) { animation-delay: .24s; }
+}
+@keyframes opening-stage {
+  from { opacity: .4; transform: translateY(12px) scale(.982); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes opening-logo {
+  0% { opacity: 0; transform: translateY(16px) scale(.83) rotate(-4deg); }
+  65% { opacity: 1; transform: translateY(-3px) scale(1.035) rotate(.9deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes opening-rise {
+  from { opacity: 0; translate: 0 9px; }
+  to { opacity: 1; translate: none; }
+}
+@keyframes opening-dock {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes opening-preview {
+  0% { opacity: 0; transform: translateY(18px) rotate(4deg) scale(.96); }
+  72% { opacity: 1; transform: translateY(-2px) rotate(-.8deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes opening-glint {
+  0% { opacity: 0; transform: scale(.25) rotate(-26deg); }
+  35% { opacity: .95; transform: scale(1.15) rotate(0); }
+  100% { opacity: 0; transform: translateY(-14px) scale(.6) rotate(24deg); }
+}
+@keyframes opening-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes match-opening-wipe {
+  0% { opacity: .85; clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; clip-path: inset(0 0 100% 0); visibility: hidden; }
+}
+@keyframes victory-spark {
+  0% { opacity: 0; transform: translate(0,0) scale(.3); }
+  24% { opacity: 1; }
+  74% { opacity: .85; }
+  100% { opacity: 0; transform: translate(var(--spark-x),var(--spark-y)) rotate(var(--spark-spin)); }
+}

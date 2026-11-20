@@ -314,7 +314,7 @@ export function LobbySetup({
         : `${Math.min(categoryCount, selectedDeck.categories.length)} / 6`;
 
   return (
-    <div className="min-h-screen w-full game-pattern-bg flex flex-col pb-28">
+    <div className="game-lobby min-h-screen w-full game-pattern-bg flex flex-col pb-28">
       {/* Persistent Dark Plum Top Navbar */}
       <TopNavHeader
         activePage="lobby"
@@ -342,7 +342,7 @@ export function LobbySetup({
         {/* Panels 1 & 2: Two-Column Clean Grid matching reference setup screen */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Panel 1 (RTL Right): الفرق */}
-          <section className="lg:col-span-6 shannes-panel p-5 sm:p-6 relative">
+          <section className="lobby-panel lg:col-span-6 shannes-panel p-5 sm:p-6 relative">
             <span className="shannes-step-badge absolute -top-4 left-5">1</span>
 
             <div className="flex items-center justify-between gap-3 mb-4">
@@ -432,7 +432,7 @@ export function LobbySetup({
           </section>
 
           {/* Panel 2 (RTL Left): إعدادات اللعبة */}
-          <section className="lg:col-span-6 shannes-panel p-5 sm:p-6 relative space-y-4">
+          <section className="lobby-panel lg:col-span-6 shannes-panel p-5 sm:p-6 relative space-y-4">
             <span className="shannes-step-badge absolute -top-4 left-5">2</span>
 
             <h2 className="font-display font-black text-2xl text-[#1F112E]">إعدادات اللعبة</h2>
@@ -622,7 +622,7 @@ export function LobbySetup({
         </div>
 
         {/* Full-Width Section: الفئات (exact reference Image 8 layout) */}
-        <section className="shannes-panel p-5 sm:p-6 space-y-4">
+        <section className="lobby-panel shannes-panel p-5 sm:p-6 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2.5">
               <h2 className="font-display font-black text-2xl text-[#1F112E]">الفئات</h2>
@@ -862,7 +862,7 @@ export function LobbySetup({
       </div>
 
       {/* Floating Bottom Action Dock (exact match to reference Images 6-8) */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,540px)] bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
+      <div className="lobby-dock fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,540px)] bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
         <div className="text-right">
           <span className="text-[11px] font-bold text-[#1F112E]/65 block">{selectedDeck.sourceType === 'pdf' ? selectedDeck.title : 'اللوحة'}</span>
           <span
