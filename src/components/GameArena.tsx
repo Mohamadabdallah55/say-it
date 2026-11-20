@@ -65,6 +65,20 @@ interface ShareBundle {
 
 type ArenaState = HostViewState | PublicProjectorState;
 
+function getRoundCue(phase: ArenaState['phase'], correcting?: boolean) {
+  switch (phase) {
+    case 'BOARD': return [Flag, 'اختاروا خانة من اللوحة'] as const;
+    case 'LIFELINE_PICK': return [Sparkles, 'بطاقة مساعدة أو نمرّ للسؤال'] as const;
+    case 'REVEAL':
+    case 'AWARD':
+      return [CheckCircle2, correcting ? 'مراجعة توزيع النقاط' : 'النتيجة بانتظار الاعتماد'] as const;
+    case 'TIME_UP': return [Clock, 'انتهى وقت الإجابة'] as const;
+    case 'FINAL': return [Trophy, 'انتهت المباراة'] as const;
+    case 'LOBBY': return [Flag, 'الفرق بتجهّز للمباراة'] as const;
+    default: return [BellRing, 'السؤال مفتوح للإجابة'] as const;
+  }
+}
+
 export function GameArena({
   roomCode,
   role,
@@ -76,13 +90,14 @@ export function GameArena({
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [error, setError] = useState<string | null>(null);
   const [commandError, setCommandError] = useState<string | null>(null);
+  const [correction, setCorrection] = useState<{ resultId: string; teamId?: string | null } | null>(null);
+  const [correcting, setCorrecting] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const prefersReducedMotion = useReducedMotion();
-  const lastSceneRef = useRef<string | null>(null);
+  const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
-  const lastCommentaryIdRef = useRef<string | null>(null);
 
   const [localAudio, setLocalAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
   const isHost = role === 'host';
@@ -139,18 +154,27 @@ export function GameArena({
     if (!state) return;
     soundFX.enabled = state.settings.soundEnabled && (isHost || localAudio);
 
-    const scene = [state.phase,state.activeRound?.roundId,state.lastAward?.at].join('-');
-    if (lastSceneRef.current && lastSceneRef.current !== scene) {
-      if (state.phase === 'LIFELINE_PICK') soundFX.playSurprise();
+    const previous = lastSceneRef.current;
+    const scene = { phase: state.phase, award: state.lastAward?.at };
+    if (previous && previous.phase !== scene.phase) {
+      if (state.phase === 'LIFELINE_PICK') soundFX.playCardDeal();
       if (state.phase === 'REVEAL') soundFX.playReveal();
-      if (state.phase === 'BOARD' && state.lastAward && Date.now()-state.lastAward.at < 1600)
-        Object.values(state.lastAward.changes).some(v=>v>0) ? soundFX.playCorrect() : soundFX.playFoul();
+      if (state.phase === 'TIME_UP') soundFX.playTimeUp();
+      if (state.phase === 'FINAL') soundFX.playVictory();
+      if ((previous.phase === 'BOARD' || previous.phase === 'LIFELINE_PICK') &&
+          (state.phase === 'PLAYING' || state.phase === 'QUESTION_READY')) {
+        soundFX.playQuestionOpen();
+      }
+    }
+    if (previous && state.phase === 'BOARD' && state.lastAward && scene.award !== previous.award &&
+        Date.now() - state.lastAward.at < 1600) {
+      const changes = Object.values(state.lastAward.changes);
+      if (state.lastAward.corrected) soundFX.playScoreCorrection();
+      else if (changes.some(change => change > 0)) soundFX.playCorrect();
+      else if (changes.some(change => change < 0)) soundFX.playFoul();
+      else soundFX.playTurnPass();
     }
     lastSceneRef.current = scene;
-    if (state.commentary && state.commentary.id !== lastCommentaryIdRef.current) {
-      lastCommentaryIdRef.current = state.commentary.id;
-      if (state.commentary.eventType === 'victory') soundFX.playVictory();
-    }
   }, [state, isHost, localAudio]);
 
   const remainingMs = useMemo(() => {
@@ -168,10 +192,6 @@ export function GameArena({
     if (remainingSec <= 5 && remainingSec > 0 && lastSoundSecondRef.current !== remainingSec) {
       lastSoundSecondRef.current = remainingSec;
       soundFX.playTick(true);
-    }
-    if (remainingSec === 0 && lastSoundSecondRef.current !== 0) {
-      lastSoundSecondRef.current = 0;
-      soundFX.playTimeUp();
     }
   }, [state, remainingSec]);
 
@@ -224,7 +244,7 @@ export function GameArena({
   }, [state]);
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
-    if (!isHost) return;
+    if (!isHost) return false;
     setCommandError(null);
     const actionId = `act_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
     try {
@@ -236,11 +256,13 @@ export function GameArena({
       const data = await res.json();
       if (!res.ok) {
         setCommandError(data.error || 'تعذر تنفيذ الأمر.');
-        return;
+        return false;
       }
       if (data.state) setState(data.state);
+      return true;
     } catch {
       setCommandError('فشل الاتصال بالخادم لتنفيذ الأمر.');
+      return false;
     }
   };
 
@@ -300,6 +322,25 @@ export function GameArena({
   const matchSeconds = Math.max(0, Math.ceil(((state.matchEndsAt ?? Date.parse(state.createdAt) + 20 * 60000) - nowMs) / 1000));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
+  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
+    ? state.lastAward : null;
+  const awardChanges = recentAward
+    ? state.teams.map(team => ({ team, change: recentAward.changes[team.id] ?? 0 })).filter(({ change }) => change !== 0)
+    : [];
+  const isClassicBoard = !isMatrixBoard && !isTeamBundlesBoard && !state.settings.allowMultiTeamAward;
+  const previousAnswer = state.role === 'host' && state.phase === 'BOARD' && isClassicBoard
+    ? state.scoreHistory.find(entry => !entry.undone && entry.questionId)
+    : undefined;
+  const confirmedChoice = correction?.teamId;
+  const correctionOptions = previousAnswer?.lifeline === 'silence'
+    ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
+    : state.teams;
+  const showScoreMoment = isClassicBoard && recentAward && awardChanges.length > 0 &&
+    nowMs - recentAward.at < 1750 && !correction && animateRound;
+  const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
+    (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
+    ? state.commentary : null;
+  const [RoundCueIcon, roundCue] = getRoundCue(state.phase, state.activeRound?.isCorrectionMode);
   const isBoardOrFinal = state.phase === 'BOARD' || state.phase === 'FINAL';
   const showTopChrome = isBoardOrFinal || role === 'projector';
 
@@ -364,40 +405,43 @@ export function GameArena({
               </div>
             </header>
           )}
-          {state.commentary && isBoardOrFinal && (
-            <motion.div
-              key={state.commentary.id}
-              initial={animateRound ? { opacity: 0, y: -8 } : false}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-[#7042A1] text-[#FFD95A] border-[3px] border-[#291B40] rounded-2xl px-4 py-2.5 shadow-[0_4px_0_#291B40] flex items-center justify-between gap-3"
-            >
-              <div className="flex items-center gap-2.5">
-                <Sparkles className="w-5 h-5 shrink-0" />
-                <span className="font-display font-black text-base md:text-lg">
-                  {state.commentary.text}
-                </span>
-              </div>
-              <span className="text-xs font-bold text-white/80 shrink-0 hidden sm:inline">
-                {state.deckTitle}
-              </span>
-            </motion.div>
-          )}
-
-          {state.lastAward && nowMs - state.lastAward.at < 1700 && state.phase === 'BOARD' && (
-            <div className="award-flash" role="status" key={state.lastAward.at}>
-              {state.teams
-                .filter((t) => state.lastAward?.changes[t.id])
-                .map((t) => (
-                  <strong key={t.id}>
-                    {t.name}{' '}
-                    <b dir="ltr">
-                      {state.lastAward!.changes[t.id] > 0 ? '+' : ''}
-                      {state.lastAward!.changes[t.id]}
-                    </b>
-                  </strong>
+          {showScoreMoment && (
+            <div className="score-moment" key={recentAward.at} aria-hidden="true">
+              <div className="score-moment-card">
+                <Award size={28} />
+                <h2>{recentAward.corrected ? 'تصحيح الرصيد' : 'حصيلة السؤال'}</h2>
+                {awardChanges.map(({ team, change }) => (
+                  <div className="score-moment-row" key={team.id} data-loss={change < 0}>
+                    <span><i style={{ background: team.color }} />{team.name}</span>
+                    <strong dir="ltr">{change > 0 ? '+' : ''}{change}</strong>
+                  </div>
                 ))}
+              </div>
             </div>
           )}
+          <div className="round-edges" aria-label="متابعة الجولة">
+            <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
+              <RoundCueIcon aria-hidden="true" size={17} />
+              <span>{roundCue}</span>
+            </div>
+            {recentAward && (
+              <div className="round-edge-award" role="status" key={recentAward.at}>
+                {awardChanges.length ? awardChanges.map(({ team, change }) => (
+                  <span key={team.id} className="round-edge-change" data-negative={change < 0}>
+                    <span>{team.name}</span>
+                    <b dir="ltr">{change > 0 ? '+' : ''}{change}</b>
+                  </span>
+                )) : <span className="round-edge-change">الجولة خلصت بلا نقاط</span>}
+              </div>
+            )}
+            {!recentAward && edgeCommentary && (
+              <div className="round-edge-commentary" key={edgeCommentary.id}>
+                <Sparkles aria-hidden="true" size={17} />
+                <span>{edgeCommentary.text}</span>
+              </div>
+            )}
+          </div>
+
           {commandError && (
             <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-xl px-4 py-2 font-bold text-sm flex items-center justify-between">
               <span>{commandError}</span>
@@ -513,6 +557,15 @@ export function GameArena({
                   );
                 })}
                 </div>
+              {previousAnswer && (
+                <div className="last-answer-action">
+                  <button type="button" className="game-btn-3d rounded-xl bg-[#fff9e5] px-4 py-2 font-bold"
+                    onClick={() => { setCommandError(null); setCorrection({ resultId: previousAnswer.actionId }); }}>
+                    <RefreshCw size={16} aria-hidden="true" />
+                    تصحيح نتيجة السؤال السابق
+                  </button>
+                </div>
+              )}
             </section>
           )}
 
@@ -1033,7 +1086,7 @@ export function GameArena({
             {/* Mobile Compact Action Row + Question Badge + Timer (matches Screenshot 4) */}
             <div className="flex items-center justify-between gap-2">
               <div className="bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-display font-black text-sm text-[#1F112E] tabular-nums shadow-[0_2px_0_#1F112E]">
-                السؤال {state.questionCounter}
+                السؤال {isClassicBoard && state.phase === 'BOARD' ? Math.min(state.totalQuestions, state.questionCounter + 1) : state.questionCounter}
               </div>
 
               <button
@@ -1120,6 +1173,9 @@ export function GameArena({
                     <div
                       key={team.id}
                       data-turn={isTurn}
+                      data-round-change={recentAward?.changes[team.id]
+                        ? (recentAward.changes[team.id] > 0 ? 'gain' : 'loss')
+                        : undefined}
                       className={`bg-white rounded-2xl px-3 py-2.5 transition ${
                         isTurn
                           ? 'border-[2.5px] ring-2 ring-offset-2 ring-[#FAF7EE] shadow-[0_3px_0_rgba(31,17,46,0.16)]'
@@ -1275,6 +1331,55 @@ export function GameArena({
           </div>
         </aside>
       </div>
+
+      {correction && previousAnswer && (
+        <dialog
+          ref={dialog => { if (dialog && !dialog.open) dialog.showModal(); }}
+          className="last-answer-dialog"
+          aria-labelledby="last-answer-title"
+          onCancel={event => { event.preventDefault(); if (!correcting) setCorrection(null); }}
+        >
+          <header>
+            <h2 id="last-answer-title">تصحيح نتيجة السؤال السابق</h2>
+            <button type="button" aria-label="إغلاق التصحيح" disabled={correcting} onClick={() => setCorrection(null)}>
+              <X size={20} />
+            </button>
+          </header>
+          {confirmedChoice === undefined ? (
+            <div className="last-answer-options">
+              {correctionOptions.map(team => (
+                <button key={team.id} type="button" disabled={team.id === previousAnswer.teamId}
+                  onClick={() => setCorrection({ ...correction, teamId: team.id })}>
+                  <i style={{ background: team.color }} />
+                  <span>{team.name}</span>
+                  {team.id === previousAnswer.teamId && <small>المجيب الحالي</small>}
+                </button>
+              ))}
+              <button type="button" disabled={previousAnswer.teamId === null}
+                onClick={() => setCorrection({ ...correction, teamId: null })}>لا أحد</button>
+            </div>
+          ) : (
+            <p>{confirmedChoice === null ? 'اعتماد السؤال بلا إجابة صحيحة؟' : `اعتماد «${state.teams.find(team => team.id === confirmedChoice)?.name}» فريقًا مجيبًا؟`}</p>
+          )}
+          {commandError && <p role="alert" className="text-[#ae2440]">{commandError}</p>}
+          <footer>
+            {confirmedChoice !== undefined && (
+              <button type="button" className="game-btn-purple rounded-xl px-4 py-2" disabled={correcting}
+                onClick={async () => {
+                  setCorrecting(true);
+                  const ok = await sendCommand('CORRECT_LAST_ANSWER', {
+                    expectedResultId: correction.resultId,
+                    teamId: confirmedChoice,
+                  });
+                  setCorrecting(false);
+                  if (ok) setCorrection(null);
+                }}>تأكيد التصحيح</button>
+            )}
+            <button type="button" className="game-btn-3d rounded-xl bg-white px-4 py-2" disabled={correcting}
+              onClick={() => setCorrection(null)}>إلغاء</button>
+          </footer>
+        </dialog>
+      )}
 
       {/* QR Share Modal (Projector + Optional Team Buzzer) */}
       {shareOpen && (

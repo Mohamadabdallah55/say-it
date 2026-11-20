@@ -7,6 +7,7 @@ import {
   submitOrder,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
+  correctLastAnswer,
   createRoomState,
   expireChallengeTimer,
   pauseChallengeTimer,
@@ -774,4 +775,25 @@ test('automatic question clock, exclusive silence and triple stakes', () => {
   const correction = reopenQuestionForCorrection(loss, tile.questionId, 'correct').state;
   assert.deepEqual(awardRoundAndReturnToBoard(correction, ['team_1'], 'award2').state.teams.map(t => t.score), [3*tile.points,0,0]);
   assert.equal(awardRoundAndReturnToBoard(answer, [], 'none').state.teams[0].score, -3*tile.points);
+});
+
+
+test('quick classic correction transfers only base points and preserves the next turn', () => {
+  const board = createRoomState({ roomCode: 'FIX', hostToken: 'h', buzzerToken: 'b',
+    deck: STARTER_DEMO_DECK, teams: TEAMS });
+  const tile = board.boardTiles[0];
+  const pick = selectBoardTile(board, tile.questionId, 'pick', 1000).state;
+  const reveal = revealAnswer(applyLifeline(pick, 'double_points', 'double', 1100).state, 'show', 1200).state;
+  const awarded = awardRoundAndReturnToBoard(reveal, 'team_1', 'award', 1300).state;
+  const corrected = correctLastAnswer(awarded, 'award', 'team_2', 'fix', 1400);
+  assert.equal(corrected.ok, true);
+  assert.equal(corrected.state.phase, 'BOARD');
+  assert.equal(corrected.state.questionCounter, awarded.questionCounter);
+  assert.equal(corrected.state.currentTurnTeamIndex, awarded.currentTurnTeamIndex);
+  assert.deepEqual(corrected.state.teams.map(team => team.score), [0, tile.points, 0]);
+  assert.deepEqual(corrected.state.lastAward?.changes, { team_1: -2 * tile.points, team_2: tile.points, team_3: 0 });
+  assert.equal(correctLastAnswer(corrected.state, 'award', 'team_2', 'fix').state, corrected.state);
+  assert.equal(correctLastAnswer(corrected.state, 'award', null, 'stale').ok, false);
+  const noWinner = correctLastAnswer(corrected.state, 'fix', null, 'clear', 1500);
+  assert.deepEqual(noWinner.state.teams.map(team => team.score), [0, 0, 0]);
 });

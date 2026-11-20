@@ -357,7 +357,7 @@ export interface PreflightResult {
 
 export interface RoomState {
   libraryId?: string;
-  lastAward?: { at: number; changes: Record<string, number> };
+  lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
   parkedRounds?: Record<string, { round: ActiveRound; timer: TimerState; phase: GamePhase }>;
   schemaVersion: 2;
@@ -423,7 +423,7 @@ export interface SanitizedActiveRound {
 }
 
 export interface PublicProjectorState {
-  lastAward?: { at: number; changes: Record<string, number> };
+  lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
   schemaVersion: 2;
   role: 'projector';

@@ -42,6 +42,28 @@ class SoundManager {
     this.playTone(880, 0.22, 'sine', 0.14, 0.24);
   }
 
+  playCardDeal() {
+    this.playTone(320, 0.07, 'triangle', 0.07);
+    this.playTone(430, 0.08, 'triangle', 0.07, 0.055);
+    this.playTone(630, 0.11, 'sine', 0.08, 0.11);
+  }
+
+  playQuestionOpen() {
+    this.playTone(494, 0.08, 'sine', 0.09);
+    this.playTone(740, 0.14, 'triangle', 0.08, 0.065);
+  }
+
+  playScoreCorrection() {
+    this.playTone(370, 0.1, 'triangle', 0.07);
+    this.playTone(554, 0.14, 'sine', 0.08, 0.075);
+    this.playTone(740, 0.18, 'sine', 0.07, 0.15);
+  }
+
+  playTurnPass() {
+    this.playTone(440, 0.11, 'sine', 0.07);
+    this.playTone(330, 0.13, 'sine', 0.06, 0.07);
+  }
+
   playStartRound() {
     this.playTone(523.25, 0.1, 'triangle', 0.12, 0);
     this.playTone(659.25, 0.18, 'triangle', 0.12, 0.1);
