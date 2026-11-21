@@ -67,6 +67,30 @@ export interface DeckCategory {
   description?: string;
   iconKey: CategoryIconKey;
   accentColor: string;
+  isVip?: boolean;
+  isActive?: boolean;
+  isCustom?: boolean;
+  order?: number;
+}
+
+export interface CategoryProgressRecord {
+  userId: string;
+  categoryId: string;
+  playedQuestionIds: string[];
+  cycleCount: number;
+  totalAnsweredAllTime: number;
+  lastPlayedAt?: string | null;
+  lastResetAt?: string | null;
+}
+
+export interface CategoryConsumptionStats {
+  categoryId: string;
+  totalCount: number;
+  playedCount: number;
+  remainingCount: number;
+  percent: number;
+  cycleCount: number;
+  isExhausted: boolean;
 }
 
 export interface ExtractedPdfVisual {

@@ -49,6 +49,8 @@ import {
   isQuotaError,
   isServiceUnavailableError,
 } from './server/geminiHelpers';
+import { PROPHET_STORIES_QUESTIONS } from './server/prophetStories';
+import { CURATED_QUESTIONS } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
 import {
   deleteDeckById,
@@ -146,6 +148,18 @@ async function startServer() {
   app.get('/api/local-ai/status', async (_req, res) => {
     const status = await getLocalAiStatus();
     res.json(status);
+  });
+
+  app.get('/api/catalog/builtin-ids', (_req, res) => {
+    const questionIdsByCategory: Record<string, string[]> = {};
+    for (const q of [...CURATED_QUESTIONS, ...PROPHET_STORIES_QUESTIONS]) {
+      if (q.status !== 'approved') continue;
+      if (!questionIdsByCategory[q.categoryId]) {
+        questionIdsByCategory[q.categoryId] = [];
+      }
+      questionIdsByCategory[q.categoryId].push(q.id);
+    }
+    res.json({ questionIdsByCategory });
   });
 
   app.use(['/api/decks', '/api/pdf'], selectLibrary);
@@ -669,7 +683,16 @@ async function startServer() {
 
   app.post('/api/rooms', (req, res) => {
     try {
-      const { deckId, selectedCategoryIds, teams, settings } = req.body;
+      const {
+        deckId,
+        selectedCategoryIds,
+        teams,
+        settings,
+        extraCategories,
+        extraQuestions,
+        playedQuestionIdsByCategory,
+        accountActive,
+      } = req.body;
       if (!Array.isArray(teams) || teams.length < 2 || teams.length > 4) {
         return res.status(400).json({ error: 'يجب اختيار فريقين إلى أربعة فرق.' });
       }
@@ -678,11 +701,16 @@ async function startServer() {
         selectedCategoryIds,
         teams,
         settings,
+        extraCategories,
+        extraQuestions,
+        playedQuestionIdsByCategory,
+        accountActive: Boolean(accountActive),
       });
       res.json({
         roomCode: room.roomCode,
         hostToken: room.hostToken,
         buzzerToken: room.buzzerToken,
+        resetCategoryIds: room.resetCategoryIds ?? [],
       });
     } catch (err) {
       res.status(400).json({

@@ -1,0 +1,282 @@
+{
+  "entities": {
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Authorized administrator registry record keyed by Firebase Auth UID.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "CatalogCategory": {
+      "title": "CatalogCategory",
+      "description": "Global admin-managed quiz category available to all accounts.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 280
+        },
+        "iconKey": {
+          "type": "string",
+          "enum": ["general", "science", "history", "arabic", "puzzles", "sports", "islamic", "pdf", "skills", "geography", "tech"]
+        },
+        "accentColor": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 16,
+          "pattern": "^#[0-9a-fA-F]{3,8}$"
+        },
+        "isVip": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["id", "name", "description", "iconKey", "accentColor", "isVip", "isActive", "order", "createdBy", "createdAt", "updatedAt"]
+    },
+    "CatalogQuestion": {
+      "title": "CatalogQuestion",
+      "description": "Global admin-managed quiz question linked to a built-in or custom category.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "categoryId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "categoryName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard"]
+        },
+        "points": {
+          "type": "integer",
+          "enum": [200, 400, 600]
+        },
+        "questionType": {
+          "type": "string",
+          "enum": ["direct_qa", "complete", "true_false_explain", "who_am_i", "order_steps", "spot_error", "connect_two", "buzzer_challenge", "analysis_reasoning", "multiple_choice", "pantomime_optional"]
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 800
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "acceptableAnswers": {
+          "type": "array"
+        },
+        "options": {
+          "type": "array"
+        },
+        "correctOptionIndex": {
+          "type": "integer"
+        },
+        "hint": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "explanation": {
+          "type": "string",
+          "maxLength": 600
+        },
+        "imageUrl": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "imageCaption": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "status": {
+          "type": "string",
+          "enum": ["approved", "needs_review", "rejected"]
+        },
+        "isBackup": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["id", "categoryId", "categoryName", "difficulty", "points", "questionType", "prompt", "answer", "status", "isBackup", "createdBy", "createdAt", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Private authenticated user account profile isolated to owner or admin.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "maxLength": 200
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 600
+        },
+        "totalPlayedQuestions": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "displayName", "email", "totalPlayedQuestions", "createdAt", "updatedAt"]
+    },
+    "CategoryProgress": {
+      "title": "CategoryProgress",
+      "description": "Per-user, per-category played question IDs and cycle counter for non-repetition.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "categoryId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "playedQuestionIds": {
+          "type": "array"
+        },
+        "cycleCount": {
+          "type": "integer"
+        },
+        "totalAnsweredAllTime": {
+          "type": "integer"
+        },
+        "lastPlayedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastResetAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId", "categoryId", "playedQuestionIds", "cycleCount", "totalAnsweredAllTime", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/admins/{adminUid}": {
+      "schema": { "$ref": "#/entities/AdminRecord" },
+      "description": "Authorized admin accounts keyed by Firebase Auth UID."
+    },
+    "/catalogCategories/{categoryId}": {
+      "schema": { "$ref": "#/entities/CatalogCategory" },
+      "description": "Admin-managed global quiz categories."
+    },
+    "/catalogQuestions/{questionId}": {
+      "schema": { "$ref": "#/entities/CatalogQuestion" },
+      "description": "Admin-managed global quiz questions."
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private user account profiles."
+    },
+    "/users/{userId}/categoryProgress/{categoryId}": {
+      "schema": { "$ref": "#/entities/CategoryProgress" },
+      "description": "Per-account per-category played question IDs and cycle counter."
+    }
+  }
+}

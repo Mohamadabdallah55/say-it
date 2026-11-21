@@ -474,7 +474,7 @@ export function selectActiveBoardForDeck(
     };
   }
 
-  const count = Math.max(3, Math.min(6, requestedCategoryCount || deck.categories.length || 5));
+  const count = Math.max(1, Math.min(8, requestedCategoryCount || deck.categories.length || 5));
   const categories = selectedCategoryIds?.length
     ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id)).slice(0, count)
     : deck.categories.slice(0, count);
@@ -544,13 +544,13 @@ export function runBoardPreflightCheck(params: {
     ? expectedMatrixCategories
     : teamBundlesMode
       ? expectedTeamBundles
-      : Math.max(deck.sourceType === 'pdf' ? 1 : 3, Math.min(6, settings.categoryCount ?? 5));
+      : Math.max(1, Math.min(8, settings.categoryCount ?? (selectedCategoryIds ? selectedCategoryIds.length : deck.categories.length || 1)));
   const selectedCats = matrixMode
     ? deck.categories.slice(0, expectedMatrixCategories)
     : teamBundlesMode
       ? deck.categories.slice(0, expectedTeamBundles)
-      : selectedCategoryIds?.length
-        ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id))
+      : selectedCategoryIds !== undefined
+        ? deck.categories.filter((c) => selectedCategoryIds.includes(c.id)).slice(0, 8)
         : deck.categories.slice(0, desiredCount);
 
   const activeDifficulties = resolveDeckDifficulties(deck);
@@ -583,15 +583,21 @@ export function runBoardPreflightCheck(params: {
         : `هذا البنك مصمم لـ ${expectedTeamBundles} فرق، بينما الفرق المحددة حاليًا ${teams.length}`,
     });
   } else {
+    const validRange =
+      selectedCats.length >= 1 &&
+      selectedCats.length <= 8 &&
+      (selectedCategoryIds !== undefined || selectedCats.length === desiredCount);
     checks.push({
       id: 'category_count',
-      label: 'عدد الفئات مناسب للوحة اللعب',
-      passed: selectedCats.length >= (deck.sourceType === 'pdf' ? 1 : 3) && selectedCats.length <= 6 && selectedCats.length === desiredCount,
+      label: 'عدد الفئات مناسب للوحة اللعب (1 إلى 8 فئات)',
+      passed: validRange,
       severity: 'error',
       detail:
-        selectedCats.length === desiredCount
-          ? `${selectedCats.length} فئات جاهزة`
-          : `المطلوب ${desiredCount} فئات، المتاح حاليًا ${selectedCats.length}`,
+        selectedCats.length === 0
+          ? 'اختر فئة واحدة على الأقل (من 1 إلى 8 فئات)'
+          : validRange
+            ? `${selectedCats.length} ${selectedCats.length === 1 ? 'فئة جاهزة' : 'فئات جاهزة'}`
+            : `المطلوب بين 1 و 8 فئات (المتاح حاليًا ${selectedCats.length})`,
     });
   }
 
@@ -666,6 +672,9 @@ export function runBoardPreflightCheck(params: {
 
   // 3 & 4. Clear prompt + valid answer on active questions
   const catIdSet = new Set(selectedCats.map((c) => c.id));
+  const allSelectedAreServerValidated =
+    selectedCats.length > 0 &&
+    selectedCats.every((c) => serverValidatedCategoryIds.includes(c.id));
   const activeQuestions = deck.questions.filter((q) => catIdSet.has(q.categoryId) && q.status !== 'rejected');
   const emptyPrompts = activeQuestions.filter((q) => !q.prompt || q.prompt.trim().length < 6);
   const emptyAnswers = activeQuestions.filter((q) => !q.answer || q.answer.trim().length < 1);
@@ -673,7 +682,7 @@ export function runBoardPreflightCheck(params: {
   checks.push({
     id: 'valid_prompts',
     label: 'جميع الأسئلة تحتوي نصوصًا واضحة',
-    passed: emptyPrompts.length === 0 && activeQuestions.length > 0,
+    passed: emptyPrompts.length === 0 && (activeQuestions.length > 0 || allSelectedAreServerValidated),
     severity: 'error',
     detail: emptyPrompts.length === 0 ? undefined : `${emptyPrompts.length} سؤال بدون نص واضح`,
   });
@@ -681,7 +690,7 @@ export function runBoardPreflightCheck(params: {
   checks.push({
     id: 'valid_answers',
     label: 'جميع الأسئلة تحتوي إجابات معتمدة',
-    passed: emptyAnswers.length === 0 && activeQuestions.length > 0,
+    passed: emptyAnswers.length === 0 && (activeQuestions.length > 0 || allSelectedAreServerValidated),
     severity: 'error',
     detail: emptyAnswers.length === 0 ? undefined : `${emptyAnswers.length} سؤال بدون إجابة`,
   });
@@ -710,7 +719,7 @@ export function runBoardPreflightCheck(params: {
   checks.push({
     id: 'host_approval',
     label: 'اعتماد المشرف مكتمل للأسئلة والمحتوى الحساس',
-    passed: needsReviewCount === 0 && approvedPrimary.length > 0,
+    passed: needsReviewCount === 0 && (approvedPrimary.length > 0 || allSelectedAreServerValidated),
     severity: needsReviewCount > 0 ? 'error' : 'error',
     detail:
       religiousUnapproved > 0

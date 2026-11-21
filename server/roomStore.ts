@@ -29,12 +29,20 @@ import { PROPHET_STORIES_CATEGORY } from '../src/game/prophetStories';
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
 import { filterPlayedProphetQuestions, recordPlayedProphetQuestion, reserveProphetQuestions } from './prophetQuestionRotation';
 import { runBoardPreflightCheck } from '../src/game/pdfValidation';
+import {
+  applyAccountProgressToDeck,
+  sanitizeExternalCategories,
+  sanitizeExternalQuestions,
+  sanitizePlayedMap,
+} from '../src/game/categoryProgress';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
 import type {
   ClientRole,
+  DeckCategory,
   LifelineType,
   MatchSettings,
   QuizDeck,
+  QuizQuestion,
   RoomState,
 } from '../src/game/types';
 import { currentLibraryId, getDeckById, loadSavedRooms, persistRoomsMap } from './storage';
@@ -100,10 +108,26 @@ class RoomManager {
     selectedCategoryIds?: string[];
     teams: Array<{ name: string; color: string; participantsCount?: number }>;
     settings?: Partial<MatchSettings>;
-  }): RoomState {
+    extraCategories?: DeckCategory[];
+    extraQuestions?: QuizQuestion[];
+    playedQuestionIdsByCategory?: Record<string, string[]>;
+    accountActive?: boolean;
+  }): RoomState & { resetCategoryIds?: string[] } {
+    const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories);
+    const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions);
+    const cleanPlayedMap = sanitizePlayedMap(params.playedQuestionIdsByCategory);
+
     let deck: QuizDeck = STARTER_DEMO_DECK;
-    if (params.deckId === 'curated_custom' && params.selectedCategoryIds?.length) {
-      deck = buildBoardDeckFromCategories(params.selectedCategoryIds, undefined, PROPHET_STORIES_QUESTIONS);
+    if (params.deckId === 'curated_custom') {
+      if (!params.selectedCategoryIds?.length) {
+        throw new Error('اختر فئة واحدة على الأقل (من 1 إلى 8 فئات).');
+      }
+      deck = buildBoardDeckFromCategories(
+        params.selectedCategoryIds,
+        undefined,
+        [...PROPHET_STORIES_QUESTIONS, ...cleanExtraQuestions],
+        cleanExtraCategories,
+      );
     } else if (params.deckId) {
       const saved = getDeckById(params.deckId);
       if (!saved) throw new Error('البنك غير موجود في مكتبتك.');
@@ -112,13 +136,28 @@ class RoomManager {
 
     const libraryId = currentLibraryId();
     const now = Date.now();
-    deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
-    if (params.deckId === 'curated_custom' && deck.categories.some(category => category.id === PROPHET_STORIES_CATEGORY.id)) {
-      const remaining = new Set(deck.questions
-        .filter(question => question.categoryId === PROPHET_STORIES_CATEGORY.id && question.status === 'approved')
-        .map(question => question.points));
-      if (remaining.size < 3) {
-        throw new Error('ما في أسئلة جديدة كافية بكل المستويات لفئة قصص الأنبياء. اختَر فئة ثانية أو أكمل مبارياتك المفتوحة.');
+    let resetCategoryIds: string[] = [];
+
+    if (params.accountActive || Object.keys(cleanPlayedMap).length > 0) {
+      const applied = applyAccountProgressToDeck(deck, cleanPlayedMap);
+      deck = applied.filteredDeck;
+      resetCategoryIds = applied.resetCategoryIds;
+    } else {
+      deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
+      if (params.deckId === 'curated_custom' && deck.categories.some(category => category.id === PROPHET_STORIES_CATEGORY.id)) {
+        const remaining = new Set(deck.questions
+          .filter(question => question.categoryId === PROPHET_STORIES_CATEGORY.id && question.status === 'approved')
+          .map(question => question.points));
+        if (remaining.size < 3) {
+          // Auto-reset local Prophet Stories rotation instead of dead-ending at 100%
+          deck = buildBoardDeckFromCategories(
+            params.selectedCategoryIds ?? [],
+            undefined,
+            [...PROPHET_STORIES_QUESTIONS, ...cleanExtraQuestions],
+            cleanExtraCategories,
+          );
+          resetCategoryIds = [PROPHET_STORIES_CATEGORY.id];
+        }
       }
     }
 
@@ -159,7 +198,7 @@ class RoomManager {
     reserveProphetQuestions(state);
     this.rooms[roomCode] = state;
     persistRoomsMap(this.rooms);
-    return state;
+    return Object.assign(state, { resetCategoryIds });
   }
 
   getRoom(roomCode: string): RoomState | undefined {

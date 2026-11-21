@@ -42,8 +42,8 @@ import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { ScoreCounter } from './ScoreCounter';
 import { CornerStarMascot } from './CornerStarMascot';
-import { GameLogo } from './GameLogo';
 import { GameAssistantBot } from './GameAssistantBot';
+import { useAccount } from '../context/AccountContext';
 
 interface GameArenaProps {
   roomCode: string;
@@ -99,8 +99,10 @@ export function GameArena({
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
 
-  const [localAudio, setLocalAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
+  const [localAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
   const isHost = role === 'host';
+  const { user, recordPlayedQuestion } = useAccount();
+  const recordedQuestionsRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     let mounted = true;
@@ -243,6 +245,23 @@ export function GameArena({
     };
   }, [state]);
 
+  // Automatically track displayed questions in the host's account progress for non-repetition
+  useEffect(() => {
+    if (!isHost || !user || !state || !roundMeta) return;
+    if (
+      state.phase === 'LOBBY' ||
+      state.phase === 'BOARD' ||
+      state.phase === 'LIFELINE_PICK' ||
+      state.phase === 'FINAL'
+    ) {
+      return;
+    }
+    const key = `${roundMeta.categoryId}:${roundMeta.questionId}`;
+    if (recordedQuestionsRef.current.has(key)) return;
+    recordedQuestionsRef.current.add(key);
+    recordPlayedQuestion(roundMeta.categoryId, roundMeta.questionId).catch(() => {});
+  }, [isHost, user, state?.phase, roundMeta?.categoryId, roundMeta?.questionId, recordPlayedQuestion]);
+
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
     setCommandError(null);
@@ -319,7 +338,6 @@ export function GameArena({
       (state.categories.length >= 2 &&
         state.categories.length <= 4 &&
         state.categories.every((c) => /^team_\d+$/.test(c.id))));
-  const matchSeconds = Math.max(0, Math.ceil(((state.matchEndsAt ?? Date.parse(state.createdAt) + 20 * 60000) - nowMs) / 1000));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
   const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
@@ -341,8 +359,6 @@ export function GameArena({
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
   const [RoundCueIcon, roundCue] = getRoundCue(state.phase, state.activeRound?.isCorrectionMode);
-  const isBoardOrFinal = state.phase === 'BOARD' || state.phase === 'FINAL';
-  const showTopChrome = isBoardOrFinal || role === 'projector';
 
   return (
     <div
@@ -364,47 +380,7 @@ export function GameArena({
       )}
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
-        <div className="arena-main space-y-4">
-          {showTopChrome && (
-            <header className="stage-header">
-              <GameLogo size="sm" dark />
-              <div className="flex items-center gap-2">
-                <GameAssistantBot
-                  compact
-                  roomCode={state.roomCode}
-                  role={role}
-                  token={token}
-                  phase={state.phase}
-                  activeQuestionPrompt={roundMeta?.prompt}
-                />
-                {!isHost && (
-                  <button
-                    type="button"
-                    className="audience-audio"
-                    aria-pressed={localAudio}
-                    aria-label="صوت شاشة الجمهور"
-                    onClick={() => {
-                      const on = !localAudio;
-                      setLocalAudio(on);
-                      sessionStorage.setItem('yemken-projector-audio', on ? 'on' : 'off');
-                      soundFX.enabled = on && state.settings.soundEnabled;
-                      if (on) soundFX.playClick();
-                    }}
-                  >
-                    {localAudio ? <Volume2 size={20} /> : <VolumeX size={20} />}
-                  </button>
-                )}
-                {state.phase !== 'FINAL' && (
-                  <span>
-                    وقت المباراة{' '}
-                    <b dir="ltr">
-                      {Math.floor(matchSeconds / 60)}:{String(matchSeconds % 60).padStart(2, '0')}
-                    </b>
-                  </span>
-                )}
-              </div>
-            </header>
-          )}
+        <div className="arena-main space-y-3">
           {showScoreMoment && (
             <div className="score-moment" key={recentAward.at} aria-hidden="true">
               <div className="score-moment-card">
@@ -419,28 +395,30 @@ export function GameArena({
               </div>
             </div>
           )}
-          <div className="round-edges" aria-label="متابعة الجولة">
-            <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
-              <RoundCueIcon aria-hidden="true" size={17} />
-              <span>{roundCue}</span>
+          {state.phase !== 'BOARD' && (
+            <div className="round-edges" aria-label="متابعة الجولة">
+              <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
+                <RoundCueIcon aria-hidden="true" size={17} />
+                <span>{roundCue}</span>
+              </div>
+              {recentAward && (
+                <div className="round-edge-award" role="status" key={recentAward.at}>
+                  {awardChanges.length ? awardChanges.map(({ team, change }) => (
+                    <span key={team.id} className="round-edge-change" data-negative={change < 0}>
+                      <span>{team.name}</span>
+                      <b dir="ltr">{change > 0 ? '+' : ''}{change}</b>
+                    </span>
+                  )) : <span className="round-edge-change">الجولة خلصت بلا نقاط</span>}
+                </div>
+              )}
+              {!recentAward && edgeCommentary && (
+                <div className="round-edge-commentary" key={edgeCommentary.id}>
+                  <Sparkles aria-hidden="true" size={17} />
+                  <span>{edgeCommentary.text}</span>
+                </div>
+              )}
             </div>
-            {recentAward && (
-              <div className="round-edge-award" role="status" key={recentAward.at}>
-                {awardChanges.length ? awardChanges.map(({ team, change }) => (
-                  <span key={team.id} className="round-edge-change" data-negative={change < 0}>
-                    <span>{team.name}</span>
-                    <b dir="ltr">{change > 0 ? '+' : ''}{change}</b>
-                  </span>
-                )) : <span className="round-edge-change">الجولة خلصت بلا نقاط</span>}
-              </div>
-            )}
-            {!recentAward && edgeCommentary && (
-              <div className="round-edge-commentary" key={edgeCommentary.id}>
-                <Sparkles aria-hidden="true" size={17} />
-                <span>{edgeCommentary.text}</span>
-              </div>
-            )}
-          </div>
+          )}
 
           {commandError && (
             <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-xl px-4 py-2 font-bold text-sm flex items-center justify-between">
@@ -455,13 +433,27 @@ export function GameArena({
           {state.phase === 'BOARD' && (
             <section className="board-stage" aria-labelledby="board-title">
               <div className="board-heading">
-                <div>
-                  <span>{state.deckTitle}</span>
-                  <h1 id="board-title">
-                    لوحة الفئات
-                  </h1>
+                <div className="board-heading-title">
+                  <h1 id="board-title">لوحة الفئات</h1>
+                  <span className="board-heading-sub">{roundCue}</span>
                 </div>
-                <div className="turn-ticket" key={currentTeam?.id}><Flag size={20} /> دور {currentTeam?.name}</div>
+                {recentAward && (
+                  <div className="round-edge-award" role="status" key={recentAward.at}>
+                    {awardChanges.length ? awardChanges.map(({ team, change }) => (
+                      <span key={team.id} className="round-edge-change" data-negative={change < 0}>
+                        <span>{team.name}</span>
+                        <b dir="ltr">{change > 0 ? '+' : ''}{change}</b>
+                      </span>
+                    )) : <span className="round-edge-change">الجولة خلصت بلا نقاط</span>}
+                  </div>
+                )}
+                {!recentAward && edgeCommentary && (
+                  <div className="round-edge-commentary" key={edgeCommentary.id}>
+                    <Sparkles aria-hidden="true" size={16} />
+                    <span>{edgeCommentary.text}</span>
+                  </div>
+                )}
+                <div className="turn-ticket" key={currentTeam?.id}><Flag size={18} /> دور {currentTeam?.name}</div>
               </div>
 
                 <div className="category-grid" data-count={state.categories.length}>

@@ -1,5 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Check, Info, Lightbulb, Play, Plus, Search, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Grid2x2,
+  Info,
+  LayoutGrid,
+  Lightbulb,
+  LogIn,
+  Play,
+  Plus,
+  Search,
+  X,
+} from 'lucide-react';
+import { useAccount } from '../context/AccountContext';
 import {
   isCategoryTeamMatrixDeck,
   isTeamBundleDeck,
@@ -8,17 +22,16 @@ import {
   normalizeArabicText,
 } from '../game/pdfValidation';
 import {
-  ALL_CURATED_CATEGORIES,
   buildBoardDeckFromCategories,
-  CURATED_QUESTIONS,
+  STARTER_CATEGORIES,
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
-import type { LifelineType, MatchSettings, QuizDeck } from '../game/types';
+import type { DeckCategory, LifelineType, MatchSettings, QuizDeck } from '../game/types';
 import { CATEGORY_3D_ART } from '../utils/gameAssets';
 import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
-import { PROPHET_STORIES_CATEGORY, PROPHET_STORIES_COUNT } from '../game/prophetStories';
+import { PROPHET_STORIES_CATEGORY } from '../game/prophetStories';
 
 interface LobbySetupProps {
   decks: QuizDeck[];
@@ -68,18 +81,16 @@ export function LobbySetup({
   onOpenSavedMatches,
   onRoomCreated,
 }: LobbySetupProps) {
-  const [selectedDeckId, setSelectedDeckId] = useState<string>(
-    initialDeckId || STARTER_DEMO_DECK.id,
+  const [selectedDeckId, setSelectedDeckId] = useState<string>(() =>
+    initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? initialDeckId : 'curated_custom',
   );
-  const [customCategories, setCustomCategories] = useState<string[]>(
-    ALL_CURATED_CATEGORIES.slice(0, 5).map((c) => c.id),
-  );
+  const [customCategories, setCustomCategories] = useState<string[]>([]);
   const [teams, setTeams] = useState<Array<{ name: string; color: string; participantsCount: number }>>([
     { name: 'الفريق الأول', color: '#F05B63', participantsCount: 5 },
     { name: 'الفريق الثاني', color: '#279ED6', participantsCount: 5 },
   ]);
 
-  const [categoryCount, setCategoryCount] = useState<number>(5);
+  const [categoryCount, setCategoryCount] = useState<number>(8);
   const timerSeconds = 45;
 
   const maxLifelinesPerTeam = 3;
@@ -94,18 +105,65 @@ export function LobbySetup({
   const [categoryTab, setCategoryTab] = useState<'official' | 'decks'>(
     initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? 'decks' : 'official',
   );
+  const [compactGrid, setCompactGrid] = useState(false);
+  const [selectedDrawerOpen, setSelectedDrawerOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [infoTip, setInfoTip] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (!selectedDrawerOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (drawerRef.current && !drawerRef.current.contains(e.target as Node)) {
+        setSelectedDrawerOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedDrawerOpen(false);
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [selectedDrawerOpen]);
+
+  const {
+    user,
+    authReady,
+    signingIn,
+    authError,
+    signInWithGoogle,
+    allCategoriesForLobby,
+    customCategories: adminCustomCategories,
+    customQuestions: adminCustomQuestions,
+    getCategoryStats,
+    getPlayedMapForMatch,
+    resetCategoryProgress,
+  } = useAccount();
+
   const selectedDeck = useMemo(() => {
     if (selectedDeckId === 'curated_custom') {
-      return buildBoardDeckFromCategories(customCategories);
+      return buildBoardDeckFromCategories(
+        customCategories,
+        undefined,
+        adminCustomQuestions,
+        adminCustomCategories,
+      );
     }
     if (approvedLesson?.id === selectedDeckId) return approvedLesson;
     return decks.find((d) => d.id === selectedDeckId) ?? STARTER_DEMO_DECK;
-  }, [selectedDeckId, customCategories, decks, approvedLesson]);
+  }, [
+    selectedDeckId,
+    customCategories,
+    adminCustomQuestions,
+    adminCustomCategories,
+    decks,
+    approvedLesson,
+  ]);
 
   const isMatrixDeck = useMemo(() => isCategoryTeamMatrixDeck(selectedDeck), [selectedDeck]);
   const isTeamBundle = useMemo(
@@ -149,7 +207,7 @@ export function LobbySetup({
     if (selectedDeckId === 'curated_custom') return customCategories;
     if (isMatrixDeck) return selectedDeck.categories.slice(0, 6).map((c) => c.id);
     if (isTeamBundle) return selectedDeck.categories.map((c) => c.id);
-    return selectedDeck.categories.slice(0, categoryCount).map((c) => c.id);
+    return selectedDeck.categories.slice(0, Math.min(8, categoryCount)).map((c) => c.id);
   }, [selectedDeckId, customCategories, selectedDeck, categoryCount, isMatrixDeck, isTeamBundle]);
 
   const preflight = useMemo(() => {
@@ -158,7 +216,7 @@ export function LobbySetup({
         ? customCategories.length
         : isMatrixDeck
           ? Math.min(6, selectedDeck.categories.length)
-          : Math.min(categoryCount, selectedDeck.categories.length);
+          : Math.min(8, Math.min(categoryCount, selectedDeck.categories.length));
     return runBoardPreflightCheck({
       deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
@@ -219,20 +277,26 @@ export function LobbySetup({
   const toggleCustomCategory = (catId: string) => {
     soundFX.playClick();
     setSelectedDeckId('curated_custom');
+    setError(null);
     setCustomCategories((prev) => {
       if (prev.includes(catId)) {
-        if (prev.length <= 3) {
-          setInfoTip('الحد الأدنى لبدء اللوحة هو 3 فئات على الأقل.');
-          return prev;
-        }
         return prev.filter((id) => id !== catId);
       }
-      if (prev.length >= 6) {
-        setInfoTip('الحد الأقصى للوحة هو 6 فئات.');
+      if (prev.length >= 8) {
+        setInfoTip('الحد الأقصى للوحة هو 8 فئات.');
         return prev;
       }
       return [...prev, catId];
     });
+  };
+
+  const clearAllCategories = () => {
+    soundFX.playClick();
+    setSelectedDeckId('curated_custom');
+    setCategoryTab('official');
+    setCustomCategories([]);
+    setSelectedDrawerOpen(false);
+    setError(null);
   };
 
   const deckLoaded = selectedDeckId === 'curated_custom' || selectedDeck.id === selectedDeckId;
@@ -252,7 +316,7 @@ export function LobbySetup({
           ? customCategories.length
           : isMatrixDeck
             ? Math.min(6, selectedDeck.categories.length)
-            : Math.min(categoryCount, selectedDeck.categories.length);
+            : Math.min(8, Math.min(categoryCount, selectedDeck.categories.length));
 
       const settings: MatchSettings = {
         categoryCount: effectiveCategoryCount,
@@ -278,11 +342,20 @@ export function LobbySetup({
               : activeCategoryIdsForPreflight,
           teams,
           settings,
+          extraCategories: adminCustomCategories,
+          extraQuestions: adminCustomQuestions,
+          playedQuestionIdsByCategory: user ? getPlayedMapForMatch() : {},
+          accountActive: Boolean(user),
         }),
       });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || 'تعذر إنشاء غرفة المباراة.');
+      }
+      if (user && Array.isArray(data.resetCategoryIds) && data.resetCategoryIds.length > 0) {
+        await Promise.all(
+          data.resetCategoryIds.map((cid: string) => resetCategoryProgress(cid).catch(() => {})),
+        );
       }
       soundFX.playStartRound();
       onRoomCreated(data);
@@ -295,11 +368,11 @@ export function LobbySetup({
 
   const filteredCategories = useMemo(() => {
     const q = normalizeArabicText(searchQuery);
-    if (!q) return ALL_CURATED_CATEGORIES;
-    return ALL_CURATED_CATEGORIES.filter(
+    if (!q) return allCategoriesForLobby;
+    return allCategoriesForLobby.filter(
       (c) => normalizeArabicText(c.name).includes(q) || normalizeArabicText(c.description || '').includes(q),
     );
-  }, [searchQuery]);
+  }, [searchQuery, allCategoriesForLobby]);
 
   const filteredDecks = useMemo(() => {
     const q = normalizeArabicText(searchQuery);
@@ -309,12 +382,23 @@ export function LobbySetup({
     );
   }, [decks, searchQuery]);
 
-  const activeCategoryBadgeText =
-    selectedDeckId === 'curated_custom'
-      ? `${customCategories.length} / 6`
-      : isMatrixDeck
-        ? `${selectedDeck.categories.length} / ${selectedDeck.categories.length}`
-        : `${Math.min(categoryCount, selectedDeck.categories.length)} / 6`;
+  const selectedCategoryItems: DeckCategory[] = useMemo(() => {
+    if (selectedDeckId === 'curated_custom') {
+      const byId = new Map(allCategoriesForLobby.map((c) => [c.id, c]));
+      return customCategories
+        .map((id) => byId.get(id))
+        .filter((c): c is DeckCategory => Boolean(c));
+    }
+    return selectedDeck.categories.filter((c) => activeCategoryIdsForPreflight.includes(c.id));
+  }, [selectedDeckId, customCategories, selectedDeck, activeCategoryIdsForPreflight, allCategoriesForLobby]);
+
+  const isClassicPresetActive =
+    selectedDeckId === 'curated_custom' &&
+    customCategories.length === STARTER_CATEGORIES.length &&
+    STARTER_CATEGORIES.every((c) => customCategories.includes(c.id));
+
+  const maxCategoryLimit = isMatrixDeck ? selectedDeck.categories.length : 8;
+  const activeCategoryBadgeText = `${selectedCategoryItems.length}/${maxCategoryLimit}`;
 
   return (
     <div className="game-lobby min-h-screen w-full game-pattern-bg flex flex-col pb-28">
@@ -448,16 +532,16 @@ export function LobbySetup({
                   type="button"
                   onClick={() => {
                     soundFX.playClick();
-                    setSelectedDeckId(STARTER_DEMO_DECK.id);
+                    setSelectedDeckId('curated_custom');
                     setCategoryTab('official');
                   }}
                   className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
-                    selectedDeckId === STARTER_DEMO_DECK.id
+                    selectedDeckId === 'curated_custom' && !isClassicPresetActive
                       ? 'bg-[#63349B] text-white'
                       : 'bg-[#FFFDF7] text-[#1F112E]'
                   }`}
                 >
-                  كلاسيكي
+                  تشكيلة حرة
                 </button>
 
                 <button
@@ -465,15 +549,16 @@ export function LobbySetup({
                   onClick={() => {
                     soundFX.playClick();
                     setSelectedDeckId('curated_custom');
+                    setCustomCategories(STARTER_CATEGORIES.map((c) => c.id));
                     setCategoryTab('official');
                   }}
                   className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
-                    selectedDeckId === 'curated_custom'
+                    isClassicPresetActive
                       ? 'bg-[#63349B] text-white'
                       : 'bg-[#FFFDF7] text-[#1F112E]'
                   }`}
                 >
-                  تشكيلة مخصصة
+                  كلاسيكي (5)
                 </button>
 
                 <button
@@ -489,7 +574,7 @@ export function LobbySetup({
                     }
                   }}
                   className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${
-                    selectedDeck.sourceType === 'pdf'
+                    selectedDeckId !== 'curated_custom' && selectedDeck.sourceType === 'pdf'
                       ? 'bg-[#63349B] text-white'
                       : 'bg-[#FFFDF7] text-[#1F112E]'
                   }`}
@@ -624,14 +709,46 @@ export function LobbySetup({
           </section>
         </div>
 
-        {/* Full-Width Section: الفئات (exact reference Image 8 layout) */}
+        {/* Full-Width Section: الفئات (matching user reference screenshot) */}
         <section className="lobby-panel shannes-panel p-5 sm:p-6 space-y-4">
+          {/* Selected Categories Quick Tray (top bar with removable chips) */}
+          <div
+            aria-label="الفئات المختارة حاليًا"
+            className="min-h-[52px] rounded-2xl bg-[#F2ECE0] border-2 border-[#1F112E]/15 px-3.5 py-2.5 flex flex-wrap items-center gap-2"
+          >
+            {selectedCategoryItems.length === 0 ? (
+              <span className="text-xs sm:text-sm font-bold text-[#1F112E]/55">
+                لم يتم اختيار أي فئة بعد — اختر من فئة واحدة وحتى 8 فئات بالأسفل
+              </span>
+            ) : (
+              selectedCategoryItems.map((cat) => (
+                <span
+                  key={cat.id}
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-b from-[#7B4BBF] to-[#562B91] border-2 border-[#1F112E] shadow-[0_3px_0_#1F112E] px-3 py-1 text-xs sm:text-sm font-display font-black text-white"
+                >
+                  <span>{cat.name}</span>
+                  {selectedDeckId === 'curated_custom' && (
+                    <button
+                      type="button"
+                      onClick={() => toggleCustomCategory(cat.id)}
+                      aria-label={`إزالة فئة ${cat.name}`}
+                      className="w-5 h-5 rounded-full hover:bg-white/20 flex items-center justify-center cursor-pointer transition"
+                    >
+                      <X className="w-3.5 h-3.5 stroke-[3]" />
+                    </button>
+                  )}
+                </span>
+              ))
+            )}
+          </div>
+
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2.5">
               <h2 className="font-display font-black text-2xl text-[#1F112E]">الفئات</h2>
               <span
                 dir="ltr"
-                className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs tabular-nums"
+                data-testid="selected-categories-count"
+                className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs sm:text-sm tabular-nums shadow-[0_2px_0_#1F112E]"
               >
                 {activeCategoryBadgeText}
               </span>
@@ -668,6 +785,46 @@ export function LobbySetup({
               </div>
             </div>
 
+            <div className="flex items-center gap-2.5">
+              {selectedCategoryItems.length > 0 && (
+                <button
+                  type="button"
+                  onClick={clearAllCategories}
+                  className="text-xs sm:text-sm font-display font-black text-[#1F112E]/80 hover:text-[#DC2626] px-2.5 py-1.5 rounded-xl hover:bg-[#FFE5E7]/70 transition cursor-pointer"
+                >
+                  إلغاء تحديد الكل
+                </button>
+              )}
+
+              <div
+                className="inline-flex items-center rounded-xl border-2 border-[#1F112E] bg-[#FFFDF7] p-0.5 shadow-[0_2px_0_#1F112E]"
+                role="group"
+                aria-label="طريقة عرض بطاقات الفئات"
+              >
+                <button
+                  type="button"
+                  onClick={() => setCompactGrid(false)}
+                  aria-pressed={!compactGrid}
+                  aria-label="عرض شبكي واسع"
+                  className={`p-1.5 rounded-lg cursor-pointer transition ${
+                    !compactGrid ? 'bg-[#1F112E] text-white' : 'text-[#1F112E]/70 hover:text-[#1F112E]'
+                  }`}
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCompactGrid(true)}
+                  aria-pressed={compactGrid}
+                  aria-label="عرض شبكي مضغوط"
+                  className={`p-1.5 rounded-lg cursor-pointer transition ${
+                    compactGrid ? 'bg-[#1F112E] text-white' : 'text-[#1F112E]/70 hover:text-[#1F112E]'
+                  }`}
+                >
+                  <Grid2x2 className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Search Input matching reference */}
@@ -706,22 +863,57 @@ export function LobbySetup({
           {/* Green Section Bar + 3D Illustrated Cards Grid */}
           {categoryTab === 'official' ? (
             <div className="space-y-4">
-              <div className="bg-[#00A86B] border-2 border-[#1F112E] rounded-xl px-4 py-2 text-white font-display font-black text-base shadow-[0_3px_0_#1F112E]">
-                فئات مكتبة يمكن هاي
+              {authReady && !user && (
+                <div className="rounded-2xl bg-[#FFF8DC] border-2 border-[#1F112E]/25 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2.5 text-xs sm:text-sm font-bold text-[#1F112E]">
+                  <span>
+                    سجّل دخولك بجوجل لحفظ نسبة استهلاك الأسئلة لكل فئة ومنع تكرار الأسئلة بين جلساتك وأجهزتك.
+                  </span>
+                  <button
+                    type="button"
+                    disabled={signingIn}
+                    onClick={() => {
+                      soundFX.playClick();
+                      signInWithGoogle();
+                    }}
+                    className="game-btn-3d bg-[#00A86B] text-white px-3.5 py-1.5 rounded-xl font-display font-black text-xs inline-flex items-center gap-1.5 whitespace-nowrap cursor-pointer disabled:opacity-60"
+                  >
+                    <LogIn className="w-3.5 h-3.5" />
+                    <span>{signingIn ? 'جارٍ الدخول...' : 'دخول جوجل'}</span>
+                  </button>
+                </div>
+              )}
+
+              {authError && (
+                <div className="rounded-2xl bg-[#FFE5E7] border-2 border-[#F05B63] px-4 py-2 text-xs font-bold text-[#991B1B]">
+                  {authError}
+                </div>
+              )}
+
+              <div className="bg-[#00A86B] border-2 border-[#1F112E] rounded-xl px-4 py-2 text-white font-display font-black text-base shadow-[0_3px_0_#1F112E] flex items-center justify-between">
+                <span>فئات مكتبة يمكن هاي</span>
+                <span className="text-xs font-bold opacity-95">اختر من 1 إلى 8 فئات</span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div
+                className={`grid gap-4 ${
+                  compactGrid
+                    ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                }`}
+              >
                 {filteredCategories.map((cat) => {
                   const isSelected =
                     selectedDeckId === 'curated_custom'
                       ? customCategories.includes(cat.id)
                       : activeCategoryIdsForPreflight.includes(cat.id);
-                  const catQuestionCount = cat.id === PROPHET_STORIES_CATEGORY.id
-                    ? PROPHET_STORIES_COUNT
-                    : CURATED_QUESTIONS.filter(
-                    (item) => item.categoryId === cat.id && !item.isBackup,
-                  ).length;
+                  const stats = getCategoryStats(cat.id);
                   const artSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
+                  const pctToneClass =
+                    stats.percent >= 100
+                      ? 'from-[#FB7185] to-[#E11D48] text-white'
+                      : stats.percent >= 80
+                        ? 'from-[#FCD34D] to-[#D97706] text-[#1F112E]'
+                        : 'from-[#9FD7B3] to-[#6DA884] text-white';
 
                   return (
                     <div
@@ -733,26 +925,47 @@ export function LobbySetup({
                       }`}
                       style={{ backgroundColor: cat.accentColor }}
                     >
-                      {/* Top Overlay Controls (matching reference cards: (i) + count badge) */}
-                      <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between pointer-events-none">
-                        <button
-                          type="button"
-                          onClick={() => setInfoTip(`${cat.name}: ${cat.description || 'أسئلة متنوعة'}`)}
-                          aria-label={`تفاصيل ${cat.name}`}
-                          className="pointer-events-auto w-7 h-7 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer"
-                        >
-                          <Info className="w-3.5 h-3.5" />
-                        </button>
+                      {/* Top Overlay Controls: (i) + Tactile 3D VIP & Percentage Badges (matching reference) */}
+                      <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
+                        <div className="flex items-center gap-1.5 pointer-events-auto">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setInfoTip(
+                                `${cat.name}: ${cat.description || 'أسئلة متنوعة'} · المستهلك: ${stats.playedCount} من ${stats.totalCount} سؤال (${stats.percent}%)${stats.cycleCount > 0 ? ` · الدورة ${stats.cycleCount + 1}` : ''}`,
+                              )
+                            }
+                            aria-label={`تفاصيل ${cat.name}`}
+                            className="w-7 h-7 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer shadow-[0_2px_0_#1F112E]"
+                          >
+                            <Info className="w-3.5 h-3.5" />
+                          </button>
 
-                        <div className="flex items-center gap-1.5">
-                          <span className="bg-[#FFFDF7]/95 border-2 border-[#1F112E] rounded-full px-2.5 py-0.5 text-[11px] font-black text-[#1F112E] tabular-nums">
-                            {catQuestionCount} أسئلة
-                          </span>
                           {isSelected && (
-                            <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center">
+                            <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center shadow-[0_2px_0_#1F112E]">
                               <Check className="w-4 h-4 stroke-[3]" />
                             </span>
                           )}
+                        </div>
+
+                        {/* 3D Tactile Percentage Pill & Optional VIP Pill (matching Screenshot_2026-11-21_at_7.22.02_PM) */}
+                        <div className="flex items-center gap-1.5" dir="ltr">
+                          {cat.isVip && (
+                            <span className="inline-flex items-center justify-center min-w-[44px] h-8 px-2.5 rounded-full bg-gradient-to-b from-[#FFF099] to-[#F2C954] border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tracking-wide text-[#4A4352]">
+                              VIP
+                            </span>
+                          )}
+                          <span
+                            data-testid={`cat-percent-${cat.id}`}
+                            title={
+                              stats.percent >= 100
+                                ? `اكتملت الفئة (${stats.playedCount}/${stats.totalCount}) — ستُصفَّر تلقائيًا لبدء دورة جديدة`
+                                : `تم استهلاك ${stats.playedCount} من ${stats.totalCount} سؤال`
+                            }
+                            className={`inline-flex items-center justify-center min-w-[50px] h-8 px-2.5 rounded-full bg-gradient-to-b ${pctToneClass} border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tabular-nums`}
+                          >
+                            {stats.percent}%
+                          </span>
                         </div>
                       </div>
 
@@ -775,8 +988,11 @@ export function LobbySetup({
 
                         {/* Cream Pill Title Strip at Bottom */}
                         <div className="bg-gradient-to-t from-black/25 to-transparent p-3 pt-1">
-                          <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-base text-[#1F112E] shadow-[0_2px_0_#1F112E]">
-                            {cat.name}
+                          <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-base text-[#1F112E] shadow-[0_2px_0_#1F112E] flex items-center justify-between gap-2">
+                            <span className="truncate flex-1 text-center">{cat.name}</span>
+                            <span className="text-[11px] font-bold text-[#1F112E]/65 tabular-nums shrink-0">
+                              {stats.playedCount}/{stats.totalCount}
+                            </span>
                           </div>
                         </div>
                       </button>
@@ -807,9 +1023,7 @@ export function LobbySetup({
                       onClick={() => {
                         soundFX.playClick();
                         setSelectedDeckId(d.id);
-                        if (d.categories.length >= 3 && d.categories.length <= 6) {
-                          setCategoryCount(Math.min(6, Math.max(3, d.categories.length)));
-                        }
+                        setCategoryCount(Math.min(8, Math.max(1, d.categories.length)));
                       }}
                       role="button"
                       tabIndex={0}
@@ -866,28 +1080,142 @@ export function LobbySetup({
         </section>
       </div>
 
-      {/* Floating Bottom Action Dock (exact match to reference Images 6-8) */}
-      <div className="lobby-dock fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,540px)] bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
-        <div className="text-right">
-          <span className="text-[11px] font-bold text-[#1F112E]/65 block">{selectedDeck.sourceType === 'pdf' ? selectedDeck.title : 'اللوحة'}</span>
-          <span
-            className={`font-display font-black text-sm sm:text-base ${
-              canStartMatch ? 'text-[#00A86B]' : 'text-[#F05B63]'
-            }`}
+      {/* Floating Bottom Action Dock + Expandable Selected Categories Popover (matches reference screenshot) */}
+      <div
+        ref={drawerRef}
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[min(94vw,560px)] flex flex-col items-start gap-2"
+      >
+        {/* Expandable Popover: الفئات المختارة */}
+        {selectedDrawerOpen && (
+          <div
+            role="dialog"
+            aria-label="الفئات المختارة"
+            className="w-[min(92vw,310px)] rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_6px_0_#1F112E] p-3.5 space-y-2.5"
           >
-            {!deckLoaded ? 'بانتظار تحميل البنك' : canStartMatch ? 'جاهزة للعب' : 'تحتاج استكمال'}
-          </span>
-        </div>
+            <div className="flex items-center justify-between gap-2 pb-1 border-b border-[#1F112E]/10">
+              <span className="font-display font-black text-sm text-[#1F112E]">
+                الفئات المختارة ({selectedCategoryItems.length}/{maxCategoryLimit})
+              </span>
+              {selectedCategoryItems.length > 0 && (
+                <button
+                  type="button"
+                  onClick={clearAllCategories}
+                  className="text-xs font-display font-black text-[#DC2626] hover:underline cursor-pointer"
+                >
+                  مسح الكل
+                </button>
+              )}
+            </div>
 
+            {selectedCategoryItems.length === 0 ? (
+              <p className="text-xs font-bold text-[#1F112E]/60 text-center py-3">
+                لم يتم اختيار أي فئة بعد — اختر فئة واحدة على الأقل
+              </p>
+            ) : (
+              <ul className="max-h-56 overflow-y-auto space-y-2 pl-0.5">
+                {selectedCategoryItems.map((cat) => {
+                  const thumbSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
+                  return (
+                    <li
+                      key={cat.id}
+                      className="flex items-center justify-between gap-2.5 rounded-xl bg-[#F2ECE0] border border-[#1F112E]/15 px-2.5 py-2"
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span
+                          className="w-8 h-8 rounded-lg border-2 border-[#1F112E] overflow-hidden flex items-center justify-center shrink-0"
+                          style={{ backgroundColor: cat.accentColor || '#63349B' }}
+                        >
+                          <img
+                            src={thumbSrc}
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-contain"
+                          />
+                        </span>
+                        <span className="font-display font-black text-sm text-[#1F112E] truncate">
+                          {cat.name}
+                        </span>
+                      </div>
+
+                      {selectedDeckId === 'curated_custom' && (
+                        <button
+                          type="button"
+                          onClick={() => toggleCustomCategory(cat.id)}
+                          aria-label={`حذف فئة ${cat.name} من المختارة`}
+                          className="w-7 h-7 rounded-lg hover:bg-[#FFE5E7] text-[#1F112E]/70 hover:text-[#DC2626] flex items-center justify-center shrink-0 cursor-pointer transition"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        )}
+
+        {/* Collapsible Pill Tab directly above bottom bar: [ الفئات (N) ⌄ ] */}
         <button
           type="button"
-          disabled={creating || !canStartMatch}
-          onClick={handleStartMatch}
-          className="game-btn-purple px-7 py-2.5 rounded-xl font-display font-black text-base sm:text-lg flex items-center gap-2 whitespace-nowrap cursor-pointer"
+          onClick={() => {
+            soundFX.playClick();
+            setSelectedDrawerOpen((open) => !open);
+          }}
+          aria-expanded={selectedDrawerOpen}
+          aria-label={`عرض الفئات المختارة (${selectedCategoryItems.length})`}
+          className="inline-flex items-center gap-2 rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_4px_0_#1F112E] px-3.5 py-1.5 font-display font-black text-sm text-[#1F112E] hover:bg-[#FFF8E2] cursor-pointer transition"
         >
-          <span>{creating ? 'جارٍ البدء...' : 'ابدأ اللعبة'}</span>
-          <Play className="w-4 h-4 fill-current rotate-180" />
+          {selectedDrawerOpen ? (
+            <ChevronDown className="w-4 h-4 text-[#1F112E]" />
+          ) : (
+            <ChevronUp className="w-4 h-4 text-[#1F112E]" />
+          )}
+          <span>الفئات</span>
+          <span
+            dir="ltr"
+            className="min-w-[24px] h-6 px-1.5 rounded-full bg-[#FFE047] border-2 border-[#1F112E] text-xs font-black text-[#1F112E] inline-flex items-center justify-center tabular-nums"
+          >
+            {selectedCategoryItems.length}
+          </span>
         </button>
+
+        {/* Main Floating Action Dock */}
+        <div className="lobby-dock w-full bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-2xl shadow-[0_6px_0_#1F112E] px-4 py-2.5 flex items-center justify-between gap-4">
+          <div className="text-right min-w-0">
+            <span className="text-[11px] font-bold text-[#1F112E]/65 block truncate">
+              {selectedDeckId !== 'curated_custom' && selectedDeck.sourceType === 'pdf'
+                ? selectedDeck.title
+                : selectedCategoryItems.length === 0
+                  ? 'اللوحة (0 / 8)'
+                  : `اللوحة (${selectedCategoryItems.length} / ${maxCategoryLimit})`}
+            </span>
+            <span
+              className={`font-display font-black text-sm sm:text-base block truncate ${
+                canStartMatch ? 'text-[#00A86B]' : 'text-[#F05B63]'
+              }`}
+            >
+              {!deckLoaded
+                ? 'بانتظار تحميل البنك'
+                : canStartMatch
+                  ? 'جاهزة للعب'
+                  : selectedCategoryItems.length === 0
+                    ? 'اختر فئة واحدة على الأقل'
+                    : 'تحتاج استكمال'}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            disabled={creating || !canStartMatch}
+            onClick={handleStartMatch}
+            className="game-btn-purple px-7 py-2.5 rounded-xl font-display font-black text-base sm:text-lg flex items-center gap-2 whitespace-nowrap cursor-pointer"
+          >
+            <span>{creating ? 'جارٍ البدء...' : 'ابدأ اللعبة'}</span>
+            <Play className="w-4 h-4 fill-current rotate-180" />
+          </button>
+        </div>
       </div>
     </div>
   );

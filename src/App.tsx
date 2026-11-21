@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { AdminPanel } from './components/AdminPanel';
 import { BuzzerScreen } from './components/BuzzerScreen';
 import { GameArena } from './components/GameArena';
 import { LobbySetup } from './components/LobbySetup';
@@ -13,6 +14,7 @@ type ViewScreen =
   | { name: 'lobby'; preselectDeckId?: string; approvedLesson?: QuizDeck }
   | { name: 'pdf_studio'; editDeck?: QuizDeck | null }
   | { name: 'library'; mode: 'decks' | 'matches' }
+  | { name: 'admin' }
   | { name: 'arena'; roomCode: string; role: 'host' | 'projector'; token?: string }
   | { name: 'buzzer'; roomCode: string; token: string };
 
@@ -72,6 +74,10 @@ export default function App() {
     } else if (autostart === '1') {
       setScreen({ name: 'lobby' });
     }
+
+    const onOpenAdmin = () => setScreen({ name: 'admin' });
+    window.addEventListener('yh:open-admin', onOpenAdmin);
+    return () => window.removeEventListener('yh:open-admin', onOpenAdmin);
   }, [refreshDecksAndRooms]);
 
   const rememberDeck = (deck: QuizDeck) => {
@@ -114,6 +120,26 @@ export default function App() {
     refreshDecksAndRooms();
     setScreen({ name: 'title' });
   };
+
+  if (screen.name === 'admin') {
+    return (
+      <AdminPanel
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
+        onBack={() => setScreen({ name: 'title' })}
+        onStartQuick={() => setScreen({ name: 'lobby' })}
+        onOpenPdfStudio={() => setScreen({ name: 'pdf_studio', editDeck: null })}
+        onOpenLibrary={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'decks' });
+        }}
+        onOpenSavedMatches={() => {
+          refreshDecksAndRooms();
+          setScreen({ name: 'library', mode: 'matches' });
+        }}
+      />
+    );
+  }
 
   if (screen.name === 'buzzer') {
     return <BuzzerScreen roomCode={screen.roomCode} token={screen.token} />;

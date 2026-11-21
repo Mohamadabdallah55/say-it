@@ -516,11 +516,32 @@ export function buildBoardDeckFromCategories(
   categoryIds: string[],
   customTitle = 'مباراة بنك يمكن هاي المختار',
   additionalQuestions: QuizQuestion[] = [],
+  extraCategories: DeckCategory[] = [],
 ): QuizDeck {
-  const pickedCats = ALL_CURATED_CATEGORIES.filter((c) => categoryIds.includes(c.id));
-  const finalCats = pickedCats.length >= 3 ? pickedCats.slice(0, 6) : STARTER_CATEGORIES;
+  const byId = new Map<string, DeckCategory>();
+  for (const c of ALL_CURATED_CATEGORIES) byId.set(c.id, c);
+  for (const c of extraCategories) {
+    if (c && c.id) byId.set(c.id, c);
+  }
+  const seen = new Set<string>();
+  const finalCats: DeckCategory[] = [];
+  for (const id of categoryIds) {
+    if (seen.has(id)) continue;
+    const cat = byId.get(id);
+    if (cat) {
+      seen.add(id);
+      finalCats.push(cat);
+      if (finalCats.length >= 8) break;
+    }
+  }
   const catSet = new Set(finalCats.map((c) => c.id));
   const now = new Date().toISOString();
+  const dedupQuestions = new Map<string, QuizQuestion>();
+  for (const item of [...CURATED_QUESTIONS, ...additionalQuestions]) {
+    if (catSet.has(item.categoryId)) {
+      dedupQuestions.set(item.id, item);
+    }
+  }
   return {
     schemaVersion: 2,
     id: `deck_curated_${Date.now()}`,
@@ -531,6 +552,6 @@ export function buildBoardDeckFromCategories(
     createdAt: now,
     updatedAt: now,
     categories: finalCats,
-    questions: [...CURATED_QUESTIONS, ...additionalQuestions].filter((item) => catSet.has(item.categoryId)),
+    questions: Array.from(dedupQuestions.values()),
   };
 }

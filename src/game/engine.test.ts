@@ -797,3 +797,85 @@ test('quick classic correction transfers only base points and preserves the next
   const noWinner = correctLastAnswer(corrected.state, 'fix', null, 'clear', 1500);
   assert.deepEqual(noWinner.state.teams.map(team => team.score), [0, 0, 0]);
 });
+
+test('curated category picker allows 1 to 8 categories without forcing the 5 starter categories', async () => {
+  const { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories } = await import('./starterDecks');
+  const { PROPHET_STORIES_CATEGORY } = await import('./prophetStories');
+  const { PROPHET_STORIES_QUESTIONS } = await import('../../server/prophetStories');
+
+  // 0 categories must be blocked cleanly (never silently forcing 5 starter categories)
+  const emptyDeck = buildBoardDeckFromCategories([]);
+  assert.equal(emptyDeck.categories.length, 0);
+  assert.equal(
+    runBoardPreflightCheck({
+      deck: emptyDeck,
+      selectedCategoryIds: [],
+      teams: TEAMS,
+      settings: { categoryCount: 0 },
+    }).canStart,
+    false,
+  );
+
+  // 1 category (علوم واكتشافات) works cleanly on preflight and room creation
+  const oneDeck = buildBoardDeckFromCategories(['cat_science']);
+  assert.equal(oneDeck.categories.length, 1);
+  assert.equal(oneDeck.categories[0].id, 'cat_science');
+  assert.equal(
+    runBoardPreflightCheck({
+      deck: oneDeck,
+      selectedCategoryIds: ['cat_science'],
+      teams: TEAMS,
+      settings: { categoryCount: 1 },
+    }).canStart,
+    true,
+  );
+  const oneRoom = createRoomState({
+    roomCode: 'ONE01',
+    hostToken: 'h1',
+    buzzerToken: 'b1',
+    deck: oneDeck,
+    teams: TEAMS,
+    settings: { categoryCount: 1 },
+  });
+  assert.equal(oneRoom.categories.length, 1);
+  assert.equal(oneRoom.boardTiles.length, 3);
+
+  // 1 server-validated category (قصص الأنبياء alone) passes client preflight
+  const prophetOnlyClient = buildBoardDeckFromCategories([PROPHET_STORIES_CATEGORY.id]);
+  assert.equal(
+    runBoardPreflightCheck({
+      deck: prophetOnlyClient,
+      selectedCategoryIds: [PROPHET_STORIES_CATEGORY.id],
+      serverValidatedCategoryIds: [PROPHET_STORIES_CATEGORY.id],
+      teams: TEAMS,
+      settings: { categoryCount: 1 },
+    }).canStart,
+    true,
+  );
+
+  // All 8 curated categories work cleanly end-to-end
+  const allEightIds = ALL_CURATED_CATEGORIES.map((c) => c.id);
+  assert.equal(allEightIds.length, 8);
+  const eightDeck = buildBoardDeckFromCategories(allEightIds, undefined, PROPHET_STORIES_QUESTIONS);
+  assert.equal(eightDeck.categories.length, 8);
+  assert.equal(
+    runBoardPreflightCheck({
+      deck: eightDeck,
+      selectedCategoryIds: allEightIds,
+      teams: TEAMS,
+      settings: { categoryCount: 8 },
+    }).canStart,
+    true,
+  );
+  const eightRoom = createRoomState({
+    roomCode: 'EGT08',
+    hostToken: 'h8',
+    buzzerToken: 'b8',
+    deck: eightDeck,
+    teams: TEAMS,
+    settings: { categoryCount: 8 },
+  });
+  assert.equal(eightRoom.categories.length, 8);
+  assert.ok(eightRoom.boardTiles.length >= 24);
+});
+

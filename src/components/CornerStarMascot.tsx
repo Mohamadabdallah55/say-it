@@ -89,12 +89,12 @@ export function CornerStarMascot({
         className="star-button"
         data-excited={excited}
       >
-        <span className="star-reaction" key={reaction} data-active={isCommenting} aria-hidden="true">
+        <span className="star-reaction" key={`reaction-${reaction}`} data-active={isCommenting} aria-hidden="true">
           <span className="star-glint" />
           <span className="star-glint" />
           <span className="star-glint" />
         </span>
-        <span className="star-float" key={reaction}>
+        <span className="star-float" key={`float-${reaction}`}>
           <svg viewBox="0 0 80 80" className="star-character" aria-hidden="true">
             <defs>
               <linearGradient id={gradientId} x2="25%" y2="100%">
