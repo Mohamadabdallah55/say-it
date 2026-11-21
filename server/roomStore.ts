@@ -25,6 +25,9 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
+import { PROPHET_STORIES_CATEGORY } from '../src/game/prophetStories';
+import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
+import { filterPlayedProphetQuestions, recordPlayedProphetQuestion, reserveProphetQuestions } from './prophetQuestionRotation';
 import { runBoardPreflightCheck } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
 import type {
@@ -100,11 +103,23 @@ class RoomManager {
   }): RoomState {
     let deck: QuizDeck = STARTER_DEMO_DECK;
     if (params.deckId === 'curated_custom' && params.selectedCategoryIds?.length) {
-      deck = buildBoardDeckFromCategories(params.selectedCategoryIds);
+      deck = buildBoardDeckFromCategories(params.selectedCategoryIds, undefined, PROPHET_STORIES_QUESTIONS);
     } else if (params.deckId) {
       const saved = getDeckById(params.deckId);
       if (!saved) throw new Error('البنك غير موجود في مكتبتك.');
       deck = saved;
+    }
+
+    const libraryId = currentLibraryId();
+    const now = Date.now();
+    deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
+    if (params.deckId === 'curated_custom' && deck.categories.some(category => category.id === PROPHET_STORIES_CATEGORY.id)) {
+      const remaining = new Set(deck.questions
+        .filter(question => question.categoryId === PROPHET_STORIES_CATEGORY.id && question.status === 'approved')
+        .map(question => question.points));
+      if (remaining.size < 3) {
+        throw new Error('ما في أسئلة جديدة كافية بكل المستويات لفئة قصص الأنبياء. اختَر فئة ثانية أو أكمل مبارياتك المفتوحة.');
+      }
     }
 
     if (params.settings?.cards?.includes('hint') && params.settings.cards.includes('swap_question')) throw new Error('اختر شنّص أو ألو فقط.');
@@ -137,10 +152,11 @@ class RoomManager {
       settings: { ...params.settings, countUp: true },
       selectedCategoryIds:
         params.deckId === 'curated_custom' ? undefined : params.selectedCategoryIds,
-      nowMs: Date.now(),
+      nowMs: now,
     });
 
-    state.libraryId = currentLibraryId();
+    state.libraryId = libraryId;
+    reserveProphetQuestions(state);
     this.rooms[roomCode] = state;
     persistRoomsMap(this.rooms);
     return state;
@@ -426,10 +442,11 @@ class RoomManager {
       return { ok: false, error: result.error };
     }
 
-    this.rooms[code] = result.state;
+    const nextState = recordPlayedProphetQuestion(result.state);
+    this.rooms[code] = nextState;
     persistRoomsMap(this.rooms);
     this.broadcastRoom(code);
-    return { ok: true, state: sanitizeStateForRole(result.state, 'host', now) };
+    return { ok: true, state: sanitizeStateForRole(nextState, 'host', now) };
   }
 }
 
