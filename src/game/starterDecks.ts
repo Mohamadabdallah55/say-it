@@ -1,3 +1,4 @@
+import { PROPHET_STORIES_CATEGORY, PROPHET_STORIES_QUESTIONS } from './prophetStories';
 import type { DeckCategory, QuizDeck, QuizQuestion } from './types';
 
 const nowIso = '2026-11-16T00:00:00.000Z';
@@ -85,9 +86,11 @@ export const EXTRA_CURATED_CATEGORIES: DeckCategory[] = [
 export const ALL_CURATED_CATEGORIES: DeckCategory[] = [
   ...STARTER_CATEGORIES,
   ...EXTRA_CURATED_CATEGORIES,
+  PROPHET_STORIES_CATEGORY,
 ];
 
 export const CURATED_QUESTIONS: QuizQuestion[] = [
+  ...PROPHET_STORIES_QUESTIONS,
   // 1. معلومات عامة
   q(
     'gen_200',
