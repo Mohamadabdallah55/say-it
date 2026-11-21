@@ -135,14 +135,16 @@ export function normalizeArabicText(value: string): string {
     .toLowerCase();
 }
 
-export function questionUniquenessKey(q: {
-  prompt: string;
-  imageUrl?: string;
-  imageBase64?: string;
-}): string {
-  const normPrompt = normalizeArabicText(q.prompt);
-  const mediaKey = q.imageUrl?.trim() || (q.imageBase64 ? q.imageBase64.slice(0, 64) : '');
-  return mediaKey ? `${normPrompt}::${mediaKey}` : normPrompt;
+export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
+  const prompt = normalizeArabicText(question.prompt || '');
+  const image = question.imageDisplay === 'after_reveal'
+    ? undefined
+    : getQuestionImageSrc(question);
+  const audio = question.audioUrl?.trim();
+  const orderItems = question.questionType === 'order_steps'
+    ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
+    : undefined;
+  return [prompt, image, audio, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [
@@ -256,11 +258,7 @@ export function validateQuizQuestion(
   if (question.questionType === 'order_steps' && question.correctOrder && !correctOrder) {
     return {valid: false, reason: 'الترتيب الصحيح يجب أن يضم كل الخطوات مرة واحدة.'};
   }
-  const promptNorm = questionUniquenessKey({
-    prompt,
-    imageUrl: question.imageUrl,
-    imageBase64: question.imageBase64,
-  });
+  const promptNorm = questionUniquenessKey({ ...question, prompt });
   if (options?.existingPromptsNorm?.has(promptNorm)) {
     return { valid: false, reason: 'سؤال مكرر في نفس اللوحة أو البنك.' };
   }
@@ -281,6 +279,7 @@ export function validateQuizQuestion(
     points,
     questionType,
     prompt,
+    startingLetter: typeof question.startingLetter === 'string' ? question.startingLetter.trim() || undefined : undefined,
     answer,
     acceptableAnswers: (question.acceptableAnswers || []).map((a) => a.trim()).filter(Boolean),
     options: question.options?.map((o) => o.trim()).filter(Boolean),
@@ -301,6 +300,17 @@ export function validateQuizQuestion(
       typeof question.imageCaption === 'string' && question.imageCaption.trim()
         ? question.imageCaption.trim()
         : undefined,
+    imageDisplay: question.imageDisplay === 'before_reveal' || question.imageDisplay === 'after_reveal'
+      ? question.imageDisplay
+      : undefined,
+    imageSourceUrl: typeof question.imageSourceUrl === 'string' && /^https:\/\//i.test(question.imageSourceUrl.trim())
+      ? question.imageSourceUrl.trim()
+      : undefined,
+    answerImageUrl: typeof question.answerImageUrl === 'string' && /^https:\/\//i.test(question.answerImageUrl.trim())
+      ? question.answerImageUrl.trim()
+      : undefined,
+    audioUrl: typeof question.audioUrl === 'string' ? question.audioUrl.trim() || undefined : undefined,
+    answerAudioUrl: typeof question.answerAudioUrl === 'string' ? question.answerAudioUrl.trim() || undefined : undefined,
     timeLimitSeconds: question.timeLimitSeconds,
     subtopic: question.subtopic?.trim() || question.sourceRef?.trim() || undefined,
     teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,
@@ -359,6 +369,12 @@ export function resolveDeckDifficulties(
   const validSet = new Set(raw.filter((d): d is Difficulty => d === 'easy' || d === 'medium' || d === 'hard'));
   const ordered = order.filter((d) => validSet.has(d));
   return ordered.length > 0 ? ordered : order;
+}
+
+export function categoryPointValues(category: DeckCategory, difficulties: Difficulty[]): PointValue[] {
+  return difficulties
+    .filter(difficulty => category.availableDifficulties?.includes(difficulty) ?? true)
+    .map(pointsForDifficulty);
 }
 
 export function selectActiveBoardForDeck(
@@ -497,12 +513,12 @@ export function selectActiveBoardForDeck(
   const usedIds = new Set<string>();
 
   for (const cat of categories) {
-    for (const diff of difficulties) {
+    for (const points of categoryPointValues(cat, difficulties)) {
       const available = poolToUse.filter(
-        (q) => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id),
+        (q) => q.categoryId === cat.id && q.points === points && !q.isBackup && !usedIds.has(q.id),
       );
       const fallback = poolToUse.find(
-        (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+        (q) => q.categoryId === cat.id && q.points === points && !usedIds.has(q.id),
       );
       const perTeam = teamCount > 1 && available.length >= teamCount;
       const selected = perTeam ? available.slice(0, teamCount) : available.slice(0, 1);
@@ -512,8 +528,8 @@ export function selectActiveBoardForDeck(
         tiles.push({
           questionId: question.id,
           categoryId: cat.id,
-          difficulty: diff,
-          points: pointsForDifficulty(diff),
+          difficulty: question.difficulty,
+          points,
           ownerTeamId: perTeam ? 'team_' + (index + 1) : undefined,
           used: false,
           wonByTeamId: null,
@@ -652,22 +668,11 @@ export function runBoardPreflightCheck(params: {
   } else {
     for (const cat of selectedCats) {
       if (serverValidatedCategoryIds.includes(cat.id)) continue;
-      for (const diff of activeDifficulties) {
+      for (const points of categoryPointValues(cat, activeDifficulties)) {
         const hasSlot = deck.questions.some(
-          (q) =>
-            q.categoryId === cat.id &&
-            q.difficulty === diff &&
-            q.status === 'approved' &&
-            !q.isBackup,
+          (q) => q.categoryId === cat.id && q.points === points && q.status === 'approved',
         );
-        if (!hasSlot) {
-          const hasBackupSlot = deck.questions.some(
-            (q) => q.categoryId === cat.id && q.difficulty === diff && q.status === 'approved',
-          );
-          if (!hasBackupSlot) {
-            missingSlots.push(`${cat.name} (${pointsForDifficulty(diff)})`);
-          }
-        }
+        if (!hasSlot) missingSlots.push(`${cat.name} (${points})`);
       }
     }
   }
@@ -675,7 +680,7 @@ export function runBoardPreflightCheck(params: {
     id: 'all_tiers_present',
     label: matrixMode
       ? `كل فئة تحتوي ${activeDifficulties.length} أسئلة معتمدة (${tiersSummaryText}) لكل فريق`
-      : `كل فئة تحتوي المستويات المختارة (${tiersSummaryText})`,
+      : 'كل فئة تحتوي أسئلة في مستوياتها المختارة',
     passed: missingSlots.length === 0 && selectedCats.length > 0,
     severity: 'error',
     detail:

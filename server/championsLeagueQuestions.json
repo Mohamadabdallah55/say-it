@@ -1,0 +1,502 @@
+[
+  {
+    "id": "UCL-001",
+    "points": 200,
+    "question": "أي فريق قلب برشلونة أمامه خسارة 4-0 في الذهاب إلى تأهل تاريخي بنتيجة 6-1 في الإياب عام 2017؟",
+    "answer": "باريس سان جيرمان",
+    "explanation": "برشلونة تأهل أمام باريس في ثمن النهائي عام 2017 بعد العودة من خسارة الذهاب 4-0.",
+    "theme": "ريمونتادا",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966c1b69f6-14f87a701fd9-1000/",
+    "imageUrl": "https://estaticos-cdn.prensaiberica.es/clip/2cdf38ed-89fd-42c3-a411-9287e47f9625_alta-libre-aspect-ratio_default_0.jpg",
+    "imageSourceUrl": "https://www.regio7.cat/fotos/esports/2017/03/09/gol-sergi-roberto-psg-foto-50246932.html"
+  },
+  {
+    "id": "UCL-002",
+    "points": 200,
+    "question": "من نفّذ الركنية السريعة التي سجل منها ديفوك أوريغي هدف ليفربول الرابع أمام برشلونة عام 2019؟",
+    "answer": "ترينت ألكسندر-أرنولد",
+    "explanation": "ركنية ألكسندر-أرنولد المباغتة صنعت هدف أوريغي الرابع في أنفيلد.",
+    "theme": "لقطات شهيرة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e99aae66a0d-4ef82ebc84f0-1000--liverpool-4-0-barcelona-champions-league-at-a-glance/",
+    "imageUrl": "https://www.tz.de/assets/images/1/559/1559264-26838481-trent-alexander-arnold-vor-entscheidenden-eckstoss-zu-divock-origi-2Fu7r457EEe9.jpg",
+    "imageSourceUrl": "https://www.tz.de/sport/fussball/fc-liverpools-ecke-im-video-origi-und-alexander-arnold-sprechen-ueber-variante-zr-12262029.html"
+  },
+  {
+    "id": "UCL-003",
+    "points": 200,
+    "question": "من سجّل الهدف المقصي الشهير لريال مدريد ضد ليفربول في نهائي 2018؟",
+    "answer": "غاريث بيل",
+    "explanation": "بيل دخل بديلًا وسجل هدفًا مقصيًا مميزًا في نهائي كييف.",
+    "theme": "أهداف استثنائية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d7318379-716954065574-1000/",
+    "imageUrl": "https://fotografias.lasexta.com/clipping/cmsimages02/2018/05/26/201E765A-CE82-42C4-814C-57218F07A655/default.jpg",
+    "imageSourceUrl": "https://www.lasexta.com/noticias/deportes/futbol/gareth-bale-hizo-el-2-1-ante-el-liverpool-con-una-espectacular-gol-de-chilena_201805265b09c1220cf2ea770397d61e.html"
+  },
+  {
+    "id": "UCL-004",
+    "points": 200,
+    "question": "من أنقذ ريال مدريد برأسية التعادل في الوقت بدل الضائع أمام أتلتيكو مدريد في نهائي 2014؟",
+    "answer": "سيرخيو راموس",
+    "explanation": "راموس تعادل عند الدقيقة 90+3 قبل فوز ريال مدريد بعد الأشواط الإضافية.",
+    "theme": "نهائيات درامية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c51093bd4a7-41ccc377a75c-1000--madrid-finally-fulfil-decima-dream/",
+    "imageUrl": "https://cdn.al-ain.com/lg/images/2024/5/09/138-115911-late-goals-uefa-champions-league-joselu-4.png",
+    "imageSourceUrl": "https://al-ain.com/article/late-goals-uefa-champions-league-joselu"
+  },
+  {
+    "id": "UCL-005",
+    "points": 200,
+    "question": "أي حارس كان أحد أبرز أسباب فوز ريال مدريد على ليفربول 1-0 في نهائي 2022 بتصدياته؟",
+    "answer": "تيبو كورتوا",
+    "explanation": "يؤكد تحليل UEFA دور تصديات كورتوا الحاسمة في نهائي باريس.",
+    "theme": "حراس مرمى",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-15464696cdc6-bf2145620f18-1000--champions-league-final-in-the-zone-liverpool-0-1-real-ma/",
+    "imageUrl": "https://media.trivela.com.br/main/2022/05/fbl-eur-c1-liverpool-real-madrid-1-scaled.jpg",
+    "imageSourceUrl": "https://trivela.com.br/europa/champions-league/courtois-atingiu-a-perfeicao-na-final-dentro-de-uma-campanha-ja-monstruosa-seus-passos-definitivos-para-a-historia/"
+  },
+  {
+    "id": "UCL-006",
+    "points": 200,
+    "question": "من سجّل هدف مانشستر سيتي الوحيد أمام إنتر في نهائي 2023 ليحقق النادي أول لقب له؟",
+    "answer": "رودري",
+    "explanation": "سجل رودري هدف الفوز 1-0 أمام إنتر في نهائي إسطنبول 2023.",
+    "theme": "ألقاب أولى",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0282-1839b24603ef-36e94e63621d-1000--man-city-win-champions-league-rodri-goal-secures-victory/"
+  },
+  {
+    "id": "UCL-007",
+    "points": 200,
+    "question": "من كان خصم باريس سان جيرمان في نهائي 2025 الذي انتهى بفوز باريس 5-0؟",
+    "answer": "إنتر ميلان",
+    "explanation": "فاز باريس سان جيرمان بأول لقب له بنتيجة 5-0 أمام إنتر.",
+    "theme": "مفاجآت نهائية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000--paris-win-champions-league-doue-double-helps-secure-reco/",
+    "imageUrl": "https://s2.ppllstatics.com/lagacetadesalamanca/www/multimedia/2025/05/31/psg-U20495425324MrF-U20923592659L1C-1200x840%40Gaceta%20Salamanca.jpg",
+    "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html"
+  },
+  {
+    "id": "UCL-008",
+    "points": 200,
+    "question": "أي فريق قلب تأخره 3-0 أمام ميلان إلى تعادل 3-3 ثم فاز بركلات الترجيح في نهائي 2005؟",
+    "answer": "ليفربول",
+    "explanation": "ليفربول قلب خسارة الشوط الأول أمام ميلان ثم فاز بركلات الترجيح بإسطنبول.",
+    "theme": "معجزات كروية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b89fe7b7f-c91716d11bdf-1000--2004-05-liverpool-belief-defies-milan/",
+    "imageUrl": "https://imgk.svenskafans.com/articlemedia/image-original/269.jpg?format=webp&quality=75&width=640",
+    "imageSourceUrl": "https://www.svenskafans.com/fotboll/kronika-under-the-floodlights-on-european-nights-685081"
+  },
+  {
+    "id": "UCL-009",
+    "points": 200,
+    "question": "من نفّذ ركلة الترجيح الحاسمة لتشيلسي ضد بايرن ميونخ في نهائي 2012؟",
+    "answer": "ديدييه دروغبا",
+    "explanation": "دروغبا نفذ الركلة الفاصلة بعد انتهاء المباراة 1-1.",
+    "theme": "نهائيات حاسمة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50fb78a384-1434bbcadbcb-1000/",
+    "imageUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/deseretnews/BBHR2BMO7SM3CKCKDKNSXIWB2Q.jpg",
+    "imageSourceUrl": "https://www.deseret.com/2012/5/20/20413920/chelsea-beats-bayern-munich-in-penalty-shootout/"
+  },
+  {
+    "id": "UCL-010",
+    "points": 200,
+    "question": "من سجل هدف مانشستر يونايتد في نهائي 2011 أمام برشلونة؟",
+    "answer": "واين روني",
+    "explanation": "روني عادل النتيجة 1-1 قبل أن يفوز برشلونة 3-1.",
+    "theme": "نجوم النهائيات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f8161545-f1d22c5e52ca-1000--barcelona-crowned-as-messi-and-villa-see-off-united/"
+  },
+  {
+    "id": "UCL-011",
+    "points": 200,
+    "question": "من حسم نهائي 2013 لبايرن ميونخ أمام دورتموند بهدف متأخر؟",
+    "answer": "آريين روبن",
+    "explanation": "سجل روبن هدف الفوز قرب نهاية المباراة التي انتهت 2-1.",
+    "theme": "لحظات حاسمة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50ff9a7f18-7e59ddb15025-1000/",
+    "imageUrl": "https://img.bundesliga.com/tachyon/sites/2/2019/11/imago13745199h.jpg?resize=960,768",
+    "imageSourceUrl": "https://www.bundesliga.com/en/bundesliga/news/klassiker-2013-champions-league-final-bayern-munich-borussia-dortmund-wembley-7875"
+  },
+  {
+    "id": "UCL-012",
+    "points": 200,
+    "question": "من سجّل هدف بايرن ميونخ الوحيد في مرمى باريس سان جيرمان بنهائي 2020؟",
+    "answer": "كينغسلي كومان",
+    "explanation": "سجل كومان هدف الفوز في الدقيقة 59.",
+    "theme": "نهائي 2020",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0260-1033c96091a1-3d127374ef80-1000--report-highlights-bayern-triumph/"
+  },
+  {
+    "id": "UCL-013",
+    "points": 200,
+    "question": "أي فريق ألماني استقبل هدف زيدان الطائر في نهائي 2002؟",
+    "answer": "باير ليفركوزن",
+    "explanation": "واجه ريال مدريد ليفركوزن في نهائي غلاسكو الذي حسمه زيدان.",
+    "theme": "الأهداف التاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0185-0e6a414977dc-840dff896fae-1000--madrid-win-ninth-european-crown/"
+  },
+  {
+    "id": "UCL-014",
+    "points": 200,
+    "question": "من كان مدرب إنتر عند الفوز بدوري الأبطال على بايرن عام 2010؟",
+    "answer": "جوزيه مورينيو",
+    "explanation": "قاد مورينيو إنتر للفوز 2-0 في مدريد.",
+    "theme": "مدربون أبطال",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f3b81a1b-4c43e12a6520-1000--2009-10-inter-back-on-top-at-last/",
+    "imageUrl": "https://assets-webp.khelnow.com/d7293de2fa93b29528da214253f1d8d0/1280x720/news/uploads/2023/01/100354914_crop_exact.jpg.webp",
+    "imageSourceUrl": "https://khelnow.com/football/2023-01-world-football-inter-milan-trophies"
+  },
+  {
+    "id": "UCL-015",
+    "points": 200,
+    "question": "من سجّل هدف تشيلسي الوحيد أمام مانشستر سيتي في نهائي 2021؟",
+    "answer": "كاي هافرتز",
+    "explanation": "حسم هافرتز نهائي بورتو بتسجيل هدف المباراة الوحيد.",
+    "theme": "النهائيات الإنجليزية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0269-12650cedca55-37515f69768e-1000--report-chelsea-claim-second-title/",
+    "imageUrl": "https://www.rtl.de/img/323981/1622325249/c4_3/1200/porto-portugal-may-29-kai-havertz-of-chelsea-celebrates-after-scoring-their-sides-first-goal-during-the-uefa-champions-league-final-between-manchester-city-and-chelsea-fc-at-estadio-do-dragao-on-may-29-2021-in-porto-portugal-photo-by-jose-coelho-poolgetty-images.webp",
+    "imageSourceUrl": "https://www.rtl.de/cms/champions-league-kai-havertz-schiesst-fc-chelsea-auf-den-fussball-thron-thomas-tuchel-kroent-seine-saison-4768945.html"
+  },
+  {
+    "id": "UCL-016",
+    "points": 200,
+    "question": "من سجّل الهدف الثاني لريال مدريد أمام بوروسيا دورتموند في نهائي 2024؟",
+    "answer": "فينيسيوس جونيور",
+    "explanation": "سجل فينيسيوس الهدف الثاني بعد افتتاح داني كارفاخال التسجيل.",
+    "theme": "نهائي 2024",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07e18d875a-ba78e4b9d9fc-1000--real-madrid-win-champions-league-carvajal-and-vinicius-junior-see-off-dortmund/",
+    "imageUrl": "https://i0.wp.com/almapreta.com.br/images/2024/06/Viniciur-Jr.jpg?resize=800%2C600&ssl=1",
+    "imageSourceUrl": "https://almapreta.com.br/sessao/cotidiano/vinicius-jr-faz-gol-em-final-e-fortalece-candidatura-a-melhor-do-mundo/"
+  },
+  {
+    "id": "UCL-017",
+    "points": 200,
+    "question": "من افتتح التسجيل لبرشلونة أمام يوفنتوس في نهائي 2015؟",
+    "answer": "إيفان راكيتيتش",
+    "explanation": "تقدم برشلونة بهدف راكيتيتش المبكر قبل الفوز 3-1.",
+    "theme": "نهائيات برشلونة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0cd2c6a4864d-8c8d00efd1bd-1000--barcelona-see-off-juventus-/"
+  },
+  {
+    "id": "UCL-018",
+    "points": 400,
+    "question": "من اللاعب البديل الذي أحرز هدف الفوز لبرشلونة أمام أرسنال في نهائي 2006؟",
+    "answer": "جوليانو بيليتي",
+    "explanation": "سجل بيليتي هدف الفوز بعد تمريرة هنريك لارسون، وانتهى النهائي 2-1.",
+    "theme": "البدلاء الحاسمون",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0254-0d7b9bda7048-f02946ac9dba-1000/",
+    "imageUrl": "https://assets.goal.com/images/v3/blt3d23107bdff5db12/33ca853a963799c92659cbf4b7201364472b75cc.jpg?format=jpg",
+    "imageSourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5"
+  },
+  {
+    "id": "UCL-019",
+    "points": 400,
+    "question": "من سجل ثلاثية توتنهام أمام أياكس في إياب نصف نهائي 2019 وأكملها في الوقت الضائع؟",
+    "answer": "لوكاس مورا",
+    "explanation": "هاتريك مورا قاد توتنهام للفوز 3-2 والتأهل في أمستردام.",
+    "theme": "ريمونتادا نصف النهائي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e9ce1f530f2-d243cb498094-1000/",
+    "imageUrl": "https://medias.lequipe.fr/img-photo-jpg/soccer-football-champions-league-semi-final-second-leg-ajax-amsterdam-v-tottenham-hotspur-joha/1500000001147204/182%3A143%2C2500%3A1689-3150-2363-75/b2672.jpg",
+    "imageSourceUrl": "https://www.francefootball.fr/news/Ligue-des-champions-top-10-des-demi-finales-retour-les-plus-marquantes-depuis-2000/1248655"
+  },
+  {
+    "id": "UCL-020",
+    "points": 400,
+    "question": "من افتتح رباعية ديبورتيفو لاكورونيا أمام ميلان في إياب ربع نهائي 2004؟",
+    "answer": "والتر باندياني",
+    "explanation": "أحرز باندياني الهدف الأول في العودة 4-0 على ميلان.",
+    "theme": "الريمونتادا الإسبانية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/019c-0e6c12450ff2-294c584e2602-1000--dazzling-depor-ditch-milan/"
+  },
+  {
+    "id": "UCL-021",
+    "points": 400,
+    "question": "من سجّل الهدف الثالث الحاسم لروما أمام برشلونة في ريمونتادا ربع نهائي 2018؟",
+    "answer": "كوستاس مانولاس",
+    "explanation": "سجل مانولاس هدف 3-0 لروما برأسية في الدقيقة 82.",
+    "theme": "مفاجآت الأدوار الإقصائية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/match/2021705--roma-vs-barcelona/",
+    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/7FTOP7JBGWQUXXWMT7RQKFPTAM.jpg",
+    "imageSourceUrl": "https://www.thenationalnews.com/sport/football/barcelona-s-five-toughest-european-losses-of-the-lionel-messi-era-in-pictures-1.858798"
+  },
+  {
+    "id": "UCL-022",
+    "points": 400,
+    "question": "من سجّل هدف التأهل السادس لبرشلونة أمام باريس عام 2017؟",
+    "answer": "سيرجي روبرتو",
+    "explanation": "أنهى سيرجي روبرتو ريمونتادا 6-1 بهدف متأخر.",
+    "theme": "اللحظات الأخيرة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966c1b69f6-14f87a701fd9-1000/",
+    "imageUrl": "https://files.prokerala.com/news/photos/imgs/1024/barcelona-march-9-2017-sergi-roberto-2nd-r-of-511785.jpg",
+    "imageSourceUrl": "https://www.prokerala.com/news/photos/spain-barcelona-soccer-uefa-ucl-barcelona-vs-paris-saint-germain-219738.html"
+  },
+  {
+    "id": "UCL-023",
+    "points": 400,
+    "question": "من سجّل ركلة الجزاء المتأخرة التي أقصت باريس سان جيرمان أمام مانشستر يونايتد عام 2019؟",
+    "answer": "ماركوس راشفورد",
+    "explanation": "سجل راشفورد ركلة الجزاء في الوقت بدل الضائع بباريس.",
+    "theme": "ركلات مثيرة للجدل",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/024f-0e997d99a846-5278666a96e9-1000--paris-1-3-manchester-united-champions-league-at-a-glance/",
+    "imageUrl": "https://editorial.uefa.com/resources/024f-0e997d99b5ee-dad582f93d27-1000/format/wide1/marcus_rashford_manchester_united_.jpeg?imwidth=988",
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/024f-0e997d99a846-5278666a96e9-1000--paris-1-3-manchester-united-champions-league-at-a-glance/"
+  },
+  {
+    "id": "UCL-024",
+    "points": 400,
+    "question": "من سجّل هدف برشلونة في الوقت بدل الضائع أمام تشيلسي في ستامفورد بريدج بنصف نهائي 2009؟",
+    "answer": "أندريس إنييستا",
+    "explanation": "هدف إنييستا في الدقيقة 93 ضمن عبور برشلونة إلى النهائي.",
+    "theme": "اللحظات التي أثارت الجدل",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/01d9-0e72254a5b3a-23a74c5aeec1-1000/",
+    "imageUrl": "https://www.lavozdegalicia.es/default/2014/05/06/00121399386603265246239/Foto/G7P33F1_06052009_REUTERS.jpg",
+    "imageSourceUrl": "https://www.lavozdegalicia.es/noticia/deportes/2014/05/06/decisivo-gol-iniesta-chelsea-cumple-cinco-anos/00031399386545657982434.htm"
+  },
+  {
+    "id": "UCL-025",
+    "points": 400,
+    "question": "من اختير رجل مباراة نهائي 2024 بعد أداء مؤثر وهدف أمام دورتموند؟",
+    "answer": "داني كارفاخال",
+    "explanation": "سمّت UEFA كارفاخال رجل مباراة النهائي.",
+    "theme": "جوائز النهائيات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07da855edc-f1946904f406-1000/"
+  },
+  {
+    "id": "UCL-026",
+    "points": 400,
+    "question": "من أصبح أول لاعب مراهق يسجل هدفين في نهائي دوري الأبطال عندما تألق لباريس عام 2025؟",
+    "answer": "ديزيريه دويه",
+    "explanation": "سجل دويه هدفين في نهائي باريس أمام إنتر، وكان أول مراهق يحقق ذلك.",
+    "theme": "نجوم صاعدين",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de41a81a0d8-2cfefc69a802-1000--desire-doue-named-official-2025-uefa-champions-league-final/"
+  },
+  {
+    "id": "UCL-027",
+    "points": 400,
+    "question": "من كان مدرب مانشستر سيتي عندما جمع الدوري والكأس ودوري الأبطال في موسم 2022-23؟",
+    "answer": "بيب غوارديولا",
+    "explanation": "قاد غوارديولا سيتي إلى أول لقب أوروبي وإكمال الثلاثية في 2023.",
+    "theme": "الثلاثية التاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0282-1839b24603ef-36e94e63621d-1000--man-city-win-champions-league-rodri-goal-secures-victory/",
+    "imageUrl": "https://static.standard.co.uk/2023/06/10/23/newFile.jpg?auto=webp&quality=75&width=1200",
+    "imageSourceUrl": "https://www.standard.co.uk/sport/football/pep-guardiola-man-city-champions-league-final-2023-b1086957.html"
+  },
+  {
+    "id": "UCL-028",
+    "points": 400,
+    "question": "أي فريق فرنسي خسر نهائي دوري أبطال أوروبا 2004 أمام بورتو بقيادة مورينيو؟",
+    "answer": "موناكو",
+    "explanation": "تفوق بورتو على موناكو 3-0 في النهائي.",
+    "theme": "مفاجآت المدربين",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f100f076-ecb0d9d85bb1-1000--2003-04-porto-pull-off-biggest-surprise/"
+  },
+  {
+    "id": "UCL-029",
+    "points": 400,
+    "question": "من سجّل هدف التعادل لبرشلونة أمام أرسنال قبل هدف بيليتي في نهائي 2006؟",
+    "answer": "صامويل إيتو",
+    "explanation": "سجل إيتو التعادل في الدقيقة 76 قبل هدف بيليتي.",
+    "theme": "نهائي برشلونة 2006",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0254-0d7b9bda7048-f02946ac9dba-1000/"
+  },
+  {
+    "id": "UCL-030",
+    "points": 400,
+    "question": "من استفاد من خطأ تمرير لوريس كاريوس ليسجل أول أهداف ريال مدريد أمام ليفربول في نهائي 2018؟",
+    "answer": "كريم بنزيما",
+    "explanation": "اعترض بنزيما تمريرة الحارس وحولها إلى هدف لريال مدريد.",
+    "theme": "الأخطاء الشهيرة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d7318379-716954065574-1000/",
+    "imageUrl": "https://images.welt.de/67e35d5c4043cc0cc565ef3b/99ca6f0f6ddfb30c47154b8377cf925d/ci102l-w1200/ukraine-soccer-champions-league-final",
+    "imageSourceUrl": "https://www.welt.de/sport/fussball/champions-league/article176706966/Champions-League-FC-Liverpool-Die-folgenschweren-Patzer-des-Loris-Karius.html"
+  },
+  {
+    "id": "UCL-031",
+    "points": 400,
+    "question": "من أحرز هدف ليفربول الثاني أمام توتنهام في نهائي 2019؟",
+    "answer": "ديفوك أوريغي",
+    "explanation": "سجل أوريغي الهدف الثاني قبل النهاية بعد ركلة جزاء صلاح المبكرة.",
+    "theme": "نهائي 2019",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/",
+    "imageUrl": "https://editorial.uefa.com/resources/025b-0f05affdaf3a-33d492360749-1000/format/wide1/divock_origi_liverpool_.jpeg?imwidth=988",
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/"
+  },
+  {
+    "id": "UCL-032",
+    "points": 400,
+    "question": "من المدافع الذي سجّل هدفين بالرأس لريال مدريد أمام بايرن في إياب نصف نهائي 2014؟",
+    "answer": "سيرخيو راموس",
+    "explanation": "سجل راموس هدفين مبكرين في فوز ريال مدريد 4-0 في ميونخ.",
+    "theme": "نصف نهائي بايرن 2014",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0ea7afff94fb-bde8be084a86-1000--road-to-the-final-madrid/"
+  },
+  {
+    "id": "UCL-033",
+    "points": 400,
+    "question": "من اللاعب المُعار من برشلونة الذي سجل هدفين لبايرن في فوز 8-2 على فريقه الأصلي عام 2020؟",
+    "answer": "فيليب كوتينيو",
+    "explanation": "سجل كوتينيو ثنائية متأخرة لبايرن ضد برشلونة في ربع النهائي.",
+    "theme": "مباريات استثنائية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0260-1020a197123b-5848d2b10d39-1000%E2%80%93barcelona-2-8-bayern-record-breaking-win-for-rampant-germans/"
+  },
+  {
+    "id": "UCL-034",
+    "points": 400,
+    "question": "من سجّل هدف تعادل يوفنتوس الوحيد أمام برشلونة في نهائي 2015؟",
+    "answer": "ألفارو موراتا",
+    "explanation": "تعادل موراتا ليوفنتوس قبل أن يسجل سواريز ونيمار لبرشلونة.",
+    "theme": "نهائي 2015",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0cd2c6a4864d-8c8d00efd1bd-1000--barcelona-see-off-juventus-/"
+  },
+  {
+    "id": "UCL-035",
+    "points": 600,
+    "question": "من سجّل هدف تعادل مانشستر يونايتد الأول في الوقت بدل الضائع أمام بايرن في نهائي 1999؟",
+    "answer": "تيدي شيرينغهام",
+    "explanation": "سجّل شيرينغهام التعادل قبل أن يُحرز سولشاير هدف الفوز.",
+    "theme": "أعصاب اللحظات الأخيرة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/",
+    "imageUrl": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3nfwcxd527z59.cloudfront.net%2Fcontent%2Fuploads%2F2021%2F06%2F30155441%2FTeddy-Sheringham-Manchester-United-celebrates-1999-Champions-League-final-1-1.jpg",
+    "imageSourceUrl": "https://www.planetfootball.com/nostalgia/following-kings-footsteps-sheringham-achieved-impossible"
+  },
+  {
+    "id": "UCL-036",
+    "points": 600,
+    "question": "من سجّل هدف تقدم بايرن ميونخ من ركلة حرة أمام مانشستر يونايتد في نهائي 1999؟",
+    "answer": "ماريو باسلر",
+    "explanation": "افتتح باسلر التسجيل لبايرن من ركلة حرة مبكرة.",
+    "theme": "أهداف الكرات الثابتة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/"
+  },
+  {
+    "id": "UCL-037",
+    "points": 600,
+    "question": "من سجّل الهدف الثاني لليفربول خلال عودته من 3-0 أمام ميلان في نهائي 2005؟",
+    "answer": "فلاديمير شميتسر",
+    "explanation": "ترتيب أهداف ليفربول في العودة: جيرارد، شميتسر، تشابي ألونسو.",
+    "theme": "ريمونتادا إسطنبول",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b89fe7b7f-c91716d11bdf-1000--2004-05-liverpool-belief-defies-milan/"
+  },
+  {
+    "id": "UCL-038",
+    "points": 600,
+    "question": "من حارس ليفربول الذي تصدى لركلة أندريه شيفتشينكو الحاسمة في نهائي 2005؟",
+    "answer": "يرزي دوديك",
+    "explanation": "تصدى دوديك لتسديدة شيفتشينكو ليمنح ليفربول البطولة.",
+    "theme": "حراس ركلات الترجيح",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f2820ac1-0d73022c807f-1000--liverpool-triumph-in-turkey/",
+    "imageUrl": "https://editorial.uefa.com/resources/025d-0f707a42f790-20435b4b3e75-1000/format/wide1/uefa_champions_league_final_-_ac_milan_v_liverpool.jpeg?imwidth=988",
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d045053cc3e-58573aba544d-1000--2005-liverpool-vs-milan-the-story-of-the-miracle-of-istanbul/"
+  },
+  {
+    "id": "UCL-039",
+    "points": 600,
+    "question": "من سجّل أول أهداف بورتو أمام موناكو في نهائي 2004؟",
+    "answer": "كارلوس ألبرتو",
+    "explanation": "افتتح كارلوس ألبرتو الثلاثية أمام موناكو.",
+    "theme": "النهائيات غير المتوقعة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/01a4-0e6b67318e4b-9c086dccae92-1000--alternative-awards-2004/"
+  },
+  {
+    "id": "UCL-040",
+    "points": 600,
+    "question": "من سجّل الهدف الرابع الذي أغلق ريمونتادا ديبورتيفو أمام ميلان عام 2004؟",
+    "answer": "فران",
+    "explanation": "أحرز فران الهدف الرابع الذي ختم الانتصار 4-0 والتأهل.",
+    "theme": "أبطال الظل",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/019c-0e6c12450ff2-294c584e2602-1000--dazzling-depor-ditch-milan/"
+  },
+  {
+    "id": "UCL-041",
+    "points": 600,
+    "question": "من حارس تشيلسي الذي تصدى لركلة جزاء آريين روبن في الوقت الإضافي لنهائي 2012؟",
+    "answer": "بيتر تشيك",
+    "explanation": "أنقذ تشيك ركلة روبن أثناء الوقت الإضافي قبل الترجيح.",
+    "theme": "التصديات الحاسمة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50fb78a384-1434bbcadbcb-1000/",
+    "imageUrl": "https://legacymedia.sportsplatform.io/img/images/photos/003/546/692/hi-res-0749ecc22126cfb774dbefb0e32d71f9_crop_north.jpg?1447872330=&h=2000&w=3800",
+    "imageSourceUrl": "https://bleacherreport.com/articles/2590690-didier-drogba-tells-how-chelsea-distracted-arjen-robben-before-cl-final-penalty"
+  },
+  {
+    "id": "UCL-042",
+    "points": 600,
+    "question": "من أهدر ركلة جزاء لأتلتيكو مدريد ارتدت من العارضة خلال نهائي 2016 أمام ريال مدريد؟",
+    "answer": "أنطوان غريزمان",
+    "explanation": "سدد غريزمان ركلة جزاء في العارضة أثناء المباراة.",
+    "theme": "فرص ضائعة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/022d-0e957c5979eb-37493cb53cd0-1000--spot-on-real-madrid-defeat-atletico-in-final-again/"
+  },
+  {
+    "id": "UCL-043",
+    "points": 600,
+    "question": "من اللاعب الذي شارك بديلًا وسجّل هدفين متتاليين لليفربول أمام برشلونة في إياب نصف نهائي 2019؟",
+    "answer": "جورجينيو فينالدوم",
+    "explanation": "سجل فينالدوم هدفين بعد دخوله بديلًا، قبل هدف أوريغي الرابع.",
+    "theme": "البدلاء المؤثرون",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e99aae66a0d-4ef82ebc84f0-1000--liverpool-4-0-barcelona-champions-league-at-a-glance/"
+  },
+  {
+    "id": "UCL-044",
+    "points": 600,
+    "question": "من قائد أياكس الذي سجّل برأسه الهدف الأول أمام توتنهام في إياب نصف نهائي 2019؟",
+    "answer": "ماتياس دي ليخت",
+    "explanation": "افتتح دي ليخت التسجيل من ركنية في الدقيقة الخامسة.",
+    "theme": "قادة شباب",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e9ce1f530f2-d243cb498094-1000/"
+  },
+  {
+    "id": "UCL-045",
+    "points": 600,
+    "question": "من المدافع الذي سجّل الهدف الثالث ليوفنتوس برأسه أمام برشلونة في ذهاب ربع نهائي 2017؟",
+    "answer": "جورجيو كيليني",
+    "explanation": "بعد ثنائية ديبالا سجل كيليني الهدف الثالث برأسية.",
+    "theme": "رأسيات المدافعين",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0238-0e96a5394e1f-a5d28df45d70-1000--dybala-and-juve-leave-barcelona-another-mountain-to-climb/"
+  },
+  {
+    "id": "UCL-046",
+    "points": 600,
+    "question": "من الحارس الذي سجّل رأسية التعادل للاتسيو أمام أتلتيكو مدريد بدور المجموعات في 2023؟",
+    "answer": "إيفان بروفيديل",
+    "explanation": "أصبح حارس لاتسيو بروفيديل رابع حارس يسجل في البطولة وفق تقرير UEFA.",
+    "theme": "أهداف الحراس",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1af49188a702-0b0a793b60e6-1000--the-season-in-numbers/"
+  },
+  {
+    "id": "UCL-047",
+    "points": 600,
+    "question": "من صاحب هدف بايرن الذي تقدّم به على ريال مدريد قبل ثنائية خوسيلو في إياب نصف نهائي 2024؟",
+    "answer": "ألفونسو ديفيز",
+    "explanation": "سجل ديفيز هدف بايرن قبل عودة ريال مدريد المتأخرة.",
+    "theme": "نصف النهائي 2024",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ad79abc3529-95537ff37e0b-1000--real-madrid-2-1-bayern-agg-4-3-joselu-double-conjures-up/"
+  },
+  {
+    "id": "UCL-048",
+    "points": 600,
+    "question": "من اللاعب البديل الذي أحرز الهدف الخامس لباريس سان جيرمان أمام إنتر في نهائي 2025؟",
+    "answer": "سيني مايولو",
+    "explanation": "سجل مايولو الهدف الخامس في النهاية التاريخية 5-0.",
+    "theme": "نهائي باريس التاريخي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000--paris-win-champions-league-doue-double-helps-secure-reco/"
+  },
+  {
+    "id": "UCL-049",
+    "points": 600,
+    "question": "من أرسل العرضية التي قابلها زين الدين زيدان بتسديدته الطائرة في نهائي 2002؟",
+    "answer": "روبرتو كارلوس",
+    "explanation": "جاءت تسديدة زيدان الشهيرة من عرضية روبرتو كارلوس.",
+    "theme": "صناعة الهدف الشهير",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/025d-0f6967493597-926892233006-1000--roberto-carlos-memories-of-zidane-s-2002-final-volley/"
+  },
+  {
+    "id": "UCL-050",
+    "points": 600,
+    "question": "من سجّل لبورتو من ركلة حرة في الوقت الإضافي أمام يوفنتوس عام 2021 ليمنح فريقه التأهل؟",
+    "answer": "سيرجيو أوليفيرا",
+    "explanation": "ركلة أوليفيرا الحرة رجحت تأهل بورتو رغم الخسارة 3-2 في تورينو.",
+    "theme": "الركلات الحرة الحاسمة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0267-11c243cc247f-e3e453c8ce09-1000--juventus-3-2-porto-agg-4-4-sergio-oliveira-sinks-pirlo-s-men/",
+    "imageUrl": "https://assets.goal.com/images/v3/blt6efad414b3e3445f/3e9dbbe6214e5106ac27c4bfdb3c5defc082b2ca.jpg?auto=webp&format=pjpg&quality=60&width=3840",
+    "imageSourceUrl": "https://www.goal.com/it/notizie/sergio-oliveira-juve-doppiettaa/dn0armvr9i5e1pyjug0xq73ep"
+  }
+]

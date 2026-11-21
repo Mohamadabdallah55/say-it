@@ -61,6 +61,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions (50x200, 50x400, 50
     ids.add(q.id);
     assert.ok(q.prompt.trim().length > 5);
     assert.ok(q.answer.trim().length > 0);
+    assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
     tierCounts[q.points] += 1;
   }
 

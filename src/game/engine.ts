@@ -1,7 +1,5 @@
 import { pickCommentary } from './commentary';
-import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
-import { PROPHET_STORIES_CATEGORY } from './prophetStories';
-import { RASHIDUN_CATEGORY } from './rashidun';
+import { PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS } from './curatedBanks';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -78,6 +76,8 @@ function findAvailableBackupQuestion(
   const usedIds = new Set<string>([
     currentQuestion.id,
     ...(state.playedProphetQuestionIds ?? []),
+    ...(state.playedCuratedQuestionIds ?? []),
+    ...(state.playedRotatingQuestionIds?.[currentQuestion.categoryId] ?? []),
     ...state.boardTiles.filter((t) => t.used).map((t) => t.questionId),
     ...state.boardTiles.map((t) => t.questionId),
   ]);
@@ -94,9 +94,9 @@ function findAvailableBackupQuestion(
     backups.find(
       (q) =>
         q.categoryId === currentQuestion.categoryId &&
-        q.difficulty === currentQuestion.difficulty,
+        q.points === currentQuestion.points,
     ) ??
-    (currentQuestion.categoryId !== PROPHET_STORIES_CATEGORY.id
+    (!SERVER_CURATED_CATEGORY_IDS.includes(currentQuestion.categoryId)
       ? backups.find((q) => q.categoryId === currentQuestion.categoryId)
       : undefined) ?? null
   );
@@ -224,7 +224,7 @@ export function selectBoardTile(
   }
   const durationSec = question.timeLimitSeconds || state.settings.timerSeconds;
   const selectEvent =
-    tile.points === 200 ? 'select200' : tile.points === 400 ? 'select400' : 'select600';
+    tile.difficulty === 'easy' ? 'select200' : tile.difficulty === 'medium' ? 'select400' : 'select600';
   const cmt = pickCommentary(selectEvent, state.settings.commentaryMode, state.recentCommentaryTexts);
 
   const activeRound: ActiveRound = {
@@ -1158,6 +1158,7 @@ export function sanitizeStateForRole(
   // Projector role: STRICTLY strip answers & unrevealed hints & full questionPool
   const canRevealAnswer =
     state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL';
+  const canShowImage = canRevealAnswer || state.activeRound?.question.imageDisplay !== 'after_reveal';
 
   return {
     schemaVersion: 2,
@@ -1182,17 +1183,16 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
-          subtopic:
-            canRevealAnswer ||
-            (state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id &&
-              state.activeRound.question.categoryId !== RASHIDUN_CATEGORY.id &&
-              state.activeRound.question.categoryId !== JORDAN_BRANDS_CATEGORY.id)
-              ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
-              : undefined,
+          subtopic: canRevealAnswer || (
+            canShowImage && !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
+          )
+            ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
+            : undefined,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,
           prompt: state.activeRound.question.prompt,
+          startingLetter: state.activeRound.question.startingLetter,
           options: state.activeRound.question.options,
           orderItems: state.activeRound.question.orderItems,
           orderPlay: state.activeRound.orderPlay,
@@ -1202,10 +1202,15 @@ export function sanitizeStateForRole(
             ? state.activeRound.question.acceptableAnswers
             : undefined,
           explanation: canRevealAnswer ? state.activeRound.question.explanation : undefined,
-          imageUrl: state.activeRound.question.imageUrl,
-          imageBase64: state.activeRound.question.imageBase64,
-          imageCaption: state.activeRound.question.imageCaption,
-          beforeImageUrls: state.activeRound.question.beforeImageUrls,
+          imageUrl: canShowImage ? state.activeRound.question.imageUrl : undefined,
+          imageBase64: canShowImage ? state.activeRound.question.imageBase64 : undefined,
+          imageCaption: canShowImage ? state.activeRound.question.imageCaption : undefined,
+          imageDisplay: state.activeRound.question.imageDisplay,
+          imageSourceUrl: canRevealAnswer ? state.activeRound.question.imageSourceUrl : undefined,
+          answerImageUrl: canRevealAnswer ? state.activeRound.question.answerImageUrl : undefined,
+          audioUrl: canRevealAnswer ? undefined : state.activeRound.question.audioUrl,
+          answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
+          beforeImageUrls: canShowImage ? state.activeRound.question.beforeImageUrls : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,

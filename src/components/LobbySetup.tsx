@@ -31,11 +31,7 @@ import { CATEGORY_3D_ART } from '../utils/gameAssets';
 import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
-import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
-import { PROPHET_STORIES_CATEGORY } from '../game/prophetStories';
-import { RASHIDUN_CATEGORY } from '../game/rashidun';
-import { WORLD_CUP_2026_CATEGORY } from '../game/worldCup2026';
+import { SERVER_CURATED_CATEGORY_IDS } from '../game/curatedBanks';
 
 interface LobbySetupProps {
   decks: QuizDeck[];
@@ -224,16 +220,7 @@ export function LobbySetup({
     return runBoardPreflightCheck({
       deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
-      serverValidatedCategoryIds:
-        selectedDeckId === 'curated_custom'
-          ? [
-              PROPHET_STORIES_CATEGORY.id,
-              GUESS_PRICE_CATEGORY.id,
-              RASHIDUN_CATEGORY.id,
-              JORDAN_BRANDS_CATEGORY.id,
-              WORLD_CUP_2026_CATEGORY.id,
-            ]
-          : [],
+      serverValidatedCategoryIds: selectedDeckId === 'curated_custom' ? SERVER_CURATED_CATEGORY_IDS : [],
       teams,
       settings: {
         categoryCount: effectiveCatCount,

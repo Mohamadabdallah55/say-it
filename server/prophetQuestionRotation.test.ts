@@ -6,7 +6,7 @@ import { PROPHET_STORIES_CATEGORY, PROPHET_STORIES_COUNT } from '../src/game/pro
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
 import { buildBoardDeckFromCategories, CURATED_QUESTIONS } from '../src/game/starterDecks';
 import { areQuestionsNearDuplicate } from './geminiHelpers';
-import { filterPlayedProphetQuestions, recordPlayedProphetQuestion, reserveProphetQuestions } from './prophetQuestionRotation';
+import { filterPlayedCuratedQuestions, recordPlayedCuratedQuestion, reserveCuratedQuestions } from './curatedQuestionRotation';
 
 const categoryId = PROPHET_STORIES_CATEGORY.id;
 const categories = ['cat_general', 'cat_science', categoryId];
@@ -33,19 +33,21 @@ test('shared library reserves active questions and keeps opened ones excluded af
     settings: { categoryCount: 3, cards: ['swap_question'] },
   });
   room.libraryId = 'alpha';
-  reserveProphetQuestions(room);
+  reserveCuratedQuestions(room);
   const assigned = room.questionPool.filter(q => q.categoryId === categoryId);
   assert.equal(assigned.length, 12);
-  assert.equal(filterPlayedProphetQuestions(deck, [room], 'alpha', now).questions.length, deck.questions.length - assigned.length);
-  assert.equal(filterPlayedProphetQuestions(deck, [room], 'beta', now).questions.length, deck.questions.length);
+  assert.equal(filterPlayedCuratedQuestions(deck, [room], 'alpha', now).questions.length, deck.questions.length - assigned.length);
+  assert.equal(filterPlayedCuratedQuestions(deck, [room], 'beta', now).questions.length, deck.questions.length);
 
   const tile = room.boardTiles.find(t => t.categoryId === categoryId)!;
-  const opened = recordPlayedProphetQuestion(selectBoardTile(room, tile.questionId, 'open', now + 1).state);
+  const opened = recordPlayedCuratedQuestion(selectBoardTile(room, tile.questionId, 'open', now + 1).state);
   const saved = JSON.parse(JSON.stringify({ ...opened, phase: 'FINAL', activeRound: null }));
-  const fresh = filterPlayedProphetQuestions(deck, [saved], 'alpha', now + 2);
-  assert.deepEqual(saved.playedProphetQuestionIds, [tile.questionId]);
+  const fresh = filterPlayedCuratedQuestions(deck, [saved], 'alpha', now + 2);
+  assert.deepEqual(saved.playedRotatingQuestionIds?.[categoryId], [tile.questionId]);
   assert.equal(fresh.questions.length, deck.questions.length - 1);
   assert.ok(!fresh.questions.some(q => q.id === tile.questionId));
+  const legacy = { ...saved, playedProphetQuestionIds: saved.playedRotatingQuestionIds?.[categoryId], playedRotatingQuestionIds: undefined };
+  assert.equal(filterPlayedCuratedQuestions(deck, [legacy], 'alpha', now + 2).questions.length, fresh.questions.length);
 });
 
 

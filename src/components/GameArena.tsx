@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -66,6 +67,16 @@ interface ShareBundle {
 }
 
 type ArenaState = HostViewState | PublicProjectorState;
+
+function renderGeometryText(text: string) {
+  return text.split(/([A-Za-z0-9πΔ√∛²³₀-₉½⅓°∠()[\]|+=×÷/−⇒→:.,، -]+)/g).map((part, index) => {
+    if (index % 2 === 0 || !/[A-Za-z0-9πΔ½⅓]/.test(part)) return part;
+    const [, before, expression, after] = part.match(/^([ .،,:]*)(.*?)([ .،,:]*)$/) ?? [];
+    return expression ? (
+      <span key={index}>{before}<bdi dir="ltr">{expression}</bdi>{after}</span>
+    ) : part;
+  });
+}
 
 function getRoundCue(phase: ArenaState['phase'], correcting?: boolean) {
   switch (phase) {
@@ -161,8 +172,10 @@ export function GameArena({
     const previous = lastSceneRef.current;
     const scene = { phase: state.phase, award: state.lastAward?.at };
     if (previous && previous.phase !== scene.phase) {
+      const round = state.activeRound;
+      const hasSpokenAnswer = round && ('question' in round ? round.question.answerAudioUrl : round.answerAudioUrl);
       if (state.phase === 'LIFELINE_PICK') soundFX.playCardDeal();
-      if (state.phase === 'REVEAL') soundFX.playReveal();
+      if (state.phase === 'REVEAL' && !hasSpokenAnswer) soundFX.playReveal();
       if (state.phase === 'TIME_UP') soundFX.playTimeUp();
       if (state.phase === 'FINAL') soundFX.playVictory();
       if ((previous.phase === 'BOARD' || previous.phase === 'LIFELINE_PICK') &&
@@ -209,17 +222,25 @@ export function GameArena({
         questionId: ar.question.id,
         categoryId: ar.question.categoryId,
         categoryName: ar.question.categoryName,
-        subtopic: ar.question.subtopic || ar.question.sourceRef,
+        subtopic: ar.question.imageDisplay === 'after_reveal' && state.phase !== 'REVEAL'
+          ? undefined
+          : ar.question.subtopic || (ar.question.startingLetter ? undefined : ar.question.sourceRef),
         difficulty: ar.question.difficulty,
         ownerTeamId: ar.ownerTeamId,
         points: ar.basePoints,
         questionType: ar.question.questionType,
         prompt: ar.question.prompt,
+        startingLetter: ar.question.startingLetter,
         imageUrl: ar.question.imageUrl,
         imageBase64: ar.question.imageBase64,
         imageCaption: ar.question.imageCaption,
         beforeImageUrls: ar.question.beforeImageUrls,
         afterImageUrl: ar.question.afterImageUrl,
+        imageDisplay: ar.question.imageDisplay,
+        imageSourceUrl: ar.question.imageSourceUrl,
+        answerImageUrl: ar.question.answerImageUrl,
+        audioUrl: ar.question.audioUrl,
+        answerAudioUrl: ar.question.answerAudioUrl,
         options: ar.question.options,
         correctOptionIndex: ar.question.correctOptionIndex,
         orderItems: ar.question.orderItems,
@@ -244,7 +265,7 @@ export function GameArena({
     const sr = state.activeRound as SanitizedActiveRound;
     return {
       ...sr,
-      subtopic: sr.subtopic || sr.sourceRef,
+      subtopic: sr.subtopic || (sr.startingLetter ? undefined : sr.sourceRef),
       correctOptionIndex: undefined as number | undefined,
     };
   }, [state]);
@@ -265,6 +286,15 @@ export function GameArena({
     recordedQuestionsRef.current.add(key);
     recordPlayedQuestion(roundMeta.categoryId, roundMeta.questionId).catch(() => {});
   }, [isHost, user, state?.phase, roundMeta?.categoryId, roundMeta?.questionId, recordPlayedQuestion]);
+
+  const isEnglishRound = roundMeta?.categoryId === ENGLISH_LETTERS_CATEGORY.id;
+  const isGrammarRound = roundMeta?.categoryId === ARABIC_GRAMMAR_CATEGORY.id;
+  const isFirstNameRound = roundMeta?.categoryId === FOOTBALL_FIRST_NAME_CATEGORY.id;
+  const isGeometryRound = roundMeta?.categoryId === GEOMETRY_CATEGORY.id;
+  const grammarPrompt = isGrammarRound ? roundMeta?.prompt.match(/^(.*)【([^】]+)】(.*)$/s) : null;
+  const alternatePlurals = roundMeta?.categoryId === ARABIC_PLURALS_CATEGORY.id
+    ? roundMeta.acceptableAnswers
+    : undefined;
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
@@ -486,13 +516,13 @@ export function GameArena({
                           )}
                         </div>
 
-                        <div className="point-strip">
+                        <div className="point-strip" data-tier-count={cat.availableDifficulties?.length}>
                           {catTiles.map((tile) => {
                             const winnerTeam = tile.wonByTeamId
                               ? state.teams.find((t) => t.id === tile.wonByTeamId)
                               : null;
                             const tierLabel =
-                              tile.points === 200 ? 'سهل' : tile.points === 400 ? 'متوسط' : 'صعب';
+                              tile.difficulty === 'easy' ? 'سهل' : tile.difficulty === 'medium' ? 'متوسط' : 'صعب';
                             return (
                               <div key={tile.questionId} className="flex flex-col gap-1">
                                 <button
@@ -675,12 +705,21 @@ export function GameArena({
 
                   {/* Question Prompt Centerpiece */}
                   <div className="question-face">
-                    {getQuestionImageSrc(roundMeta) ? (
+                    {roundMeta.startingLetter && (
+                      <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">
+                        <span>يبدأ الجواب بحرف</span>
+                        <strong className="grid size-12 place-items-center rounded-xl border-2 border-current bg-[#FFE047] text-2xl">
+                          {roundMeta.startingLetter}
+                        </strong>
+                      </div>
+                    )}
+                    {roundMeta.imageDisplay !== 'after_reveal' && !(isFirstNameRound && state.phase === 'REVEAL') && getQuestionImageSrc(roundMeta) ? (
                       <QuestionMedia
                         imageSrc={getQuestionImageSrc(roundMeta)}
                         caption={roundMeta.imageCaption}
                         pageNumber={roundMeta.pageNumber}
                         compact={state.phase === 'REVEAL'}
+                        wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id}
                         obscured={
                           roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
                           state.phase !== 'REVEAL'
@@ -734,9 +773,29 @@ export function GameArena({
                         compact={state.phase === 'REVEAL'}
                       />
                     ) : null}
-                    <p className="font-display font-black text-[#1F112E] whitespace-pre-line">
-                      {roundMeta.prompt}
+                    <p
+                      className="font-display font-black text-[#1F112E] whitespace-pre-line"
+                      lang={isEnglishRound ? 'en' : undefined}
+                      dir={isEnglishRound ? 'ltr' : undefined}
+                    >
+                      {grammarPrompt ? (
+                        <>
+                          {grammarPrompt[1]}
+                          <mark className="rounded-md bg-[#FFE047] text-inherit">【{grammarPrompt[2]}】</mark>
+                          {grammarPrompt[3]}
+                        </>
+                      ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
                     </p>
+                    {roundMeta.audioUrl && state.phase !== 'REVEAL' && (
+                      <audio
+                        key={roundMeta.questionId}
+                        className="mx-auto mt-4 w-full max-w-md"
+                        src={roundMeta.audioUrl}
+                        controls
+                        preload="none"
+                        aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
+                      />
+                    )}
 
                     {/* Multiple Choice Options */}
                     {roundMeta.questionType === 'multiple_choice' && roundMeta.options && (
@@ -794,6 +853,7 @@ export function GameArena({
                     <OrderAttempt
                       key={roundMeta.roundId + '-' + roundMeta.orderPlay.turns}
                       host={isHost}
+                      rearrange={roundMeta.categoryId === FOOTBALL_ORDERING_CATEGORY.id}
                       items={roundMeta.orderItems}
                       play={roundMeta.orderPlay}
                       name={state.teams.find((t) => t.id === roundMeta.orderPlay?.teamId)?.name ?? ''}
@@ -866,12 +926,59 @@ export function GameArena({
                           </div>
                         </div>
                       )}
-                      <p className="font-display font-black">{roundMeta.answer}</p>
+                      <p
+                        className="font-display font-black"
+                        lang={isEnglishRound ? 'en' : undefined}
+                        dir={isEnglishRound ? 'ltr' : undefined}
+                        data-grammar={isGrammarRound || undefined}
+                        data-multiline={roundMeta.answer.includes('\n') ? true : undefined}
+                      >
+                        {isGeometryRound ? renderGeometryText(roundMeta.answer) : roundMeta.answer}
+                      </p>
+                      {Boolean(alternatePlurals?.length) && (
+                        <p className="font-bold text-sm md:text-base">
+                          يُقبل أيضًا {alternatePlurals?.join('، ')}
+                        </p>
+                      )}
+                      {roundMeta.answerAudioUrl && (
+                        <audio
+                          key={roundMeta.questionId}
+                          className="mx-auto mt-4 w-full max-w-md"
+                          src={roundMeta.answerAudioUrl}
+                          controls
+                          autoPlay={isHost && state.settings.soundEnabled}
+                          aria-label="النطق الأصلي"
+                        />
+                      )}
+                      {(roundMeta.imageDisplay === 'after_reveal' || isFirstNameRound) && (
+                        <QuestionMedia
+                          key={roundMeta.questionId}
+                          imageSrc={getQuestionImageSrc(roundMeta)}
+                          caption={roundMeta.imageCaption}
+                          sourceUrl={roundMeta.imageSourceUrl}
+                          compact
+                        />
+                      )}
+                      {isFirstNameRound && roundMeta.sourceRef && (
+                        <a className="text-xs font-bold underline" href={roundMeta.sourceRef} target="_blank" rel="noreferrer">
+                          ترخيص الصورة
+                        </a>
+                      )}
+                      {roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id && (
+                        <QuestionMedia
+                          key={roundMeta.questionId}
+                          imageSrc={roundMeta.answerImageUrl}
+                          sourceUrl={roundMeta.imageSourceUrl}
+                          sourceLabel="صفحة المصدر"
+                          caption="صورة اللاعب"
+                          compact
+                        />
+                      )}
                       {(roundMeta.explanation || roundMeta.pageNumber) && (
                         <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
                           {roundMeta.explanation && (
                             <p className="text-xs md:text-sm font-medium bg-black/15 rounded-xl px-4 py-1.5 text-white/95">
-                              {roundMeta.explanation}
+                              {isGeometryRound ? renderGeometryText(roundMeta.explanation) : roundMeta.explanation}
                             </p>
                           )}
                           {roundMeta.pageNumber && (

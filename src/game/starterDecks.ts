@@ -1,8 +1,4 @@
-import { GUESS_PRICE_CATEGORY } from './guessPrice';
-import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
-import { PROPHET_STORIES_CATEGORY } from './prophetStories';
-import { RASHIDUN_CATEGORY } from './rashidun';
-import { WORLD_CUP_2026_CATEGORY } from './worldCup2026';
+import { SERVER_CURATED_CATEGORIES } from './curatedBanks';
 import type { DeckCategory, QuizDeck, QuizQuestion } from './types';
 
 const nowIso = '2026-11-16T00:00:00.000Z';
@@ -90,11 +86,7 @@ export const EXTRA_CURATED_CATEGORIES: DeckCategory[] = [
 export const ALL_CURATED_CATEGORIES: DeckCategory[] = [
   ...STARTER_CATEGORIES,
   ...EXTRA_CURATED_CATEGORIES,
-  PROPHET_STORIES_CATEGORY,
-  GUESS_PRICE_CATEGORY,
-  RASHIDUN_CATEGORY,
-  JORDAN_BRANDS_CATEGORY,
-  WORLD_CUP_2026_CATEGORY,
+  ...SERVER_CURATED_CATEGORIES.map(({ category }) => category),
 ];
 
 export const CURATED_QUESTIONS: QuizQuestion[] = [

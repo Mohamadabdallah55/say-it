@@ -232,6 +232,7 @@
 .category-caption h2 {font-size:clamp(19px,1.65vw,29px);line-height:1.3;}
 .category-caption p {display:none;}
 .point-strip {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;}
+.point-strip[data-tier-count="2"] {grid-template-columns:repeat(2,minmax(0,1fr));}
 .point-strip button:first-child {width:100%;padding:7px 0;background:linear-gradient(#8959bd,#5b3186);color:#fff;box-shadow:0 4px 0 #351e4b;opacity:1;min-height:46px;}
 .point-strip button[data-used="true"] {background:#ded7c4;color:#5c5760;box-shadow:inset 0 2px 2px #baaf96;}
 .score-rail {order:-1;position:sticky;top:16px;min-height:calc(100vh - 44px);display:flex;flex-direction:column;justify-content:space-between;background:#FAF7EE;color:#1F112E;}
@@ -265,6 +266,7 @@
 .round-scene[data-revealed="true"] .question-media-figure img {max-height:130px;}
 .answer-face {background:linear-gradient(180deg,#1B9665,#10714C);color:#FFFFFF;text-align:center;border:2.5px solid #1F112E;border-radius:18px;box-shadow:0 5px 0 #1F112E;padding:clamp(18px,3.2vh,34px);}
 .answer-face > p:first-of-type {font-size:clamp(28px,3.6vw,54px);line-height:1.35;color:#FFFFFF;}
+.answer-face > p[data-multiline], .answer-face > p[data-grammar] {white-space:pre-line;font-size:clamp(19px,2.25vw,32px);line-height:1.9;}
 .award-teams {display:flex;flex-direction:column;gap:10px;}
 .podium-stage {background:radial-gradient(ellipse at top,#fff1a2,#fff9e9 75%);}
 @media(prefers-reduced-motion:reduce){.round-scene,.podium-stage {animation:none;}}

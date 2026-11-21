@@ -1,0 +1,2584 @@
+{
+  "english": [
+    {
+      "id": "ENG-001",
+      "letter": "N",
+      "points": 600,
+      "question": "A warm or sometimes sad feeling of longing for the past.",
+      "answer": "Nostalgia"
+    },
+    {
+      "id": "ENG-002",
+      "letter": "Z",
+      "points": 600,
+      "question": "The highest point or most successful stage of something.",
+      "answer": "Zenith"
+    },
+    {
+      "id": "ENG-003",
+      "letter": "V",
+      "points": 600,
+      "question": "Able to adapt easily or perform many different tasks well.",
+      "answer": "Versatile"
+    },
+    {
+      "id": "ENG-004",
+      "letter": "G",
+      "points": 400,
+      "question": "The natural force that pulls objects with mass toward one another.",
+      "answer": "Gravity"
+    },
+    {
+      "id": "ENG-005",
+      "letter": "C",
+      "points": 400,
+      "question": "To reach a decision or judgment after considering the available information.",
+      "answer": "Conclude"
+    },
+    {
+      "id": "ENG-006",
+      "letter": "Y",
+      "points": 400,
+      "question": "To produce or provide a result, crop, or amount.",
+      "answer": "Yield"
+    },
+    {
+      "id": "ENG-007",
+      "letter": "I",
+      "points": 200,
+      "question": "To make an idea clearer by giving examples or using pictures.",
+      "answer": "Illustrate"
+    },
+    {
+      "id": "ENG-008",
+      "letter": "U",
+      "points": 400,
+      "question": "Not possible to know or guess reliably in advance.",
+      "answer": "Unpredictable"
+    },
+    {
+      "id": "ENG-009",
+      "letter": "F",
+      "points": 400,
+      "question": "To grow or develop very successfully, especially in good conditions.",
+      "answer": "Flourish"
+    },
+    {
+      "id": "ENG-010",
+      "letter": "W",
+      "points": 600,
+      "question": "To remain strong and survive the effects of pressure or a difficult situation.",
+      "answer": "Withstand"
+    },
+    {
+      "id": "ENG-011",
+      "letter": "U",
+      "points": 600,
+      "question": "Agreed to or supported by everyone in a group.",
+      "answer": "Unanimous"
+    },
+    {
+      "id": "ENG-012",
+      "letter": "A",
+      "points": 200,
+      "question": "To make a word, phrase, or piece of writing shorter by leaving out some letters or parts.",
+      "answer": "Abbreviate"
+    },
+    {
+      "id": "ENG-013",
+      "letter": "G",
+      "points": 200,
+      "question": "Willing to give more time, money, or help than is normally expected.",
+      "answer": "Generous"
+    },
+    {
+      "id": "ENG-014",
+      "letter": "S",
+      "points": 400,
+      "question": "Peaceful, calm, and free from disturbance.",
+      "answer": "Serene"
+    },
+    {
+      "id": "ENG-015",
+      "letter": "D",
+      "points": 200,
+      "question": "A long period with very little or no rain, often causing water shortages.",
+      "answer": "Drought"
+    },
+    {
+      "id": "ENG-016",
+      "letter": "E",
+      "points": 200,
+      "question": "Working well without wasting much time, energy, or resources.",
+      "answer": "Efficient"
+    },
+    {
+      "id": "ENG-017",
+      "letter": "Y",
+      "points": 600,
+      "question": "To want something very deeply, especially something difficult to obtain.",
+      "answer": "Yearn"
+    },
+    {
+      "id": "ENG-018",
+      "letter": "N",
+      "points": 200,
+      "question": "To find, plan, or follow a route from one place to another.",
+      "answer": "Navigate"
+    },
+    {
+      "id": "ENG-019",
+      "letter": "E",
+      "points": 600,
+      "question": "Able to express ideas clearly, powerfully, and persuasively.",
+      "answer": "Eloquent"
+    },
+    {
+      "id": "ENG-020",
+      "letter": "T",
+      "points": 200,
+      "question": "To grow, succeed, or do especially well.",
+      "answer": "Thrive"
+    },
+    {
+      "id": "ENG-021",
+      "letter": "K",
+      "points": 600,
+      "question": "Related to motion or produced by movement.",
+      "answer": "Kinetic"
+    },
+    {
+      "id": "ENG-022",
+      "letter": "X",
+      "points": 200,
+      "question": "A musical instrument made of tuned wooden bars that are struck with mallets.",
+      "answer": "Xylophone"
+    },
+    {
+      "id": "ENG-023",
+      "letter": "B",
+      "points": 200,
+      "question": "A line or limit that marks the edge of an area or separates two places.",
+      "answer": "Boundary"
+    },
+    {
+      "id": "ENG-024",
+      "letter": "J",
+      "points": 600,
+      "question": "A situation in which someone or something is at risk of harm, loss, or failure.",
+      "answer": "Jeopardy"
+    },
+    {
+      "id": "ENG-025",
+      "letter": "O",
+      "points": 200,
+      "question": "Expecting good outcomes and believing the future is likely to be positive.",
+      "answer": "Optimistic"
+    },
+    {
+      "id": "ENG-026",
+      "letter": "Z",
+      "points": 600,
+      "question": "Full of strong enthusiasm and dedication to a cause or activity.",
+      "answer": "Zealous"
+    },
+    {
+      "id": "ENG-027",
+      "letter": "M",
+      "points": 600,
+      "question": "In physics, a quantity of motion equal to an object’s mass multiplied by its velocity.",
+      "answer": "Momentum"
+    },
+    {
+      "id": "ENG-028",
+      "letter": "L",
+      "points": 400,
+      "question": "To remain somewhere longer than expected, often because you do not want to leave.",
+      "answer": "Linger"
+    },
+    {
+      "id": "ENG-029",
+      "letter": "O",
+      "points": 400,
+      "question": "No longer used because something newer or better has replaced it.",
+      "answer": "Obsolete"
+    },
+    {
+      "id": "ENG-030",
+      "letter": "T",
+      "points": 200,
+      "question": "Easy to see through because light passes through it.",
+      "answer": "Transparent"
+    },
+    {
+      "id": "ENG-031",
+      "letter": "K",
+      "points": 400,
+      "question": "Very eager or enthusiastic about doing something.",
+      "answer": "Keen"
+    },
+    {
+      "id": "ENG-032",
+      "letter": "F",
+      "points": 200,
+      "question": "Easily broken, damaged, or harmed.",
+      "answer": "Fragile"
+    },
+    {
+      "id": "ENG-033",
+      "letter": "S",
+      "points": 600,
+      "question": "Doubtful about a claim and wanting evidence before accepting it.",
+      "answer": "Skeptical"
+    },
+    {
+      "id": "ENG-034",
+      "letter": "B",
+      "points": 400,
+      "question": "Kind and generous, with a genuine desire to help others.",
+      "answer": "Benevolent"
+    },
+    {
+      "id": "ENG-035",
+      "letter": "A",
+      "points": 600,
+      "question": "Having more than one possible meaning, so the intended meaning is unclear.",
+      "answer": "Ambiguous"
+    },
+    {
+      "id": "ENG-036",
+      "letter": "I",
+      "points": 400,
+      "question": "Certain to happen and impossible to avoid.",
+      "answer": "Inevitable"
+    },
+    {
+      "id": "ENG-037",
+      "letter": "H",
+      "points": 600,
+      "question": "A proposed explanation that can be tested through observation or experiments.",
+      "answer": "Hypothesis"
+    },
+    {
+      "id": "ENG-038",
+      "letter": "J",
+      "points": 400,
+      "question": "Feeling or showing great joy, especially after a success.",
+      "answer": "Jubilant"
+    },
+    {
+      "id": "ENG-039",
+      "letter": "M",
+      "points": 600,
+      "question": "Extremely careful about small details and accuracy.",
+      "answer": "Meticulous"
+    },
+    {
+      "id": "ENG-040",
+      "letter": "C",
+      "points": 200,
+      "question": "Careful to avoid possible danger, mistakes, or unnecessary risks.",
+      "answer": "Cautious"
+    },
+    {
+      "id": "ENG-041",
+      "letter": "L",
+      "points": 400,
+      "question": "Producing or reflecting light; glowing or shining.",
+      "answer": "Luminous"
+    },
+    {
+      "id": "ENG-042",
+      "letter": "D",
+      "points": 400,
+      "question": "Showing consistent care, effort, and attention in work or study.",
+      "answer": "Diligent"
+    },
+    {
+      "id": "ENG-043",
+      "letter": "P",
+      "points": 600,
+      "question": "To delay doing a task that you know you should complete.",
+      "answer": "Procrastinate"
+    },
+    {
+      "id": "ENG-044",
+      "letter": "H",
+      "points": 200,
+      "question": "To pause before speaking or acting because you are uncertain or nervous.",
+      "answer": "Hesitate"
+    },
+    {
+      "id": "ENG-045",
+      "letter": "P",
+      "points": 200,
+      "question": "To convince someone to do or believe something through reasons or arguments.",
+      "answer": "Persuade"
+    },
+    {
+      "id": "ENG-046",
+      "letter": "Q",
+      "points": 400,
+      "question": "To keep a person or animal apart from others to help prevent the spread of disease.",
+      "answer": "Quarantine"
+    },
+    {
+      "id": "ENG-047",
+      "letter": "R",
+      "points": 400,
+      "question": "Unwilling or hesitant to do something.",
+      "answer": "Reluctant"
+    },
+    {
+      "id": "ENG-048",
+      "letter": "V",
+      "points": 400,
+      "question": "Producing strong, clear, and detailed images or impressions in the mind.",
+      "answer": "Vivid"
+    },
+    {
+      "id": "ENG-049",
+      "letter": "W",
+      "points": 600,
+      "question": "Careful or suspicious because you sense possible danger or trouble.",
+      "answer": "Wary"
+    },
+    {
+      "id": "ENG-050",
+      "letter": "R",
+      "points": 600,
+      "question": "Able to recover or return to a good condition after difficulty or stress.",
+      "answer": "Resilient"
+    }
+  ],
+  "roots": [
+    {
+      "id": "ROOT-001",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «منافس»؟",
+      "answer": "ن – ف – س",
+      "root": "ن ف س",
+      "explanation": "من المنافسة والنَّفْس",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-002",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إحاطة»؟",
+      "answer": "ح – و – ط",
+      "root": "ح و ط",
+      "explanation": "من أحاط يحيط؛ أصل الألف واو",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-003",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «موروث»؟",
+      "answer": "و – ر – ث",
+      "root": "و ر ث",
+      "explanation": "من وَرِثَ والميراث",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-004",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «ميزان»؟",
+      "answer": "و – ز – ن",
+      "root": "و ز ن",
+      "explanation": "من وَزَنَ؛ أصل الكلمة فيه واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-005",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إزاحة»؟",
+      "answer": "ز – ي – ح",
+      "root": "ز ي ح",
+      "explanation": "من زاح يزيح؛ أصل الألف ياء",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-006",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «تأديب»؟",
+      "answer": "أ – د – ب",
+      "root": "أ د ب",
+      "explanation": "من الأَدَب",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-007",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مواجهة»؟",
+      "answer": "و – ج – ه",
+      "root": "و ج ه",
+      "explanation": "من وَجْه والمواجهة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-008",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «ملجأ»؟",
+      "answer": "ل – ج – أ",
+      "root": "ل ج أ",
+      "explanation": "من لجأ؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-009",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مقسوم»؟",
+      "answer": "ق – س – م",
+      "root": "ق س م",
+      "explanation": "من قَسَمَ والقسمة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-010",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «ملعب»؟",
+      "answer": "ل – ع – ب",
+      "root": "ل ع ب",
+      "explanation": "من لَعِبَ واللعب",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-011",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مسبح»؟",
+      "answer": "س – ب – ح",
+      "root": "س ب ح",
+      "explanation": "من سَبَحَ والسباحة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-012",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إجابة»؟",
+      "answer": "ج – و – ب",
+      "root": "ج و ب",
+      "explanation": "من أجاب يجيب؛ الجواب من الجذر نفسه",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-013",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إهداء»؟",
+      "answer": "ه – د – ي",
+      "root": "ه د ي",
+      "explanation": "من هدى يهدي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-014",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استفتاء»؟",
+      "answer": "ف – ت – و",
+      "root": "ف ت و",
+      "explanation": "من أفتى والفتوى؛ واو الجذر في المعاجم",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-015",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مخرج»؟",
+      "answer": "خ – ر – ج",
+      "root": "خ ر ج",
+      "explanation": "من خَرَجَ والخروج",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-016",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مخبز»؟",
+      "answer": "خ – ب – ز",
+      "root": "خ ب ز",
+      "explanation": "من خَبَزَ والخبز",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-017",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «ابتلاء»؟",
+      "answer": "ب – ل – و",
+      "root": "ب ل و",
+      "explanation": "من بلا يبلو؛ الواو أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-018",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «رعاية»؟",
+      "answer": "ر – ع – ي",
+      "root": "ر ع ي",
+      "explanation": "من رعى يرعى؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-019",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «نجاة»؟",
+      "answer": "ن – ج – و",
+      "root": "ن ج و",
+      "explanation": "من نجا ينجو؛ الواو أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-020",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «إعادة»؟",
+      "answer": "ع – و – د",
+      "root": "ع و د",
+      "explanation": "من عاد يعود؛ الألف منقلبة عن واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-021",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مفتون»؟",
+      "answer": "ف – ت – ن",
+      "root": "ف ت ن",
+      "explanation": "من الفِتنة والافتتان",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-022",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «معتذر»؟",
+      "answer": "ع – ذ – ر",
+      "root": "ع ذ ر",
+      "explanation": "من العُذر والاعتذار",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-023",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مزرعة»؟",
+      "answer": "ز – ر – ع",
+      "root": "ز ر ع",
+      "explanation": "من زَرَعَ والزراعة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-024",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إيحاء»؟",
+      "answer": "و – ح – ي",
+      "root": "و ح ي",
+      "explanation": "من وحى يوحي؛ الواو والياء أصليتان",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-025",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «زيارة»؟",
+      "answer": "ز – و – ر",
+      "root": "ز و ر",
+      "explanation": "من زار يزور؛ أصل حرف العلة واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-026",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استرجاع»؟",
+      "answer": "ر – ج – ع",
+      "root": "ر ج ع",
+      "explanation": "من رَجَعَ والرجوع",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-027",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «مأوى»؟",
+      "answer": "أ – و – ي",
+      "root": "أ و ي",
+      "explanation": "من أوى يأوي؛ الألف منقلبة عن ياء في النهاية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-028",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «محتفل»؟",
+      "answer": "ح – ف – ل",
+      "root": "ح ف ل",
+      "explanation": "من احتفلَ والحفل",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-029",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استياء»؟",
+      "answer": "س – و – أ",
+      "root": "س و أ",
+      "explanation": "من استاء؛ واو الجذر تظهر في كلمة سوء",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-030",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استثناء»؟",
+      "answer": "ث – ن – ي",
+      "root": "ث ن ي",
+      "explanation": "من ثنى يثني؛ أصل الألف ياء",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-031",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إيقاظ»؟",
+      "answer": "ي – ق – ظ",
+      "root": "ي ق ظ",
+      "explanation": "من اليقظة؛ الياء حرف أصلي",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-032",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مطعم»؟",
+      "answer": "ط – ع – م",
+      "root": "ط ع م",
+      "explanation": "من طَعِمَ والطعام",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-033",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «احتواء»؟",
+      "answer": "ح – و – ي",
+      "root": "ح و ي",
+      "explanation": "من حوى يحتوي؛ الواو والياء أصليتان",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-034",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «إلقاء»؟",
+      "answer": "ل – ق – ي",
+      "root": "ل ق ي",
+      "explanation": "من لقي يُلقي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-035",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «محمود»؟",
+      "answer": "ح – م – د",
+      "root": "ح م د",
+      "explanation": "من حَمِدَ والحمد",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-036",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «ميقات»؟",
+      "answer": "و – ق – ت",
+      "root": "و ق ت",
+      "explanation": "من الوقت؛ الميم زائدة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-037",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «متكئ»؟",
+      "answer": "و – ك – أ",
+      "root": "و ك أ",
+      "explanation": "من اتكأ؛ أصل الفعل وَكَأَ",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-038",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «إيقاف»؟",
+      "answer": "و – ق – ف",
+      "root": "و ق ف",
+      "explanation": "من وَقَفَ والوقوف",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-039",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مجلد»؟",
+      "answer": "ج – ل – د",
+      "root": "ج ل د",
+      "explanation": "من الجِلْد والتجليد",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-040",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استعانة»؟",
+      "answer": "ع – و – ن",
+      "root": "ع و ن",
+      "explanation": "من العَوْن؛ الألف منقلبة عن واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-041",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «قراءة»؟",
+      "answer": "ق – ر – أ",
+      "root": "ق ر أ",
+      "explanation": "من قرأ؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-042",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مدرسة»؟",
+      "answer": "د – ر – س",
+      "root": "د ر س",
+      "explanation": "من دَرَسَ والدراسة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-043",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «ميثاق»؟",
+      "answer": "و – ث – ق",
+      "root": "و ث ق",
+      "explanation": "من الوثاق والثقة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-044",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استئناف»؟",
+      "answer": "أ – ن – ف",
+      "root": "أ ن ف",
+      "explanation": "من أَنِفَ والبداية المستأنفة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-045",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مبيعات»؟",
+      "answer": "ب – ي – ع",
+      "root": "ب ي ع",
+      "explanation": "من باع يبيع؛ أصل حرف العلة ياء",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-046",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «مطار»؟",
+      "answer": "ط – ي – ر",
+      "root": "ط ي ر",
+      "explanation": "من طار يطير؛ أصل حرف العلة ياء",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-047",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استشارة»؟",
+      "answer": "ش – و – ر",
+      "root": "ش و ر",
+      "explanation": "من الشورى والمشاورة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-048",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استقامة»؟",
+      "answer": "ق – و – م",
+      "root": "ق و م",
+      "explanation": "من قام ويقوم؛ الألف منقلبة عن واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-049",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «تسليم»؟",
+      "answer": "س – ل – م",
+      "root": "س ل م",
+      "explanation": "من سلَّمَ والسلام",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-050",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «منتصر»؟",
+      "answer": "ن – ص – ر",
+      "root": "ن ص ر",
+      "explanation": "من انتصرَ والنصر",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-051",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استطاعة»؟",
+      "answer": "ط – و – ع",
+      "root": "ط و ع",
+      "explanation": "من طاع يطوع والطاعة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-052",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «اشتهاء»؟",
+      "answer": "ش – ه – و",
+      "root": "ش ه و",
+      "explanation": "من شَهِيَ واشتهى؛ للجذر وجه معتلّ، والمشهور ش هـ و في الاشتهاء",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-053",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «حياة»؟",
+      "answer": "ح – ي – ي",
+      "root": "ح ي ي",
+      "explanation": "من حَيِيَ؛ تكرار الياء في أصل الجذر",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-054",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «توقّع»؟",
+      "answer": "و – ق – ع",
+      "root": "و ق ع",
+      "explanation": "من وَقَعَ والوقوع",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-055",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «إفادة»؟",
+      "answer": "ف – ي – د",
+      "root": "ف ي د",
+      "explanation": "من أفاد يفيد؛ أصل حرف العلة ياء",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-056",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مختلف»؟",
+      "answer": "خ – ل – ف",
+      "root": "خ ل ف",
+      "explanation": "من خَلَفَ والاختلاف",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-057",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مركب»؟",
+      "answer": "ر – ك – ب",
+      "root": "ر ك ب",
+      "explanation": "من رَكِبَ والركوب",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-058",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مريض»؟",
+      "answer": "م – ر – ض",
+      "root": "م ر ض",
+      "explanation": "من مَرِضَ والمرض",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-059",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «سُقيا»؟",
+      "answer": "س – ق – ي",
+      "root": "س ق ي",
+      "explanation": "من سقى يسقي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-060",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «إدارة»؟",
+      "answer": "د – و – ر",
+      "root": "د و ر",
+      "explanation": "من دار يدور؛ الألف منقلبة عن واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-061",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مرهون»؟",
+      "answer": "ر – ه – ن",
+      "root": "ر ه ن",
+      "explanation": "من الرهن والارتهان",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-062",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مصباح»؟",
+      "answer": "ص – ب – ح",
+      "root": "ص ب ح",
+      "explanation": "من الصباح والإصباح",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-063",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مغفرة»؟",
+      "answer": "غ – ف – ر",
+      "root": "غ ف ر",
+      "explanation": "من غَفَرَ والغفران",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-064",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مفتاح»؟",
+      "answer": "ف – ت – ح",
+      "root": "ف ت ح",
+      "explanation": "من فَتَحَ والفتح",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-065",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مكرمة»؟",
+      "answer": "ك – ر – م",
+      "root": "ك ر م",
+      "explanation": "من الكرم والإكرام",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-066",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «منشأة»؟",
+      "answer": "ن – ش – أ",
+      "root": "ن ش أ",
+      "explanation": "من نشأ؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-067",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «ارتقاء»؟",
+      "answer": "ر – ق – ي",
+      "root": "ر ق ي",
+      "explanation": "من رَقِيَ يرتقي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-068",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مقولة»؟",
+      "answer": "ق – و – ل",
+      "root": "ق و ل",
+      "explanation": "من قال يقول؛ أصل حرف العلة واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-069",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «تقدير»؟",
+      "answer": "ق – د – ر",
+      "root": "ق د ر",
+      "explanation": "من قَدَّرَ والقدْر",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-070",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مشغول»؟",
+      "answer": "ش – غ – ل",
+      "root": "ش غ ل",
+      "explanation": "من شَغَلَ والشغل",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-071",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «منتظر»؟",
+      "answer": "ن – ظ – ر",
+      "root": "ن ظ ر",
+      "explanation": "من انتظرَ والنظر",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-072",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مساعدة»؟",
+      "answer": "س – ع – د",
+      "root": "س ع د",
+      "explanation": "من ساعدَ والمساعدة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-073",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «اختيار»؟",
+      "answer": "خ – ي – ر",
+      "root": "خ ي ر",
+      "explanation": "من الخير والتخيير",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-074",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استيلاء»؟",
+      "answer": "و – ل – ي",
+      "root": "و ل ي",
+      "explanation": "من وَلِيَ؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-075",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مستأجر»؟",
+      "answer": "أ – ج – ر",
+      "root": "أ ج ر",
+      "explanation": "من الأُجرة والإجارة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-076",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «انتهاء»؟",
+      "answer": "ن – ه – ي",
+      "root": "ن ه ي",
+      "explanation": "من نهى ينهي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-077",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «متحوّل»؟",
+      "answer": "ح – و – ل",
+      "root": "ح و ل",
+      "explanation": "من التحول والحَوْل",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-078",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «موعد»؟",
+      "answer": "و – ع – د",
+      "root": "و ع د",
+      "explanation": "من وَعَدَ؛ الواو أصلية",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-079",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «معرفة»؟",
+      "answer": "ع – ر – ف",
+      "root": "ع ر ف",
+      "explanation": "من عَرَفَ والمعرفة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-080",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استشفاء»؟",
+      "answer": "ش – ف – ي",
+      "root": "ش ف ي",
+      "explanation": "من شفى يشفي؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-081",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «مبدأ»؟",
+      "answer": "ب – د – أ",
+      "root": "ب د أ",
+      "explanation": "من بدأ؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-082",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استدعاء»؟",
+      "answer": "د – ع – و",
+      "root": "د ع و",
+      "explanation": "من دعا يدعو؛ الواو أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-083",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «صيام»؟",
+      "answer": "ص – و – م",
+      "root": "ص و م",
+      "explanation": "من صام يصوم؛ أصل حرف العلة واو",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-084",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «انطفاء»؟",
+      "answer": "ط – ف – أ",
+      "root": "ط ف أ",
+      "explanation": "من طفِئ وانطفأ؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-085",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «رؤية»؟",
+      "answer": "ر – أ – ي",
+      "root": "ر أ ي",
+      "explanation": "من رأى يرى؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-086",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استغناء»؟",
+      "answer": "غ – ن – ي",
+      "root": "غ ن ي",
+      "explanation": "من غَنِيَ واستغنى؛ الياء أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-087",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «متكلم»؟",
+      "answer": "ك – ل – م",
+      "root": "ك ل م",
+      "explanation": "من تكلَّمَ والكلام",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-088",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «اصطفاء»؟",
+      "answer": "ص – ف – و",
+      "root": "ص ف و",
+      "explanation": "من صفا يصفو؛ الواو أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-089",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «مقياس»؟",
+      "answer": "ق – ي – س",
+      "root": "ق ي س",
+      "explanation": "من قاس يقيس؛ أصل حرف العلة ياء",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-090",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مجتهد»؟",
+      "answer": "ج – ه – د",
+      "root": "ج ه د",
+      "explanation": "من اجتهدَ والجُهد",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-091",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مستمع»؟",
+      "answer": "س – م – ع",
+      "root": "س م ع",
+      "explanation": "من استمعَ والسمع",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-092",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مكتبة»؟",
+      "answer": "ك – ت – ب",
+      "root": "ك ت ب",
+      "explanation": "من كَتَبَ والكتابة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-093",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مسافر»؟",
+      "answer": "س – ف – ر",
+      "root": "س ف ر",
+      "explanation": "من سافَرَ والسفر",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-094",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استغاثة»؟",
+      "answer": "غ – و – ث",
+      "root": "غ و ث",
+      "explanation": "من الغوث والإغاثة",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-095",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مقاتل»؟",
+      "answer": "ق – ت – ل",
+      "root": "ق ت ل",
+      "explanation": "من قاتَلَ والقتال",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-096",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «مسؤول»؟",
+      "answer": "س – أ – ل",
+      "root": "س أ ل",
+      "explanation": "من سأل؛ الهمزة أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    },
+    {
+      "id": "ROOT-097",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «استراحة»؟",
+      "answer": "ر – و – ح",
+      "root": "ر و ح",
+      "explanation": "من الراحة والروح",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-098",
+      "points": 400,
+      "question": "ما الجذر الثلاثي لكلمة «موصول»؟",
+      "answer": "و – ص – ل",
+      "root": "و ص ل",
+      "explanation": "من وَصَلَ؛ الواو أصلية",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-099",
+      "points": 200,
+      "question": "ما الجذر الثلاثي لكلمة «مصلح»؟",
+      "answer": "ص – ل – ح",
+      "root": "ص ل ح",
+      "explanation": "من أصلحَ والإصلاح",
+      "hint": "ارجع إلى الفعل أو الاسم الأصلي للكلمة قبل الزيادة."
+    },
+    {
+      "id": "ROOT-100",
+      "points": 600,
+      "question": "ما الجذر الثلاثي لكلمة «استيعاب»؟",
+      "answer": "و – ع – ب",
+      "root": "و ع ب",
+      "explanation": "من وَعَبَ؛ الواو أصلية",
+      "hint": "احذف حروف الزيادة، ثم أرجع حرف العلة إلى أصله إن لزم."
+    }
+  ],
+  "plurals": [
+    {
+      "id": "PL-200-01",
+      "points": 200,
+      "question": "ما جمع كلمة «كتاب»؟",
+      "answer": "كتب",
+      "explanation": "جمع «كتاب» هو «كتب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-02",
+      "points": 200,
+      "question": "ما جمع كلمة «قلم»؟",
+      "answer": "أقلام",
+      "explanation": "جمع «قلم» هو «أقلام». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-03",
+      "points": 200,
+      "question": "ما جمع كلمة «بيت»؟",
+      "answer": "بيوت",
+      "explanation": "جمع «بيت» هو «بيوت». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-04",
+      "points": 200,
+      "question": "ما جمع كلمة «باب»؟",
+      "answer": "أبواب",
+      "explanation": "جمع «باب» هو «أبواب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-05",
+      "points": 200,
+      "question": "ما جمع كلمة «ولد»؟",
+      "answer": "أولاد",
+      "explanation": "جمع «ولد» هو «أولاد». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-06",
+      "points": 200,
+      "question": "ما جمع كلمة «بنت»؟",
+      "answer": "بنات",
+      "explanation": "جمع «بنت» هو «بنات». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-07",
+      "points": 200,
+      "question": "ما جمع كلمة «طفل»؟",
+      "answer": "أطفال",
+      "explanation": "جمع «طفل» هو «أطفال». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-08",
+      "points": 200,
+      "question": "ما جمع كلمة «رجل»؟",
+      "answer": "رجال",
+      "explanation": "جمع «رجل» هو «رجال». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-09",
+      "points": 200,
+      "question": "ما جمع كلمة «امرأة»؟",
+      "answer": "نساء",
+      "explanation": "جمع «امرأة» هو «نساء». (جمع سماعي يختلف لفظه عن المفرد)."
+    },
+    {
+      "id": "PL-200-10",
+      "points": 200,
+      "question": "ما جمع كلمة «مدرسة»؟",
+      "answer": "مدارس",
+      "explanation": "جمع «مدرسة» هو «مدارس». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-11",
+      "points": 200,
+      "question": "ما جمع كلمة «مدينة»؟",
+      "answer": "مدن",
+      "explanation": "جمع «مدينة» هو «مدن». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-12",
+      "points": 200,
+      "question": "ما جمع كلمة «شارع»؟",
+      "answer": "شوارع",
+      "explanation": "جمع «شارع» هو «شوارع». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-13",
+      "points": 200,
+      "question": "ما جمع كلمة «شجرة»؟",
+      "answer": "أشجار",
+      "explanation": "جمع «شجرة» هو «أشجار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-14",
+      "points": 200,
+      "question": "ما جمع كلمة «زهرة»؟",
+      "answer": "زهور",
+      "explanation": "جمع «زهرة» هو «زهور». وتُقبل أيضًا: أزهار. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "أزهار"
+      ]
+    },
+    {
+      "id": "PL-200-15",
+      "points": 200,
+      "question": "ما جمع كلمة «جبل»؟",
+      "answer": "جبال",
+      "explanation": "جمع «جبل» هو «جبال». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-16",
+      "points": 200,
+      "question": "ما جمع كلمة «بحر»؟",
+      "answer": "بحار",
+      "explanation": "جمع «بحر» هو «بحار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-17",
+      "points": 200,
+      "question": "ما جمع كلمة «نهر»؟",
+      "answer": "أنهار",
+      "explanation": "جمع «نهر» هو «أنهار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-18",
+      "points": 200,
+      "question": "ما جمع كلمة «نجم»؟",
+      "answer": "نجوم",
+      "explanation": "جمع «نجم» هو «نجوم». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-19",
+      "points": 200,
+      "question": "ما جمع كلمة «قمر»؟",
+      "answer": "أقمار",
+      "explanation": "جمع «قمر» هو «أقمار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-20",
+      "points": 200,
+      "question": "ما جمع كلمة «قدم»؟",
+      "answer": "أقدام",
+      "explanation": "جمع «قدم» هو «أقدام». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-21",
+      "points": 200,
+      "question": "ما جمع كلمة «قلب»؟",
+      "answer": "قلوب",
+      "explanation": "جمع «قلب» هو «قلوب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-22",
+      "points": 200,
+      "question": "ما جمع كلمة «صديق»؟",
+      "answer": "أصدقاء",
+      "explanation": "جمع «صديق» هو «أصدقاء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-23",
+      "points": 200,
+      "question": "ما جمع كلمة «طائر»؟",
+      "answer": "طيور",
+      "explanation": "جمع «طائر» هو «طيور». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-24",
+      "points": 200,
+      "question": "ما جمع كلمة «سمكة»؟",
+      "answer": "أسماك",
+      "explanation": "جمع «سمكة» هو «أسماك». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-25",
+      "points": 200,
+      "question": "ما جمع كلمة «كرسي»؟",
+      "answer": "كراسي",
+      "explanation": "جمع «كرسي» هو «كراسي». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-26",
+      "points": 200,
+      "question": "ما جمع كلمة «مفتاح»؟",
+      "answer": "مفاتيح",
+      "explanation": "جمع «مفتاح» هو «مفاتيح». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-27",
+      "points": 200,
+      "question": "ما جمع كلمة «سيارة»؟",
+      "answer": "سيارات",
+      "explanation": "جمع «سيارة» هو «سيارات». (جمع مؤنث سالم)."
+    },
+    {
+      "id": "PL-200-28",
+      "points": 200,
+      "question": "ما جمع كلمة «نافذة»؟",
+      "answer": "نوافذ",
+      "explanation": "جمع «نافذة» هو «نوافذ». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-29",
+      "points": 200,
+      "question": "ما جمع كلمة «غرفة»؟",
+      "answer": "غرف",
+      "explanation": "جمع «غرفة» هو «غرف». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-200-30",
+      "points": 200,
+      "question": "ما جمع كلمة «حقيبة»؟",
+      "answer": "حقائب",
+      "explanation": "جمع «حقيبة» هو «حقائب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-01",
+      "points": 400,
+      "question": "ما جمع كلمة «طبيب»؟",
+      "answer": "أطباء",
+      "explanation": "جمع «طبيب» هو «أطباء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-02",
+      "points": 400,
+      "question": "ما جمع كلمة «مهندس»؟",
+      "answer": "مهندسون",
+      "explanation": "جمع «مهندس» هو «مهندسون». وتُقبل أيضًا: مهندسين. (جمع مذكر سالم).",
+      "acceptedAnswers": [
+        "مهندسين"
+      ]
+    },
+    {
+      "id": "PL-400-03",
+      "points": 400,
+      "question": "ما جمع كلمة «شاعر»؟",
+      "answer": "شعراء",
+      "explanation": "جمع «شاعر» هو «شعراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-04",
+      "points": 400,
+      "question": "ما جمع كلمة «وزير»؟",
+      "answer": "وزراء",
+      "explanation": "جمع «وزير» هو «وزراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-05",
+      "points": 400,
+      "question": "ما جمع كلمة «أمير»؟",
+      "answer": "أمراء",
+      "explanation": "جمع «أمير» هو «أمراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-06",
+      "points": 400,
+      "question": "ما جمع كلمة «سفير»؟",
+      "answer": "سفراء",
+      "explanation": "جمع «سفير» هو «سفراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-07",
+      "points": 400,
+      "question": "ما جمع كلمة «خبير»؟",
+      "answer": "خبراء",
+      "explanation": "جمع «خبير» هو «خبراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-08",
+      "points": 400,
+      "question": "ما جمع كلمة «فقير»؟",
+      "answer": "فقراء",
+      "explanation": "جمع «فقير» هو «فقراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-09",
+      "points": 400,
+      "question": "ما جمع كلمة «مريض»؟",
+      "answer": "مرضى",
+      "explanation": "جمع «مريض» هو «مرضى». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-10",
+      "points": 400,
+      "question": "ما جمع كلمة «يتيم»؟",
+      "answer": "أيتام",
+      "explanation": "جمع «يتيم» هو «أيتام». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-11",
+      "points": 400,
+      "question": "ما جمع كلمة «عجوز»؟",
+      "answer": "عجائز",
+      "explanation": "جمع «عجوز» هو «عجائز». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-12",
+      "points": 400,
+      "question": "ما جمع كلمة «عروس»؟",
+      "answer": "عرائس",
+      "explanation": "جمع «عروس» هو «عرائس». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-13",
+      "points": 400,
+      "question": "ما جمع كلمة «ضيف»؟",
+      "answer": "ضيوف",
+      "explanation": "جمع «ضيف» هو «ضيوف». وتُقبل أيضًا: أضياف. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "أضياف"
+      ]
+    },
+    {
+      "id": "PL-400-14",
+      "points": 400,
+      "question": "ما جمع كلمة «جار»؟",
+      "answer": "جيران",
+      "explanation": "جمع «جار» هو «جيران». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-15",
+      "points": 400,
+      "question": "ما جمع كلمة «حفيد»؟",
+      "answer": "أحفاد",
+      "explanation": "جمع «حفيد» هو «أحفاد». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-16",
+      "points": 400,
+      "question": "ما جمع كلمة «خروف»؟",
+      "answer": "خراف",
+      "explanation": "جمع «خروف» هو «خراف». وتُقبل أيضًا: خرفان. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "خرفان"
+      ]
+    },
+    {
+      "id": "PL-400-17",
+      "points": 400,
+      "question": "ما جمع كلمة «ثعلب»؟",
+      "answer": "ثعالب",
+      "explanation": "جمع «ثعلب» هو «ثعالب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-18",
+      "points": 400,
+      "question": "ما جمع كلمة «تمساح»؟",
+      "answer": "تماسيح",
+      "explanation": "جمع «تمساح» هو «تماسيح». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-19",
+      "points": 400,
+      "question": "ما جمع كلمة «ضفدع»؟",
+      "answer": "ضفادع",
+      "explanation": "جمع «ضفدع» هو «ضفادع». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-20",
+      "points": 400,
+      "question": "ما جمع كلمة «عقرب»؟",
+      "answer": "عقارب",
+      "explanation": "جمع «عقرب» هو «عقارب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-21",
+      "points": 400,
+      "question": "ما جمع كلمة «عصفور»؟",
+      "answer": "عصافير",
+      "explanation": "جمع «عصفور» هو «عصافير». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-22",
+      "points": 400,
+      "question": "ما جمع كلمة «غراب»؟",
+      "answer": "غربان",
+      "explanation": "جمع «غراب» هو «غربان». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-23",
+      "points": 400,
+      "question": "ما جمع كلمة «فأر»؟",
+      "answer": "فئران",
+      "explanation": "جمع «فأر» هو «فئران». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-24",
+      "points": 400,
+      "question": "ما جمع كلمة «أسد»؟",
+      "answer": "أسود",
+      "explanation": "جمع «أسد» هو «أسود». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-25",
+      "points": 400,
+      "question": "ما جمع كلمة «حصان»؟",
+      "answer": "أحصنة",
+      "explanation": "جمع «حصان» هو «أحصنة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-26",
+      "points": 400,
+      "question": "ما جمع كلمة «قميص»؟",
+      "answer": "قمصان",
+      "explanation": "جمع «قميص» هو «قمصان». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-27",
+      "points": 400,
+      "question": "ما جمع كلمة «قنديل»؟",
+      "answer": "قناديل",
+      "explanation": "جمع «قنديل» هو «قناديل». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-28",
+      "points": 400,
+      "question": "ما جمع كلمة «مصباح»؟",
+      "answer": "مصابيح",
+      "explanation": "جمع «مصباح» هو «مصابيح». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-29",
+      "points": 400,
+      "question": "ما جمع كلمة «صندوق»؟",
+      "answer": "صناديق",
+      "explanation": "جمع «صندوق» هو «صناديق». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-30",
+      "points": 400,
+      "question": "ما جمع كلمة «هاتف»؟",
+      "answer": "هواتف",
+      "explanation": "جمع «هاتف» هو «هواتف». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-31",
+      "points": 400,
+      "question": "ما جمع كلمة «جدار»؟",
+      "answer": "جدران",
+      "explanation": "جمع «جدار» هو «جدران». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-32",
+      "points": 400,
+      "question": "ما جمع كلمة «مطر»؟",
+      "answer": "أمطار",
+      "explanation": "جمع «مطر» هو «أمطار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-33",
+      "points": 400,
+      "question": "ما جمع كلمة «فصل»؟",
+      "answer": "فصول",
+      "explanation": "جمع «فصل» هو «فصول». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-34",
+      "points": 400,
+      "question": "ما جمع كلمة «سؤال»؟",
+      "answer": "أسئلة",
+      "explanation": "جمع «سؤال» هو «أسئلة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-400-35",
+      "points": 400,
+      "question": "ما جمع كلمة «جواب»؟",
+      "answer": "أجوبة",
+      "explanation": "جمع «جواب» هو «أجوبة». وتُقبل أيضًا: جوابات. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "جوابات"
+      ]
+    },
+    {
+      "id": "PL-600-01",
+      "points": 600,
+      "question": "ما جمع كلمة «مبدأ»؟",
+      "answer": "مبادئ",
+      "explanation": "جمع «مبدأ» هو «مبادئ». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-02",
+      "points": 600,
+      "question": "ما جمع كلمة «ملجأ»؟",
+      "answer": "ملاجئ",
+      "explanation": "جمع «ملجأ» هو «ملاجئ». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-03",
+      "points": 600,
+      "question": "ما جمع كلمة «مرفأ»؟",
+      "answer": "مرافئ",
+      "explanation": "جمع «مرفأ» هو «مرافئ». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-04",
+      "points": 600,
+      "question": "ما جمع كلمة «مخبأ»؟",
+      "answer": "مخابئ",
+      "explanation": "جمع «مخبأ» هو «مخابئ». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-05",
+      "points": 600,
+      "question": "ما جمع كلمة «خطأ»؟",
+      "answer": "أخطاء",
+      "explanation": "جمع «خطأ» هو «أخطاء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-06",
+      "points": 600,
+      "question": "ما جمع كلمة «نبأ»؟",
+      "answer": "أنباء",
+      "explanation": "جمع «نبأ» هو «أنباء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-07",
+      "points": 600,
+      "question": "ما جمع كلمة «رأي»؟",
+      "answer": "آراء",
+      "explanation": "جمع «رأي» هو «آراء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-08",
+      "points": 600,
+      "question": "ما جمع كلمة «رؤيا»؟",
+      "answer": "رؤى",
+      "explanation": "جمع «رؤيا» هو «رؤى». (تحوّل صيغة المفرد في الجمع إلى رؤى)."
+    },
+    {
+      "id": "PL-600-09",
+      "points": 600,
+      "question": "ما جمع كلمة «مرآة»؟",
+      "answer": "مرايا",
+      "explanation": "جمع «مرآة» هو «مرايا». وتُقبل أيضًا: مراءٍ. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "مراءٍ"
+      ]
+    },
+    {
+      "id": "PL-600-10",
+      "points": 600,
+      "question": "ما جمع كلمة «فتى»؟",
+      "answer": "فتيان",
+      "explanation": "جمع «فتى» هو «فتيان». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-11",
+      "points": 600,
+      "question": "ما جمع كلمة «قاضٍ»؟",
+      "answer": "قضاة",
+      "explanation": "جمع «قاضٍ» هو «قضاة». (من جموع الاسم المنقوص)."
+    },
+    {
+      "id": "PL-600-12",
+      "points": 600,
+      "question": "ما جمع كلمة «داعٍ»؟",
+      "answer": "دعاة",
+      "explanation": "جمع «داعٍ» هو «دعاة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-13",
+      "points": 600,
+      "question": "ما جمع كلمة «رامٍ»؟",
+      "answer": "رماة",
+      "explanation": "جمع «رامٍ» هو «رماة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-14",
+      "points": 600,
+      "question": "ما جمع كلمة «راعٍ»؟",
+      "answer": "رعاة",
+      "explanation": "جمع «راعٍ» هو «رعاة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-15",
+      "points": 600,
+      "question": "ما جمع كلمة «ساعٍ»؟",
+      "answer": "سعاة",
+      "explanation": "جمع «ساعٍ» هو «سعاة». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-16",
+      "points": 600,
+      "question": "ما جمع كلمة «عصا»؟",
+      "answer": "عصيّ",
+      "explanation": "جمع «عصا» هو «عصيّ». وتُقبل أيضًا: عصي. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "عصي"
+      ]
+    },
+    {
+      "id": "PL-600-17",
+      "points": 600,
+      "question": "ما جمع كلمة «فم»؟",
+      "answer": "أفواه",
+      "explanation": "جمع «فم» هو «أفواه». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-18",
+      "points": 600,
+      "question": "ما جمع كلمة «دم»؟",
+      "answer": "دماء",
+      "explanation": "جمع «دم» هو «دماء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-19",
+      "points": 600,
+      "question": "ما جمع كلمة «داء»؟",
+      "answer": "أدواء",
+      "explanation": "جمع «داء» هو «أدواء». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-20",
+      "points": 600,
+      "question": "ما جمع كلمة «بئر»؟",
+      "answer": "آبار",
+      "explanation": "جمع «بئر» هو «آبار». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-21",
+      "points": 600,
+      "question": "ما جمع كلمة «شأن»؟",
+      "answer": "شؤون",
+      "explanation": "جمع «شأن» هو «شؤون». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-22",
+      "points": 600,
+      "question": "ما جمع كلمة «أسطورة»؟",
+      "answer": "أساطير",
+      "explanation": "جمع «أسطورة» هو «أساطير». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-23",
+      "points": 600,
+      "question": "ما جمع كلمة «أمنية»؟",
+      "answer": "أماني",
+      "explanation": "جمع «أمنية» هو «أماني». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-24",
+      "points": 600,
+      "question": "ما جمع كلمة «هدية»؟",
+      "answer": "هدايا",
+      "explanation": "جمع «هدية» هو «هدايا». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-25",
+      "points": 600,
+      "question": "ما جمع كلمة «قضية»؟",
+      "answer": "قضايا",
+      "explanation": "جمع «قضية» هو «قضايا». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-26",
+      "points": 600,
+      "question": "ما جمع كلمة «حقيقة»؟",
+      "answer": "حقائق",
+      "explanation": "جمع «حقيقة» هو «حقائق». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-27",
+      "points": 600,
+      "question": "ما جمع كلمة «قصيدة»؟",
+      "answer": "قصائد",
+      "explanation": "جمع «قصيدة» هو «قصائد». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-28",
+      "points": 600,
+      "question": "ما جمع كلمة «كتيبة»؟",
+      "answer": "كتائب",
+      "explanation": "جمع «كتيبة» هو «كتائب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-29",
+      "points": 600,
+      "question": "ما جمع كلمة «غنيمة»؟",
+      "answer": "غنائم",
+      "explanation": "جمع «غنيمة» هو «غنائم». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-30",
+      "points": 600,
+      "question": "ما جمع كلمة «معجم»؟",
+      "answer": "معاجم",
+      "explanation": "جمع «معجم» هو «معاجم». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-31",
+      "points": 600,
+      "question": "ما جمع كلمة «محراب»؟",
+      "answer": "محاريب",
+      "explanation": "جمع «محراب» هو «محاريب». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-32",
+      "points": 600,
+      "question": "ما جمع كلمة «منبر»؟",
+      "answer": "منابر",
+      "explanation": "جمع «منبر» هو «منابر». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-33",
+      "points": 600,
+      "question": "ما جمع كلمة «قانون»؟",
+      "answer": "قوانين",
+      "explanation": "جمع «قانون» هو «قوانين». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-34",
+      "points": 600,
+      "question": "ما جمع كلمة «إصبع»؟",
+      "answer": "أصابع",
+      "explanation": "جمع «إصبع» هو «أصابع». (جمع تكسير أو صيغة جمع سماعية)."
+    },
+    {
+      "id": "PL-600-35",
+      "points": 600,
+      "question": "ما جمع كلمة «لسان»؟",
+      "answer": "ألسنة",
+      "explanation": "جمع «لسان» هو «ألسنة». وتُقبل أيضًا: ألسن. (جمع تكسير أو صيغة جمع سماعية).",
+      "acceptedAnswers": [
+        "ألسن"
+      ]
+    }
+  ],
+  "grammar": [
+    {
+      "id": "IR-001",
+      "question": "أعرب الكلمة المحددة في الجملة: يا 【خالدُ】، انتبهْ.",
+      "answer": "منادى علم مفرد مبني على الضم في محل نصب.",
+      "points": 400
+    },
+    {
+      "id": "IR-002",
+      "question": "أعرب الكلمة المحددة في الجملة: إنْ 【تتقوا】 اللهَ تفلحوا.",
+      "answer": "فعل مضارع مجزوم بإنْ الشرطية وعلامة جزمه حذف النون لأنه من الأفعال الخمسة؛ والواو فاعل.",
+      "points": 600
+    },
+    {
+      "id": "IR-003",
+      "question": "أعرب الكلمة المحددة في الجملة: لن 【يسعى】 الكسولُ إلى التفوقِ.",
+      "answer": "فعل مضارع منصوب بلن، وعلامة نصبه الفتحة المقدرة على الألف منع من ظهورها التعذر.",
+      "points": 400
+    },
+    {
+      "id": "IR-004",
+      "question": "أعرب الكلمة المحددة في الجملة: لم 【يلعبا】 في الشارعِ.",
+      "answer": "فعل مضارع مجزوم بلم وعلامة جزمه حذف النون لأنه من الأفعال الخمسة؛ وألف الاثنين فاعل.",
+      "points": 400
+    },
+    {
+      "id": "IR-005",
+      "question": "أعرب الكلمة المحددة في الجملة: 【أينَ】 كتابُك؟",
+      "answer": "اسم استفهام مبني على الفتح في محل نصب ظرف مكان، متعلق بخبر مقدم محذوف.",
+      "points": 600
+    },
+    {
+      "id": "IR-006",
+      "question": "أعرب الكلمة المحددة في الجملة: تُفْتَحُ 【الأبوابُ】 صباحًا.",
+      "answer": "نائب فاعل مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-007",
+      "question": "أعرب الكلمة المحددة في الجملة: رأيتُ 【أباك】 في المكتبةِ.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الألف لأنه من الأسماء الخمسة؛ وهو مضاف والكاف في محل جر مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-008",
+      "question": "أعرب الكلمة المحددة في الجملة: أعجبتْني 【قراءتُك】.",
+      "answer": "فاعل مرفوع بالضمة الظاهرة على التاء، وهو مضاف والكاف في محل جر مضاف إليه؛ والياء في «أعجبتني» مفعول به.",
+      "points": 600
+    },
+    {
+      "id": "IR-009",
+      "question": "أعرب الكلمة المحددة في الجملة: القلمُ 【فوقَ】 المكتبِ.",
+      "answer": "ظرف مكان منصوب بالفتحة، وهو مضاف، وشبه الجملة متعلق بمحذوف خبر المبتدأ.",
+      "points": 200
+    },
+    {
+      "id": "IR-010",
+      "question": "أعرب الكلمة المحددة في الجملة: رأيتُ طائرًا 【جميلًا】.",
+      "answer": "نعت منصوب للطائر، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-011",
+      "question": "أعرب الكلمة المحددة في الجملة: نجحَ 【الطالبانِ】 في الاختبار.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الألف لأنه مثنى.",
+      "points": 200
+    },
+    {
+      "id": "IR-012",
+      "question": "أعرب الكلمة المحددة في الجملة: يا 【رجلًا】، ساعدْني.",
+      "answer": "منادى نكرة غير مقصودة منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 600
+    },
+    {
+      "id": "IR-013",
+      "question": "أعرب الكلمة المحددة في الجملة: مَنْ يجتهدْ 【ينجحْ】.",
+      "answer": "فعل مضارع مجزوم لأنه جواب الشرط، وعلامة جزمه السكون الظاهر.",
+      "points": 600
+    },
+    {
+      "id": "IR-014",
+      "question": "أعرب الكلمة المحددة في الجملة: سافرتُ إلى 【صحراءَ】 واسعةٍ.",
+      "answer": "اسم مجرور بإلى، وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف لألف التأنيث الممدودة.",
+      "points": 600
+    },
+    {
+      "id": "IR-015",
+      "question": "أعرب الكلمة المحددة في الجملة: مررتُ 【بالحديقةِ】 الجميلةِ.",
+      "answer": "الباء حرف جر، والحديقةِ اسم مجرور بالباء وعلامة جره الكسرة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-016",
+      "question": "أعرب الكلمة المحددة في الجملة: هذا كتابُ 【محمدٍ】.",
+      "answer": "مضاف إليه مجرور، وعلامة جره الكسرة الظاهرة على آخره.",
+      "points": 200
+    },
+    {
+      "id": "IR-017",
+      "question": "أعرب الكلمة المحددة في الجملة: آمنتُ باللهِ 【وحدَه】.",
+      "answer": "حال منصوب بالفتحة الظاهرة، وهو مضاف والهاء في محل جر مضاف إليه؛ ومعناه منفردًا دون شريك.",
+      "points": 600
+    },
+    {
+      "id": "IR-018",
+      "question": "أعرب الكلمة المحددة في الجملة: 【لِيحترمْ】 الصغيرُ الكبيرَ.",
+      "answer": "اللام لام الأمر، و«يحترمْ» فعل مضارع مجزوم بلام الأمر وعلامة جزمه السكون الظاهر.",
+      "points": 600
+    },
+    {
+      "id": "IR-019",
+      "question": "أعرب الكلمة المحددة في الجملة: إنْ تتقوا اللهَ 【تفلحوا】.",
+      "answer": "فعل مضارع مجزوم لأنه جواب الشرط وعلامة جزمه حذف النون لأنه من الأفعال الخمسة؛ والواو فاعل.",
+      "points": 600
+    },
+    {
+      "id": "IR-020",
+      "question": "أعرب الكلمة المحددة في الجملة: لعلَّ المسافرَ 【عائدٌ】 قريبًا.",
+      "answer": "خبر لعلَّ مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-021",
+      "question": "أعرب الكلمة المحددة في الجملة: رأيتُ الأطفالَ 【يلعبونَ】 في الحديقةِ.",
+      "answer": "فعل مضارع مرفوع بثبوت النون لأنه من الأفعال الخمسة، والواو فاعل؛ والجملة الفعلية في محل نصب حال من «الأطفال».",
+      "points": 400
+    },
+    {
+      "id": "IR-022",
+      "question": "أعرب الكلمة المحددة في الجملة: 【كلَّ】 يومٍ أراجعُ دروسي.",
+      "answer": "ظرف زمان منصوب، وعلامة نصبه الفتحة الظاهرة، وهو مضاف.",
+      "points": 400
+    },
+    {
+      "id": "IR-023",
+      "question": "أعرب الكلمة المحددة في الجملة: 【العلمُ】 نافعٌ.",
+      "answer": "مبتدأ مرفوع، وعلامة رفعه الضمة الظاهرة على آخره.",
+      "points": 200
+    },
+    {
+      "id": "IR-024",
+      "question": "أعرب الكلمة المحددة في الجملة: سلّمتُ على 【الذي】 ساعدَني.",
+      "answer": "اسم موصول مبني على السكون في محل جر بحرف الجر «على»؛ وجملة «ساعدني» صلة الموصول لا محل لها من الإعراب.",
+      "points": 600
+    },
+    {
+      "id": "IR-025",
+      "question": "أعرب الكلمة المحددة في الجملة: سافرَ أخي 【طلبًا】 للعلمِ.",
+      "answer": "مفعول لأجله منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-026",
+      "question": "أعرب الكلمة المحددة في الجملة: ليتَ 【الشبابَ】 يعودُ.",
+      "answer": "اسم ليتَ منصوب، وعلامة نصبه الفتحة الظاهرة؛ وجملة «يعودُ» في محل رفع خبر ليت.",
+      "points": 400
+    },
+    {
+      "id": "IR-027",
+      "question": "أعرب الكلمة المحددة في الجملة: لم 【يسعَ】 الطفلُ إلى الشرِّ.",
+      "answer": "فعل مضارع مجزوم بلم، وعلامة جزمه حذف حرف العلة (الألف)، والفتحة دليل عليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-028",
+      "question": "أعرب الكلمة المحددة في الجملة: رأيتُ 【المعلِّمَيْنِ】 في المدرسةِ.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الياء لأنه مثنى.",
+      "points": 200
+    },
+    {
+      "id": "IR-029",
+      "question": "أعرب الكلمة المحددة في الجملة: لا 【ترمِ】 النفاياتِ في الطريقِ.",
+      "answer": "فعل مضارع مجزوم بلا الناهية، وعلامة جزمه حذف حرف العلة (الياء)، والكسرة دليل عليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-030",
+      "question": "أعرب الكلمة المحددة في الجملة: كأنَّ القمرَ 【مصباحٌ】.",
+      "answer": "خبر كأنَّ مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 600
+    },
+    {
+      "id": "IR-031",
+      "question": "أعرب الكلمة المحددة في الجملة: يا 【طالبَ】 العلمِ، اجتهدْ.",
+      "answer": "منادى مضاف منصوب، وعلامة نصبه الفتحة الظاهرة؛ وهو مضاف و«العلم» مضاف إليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-032",
+      "question": "أعرب الكلمة المحددة في الجملة: جلسَ الطفلُ 【تحتَ】 الشجرةِ.",
+      "answer": "ظرف مكان منصوب، وعلامة نصبه الفتحة الظاهرة، وهو مضاف.",
+      "points": 200
+    },
+    {
+      "id": "IR-033",
+      "question": "أعرب الكلمة المحددة في الجملة: 【اكتبْ】 درسكَ بعنايةٍ.",
+      "answer": "فعل أمر مبني على السكون، وفاعله ضمير مستتر وجوبًا تقديره «أنت».",
+      "points": 600
+    },
+    {
+      "id": "IR-034",
+      "question": "أعرب الكلمة المحددة في الجملة: إنَّما 【المؤمنونَ】 إخوةٌ.",
+      "answer": "مبتدأ مرفوع، وعلامة رفعه الواو لأنه جمع مذكر سالم؛ و«إنما» كافة ومكفوفة، فلا تعمل «إنَّ» النصب هنا.",
+      "points": 600
+    },
+    {
+      "id": "IR-035",
+      "question": "أعرب الكلمة المحددة في الجملة: عادَ المسافرُ 【مسرورًا】.",
+      "answer": "حال منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-036",
+      "question": "أعرب الكلمة المحددة في الجملة: أنتم 【تدرسونَ】 بجدٍّ.",
+      "answer": "فعل مضارع مرفوع بثبوت النون لأنه من الأفعال الخمسة؛ والواو ضمير متصل في محل رفع فاعل.",
+      "points": 400
+    },
+    {
+      "id": "IR-037",
+      "question": "أعرب الكلمة المحددة في الجملة: لم 【يدعُ】 المؤمنُ إلا اللهَ.",
+      "answer": "فعل مضارع مجزوم بلم، وعلامة جزمه حذف حرف العلة (الواو)، والضمة دليل عليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-038",
+      "question": "أعرب الكلمة المحددة في الجملة: في المكتبةِ 【كتبٌ】 كثيرةٌ.",
+      "answer": "مبتدأ مؤخر مرفوع، وعلامة رفعه الضمة الظاهرة؛ وشبه الجملة «في المكتبة» خبر مقدم.",
+      "points": 400
+    },
+    {
+      "id": "IR-039",
+      "question": "أعرب الكلمة المحددة في الجملة: يشرقُ 【القمرُ】 ليلًا.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-040",
+      "question": "أعرب الكلمة المحددة في الجملة: حضرَ الضيوفُ إلا 【ضيفًا】.",
+      "answer": "مستثنى منصوب بإلا، وعلامة نصبه الفتحة الظاهرة؛ لأن الاستثناء تام مثبت.",
+      "points": 400
+    },
+    {
+      "id": "IR-041",
+      "question": "أعرب الكلمة المحددة في الجملة: 【الذي】 يسعى إلى الخيرِ محمودٌ.",
+      "answer": "اسم موصول مبني على السكون في محل رفع مبتدأ، وجملة «يسعى إلى الخير» صلة الموصول لا محل لها، و«محمود» خبر.",
+      "points": 600
+    },
+    {
+      "id": "IR-042",
+      "question": "أعرب الكلمة المحددة في الجملة: كتبَ التلميذُ 【الدرسَ】.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.",
+      "points": 200
+    },
+    {
+      "id": "IR-043",
+      "question": "أعرب الكلمة المحددة في الجملة: الطالباتُ 【يدرسْنَ】 بانتظامٍ.",
+      "answer": "فعل مضارع مبني على السكون لاتصاله بنون النسوة، في محل رفع؛ ونون النسوة ضمير متصل في محل رفع فاعل.",
+      "points": 400
+    },
+    {
+      "id": "IR-044",
+      "question": "أعرب الكلمة المحددة في الجملة: وُزِّعَتِ 【الجوائزُ】 على الفائزين.",
+      "answer": "نائب فاعل مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-045",
+      "question": "أعرب الكلمة المحددة في الجملة: وقفَ الناسُ 【احترامًا】 للمعلمِ.",
+      "answer": "مفعول لأجله منصوب، وعلامة نصبه الفتحة الظاهرة؛ لأنه يبين سبب الوقوف.",
+      "points": 400
+    },
+    {
+      "id": "IR-046",
+      "question": "أعرب الكلمة المحددة في الجملة: 【متى】 تسافرُ؟",
+      "answer": "اسم استفهام مبني على السكون في محل نصب ظرف زمان متعلق بالفعل «تسافر».",
+      "points": 600
+    },
+    {
+      "id": "IR-047",
+      "question": "أعرب الكلمة المحددة في الجملة: ما حضرَ إلا 【خالدٌ】.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الضمة الظاهرة؛ لأن الاستثناء هنا مفرّغ.",
+      "points": 400
+    },
+    {
+      "id": "IR-048",
+      "question": "أعرب الكلمة المحددة في الجملة: مررتُ 【بأخيك】 في الطريقِ.",
+      "answer": "الباء حرف جر، وأخيك اسم مجرور بالباء وعلامة جره الياء لأنه من الأسماء الخمسة؛ وهو مضاف والكاف في محل جر مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-049",
+      "question": "أعرب الكلمة المحددة في الجملة: في البيتِ 【ضيفٌ】.",
+      "answer": "مبتدأ مؤخر مرفوع، وعلامة رفعه الضمة الظاهرة؛ وشبه الجملة قبله في محل رفع خبر مقدم.",
+      "points": 200
+    },
+    {
+      "id": "IR-050",
+      "question": "أعرب الكلمة المحددة في الجملة: إنَّ 【المهندسينَ】 ماهرونَ.",
+      "answer": "اسم إنَّ منصوب، وعلامة نصبه الياء لأنه جمع مذكر سالم.",
+      "points": 200
+    },
+    {
+      "id": "IR-051",
+      "question": "أعرب الكلمة المحددة في الجملة: حضرَ المعلمُ 【نفسُه】.",
+      "answer": "توكيد معنوي مرفوع تابع للمؤكَّد «المعلمُ»، وعلامة رفعه الضمة؛ وهو مضاف والهاء مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-052",
+      "question": "أعرب الكلمة المحددة في الجملة: حضرَ العلماءُ 【غيرَ】 عالمٍ.",
+      "answer": "مستثنى منصوب، وعلامة نصبه الفتحة الظاهرة؛ وهو مضاف و«عالمٍ» مضاف إليه مجرور.",
+      "points": 600
+    },
+    {
+      "id": "IR-053",
+      "question": "أعرب الكلمة المحددة في الجملة: لا 【تهملْ】 عملَك.",
+      "answer": "فعل مضارع مجزوم بلا الناهية، وعلامة جزمه السكون الظاهر، وفاعله ضمير مستتر تقديره أنت.",
+      "points": 600
+    },
+    {
+      "id": "IR-054",
+      "question": "أعرب الكلمة المحددة في الجملة: نجحَ الطلابُ 【جميعُهم】.",
+      "answer": "توكيد معنوي مرفوع تابع للمؤكَّد «الطلابُ»، وعلامة رفعه الضمة؛ وهو مضاف و«هم» في محل جر مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-055",
+      "question": "أعرب الكلمة المحددة في الجملة: ازدادَ الطالبُ 【علمًا】.",
+      "answer": "تمييز منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-056",
+      "question": "أعرب الكلمة المحددة في الجملة: ما زالَ العاملُ 【نشيطًا】.",
+      "answer": "خبر ما زال منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-057",
+      "question": "أعرب الكلمة المحددة في الجملة: 【المعلمونَ】 مخلصونَ.",
+      "answer": "مبتدأ مرفوع، وعلامة رفعه الواو لأنه جمع مذكر سالم.",
+      "points": 200
+    },
+    {
+      "id": "IR-058",
+      "question": "أعرب الكلمة المحددة في الجملة: سافرتُ 【صباحًا】.",
+      "answer": "ظرف زمان منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-059",
+      "question": "أعرب الكلمة المحددة في الجملة: مَنْ 【يجتهدْ】 ينجحْ.",
+      "answer": "فعل مضارع مجزوم لأنه فعل الشرط، وعلامة جزمه السكون الظاهر.",
+      "points": 600
+    },
+    {
+      "id": "IR-060",
+      "question": "أعرب الكلمة المحددة في الجملة: لا 【طالبَ】 مهملٌ.",
+      "answer": "اسم لا النافية للجنس مبني على الفتح في محل نصب؛ لأنه مفرد غير مضاف ولا شبيه بالمضاف.",
+      "points": 400
+    },
+    {
+      "id": "IR-061",
+      "question": "أعرب الكلمة المحددة في الجملة: الطالبُ 【يحترمُ】 معلمَه.",
+      "answer": "فعل مضارع مرفوع بالضمة الظاهرة، وفاعله ضمير مستتر تقديره هو؛ والجملة الفعلية في محل رفع خبر المبتدأ.",
+      "points": 400
+    },
+    {
+      "id": "IR-062",
+      "question": "أعرب الكلمة المحددة في الجملة: كان البحرُ 【هادئًا】.",
+      "answer": "خبر كان منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-063",
+      "question": "أعرب الكلمة المحددة في الجملة: أحبُّ 【القراءةَ】 الهادئةَ.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-064",
+      "question": "أعرب الكلمة المحددة في الجملة: العلمُ 【نافعٌ】.",
+      "answer": "خبر المبتدأ مرفوع، وعلامة رفعه الضمة الظاهرة على آخره.",
+      "points": 200
+    },
+    {
+      "id": "IR-065",
+      "question": "أعرب الكلمة المحددة في الجملة: 【فوقَ】 الجبلِ بيتٌ صغيرٌ.",
+      "answer": "ظرف مكان منصوب بالفتحة وهو مضاف؛ وشبه الجملة متعلق بمحذوف خبر مقدم.",
+      "points": 400
+    },
+    {
+      "id": "IR-066",
+      "question": "أعرب الكلمة المحددة في الجملة: أحبُّ أن 【أقرأَ】 كلَّ يومٍ.",
+      "answer": "فعل مضارع منصوب بأنْ، وعلامة نصبه الفتحة الظاهرة، والفاعل ضمير مستتر تقديره أنا.",
+      "points": 600
+    },
+    {
+      "id": "IR-067",
+      "question": "أعرب الكلمة المحددة في الجملة: مررتُ 【بأحمدَ】 أمسِ.",
+      "answer": "الباء حرف جر، وأحمد اسم مجرور بالباء وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف للعلمية ووزن الفعل.",
+      "points": 600
+    },
+    {
+      "id": "IR-068",
+      "question": "أعرب الكلمة المحددة في الجملة: شاهدتُ أحدَ عشرَ 【نجمًا】.",
+      "answer": "تمييز عدد منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-069",
+      "question": "أعرب الكلمة المحددة في الجملة: نادتِ الأمُّ 【الطفلةَ】.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-070",
+      "question": "أعرب الكلمة المحددة في الجملة: قُرِئَ 【الكتابُ】 في الصفِّ.",
+      "answer": "نائب فاعل مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-071",
+      "question": "أعرب الكلمة المحددة في الجملة: إنَّ 【الصدقَ】 نجاةٌ.",
+      "answer": "اسم إنَّ منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-072",
+      "question": "أعرب الكلمة المحددة في الجملة: سلَّمتُ على 【المهندسينَ】.",
+      "answer": "اسم مجرور بعلى، وعلامة جره الياء لأنه جمع مذكر سالم.",
+      "points": 200
+    },
+    {
+      "id": "IR-073",
+      "question": "أعرب الكلمة المحددة في الجملة: صارَ 【الجوُّ】 باردًا.",
+      "answer": "اسم صار مرفوع، وعلامة رفعه الضمة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-074",
+      "question": "أعرب الكلمة المحددة في الجملة: إنَّ 【أباكَ】 رجلٌ كريمٌ.",
+      "answer": "اسم إنَّ منصوب، وعلامة نصبه الألف لأنه من الأسماء الخمسة؛ وهو مضاف والكاف في محل جر مضاف إليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-075",
+      "question": "أعرب الكلمة المحددة في الجملة: قرأتُ الكتابَ إلا 【صفحةً】.",
+      "answer": "مستثنى منصوب بإلا، وعلامة نصبه الفتحة الظاهرة؛ لأن الكلام تام مثبت.",
+      "points": 400
+    },
+    {
+      "id": "IR-076",
+      "question": "أعرب الكلمة المحددة في الجملة: صلَّيتُ في 【مساجدَ】 كثيرةٍ.",
+      "answer": "اسم مجرور بفي، وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف لصيغة منتهى الجموع، وهو غير معرف بأل ولا مضاف.",
+      "points": 600
+    },
+    {
+      "id": "IR-077",
+      "question": "أعرب الكلمة المحددة في الجملة: جاءَ الفائزونَ 【والمعلّمُ】.",
+      "answer": "الواو حرف عطف، والمعلِّمُ اسم معطوف مرفوع على «الفائزون»، وعلامة رفعه الضمة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-078",
+      "question": "أعرب الكلمة المحددة في الجملة: لن 【تتهاونوا】 في أداءِ الأمانةِ.",
+      "answer": "فعل مضارع منصوب بلن وعلامة نصبه حذف النون لأنه من الأفعال الخمسة؛ والواو فاعل.",
+      "points": 400
+    },
+    {
+      "id": "IR-079",
+      "question": "أعرب الكلمة المحددة في الجملة: 【اجتهدْ】 في دروسكَ.",
+      "answer": "فعل أمر مبني على السكون، وفاعله ضمير مستتر تقديره أنت.",
+      "points": 200
+    },
+    {
+      "id": "IR-080",
+      "question": "أعرب الكلمة المحددة في الجملة: كان 【ذو】 الفضلِ محبوبًا.",
+      "answer": "اسم كان مرفوع، وعلامة رفعه الواو لأنه من الأسماء الخمسة، وهو مضاف و«الفضل» مضاف إليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-081",
+      "question": "أعرب الكلمة المحددة في الجملة: لن 【يرميَ】 اللاعبُ الكرةَ.",
+      "answer": "فعل مضارع منصوب بلن، وعلامة نصبه الفتحة الظاهرة على الياء.",
+      "points": 600
+    },
+    {
+      "id": "IR-082",
+      "question": "أعرب الكلمة المحددة في الجملة: أعجبني الطالبُ 【أدبُه】.",
+      "answer": "بدل اشتمال مرفوع تابع للمبدل منه «الطالبُ»، وعلامة رفعه الضمة، وهو مضاف والهاء في محل جر مضاف إليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-083",
+      "question": "أعرب الكلمة المحددة في الجملة: شربتُ الماءَ 【كلَّه】.",
+      "answer": "توكيد معنوي منصوب تابع للمؤكَّد «الماءَ»، وعلامة نصبه الفتحة الظاهرة؛ وهو مضاف والهاء في محل جر مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-084",
+      "question": "أعرب الكلمة المحددة في الجملة: قرأتُ الكتابَ 【نصفَه】.",
+      "answer": "بدل بعض من كل منصوب تابع للمبدل منه «الكتابَ»، وعلامة نصبه الفتحة؛ وهو مضاف والهاء في محل جر مضاف إليه.",
+      "points": 600
+    },
+    {
+      "id": "IR-085",
+      "question": "أعرب الكلمة المحددة في الجملة: واللهِ 【لأعملنَّ】 بإخلاصٍ.",
+      "answer": "اللام واقعة في جواب القسم، و«أعملنَّ» فعل مضارع مبني على الفتح لاتصاله المباشر بنون التوكيد الثقيلة، والفاعل ضمير مستتر تقديره أنا.",
+      "points": 600
+    },
+    {
+      "id": "IR-086",
+      "question": "أعرب الكلمة المحددة في الجملة: 【هذا】 كتابٌ نافعٌ.",
+      "answer": "اسم إشارة مبني على السكون في محل رفع مبتدأ.",
+      "points": 600
+    },
+    {
+      "id": "IR-087",
+      "question": "أعرب الكلمة المحددة في الجملة: كرَّمتُ 【الفائزاتِ】 في الحفلِ.",
+      "answer": "مفعول به منصوب، وعلامة نصبه الكسرة نيابة عن الفتحة لأنه جمع مؤنث سالم.",
+      "points": 200
+    },
+    {
+      "id": "IR-088",
+      "question": "أعرب الكلمة المحددة في الجملة: ما أنتَ إلا 【صادقٌ】.",
+      "answer": "خبر المبتدأ «أنتَ» مرفوع بالضمة الظاهرة؛ و«ما» نافية مهملة لا عمل لها في هذا الأسلوب.",
+      "points": 600
+    },
+    {
+      "id": "IR-089",
+      "question": "أعرب الكلمة المحددة في الجملة: اشتريتُ عشرينَ 【كتابًا】.",
+      "answer": "تمييز عدد منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 400
+    },
+    {
+      "id": "IR-090",
+      "question": "أعرب الكلمة المحددة في الجملة: 【التلميذاتُ】 مجتهداتٌ.",
+      "answer": "مبتدأ مرفوع، وعلامة رفعه الضمة الظاهرة لأنه جمع مؤنث سالم.",
+      "points": 200
+    },
+    {
+      "id": "IR-091",
+      "question": "أعرب الكلمة المحددة في الجملة: أصغِ إلى 【النصيحةِ】.",
+      "answer": "اسم مجرور بإلى، وعلامة جره الكسرة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-092",
+      "question": "أعرب الكلمة المحددة في الجملة: حضرَ 【الطالبُ】 مبكرًا.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الضمة الظاهرة على آخره.",
+      "points": 200
+    },
+    {
+      "id": "IR-093",
+      "question": "أعرب الكلمة المحددة في الجملة: لن 【يهملَ】 المجتهدُ واجبَه.",
+      "answer": "فعل مضارع منصوب بلن، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-094",
+      "question": "أعرب الكلمة المحددة في الجملة: أعجبني 【الخطابُ】 المؤثرُ.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الضمة الظاهرة؛ والياء في «أعجبني» مفعول به.",
+      "points": 400
+    },
+    {
+      "id": "IR-095",
+      "question": "أعرب الكلمة المحددة في الجملة: لم 【يتأخرْ】 الموظفُ.",
+      "answer": "فعل مضارع مجزوم بلم، وعلامة جزمه السكون الظاهر.",
+      "points": 200
+    },
+    {
+      "id": "IR-096",
+      "question": "أعرب الكلمة المحددة في الجملة: الطالبُ 【الذي】 فازَ مجتهدٌ.",
+      "answer": "اسم موصول مبني على السكون في محل رفع نعت للطالب، وجملة «فاز» صلة الموصول لا محل لها من الإعراب.",
+      "points": 600
+    },
+    {
+      "id": "IR-097",
+      "question": "أعرب الكلمة المحددة في الجملة: زرعتُ خمسَ 【شجراتٍ】.",
+      "answer": "مضاف إليه مجرور، وعلامة جره الكسرة الظاهرة؛ والمضاف هو «خمسَ».",
+      "points": 400
+    },
+    {
+      "id": "IR-098",
+      "question": "أعرب الكلمة المحددة في الجملة: جاءَ 【أبوك】 مبكرًا.",
+      "answer": "فاعل مرفوع، وعلامة رفعه الواو لأنه من الأسماء الخمسة؛ وهو مضاف والكاف ضمير في محل جر مضاف إليه.",
+      "points": 400
+    },
+    {
+      "id": "IR-099",
+      "question": "أعرب الكلمة المحددة في الجملة: شاهدتُ فيلمًا 【ممتعًا】.",
+      "answer": "نعت منصوب، وعلامة نصبه الفتحة الظاهرة.",
+      "points": 200
+    },
+    {
+      "id": "IR-100",
+      "question": "أعرب الكلمة المحددة في الجملة: ما أهملتُ واجبي 【قطُّ】.",
+      "answer": "ظرف زمان مبني على الضم في محل نصب، يفيد استغراق الزمن الماضي في سياق النفي.",
+      "points": 600
+    }
+  ]
+}

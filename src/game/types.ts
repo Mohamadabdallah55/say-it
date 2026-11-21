@@ -10,7 +10,7 @@ export type GamePhase =
   | 'FINAL';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
-export type PointValue = 200 | 400 | 600;
+export type PointValue = 200 | 300 | 400 | 500 | 600;
 export type AgeGroup = 'kids_8_12' | 'teens_13_16' | 'adults' | 'mixed';
 export type CardStatus = 'approved' | 'needs_review' | 'rejected';
 export type ClientRole = 'host' | 'projector' | 'buzzer';
@@ -57,12 +57,15 @@ export type CategoryIconKey =
   | 'jordan_logos'
   | 'world_cup_2026';
 
+export type QuestionImageDisplay = 'before_reveal' | 'after_reveal';
+
 export interface PageRange {
   startPage: number;
   endPage: number;
 }
 
 export interface DeckCategory {
+  availableDifficulties?: Difficulty[];
   topicCoverage?: string[];
   coveredSubtopics?: string[];
   pageRange?: PageRange;
@@ -119,6 +122,7 @@ export interface QuizQuestion {
   points: PointValue;
   questionType: QuestionType;
   prompt: string;
+  startingLetter?: string;
   answer: string;
   acceptableAnswers?: string[];
   options?: string[];
@@ -132,6 +136,11 @@ export interface QuizQuestion {
   imageCaption?: string;
   beforeImageUrls?: string[];
   afterImageUrl?: string;
+  imageDisplay?: QuestionImageDisplay;
+  imageSourceUrl?: string;
+  answerImageUrl?: string;
+  audioUrl?: string;
+  answerAudioUrl?: string;
   timeLimitSeconds?: number;
   subtopic?: string;
   teamIndex?: number;
@@ -388,6 +397,7 @@ export interface PreflightResult {
 export interface RoomState {
   playedProphetQuestionIds?: string[];
   playedRotatingQuestionIds?: Record<string, string[]>;
+  playedCuratedQuestionIds?: string[];
   libraryId?: string;
   lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
@@ -430,6 +440,7 @@ export interface SanitizedActiveRound {
   points: PointValue;
   questionType: QuestionType;
   prompt: string;
+  startingLetter?: string;
   options?: string[];
   orderItems?: string[];
   hint?: string;
@@ -441,6 +452,11 @@ export interface SanitizedActiveRound {
   imageCaption?: string;
   beforeImageUrls?: string[];
   afterImageUrl?: string;
+  imageDisplay?: QuestionImageDisplay;
+  imageSourceUrl?: string;
+  answerImageUrl?: string;
+  audioUrl?: string;
+  answerAudioUrl?: string;
   sourceRef?: string;
   pageNumber?: number;
   basePoints: PointValue;

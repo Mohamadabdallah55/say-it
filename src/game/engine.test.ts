@@ -801,7 +801,7 @@ test('quick classic correction transfers only base points and preserves the next
 test('curated category picker allows 1 to 8 categories without forcing the 5 starter categories', async () => {
   const { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories } = await import('./starterDecks');
   const { PROPHET_STORIES_CATEGORY } = await import('./prophetStories');
-  const { PROPHET_STORIES_QUESTIONS } = await import('../../server/prophetStories');
+  const { SERVER_CURATED_QUESTIONS } = await import('../../server/curatedQuestionBanks');
 
   // 0 categories must be blocked cleanly (never silently forcing 5 starter categories)
   const emptyDeck = buildBoardDeckFromCategories([]);
@@ -853,11 +853,10 @@ test('curated category picker allows 1 to 8 categories without forcing the 5 sta
     true,
   );
 
-  // All 8 curated categories work cleanly end-to-end
-  const allEightIds = ALL_CURATED_CATEGORIES.map((c) => c.id);
-  assert.equal(allEightIds.length, 8);
-  const eightDeck = buildBoardDeckFromCategories(allEightIds, undefined, PROPHET_STORIES_QUESTIONS);
-  assert.equal(eightDeck.categories.length, 8);
+  const allIds = ALL_CURATED_CATEGORIES.map((c) => c.id);
+  const eightDeck = buildBoardDeckFromCategories(allIds, undefined, SERVER_CURATED_QUESTIONS);
+  const allEightIds = allIds.slice(0, 8);
+  assert.deepEqual(eightDeck.categories.map((category) => category.id), allEightIds);
   assert.equal(
     runBoardPreflightCheck({
       deck: eightDeck,
