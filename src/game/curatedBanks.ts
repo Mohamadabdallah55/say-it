@@ -1,3 +1,5 @@
+import { PALESTINIAN_PROVERBS_CATEGORY, PALESTINIAN_PROVERBS_COUNT } from './palestinianProverbs';
+import { VISUAL_MEMORY_CATEGORY, VISUAL_MEMORY_PLAYABLE_COUNT } from './visualMemory';
 import { GUESS_PRICE_CATEGORY, GUESS_PRICE_COUNT } from './guessPrice';
 import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
 import { RASHIDUN_CATEGORY, RASHIDUN_COUNT } from './rashidun';
@@ -250,6 +252,8 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   PROPHET_STORIES_CATEGORY.id,
   RASHIDUN_CATEGORY.id,
   JORDAN_BRANDS_CATEGORY.id,
+  PALESTINIAN_PROVERBS_CATEGORY.id,
+  VISUAL_MEMORY_CATEGORY.id,
   JUZ_AMMA_CATEGORY.id,
   JUZ_TABARAK_CATEGORY.id,
   EL_CLASICO_CATEGORY.id,
@@ -273,6 +277,8 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: RASHIDUN_CATEGORY, questionCount: RASHIDUN_COUNT },
   { category: JORDAN_BRANDS_CATEGORY, questionCount: 76 },
   { category: WORLD_CUP_2026_CATEGORY, questionCount: WORLD_CUP_2026_COUNT },
+  { category: PALESTINIAN_PROVERBS_CATEGORY, questionCount: PALESTINIAN_PROVERBS_COUNT },
+  { category: VISUAL_MEMORY_CATEGORY, questionCount: VISUAL_MEMORY_PLAYABLE_COUNT },
   { category: FLAGS_CATEGORY, questionCount: 75 },
   { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 50 },
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },

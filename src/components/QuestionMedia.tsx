@@ -111,7 +111,9 @@ export function QuestionMedia({
   return (
     <>
       <figure
-        className={`question-media-figure mx-auto mb-3 w-full flex flex-col items-center ${wide && !compact ? 'max-w-3xl' : 'max-w-xl'}`}
+        className={`question-media-figure mx-auto mb-3 w-full ${
+          compact ? 'max-w-lg' : wide ? 'max-w-3xl' : 'max-w-2xl'
+        } flex flex-col items-center`}
         data-obscured={obscured ? 'true' : 'false'}
       >
         {obscured ? (
@@ -141,7 +143,7 @@ export function QuestionMedia({
             type="button"
             onClick={() => setZoomed(true)}
             aria-label={`تكبير الصورة: ${altText}`}
-            className={`group relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} shadow-[0_4px_0_#1F112E] transition hover:-translate-y-0.5 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[#63349B] ${
+            className={`group relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} shadow-[0_4px_0_#1F112E] transition hover:-translate-y-0.5 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[#63349B] flex flex-col items-center gap-1.5 ${
               compact ? 'p-1.5' : 'p-2.5'
             }`}
           >
@@ -155,7 +157,7 @@ export function QuestionMedia({
               alt={altText}
               className={imgClasses}
             />
-            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#FFE047] px-2 py-0.5 text-[11px] font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
+            <span className="inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#FFE047] px-2.5 py-0.5 text-[11px] font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
               <ZoomIn className="w-3.5 h-3.5" />
               <span>اضغط للتكبير</span>
             </span>

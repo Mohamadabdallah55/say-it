@@ -62,6 +62,9 @@ export function reserveCuratedQuestions(room: RoomState) {
   if (!room.categories.some(category => categoryIds.has(category.id))) return;
 
   const boardIds = new Set(room.boardTiles.map(tile => tile.questionId));
+  const usedMemorySceneIds = new Set(
+    room.questionPool.filter(q => boardIds.has(q.id)).flatMap(q => q.memorySceneId ?? []),
+  );
   const backupCounts = new Map<string, number>();
   const allowSwap = room.settings.lifelinesEnabled && (room.settings.cards?.includes('swap_question') ?? true);
   room.questionPool = room.questionPool.flatMap(question => {
@@ -69,6 +72,8 @@ export function reserveCuratedQuestions(room: RoomState) {
     const key = `${question.categoryId}:${question.points}`;
     const count = backupCounts.get(key) ?? 0;
     if (!allowSwap || count >= room.teams.length) return [];
+    if (question.memorySceneId && usedMemorySceneIds.has(question.memorySceneId)) return [];
+    if (question.memorySceneId) usedMemorySceneIds.add(question.memorySceneId);
     backupCounts.set(key, count + 1);
     return [{ ...question, isBackup: true }];
   });

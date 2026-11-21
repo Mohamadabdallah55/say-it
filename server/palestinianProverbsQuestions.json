@@ -1,0 +1,1420 @@
+{
+  "category_id": "cat_palestinian_proverbs",
+  "title": "تركيب أمثال فلسطينية — 100 سؤال بصور فعلية",
+  "category": "تركيب أمثال فلسطينية",
+  "question_count": 100,
+  "source_of_proverb_text": "https://info.wafa.ps/pages/details/29759",
+  "questions": [
+    {
+      "id": "PAL-001",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ابعد عن الشر وغنّي له",
+      "hint": "الابتعاد عن المتاعب",
+      "points": 200,
+      "icons": [
+        "😈",
+        "↔",
+        "🎤"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-001_dc71dcbf.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-002",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ابن الفار حفّار وابن الوزّ عوّام",
+      "hint": "الطباع الموروثة",
+      "points": 200,
+      "icons": [
+        "🐭",
+        "⛏",
+        "🦆",
+        "🌊"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-002_15ba8f8c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-003",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اذكر الكلب وحضّر له العصا",
+      "hint": "ذكر أحدهم فيأتي",
+      "points": 600,
+      "icons": [
+        "🐕",
+        "🗣",
+        "🪵"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-003_06f038e7.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-004",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اسأل عن الرفيق قبل الطريق",
+      "hint": "اختيار الرفقة",
+      "points": 200,
+      "icons": [
+        "👥",
+        "❓",
+        "🛣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-004_5576cf9a.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-005",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اسأل عن الجار قبل الدار",
+      "hint": "حسن الجوار",
+      "points": 400,
+      "icons": [
+        "🧑",
+        "❓",
+        "🏠"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-005_b5bdf629.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-006",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اسأل مجرّب ولا تسأل طبيب",
+      "hint": "الخبرة العملية",
+      "points": 200,
+      "icons": [
+        "👴",
+        "❓",
+        "🩺"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-006_10cf07fc.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-007",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "أصابع إيدك مش زي بعضها",
+      "hint": "اختلاف الناس",
+      "points": 400,
+      "icons": [
+        "✋",
+        "≠",
+        "☝"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-007_114a0bdc.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-008",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "أطعم الفم تستحي العين",
+      "hint": "الإكرام",
+      "points": 600,
+      "icons": [
+        "🥖",
+        "👄",
+        "👁"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-008_de83ff91.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-009",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اعطِ الخبز لخبّازه ولو أكل نصّه",
+      "hint": "إعطاء العمل للخبير",
+      "points": 600,
+      "icons": [
+        "🍞",
+        "👨‍🍳",
+        "½"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-009_85d0c890.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-010",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اعمل معروف وارمِ في البحر",
+      "hint": "الإحسان دون مقابل",
+      "points": 600,
+      "icons": [
+        "🤝",
+        "➡",
+        "🌊"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-010_e6ed37a4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-011",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اقلب الجرة على ثمّها تطلع البنت لأمها",
+      "hint": "الشبه بالأهل",
+      "points": 200,
+      "icons": [
+        "🏺",
+        "🔃",
+        "👧",
+        "👩"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-011_b0227050.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-012",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الإسكافي حافي والخياط عريان",
+      "hint": "صاحب المهنة المحروم",
+      "points": 200,
+      "icons": [
+        "👞",
+        "🦶",
+        "🪡",
+        "👕"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-012_913e45fd.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-013",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "البعيد عن العين بعيد عن القلب",
+      "hint": "البعد والنسيان",
+      "points": 400,
+      "icons": [
+        "👀",
+        "📏",
+        "💔"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-013_fe135a0e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-014",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الدهر يومان يوم لك ويوم عليك",
+      "hint": "تقلّب الأيام",
+      "points": 600,
+      "icons": [
+        "📅",
+        "⬆",
+        "⬇"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-014_0afd4b5a.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-015",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الديك الفصيح في البيضة بيصيح",
+      "hint": "الموهبة المبكرة",
+      "points": 200,
+      "icons": [
+        "🥚",
+        "🐓",
+        "📣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-015_2809d295.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-016",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الشمس ما بتتغطى بالغربال",
+      "hint": "ظهور الحقيقة",
+      "points": 600,
+      "icons": [
+        "☀",
+        "🧺",
+        "🙈"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-016_27ab25a3.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-017",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الصديق وقت الضيق",
+      "hint": "الوفاء",
+      "points": 200,
+      "icons": [
+        "👬",
+        "⏰",
+        "😟"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-017_64b8b3d2.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-018",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الطاسة ضايعة",
+      "hint": "الفوضى",
+      "points": 600,
+      "icons": [
+        "🥣",
+        "❓"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-018_5624800a.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-019",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الطبخة لما يكثروا طباخينها بتنحرق",
+      "hint": "تعدد المتدخلين",
+      "points": 400,
+      "icons": [
+        "🧑‍🍳",
+        "🧑‍🍳",
+        "🍲",
+        "🔥"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-019_33e3aef4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-020",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الطمع ضيّع ما جمع",
+      "hint": "الجشع",
+      "points": 200,
+      "icons": [
+        "🤑",
+        "💰",
+        "💨"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-020_f7238ebd.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-021",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الطول طول نخلة والعقل عقل سخلة",
+      "hint": "المظهر والعقل",
+      "points": 400,
+      "icons": [
+        "🌴",
+        "🧠",
+        "🐐"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-021_f19859c0.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-022",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "العقل زينة الرأس",
+      "hint": "الحكمة",
+      "points": 200,
+      "icons": [
+        "🧠",
+        "💎",
+        "👤"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-022_84a87402.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-023",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "العين بصيرة واليد قصيرة",
+      "hint": "قلة الحيلة",
+      "points": 200,
+      "icons": [
+        "👁",
+        "✋",
+        "📏"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-023_f58648c1.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-024",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الغرقان بيتعلق بقشة",
+      "hint": "التعلق بأي أمل",
+      "points": 400,
+      "icons": [
+        "🌊",
+        "🙋",
+        "🌾"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-024_326c6ec8.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-025",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الفاضي بيعمل قاضي",
+      "hint": "التدخل في أمور الناس",
+      "points": 400,
+      "icons": [
+        "🛋",
+        "⚖",
+        "👨‍⚖️"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-025_3d6aa6f6.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-026",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "القرد في عين أمه غزال",
+      "hint": "محبة الأم",
+      "points": 600,
+      "icons": [
+        "🐒",
+        "👁",
+        "👩",
+        "🦌"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-026_b1118a87.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-027",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "القناعة كنز لا يفنى",
+      "hint": "الرضا",
+      "points": 400,
+      "icons": [
+        "😊",
+        "💎",
+        "🔒"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-027_8e48d481.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-028",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الكذب حبله قصير",
+      "hint": "انكشاف الكذب",
+      "points": 400,
+      "icons": [
+        "🤥",
+        "🪢",
+        "📏"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-028_35b3d6fd.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-029",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "الهدية بتروح على حصان وبترجع على جمل",
+      "hint": "رد الجميل",
+      "points": 400,
+      "icons": [
+        "🎁",
+        "🐎",
+        "↔",
+        "🐪"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-029_f83f3ca6.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-030",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اللي إيده في النار مش زي اللي بتفرج",
+      "hint": "فرق التجربة عن المشاهدة",
+      "points": 200,
+      "icons": [
+        "✋",
+        "🔥",
+        "👀"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-030_6dd7c9d5.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-031",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اللي بتلدغه الحية بيخاف من جر الحبل",
+      "hint": "الخوف من تكرار تجربة",
+      "points": 400,
+      "icons": [
+        "🐍",
+        "😰",
+        "🪢"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-031_19503720.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-032",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اللي بيسرق بيضة بيسرق جمل",
+      "hint": "بداية السلوك السيئ",
+      "points": 400,
+      "icons": [
+        "🥚",
+        "🥷",
+        "🐪"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-032_5881fa96.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-033",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اللي بيطلع من داره بينقل مقداره",
+      "hint": "ترك البيت",
+      "points": 400,
+      "icons": [
+        "🏠",
+        "🚶",
+        "🧳"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-033_7edc978f.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-034",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اللي بيلاعب القط بيصبر على خرابيشه",
+      "hint": "تحمّل النتائج",
+      "points": 200,
+      "icons": [
+        "🐈",
+        "🧶",
+        "✋"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-034_52ec26ef.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-035",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اصرف ما في الجيب يأتيك ما في الغيب",
+      "hint": "الإنفاق والرزق",
+      "points": 200,
+      "icons": [
+        "👖",
+        "💸",
+        "🎁"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-035_ac3b81e8.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-036",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اضرب عصفورين بحجر",
+      "hint": "تحقيق غرضين",
+      "points": 600,
+      "icons": [
+        "🐦",
+        "🐦",
+        "🪨"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-036_c1ace7e3.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-037",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "اطرق الحديد وهو حامي",
+      "hint": "انتهاز الفرص",
+      "points": 200,
+      "icons": [
+        "🔨",
+        "🔩",
+        "🔥"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-037_aa0e97a6.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-038",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "أصل الشر شرارة",
+      "hint": "بداية المشكلة",
+      "points": 600,
+      "icons": [
+        "😈",
+        "✨",
+        "🔥"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-038_dc79fb45.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-039",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "إن غاب القط العب يا فار",
+      "hint": "غياب الرقيب",
+      "points": 200,
+      "icons": [
+        "🐈",
+        "🚪",
+        "🐭",
+        "🎉"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-039_724812ad.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-040",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "إن كان الكلام من فضة فالسكوت من ذهب",
+      "hint": "فضل الصمت",
+      "points": 400,
+      "icons": [
+        "🗣",
+        "🥈",
+        "🤫",
+        "🥇"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-040_42280e04.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-041",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "إن كان صاحبك عسل لا تلحسه كله",
+      "hint": "حدود الصداقة",
+      "points": 600,
+      "icons": [
+        "👫",
+        "🍯",
+        "👅"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-041_93c5f65c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-042",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "أول الرقص حنجلة",
+      "hint": "البدايات الصغيرة",
+      "points": 200,
+      "icons": [
+        "💃",
+        "👣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-042_0546a360.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-043",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بعد ما شاب ودّوه الكتّاب",
+      "hint": "التأخر في التعلم",
+      "points": 600,
+      "icons": [
+        "👴",
+        "📚",
+        "🏫"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-043_8db4279f.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-044",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بكرة بيذوب الثلج وبيبين اللي تحته",
+      "hint": "كشف الحقيقة",
+      "points": 400,
+      "icons": [
+        "❄",
+        "☀",
+        "🔎"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-044_844fd3e4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-045",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بيسرق الكحل من العين",
+      "hint": "شدة الدهاء",
+      "points": 600,
+      "icons": [
+        "🥷",
+        "👁",
+        "🖌"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-045_ec6b00f6.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-046",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بيعمل من الحبة قبة",
+      "hint": "المبالغة",
+      "points": 400,
+      "icons": [
+        "🫘",
+        "🏛",
+        "⬆"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-046_e2df0b0b.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-047",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بيوديه البحر وبيرده عطشان",
+      "hint": "الخداع",
+      "points": 600,
+      "icons": [
+        "🚶",
+        "🌊",
+        "🥵"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-047_d6faf86e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-048",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بدك العنب ولا تقاتل الناطور",
+      "hint": "التركيز على الهدف",
+      "points": 600,
+      "icons": [
+        "🍇",
+        "👨‍🌾",
+        "💬"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-048_315fcfff.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-049",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "بطيختين بإيد واحدة ما بنحملوش",
+      "hint": "الجمع بين مسؤوليتين",
+      "points": 200,
+      "icons": [
+        "🍉",
+        "🍉",
+        "✋"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-049_229a6f9e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-050",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "حاميها حراميها",
+      "hint": "خيانة الأمانة",
+      "points": 600,
+      "icons": [
+        "👮",
+        "🔑",
+        "🥷"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-050_3182cb20.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-051",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "حجر من إيد الحبيب تفاحة",
+      "hint": "حسن الظن بالمحبوب",
+      "points": 600,
+      "icons": [
+        "🪨",
+        "✋",
+        "❤️",
+        "🍎"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-051_99f92568.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-052",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "حلم الجعان عيش",
+      "hint": "الاحتياج والأحلام",
+      "points": 200,
+      "icons": [
+        "😴",
+        "🥖",
+        "😋"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-052_9f46139e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-053",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "حية من تحت تبن",
+      "hint": "الخطر المستتر",
+      "points": 600,
+      "icons": [
+        "🐍",
+        "🌾",
+        "🫣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-053_f9a05112.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-054",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "حط الحصان عند الحمار بيعلمه النهيق",
+      "hint": "تأثير الصحبة",
+      "points": 200,
+      "icons": [
+        "🐎",
+        "🐴",
+        "🗣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-054_1f847bf8.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-055",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "خزين الصيف بينفع في الشتاء",
+      "hint": "الادخار",
+      "points": 400,
+      "icons": [
+        "☀",
+        "📦",
+        "❄"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-055_a71567df.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-056",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "عين الحسود فيها عود",
+      "hint": "الحسد",
+      "points": 400,
+      "icons": [
+        "👁",
+        "😒",
+        "🪵"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-056_9f95bfae.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-057",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "رجعت حليمة لعادتها القديمة",
+      "hint": "تكرار العادة",
+      "points": 200,
+      "icons": [
+        "👩",
+        "🔄",
+        "⏳"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-057_3eb60606.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-058",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "زاد الطين بلّة",
+      "hint": "زيادة التعقيد",
+      "points": 200,
+      "icons": [
+        "🧱",
+        "💦",
+        "⬆"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-058_a297df87.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-059",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "زي الأطرش بالزفة",
+      "hint": "عدم الفهم",
+      "points": 400,
+      "icons": [
+        "🙉",
+        "🥁",
+        "🎉"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-059_3d5dd9b5.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-060",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "زي مسمار جحا",
+      "hint": "الحجج والتمسك",
+      "points": 200,
+      "icons": [
+        "👴",
+        "🔩",
+        "🏠"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-060_af5e2f3c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-061",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "زلة القدم ولا زلة اللسان",
+      "hint": "أثر الكلام",
+      "points": 200,
+      "icons": [
+        "🦶",
+        "⚠",
+        "👅"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-061_83328a03.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-062",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "زوان بلدنا ولا قمح الغريب",
+      "hint": "تفضيل القريب",
+      "points": 600,
+      "icons": [
+        "🌾",
+        "🏡",
+        "🌍"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-062_fc36fd6e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-063",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "سكّر بابك ولا تتهم جارك",
+      "hint": "الاحتياط",
+      "points": 600,
+      "icons": [
+        "🚪",
+        "🔒",
+        "🧑"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-063_aeb01e9a.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-064",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "سبع صنايع والبخت ضايع",
+      "hint": "تعدد المهارات",
+      "points": 200,
+      "icons": [
+        "7",
+        "🧰",
+        "🍀",
+        "❌"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-064_e1d2672c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-065",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "سوس الخشب منه وفيه",
+      "hint": "فساد يأتي من الداخل",
+      "points": 600,
+      "icons": [
+        "🪵",
+        "🐛",
+        "🕳"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-065_de709a44.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-066",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "شايل الدنيا على كتافه",
+      "hint": "تحمل الهموم",
+      "points": 600,
+      "icons": [
+        "🌍",
+        "💪",
+        "😓"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-066_4d096a68.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-067",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "شرارة بتحرق حارة",
+      "hint": "أثر الخطأ الصغير",
+      "points": 400,
+      "icons": [
+        "✨",
+        "🔥",
+        "🏘"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-067_b777440c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-068",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "شوكة بتخلّف وردة",
+      "hint": "الخير بعد المشقة",
+      "points": 200,
+      "icons": [
+        "🌵",
+        "➡",
+        "🌹"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-068_8bd580d4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-069",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "صام صام وأفطر على بصلة",
+      "hint": "خيبة الانتظار",
+      "points": 600,
+      "icons": [
+        "🌙",
+        "🍽",
+        "🧅"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-069_7204c54e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-070",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "صاحب وجهين كذاب",
+      "hint": "النفاق",
+      "points": 400,
+      "icons": [
+        "🎭",
+        "🤥"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-070_3cb6c5ac.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-071",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ضاع الجمل بما حمل",
+      "hint": "خسارة كل شيء",
+      "points": 600,
+      "icons": [
+        "🐪",
+        "🎒",
+        "❓"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-071_6e92123e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-072",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "طلعنا من المولد بلا حمص",
+      "hint": "الخروج بلا فائدة",
+      "points": 400,
+      "icons": [
+        "🎪",
+        "🥣",
+        "🚫"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-072_ec4bd7c9.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-073",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "طنجرة ولاقت غطاها",
+      "hint": "التوافق",
+      "points": 200,
+      "icons": [
+        "🍲",
+        "🧢",
+        "💞"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-073_27f74421.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-074",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "طير البر ما بيرافق طير البحر",
+      "hint": "اختلاف الطباع",
+      "points": 400,
+      "icons": [
+        "🐦",
+        "🏜",
+        "🐧",
+        "🌊"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-074_bee59640.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-075",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "على قد فراشك مد رجليك",
+      "hint": "العيش بحسب الإمكانات",
+      "points": 400,
+      "icons": [
+        "🛏",
+        "🦵",
+        "📏"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-075_48d069a8.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-076",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "عمر الدم ما بيصير مي",
+      "hint": "صلة الرحم",
+      "points": 400,
+      "icons": [
+        "🩸",
+        "🚫",
+        "💧"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-076_6bb7d389.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-077",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "عند البطون بتغيب الذهون",
+      "hint": "الانشغال بالجوع",
+      "points": 400,
+      "icons": [
+        "🍽",
+        "🤯",
+        "🧠"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-077_766a9404.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-078",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "عنزة ولو طارت",
+      "hint": "العناد",
+      "points": 200,
+      "icons": [
+        "🐐",
+        "🪽",
+        "😤"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-078_157837be.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-079",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "عيش ديك يوم ولا تعيش فرخة دوم",
+      "hint": "الشجاعة والعزة",
+      "points": 600,
+      "icons": [
+        "🐓",
+        "☀",
+        "🐤",
+        "♾"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-079_0b65c0ca.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-080",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "فرخ البط عوام",
+      "hint": "طبع الأبناء",
+      "points": 400,
+      "icons": [
+        "🦆",
+        "🐣",
+        "🏊"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-080_79474cb1.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-081",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "فهمها على الطاير",
+      "hint": "سرعة الفهم",
+      "points": 400,
+      "icons": [
+        "💡",
+        "🕊",
+        "💭"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-081_fd9491f4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-082",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "كل ديك على مزبلته بيصيح",
+      "hint": "التباهي في المكان",
+      "points": 400,
+      "icons": [
+        "🐓",
+        "🗑",
+        "📣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-082_1c8e8c9c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-083",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "كل عقدة وإلها حلّال",
+      "hint": "حل المشكلات",
+      "points": 600,
+      "icons": [
+        "🪢",
+        "🔓",
+        "🧠"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-083_393078fe.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-084",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "كل إناء بما فيه ينضح",
+      "hint": "ما يظهر من داخل الإنسان",
+      "points": 200,
+      "icons": [
+        "🏺",
+        "💦"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-084_99134a76.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-085",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "كثر الزن على الذان بيدوش",
+      "hint": "الإلحاح",
+      "points": 600,
+      "icons": [
+        "🐝",
+        "👂",
+        "😵"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-085_63ca8c33.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-086",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "كذب الكذبة وصدّقها",
+      "hint": "الاقتناع بالوهم",
+      "points": 400,
+      "icons": [
+        "🤥",
+        "🗣",
+        "🤔"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-086_a89cb3a5.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-087",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "مش كل اللي بيلمع ذهب",
+      "hint": "المظاهر الخادعة",
+      "points": 400,
+      "icons": [
+        "✨",
+        "🥇",
+        "🚫"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-087_a612d00e.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-088",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "مش كل غيمة بتشتي",
+      "hint": "عدم ضمان النتائج",
+      "points": 200,
+      "icons": [
+        "☁",
+        "🚫",
+        "🌧"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-088_8804b0fc.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-089",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "مش كل بيضة بتفقس",
+      "hint": "ليس كل احتمال يتحقق",
+      "points": 200,
+      "icons": [
+        "🥚",
+        "🚫",
+        "🐣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-089_fd909b66.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-090",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "مطالش العنب قال عنه حصرم",
+      "hint": "تبرير العجز",
+      "points": 600,
+      "icons": [
+        "🙋",
+        "🍇",
+        "😒"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-090_575dab37.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-091",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ما كل مدعبل جوز",
+      "hint": "خداع المظاهر",
+      "points": 600,
+      "icons": [
+        "⚪",
+        "🚫",
+        "🥜"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-091_f6dbedd2.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-092",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "مال جابته الرياح تاخذه الزوابع",
+      "hint": "سهولة ضياع المال",
+      "points": 200,
+      "icons": [
+        "💰",
+        "💨",
+        "🌪"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-092_a112f82d.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-093",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ما طار طير وارتفع إلا كما طار وقع",
+      "hint": "الغرور وعاقبته",
+      "points": 200,
+      "icons": [
+        "🐦",
+        "⬆",
+        "⬇"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-093_331149fa.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-094",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ما في طلعة إلا قبالها نزلة",
+      "hint": "تقلب الحال",
+      "points": 600,
+      "icons": [
+        "⛰",
+        "⬆",
+        "⬇"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-094_7177aa29.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-095",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ما يضيع حق ووراه مطالب",
+      "hint": "التمسك بالحقوق",
+      "points": 600,
+      "icons": [
+        "⚖",
+        "🗣",
+        "👣"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-095_42d900e7.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-096",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "ناس بتاكل جاج وناس بتقع في السياج",
+      "hint": "تفاوت الحظوظ",
+      "points": 400,
+      "icons": [
+        "🐔",
+        "🍴",
+        "👥",
+        "🚧"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-096_e55ac9a5.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-097",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "نام بكير وقوم بكير وشوف الصحة شو بتصير",
+      "hint": "العادات الصحية",
+      "points": 600,
+      "icons": [
+        "🌙",
+        "🛌",
+        "🌅",
+        "💪"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-097_69b00d47.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-098",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "نار القريب ولا جنة الغريب",
+      "hint": "الألفة والأهل",
+      "points": 200,
+      "icons": [
+        "🔥",
+        "👪",
+        "🌈",
+        "🚶"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-098_188583f2.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-099",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "نجّار وبابه مخلّع",
+      "hint": "إهمال شأن النفس",
+      "points": 400,
+      "icons": [
+        "🪚",
+        "🚪",
+        "🪵"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-099_cdf185c4.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    },
+    {
+      "id": "PAL-100",
+      "question": "ما المثل الشعبي الفلسطيني الذي تمثله الصور؟",
+      "answer": "هذا الشبل من ذاك الأسد",
+      "hint": "الشبه بالأصل",
+      "points": 600,
+      "icons": [
+        "🦁",
+        "🐾",
+        "🦁"
+      ],
+      "imageUrl": "/assets/aistudio/PAL-100_f4a4913c.png",
+      "source_url": "https://info.wafa.ps/pages/details/29759"
+    }
+  ]
+}

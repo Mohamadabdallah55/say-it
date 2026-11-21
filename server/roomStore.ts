@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import QRCode from 'qrcode';
 import { WebSocket } from 'ws';
 import {
+  advanceMemoryToQuestion,
   applyLifeline,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
@@ -15,6 +16,7 @@ import {
   reopenQuestionForCorrection,
   resumeChallengeTimer,
   revealAnswer,
+  revealRoundHint,
   sanitizeStateForRole,
   selectBoardTile,
   skipActiveQuestion,
@@ -78,6 +80,24 @@ class RoomManager {
           this.rooms[code] = endMatchEarly(room, 'deadline-' + room.matchEndsAt, now).state;
           this.broadcastRoom(code);
           changed = true;
+          continue;
+        }
+        if (
+          (room.phase === 'PLAYING' || room.phase === 'QUESTION_READY') &&
+          room.activeRound?.memoryStage === 'MEMORIZE' &&
+          room.activeRound.memorizeEndsAtMs &&
+          now >= room.activeRound.memorizeEndsAtMs
+        ) {
+          const res = advanceMemoryToQuestion(
+            room,
+            `mem-expire-${room.activeRound.roundId}`,
+            now,
+          );
+          if (res.ok) {
+            this.rooms[code] = res.state;
+            changed = true;
+            this.broadcastRoom(code);
+          }
           continue;
         }
         if (room.phase === 'PLAYING' && room.timer.running && room.timer.elapsedMs === undefined) {
@@ -401,6 +421,9 @@ class RoomManager {
       case 'SKIP_CARD_PICK':
         result = skipLifelinePick(room, actionId, now);
         break;
+      case 'SKIP_MEMORY_PREVIEW':
+        result = advanceMemoryToQuestion(room, actionId, now);
+        break;
       case 'APPLY_LIFELINE':
         result = applyLifeline(room, payload.lifeline as LifelineType, actionId, now);
         break;
@@ -424,6 +447,9 @@ class RoomManager {
         break;
       case 'TEAM_BUZZ':
         result = recordBuzzerPress(room, String(payload.teamId || ''), now);
+        break;
+      case 'REVEAL_HINT':
+        result = revealRoundHint(room, actionId, now);
         break;
       case 'REVEAL_ANSWER':
         result = revealAnswer(room, actionId, now);

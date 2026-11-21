@@ -41,6 +41,7 @@ import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
+import { VISUAL_MEMORY_CATEGORY } from '../game/visualMemory';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { ScoreCounter } from './ScoreCounter';
@@ -78,7 +79,10 @@ function renderGeometryText(text: string) {
   });
 }
 
-function getRoundCue(phase: ArenaState['phase'], correcting?: boolean) {
+function getRoundCue(phase: ArenaState['phase'], correcting?: boolean, memoryStage?: 'MEMORIZE' | 'QUESTION') {
+  if (memoryStage === 'MEMORIZE' && phase !== 'REVEAL' && phase !== 'AWARD' && phase !== 'FINAL') {
+    return [Eye, 'تأملوا المشهد البصري جيدًا'] as const;
+  }
   switch (phase) {
     case 'BOARD': return [Flag, 'اختاروا خانة من اللوحة'] as const;
     case 'LIFELINE_PICK': return [Sparkles, 'بطاقة مساعدة أو نمرّ للسؤال'] as const;
@@ -108,6 +112,7 @@ export function GameArena({
   const [shareOpen, setShareOpen] = useState(false);
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
+  const [memoryReviewVisible, setMemoryReviewVisible] = useState(true);
   const prefersReducedMotion = useReducedMotion();
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
@@ -158,10 +163,11 @@ export function GameArena({
     };
   }, [roomCode, role, token]);
 
-  // Reset multi-select when round changes
+  // Reset multi-select and memory review toggle when round changes
   const activeRoundId = state?.activeRound?.roundId;
   useEffect(() => {
     setMultiSelectedTeams([]);
+    setMemoryReviewVisible(true);
   }, [activeRoundId]);
 
   // Sound sync for commentary & last 5 seconds
@@ -260,6 +266,9 @@ export function GameArena({
         buzzerQueue: ar.buzzerQueue,
         isCorrectionMode: ar.isCorrectionMode,
         winningTeamIds: ar.winningTeamIds,
+        memoryStage: ar.memoryStage,
+        memorizeDurationSeconds: ar.memorizeDurationSeconds,
+        memorizeEndsAtMs: ar.memorizeEndsAtMs,
       };
     }
     const sr = state.activeRound as SanitizedActiveRound;
@@ -392,7 +401,33 @@ export function GameArena({
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
-  const [RoundCueIcon, roundCue] = getRoundCue(state.phase, state.activeRound?.isCorrectionMode);
+  const isMemoryRound = Boolean(
+    roundMeta?.memoryStage || roundMeta?.categoryId === VISUAL_MEMORY_CATEGORY.id,
+  );
+  const isMemorizeStage =
+    roundMeta?.memoryStage === 'MEMORIZE' &&
+    state.phase !== 'REVEAL' &&
+    state.phase !== 'AWARD' &&
+    state.phase !== 'FINAL';
+  const isMemoryQuestionStage =
+    roundMeta?.memoryStage === 'QUESTION' &&
+    state.phase !== 'REVEAL' &&
+    state.phase !== 'AWARD' &&
+    state.phase !== 'FINAL';
+  const rawMemorizeSec = roundMeta?.memorizeEndsAtMs
+    ? Math.max(0, Math.ceil((roundMeta.memorizeEndsAtMs - nowMs) / 1000))
+    : roundMeta?.memorizeDurationSeconds ?? 0;
+  const memorizeRemainingSec = isMemorizeStage
+    ? roundMeta?.memorizeDurationSeconds
+      ? Math.min(roundMeta.memorizeDurationSeconds, rawMemorizeSec)
+      : rawMemorizeSec
+    : 0;
+  const displayClockSec = isMemorizeStage ? memorizeRemainingSec : remainingSec;
+  const [RoundCueIcon, roundCue] = getRoundCue(
+    state.phase,
+    state.activeRound?.isCorrectionMode,
+    roundMeta?.memoryStage,
+  );
 
   return (
     <div
@@ -630,11 +665,17 @@ export function GameArena({
                   <div className="scene-timer justify-center">
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FAF7EE] px-4 py-1 font-mono text-base font-black tabular-nums shadow-[0_3px_0_#1F112E] ${
-                        !state.settings.countUp && remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'
+                        isMemorizeStage
+                          ? memorizeRemainingSec <= 3
+                            ? 'text-[#F05B63]'
+                            : 'text-[#0284C7]'
+                          : !state.settings.countUp && remainingSec <= 5 && state.timer.running
+                            ? 'text-[#F05B63]'
+                            : 'text-[#1F112E]'
                       }`}
                     >
-                      {String(Math.floor(remainingSec / 60)).padStart(1, '0')}:
-                      {String(remainingSec % 60).padStart(2, '0')}
+                      {String(Math.floor(displayClockSec / 60)).padStart(1, '0')}:
+                      {String(displayClockSec % 60).padStart(2, '0')}
                     </span>
                   </div>
                 )}
@@ -704,149 +745,198 @@ export function GameArena({
                   </div>
 
                   {/* Question Prompt Centerpiece */}
-                  <div className="question-face">
-                    {roundMeta.startingLetter && (
-                      <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">
-                        <span>يبدأ الجواب بحرف</span>
-                        <strong className="grid size-12 place-items-center rounded-xl border-2 border-current bg-[#FFE047] text-2xl">
-                          {roundMeta.startingLetter}
-                        </strong>
-                      </div>
-                    )}
-                    {roundMeta.imageDisplay !== 'after_reveal' && !(isFirstNameRound && state.phase === 'REVEAL') && getQuestionImageSrc(roundMeta) ? (
-                      <QuestionMedia
-                        imageSrc={getQuestionImageSrc(roundMeta)}
-                        caption={roundMeta.imageCaption}
-                        pageNumber={roundMeta.pageNumber}
-                        compact={state.phase === 'REVEAL'}
-                        wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id}
-                        obscured={
-                          roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
-                          state.phase !== 'REVEAL'
-                        }
-                      />
-                    ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 2 ? (
-                      <div
-                        data-testid="wc26-matchup-flags"
-                        className={`flex items-center justify-center gap-3 md:gap-5 ${
-                          state.phase === 'REVEAL' ? 'mb-1.5' : 'mb-4'
-                        } transition-all`}
-                      >
-                        <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
-                          <img
-                            src={roundMeta.beforeImageUrls[0]}
-                            alt="علم المنتخب الأول"
-                            className={`rounded-lg object-contain bg-[#F8FAFC] ${
-                              state.phase === 'REVEAL'
-                                ? 'h-10 w-16 md:h-12 md:w-20'
-                                : 'h-14 w-24 md:h-20 md:w-32'
-                            }`}
-                            loading="eager"
-                          />
-                        </div>
-                        <span
-                          dir="ltr"
-                          className={`inline-flex items-center justify-center rounded-full border-2 border-[#1F112E] bg-[#FFE047] font-display font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] shrink-0 ${
-                            state.phase === 'REVEAL'
-                              ? 'h-8 w-8 text-xs'
-                              : 'h-10 w-10 md:h-11 md:w-11 text-sm md:text-base'
-                          }`}
-                        >
-                          VS
-                        </span>
-                        <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
-                          <img
-                            src={roundMeta.beforeImageUrls[1]}
-                            alt="علم المنتخب الثاني"
-                            className={`rounded-lg object-contain bg-[#F8FAFC] ${
-                              state.phase === 'REVEAL'
-                                ? 'h-10 w-16 md:h-12 md:w-20'
-                                : 'h-14 w-24 md:h-20 md:w-32'
-                            }`}
-                            loading="eager"
-                          />
-                        </div>
-                      </div>
-                    ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 1 ? (
-                      <QuestionMedia
-                        imageSrc={roundMeta.beforeImageUrls[0]}
-                        compact={state.phase === 'REVEAL'}
-                      />
-                    ) : null}
-                    <p
-                      className="font-display font-black text-[#1F112E] whitespace-pre-line"
-                      lang={isEnglishRound ? 'en' : undefined}
-                      dir={isEnglishRound ? 'ltr' : undefined}
+                  {isMemorizeStage ? (
+                    <div
+                      dir="rtl"
+                      data-testid="visual-memory-memorize-stage"
+                      className="space-y-3 text-center"
                     >
-                      {grammarPrompt ? (
-                        <>
-                          {grammarPrompt[1]}
-                          <mark className="rounded-md bg-[#FFE047] text-inherit">【{grammarPrompt[2]}】</mark>
-                          {grammarPrompt[3]}
-                        </>
-                      ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
-                    </p>
-                    {roundMeta.audioUrl && state.phase !== 'REVEAL' && (
-                      <audio
-                        key={roundMeta.questionId}
-                        className="mx-auto mt-4 w-full max-w-md"
-                        src={roundMeta.audioUrl}
-                        controls
-                        preload="none"
-                        aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
-                      />
-                    )}
-
-                    {/* Multiple Choice Options */}
-                    {roundMeta.questionType === 'multiple_choice' && roundMeta.options && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 text-right">
-                        {roundMeta.options.map((opt, idx) => {
-                          const letter = ['أ', 'ب', 'ج', 'د'][idx] || String(idx + 1);
-                          const isCorrectOption =
-                            state.phase === 'REVEAL' &&
-                            (roundMeta.correctOptionIndex === idx || roundMeta.answer === opt);
-                          return (
-                            <div
-                              key={idx}
-                              className={`border-2 border-[#1F112E] rounded-xl px-4 py-3 font-display font-black text-base md:text-lg flex items-center gap-3 ${
-                                isCorrectOption
-                                  ? 'bg-[#127C56] text-white'
-                                  : 'bg-white text-[#1F112E]'
-                              }`}
-                            >
-                              <span className="w-8 h-8 rounded-lg bg-[#FFE047] text-[#1F112E] border-2 border-[#1F112E] flex items-center justify-center text-sm shrink-0">
-                                {letter}
-                              </span>
-                              <span>{opt}</span>
-                            </div>
-                          );
-                        })}
+                      <div className="flex flex-wrap items-center justify-center gap-2.5">
+                        <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 rounded-xl border-2 border-[#1F112E] bg-[#E0F2FE] px-4 py-1.5 text-sm md:text-base font-black text-[#0369A1] shadow-[0_2px_0_#1F112E] leading-snug">
+                          <Eye className="w-4 h-4 shrink-0" />
+                          <span>تأمل المشهد جيدًا — سيختفي خلال</span>
+                          <span
+                            data-testid="visual-memory-countdown"
+                            className="font-mono text-base md:text-lg tabular-nums text-[#1F112E]"
+                          >
+                            {memorizeRemainingSec}
+                          </span>
+                          <span>ثوانٍ</span>
+                        </span>
                       </div>
-                    )}
 
-                    {/* Order Steps Items */}
-                    {roundMeta.questionType === 'order_steps' &&
-                      !roundMeta.orderPlay &&
-                      roundMeta.orderItems && (
-                        <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
-                          {roundMeta.orderItems.map((stepText, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-white border-2 border-[#1F112E] px-4 py-2 rounded-xl font-bold text-sm"
-                            >
-                              • {stepText}
-                            </span>
-                          ))}
+                      {getQuestionImageSrc(roundMeta) && (
+                        <div className="flex justify-center">
+                          <div
+                            data-testid="visual-memory-scene"
+                            className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
+                          >
+                            <img
+                              src={getQuestionImageSrc(roundMeta)}
+                              alt="مشهد تحدّي الذاكرة البصرية"
+                              draggable={false}
+                              loading="eager"
+                              className="block max-w-full max-h-[54vh] w-auto h-auto object-contain select-none"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="question-face">
+                      {roundMeta.startingLetter && (
+                        <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">
+                          <span>يبدأ الجواب بحرف</span>
+                          <strong className="grid size-12 place-items-center rounded-xl border-2 border-current bg-[#FFE047] text-2xl">
+                            {roundMeta.startingLetter}
+                          </strong>
+                        </div>
+                      )}
+                      {!isMemoryRound && roundMeta.imageDisplay !== 'after_reveal' && !(isFirstNameRound && state.phase === 'REVEAL') && getQuestionImageSrc(roundMeta) ? (
+                        <QuestionMedia
+                          imageSrc={getQuestionImageSrc(roundMeta)}
+                          caption={roundMeta.imageCaption}
+                          pageNumber={roundMeta.pageNumber}
+                          compact={state.phase === 'REVEAL'}
+                          wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id}
+                          obscured={
+                            roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
+                            state.phase !== 'REVEAL'
+                          }
+                        />
+                      ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 2 ? (
+                        <div
+                          data-testid="wc26-matchup-flags"
+                          className={`flex items-center justify-center gap-3 md:gap-5 ${
+                            state.phase === 'REVEAL' ? 'mb-1.5' : 'mb-4'
+                          } transition-all`}
+                        >
+                          <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
+                            <img
+                              src={roundMeta.beforeImageUrls[0]}
+                              alt="علم المنتخب الأول"
+                              className={`rounded-lg object-contain bg-[#F8FAFC] ${
+                                state.phase === 'REVEAL'
+                                  ? 'h-10 w-16 md:h-12 md:w-20'
+                                  : 'h-14 w-24 md:h-20 md:w-32'
+                              }`}
+                              loading="eager"
+                            />
+                          </div>
+                          <span
+                            dir="ltr"
+                            className={`inline-flex items-center justify-center rounded-full border-2 border-[#1F112E] bg-[#FFE047] font-display font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] shrink-0 ${
+                              state.phase === 'REVEAL'
+                                ? 'h-8 w-8 text-xs'
+                                : 'h-10 w-10 md:h-11 md:w-11 text-sm md:text-base'
+                            }`}
+                          >
+                            VS
+                          </span>
+                          <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
+                            <img
+                              src={roundMeta.beforeImageUrls[1]}
+                              alt="علم المنتخب الثاني"
+                              className={`rounded-lg object-contain bg-[#F8FAFC] ${
+                                state.phase === 'REVEAL'
+                                  ? 'h-10 w-16 md:h-12 md:w-20'
+                                  : 'h-14 w-24 md:h-20 md:w-32'
+                              }`}
+                              loading="eager"
+                            />
+                          </div>
+                        </div>
+                      ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 1 ? (
+                        <QuestionMedia
+                          imageSrc={roundMeta.beforeImageUrls[0]}
+                          compact={state.phase === 'REVEAL'}
+                        />
+                      ) : null}
+                      {isMemoryQuestionStage && (
+                        <div className="mb-3 flex justify-center">
+                          <div
+                            data-testid="visual-memory-question-stage"
+                            className="inline-flex items-center gap-2 rounded-xl border-2 border-[#1F112E] bg-[#EDE7F6] px-4 py-1 text-xs md:text-sm font-black text-[#5C2E91] shadow-[0_2px_0_#1F112E]"
+                          >
+                            <span>اختفى المشهد — أجب من ذاكرتك</span>
+                          </div>
+                        </div>
+                      )}
+                      <p
+                        className="font-display font-black text-[#1F112E] whitespace-pre-line"
+                        lang={isEnglishRound ? 'en' : undefined}
+                        dir={isEnglishRound ? 'ltr' : 'rtl'}
+                      >
+                        {grammarPrompt ? (
+                          <>
+                            {grammarPrompt[1]}
+                            <mark className="rounded-md bg-[#FFE047] text-inherit">【{grammarPrompt[2]}】</mark>
+                            {grammarPrompt[3]}
+                          </>
+                        ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
+                      </p>
+                      {roundMeta.audioUrl && state.phase !== 'REVEAL' && (
+                        <audio
+                          key={roundMeta.questionId}
+                          className="mx-auto mt-4 w-full max-w-md"
+                          src={roundMeta.audioUrl}
+                          controls
+                          preload="none"
+                          aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
+                        />
+                      )}
+
+                      {/* Multiple Choice Options */}
+                      {roundMeta.questionType === 'multiple_choice' && roundMeta.options && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 text-right">
+                          {roundMeta.options.map((opt, idx) => {
+                            const letter = ['أ', 'ب', 'ج', 'د'][idx] || String(idx + 1);
+                            const isCorrectOption =
+                              state.phase === 'REVEAL' &&
+                              (roundMeta.correctOptionIndex === idx || roundMeta.answer === opt);
+                            return (
+                              <div
+                                key={idx}
+                                className={`border-2 border-[#1F112E] rounded-xl px-4 py-3 font-display font-black text-base md:text-lg flex items-center gap-3 ${
+                                  isCorrectOption
+                                    ? 'bg-[#127C56] text-white'
+                                    : 'bg-white text-[#1F112E]'
+                                }`}
+                              >
+                                <span className="w-8 h-8 rounded-lg bg-[#FFE047] text-[#1F112E] border-2 border-[#1F112E] flex items-center justify-center text-sm shrink-0">
+                                  {letter}
+                                </span>
+                                <span>{opt}</span>
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
 
-                    {/* Optional Pantomime Reminder */}
-                    {roundMeta.questionType === 'pantomime_optional' && state.phase !== 'REVEAL' && (
-                      <div className="mt-4 inline-flex items-center gap-2 bg-[#EDE7F6] border border-[#7042A1] px-4 py-1.5 rounded-xl text-xs font-bold text-[#7042A1]">
-                        <span>نشاط تمثيل صامت اختياري — يمكن تبديله ببطاقة شنّص</span>
-                      </div>
-                    )}
-                  </div>
+                      {/* Order Steps Items */}
+                      {roundMeta.questionType === 'order_steps' &&
+                        !roundMeta.orderPlay &&
+                        roundMeta.orderItems && (
+                          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
+                            {roundMeta.orderItems.map((stepText, idx) => (
+                              <span
+                                key={idx}
+                                className="bg-white border-2 border-[#1F112E] px-4 py-2 rounded-xl font-bold text-sm"
+                              >
+                                • {stepText}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                      {/* Optional Pantomime Reminder */}
+                      {roundMeta.questionType === 'pantomime_optional' && state.phase !== 'REVEAL' && (
+                        <div className="mt-4 inline-flex items-center gap-2 bg-[#EDE7F6] border border-[#7042A1] px-4 py-1.5 rounded-xl text-xs font-bold text-[#7042A1]">
+                          <span>نشاط تمثيل صامت اختياري — يمكن تبديله ببطاقة شنّص</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Interactive Order Attempt */}
                   {roundMeta.orderPlay && state.phase !== 'REVEAL' && roundMeta.orderItems && (
@@ -861,13 +951,13 @@ export function GameArena({
                     />
                   )}
 
-                  {/* Revealed ألو (Hint / Call a Friend) Banner */}
+                  {/* Revealed Hint Banner (only shown when requested) */}
                   {roundMeta.hintRevealed && (
                     <div className="bg-[#FFF2CD] border-2 border-[#1F112E] rounded-2xl px-4 py-3 flex items-center justify-center gap-2.5 font-bold text-sm text-[#1F112E]">
                       <HelpCircle className="w-5 h-5 text-[#63349B] shrink-0" />
                       <span>
                         {roundMeta.hint
-                          ? `بطاقة ألو (تلميح): ${roundMeta.hint}`
+                          ? `${roundMeta.activeLifeline === 'hint' || (state.settings.lifelinesEnabled && (!state.settings.cards || state.settings.cards.includes('hint'))) ? 'بطاقة ألو (تلميح)' : 'تلميح'}: ${roundMeta.hint}`
                           : 'بطاقة ألو مفعّلة — يمكنك الاتصال بصديق أو طلب مساعدة لمدة 30 ثانية!'}
                       </span>
                     </div>
@@ -929,7 +1019,7 @@ export function GameArena({
                       <p
                         className="font-display font-black"
                         lang={isEnglishRound ? 'en' : undefined}
-                        dir={isEnglishRound ? 'ltr' : undefined}
+                        dir={isEnglishRound ? 'ltr' : 'rtl'}
                         data-grammar={isGrammarRound || undefined}
                         data-multiline={roundMeta.answer.includes('\n') ? true : undefined}
                       >
@@ -977,7 +1067,7 @@ export function GameArena({
                       {(roundMeta.explanation || roundMeta.pageNumber) && (
                         <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
                           {roundMeta.explanation && (
-                            <p className="text-xs md:text-sm font-medium bg-black/15 rounded-xl px-4 py-1.5 text-white/95">
+                            <p dir="rtl" className="text-xs md:text-sm font-medium bg-black/15 rounded-xl px-4 py-1.5 text-white/95">
                               {isGeometryRound ? renderGeometryText(roundMeta.explanation) : roundMeta.explanation}
                             </p>
                           )}
@@ -991,8 +1081,60 @@ export function GameArena({
                     </motion.div>
                   )}
 
-                  {/* HOST CONTROLS INSIDE QUESTION CARD: شنّص & ألو + كشف الإجابة (matches Screenshots 2 & 4) */}
-                  {isHost && state.phase !== 'REVEAL' && (
+                  {/* REVEAL (Visual Memory): Re-display clean full scene image for verification */}
+                  {state.phase === 'REVEAL' && isMemoryRound && getQuestionImageSrc(roundMeta) && (
+                    <div className="space-y-2.5 text-center pt-1" dir="rtl">
+                      <div className="flex items-center justify-center">
+                        <button
+                          type="button"
+                          onClick={() => setMemoryReviewVisible((v) => !v)}
+                          className="inline-flex items-center gap-2 rounded-xl border-2 border-[#1F112E] bg-[#E0F2FE] hover:bg-[#BAE6FD] px-4 py-1.5 text-xs md:text-sm font-black text-[#0369A1] shadow-[0_2px_0_#1F112E] cursor-pointer"
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>
+                            {memoryReviewVisible
+                              ? 'إخفاء المشهد الكامل'
+                              : 'إعادة المشهد للمراجعة'}
+                          </span>
+                        </button>
+                      </div>
+                      {memoryReviewVisible && (
+                        <div className="flex justify-center">
+                          <div
+                            data-testid="visual-memory-review-scene"
+                            className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
+                          >
+                            <img
+                              src={getQuestionImageSrc(roundMeta)}
+                              alt="مراجعة المشهد الكامل"
+                              draggable={false}
+                              className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* HOST CONTROLS INSIDE QUESTION CARD */}
+                  {isHost && state.phase !== 'REVEAL' && isMemorizeStage && (
+                    <div className="flex flex-col items-center gap-3 pt-1">
+                      <button
+                        type="button"
+                        data-testid="visual-memory-skip-preview"
+                        onClick={() => {
+                          soundFX.playClick();
+                          sendCommand('SKIP_MEMORY_PREVIEW');
+                        }}
+                        className="game-btn-3d bg-gradient-to-b from-[#0EA5E9] to-[#0284C7] text-white border-[2.5px] border-[#1F112E] px-8 py-3 rounded-2xl font-display font-black text-lg shadow-[0_5px_0_#1F112E] flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <SkipForward className="w-5 h-5" />
+                        <span>إظهار السؤال الآن</span>
+                      </button>
+                    </div>
+                  )}
+
+                  {isHost && state.phase !== 'REVEAL' && !isMemorizeStage && (
                     <div className="flex flex-col items-center gap-3 pt-1">
                       {/* In-Question Cards: شنّص (swap_question) & ألو (hint) */}
                       {state.settings.lifelinesEnabled &&
@@ -1048,6 +1190,24 @@ export function GameArena({
                               بطاقات تُستخدم مرة واحدة
                             </span>
                           </div>
+                        )}
+
+                      {/* Optional on-demand hint button when ألو lifeline is not in active cards */}
+                      {roundMeta.hint &&
+                        !roundMeta.hintRevealed &&
+                        (!state.settings.lifelinesEnabled ||
+                          (Boolean(state.settings.cards) && !state.settings.cards!.includes('hint'))) && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              soundFX.playClick();
+                              sendCommand('REVEAL_HINT');
+                            }}
+                            className="game-btn-3d bg-[#FFF9E9] hover:bg-[#FFF2CD] text-[#1F112E] border-2 border-[#1F112E] rounded-2xl px-4 py-2 font-display font-black text-sm shadow-[0_3px_0_#1F112E] flex items-center gap-2 cursor-pointer"
+                          >
+                            <HelpCircle className="w-4 h-4 text-[#63349B]" />
+                            <span>طلب تلميح</span>
+                          </button>
                         )}
 
                       {/* Primary Reveal CTA */}
@@ -1262,9 +1422,9 @@ export function GameArena({
 
               <button
                 type="button"
-                disabled={!isHost || !['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase)}
+                disabled={!isHost || isMemorizeStage || !['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase)}
                 onClick={() => {
-                  if (!isHost) return;
+                  if (!isHost || isMemorizeStage) return;
                   if (state.timer.running) sendCommand('PAUSE_TIMER');
                   else if (state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP')
                     sendCommand('START_TIMER');
@@ -1273,42 +1433,44 @@ export function GameArena({
                 aria-label="مؤقت السؤال"
                 className="bg-white border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-mono font-black text-sm md:text-base tabular-nums shadow-[0_2px_0_#1F112E] flex items-center gap-1.5 cursor-pointer disabled:cursor-default"
               >
-                <span className={!state.settings.countUp && remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'}>
-                  {String(Math.floor(remainingSec / 60)).padStart(1, '0')}:
-                  {String(remainingSec % 60).padStart(2, '0')}
+                <span className={isMemorizeStage ? 'text-[#0284C7]' : !state.settings.countUp && remainingSec <= 5 && state.timer.running ? 'text-[#F05B63]' : 'text-[#1F112E]'}>
+                  {String(Math.floor(displayClockSec / 60)).padStart(1, '0')}:
+                  {String(displayClockSec % 60).padStart(2, '0')}
                 </span>
               </button>
             </div>
 
             {isHost && roundMeta && ['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase) && (
 <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-                        {state.timer.running ? (
-                          <button
-                            type="button"
-                            onClick={() => sendCommand('PAUSE_TIMER')}
-                            className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Pause className="w-3.5 h-3.5" />
-                            <span>إيقاف المؤقت</span>
-                          </button>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              soundFX.playStartRound();
-                              sendCommand(
-                                state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
-                                  ? 'START_TIMER'
-                                  : 'RESUME_TIMER',
-                              );
-                            }}
-                            className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
-                          >
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                            <span>
-                              {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
-                            </span>
-                          </button>
+                        {!isMemorizeStage && (
+                          state.timer.running ? (
+                            <button
+                              type="button"
+                              onClick={() => sendCommand('PAUSE_TIMER')}
+                              className="bg-[#FFE047] border-2 border-[#1F112E] text-[#1F112E] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                            >
+                              <Pause className="w-3.5 h-3.5" />
+                              <span>إيقاف المؤقت</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                soundFX.playStartRound();
+                                sendCommand(
+                                  state.phase === 'QUESTION_READY' || state.phase === 'TIME_UP'
+                                    ? 'START_TIMER'
+                                    : 'RESUME_TIMER',
+                                );
+                              }}
+                              className="bg-[#E8F8F2] border-2 border-[#1F112E] text-[#127C56] px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 cursor-pointer"
+                            >
+                              <Play className="w-3.5 h-3.5 fill-current" />
+                              <span>
+                                {state.phase === 'QUESTION_READY' ? 'ابدأ الوقت' : 'استئناف الوقت'}
+                              </span>
+                            </button>
+                          )
                         )}
 
                         <button

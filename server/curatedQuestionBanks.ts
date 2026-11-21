@@ -1,3 +1,5 @@
+import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
+import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
 import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
 import { JORDAN_BRANDS_QUESTIONS } from './jordanBrandsQuestions';
 import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
@@ -31,6 +33,8 @@ export const SERVER_CURATED_QUESTIONS = [
   ...RASHIDUN_QUESTIONS,
   ...JORDAN_BRANDS_QUESTIONS,
   ...WORLD_CUP_2026_QUESTIONS,
+  ...PALESTINIAN_PROVERBS_QUESTIONS,
+  ...VISUAL_MEMORY_QUESTIONS,
   ...FLAGS_QUESTIONS,
   ...CHAMPIONS_LEAGUE_QUESTIONS,
   ...JUZ_AMMA_QUESTIONS,
