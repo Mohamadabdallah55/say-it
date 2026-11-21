@@ -25,8 +25,6 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { PROPHET_STORIES_CATEGORY } from '../src/game/prophetStories';
-import { filterPlayedProphetQuestions, recordPlayedProphetQuestion, reserveProphetQuestions } from './prophetQuestionRotation';
 import { runBoardPreflightCheck } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
 import type {
@@ -109,18 +107,6 @@ class RoomManager {
       deck = saved;
     }
 
-    const libraryId = currentLibraryId();
-    const now = Date.now();
-    deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
-    if (params.deckId === 'curated_custom' && deck.categories.some(category => category.id === PROPHET_STORIES_CATEGORY.id)) {
-      const remaining = new Set(deck.questions
-        .filter(question => question.categoryId === PROPHET_STORIES_CATEGORY.id && question.status === 'approved')
-        .map(question => question.points));
-      if (remaining.size < 3) {
-        throw new Error('ما في أسئلة جديدة كافية بكل المستويات لفئة قصص الأنبياء. اختَر فئة ثانية أو أكمل مبارياتك المفتوحة.');
-      }
-    }
-
     if (params.settings?.cards?.includes('hint') && params.settings.cards.includes('swap_question')) throw new Error('اختر شنّص أو ألو فقط.');
     const preflight = runBoardPreflightCheck({
       deck,
@@ -151,11 +137,10 @@ class RoomManager {
       settings: { ...params.settings, countUp: true },
       selectedCategoryIds:
         params.deckId === 'curated_custom' ? undefined : params.selectedCategoryIds,
-      nowMs: now,
+      nowMs: Date.now(),
     });
 
-    state.libraryId = libraryId;
-    reserveProphetQuestions(state);
+    state.libraryId = currentLibraryId();
     this.rooms[roomCode] = state;
     persistRoomsMap(this.rooms);
     return state;
@@ -441,11 +426,10 @@ class RoomManager {
       return { ok: false, error: result.error };
     }
 
-    const nextState = recordPlayedProphetQuestion(result.state);
-    this.rooms[code] = nextState;
+    this.rooms[code] = result.state;
     persistRoomsMap(this.rooms);
     this.broadcastRoom(code);
-    return { ok: true, state: sanitizeStateForRole(nextState, 'host', now) };
+    return { ok: true, state: sanitizeStateForRole(result.state, 'host', now) };
   }
 }
 

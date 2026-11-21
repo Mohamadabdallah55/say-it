@@ -356,7 +356,6 @@ export interface PreflightResult {
 }
 
 export interface RoomState {
-  playedProphetQuestionIds?: string[];
   libraryId?: string;
   lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
