@@ -1,3 +1,4 @@
+import { PROPHET_STORIES_CATEGORY } from './prophetStories';
 import type { DeckCategory, QuizDeck, QuizQuestion } from './types';
 
 const nowIso = '2026-11-16T00:00:00.000Z';
@@ -85,6 +86,7 @@ export const EXTRA_CURATED_CATEGORIES: DeckCategory[] = [
 export const ALL_CURATED_CATEGORIES: DeckCategory[] = [
   ...STARTER_CATEGORIES,
   ...EXTRA_CURATED_CATEGORIES,
+  PROPHET_STORIES_CATEGORY,
 ];
 
 export const CURATED_QUESTIONS: QuizQuestion[] = [
@@ -513,6 +515,7 @@ export const STARTER_DEMO_DECK: QuizDeck = {
 export function buildBoardDeckFromCategories(
   categoryIds: string[],
   customTitle = 'مباراة بنك يمكن هاي المختار',
+  additionalQuestions: QuizQuestion[] = [],
 ): QuizDeck {
   const pickedCats = ALL_CURATED_CATEGORIES.filter((c) => categoryIds.includes(c.id));
   const finalCats = pickedCats.length >= 3 ? pickedCats.slice(0, 6) : STARTER_CATEGORIES;
@@ -528,6 +531,6 @@ export function buildBoardDeckFromCategories(
     createdAt: now,
     updatedAt: now,
     categories: finalCats,
-    questions: CURATED_QUESTIONS.filter((item) => catSet.has(item.categoryId)),
+    questions: [...CURATED_QUESTIONS, ...additionalQuestions].filter((item) => catSet.has(item.categoryId)),
   };
 }

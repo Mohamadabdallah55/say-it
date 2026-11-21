@@ -1,4 +1,5 @@
 import { pickCommentary } from './commentary';
+import { PROPHET_STORIES_CATEGORY } from './prophetStories';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -74,6 +75,7 @@ function findAvailableBackupQuestion(
 ): QuizQuestion | null {
   const usedIds = new Set<string>([
     currentQuestion.id,
+    ...(state.playedProphetQuestionIds ?? []),
     ...state.boardTiles.filter((t) => t.used).map((t) => t.questionId),
     ...state.boardTiles.map((t) => t.questionId),
   ]);
@@ -92,7 +94,9 @@ function findAvailableBackupQuestion(
         q.categoryId === currentQuestion.categoryId &&
         q.difficulty === currentQuestion.difficulty,
     ) ??
-    backups.find((q) => q.categoryId === currentQuestion.categoryId) ?? null
+    (currentQuestion.categoryId !== PROPHET_STORIES_CATEGORY.id
+      ? backups.find((q) => q.categoryId === currentQuestion.categoryId)
+      : undefined) ?? null
   );
 }
 
@@ -1176,7 +1180,9 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
-          subtopic: state.activeRound.question.subtopic || state.activeRound.question.sourceRef,
+          subtopic: canRevealAnswer || state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id
+            ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
+            : undefined,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,

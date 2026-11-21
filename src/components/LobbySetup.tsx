@@ -5,6 +5,7 @@ import {
   isTeamBundleDeck,
   LIFELINE_META,
   runBoardPreflightCheck,
+  normalizeArabicText,
 } from '../game/pdfValidation';
 import {
   ALL_CURATED_CATEGORIES,
@@ -17,6 +18,7 @@ import { CATEGORY_3D_ART } from '../utils/gameAssets';
 import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
+import { PROPHET_STORIES_CATEGORY, PROPHET_STORIES_COUNT } from '../game/prophetStories';
 
 interface LobbySetupProps {
   decks: QuizDeck[];
@@ -160,6 +162,7 @@ export function LobbySetup({
     return runBoardPreflightCheck({
       deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
+      serverValidatedCategoryIds: selectedDeckId === 'curated_custom' ? [PROPHET_STORIES_CATEGORY.id] : [],
       teams,
       settings: {
         categoryCount: effectiveCatCount,
@@ -291,18 +294,18 @@ export function LobbySetup({
   };
 
   const filteredCategories = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
+    const q = normalizeArabicText(searchQuery);
     if (!q) return ALL_CURATED_CATEGORIES;
     return ALL_CURATED_CATEGORIES.filter(
-      (c) => c.name.toLowerCase().includes(q) || (c.description || '').toLowerCase().includes(q),
+      (c) => normalizeArabicText(c.name).includes(q) || normalizeArabicText(c.description || '').includes(q),
     );
   }, [searchQuery]);
 
   const filteredDecks = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
+    const q = normalizeArabicText(searchQuery);
     if (!q) return decks;
     return decks.filter(
-      (d) => d.title.toLowerCase().includes(q) || d.description.toLowerCase().includes(q),
+      (d) => normalizeArabicText(d.title).includes(q) || normalizeArabicText(d.description).includes(q),
     );
   }, [decks, searchQuery]);
 
@@ -713,7 +716,9 @@ export function LobbySetup({
                     selectedDeckId === 'curated_custom'
                       ? customCategories.includes(cat.id)
                       : activeCategoryIdsForPreflight.includes(cat.id);
-                  const catQuestionCount = CURATED_QUESTIONS.filter(
+                  const catQuestionCount = cat.id === PROPHET_STORIES_CATEGORY.id
+                    ? PROPHET_STORIES_COUNT
+                    : CURATED_QUESTIONS.filter(
                     (item) => item.categoryId === cat.id && !item.isBackup,
                   ).length;
                   const artSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;

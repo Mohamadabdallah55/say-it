@@ -518,10 +518,11 @@ export function selectActiveBoardForDeck(
 export function runBoardPreflightCheck(params: {
   deck: QuizDeck;
   selectedCategoryIds?: string[];
+  serverValidatedCategoryIds?: readonly string[];
   teams: Array<Pick<TeamState, 'name' | 'color'>>;
   settings: Partial<MatchSettings>;
 }): PreflightResult {
-  const { deck, selectedCategoryIds, teams, settings } = params;
+  const { deck, selectedCategoryIds, serverValidatedCategoryIds = [], teams, settings } = params;
   const checks: PreflightCheckItem[] = [];
   const matrixMode = isCategoryTeamMatrixDeck(deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
@@ -630,6 +631,7 @@ export function runBoardPreflightCheck(params: {
     }
   } else {
     for (const cat of selectedCats) {
+      if (serverValidatedCategoryIds.includes(cat.id)) continue;
       for (const diff of activeDifficulties) {
         const hasSlot = deck.questions.some(
           (q) =>
