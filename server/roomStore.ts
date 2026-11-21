@@ -159,6 +159,14 @@ class RoomManager {
       deck = saved;
     }
 
+    // Shuffle before applying play history so unseen questions keep priority when a cycle resets.
+    const questions = [...deck.questions];
+    for (let index = questions.length - 1; index > 0; index--) {
+      const other = crypto.randomInt(index + 1);
+      [questions[index], questions[other]] = [questions[other], questions[index]];
+    }
+    deck = { ...deck, questions };
+
     const libraryId = currentLibraryId();
     const now = Date.now();
     let resetCategoryIds: string[] = [];
