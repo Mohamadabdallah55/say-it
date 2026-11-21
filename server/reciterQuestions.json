@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "RECITER-001",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/002039.mp3",
+    "quran_reference": "https://quran.com/2/39",
+    "ayah_key": "2:39",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-002",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/030025.mp3",
+    "quran_reference": "https://quran.com/30/25",
+    "ayah_key": "30:25",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-003",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/007173.mp3",
+    "quran_reference": "https://quran.com/7/173",
+    "ayah_key": "7:173",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-004",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/008027.mp3",
+    "quran_reference": "https://quran.com/8/27",
+    "ayah_key": "8:27",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-005",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/040065.mp3",
+    "quran_reference": "https://quran.com/40/65",
+    "ayah_key": "40:65",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-006",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/033006.mp3",
+    "quran_reference": "https://quran.com/33/6",
+    "ayah_key": "33:6",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-007",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/017072.mp3",
+    "quran_reference": "https://quran.com/17/72",
+    "ayah_key": "17:72",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-008",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/048023.mp3",
+    "quran_reference": "https://quran.com/48/23",
+    "ayah_key": "48:23",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-009",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/006048.mp3",
+    "quran_reference": "https://quran.com/6/48",
+    "ayah_key": "6:48",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-010",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/025058.mp3",
+    "quran_reference": "https://quran.com/25/58",
+    "ayah_key": "25:58",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-011",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/066007.mp3",
+    "quran_reference": "https://quran.com/66/7",
+    "ayah_key": "66:7",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-012",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/003052.mp3",
+    "quran_reference": "https://quran.com/3/52",
+    "ayah_key": "3:52",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-013",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/033049.mp3",
+    "quran_reference": "https://quran.com/33/49",
+    "ayah_key": "33:49",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-014",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/010031.mp3",
+    "quran_reference": "https://quran.com/10/31",
+    "ayah_key": "10:31",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-015",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/009031.mp3",
+    "quran_reference": "https://quran.com/9/31",
+    "ayah_key": "9:31",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-016",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/041029.mp3",
+    "quran_reference": "https://quran.com/41/29",
+    "ayah_key": "41:29",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-017",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/036011.mp3",
+    "quran_reference": "https://quran.com/36/11",
+    "ayah_key": "36:11",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-018",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/018087.mp3",
+    "quran_reference": "https://quran.com/18/87",
+    "ayah_key": "18:87",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-019",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/049014.mp3",
+    "quran_reference": "https://quran.com/49/14",
+    "ayah_key": "49:14",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-020",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/009100.mp3",
+    "quran_reference": "https://quran.com/9/100",
+    "ayah_key": "9:100",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-021",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/026154.mp3",
+    "quran_reference": "https://quran.com/26/154",
+    "ayah_key": "26:154",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-022",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/068043.mp3",
+    "quran_reference": "https://quran.com/68/43",
+    "ayah_key": "68:43",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-023",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/004065.mp3",
+    "quran_reference": "https://quran.com/4/65",
+    "ayah_key": "4:65",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-024",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/034031.mp3",
+    "quran_reference": "https://quran.com/34/31",
+    "ayah_key": "34:31",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-025",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/016048.mp3",
+    "quran_reference": "https://quran.com/16/48",
+    "ayah_key": "16:48",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-026",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/010064.mp3",
+    "quran_reference": "https://quran.com/10/64",
+    "ayah_key": "10:64",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-027",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/042007.mp3",
+    "quran_reference": "https://quran.com/42/7",
+    "ayah_key": "42:7",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-028",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/041051.mp3",
+    "quran_reference": "https://quran.com/41/51",
+    "ayah_key": "41:51",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-029",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/020086.mp3",
+    "quran_reference": "https://quran.com/20/86",
+    "ayah_key": "20:86",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-030",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/057006.mp3",
+    "quran_reference": "https://quran.com/57/6",
+    "ayah_key": "57:6",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-031",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/012076.mp3",
+    "quran_reference": "https://quran.com/12/76",
+    "ayah_key": "12:76",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-032",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/027043.mp3",
+    "quran_reference": "https://quran.com/27/43",
+    "ayah_key": "27:43",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-033",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/072025.mp3",
+    "quran_reference": "https://quran.com/72/25",
+    "ayah_key": "72:25",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-034",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/005078.mp3",
+    "quran_reference": "https://quran.com/5/78",
+    "ayah_key": "5:78",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-035",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/035043.mp3",
+    "quran_reference": "https://quran.com/35/43",
+    "ayah_key": "35:43",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-036",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/020109.mp3",
+    "quran_reference": "https://quran.com/20/109",
+    "ayah_key": "20:109",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-037",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/011063.mp3",
+    "quran_reference": "https://quran.com/11/63",
+    "ayah_key": "11:63",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-038",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/043021.mp3",
+    "quran_reference": "https://quran.com/43/21",
+    "ayah_key": "43:21",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-039",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/047034.mp3",
+    "quran_reference": "https://quran.com/47/34",
+    "ayah_key": "47:34",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-040",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/021017.mp3",
+    "quran_reference": "https://quran.com/21/17",
+    "ayah_key": "21:17",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-041",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/059015.mp3",
+    "quran_reference": "https://quran.com/59/15",
+    "ayah_key": "59:15",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-042",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/018030.mp3",
+    "quran_reference": "https://quran.com/18/30",
+    "ayah_key": "18:30",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-043",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/028076.mp3",
+    "quran_reference": "https://quran.com/28/76",
+    "ayah_key": "28:76",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-044",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/076015.mp3",
+    "quran_reference": "https://quran.com/76/15",
+    "ayah_key": "76:15",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-045",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/006114.mp3",
+    "quran_reference": "https://quran.com/6/114",
+    "ayah_key": "6:114",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-046",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/036041.mp3",
+    "quran_reference": "https://quran.com/36/41",
+    "ayah_key": "36:41",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-047",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/023006.mp3",
+    "quran_reference": "https://quran.com/23/6",
+    "ayah_key": "23:6",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-048",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/012088.mp3",
+    "quran_reference": "https://quran.com/12/88",
+    "ayah_key": "12:88",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-049",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/046018.mp3",
+    "quran_reference": "https://quran.com/46/18",
+    "ayah_key": "46:18",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-050",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/057009.mp3",
+    "quran_reference": "https://quran.com/57/9",
+    "ayah_key": "57:9",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-051",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/022061.mp3",
+    "quran_reference": "https://quran.com/22/61",
+    "ayah_key": "22:61",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-052",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/060007.mp3",
+    "quran_reference": "https://quran.com/60/7",
+    "ayah_key": "60:7",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-053",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/022036.mp3",
+    "quran_reference": "https://quran.com/22/36",
+    "ayah_key": "22:36",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-054",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/029041.mp3",
+    "quran_reference": "https://quran.com/29/41",
+    "ayah_key": "29:41",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-055",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/003121.mp3",
+    "quran_reference": "https://quran.com/3/121",
+    "ayah_key": "3:121",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-056",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/007104.mp3",
+    "quran_reference": "https://quran.com/7/104",
+    "ayah_key": "7:104",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-057",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/038043.mp3",
+    "quran_reference": "https://quran.com/38/43",
+    "ayah_key": "38:43",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-058",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/027089.mp3",
+    "quran_reference": "https://quran.com/27/89",
+    "ayah_key": "27:89",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-059",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/016123.mp3",
+    "quran_reference": "https://quran.com/16/123",
+    "ayah_key": "16:123",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-060",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/047019.mp3",
+    "quran_reference": "https://quran.com/47/19",
+    "ayah_key": "47:19",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-061",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/002154.mp3",
+    "quran_reference": "https://quran.com/2/154",
+    "ayah_key": "2:154",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-062",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/023071.mp3",
+    "quran_reference": "https://quran.com/23/71",
+    "ayah_key": "23:71",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-063",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/065008.mp3",
+    "quran_reference": "https://quran.com/65/8",
+    "ayah_key": "65:8",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-064",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/025010.mp3",
+    "quran_reference": "https://quran.com/25/10",
+    "ayah_key": "25:10",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-065",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/030055.mp3",
+    "quran_reference": "https://quran.com/30/55",
+    "ayah_key": "30:55",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-066",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/006025.mp3",
+    "quran_reference": "https://quran.com/6/25",
+    "ayah_key": "6:25",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-067",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/008049.mp3",
+    "quran_reference": "https://quran.com/8/49",
+    "ayah_key": "8:49",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-068",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/039022.mp3",
+    "quran_reference": "https://quran.com/39/22",
+    "ayah_key": "39:22",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-069",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/030048.mp3",
+    "quran_reference": "https://quran.com/30/48",
+    "ayah_key": "30:48",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-070",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/017049.mp3",
+    "quran_reference": "https://quran.com/17/49",
+    "ayah_key": "17:49",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-071",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/048022.mp3",
+    "quran_reference": "https://quran.com/48/22",
+    "ayah_key": "48:22",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-072",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/005057.mp3",
+    "quran_reference": "https://quran.com/5/57",
+    "ayah_key": "5:57",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-073",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/024029.mp3",
+    "quran_reference": "https://quran.com/24/29",
+    "ayah_key": "24:29",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-074",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/066009.mp3",
+    "quran_reference": "https://quran.com/66/9",
+    "ayah_key": "66:9",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-075",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/002108.mp3",
+    "quran_reference": "https://quran.com/2/108",
+    "ayah_key": "2:108",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-076",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/033026.mp3",
+    "quran_reference": "https://quran.com/33/26",
+    "ayah_key": "33:26",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-077",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/009077.mp3",
+    "quran_reference": "https://quran.com/9/77",
+    "ayah_key": "9:77",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-078",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/009008.mp3",
+    "quran_reference": "https://quran.com/9/8",
+    "ayah_key": "9:8",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-079",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/040033.mp3",
+    "quran_reference": "https://quran.com/40/33",
+    "ayah_key": "40:33",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-080",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/035028.mp3",
+    "quran_reference": "https://quran.com/35/28",
+    "ayah_key": "35:28",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-081",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/018064.mp3",
+    "quran_reference": "https://quran.com/18/64",
+    "ayah_key": "18:64",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-082",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/049013.mp3",
+    "quran_reference": "https://quran.com/49/13",
+    "ayah_key": "49:13",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-083",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/008028.mp3",
+    "quran_reference": "https://quran.com/8/28",
+    "ayah_key": "8:28",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-084",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/025034.mp3",
+    "quran_reference": "https://quran.com/25/34",
+    "ayah_key": "25:34",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-085",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/068042.mp3",
+    "quran_reference": "https://quran.com/68/42",
+    "ayah_key": "68:42",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-086",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/003098.mp3",
+    "quran_reference": "https://quran.com/3/98",
+    "ayah_key": "3:98",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-087",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/034008.mp3",
+    "quran_reference": "https://quran.com/34/8",
+    "ayah_key": "34:8",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-088",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/012053.mp3",
+    "quran_reference": "https://quran.com/12/53",
+    "ayah_key": "12:53",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-089",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/010041.mp3",
+    "quran_reference": "https://quran.com/10/41",
+    "ayah_key": "10:41",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-090",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/041028.mp3",
+    "quran_reference": "https://quran.com/41/28",
+    "ayah_key": "41:28",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-091",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/040056.mp3",
+    "quran_reference": "https://quran.com/40/56",
+    "ayah_key": "40:56",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-092",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/020063.mp3",
+    "quran_reference": "https://quran.com/20/63",
+    "ayah_key": "20:63",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-093",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/050018.mp3",
+    "quran_reference": "https://quran.com/50/18",
+    "ayah_key": "50:18",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-094",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/011016.mp3",
+    "quran_reference": "https://quran.com/11/16",
+    "ayah_key": "11:16",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-095",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/027020.mp3",
+    "quran_reference": "https://quran.com/27/20",
+    "ayah_key": "27:20",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-096",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/071012.mp3",
+    "quran_reference": "https://quran.com/71/12",
+    "ayah_key": "71:12",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-097",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/004111.mp3",
+    "quran_reference": "https://quran.com/4/111",
+    "ayah_key": "4:111",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-098",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/035035.mp3",
+    "quran_reference": "https://quran.com/35/35",
+    "ayah_key": "35:35",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-099",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/018007.mp3",
+    "quran_reference": "https://quran.com/18/7",
+    "ayah_key": "18:7",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-100",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/011040.mp3",
+    "quran_reference": "https://quran.com/11/40",
+    "ayah_key": "11:40",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-101",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/043080.mp3",
+    "quran_reference": "https://quran.com/43/80",
+    "ayah_key": "43:80",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-102",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/046008.mp3",
+    "quran_reference": "https://quran.com/46/8",
+    "ayah_key": "46:8",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-103",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/021099.mp3",
+    "quran_reference": "https://quran.com/21/99",
+    "ayah_key": "21:99",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-104",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/057008.mp3",
+    "quran_reference": "https://quran.com/57/8",
+    "ayah_key": "57:8",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-105",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/017037.mp3",
+    "quran_reference": "https://quran.com/17/37",
+    "ayah_key": "17:37",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-106",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/028053.mp3",
+    "quran_reference": "https://quran.com/28/53",
+    "ayah_key": "28:53",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-107",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/072008.mp3",
+    "quran_reference": "https://quran.com/72/8",
+    "ayah_key": "72:8",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-108",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/005011.mp3",
+    "quran_reference": "https://quran.com/5/11",
+    "ayah_key": "5:11",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-109",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/036018.mp3",
+    "quran_reference": "https://quran.com/36/18",
+    "ayah_key": "36:18",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-110",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/022013.mp3",
+    "quran_reference": "https://quran.com/22/13",
+    "ayah_key": "22:13",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-111",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/012065.mp3",
+    "quran_reference": "https://quran.com/12/65",
+    "ayah_key": "12:65",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-112",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/046023.mp3",
+    "quran_reference": "https://quran.com/46/23",
+    "ayah_key": "46:23",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-113",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/049015.mp3",
+    "quran_reference": "https://quran.com/49/15",
+    "ayah_key": "49:15",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-114",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/022038.mp3",
+    "quran_reference": "https://quran.com/22/38",
+    "ayah_key": "22:38",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-115",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/059010.mp3",
+    "quran_reference": "https://quran.com/59/10",
+    "ayah_key": "59:10",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-116",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/021063.mp3",
+    "quran_reference": "https://quran.com/21/63",
+    "ayah_key": "21:63",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-117",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/029018.mp3",
+    "quran_reference": "https://quran.com/29/18",
+    "ayah_key": "29:18",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-118",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/002131.mp3",
+    "quran_reference": "https://quran.com/2/131",
+    "ayah_key": "2:131",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-119",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/006160.mp3",
+    "quran_reference": "https://quran.com/6/160",
+    "ayah_key": "6:160",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-120",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/038032.mp3",
+    "quran_reference": "https://quran.com/38/32",
+    "ayah_key": "38:32",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-121",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/025057.mp3",
+    "quran_reference": "https://quran.com/25/57",
+    "ayah_key": "25:57",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-122",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/016100.mp3",
+    "quran_reference": "https://quran.com/16/100",
+    "ayah_key": "16:100",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-123",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/047035.mp3",
+    "quran_reference": "https://quran.com/47/35",
+    "ayah_key": "47:35",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-124",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/072010.mp3",
+    "quran_reference": "https://quran.com/72/10",
+    "ayah_key": "72:10",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-125",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/023025.mp3",
+    "quran_reference": "https://quran.com/23/25",
+    "ayah_key": "23:25",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-126",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/060011.mp3",
+    "quran_reference": "https://quran.com/60/11",
+    "ayah_key": "60:11",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-127",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/024018.mp3",
+    "quran_reference": "https://quran.com/24/18",
+    "ayah_key": "24:18",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-128",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/030032.mp3",
+    "quran_reference": "https://quran.com/30/32",
+    "ayah_key": "30:32",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-129",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/005034.mp3",
+    "quran_reference": "https://quran.com/5/34",
+    "ayah_key": "5:34",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-130",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/007150.mp3",
+    "quran_reference": "https://quran.com/7/150",
+    "ayah_key": "7:150",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-131",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/039067.mp3",
+    "quran_reference": "https://quran.com/39/67",
+    "ayah_key": "39:67",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-132",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/029025.mp3",
+    "quran_reference": "https://quran.com/29/25",
+    "ayah_key": "29:25",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-133",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/017026.mp3",
+    "quran_reference": "https://quran.com/17/26",
+    "ayah_key": "17:26",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-134",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/048021.mp3",
+    "quran_reference": "https://quran.com/48/21",
+    "ayah_key": "48:21",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-135",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/004157.mp3",
+    "quran_reference": "https://quran.com/4/157",
+    "ayah_key": "4:157",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-136",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/024006.mp3",
+    "quran_reference": "https://quran.com/24/6",
+    "ayah_key": "24:6",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-137",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/066006.mp3",
+    "quran_reference": "https://quran.com/66/6",
+    "ayah_key": "66:6",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-138",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/002063.mp3",
+    "quran_reference": "https://quran.com/2/63",
+    "ayah_key": "2:63",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-139",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/033069.mp3",
+    "quran_reference": "https://quran.com/33/69",
+    "ayah_key": "33:69",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-140",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/008073.mp3",
+    "quran_reference": "https://quran.com/8/73",
+    "ayah_key": "8:73",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-141",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/008050.mp3",
+    "quran_reference": "https://quran.com/8/50",
+    "ayah_key": "8:50",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-142",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/040010.mp3",
+    "quran_reference": "https://quran.com/40/10",
+    "ayah_key": "40:10",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-143",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/034007.mp3",
+    "quran_reference": "https://quran.com/34/7",
+    "ayah_key": "34:7",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-144",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/018041.mp3",
+    "quran_reference": "https://quran.com/18/41",
+    "ayah_key": "18:41",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-145",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/049012.mp3",
+    "quran_reference": "https://quran.com/49/12",
+    "ayah_key": "49:12",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-146",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/007196.mp3",
+    "quran_reference": "https://quran.com/7/196",
+    "ayah_key": "7:196",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-147",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/025011.mp3",
+    "quran_reference": "https://quran.com/25/11",
+    "ayah_key": "25:11",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-148",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/067010.mp3",
+    "quran_reference": "https://quran.com/67/10",
+    "ayah_key": "67:10",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-149",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/003075.mp3",
+    "quran_reference": "https://quran.com/3/75",
+    "ayah_key": "3:75",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-150",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/034032.mp3",
+    "quran_reference": "https://quran.com/34/32",
+    "ayah_key": "34:32",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-151",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/011109.mp3",
+    "quran_reference": "https://quran.com/11/109",
+    "ayah_key": "11:109",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-152",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/009054.mp3",
+    "quran_reference": "https://quran.com/9/54",
+    "ayah_key": "9:54",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-153",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/041052.mp3",
+    "quran_reference": "https://quran.com/41/52",
+    "ayah_key": "41:52",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-154",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/039045.mp3",
+    "quran_reference": "https://quran.com/39/45",
+    "ayah_key": "39:45",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-155",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/020040.mp3",
+    "quran_reference": "https://quran.com/20/40",
+    "ayah_key": "20:40",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-156",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/050017.mp3",
+    "quran_reference": "https://quran.com/50/17",
+    "ayah_key": "50:17",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-157",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/010054.mp3",
+    "quran_reference": "https://quran.com/10/54",
+    "ayah_key": "10:54",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-158",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/026049.mp3",
+    "quran_reference": "https://quran.com/26/49",
+    "ayah_key": "26:49",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-159",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/068044.mp3",
+    "quran_reference": "https://quran.com/68/44",
+    "ayah_key": "68:44",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-160",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/004088.mp3",
+    "quran_reference": "https://quran.com/4/88",
+    "ayah_key": "4:88",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-161",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/035012.mp3",
+    "quran_reference": "https://quran.com/35/12",
+    "ayah_key": "35:12",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-162",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/017095.mp3",
+    "quran_reference": "https://quran.com/17/95",
+    "ayah_key": "17:95",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-163",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/010087.mp3",
+    "quran_reference": "https://quran.com/10/87",
+    "ayah_key": "10:87",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-164",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/042030.mp3",
+    "quran_reference": "https://quran.com/42/30",
+    "ayah_key": "42:30",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-165",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/043054.mp3",
+    "quran_reference": "https://quran.com/43/54",
+    "ayah_key": "43:54",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-166",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/021076.mp3",
+    "quran_reference": "https://quran.com/21/76",
+    "ayah_key": "21:76",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-167",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/057007.mp3",
+    "quran_reference": "https://quran.com/57/7",
+    "ayah_key": "57:7",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-168",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/016071.mp3",
+    "quran_reference": "https://quran.com/16/71",
+    "ayah_key": "16:71",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-169",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/027066.mp3",
+    "quran_reference": "https://quran.com/27/66",
+    "ayah_key": "27:66",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-170",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/072006.mp3",
+    "quran_reference": "https://quran.com/72/6",
+    "ayah_key": "72:6",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-171",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/005101.mp3",
+    "quran_reference": "https://quran.com/5/101",
+    "ayah_key": "5:101",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-172",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/036071.mp3",
+    "quran_reference": "https://quran.com/36/71",
+    "ayah_key": "36:71",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-173",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/021040.mp3",
+    "quran_reference": "https://quran.com/21/40",
+    "ayah_key": "21:40",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-174",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/011086.mp3",
+    "quran_reference": "https://quran.com/11/86",
+    "ayah_key": "11:86",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-175",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/043031.mp3",
+    "quran_reference": "https://quran.com/43/31",
+    "ayah_key": "43:31",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-176",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/048024.mp3",
+    "quran_reference": "https://quran.com/48/24",
+    "ayah_key": "48:24",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-177",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/022015.mp3",
+    "quran_reference": "https://quran.com/22/15",
+    "ayah_key": "22:15",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-178",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/059021.mp3",
+    "quran_reference": "https://quran.com/59/21",
+    "ayah_key": "59:21",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-179",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/020132.mp3",
+    "quran_reference": "https://quran.com/20/132",
+    "ayah_key": "20:132",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-180",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/028018.mp3",
+    "quran_reference": "https://quran.com/28/18",
+    "ayah_key": "28:18",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-181",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/076013.mp3",
+    "quran_reference": "https://quran.com/76/13",
+    "ayah_key": "76:13",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-182",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/006137.mp3",
+    "quran_reference": "https://quran.com/6/137",
+    "ayah_key": "6:137",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-183",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أحمد النفيس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alnufais/038044.mp3",
+    "quran_reference": "https://quran.com/38/44",
+    "ayah_key": "38:44",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-184",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husary/024052.mp3",
+    "quran_reference": "https://quran.com/24/52",
+    "ayah_key": "24:52",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-185",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "أبو بكر الشاطري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abuBakrAlShatri/012030.mp3",
+    "quran_reference": "https://quran.com/12/30",
+    "ayah_key": "12:30",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-186",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ماهر المعيقلي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/maherAlMuaiqly/046013.mp3",
+    "quran_reference": "https://quran.com/46/13",
+    "ayah_key": "46:13",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-187",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/minshawyMurattal/059016.mp3",
+    "quran_reference": "https://quran.com/59/16",
+    "ayah_key": "59:16",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-188",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMuallim/023113.mp3",
+    "quran_reference": "https://quran.com/23/113",
+    "ayah_key": "23:113",
+    "reciter_style": "معلّم"
+  },
+  {
+    "id": "RECITER-189",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMujawwad/060006.mp3",
+    "quran_reference": "https://quran.com/60/6",
+    "ayah_key": "60:6",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-190",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "هاني الرفاعي",
+    "audio_url": "https://audio.qurancdn.com/Rifai/mp3/023029.mp3",
+    "quran_reference": "https://quran.com/23/29",
+    "ayah_key": "23:29",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-191",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الرحمن السديس",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulrahmanAlSudais/029064.mp3",
+    "quran_reference": "https://quran.com/29/64",
+    "ayah_key": "29:64",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-192",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "عبد الباسط عبد الصمد",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/abdulBasitMurattal/004134.mp3",
+    "quran_reference": "https://quran.com/4/134",
+    "ayah_key": "4:134",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-193",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "خليفة الطنيجي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/khalifaAlTunaiji/007127.mp3",
+    "quran_reference": "https://quran.com/7/127",
+    "ayah_key": "7:127",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-194",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد صديق المنشاوي",
+    "audio_url": "https://audio.qurancdn.com/Minshawi/Mujawwad/mp3/039044.mp3",
+    "quran_reference": "https://quran.com/39/44",
+    "ayah_key": "39:44",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-195",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعود الشريم",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/saudAlShuraim/028041.mp3",
+    "quran_reference": "https://quran.com/28/41",
+    "ayah_key": "28:41",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-196",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "مشاري راشد العفاسي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/alafasy/016025.mp3",
+    "quran_reference": "https://quran.com/16/25",
+    "ayah_key": "16:25",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-197",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمود خليل الحصري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/husaryMujawwad/047011.mp3",
+    "quran_reference": "https://quran.com/47/11",
+    "ayah_key": "47:11",
+    "reciter_style": "مجوّد"
+  },
+  {
+    "id": "RECITER-198",
+    "points": 400,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "سعد الغامدي",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/ghamadi/003144.mp3",
+    "quran_reference": "https://quran.com/3/144",
+    "ayah_key": "3:144",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-199",
+    "points": 200,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "ياسر الدوسري",
+    "audio_url": "https://audio-cdn.tarteel.ai/quran/yasserAlDosari/024040.mp3",
+    "quran_reference": "https://quran.com/24/40",
+    "ayah_key": "24:40",
+    "reciter_style": "مرتل"
+  },
+  {
+    "id": "RECITER-200",
+    "points": 600,
+    "question": "استمع إلى التلاوة، من هو القارئ؟",
+    "answer": "محمد محمود الطبلاوي",
+    "audio_url": "https://mirrors.quranicaudio.com/everyayah/Mohammad_al_Tablaway_128kbps/065006.mp3",
+    "quran_reference": "https://quran.com/65/6",
+    "ayah_key": "65:6",
+    "reciter_style": "مرتل"
+  }
+]

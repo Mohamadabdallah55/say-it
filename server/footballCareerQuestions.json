@@ -1,0 +1,1438 @@
+[
+  {
+    "id": "FC-001",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "ليونيل ميسي",
+    "type": "player",
+    "clubs": [
+      "برشلونة",
+      "باريس سان جيرمان",
+      "إنتر ميامي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+  },
+  {
+    "id": "FC-002",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة أنطوان غريزمان؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "ريال سوسييداد",
+      "أتلتيكو مدريد",
+      "برشلونة",
+      "أتلتيكو مدريد"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Antoine_Griezmann"
+  },
+  {
+    "id": "FC-003",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "فرناندو توريس",
+    "type": "player",
+    "clubs": [
+      "أتلتيكو مدريد",
+      "ليفربول",
+      "تشيلسي",
+      "ميلان",
+      "أتلتيكو مدريد",
+      "ساغان توسو"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fernando_Torres_2017.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Fernando_Torres_2017.jpg"
+  },
+  {
+    "id": "FC-004",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة سيسك فابريغاس؟",
+    "answer": "تشيلسي",
+    "type": "missing",
+    "clubs": [
+      "أرسنال",
+      "برشلونة",
+      "تشيلسي",
+      "موناكو",
+      "كومو"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cesc_Fàbregas"
+  },
+  {
+    "id": "FC-005",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كيليان مبابي",
+    "type": "player",
+    "clubs": [
+      "موناكو",
+      "باريس سان جيرمان",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg/500px-Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-006",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كريستيانو رونالدو",
+    "type": "player",
+    "clubs": [
+      "سبورتينغ لشبونة",
+      "مانشستر يونايتد",
+      "ريال مدريد",
+      "يوفنتوس",
+      "مانشستر يونايتد",
+      "النصر السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-007",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة جانلويجي بوفون؟",
+    "answer": "باريس سان جيرمان",
+    "type": "missing",
+    "clubs": [
+      "بارما",
+      "يوفنتوس",
+      "باريس سان جيرمان",
+      "يوفنتوس",
+      "بارما"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Buffon"
+  },
+  {
+    "id": "FC-008",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "زين الدين زيدان",
+    "type": "player",
+    "clubs": [
+      "كان",
+      "بوردو",
+      "يوفنتوس",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg"
+  },
+  {
+    "id": "FC-009",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة عثمان ديمبيلي؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "رين",
+      "بوروسيا دورتموند",
+      "برشلونة",
+      "باريس سان جيرمان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ousmane_Dembélé"
+  },
+  {
+    "id": "FC-010",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة ديدييه دروغبا؟",
+    "answer": "مارسيليا",
+    "type": "missing",
+    "clubs": [
+      "لو مان",
+      "غانغان",
+      "مارسيليا",
+      "تشيلسي",
+      "شنغهاي شينهوا",
+      "غلطة سراي",
+      "تشيلسي",
+      "مونتريال إمباكت",
+      "فينيكس رايزينغ"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Didier_Drogba"
+  },
+  {
+    "id": "FC-011",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة مارسيلو؟",
+    "answer": "ريال مدريد",
+    "type": "missing",
+    "clubs": [
+      "فلومينينسي",
+      "ريال مدريد",
+      "أولمبياكوس",
+      "فلومينينسي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marcelo_(footballer,_born_1988)"
+  },
+  {
+    "id": "FC-012",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة جواو فيليكس؟",
+    "answer": "أتلتيكو مدريد",
+    "type": "missing",
+    "clubs": [
+      "بنفيكا",
+      "أتلتيكو مدريد",
+      "تشيلسي",
+      "برشلونة",
+      "تشيلسي",
+      "ميلان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/João_Félix"
+  },
+  {
+    "id": "FC-013",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "محمد صلاح",
+    "type": "player",
+    "clubs": [
+      "المقاولون العرب",
+      "بازل",
+      "تشيلسي",
+      "فيورنتينا",
+      "روما",
+      "ليفربول"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-014",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كريم بنزيما",
+    "type": "player",
+    "clubs": [
+      "ليون",
+      "ريال مدريد",
+      "الاتحاد السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg/500px-Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg"
+  },
+  {
+    "id": "FC-015",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة جيرارد بيكيه؟",
+    "answer": "ريال سرقسطة",
+    "type": "missing",
+    "clubs": [
+      "مانشستر يونايتد",
+      "ريال سرقسطة",
+      "مانشستر يونايتد",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gerard_Piqué"
+  },
+  {
+    "id": "FC-016",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة أندريا بيرلو؟",
+    "answer": "ميلان",
+    "type": "missing",
+    "clubs": [
+      "بريشيا",
+      "إنتر ميلان",
+      "ريجينا",
+      "ميلان",
+      "يوفنتوس",
+      "نيويورك سيتي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Andrea_Pirlo"
+  },
+  {
+    "id": "FC-017",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كيفن دي بروين",
+    "type": "player",
+    "clubs": [
+      "جينك",
+      "تشيلسي",
+      "فيردر بريمن",
+      "فولفسبورغ",
+      "مانشستر سيتي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-018",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "روبرت ليفاندوفسكي",
+    "type": "player",
+    "clubs": [
+      "زنيتش بروشكوف",
+      "ليخ بوزنان",
+      "بوروسيا دورتموند",
+      "بايرن ميونخ",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg/500px-Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg"
+  },
+  {
+    "id": "FC-019",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة جوردي ألبا؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "فالنسيا",
+      "خيمناستيك تاراغونا",
+      "فالنسيا",
+      "برشلونة",
+      "إنتر ميامي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jordi_Alba"
+  },
+  {
+    "id": "FC-020",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "غاريث بيل",
+    "type": "player",
+    "clubs": [
+      "ساوثهامبتون",
+      "توتنهام",
+      "ريال مدريد",
+      "توتنهام",
+      "لوس أنجلوس إف سي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-021",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة رودري؟",
+    "answer": "أتلتيكو مدريد",
+    "type": "missing",
+    "clubs": [
+      "فياريال",
+      "أتلتيكو مدريد",
+      "مانشستر سيتي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rodri_(footballer,_born_1996)"
+  },
+  {
+    "id": "FC-022",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "إيرلينغ هالاند",
+    "type": "player",
+    "clubs": [
+      "برينه",
+      "مولده",
+      "ريد بول سالزبورغ",
+      "بوروسيا دورتموند",
+      "مانشستر سيتي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg"
+  },
+  {
+    "id": "FC-023",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة أشرف حكيمي؟",
+    "answer": "إنتر ميلان",
+    "type": "missing",
+    "clubs": [
+      "ريال مدريد",
+      "بوروسيا دورتموند",
+      "إنتر ميلان",
+      "باريس سان جيرمان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Achraf_Hakimi"
+  },
+  {
+    "id": "FC-024",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "رونالدينيو",
+    "type": "player",
+    "clubs": [
+      "غريميو",
+      "باريس سان جيرمان",
+      "برشلونة",
+      "ميلان",
+      "فلامنغو",
+      "أتلتيكو مينيرو",
+      "كيريتارو",
+      "فلومينينسي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-025",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "لويس سواريز",
+    "type": "player",
+    "clubs": [
+      "ناسيونال",
+      "غرونينغن",
+      "أياكس",
+      "ليفربول",
+      "برشلونة",
+      "أتلتيكو مدريد",
+      "ناسيونال",
+      "غريميو",
+      "إنتر ميامي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_2026_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Luis_Su%C3%A1rez_2026_%28cropped%29.jpg/500px-Luis_Su%C3%A1rez_2026_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-026",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "زلاتان إبراهيموفيتش",
+    "type": "player",
+    "clubs": [
+      "مالمو",
+      "أياكس",
+      "يوفنتوس",
+      "إنتر ميلان",
+      "برشلونة",
+      "ميلان",
+      "باريس سان جيرمان",
+      "مانشستر يونايتد",
+      "لوس أنجلوس غالاكسي",
+      "ميلان"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zlatan_Ibrahimovi%C4%87_nyc.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Zlatan_Ibrahimovi%C4%87_nyc.jpg/500px-Zlatan_Ibrahimovi%C4%87_nyc.jpg"
+  },
+  {
+    "id": "FC-027",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة إدينسون كافاني؟",
+    "answer": "نابولي",
+    "type": "missing",
+    "clubs": [
+      "دانوبيو",
+      "باليرمو",
+      "نابولي",
+      "باريس سان جيرمان",
+      "مانشستر يونايتد",
+      "فالنسيا",
+      "بوكا جونيورز"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Edinson_Cavani"
+  },
+  {
+    "id": "FC-028",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة فيكتور أوسيمين؟",
+    "answer": "نابولي",
+    "type": "missing",
+    "clubs": [
+      "فولفسبورغ",
+      "شارلروا",
+      "ليل",
+      "نابولي",
+      "غلطة سراي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Victor_Osimhen"
+  },
+  {
+    "id": "FC-029",
+    "points": 200,
+    "question": "ما النادي المفقود من مسيرة صامويل إيتو؟",
+    "answer": "إنتر ميلان",
+    "type": "missing",
+    "clubs": [
+      "ريال مدريد",
+      "مايوركا",
+      "برشلونة",
+      "إنتر ميلان",
+      "أنجي محج قلعة",
+      "تشيلسي",
+      "إيفرتون",
+      "سامبدوريا",
+      "أنطاليا سبور",
+      "قطر القطري"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Samuel_Eto'o"
+  },
+  {
+    "id": "FC-030",
+    "points": 200,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "نيمار",
+    "type": "player",
+    "clubs": [
+      "سانتوس",
+      "برشلونة",
+      "باريس سان جيرمان",
+      "الهلال السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg/500px-Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg"
+  },
+  {
+    "id": "FC-031",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "سون هيونغ مين",
+    "type": "player",
+    "clubs": [
+      "هامبورغ",
+      "باير ليفركوزن",
+      "توتنهام"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/500px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-032",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "إيدين هازارد",
+    "type": "player",
+    "clubs": [
+      "ليل",
+      "تشيلسي",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+  },
+  {
+    "id": "FC-033",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة إيلكاي غوندوغان؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "نورنبيرغ",
+      "بوروسيا دورتموند",
+      "مانشستر سيتي",
+      "برشلونة",
+      "مانشستر سيتي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/İlkay_Gündoğan"
+  },
+  {
+    "id": "FC-034",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة ماركو أسينسيو؟",
+    "answer": "إسبانيول",
+    "type": "missing",
+    "clubs": [
+      "مايوركا",
+      "ريال مدريد",
+      "إسبانيول",
+      "ريال مدريد",
+      "باريس سان جيرمان",
+      "أستون فيلا"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marco_Asensio"
+  },
+  {
+    "id": "FC-035",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة مارك أندريه تير شتيغن؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "بوروسيا مونشنغلادباخ",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marc-André_ter_Stegen"
+  },
+  {
+    "id": "FC-036",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة جيانلويجي دوناروما؟",
+    "answer": "باريس سان جيرمان",
+    "type": "missing",
+    "clubs": [
+      "ميلان",
+      "باريس سان جيرمان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Donnarumma"
+  },
+  {
+    "id": "FC-037",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "تييري هنري",
+    "type": "player",
+    "clubs": [
+      "موناكو",
+      "يوفنتوس",
+      "أرسنال",
+      "برشلونة",
+      "نيويورك ريد بولز",
+      "أرسنال"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_%2851649035951%29_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Thierry_Henry_%2851649035951%29_%28cropped%29.jpg/500px-Thierry_Henry_%2851649035951%29_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-038",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "أنخيل دي ماريا",
+    "type": "player",
+    "clubs": [
+      "روزاريو سنترال",
+      "بنفيكا",
+      "ريال مدريد",
+      "مانشستر يونايتد",
+      "باريس سان جيرمان",
+      "يوفنتوس",
+      "بنفيكا"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_%285%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/NIG-ARG_%285%29.jpg/500px-NIG-ARG_%285%29.jpg"
+  },
+  {
+    "id": "FC-039",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "مسعود أوزيل",
+    "type": "player",
+    "clubs": [
+      "شالكه",
+      "فيردر بريمن",
+      "ريال مدريد",
+      "أرسنال",
+      "فنربخشة",
+      "إسطنبول باشاك شهير"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg/500px-Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+  },
+  {
+    "id": "FC-040",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "لوكا مودريتش",
+    "type": "player",
+    "clubs": [
+      "دينامو زغرب",
+      "توتنهام",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg"
+  },
+  {
+    "id": "FC-041",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كاكا",
+    "type": "player",
+    "clubs": [
+      "ساو باولو",
+      "ميلان",
+      "ريال مدريد",
+      "ميلان",
+      "أورلاندو سيتي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kak%C3%A1_visited_Stadium_St._Petersburg.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kak%C3%A1_visited_Stadium_St._Petersburg.jpg/500px-Kak%C3%A1_visited_Stadium_St._Petersburg.jpg"
+  },
+  {
+    "id": "FC-042",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "ساديو ماني",
+    "type": "player",
+    "clubs": [
+      "ميتز",
+      "ريد بول سالزبورغ",
+      "ساوثهامبتون",
+      "ليفربول",
+      "بايرن ميونخ",
+      "النصر السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg/500px-Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg"
+  },
+  {
+    "id": "FC-043",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "واين روني",
+    "type": "player",
+    "clubs": [
+      "إيفرتون",
+      "مانشستر يونايتد",
+      "إيفرتون",
+      "دي سي يونايتد",
+      "ديربي كاونتي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg/500px-Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-044",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "بول بوغبا",
+    "type": "player",
+    "clubs": [
+      "مانشستر يونايتد",
+      "يوفنتوس",
+      "مانشستر يونايتد",
+      "يوفنتوس"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Pogba_Cannes_2025.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Paul_Pogba_Cannes_2025.jpg/500px-Paul_Pogba_Cannes_2025.jpg"
+  },
+  {
+    "id": "FC-045",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة بيبي؟",
+    "answer": "ريال مدريد",
+    "type": "missing",
+    "clubs": [
+      "ماريتيمو",
+      "بورتو",
+      "ريال مدريد",
+      "بشكتاش",
+      "بورتو"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pepe_(footballer,_born_1983)"
+  },
+  {
+    "id": "FC-046",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة جورجينيو فينالدوم؟",
+    "answer": "ليفربول",
+    "type": "missing",
+    "clubs": [
+      "فينورد",
+      "آيندهوفن",
+      "نيوكاسل",
+      "ليفربول",
+      "باريس سان جيرمان",
+      "روما",
+      "الاتفاق السعودي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Georginio_Wijnaldum"
+  },
+  {
+    "id": "FC-047",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة إيفان بيريشيتش؟",
+    "answer": "إنتر ميلان",
+    "type": "missing",
+    "clubs": [
+      "كلوب بروج",
+      "بوروسيا دورتموند",
+      "فولفسبورغ",
+      "إنتر ميلان",
+      "بايرن ميونخ",
+      "إنتر ميلان",
+      "توتنهام",
+      "هايدوك سبليت",
+      "آيندهوفن"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Perišić"
+  },
+  {
+    "id": "FC-048",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "روميلو لوكاكو",
+    "type": "player",
+    "clubs": [
+      "أندرلخت",
+      "تشيلسي",
+      "وست بروميتش",
+      "إيفرتون",
+      "مانشستر يونايتد",
+      "إنتر ميلان",
+      "تشيلسي",
+      "إنتر ميلان",
+      "روما",
+      "نابولي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg/500px-Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg"
+  },
+  {
+    "id": "FC-049",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة هاكان تشالهان أوغلو؟",
+    "answer": "ميلان",
+    "type": "missing",
+    "clubs": [
+      "كارلسروه",
+      "هامبورغ",
+      "باير ليفركوزن",
+      "ميلان",
+      "إنتر ميلان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hakan_Çalhanoğlu"
+  },
+  {
+    "id": "FC-050",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة إيفان راكيتيتش؟",
+    "answer": "برشلونة",
+    "type": "missing",
+    "clubs": [
+      "بازل",
+      "شالكه",
+      "إشبيلية",
+      "برشلونة",
+      "إشبيلية",
+      "الشباب السعودي",
+      "هايدوك سبليت"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Rakitić"
+  },
+  {
+    "id": "FC-051",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة برناردو سيلفا؟",
+    "answer": "موناكو",
+    "type": "missing",
+    "clubs": [
+      "بنفيكا",
+      "موناكو",
+      "مانشستر سيتي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bernardo_Silva"
+  },
+  {
+    "id": "FC-052",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "سيرخيو أغويرو",
+    "type": "player",
+    "clubs": [
+      "إنديبندينتي",
+      "أتلتيكو مدريد",
+      "مانشستر سيتي",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ag%C3%BCero_in_2018.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Ag%C3%BCero_in_2018.jpg/500px-Ag%C3%BCero_in_2018.jpg"
+  },
+  {
+    "id": "FC-053",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "توني كروس",
+    "type": "player",
+    "clubs": [
+      "بايرن ميونخ",
+      "باير ليفركوزن",
+      "بايرن ميونخ",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toni_Kroos_Real_Madrid_2021.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Toni_Kroos_Real_Madrid_2021.jpg/500px-Toni_Kroos_Real_Madrid_2021.jpg"
+  },
+  {
+    "id": "FC-054",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "رياض محرز",
+    "type": "player",
+    "clubs": [
+      "لوهافر",
+      "ليستر سيتي",
+      "مانشستر سيتي",
+      "الأهلي السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mahrez_2021.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Mahrez_2021.jpg/500px-Mahrez_2021.jpg"
+  },
+  {
+    "id": "FC-055",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة غرانيت تشاكا؟",
+    "answer": "أرسنال",
+    "type": "missing",
+    "clubs": [
+      "بازل",
+      "بوروسيا مونشنغلادباخ",
+      "أرسنال",
+      "باير ليفركوزن"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Granit_Xhaka"
+  },
+  {
+    "id": "FC-056",
+    "points": 400,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "آريين روبن",
+    "type": "player",
+    "clubs": [
+      "غرونينغن",
+      "آيندهوفن",
+      "تشيلسي",
+      "ريال مدريد",
+      "بايرن ميونخ",
+      "غرونينغن"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg/500px-2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-057",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة كريستيان إريكسن؟",
+    "answer": "إنتر ميلان",
+    "type": "missing",
+    "clubs": [
+      "أياكس",
+      "توتنهام",
+      "إنتر ميلان",
+      "برينتفورد",
+      "مانشستر يونايتد"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Christian_Eriksen"
+  },
+  {
+    "id": "FC-058",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة فويتشيك تشيزني؟",
+    "answer": "يوفنتوس",
+    "type": "missing",
+    "clubs": [
+      "أرسنال",
+      "برينتفورد",
+      "روما",
+      "يوفنتوس",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wojciech_Szczęsny"
+  },
+  {
+    "id": "FC-059",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة خفيتشا كفاراتسخيليا؟",
+    "answer": "نابولي",
+    "type": "missing",
+    "clubs": [
+      "روستافي",
+      "لوكوموتيف موسكو",
+      "روبين كازان",
+      "دينامو باتومي",
+      "نابولي",
+      "باريس سان جيرمان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Khvicha_Kvaratskhelia"
+  },
+  {
+    "id": "FC-060",
+    "points": 400,
+    "question": "ما النادي المفقود من مسيرة خاميس رودريغيز؟",
+    "answer": "موناكو",
+    "type": "missing",
+    "clubs": [
+      "بانفيلد",
+      "بورتو",
+      "موناكو",
+      "ريال مدريد",
+      "بايرن ميونخ",
+      "إيفرتون",
+      "الريان القطري",
+      "أولمبياكوس",
+      "ساو باولو",
+      "رايو فاييكانو"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez"
+  },
+  {
+    "id": "FC-061",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة ألفونسو ديفيز؟",
+    "answer": "فانكوفر وايتكابس",
+    "type": "missing",
+    "clubs": [
+      "فانكوفر وايتكابس",
+      "بايرن ميونخ"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Alphonso_Davies"
+  },
+  {
+    "id": "FC-062",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة لياندرو تروسارد؟",
+    "answer": "برايتون",
+    "type": "missing",
+    "clubs": [
+      "جينك",
+      "لوميل",
+      "أود هيفرلي لوفين",
+      "فيستيرلو",
+      "برايتون",
+      "أرسنال"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard"
+  },
+  {
+    "id": "FC-063",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "أليكسيس سانشيز",
+    "type": "player",
+    "clubs": [
+      "كوبريلوا",
+      "أودينيزي",
+      "كولو كولو",
+      "ريفر بليت",
+      "أودينيزي",
+      "برشلونة",
+      "أرسنال",
+      "مانشستر يونايتد",
+      "إنتر ميلان",
+      "مارسيليا"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alexis_S%C3%A1nchez_2017.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Alexis_S%C3%A1nchez_2017.jpg/500px-Alexis_S%C3%A1nchez_2017.jpg"
+  },
+  {
+    "id": "FC-064",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "بيير إيميريك أوباميانغ",
+    "type": "player",
+    "clubs": [
+      "ديجون",
+      "ليل",
+      "موناكو",
+      "سانت إيتيان",
+      "بوروسيا دورتموند",
+      "أرسنال",
+      "برشلونة",
+      "تشيلسي",
+      "مارسيليا",
+      "القادسية السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg/500px-1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-065",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة مارسيلو بروزوفيتش؟",
+    "answer": "لوكوموتيفا زغرب",
+    "type": "missing",
+    "clubs": [
+      "هرفاتسكي دراغوفولياتش",
+      "لوكوموتيفا زغرب",
+      "دينامو زغرب",
+      "إنتر ميلان",
+      "النصر السعودي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marcelo_Brozović"
+  },
+  {
+    "id": "FC-066",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "جود بيلينغهام",
+    "type": "player",
+    "clubs": [
+      "برمنغهام سيتي",
+      "بوروسيا دورتموند",
+      "ريال مدريد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-067",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "نغولو كانتي",
+    "type": "player",
+    "clubs": [
+      "بولوني",
+      "كان الفرنسي",
+      "ليستر سيتي",
+      "تشيلسي",
+      "الاتحاد السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg/500px-N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg"
+  },
+  {
+    "id": "FC-068",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "راداميل فالكاو",
+    "type": "player",
+    "clubs": [
+      "ريفر بليت",
+      "بورتو",
+      "أتلتيكو مدريد",
+      "موناكو",
+      "مانشستر يونايتد",
+      "تشيلسي",
+      "موناكو",
+      "غلطة سراي",
+      "رايو فاييكانو"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg/500px-Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg"
+  },
+  {
+    "id": "FC-069",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة لويس دياز؟",
+    "answer": "أتلتيكو جونيور",
+    "type": "missing",
+    "clubs": [
+      "بارانكيا",
+      "أتلتيكو جونيور",
+      "بورتو",
+      "ليفربول"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Luis_Díaz_(footballer,_born_1997)"
+  },
+  {
+    "id": "FC-070",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة دييغو كوستا؟",
+    "answer": "رايو فاييكانو",
+    "type": "missing",
+    "clubs": [
+      "براغا",
+      "أتلتيكو مدريد",
+      "ريال بلد الوليد",
+      "رايو فاييكانو",
+      "أتلتيكو مدريد",
+      "تشيلسي",
+      "أتلتيكو مدريد",
+      "أتلتيكو مينيرو",
+      "وولفرهامبتون",
+      "بوتافوغو"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Diego_Costa"
+  },
+  {
+    "id": "FC-071",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة خوان ماتا؟",
+    "answer": "غلطة سراي",
+    "type": "missing",
+    "clubs": [
+      "فالنسيا",
+      "تشيلسي",
+      "مانشستر يونايتد",
+      "غلطة سراي",
+      "فيسيل كوبي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Juan_Mata"
+  },
+  {
+    "id": "FC-072",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "روبرتو فيرمينو",
+    "type": "player",
+    "clubs": [
+      "فيغيرينسي",
+      "هوفنهايم",
+      "ليفربول",
+      "الأهلي السعودي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg"
+  },
+  {
+    "id": "FC-073",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "أندريس إنييستا",
+    "type": "player",
+    "clubs": [
+      "برشلونة",
+      "فيسيل كوبي",
+      "الإمارات الإماراتي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-074",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "أوليفييه جيرو",
+    "type": "player",
+    "clubs": [
+      "غرونوبل",
+      "إيستر",
+      "تور",
+      "مونبلييه",
+      "أرسنال",
+      "تشيلسي",
+      "ميلان",
+      "لوس أنجلوس إف سي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olivier_Giroud_December_2024.png",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Olivier_Giroud_December_2024.png"
+  },
+  {
+    "id": "FC-075",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة كيلور نافاس؟",
+    "answer": "ألباسيتي",
+    "type": "missing",
+    "clubs": [
+      "ديبورتيفو سابريسا",
+      "ألباسيتي",
+      "ليفانتي",
+      "ريال مدريد",
+      "باريس سان جيرمان",
+      "نوتنغهام فورست"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Keylor_Navas"
+  },
+  {
+    "id": "FC-076",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة كيفن برينس بواتينغ؟",
+    "answer": "بورتسموث",
+    "type": "missing",
+    "clubs": [
+      "هيرتا برلين",
+      "توتنهام",
+      "بوروسيا دورتموند",
+      "بورتسموث",
+      "ميلان",
+      "شالكه",
+      "لاس بالماس",
+      "آينتراخت فرانكفورت",
+      "ساسولو",
+      "برشلونة"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kevin-Prince_Boateng"
+  },
+  {
+    "id": "FC-077",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة خيسوس نافاس؟",
+    "answer": "مانشستر سيتي",
+    "type": "missing",
+    "clubs": [
+      "إشبيلية",
+      "مانشستر سيتي",
+      "إشبيلية"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jesús_Navas"
+  },
+  {
+    "id": "FC-078",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة يان أوبلاك؟",
+    "answer": "أونياو ليريا",
+    "type": "missing",
+    "clubs": [
+      "أولمبيا ليوبليانا",
+      "بنفيكا",
+      "أولانينسي",
+      "أونياو ليريا",
+      "ريو آفي",
+      "أتلتيكو مدريد"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jan_Oblak"
+  },
+  {
+    "id": "FC-079",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "باولو ديبالا",
+    "type": "player",
+    "clubs": [
+      "إنستيتوتو",
+      "باليرمو",
+      "يوفنتوس",
+      "روما"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-080",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كاسيميرو",
+    "type": "player",
+    "clubs": [
+      "ساو باولو",
+      "ريال مدريد",
+      "بورتو",
+      "ريال مدريد",
+      "مانشستر يونايتد"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg/500px-Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-081",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة خوليان ألفاريز؟",
+    "answer": "ريفر بليت",
+    "type": "missing",
+    "clubs": [
+      "ريفر بليت",
+      "مانشستر سيتي",
+      "أتلتيكو مدريد"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Julián_Álvarez_(footballer)"
+  },
+  {
+    "id": "FC-082",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "غونزالو هيغواين",
+    "type": "player",
+    "clubs": [
+      "ريفر بليت",
+      "ريال مدريد",
+      "نابولي",
+      "يوفنتوس",
+      "ميلان",
+      "تشيلسي",
+      "يوفنتوس",
+      "إنتر ميامي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_%2822%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/NIG-ARG_%2822%29.jpg/500px-NIG-ARG_%2822%29.jpg"
+  },
+  {
+    "id": "FC-083",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "فيرجيل فان دايك",
+    "type": "player",
+    "clubs": [
+      "غرونينغن",
+      "سلتيك",
+      "ساوثهامبتون",
+      "ليفربول"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8876_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-084",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة ثيو هيرنانديز؟",
+    "answer": "ريال سوسييداد",
+    "type": "missing",
+    "clubs": [
+      "أتلتيكو مدريد",
+      "ألافيس",
+      "ريال مدريد",
+      "ريال سوسييداد",
+      "ميلان"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Theo_Hernández"
+  },
+  {
+    "id": "FC-085",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "كارلوس تيفيز",
+    "type": "player",
+    "clubs": [
+      "بوكا جونيورز",
+      "كورينثيانز",
+      "وست هام",
+      "مانشستر يونايتد",
+      "مانشستر سيتي",
+      "يوفنتوس",
+      "بوكا جونيورز",
+      "شنغهاي شينهوا",
+      "بوكا جونيورز"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg",
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg/500px-Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-086",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة فيليب كوتينيو؟",
+    "answer": "إسبانيول",
+    "type": "missing",
+    "clubs": [
+      "فاسكو دا غاما",
+      "إنتر ميلان",
+      "إسبانيول",
+      "ليفربول",
+      "برشلونة",
+      "بايرن ميونخ",
+      "أستون فيلا",
+      "الدحيل القطري"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho"
+  },
+  {
+    "id": "FC-087",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "دافيد فيا",
+    "type": "player",
+    "clubs": [
+      "سبورتينغ خيخون",
+      "ريال سرقسطة",
+      "فالنسيا",
+      "برشلونة",
+      "أتلتيكو مدريد",
+      "نيويورك سيتي",
+      "فيسيل كوبي"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg"
+  },
+  {
+    "id": "FC-088",
+    "points": 600,
+    "question": "من اللاعب صاحب هذه المسيرة؟",
+    "answer": "تشافي هيرنانديز",
+    "type": "player",
+    "clubs": [
+      "برشلونة",
+      "السد القطري"
+    ],
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi%2C_Persepolis_vs._Al_Sadd%2C_20190520_02_%28cropped%29.jpg",
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Xavi%2C_Persepolis_vs._Al_Sadd%2C_20190520_02_%28cropped%29.jpg"
+  },
+  {
+    "id": "FC-089",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة هوغو لوريس؟",
+    "answer": "لوس أنجلوس إف سي",
+    "type": "missing",
+    "clubs": [
+      "نيس",
+      "ليون",
+      "توتنهام",
+      "لوس أنجلوس إف سي"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hugo_Lloris"
+  },
+  {
+    "id": "FC-090",
+    "points": 600,
+    "question": "ما النادي المفقود من مسيرة كينغسلي كومان؟",
+    "answer": "يوفنتوس",
+    "type": "missing",
+    "clubs": [
+      "باريس سان جيرمان",
+      "يوفنتوس",
+      "بايرن ميونخ"
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kingsley_Coman"
+  }
+]

@@ -71,6 +71,7 @@ test('Palestinian Proverbs dataset imports all 100 unique questions (34x200, 33x
     assert.equal(q.prompt, 'ما المثل الشعبي الفلسطيني الذي تمثله الصور؟');
     assert.ok(q.answer.trim().length > 0);
     assert.ok((q.hint ?? '').trim().length > 0);
+    assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
     tierCounts[q.points] += 1;
   }
 

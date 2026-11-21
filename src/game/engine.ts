@@ -1,9 +1,5 @@
 import { pickCommentary } from './commentary';
-import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
-import { PALESTINIAN_PROVERBS_CATEGORY } from './palestinianProverbs';
-import { PROPHET_STORIES_CATEGORY } from './prophetStories';
-import { RASHIDUN_CATEGORY } from './rashidun';
-import { VISUAL_MEMORY_CATEGORY } from './visualMemory';
+import { PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS } from './curatedBanks';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -116,6 +112,8 @@ function findAvailableBackupQuestion(
   const usedIds = new Set<string>([
     currentQuestion.id,
     ...(state.playedProphetQuestionIds ?? []),
+    ...(state.playedCuratedQuestionIds ?? []),
+    ...(state.playedRotatingQuestionIds?.[currentQuestion.categoryId] ?? []),
     ...state.boardTiles.filter((t) => t.used).map((t) => t.questionId),
     ...state.boardTiles.map((t) => t.questionId),
   ]);
@@ -144,12 +142,11 @@ function findAvailableBackupQuestion(
     pool.find(
       (q) =>
         q.categoryId === currentQuestion.categoryId &&
-        q.difficulty === currentQuestion.difficulty,
+        q.points === currentQuestion.points,
     ) ??
-    (currentQuestion.categoryId !== PROPHET_STORIES_CATEGORY.id
+    (!SERVER_CURATED_CATEGORY_IDS.includes(currentQuestion.categoryId)
       ? pool.find((q) => q.categoryId === currentQuestion.categoryId)
-      : undefined) ??
-    null
+      : undefined) ?? null
   );
 }
 
@@ -308,7 +305,7 @@ export function selectBoardTile(
   }
   const durationSec = question.timeLimitSeconds || state.settings.timerSeconds;
   const selectEvent =
-    tile.points === 200 ? 'select200' : tile.points === 400 ? 'select400' : 'select600';
+    tile.difficulty === 'easy' ? 'select200' : tile.difficulty === 'medium' ? 'select400' : 'select600';
   const cmt = pickCommentary(selectEvent, state.settings.commentaryMode, state.recentCommentaryTexts);
 
   const activeRound: ActiveRound = {
@@ -1357,6 +1354,8 @@ export function sanitizeStateForRole(
     };
   }
 
+  const canShowImage = canRevealAnswer || state.activeRound?.question.imageDisplay !== 'after_reveal';
+
   return {
     schemaVersion: 2,
     role: 'projector',
@@ -1380,19 +1379,16 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
-          subtopic:
-            canRevealAnswer ||
-            (state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id &&
-              state.activeRound.question.categoryId !== RASHIDUN_CATEGORY.id &&
-              state.activeRound.question.categoryId !== JORDAN_BRANDS_CATEGORY.id &&
-              state.activeRound.question.categoryId !== PALESTINIAN_PROVERBS_CATEGORY.id &&
-              state.activeRound.question.categoryId !== VISUAL_MEMORY_CATEGORY.id)
-              ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
-              : undefined,
+          subtopic: canRevealAnswer || (
+            !isMemorizing && !isMemoryQuestionOnly && canShowImage && !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
+          )
+            ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
+            : undefined,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,
           prompt: isMemorizing ? '' : state.activeRound.question.prompt,
+          startingLetter: isMemorizing ? undefined : state.activeRound.question.startingLetter,
           options: isMemorizing ? undefined : state.activeRound.question.options,
           orderItems: isMemorizing ? undefined : state.activeRound.question.orderItems,
           orderPlay: state.activeRound.orderPlay,
@@ -1405,13 +1401,15 @@ export function sanitizeStateForRole(
             ? state.activeRound.question.acceptableAnswers
             : undefined,
           explanation: canRevealAnswer ? state.activeRound.question.explanation : undefined,
-          imageUrl: isMemoryQuestionOnly ? undefined : state.activeRound.question.imageUrl,
-          imageBase64: isMemoryQuestionOnly ? undefined : state.activeRound.question.imageBase64,
-          imageCaption:
-            isMemorizing || isMemoryQuestionOnly
-              ? undefined
-              : state.activeRound.question.imageCaption,
-          beforeImageUrls: isMemorizing ? undefined : state.activeRound.question.beforeImageUrls,
+          imageUrl: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.imageUrl : undefined,
+          imageBase64: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.imageBase64 : undefined,
+          imageCaption: canShowImage && !isMemorizing && !isMemoryQuestionOnly ? state.activeRound.question.imageCaption : undefined,
+          imageDisplay: state.activeRound.question.imageDisplay,
+          imageSourceUrl: canRevealAnswer ? state.activeRound.question.imageSourceUrl : undefined,
+          answerImageUrl: canRevealAnswer ? state.activeRound.question.answerImageUrl : undefined,
+          audioUrl: canRevealAnswer || isMemorizing ? undefined : state.activeRound.question.audioUrl,
+          answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
+          beforeImageUrls: canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,

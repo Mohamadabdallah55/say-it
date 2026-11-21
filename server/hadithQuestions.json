@@ -1,0 +1,502 @@
+[
+  {
+    "id": "HADITH-001",
+    "points": 400,
+    "question": "أكمل: «الحلال بين والحرام بين ...»",
+    "answer": "وبينهما أمور مشتبهات لا يعلمهن كثير من الناس",
+    "accepted_answers": "",
+    "explanation": "تحذير من التهاون بالمشتبهات.",
+    "source_title": "الأربعون النووية، الحديث 6",
+    "source_url": "https://sunnah.com/nawawi40:6"
+  },
+  {
+    "id": "HADITH-002",
+    "points": 600,
+    "question": "من الصحابي الذي سأل: «قل لي في الإسلام قولًا لا أسأل عنه أحدًا غيرك»، فجاءه الجواب بالاستقامة؟",
+    "answer": "سفيان بن عبد الله الثقفي",
+    "accepted_answers": "سفيان الثقفي",
+    "explanation": "نقل مسلم خبر سؤاله للنبي ﷺ.",
+    "source_title": "الأربعون النووية، الحديث 21",
+    "source_url": "https://sunnah.com/nawawi40:21"
+  },
+  {
+    "id": "HADITH-003",
+    "points": 400,
+    "question": "ماذا يفهم من حديث «ما أمرتكم به فأتوا منه ما استطعتم» بشأن الأوامر الشرعية؟",
+    "answer": "الامتثال للأمر يكون على قدر الاستطاعة",
+    "accepted_answers": "بحسب الاستطاعة",
+    "explanation": "الاستطاعة قيد صريح في الأمر.",
+    "source_title": "الأربعون النووية، الحديث 9",
+    "source_url": "https://sunnah.com/nawawi40:9"
+  },
+  {
+    "id": "HADITH-004",
+    "points": 400,
+    "question": "أكمل: «الصلاة نور، والصدقة برهان، و...».",
+    "answer": "الصبر ضياء",
+    "accepted_answers": "",
+    "explanation": "جاءت هذه الأوصاف متتابعة في الحديث.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-005",
+    "points": 600,
+    "question": "ما العامل الذي ذكره حديث «إن الله طيب لا يقبل إلا طيبًا» مانعًا من إجابة دعاء المسافر الموصوف؟",
+    "answer": "كون مطعمه ومشربه وملبسه من الحرام",
+    "accepted_answers": "التغذي بالحرام",
+    "explanation": "تظهر صورة الدعاء مع فقد شرط طيب الكسب.",
+    "source_title": "الأربعون النووية، الحديث 10",
+    "source_url": "https://sunnah.com/nawawi40:10"
+  },
+  {
+    "id": "HADITH-006",
+    "points": 600,
+    "question": "من الراوي الذي نقل حديثًا قدسيًا مفتتحه «يا عبادي إني حرمت الظلم على نفسي»؟",
+    "answer": "أبو ذر الغفاري",
+    "accepted_answers": "أبو ذر",
+    "explanation": "يعد من الأحاديث القدسية الطويلة.",
+    "source_title": "الأربعون النووية، الحديث 24",
+    "source_url": "https://sunnah.com/nawawi40:24"
+  },
+  {
+    "id": "HADITH-007",
+    "points": 400,
+    "question": "أكمل الحديث: «لا يؤمن أحدكم حتى يحب لأخيه ...»",
+    "answer": "ما يحب لنفسه",
+    "accepted_answers": "",
+    "explanation": "المقصود كمال الإيمان الواجب بحب الخير للآخرين.",
+    "source_title": "الأربعون النووية، الحديث 13",
+    "source_url": "https://sunnah.com/nawawi40:13"
+  },
+  {
+    "id": "HADITH-008",
+    "points": 600,
+    "question": "أي صحابي روى حديث «إن مما أدرك الناس من كلام النبوة الأولى: إذا لم تستح...»؟",
+    "answer": "أبو مسعود عقبة بن عمرو الأنصاري",
+    "accepted_answers": "أبو مسعود الأنصاري",
+    "explanation": "يُعرف بأبي مسعود البدري.",
+    "source_title": "الأربعون النووية، الحديث 20",
+    "source_url": "https://sunnah.com/nawawi40:20"
+  },
+  {
+    "id": "HADITH-009",
+    "points": 200,
+    "question": "أكمل: «من كان يؤمن بالله واليوم الآخر فليقل خيرًا ...»",
+    "answer": "أو ليصمت",
+    "accepted_answers": "",
+    "explanation": "الحديث يجمع ثلاثة حقوق وآداب.",
+    "source_title": "الأربعون النووية، الحديث 15",
+    "source_url": "https://sunnah.com/nawawi40:15"
+  },
+  {
+    "id": "HADITH-010",
+    "points": 400,
+    "question": "في حديث «الطهور شطر الإيمان»، ما الذكران اللذان ورد أن ذكرهما يملأ ما بين السماء والأرض؟",
+    "answer": "سبحان الله والحمد لله",
+    "accepted_answers": "التسبيح والتحميد",
+    "explanation": "ميز الحديث بين قول الحمد لله الذي يملأ الميزان، والذكرين المذكورين فيما بين السماء والأرض.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-011",
+    "points": 600,
+    "question": "من روى حديث «البر حسن الخلق، والإثم ما حاك في نفسك» في صحيح مسلم؟",
+    "answer": "النواس بن سمعان",
+    "accepted_answers": "النواس بن سمعان الأنصاري",
+    "explanation": "توجد في الحديث نفسه رواية أخرى عن وابصة بن معبد بصياغة أخرى.",
+    "source_title": "الأربعون النووية، الحديث 27",
+    "source_url": "https://sunnah.com/nawawi40:27"
+  },
+  {
+    "id": "HADITH-012",
+    "points": 600,
+    "question": "في حديث جبريل: بم أجاب النبي ﷺ عن علمه بوقت الساعة؟",
+    "answer": "ما المسؤول عنها بأعلم من السائل",
+    "accepted_answers": "",
+    "explanation": "جاء الجواب قبل ذكر بعض علاماتها.",
+    "source_title": "الأربعون النووية، الحديث 2",
+    "source_url": "https://sunnah.com/nawawi40:2"
+  },
+  {
+    "id": "HADITH-013",
+    "points": 600,
+    "question": "في الحديث القدسي «يا عبادي»، ما أثر بلوغ جميع الخلق أقصى درجات التقوى على مُلك الله؟",
+    "answer": "لا يزيد في مُلك الله شيئًا",
+    "accepted_answers": "لا يزيد ملكه",
+    "explanation": "الله غني عن طاعة خلقه.",
+    "source_title": "الأربعون النووية، الحديث 24",
+    "source_url": "https://sunnah.com/nawawi40:24"
+  },
+  {
+    "id": "HADITH-014",
+    "points": 400,
+    "question": "أكمل الحديث في الإحسان: «أن تعبد الله كأنك تراه ...»",
+    "answer": "فإن لم تكن تراه فإنه يراك",
+    "accepted_answers": "",
+    "explanation": "الجواب جاء ضمن حديث جبريل.",
+    "source_title": "الأربعون النووية، الحديث 2",
+    "source_url": "https://sunnah.com/nawawi40:2"
+  },
+  {
+    "id": "HADITH-015",
+    "points": 600,
+    "question": "من الصحابي الذي روى وصية النبي ﷺ: «عليكم بسنتي وسنة الخلفاء الراشدين»؟",
+    "answer": "العرباض بن سارية",
+    "accepted_answers": "العرباض",
+    "explanation": "وردت في سياق موعظة بليغة.",
+    "source_title": "الأربعون النووية، الحديث 28",
+    "source_url": "https://sunnah.com/nawawi40:28"
+  },
+  {
+    "id": "HADITH-016",
+    "points": 400,
+    "question": "ما الأعمال الثلاثة التي قرنها حديث «من كان يؤمن بالله واليوم الآخر» بالإيمان باليوم الآخر؟",
+    "answer": "قول الخير أو الصمت، وإكرام الجار، وإكرام الضيف",
+    "accepted_answers": "قول الخير وإكرام الجار والضيف",
+    "explanation": "تجمع حسن اللسان والجوار والضيافة.",
+    "source_title": "الأربعون النووية، الحديث 15",
+    "source_url": "https://sunnah.com/nawawi40:15"
+  },
+  {
+    "id": "HADITH-017",
+    "points": 200,
+    "question": "أكمل: «الدين النصيحة». قيل: لمن؟ فقال: «لله ولكتابه ولرسوله ...»",
+    "answer": "ولأئمة المسلمين وعامتهم",
+    "accepted_answers": "",
+    "explanation": "كلام النبي ﷺ يشمل الولاة وعامة المسلمين.",
+    "source_title": "الأربعون النووية، الحديث 7",
+    "source_url": "https://sunnah.com/nawawi40:7"
+  },
+  {
+    "id": "HADITH-018",
+    "points": 600,
+    "question": "في حديث «كتب الحسنات والسيئات»، ما جزاء من نوى حسنة ولم يعملها كما جاء في الرواية؟",
+    "answer": "تكتب له حسنة كاملة",
+    "accepted_answers": "حسنة واحدة",
+    "explanation": "فرّقت الرواية بين الهم بالحسنة والعمل بها.",
+    "source_title": "الأربعون النووية، الحديث 37",
+    "source_url": "https://sunnah.com/nawawi40:37"
+  },
+  {
+    "id": "HADITH-019",
+    "points": 200,
+    "question": "أكمل: «إذا لم تستحِ ...»",
+    "answer": "فاصنع ما شئت",
+    "accepted_answers": "",
+    "explanation": "أُورد بوصفه من كلام النبوة الأولى، ولا يعني إباحة المحرمات.",
+    "source_title": "الأربعون النووية، الحديث 20",
+    "source_url": "https://sunnah.com/nawawi40:20"
+  },
+  {
+    "id": "HADITH-020",
+    "points": 400,
+    "question": "من الصحابي الذي نقل حديث «لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه»؟",
+    "answer": "أنس بن مالك",
+    "accepted_answers": "أنس",
+    "explanation": "خادم النبي ﷺ.",
+    "source_title": "الأربعون النووية، الحديث 13",
+    "source_url": "https://sunnah.com/nawawi40:13"
+  },
+  {
+    "id": "HADITH-021",
+    "points": 400,
+    "question": "في حديث «إنما الأعمال بالنيات»، بِمَ يختلف أجر عملين متماثلين في الظاهر؟",
+    "answer": "باختلاف النية والمقصد",
+    "accepted_answers": "بحسب النية",
+    "explanation": "العبرة ليست بالصورة الظاهرة وحدها.",
+    "source_title": "الأربعون النووية، الحديث 1",
+    "source_url": "https://sunnah.com/nawawi40:1"
+  },
+  {
+    "id": "HADITH-022",
+    "points": 200,
+    "question": "ما الأعمال الواردة في حديث «الطهور شطر الإيمان» التي جُعلت ملءَ الميزان؟",
+    "answer": "قول الحمد لله",
+    "accepted_answers": "الحمد لله",
+    "explanation": "وورد ذكر التسبيح والتحميد لما بين السماء والأرض.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-023",
+    "points": 600,
+    "question": "في حديث «البر حسن الخلق» كيف وصف النبي ﷺ الإثم؟",
+    "answer": "ما حاك في النفس وكره المرء أن يطلع عليه الناس",
+    "accepted_answers": "ما حاك في نفسك وكرهت أن يطلع عليه الناس",
+    "explanation": "مؤشر للريبة في الرواية، مع تحكيم النصوص الشرعية.",
+    "source_title": "الأربعون النووية، الحديث 27",
+    "source_url": "https://sunnah.com/nawawi40:27"
+  },
+  {
+    "id": "HADITH-024",
+    "points": 600,
+    "question": "من راوي حديث «كل سلامى من الناس عليه صدقة» في الصحيحين؟",
+    "answer": "أبو هريرة",
+    "accepted_answers": "عبد الرحمن بن صخر",
+    "explanation": "تتعدد فيه صور الصدقة غير المالية.",
+    "source_title": "الأربعون النووية، الحديث 26",
+    "source_url": "https://sunnah.com/nawawi40:26"
+  },
+  {
+    "id": "HADITH-025",
+    "points": 400,
+    "question": "ما الحد الذي حدده السائل في الحديث الذي أجابه النبي ﷺ بأنه يدخل الجنة، من جهة النوافل؟",
+    "answer": "ألا يزيد على المذكور من الفرائض شيئًا",
+    "accepted_answers": "عدم الزيادة بالنوافل",
+    "explanation": "مع أداء المفروض وتحليل الحلال وتحريم الحرام.",
+    "source_title": "الأربعون النووية، الحديث 22",
+    "source_url": "https://sunnah.com/nawawi40:22"
+  },
+  {
+    "id": "HADITH-026",
+    "points": 200,
+    "question": "أكمل: «دع ما يريبك إلى ...»",
+    "answer": "ما لا يريبك",
+    "accepted_answers": "",
+    "explanation": "أي اترك ما تشك فيه إلى ما تطمئن إليه.",
+    "source_title": "الأربعون النووية، الحديث 11",
+    "source_url": "https://sunnah.com/nawawi40:11"
+  },
+  {
+    "id": "HADITH-027",
+    "points": 600,
+    "question": "بماذا وصف الحديث القدسي في الأربعين النووية أقرب ما يتقرب به العبد إلى ربه؟",
+    "answer": "الفرائض التي افترضها الله",
+    "accepted_answers": "الفرائض",
+    "explanation": "ثم تأتي النوافل بعد الفرائض.",
+    "source_title": "الأربعون النووية، الحديث 38",
+    "source_url": "https://sunnah.com/nawawi40:38"
+  },
+  {
+    "id": "HADITH-028",
+    "points": 400,
+    "question": "أكمل: «من سلك طريقًا يلتمس فيه علمًا ...»",
+    "answer": "سهل الله له به طريقًا إلى الجنة",
+    "accepted_answers": "",
+    "explanation": "طلب العلم النافع عبادة لها فضل عظيم.",
+    "source_title": "الأربعون النووية، الحديث 36",
+    "source_url": "https://sunnah.com/nawawi40:36"
+  },
+  {
+    "id": "HADITH-029",
+    "points": 600,
+    "question": "من الصحابي الذي حفظ عن النبي ﷺ حديث «دع ما يريبك إلى ما لا يريبك»؟",
+    "answer": "الحسن بن علي بن أبي طالب",
+    "accepted_answers": "الحسن بن علي",
+    "explanation": "من أحفاد النبي ﷺ.",
+    "source_title": "الأربعون النووية، الحديث 11",
+    "source_url": "https://sunnah.com/nawawi40:11"
+  },
+  {
+    "id": "HADITH-030",
+    "points": 400,
+    "question": "في الحديث الذي يذكر اجتماع الناس لتلاوة القرآن وتدارسه، اذكر نتيجتين وردتا لهذا المجلس.",
+    "answer": "نزول السكينة وغشيان الرحمة",
+    "accepted_answers": "حفتهم الملائكة وذكرهم الله فيمن عنده",
+    "explanation": "ورد أيضًا إحاطة الملائكة وذكر الله لهم.",
+    "source_title": "الأربعون النووية، الحديث 36",
+    "source_url": "https://sunnah.com/nawawi40:36"
+  },
+  {
+    "id": "HADITH-031",
+    "points": 400,
+    "question": "ماذا نفهم من قوله ﷺ في حديث «كل سلامى ...» إن إماطة الأذى عن الطريق صدقة؟",
+    "answer": "أن أعمال النفع اليومية قد تكون صدقة ولو لم تكن مالًا",
+    "accepted_answers": "الصدقة ليست محصورة بالمال",
+    "explanation": "ذكر أعمالًا متعددة ليست إنفاقًا ماليًا.",
+    "source_title": "الأربعون النووية، الحديث 26",
+    "source_url": "https://sunnah.com/nawawi40:26"
+  },
+  {
+    "id": "HADITH-032",
+    "points": 200,
+    "question": "أكمل الوصية: «كن في الدنيا كأنك ...»",
+    "answer": "غريب أو عابر سبيل",
+    "accepted_answers": "",
+    "explanation": "في رواية ابن عمر رضي الله عنهما.",
+    "source_title": "الأربعون النووية، الحديث 40",
+    "source_url": "https://sunnah.com/nawawi40:40"
+  },
+  {
+    "id": "HADITH-033",
+    "points": 400,
+    "question": "أي صحابي يروي حديث «الدين النصيحة» في رواية صحيح مسلم الواردة في الأربعين النووية؟",
+    "answer": "تميم بن أوس الداري",
+    "accepted_answers": "تميم الداري",
+    "explanation": "يُكنى أبا رقية.",
+    "source_title": "الأربعون النووية، الحديث 7",
+    "source_url": "https://sunnah.com/nawawi40:7"
+  },
+  {
+    "id": "HADITH-034",
+    "points": 400,
+    "question": "ما الصفة التي وردت في حديث جبريل عن التنافس في بناء المباني العالية؟",
+    "answer": "تطاول الحفاة العراة العالة رعاء الشاء في البنيان",
+    "accepted_answers": "تطاول الرعاة في البنيان",
+    "explanation": "ورد ذلك ضمن أمارات الساعة.",
+    "source_title": "الأربعون النووية، الحديث 2",
+    "source_url": "https://sunnah.com/nawawi40:2"
+  },
+  {
+    "id": "HADITH-035",
+    "points": 400,
+    "question": "في تشبيه الراعي الذي يرعى حول الحمى في حديث الحلال والحرام: ما الحالة التي يحذر منها هذا التشبيه؟",
+    "answer": "الاقتراب من الشبهات المؤدية إلى الوقوع في الحرام",
+    "accepted_answers": "التساهل في الشبهات",
+    "explanation": "تجنّب المشتبه يحفظ الدين والعِرض.",
+    "source_title": "الأربعون النووية، الحديث 6",
+    "source_url": "https://sunnah.com/nawawi40:6"
+  },
+  {
+    "id": "HADITH-036",
+    "points": 600,
+    "question": "من الصحابي الذي نقل حديث «الطهور شطر الإيمان»؟",
+    "answer": "أبو مالك الحارث بن عاصم الأشعري",
+    "accepted_answers": "أبو مالك الأشعري",
+    "explanation": "ليس المقصود أبا موسى الأشعري.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-037",
+    "points": 600,
+    "question": "في حديث ابن عمر «كن في الدنيا كأنك غريب أو عابر سبيل»، مَن القائل في الرواية لعبارة «إذا أمسيت فلا تنتظر الصباح»؟",
+    "answer": "عبد الله بن عمر",
+    "accepted_answers": "ابن عمر",
+    "explanation": "العبارة المذكورة من كلام ابن عمر بعد روايته للحديث وليست من تتمة اللفظ المرفوع.",
+    "source_title": "الأربعون النووية، الحديث 40",
+    "source_url": "https://sunnah.com/nawawi40:40"
+  },
+  {
+    "id": "HADITH-038",
+    "points": 400,
+    "question": "أكمل قول النبي ﷺ: «اتق الله حيثما كنت، وأتبع السيئة الحسنة ...»",
+    "answer": "تمحها",
+    "accepted_answers": "",
+    "explanation": "في الحديث ثلاث وصايا جامعة.",
+    "source_title": "الأربعون النووية، الحديث 18",
+    "source_url": "https://sunnah.com/nawawi40:18"
+  },
+  {
+    "id": "HADITH-039",
+    "points": 600,
+    "question": "عند عرض دعوى على القاضي، على من تقع البيّنة بحسب الحديث المشهور؟",
+    "answer": "على المدعي",
+    "accepted_answers": "المدعي",
+    "explanation": "واليمين على من أنكر.",
+    "source_title": "الأربعون النووية، الحديث 33",
+    "source_url": "https://sunnah.com/nawawi40:33"
+  },
+  {
+    "id": "HADITH-040",
+    "points": 600,
+    "question": "ما العدد الأعلى المذكور صراحة لمضاعفة الحسنة في حديث «كتب الحسنات والسيئات»، قبل قوله بزيادات أخرى؟",
+    "answer": "سبعمائة ضعف",
+    "accepted_answers": "700",
+    "explanation": "ذكر من عشر حسنات إلى سبعمائة ضعف ثم أضعافًا كثيرة.",
+    "source_title": "الأربعون النووية، الحديث 37",
+    "source_url": "https://sunnah.com/nawawi40:37"
+  },
+  {
+    "id": "HADITH-041",
+    "points": 200,
+    "question": "أكمل وصية النبي ﷺ لسفيان الثقفي: «قل آمنت بالله ...»",
+    "answer": "ثم استقم",
+    "accepted_answers": "",
+    "explanation": "الثبات العملي بعد الإيمان.",
+    "source_title": "الأربعون النووية، الحديث 21",
+    "source_url": "https://sunnah.com/nawawi40:21"
+  },
+  {
+    "id": "HADITH-042",
+    "points": 400,
+    "question": "من راوي حديث «إنما الأعمال بالنيات» في افتتاح صحيح البخاري؟",
+    "answer": "عمر بن الخطاب",
+    "accepted_answers": "عمر",
+    "explanation": "سُمعت الرواية منه على المنبر.",
+    "source_title": "الأربعون النووية، الحديث 1",
+    "source_url": "https://sunnah.com/nawawi40:1"
+  },
+  {
+    "id": "HADITH-043",
+    "points": 200,
+    "question": "في الحديث الذي وصف الصلاة بالنور، بماذا شُبّهت الصدقة تحديدًا؟",
+    "answer": "بالبرهان",
+    "accepted_answers": "برهان",
+    "explanation": "أي دليل على صدق الإيمان.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-044",
+    "points": 200,
+    "question": "أكمل: «والقرآن حجة لك ...»",
+    "answer": "أو عليك",
+    "accepted_answers": "",
+    "explanation": "يتوقف ذلك على موقف العبد من العمل به.",
+    "source_title": "الأربعون النووية، الحديث 23",
+    "source_url": "https://sunnah.com/nawawi40:23"
+  },
+  {
+    "id": "HADITH-045",
+    "points": 400,
+    "question": "من الصحابي الذي قال إنه كان خلف النبي ﷺ يومًا فسمع وصية «احفظ الله يحفظك»؟",
+    "answer": "عبد الله بن عباس",
+    "accepted_answers": "ابن عباس",
+    "explanation": "يُلقب بحبر الأمة وترجمان القرآن.",
+    "source_title": "الأربعون النووية، الحديث 19",
+    "source_url": "https://sunnah.com/nawawi40:19"
+  },
+  {
+    "id": "HADITH-046",
+    "points": 600,
+    "question": "من السائل الذي جاء في هيئة رجل غريب في حديث جبريل، كما كشف النبي ﷺ للصحابة بعد انصرافه؟",
+    "answer": "جبريل عليه السلام",
+    "accepted_answers": "",
+    "explanation": "جاء يعلّم الناس دينهم بطريقة السؤال.",
+    "source_title": "الأربعون النووية، الحديث 2",
+    "source_url": "https://sunnah.com/nawawi40:2"
+  },
+  {
+    "id": "HADITH-047",
+    "points": 600,
+    "question": "أكمل الجملة من الحديث القدسي: «يا عبادي، كلكم ضال إلا من هديته ...»",
+    "answer": "فاستهدوني أهدكم",
+    "accepted_answers": "",
+    "explanation": "ينسب الحديث الكلام إلى الله تعالى.",
+    "source_title": "الأربعون النووية، الحديث 24",
+    "source_url": "https://sunnah.com/nawawi40:24"
+  },
+  {
+    "id": "HADITH-048",
+    "points": 400,
+    "question": "في حديث «من نفس عن مؤمن كربة»، ما ثواب تيسير أمر صاحب العسر في الدنيا؟",
+    "answer": "ييسر الله له في الدنيا والآخرة",
+    "accepted_answers": "التيسير له في الدنيا والآخرة",
+    "explanation": "المكافأة من جنس عمل التيسير.",
+    "source_title": "الأربعون النووية، الحديث 36",
+    "source_url": "https://sunnah.com/nawawi40:36"
+  },
+  {
+    "id": "HADITH-049",
+    "points": 200,
+    "question": "في حديث «اتق الله حيثما كنت»، ما الأمر الذي ختم به النبي ﷺ الوصايا الثلاث؟",
+    "answer": "وخالق الناس بخلق حسن",
+    "accepted_answers": "حسن الخلق مع الناس",
+    "explanation": "بعد التقوى وإتباع السيئة الحسنة.",
+    "source_title": "الأربعون النووية، الحديث 18",
+    "source_url": "https://sunnah.com/nawawi40:18"
+  },
+  {
+    "id": "HADITH-050",
+    "points": 400,
+    "question": "من راوية حديث «من أحدث في أمرنا هذا ما ليس منه فهو رد»؟",
+    "answer": "عائشة أم المؤمنين",
+    "accepted_answers": "عائشة",
+    "explanation": "الحديث متفق عليه.",
+    "source_title": "الأربعون النووية، الحديث 5",
+    "source_url": "https://sunnah.com/nawawi40:5"
+  }
+]

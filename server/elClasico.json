@@ -1,0 +1,507 @@
+[
+  {
+    "id": "ELC-001",
+    "level": 200,
+    "question": "من فاجأ ريال مدريد بهاتريك في فوز برشلونة 5-1 خلال أكتوبر 2018؟",
+    "answer": "لويس سواريز",
+    "explanation": "تؤكد تغطية FC Barcelona — 5-1 Real Madrid هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/893638/fc----51",
+    "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2018/10/29/57c3a612-7fec-4a22-9477-d140348e78ce/gewKpqUs.jpg",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/893638/fc----51"
+  },
+  {
+    "id": "ELC-002",
+    "level": 200,
+    "question": "من أحرز ثلاثية لبرشلونة أمام ريال مدريد في تعادل 3-3 عام 2007 وهو بعمر 19 عامًا؟",
+    "answer": "ليونيل ميسي",
+    "explanation": "تؤكد تغطية FC Barcelona — First Messi Clásico hat-trick هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/775153/10-years-since-leo-messis-first-barca-hat-trick",
+    "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2018/07/04/9c6e807f-07b0-467d-a61a-2e25dcddcab0/VsaoweJY.jpg",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/775153/10-years-since-leo-messis-first-barca-hat-trick"
+  },
+  {
+    "id": "ELC-003",
+    "level": 600,
+    "question": "من انطلق بالكرة من قرب منطقة برشلونة وبدأ هجمة هدف ميسي الأخير في كلاسيكو أبريل 2017؟",
+    "answer": "سيرجي روبيرتو",
+    "explanation": "تؤكد تغطية FC Barcelona — Report 2-3 epic late win هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/769849",
+    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/GJXXZNVHLZMVHG62GEELGFDWSI.jpg",
+    "imageSourceUrl": "https://cadenaser.com/programa/2017/04/23/el_larguero/1492984350_423243.html"
+  },
+  {
+    "id": "ELC-004",
+    "level": 400,
+    "question": "من مدافع برشلونة الذي سجّل هدف فوز الفريق في الأشواط الإضافية بنهائي كأس الملك 2025؟",
+    "answer": "جول كوندي",
+    "explanation": "تؤكد تغطية FC Barcelona — Kings of the cup هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4254744/fc-barcelona-3-2-real-madrid-kings-of-the-cup/featured",
+    "imageUrl": "https://ds-images.bolavip.com/news/image?height=740&src=https%3A%2F%2Fimages.worldsoccertalk.com%2Fjpg%2Ffull%2FWST_20250426_WST_567415_jules-kounde-fc-barcelona.jpg&width=1200",
+    "imageSourceUrl": "https://worldsoccertalk.com/news/video-jules-kounde-scores-winning-goal-for-barcelona-against-real-madrid-in-copa-del-rey-2025-final/"
+  },
+  {
+    "id": "ELC-005",
+    "level": 600,
+    "question": "في نهائي السوبر الإسباني 2025 (5-2)، من حارس برشلونة الذي طُرد بعد خروجه على مبابي؟",
+    "answer": "فويتشيك تشيزني",
+    "explanation": "تؤكد تغطية RFEF — Super Cup 5-2 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5",
+    "imageUrl": "https://imagenes.elpais.com/resizer/v2/U3E346ZC5BHRPJLXHRJV75KQ3Q.jpg?auth=397a33d67fa589478daa0b869e26ccd0d1ed1bdbfef5555db9d333c1f4002b87&focal=3750%2C2350&height=1470&width=1960",
+    "imageSourceUrl": "https://elpais.com/deportes/futbol/2025-01-13/szczesny-y-su-encuentro-con-mbappe-entierran-el-debate-sobre-la-porteria-en-el-barca.html"
+  },
+  {
+    "id": "ELC-006",
+    "level": 600,
+    "question": "في هدف ريال مدريد الثالث بإياب نصف نهائي كأس الملك 2023، من لاعب برشلونة الذي عرقل فينيسيوس وتسبب بركلة جزاء سجلها بنزيما؟",
+    "answer": "فرانك كيسي",
+    "explanation": "تؤكد تغطية FC Barcelona — Out of the cup 0-4 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3138394/fc-barcelona-0-4-real-madrid-out-of-the-cup",
+    "imageUrl": "https://assets-es.imgfoot.com/media/cache/1200x1200/franck-kessie-2223-lee.jpg",
+    "imageSourceUrl": "https://www.fichajes.com/a3086976161581215103-fc-barcelona-crece-la-competencia-por-franck-kessie",
+    "imageCaption": "فرانك كيسي بقميص برشلونة في الكلاسيكو"
+  },
+  {
+    "id": "ELC-007",
+    "level": 200,
+    "question": "من نجم برشلونة الذي نال تصفيق جماهير البرنابيو بعد هدفيه في كلاسيكو نوفمبر 2005؟",
+    "answer": "رونالدينيو",
+    "explanation": "تؤكد تغطية FC Barcelona — A famous Clásico in 2005 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
+    "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2020/11/18/cc74146c-45e7-43c6-9c0b-4b03378e469e/mini_ReialMadrid-FCBarcelona0-3J12Lliga1aDivisi20052006_pic_19-11-05ronaldinho2gol02.jpg",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
+  },
+  {
+    "id": "ELC-008",
+    "level": 600,
+    "question": "في 1994 فاز برشلونة 5-0 وفي 1995 فاز ريال مدريد 5-0. من اللاعب الذي خاض الانتصارين مع فريق مختلف؟",
+    "answer": "مايكل لاودروب",
+    "explanation": "تؤكد تغطية FC Barcelona — Michael Laudrup in my own words هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1526527/in-my-own-words-michael-laudrup",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2019/12/10/30c23671-5add-4a07-ac41-75d44d55d44c/mini_BAR-A-5-MADRID-0-8-1-1994-FOTO.jpg?width=1200&height=750",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1526527/in-my-own-words-michael-laudrup"
+  },
+  {
+    "id": "ELC-009",
+    "level": 600,
+    "question": "في إياب نصف نهائي دوري الأبطال 2002، من كان مدرب ريال مدريد الذي أقصى برشلونة؟",
+    "answer": "فيسنتي ديل بوسكي",
+    "explanation": "تؤكد تغطية UEFA — Madrid magic beats Barcelona هذه المعلومة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/",
+    "imageUrl": "https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2018/03/bosque.jpg?fit=1200%2C827&ssl=1",
+    "imageSourceUrl": "https://thesefootballtimes.co/2018/03/29/nine-trophies-in-342-games-the-colossal-legacy-of-vicente-del-bosque/",
+    "imageCaption": "فيسنتي ديل بوسكي خلال فترته مع ريال مدريد"
+  },
+  {
+    "id": "ELC-010",
+    "level": 200,
+    "question": "من سجل ثلاثية لريال مدريد في كامب نو بإياب نصف نهائي كأس الملك 2023 بعد التقدم بهدف فينيسيوس؟",
+    "answer": "كريم بنزيما",
+    "explanation": "تؤكد تغطية RFEF — Copa del Rey semi-final 0-4 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/match-report-an-uncontested-real-madrid-reaches-the-final-0-4",
+    "imageUrl": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2023/04/05/000947581W.jpg",
+    "imageSourceUrl": "https://andina.pe/agencia/galeria.aspx?FotoId=947579&GaleriaId=18584"
+  },
+  {
+    "id": "ELC-011",
+    "level": 400,
+    "question": "من سجّل هدفًا من خارج المنطقة لريال مدريد ثم هدف الفوز في الوقت بدل الضائع ليقلب كلاسيكو أكتوبر 2023؟",
+    "answer": "جود بيلينغهام",
+    "explanation": "تؤكد تغطية Real Madrid — Bellingham double 2-1 هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/bellingham-scores-brace-in-clasico-comeback-28-10-2023",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330845671730-2?wid=1200&hei=675",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/news/football/first-team/reports/bellingham-scores-brace-in-clasico-comeback-28-10-2023"
+  },
+  {
+    "id": "ELC-012",
+    "level": 400,
+    "question": "من اللاعب الذي هز شباك ريال مدريد وأكمل ثلاثية برشلونة الفردية في فوز 3-4 بالبرنابيو عام 2014؟",
+    "answer": "ليونيل ميسي",
+    "explanation": "تؤكد تغطية FC Barcelona — Bernabéu thriller 3-4 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/1127110/brilliant-barca-win-bernabeu-thriller-3-4",
+    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/l94_0fSrCHnk47zJgFzFpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTc2NztoPTUwMDtjZj13ZWJw/https%3A/media.zenfs.com/en_sg/News/AFP/5cc96675d340509dc3226b83939a340fd273e486.jpg",
+    "imageSourceUrl": "https://sg.news.yahoo.com/messi-becomes-time-top-scorer-el-clasico-205301222--spt.html"
+  },
+  {
+    "id": "ELC-013",
+    "level": 400,
+    "question": "في فوز برشلونة 2-1 على ريال مدريد في مارس 2023، من سجل هدف الفوز بوقت بدل الضائع وكان هذا الهدف رقم 3000 لبرشلونة في كامب نو بالليغا؟",
+    "answer": "فرانك كيسي",
+    "explanation": "تؤكد تغطية FC Barcelona — Franck Kessié 3000th goal هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/futbol/primer-equipo/noticias/3116980/kessie-autor-del-gol-3000-a-lspotify-camp-nou-a-la-lliga",
+    "imageUrl": "https://idsb.tmgrup.com.tr/ly/uploads/images/2023/03/20/thumbs/800x531/263291.jpg",
+    "imageSourceUrl": "https://www.dailysabah.com/sports/football/kessies-clasico-clutch-strike-sends-barca-12-points-atop-la-liga"
+  },
+  {
+    "id": "ELC-014",
+    "level": 600,
+    "question": "من كان مدرب برشلونة عندما سحق ريال مدريد 5-0 في البرنابيو سنة 1974؟",
+    "answer": "رينوس ميخيلس",
+    "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu",
+    "imageUrl": "https://estaticos-cdn.prensaiberica.es/clip/6993146a-52ed-4226-956e-b8d37b94d75c_alta-libre-aspect-ratio_default_0.jpg",
+    "imageSourceUrl": "https://www.sport.es/es/noticias/barca/diez-anos-sin-michels-tecnico-del-historico-0-5-3985031",
+    "imageCaption": "رينوس ميخيلس خلال فترته مع برشلونة"
+  },
+  {
+    "id": "ELC-015",
+    "level": 400,
+    "question": "من صاحب هدف برشلونة الخامس المتأخر في كلاسيكو 2010، بعدما دخل بديلًا؟",
+    "answer": "جيفرين سواريز",
+    "explanation": "تؤكد تغطية FC Barcelona — 10 years since the 5-0 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1916876/10-years-since-the-5-0-against-real-madrid",
+    "imageUrl": "https://media.diariolasamericas.com/p/9f74ae6eafc146a455948502200dc8ec/adjuntos/216/imagenes/000/216/0000216715/855x0/smart/jeffren-suarez-se-une-la-seleccion-venezuela.jpg",
+    "imageSourceUrl": "https://www.diariolasamericas.com/deportes/jeffren-suarez-se-une-la-seleccion-venezuela-n3286181"
+  },
+  {
+    "id": "ELC-016",
+    "level": 400,
+    "question": "من كان صاحب ثنائية برشلونة في انتصاره 4-3 على ريال مدريد خلال مايو 2025؟",
+    "answer": "رافينيا",
+    "explanation": "تؤكد تغطية FC Barcelona — Epic victory 4-3 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4263002/fc-barcelona-43-real-madrid-epic-victory",
+    "imageUrl": "https://img.onmanorama.com/content/dam/mm/en/sports/football/images/2025/5/11/raphinha-barca-vs-real.jpg/photos/16x9/photo.jpg",
+    "imageSourceUrl": "https://www.onmanorama.com/sports/football/2025/05/11/la-liga-barcelona-vs-real-madrid-clasico.html"
+  },
+  {
+    "id": "ELC-017",
+    "level": 200,
+    "question": "في كلاسيكو أكتوبر 2024 الذي انتهى 0-4، من سجل هدفين متتاليين في الشوط الثاني لبرشلونة؟",
+    "answer": "روبرت ليفاندوفسكي",
+    "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books",
+    "imageUrl": "https://media.cnn.com/api/v1/images/stellar/prod/cnne-1772293-barcelona-realmadrid.jpg?c=16x9&q=h_833%2Cw_1480%2Cc_fill",
+    "imageSourceUrl": "https://cnnespanol.cnn.com/2024/10/26/barcelona-4-0-real-madrid-clasico-espanol-efe"
+  },
+  {
+    "id": "ELC-018",
+    "level": 600,
+    "question": "من كان مدرب برشلونة في ليلة فوزه 0-4 بالبرنابيو في أكتوبر 2024، وأربك ريال مدريد بخط دفاع متقدم؟",
+    "answer": "هانزي فليك",
+    "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2024/10/26/8fb2bb32-2d14-4839-b271-acb47522b319/671d47db0422d646960472.jpg?height=500&width=800",
+    "imageSourceUrl": "https://www.fcbarcelona.es/es/noticias/4156886/hansi-flick-todo-el-mundo-ha-dado-el-100"
+  },
+  {
+    "id": "ELC-019",
+    "level": 200,
+    "question": "من سجّل هدف الفوز لريال مدريد برأسية في الوقت الإضافي بنهائي كأس الملك 2011؟",
+    "answer": "كريستيانو رونالدو",
+    "explanation": "تؤكد تغطية RFEF — Clásico cup final history هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history",
+    "imageUrl": "https://img.asmedia.epimg.net/resizer/v2/KZKQ7X5EJRXQE2D2M2HJ3HD4LU.jpg?auth=9915938783dc14d0f5475b60d9dea95e17d415011d75537f03ea4c9bb09de6a3&height=828&smart=true&width=1472",
+    "imageSourceUrl": "https://as.com/futbol/copa_del_rey/las-diez-finales-de-copa-del-rey-mas-recordadas-de-la-historia-n/"
+  },
+  {
+    "id": "ELC-020",
+    "level": 400,
+    "question": "من لاعب الوسط الذي أحرز هدف برشلونة الخامس أمام ريال مدريد في خماسية أكتوبر 2018؟",
+    "answer": "أرتورو فيدال",
+    "explanation": "تؤكد تغطية FC Barcelona — 5-1 Real Madrid هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/893638/fc----51",
+    "imageUrl": "https://www.tudn.com/_next/image?q=75&url=https%3A%2F%2Fst1.uvnimg.com%2F99%2F37%2F75ceb1704dc28521a9185be0be01%2F2018-10-28t171314z-1189504620-rc111a8a2bd0-rtrmadp-3-soccer-spain-fcb-mad.JPG&w=1280",
+    "imageSourceUrl": "https://www.tudn.com/futbol/la-liga/en-fotos-luis-suarez-lidero-al-barcelona-para-aplastar-5-1-al-real-madrid-fotos"
+  },
+  {
+    "id": "ELC-021",
+    "level": 400,
+    "question": "في نهائي السوبر 2023 (3-1)، من أحرز الهدف الثالث لبرشلونة من تمريرة ليفاندوفسكي؟",
+    "answer": "بيدري",
+    "explanation": "تؤكد تغطية RFEF — Barça win 2023 Super Cup 3-1 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/chronicle-fc-barcelona-wins-its-14th-spanish-supercopa-with-authority-1-3",
+    "imageUrl": "https://img.europapress.es/fotoweb/fotonoticia_20230115215354_1200.jpg",
+    "imageSourceUrl": "https://www.notimerica.com/deportes/noticia-fc-barcelona-campeon-supercopa-golear-real-madrid-20230115215354.html"
+  },
+  {
+    "id": "ELC-022",
+    "level": 200,
+    "question": "من نجم برشلونة الشاب الذي سجّل في فوز 4-0 على ريال مدريد بالبرنابيو في أكتوبر 2024؟",
+    "answer": "لامين يامال",
+    "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2024/10/26/1e25d23f-65b5-4f38-920a-4925c390a722/_GP22099-2.jpg?height=525&width=1200",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/4156854/lamine-yamal-youngest-clasico-goalscorer/featured"
+  },
+  {
+    "id": "ELC-023",
+    "level": 600,
+    "question": "من لاعب برشلونة الذي افتتح التسجيل في شباك ريال مدريد بكلاسيكو أكتوبر 2023؟",
+    "answer": "إلكاي غوندوغان",
+    "explanation": "تؤكد تغطية Real Madrid — Bellingham double 2-1 هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/bellingham-scores-brace-in-clasico-comeback-28-10-2023",
+    "imageUrl": "https://cdn2.mediotiempo.com/uploads/media/2023/10/28/gundogan-se-estreno-como-goleador.jpg",
+    "imageSourceUrl": "https://www.mediotiempo.com/futbol/la-liga/gundogan-logro-gol-vestidor-clasico-espanol-real-madrid-video"
+  },
+  {
+    "id": "ELC-024",
+    "level": 400,
+    "question": "في نهائي السوبر الإسباني 2025 أمام ريال مدريد، من سجّل الهدف الرابع لبرشلونة في الوقت المحتسب بدل الضائع للشوط الأول؟",
+    "answer": "أليخاندرو بالدي",
+    "explanation": "تؤكد تغطية RFEF — Super Cup 5-2 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5",
+    "imageUrl": "https://www.mundodeportivo.com/uploads/2025/01/13/678502b0e4773.jpeg",
+    "imageSourceUrl": "https://www.mundodeportivo.com/futbol/fc-barcelona/20250114/1002386107/balde-llama-puerta-seleccion-gran-supercopa.html"
+  },
+  {
+    "id": "ELC-025",
+    "level": 600,
+    "question": "في نصف نهائي الأبطال 2011، من لاعب مدريد الذي تلقى البطاقة الحمراء في الذهاب قبل ثنائية ميسي؟",
+    "answer": "بيبي",
+    "explanation": "تؤكد تغطية UEFA — Ten-man Madrid undone by Messi magic هذه المعلومة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/",
+    "imageUrl": "https://www.sueddeutsche.de/2022/06/14/69aaec46-d997-4168-bbdd-42db87e61be2.jpeg?fm=jpeg&q=60&rect=0%2C41%2C860%2C484&width=1000",
+    "imageSourceUrl": "https://www.sueddeutsche.de/sport/champions-league-real-barcelona-baeh-wir-machen-nicht-mit-1.1090148"
+  },
+  {
+    "id": "ELC-026",
+    "level": 400,
+    "question": "بعد تأخر برشلونة 2-1 في نهائي كأس الملك 2025، من خطف هدف التعادل الذي فرض الأشواط الإضافية؟",
+    "answer": "فيران توريس",
+    "explanation": "تؤكد تغطية FC Barcelona — Kings of the cup هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4254744/fc-barcelona-3-2-real-madrid-kings-of-the-cup/featured",
+    "imageUrl": "https://www.lavanguardia.com/files/og_thumbnail/files/fp/uploads/2025/04/27/680d61047580c.r_d.2773-1639-0.jpeg",
+    "imageSourceUrl": "https://www.lavanguardia.com/deportes/fc-barcelona/20250427/10622637/ferran-torres-goleador-mvp-copa-rey-final.html"
+  },
+  {
+    "id": "ELC-027",
+    "level": 400,
+    "question": "أي لاعب من برشلونة سجّل هدفًا بالرأس في مباراة 6-2 الشهيرة عام 2009 وكان قلب دفاع وقائدًا للفريق؟",
+    "answer": "كارليس بويول",
+    "explanation": "تؤكد تغطية FC Barcelona — 6-2 win at the Bernabéu هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1205417/ten-years-since-6-2-win-at-bernabeu/amp",
+    "imageUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/OSIMKZVYR5DAPPHXBCLARVJH2Y.jpg",
+    "imageSourceUrl": "https://www.eluniverso.com/deportes/2020/05/02/nota/7829703/fc-barcelona-6-2-real-madrid-santiago-bernabeu-lionel-messi-11-anos/"
+  },
+  {
+    "id": "ELC-028",
+    "level": 600,
+    "question": "في مباراة برشلونة 5-0 سنة 1994، من سجّل هدفًا من ركلة حرة مباشرة غير ثلاثية روماريو؟",
+    "answer": "رونالد كومان",
+    "explanation": "تؤكد تغطية FC Barcelona — 30 years since the 5-0 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/3851589/30-years-since-the-5-0-defeat-of-real-madrid/featured",
+    "imageUrl": "https://assets.kooora.com/images/v3/kooora_921364_1/45.jpg?auto=webp&format=pjpg&quality=60&width=1400",
+    "imageSourceUrl": "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D9%82%D8%AF%D9%85/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%B1%D9%83%D9%84%D8%A7%D8%AA-%D8%AD%D8%B1%D8%A9-%D8%B1%D8%A7%D9%8A%D8%B9%D8%A9-%D8%B3%D8%AC%D9%84%D9%87%D8%A7-%D8%B1%D9%88%D9%86%D8%A7%D9%84%D8%AF-%D9%83%D9%88%D9%85%D8%A7%D9%86-%D9%85%D8%B9-%D8%A8%D8%B1%D8%B4%D9%84%D9%88%D9%86%D8%A9-%D8%B4%D8%A7%D9%87%D8%AF-%D8%A7%D9%81%D8%B6%D9%84%D9%87%D8%A7/921364",
+    "imageCaption": "رونالد كومان بقميص برشلونة"
+  },
+  {
+    "id": "ELC-029",
+    "level": 600,
+    "question": "من المهاجم الذي أحرز الهدف الثاني لريال مدريد في معركة نصف نهائي الأبطال على ملعب كامب نو عام 2002 بعد هدف زيدان؟",
+    "answer": "ستيف ماكمانامان",
+    "explanation": "تؤكد تغطية UEFA — Madrid magic beats Barcelona هذه المعلومة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/",
+    "imageUrl": "https://editorial.uefa.com/resources/01f0-0e77e512895f-79203a2546f4-1000/steve_mcmanaman_takes_on_barcelona_s_frank_de_boer_during_the_semi-final_first_leg_in_april_2002.jpeg",
+    "imageSourceUrl": "https://fr.uefa.com/news-media/news/01f0-0e77e51285bf-16b9a4bcf783-1000--parfum-de-clasicos/"
+  },
+  {
+    "id": "ELC-030",
+    "level": 200,
+    "question": "في إياب نصف نهائي كأس الملك 2023، من سجّل أول أهداف فوز ريال مدريد 4-0 في كامب نو؟",
+    "answer": "فينيسيوس جونيور",
+    "explanation": "تؤكد تغطية RFEF — Copa del Rey semi-final 0-4 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/match-report-an-uncontested-real-madrid-reaches-the-final-0-4",
+    "imageUrl": "https://static.foxdeportes.com/2023/04/05/viniviuslengua_14_27_1_845.jpg",
+    "imageSourceUrl": "https://www.foxdeportes.com/la-liga/nota/el-real-madrid-le-pinta-la-cara-al-barcelona-y-pone-fin-a-la-mala-racha"
+  },
+  {
+    "id": "ELC-031",
+    "level": 400,
+    "question": "في نهائي كأس الملك 2014، من المدافع الذي عادل النتيجة مؤقتًا لبرشلونة قبل هدف بيل؟",
+    "answer": "مارك بارترا",
+    "explanation": "تؤكد تغطية RFEF — Clásico cup final history هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history",
+    "imageUrl": "https://media.zenfs.com/en_us/News/ap_webfeeds/ce135a43f1bb8d0e510f6a7067005bed.jpg",
+    "imageSourceUrl": "https://www.yahoo.com/news/bale-leads-madrid-2-1-past-barca-copa-212325514.html"
+  },
+  {
+    "id": "ELC-032",
+    "level": 600,
+    "question": "في كلاسيكو مارس 2023 الذي حسمه كيسي، من لاعب برشلونة الذي سجّل بالخطأ في مرماه هدف تقدم ريال مدريد؟",
+    "answer": "رونالد أراوخو",
+    "explanation": "تؤكد تغطية FC Barcelona — Franck Kessié 3000th goal هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/futbol/primer-equipo/noticias/3116980/kessie-autor-del-gol-3000-a-lspotify-camp-nou-a-la-lliga",
+    "imageUrl": "https://e.rpp-noticias.io/xlarge/2023/03/19/352335_1403769.jpg",
+    "imageSourceUrl": "https://rpp.pe/futbol/futbol-mundial/video-gol-barcelona-vs-real-madrid-vinicius-junior-provoco-autogol-de-ronald-araujo-noticia-1473570"
+  },
+  {
+    "id": "ELC-033",
+    "level": 400,
+    "question": "في نهائي السوبر الإسباني 2024، من أكمل رباعية ريال مدريد بعد هاتريك فينيسيوس؟",
+    "answer": "رودريغو",
+    "explanation": "تؤكد تغطية Real Madrid — Super Cup 4-1 هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/14-01-2024",
+    "imageUrl": "https://img.btolat.com/2024/1/14/news/334849/large.jpg?v=23",
+    "imageSourceUrl": "https://www.btolat.com/news/334849"
+  },
+  {
+    "id": "ELC-034",
+    "level": 200,
+    "question": "بعيدًا عن هدفي ميسي في كلاسيكو 3-2 سنة 2017، من سجل هدف برشلونة الآخر؟",
+    "answer": "إيفان راكيتيتش",
+    "explanation": "تؤكد تغطية FC Barcelona — League highlights 2-3 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/769702",
+    "imageUrl": "https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_720%2Car_16%3A9%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/2c939db008e86f3439aba8051842f123dda6b0f5aae19c5c1abd95c66540a492.jpg",
+    "imageSourceUrl": "https://everythingbarca.com/2017/07/29/el-clasico-barcelona-vs-real-madrid-preview/"
+  },
+  {
+    "id": "ELC-035",
+    "level": 200,
+    "question": "في 4-3 المثيرة بكلاسيكو مايو 2025، من مهاجم ريال مدريد الذي أحرز ثلاثية رغم الخسارة؟",
+    "answer": "كيليان مبابي",
+    "explanation": "تؤكد تغطية FC Barcelona — Epic victory 4-3 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4263002/fc-barcelona-43-real-madrid-epic-victory",
+    "imageUrl": "https://fotografias-2.larazon.es/clipping/cmsimages01/2025/05/11/1F379950-D83B-4989-BAE4-59313F3E8E1E/98.jpg?crop=4144%2C2332%2Cx0%2Cy215&format=webply&height=1069&optimize=low&width=1900",
+    "imageSourceUrl": "https://www.larazon.es/deportes/futbol/defensa-real-madrid-deja-solo-mbappe_202505116820de9857a5aa2cde207154.html"
+  },
+  {
+    "id": "ELC-036",
+    "level": 200,
+    "question": "في كلاسيكو 2002 الذي توقف بعد رمي أشياء من المدرجات بينها رأس خنزير، من اللاعب السابق لبرشلونة الذي كان يحاول تنفيذ ركنية بقميص ريال مدريد؟",
+    "answer": "لويس فيغو",
+    "explanation": "تؤكد تغطية UEFA — Barcelona face Camp Nou closure هذه المعلومة.",
+    "fact_source_url": "https://www.uefa.com/news-media/news/018c-0e6a56a24d4a-37dcda616771-1000--barcelona-face-camp-nou-closure/",
+    "imageUrl": "https://images.ad.nl/M2Q0ZjYyZTZjZWM1ZGZlZTFkMWYvZGlvLzE3MTIwNzk0OC9maWxsLzEzNDMvOTAw/real-madrid-speler-luis-figo-neemt-de-hoekschop-achter-de-cornervlag-ligt-een-varkenskop",
+    "imageSourceUrl": "https://www.ad.nl/sport/de-wereldgoal-die-na-het-zien-van-de-herhaling-iets-minder-mooi-bleek~a36fa57c/171207948/"
+  },
+  {
+    "id": "ELC-037",
+    "level": 400,
+    "question": "من أعاد ريال مدريد للتعادل 2-2 بكلاسيكو أبريل 2024 بعدما تقدم برشلونة 2-1؟",
+    "answer": "لوكاس فاسكيز",
+    "explanation": "تؤكد تغطية Real Madrid — Clásico 3-2 April هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-21-04-2024-rm-barcelona",
+    "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
+    "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35"
+  },
+  {
+    "id": "ELC-038",
+    "level": 600,
+    "question": "في كلاسيكو مايو 2025 الذي انتهى 4-3، من المدافع الذي بدأ عودة برشلونة بهدف تقليص الفارق من 0-2 إلى 1-2؟",
+    "answer": "إريك غارسيا",
+    "explanation": "تؤكد تغطية FC Barcelona — Epic victory 4-3 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4263002/fc-barcelona-43-real-madrid-epic-victory",
+    "imageUrl": "https://resizer.glanacion.com/resizer/v2/el-gol-de-eric-garcia-para-el-gol-que-inicio-la-FNCNOI5FW5HIRAD7SSWCVNASLQ.JPG?auth=9b8f17d1e843fc111626ad299c94e244102fe59c9c5fd82248f3d931df0462d7&quality=70&smart=false&width=768",
+    "imageSourceUrl": "https://www.lanacion.com.ar/deportes/futbol/los-videos-de-los-goles-de-barcelona-real-madrid-en-el-clasico-espanol-de-la-liga-nid11052025/"
+  },
+  {
+    "id": "ELC-039",
+    "level": 200,
+    "question": "من سجل هدف حسم كلاسيكو 23 أبريل 2017 في الوقت بدل الضائع ورفع قميصه أمام جمهور البرنابيو؟",
+    "answer": "ليونيل ميسي",
+    "explanation": "تؤكد تغطية FC Barcelona — Messi reaches 500 goals هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/769527/leo-messi-reaches-500-goals-for-fc-barcelona",
+    "imageUrl": "https://www.aljazeera.net/wp-content/uploads/2017/04/3b03978f-eaf8-42e7-b4cd-356599ff1942.jpeg?quality=80&resize=686%2C513",
+    "imageSourceUrl": "https://www.aljazeera.net/sport/2017/4/24/%D8%B3%D8%B1-%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D9%84-%D9%85%D9%8A%D8%B3%D9%8A-%D9%81%D9%8A-%D9%83%D9%84%D8%A7%D8%B3%D9%8A%D9%83%D9%88-%D8%A7%D9%84%D8%A3%D8%B1%D8%B6"
+  },
+  {
+    "id": "ELC-040",
+    "level": 400,
+    "question": "في فوز برشلونة 6-2 بالبرنابيو عام 2009، أي لاعب حرّكه غوارديولا إلى دور المهاجم الوهمي بدل مركز الجناح المعتاد؟",
+    "answer": "ليونيل ميسي",
+    "explanation": "تؤكد تغطية FC Barcelona — 6-2 win at the Bernabéu هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1205417/ten-years-since-6-2-win-at-bernabeu/amp",
+    "imageUrl": "https://a1.elespanol.com/cronicaglobal/2015/03/05/culemania/culemaniacos/culemaniacos_15759878_3855654_1706x960.jpg",
+    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20181221/asi-forjo-leyenda-messi-como-falso-nueve/362463796_0.html"
+  },
+  {
+    "id": "ELC-041",
+    "level": 600,
+    "question": "من لاعب برشلونة الذي سجّل هدف التعادل المؤقت 1-1 في كلاسيكو أكتوبر 2025 قبل أن يحسم بيلينغهام النتيجة؟",
+    "answer": "فيرمين لوبيز",
+    "explanation": "تؤكد تغطية Real Madrid — El Clásico 2-1 هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-barcelona-jornada-10-liga-26-10-2025",
+    "imageUrl": "https://img.asmedia.epimg.net/resizer/v2/TSST5XXS5ZFANHWQLJDP7H7E5Q.JPG?auth=d435fcb8505a6678ee45dc4845a7a8c9f73db7723a3eca525c73db2d4cc51906&height=1200&smart=true&width=1200",
+    "imageSourceUrl": "https://as.com/futbol/primera/fermin-una-tabla-donde-agarrarse-f202510-n/"
+  },
+  {
+    "id": "ELC-042",
+    "level": 600,
+    "question": "في خماسية برشلونة الشهيرة في البرنابيو عام 1974، من اللاعب الذي سجّل هدفين بينما أحرز كرويف هدفًا واحدًا؟",
+    "answer": "خوان مانويل أسينسي",
+    "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2025/05/08/746d08e1-508e-4f82-9af0-3dbf44bb88b5/250507-ASENSI-gol-RM-FCB-17-2-1974-0-5-.jpg?height=750&width=1200",
+    "imageSourceUrl": "https://penyes.fcbarcelona.com/es/noticias/4261343/vivir-el-clasico-desde-dentro"
+  },
+  {
+    "id": "ELC-043",
+    "level": 200,
+    "question": "في نهائي السوبر الإسباني 2024 الذي انتهى 4-1 للريال، من صاحب الهاتريك؟",
+    "answer": "فينيسيوس جونيور",
+    "explanation": "تؤكد تغطية Real Madrid — Super Cup 4-1 هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/14-01-2024",
+    "imageUrl": "https://sportal365images.com/process/smp-images-production/abola.pt/14012024/a624d10f-021b-4fae-9a99-f3c57fb16983.jpg?operations=fit%281200%3A%29",
+    "imageSourceUrl": "https://www.abola.pt/futebol/noticias/vini-jr-e-o-primeiro-brasileiro-a-fazer-um-hat-trick-no-el-clasico-este-seculo-2024011420333602053"
+  },
+  {
+    "id": "ELC-044",
+    "level": 400,
+    "question": "من سجّل هدف برشلونة الأول في مباراة 0-3 بالبرنابيو سنة 2005 قبل تألق رونالدينيو؟",
+    "answer": "صامويل إيتو",
+    "explanation": "تؤكد تغطية FC Barcelona — A famous Clásico in 2005 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
+    "imageUrl": "https://www.tudn.com/_next/image?q=75&url=https%3A%2F%2Fst1.uvnimg.com%2F43%2F7f%2Fdbe4237546d4bf3b077d9c9f559d%2F61f9e80aaaaa4fdab3c58c56224a4766&w=1280",
+    "imageSourceUrl": "https://www.tudn.com/futbol/la-liga/viejos-momentos-del-barcelona-vs-real-madrid-fotos"
+  },
+  {
+    "id": "ELC-045",
+    "level": 400,
+    "question": "من مدافع برشلونة الذي احتفل برفع أصابع يده الخمسة بعد فوز 5-0 على ريال مدريد عام 2010؟",
+    "answer": "جيرارد بيكيه",
+    "explanation": "تؤكد تغطية FC Barcelona — The best of Gerard Piqué هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/2889709/the-best-of-gerard-pique-at-fc-barcelona",
+    "imageUrl": "https://a1.eestatic.com/cronicaglobal/2015/02/07/culemania/culemaniacos/culemaniacos_9259318_715762_1706x960.jpg",
+    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html"
+  },
+  {
+    "id": "ELC-046",
+    "level": 200,
+    "question": "من أحرز هدف الفوز المتأخر لريال مدريد في كلاسيكو أبريل 2024 بعد التعادل 2-2؟",
+    "answer": "جود بيلينغهام",
+    "explanation": "تؤكد تغطية Real Madrid — Clásico 3-2 April هذه المعلومة.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-21-04-2024-rm-barcelona",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/ND-LIGA-RM-BARCELONA_alegria-bellingham_AV30272?wid=1200&hei=675",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-21-04-2024-rm-barcelona"
+  },
+  {
+    "id": "ELC-047",
+    "level": 600,
+    "question": "في الكلاسيكو الأول لميسي عام 2005، إلى من مرر الكرة في هجمة هدف برشلونة الأول؟",
+    "answer": "صامويل إيتو",
+    "explanation": "تؤكد تغطية FC Barcelona — A famous Clásico in 2005 هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
+    "imageUrl": "https://img.allfootballapp.com/www/M00/46/0D/720x-/-/-/rB8CLF0p4i2AXaVSAAEEoz1oCqg102.jpg.webp",
+    "imageSourceUrl": "https://m.allfootballapp.com/news/epl/Messi-and-his-partners-in-attack-at-Barcelona%E2%80%A6-with-Griezmann-up-next/1564484",
+    "imageCaption": "صامويل إيتو وليونيل ميسي بقميص برشلونة"
+  },
+  {
+    "id": "ELC-048",
+    "level": 200,
+    "question": "في ليلة فوز برشلونة 0-4 بالبرنابيو سنة 2022، من المهاجم الذي وقّع على ثنائية؟",
+    "answer": "بيير إيميريك أوباميانغ",
+    "explanation": "تؤكد تغطية FC Barcelona — 0-4 Barça هذه المعلومة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/2544426/real-madrid-0-4-barca-the-clasico-is-blaugrana/featured",
+    "imageUrl": "https://fotografias.lasexta.com/clipping/cmsimages02/2022/03/20/9A229658-C7AF-4440-A222-6455C477EE31/aubameyang-celebra-gol-real-madrid_103.jpg?crop=1067%2C800%2Cx44%2Cy0&format=webply&height=900&optimize=low&width=1200",
+    "imageSourceUrl": "https://www.lasexta.com/noticias/deportes/futbol/aubameyang-que-fichaje-goleada-barca-real-madrid-clasico-doblete-asistencia-gabones_202203206237a220f5e39e0001fdcd52.html"
+  },
+  {
+    "id": "ELC-049",
+    "level": 200,
+    "question": "من سجّل الهدف القاتل لريال مدريد في نهائي كأس الملك 2014 بعد انطلاقته على الخط أمام مارك بارترا؟",
+    "answer": "غاريث بيل",
+    "explanation": "تؤكد تغطية RFEF — Clásico cup final history هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history",
+    "imageUrl": "https://s1.elespanol.com/2017/09/25/elbernabeu/real-madrid/futbol/futbol_249489569_90161943_1706x960.jpg",
+    "imageSourceUrl": "https://www.elespanol.com/elbernabeu/real-madrid/futbol/20170925/radiografia-humillacion-bale-bartra/249476197_0.html"
+  },
+  {
+    "id": "ELC-050",
+    "level": 200,
+    "question": "من افتتح أهداف برشلونة في نهائي السوبر الإسباني 2023 ضد ريال مدريد وكان لاعبًا شابًا من وسط الملعب؟",
+    "answer": "غافي",
+    "explanation": "تؤكد تغطية RFEF — Barça win 2023 Super Cup 3-1 هذه المعلومة.",
+    "fact_source_url": "https://rfef.es/en/noticias/chronicle-fc-barcelona-wins-its-14th-spanish-supercopa-with-authority-1-3",
+    "imageUrl": "https://rfef.es/sites/default/files/styles/noticias_galeria_ficha/public/galeria/whatsapp_image_2023-01-15_at_22.43.25.jpeg.webp?itok=7ND5FeMj",
+    "imageSourceUrl": "https://rfef.es/en/noticias/gavi-man-match-of-the-supercopa-final"
+  }
+]

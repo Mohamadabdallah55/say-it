@@ -27,26 +27,18 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
-import { JORDAN_BRANDS_QUESTIONS } from './jordanBrandsQuestions';
-import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
-import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
-import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
-import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
-import { WORLD_CUP_2026_QUESTIONS } from './worldCup2026Questions';
-import {
-  filterPlayedProphetQuestions,
-  recordPlayedProphetQuestion,
-  reserveProphetQuestions,
-  ROTATING_BUILTIN_CATEGORY_IDS,
-} from './prophetQuestionRotation';
-import { runBoardPreflightCheck } from '../src/game/pdfValidation';
+import { SERVER_CURATED_CATEGORY_IDS } from '../src/game/curatedBanks';
+import { SERVER_CURATED_QUESTIONS } from './curatedQuestionBanks';
 import {
   applyAccountProgressToDeck,
   sanitizeExternalCategories,
   sanitizeExternalQuestions,
   sanitizePlayedMap,
 } from '../src/game/categoryProgress';
+import { refreshJuzAmmaAnswers } from './quranQuestionBanks';
+import { refreshElClasicoPhotos } from './elClasico';
+import { filterPlayedCuratedQuestions, recordPlayedCuratedQuestion, reserveCuratedQuestions } from './curatedQuestionRotation';
+import { categoryPointValues, resolveDeckDifficulties, runBoardPreflightCheck } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
 import type {
   ClientRole,
@@ -72,6 +64,9 @@ class RoomManager {
 
   constructor() {
     this.rooms = loadSavedRooms();
+    for (const [code, room] of Object.entries(this.rooms)) {
+      this.rooms[code] = refreshElClasicoPhotos(refreshJuzAmmaAnswers(room));
+    }
   }
 
   startTicker(): void {
@@ -147,16 +142,6 @@ class RoomManager {
     const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions);
     const cleanPlayedMap = sanitizePlayedMap(params.playedQuestionIdsByCategory);
 
-    const builtinRotatingQuestions = [
-      ...PROPHET_STORIES_QUESTIONS,
-      ...GUESS_PRICE_QUESTIONS,
-      ...RASHIDUN_QUESTIONS,
-      ...JORDAN_BRANDS_QUESTIONS,
-      ...WORLD_CUP_2026_QUESTIONS,
-      ...PALESTINIAN_PROVERBS_QUESTIONS,
-      ...VISUAL_MEMORY_QUESTIONS,
-    ];
-
     let deck: QuizDeck = STARTER_DEMO_DECK;
     if (params.deckId === 'curated_custom') {
       if (!params.selectedCategoryIds?.length) {
@@ -165,7 +150,7 @@ class RoomManager {
       deck = buildBoardDeckFromCategories(
         params.selectedCategoryIds,
         undefined,
-        [...builtinRotatingQuestions, ...cleanExtraQuestions],
+        [...SERVER_CURATED_QUESTIONS, ...cleanExtraQuestions],
         cleanExtraCategories,
       );
     } else if (params.deckId) {
@@ -177,37 +162,37 @@ class RoomManager {
     const libraryId = currentLibraryId();
     const now = Date.now();
     let resetCategoryIds: string[] = [];
+    const rooms = Object.values(this.rooms);
 
     if (params.accountActive || Object.keys(cleanPlayedMap).length > 0) {
       const applied = applyAccountProgressToDeck(deck, cleanPlayedMap);
       deck = applied.filteredDeck;
       resetCategoryIds = applied.resetCategoryIds;
     } else {
-      deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
+      const originalDeck = deck;
+      deck = filterPlayedCuratedQuestions(deck, rooms, libraryId, now);
       if (params.deckId === 'curated_custom') {
-        const exhaustedCats: string[] = [];
-        for (const cat of deck.categories) {
-          if (!ROTATING_BUILTIN_CATEGORY_IDS.has(cat.id)) continue;
-          const remaining = new Set(
-            deck.questions
-              .filter((question) => question.categoryId === cat.id && question.status === 'approved')
-              .map((question) => question.points),
-          );
-          if (remaining.size < 3) {
-            exhaustedCats.push(cat.id);
+        const difficulties = resolveDeckDifficulties(originalDeck);
+        for (const category of deck.categories.filter(({ id }) => SERVER_CURATED_CATEGORY_IDS.includes(id))) {
+          const points = categoryPointValues(category, difficulties);
+          const hasEveryTier = (candidateDeck: QuizDeck) => points.every(value => candidateDeck.questions.some(
+            question => question.categoryId === category.id && question.points === value && question.status === 'approved',
+          ));
+          if (hasEveryTier(deck)) continue;
+
+          const refreshed = filterPlayedCuratedQuestions({
+            ...originalDeck,
+            categories: [category],
+            questions: originalDeck.questions.filter(question => question.categoryId === category.id),
+          }, rooms, libraryId, now, { ignorePlayed: true });
+          if (hasEveryTier(refreshed)) {
+            const availableIds = new Set(deck.questions.map(({ id }) => id));
+            deck.questions.push(...refreshed.questions.filter(({ id }) => !availableIds.has(id)));
+            resetCategoryIds.push(category.id);
+            continue;
           }
-        }
-        if (exhaustedCats.length > 0) {
-          const exhaustedSet = new Set(exhaustedCats);
-          const replenished = builtinRotatingQuestions.filter((q) => exhaustedSet.has(q.categoryId));
-          deck = {
-            ...deck,
-            questions: [
-              ...deck.questions.filter((q) => !exhaustedSet.has(q.categoryId)),
-              ...replenished,
-            ],
-          };
-          resetCategoryIds = exhaustedCats;
+
+          throw new Error(`ما في أسئلة جديدة كافية بكل المستويات لفئة ${category.name}. اختَر فئة ثانية أو أكمل مبارياتك المفتوحة.`);
         }
       }
     }
@@ -246,7 +231,7 @@ class RoomManager {
     });
 
     state.libraryId = libraryId;
-    reserveProphetQuestions(state);
+    reserveCuratedQuestions(state);
     this.rooms[roomCode] = state;
     persistRoomsMap(this.rooms);
     return Object.assign(state, { resetCategoryIds });
@@ -538,7 +523,7 @@ class RoomManager {
       return { ok: false, error: result.error };
     }
 
-    const nextState = recordPlayedProphetQuestion(result.state);
+    const nextState = recordPlayedCuratedQuestion(result.state);
     this.rooms[code] = nextState;
     persistRoomsMap(this.rooms);
     this.broadcastRoom(code);

@@ -14,7 +14,7 @@ import {
 import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories } from './starterDecks';
 import { runBoardPreflightCheck, selectActiveBoardForDeck } from './pdfValidation';
 import { applyAccountProgressToDeck } from './categoryProgress';
-import { reserveProphetQuestions } from '../../server/prophetQuestionRotation';
+import { reserveCuratedQuestions } from '../../server/curatedQuestionRotation';
 import {
   advanceMemoryToQuestion,
   awardRoundAndReturnToBoard,
@@ -26,7 +26,7 @@ import {
   skipLifelinePick,
 } from './engine';
 
-test('Visual Memory category is registered alongside all 13 existing categories', () => {
+test('Visual Memory category is registered alongside the existing categories', () => {
   const cat = ALL_CURATED_CATEGORIES.find((c) => c.id === VISUAL_MEMORY_CATEGORY.id);
   assert.ok(cat, 'cat_visual_memory should exist in ALL_CURATED_CATEGORIES');
   assert.equal(cat.name, 'ذاكرة بصرية');
@@ -48,7 +48,7 @@ test('Visual Memory category is registered alongside all 13 existing categories'
     'cat_palestinian_proverbs',
     'cat_visual_memory',
   ];
-  assert.equal(ALL_CURATED_CATEGORIES.length, expectedIds.length);
+  assert.equal(new Set(ALL_CURATED_CATEGORIES.map(c => c.id)).size, ALL_CURATED_CATEGORIES.length);
   for (const id of expectedIds) {
     assert.ok(
       ALL_CURATED_CATEGORIES.some((c) => c.id === id),
@@ -86,6 +86,7 @@ test('Visual Memory dataset tracks 100 source rows and exposes only the 90 verif
     assert.equal(q.status, 'approved');
     assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
     ids.add(q.id);
+    assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
     assert.equal(q.showSeconds, expectedShowSeconds[q.points]);
     assert.ok(q.memorySceneId && /^SC-\d{3}$/.test(q.memorySceneId));
     assert.ok(q.prompt.trim().length > 0);
@@ -166,7 +167,7 @@ test('Visual Memory passes preflight, picks distinct scenes on board & backups, 
     settings: { categoryCount: 1, lifelinesEnabled: true, cards: ['swap_question'] },
     selectedCategoryIds: [VISUAL_MEMORY_CATEGORY.id],
   });
-  reserveProphetQuestions(room);
+  reserveCuratedQuestions(room);
   const backupScenes = room.questionPool
     .filter((q) => q.isBackup)
     .map((q) => q.memorySceneId);

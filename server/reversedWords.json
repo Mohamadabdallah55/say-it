@@ -1,0 +1,482 @@
+[
+  {
+    "id": "AQ-200-01",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "شمس",
+    "audioFile": "10b2bc9da43a82e0660262ca.wav",
+    "answerAudioFile": "0426264be7f61b8c86c08ca1.wav"
+  },
+  {
+    "id": "AQ-200-02",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "قمر",
+    "audioFile": "3bd1f62ecb000f2a7535da4b.wav",
+    "answerAudioFile": "e16da8f542de93995fa48493.wav"
+  },
+  {
+    "id": "AQ-200-03",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "كتاب",
+    "audioFile": "41298066d2e481140fe54dae.wav",
+    "answerAudioFile": "b492c68eb272dc531320fd4a.wav"
+  },
+  {
+    "id": "AQ-200-04",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "سيارة",
+    "audioFile": "c61a62e1a4f52b2b73f7380a.wav",
+    "answerAudioFile": "5419dce14050af28b78b8dfa.wav"
+  },
+  {
+    "id": "AQ-200-05",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مدرسة",
+    "audioFile": "22c4d12e0dc6d16184221660.wav",
+    "answerAudioFile": "8201de16bead3b22f5a8eb4f.wav"
+  },
+  {
+    "id": "AQ-200-06",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "قطار",
+    "audioFile": "debab512179d9d74bff225c9.wav",
+    "answerAudioFile": "fa72b2dfea04ef86e1d81d84.wav"
+  },
+  {
+    "id": "AQ-200-07",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "بحر",
+    "audioFile": "b0a038387ea816f89a2177f3.wav",
+    "answerAudioFile": "b8770d3987a731ad6e691a84.wav"
+  },
+  {
+    "id": "AQ-200-08",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "جبل",
+    "audioFile": "512e14de560d04895370369a.wav",
+    "answerAudioFile": "b5e206101de1f7d2b30230e5.wav"
+  },
+  {
+    "id": "AQ-200-09",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مفتاح",
+    "audioFile": "271f6c0052beda4d6bdfa1ae.wav",
+    "answerAudioFile": "257bffe2bd31c1c020bb6015.wav"
+  },
+  {
+    "id": "AQ-200-10",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "ساعة",
+    "audioFile": "3e012d86a251dcc50b16a677.wav",
+    "answerAudioFile": "7694bbc64ef0d2406a9bf1fb.wav"
+  },
+  {
+    "id": "AQ-200-11",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "زهرة",
+    "audioFile": "84c594b781dca1ee5dba3868.wav",
+    "answerAudioFile": "8cd917eeaf61e7b94440f40c.wav"
+  },
+  {
+    "id": "AQ-200-12",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "سمكة",
+    "audioFile": "b7aed3925fe9e1f3ed7cae0d.wav",
+    "answerAudioFile": "784bb058fd0ee750401911e6.wav"
+  },
+  {
+    "id": "AQ-200-13",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "طائرة",
+    "audioFile": "bfef651a4a55da706a139aac.wav",
+    "answerAudioFile": "9c68efa4bf4949f0ed0e8c02.wav"
+  },
+  {
+    "id": "AQ-200-14",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "سفينة",
+    "audioFile": "f58d76ca3453eb9f61a0a0ef.wav",
+    "answerAudioFile": "adb04df2e21ad3fe149d745c.wav"
+  },
+  {
+    "id": "AQ-200-15",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "حديقة",
+    "audioFile": "bac23f14e7eacb1a4a540a18.wav",
+    "answerAudioFile": "02111b9be5903687e8f34c01.wav"
+  },
+  {
+    "id": "AQ-200-16",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "هاتف",
+    "audioFile": "2cf7eab04d37d54c8a1a5602.wav",
+    "answerAudioFile": "746e974ec793f267b0f4e86a.wav"
+  },
+  {
+    "id": "AQ-200-17",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "نافذة",
+    "audioFile": "de947e7a3ca6396bd177ebd3.wav",
+    "answerAudioFile": "1fe98691872e7afda97ae8a4.wav"
+  },
+  {
+    "id": "AQ-200-18",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "شجرة",
+    "audioFile": "593bacda6adffd6c76685d75.wav",
+    "answerAudioFile": "ff6e776c682f15b115252a8b.wav"
+  },
+  {
+    "id": "AQ-200-19",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مطبخ",
+    "audioFile": "a3e440aca5f07f6e274fcb0e.wav",
+    "answerAudioFile": "297d840039e143ad3b0c1e17.wav"
+  },
+  {
+    "id": "AQ-200-20",
+    "level": 200,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مرآة",
+    "audioFile": "f9e07a71154c65031f124cc2.wav",
+    "answerAudioFile": "293804873a4660b6d9e4a37b.wav"
+  },
+  {
+    "id": "AQ-400-01",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "دراجة",
+    "audioFile": "bb4358cc578bab6bf02db7a1.wav",
+    "answerAudioFile": "b7b8f60f4ac7b4ddbee2b2c4.wav"
+  },
+  {
+    "id": "AQ-400-02",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مظلة",
+    "audioFile": "c0f39b789653a34c80e4ae15.wav",
+    "answerAudioFile": "5143102359bcec1c58cb5948.wav"
+  },
+  {
+    "id": "AQ-400-03",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "برتقالة",
+    "audioFile": "a5fe20fc27c2e4e812d0e22d.wav",
+    "answerAudioFile": "902aeec13b7b4c9f1f8f8652.wav"
+  },
+  {
+    "id": "AQ-400-04",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "فراشة",
+    "audioFile": "3ebb68c83849345b26c0dfe9.wav",
+    "answerAudioFile": "524409802508354e7e7c2bb1.wav"
+  },
+  {
+    "id": "AQ-400-05",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مكتبة",
+    "audioFile": "379201373deb5ad9734f78fd.wav",
+    "answerAudioFile": "f11152cfe27cd9ef4ce98745.wav"
+  },
+  {
+    "id": "AQ-400-06",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "بطارية",
+    "audioFile": "e01e26301a26008f1b0b8f92.wav",
+    "answerAudioFile": "c79b90f8ad9e87216fb969a5.wav"
+  },
+  {
+    "id": "AQ-400-07",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مغناطيس",
+    "audioFile": "9009409ef9d12458794c04bf.wav",
+    "answerAudioFile": "c57b81de4638700ba24b6fce.wav"
+  },
+  {
+    "id": "AQ-400-08",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "شوكولاتة",
+    "audioFile": "eaf07820c5e0c14bc4c922a9.wav",
+    "answerAudioFile": "73c2b83773f01b1816f4deca.wav"
+  },
+  {
+    "id": "AQ-400-09",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مصباح",
+    "audioFile": "8bb5419cd8f5f3a22c225819.wav",
+    "answerAudioFile": "dec81a7b385534b01106cd4c.wav"
+  },
+  {
+    "id": "AQ-400-10",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "حقيبة",
+    "audioFile": "5cdc64436d8317de005698ec.wav",
+    "answerAudioFile": "b50868e060cbe22eb4c58a39.wav"
+  },
+  {
+    "id": "AQ-400-11",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "تمساح",
+    "audioFile": "472a053d3d89d5a3546b5a7a.wav",
+    "answerAudioFile": "aaa5fdb2a5f3f7a7a5663046.wav"
+  },
+  {
+    "id": "AQ-400-12",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "غواصة",
+    "audioFile": "19c32410075a33272ba31753.wav",
+    "answerAudioFile": "8decd83fc8291c47e5f2ce00.wav"
+  },
+  {
+    "id": "AQ-400-13",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "بوصلة",
+    "audioFile": "3d4b7d1eca06ac16d4453f39.wav",
+    "answerAudioFile": "1c1239bacb3913a240b71ad9.wav"
+  },
+  {
+    "id": "AQ-400-14",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "جزيرة",
+    "audioFile": "ff3bf1cbebc72349e6d12514.wav",
+    "answerAudioFile": "7202063d64ba4388e7e18465.wav"
+  },
+  {
+    "id": "AQ-400-15",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "ميزان",
+    "audioFile": "56fff506ce76ed195d9658bc.wav",
+    "answerAudioFile": "b64ef6d2f8d168bd3c5e7175.wav"
+  },
+  {
+    "id": "AQ-400-16",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "كاميرا",
+    "audioFile": "4b1f33b9e322b38acad51e84.wav",
+    "answerAudioFile": "b6f87332facd4a2cf0f56d4c.wav"
+  },
+  {
+    "id": "AQ-400-17",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مشمش",
+    "audioFile": "b5a8fa5cbf1f4529871152e5.wav",
+    "answerAudioFile": "47fece98f3798efc6d34e261.wav"
+  },
+  {
+    "id": "AQ-400-18",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "بطيخة",
+    "audioFile": "ac8123ab88016a2488ba14c5.wav",
+    "answerAudioFile": "ba0b0a3b833007082610a591.wav"
+  },
+  {
+    "id": "AQ-400-19",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "منارة",
+    "audioFile": "f80982d93ed904b516b4662c.wav",
+    "answerAudioFile": "11b9054a965b76a177b31b32.wav"
+  },
+  {
+    "id": "AQ-400-20",
+    "level": 400,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "خريطة",
+    "audioFile": "d661fc249e56f5560476731d.wav",
+    "answerAudioFile": "2e6a86e29efb7fc099a74bd3.wav"
+  },
+  {
+    "id": "AQ-600-01",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "ديناصور",
+    "audioFile": "1b451adad12627fed74dd651.wav",
+    "answerAudioFile": "556b7b382af4241207f99c3b.wav"
+  },
+  {
+    "id": "AQ-600-02",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "أخطبوط",
+    "audioFile": "e1cc9b708bf77608af22050b.wav",
+    "answerAudioFile": "18dd07e549ab2e39e1335b71.wav"
+  },
+  {
+    "id": "AQ-600-03",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "هليكوبتر",
+    "audioFile": "c4d84c887c76aef5b8992abc.wav",
+    "answerAudioFile": "b8b30bd5c659396a4cda71ef.wav"
+  },
+  {
+    "id": "AQ-600-04",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "ميكروفون",
+    "audioFile": "60beaaa812a78a33dac751b2.wav",
+    "answerAudioFile": "ec876c98e998acbc945687a0.wav"
+  },
+  {
+    "id": "AQ-600-05",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "إلكترونيات",
+    "audioFile": "731e7c865e60e26b171c267c.wav",
+    "answerAudioFile": "a45380fb3c368881285f5ef6.wav"
+  },
+  {
+    "id": "AQ-600-06",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "استكشاف",
+    "audioFile": "1fda8a1fdefc149cbf5c628e.wav",
+    "answerAudioFile": "d37539e3be41f100699e5263.wav"
+  },
+  {
+    "id": "AQ-600-07",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "احتمالات",
+    "audioFile": "aba072066451c4536a4f4f23.wav",
+    "answerAudioFile": "cea030f7ee9152af04043d12.wav"
+  },
+  {
+    "id": "AQ-600-08",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مستشفى",
+    "audioFile": "93e44357dd21c93ff1f01154.wav",
+    "answerAudioFile": "8594b7c251bee63aee24353f.wav"
+  },
+  {
+    "id": "AQ-600-09",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "استراتيجية",
+    "audioFile": "9cb5cfcb35a614256a0f8ece.wav",
+    "answerAudioFile": "f37fe171d4e58863b2542101.wav"
+  },
+  {
+    "id": "AQ-600-10",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مخطوطات",
+    "audioFile": "ebc911b4620dfd515179ea65.wav",
+    "answerAudioFile": "b5e3e4a3530569c994b6a544.wav"
+  },
+  {
+    "id": "AQ-600-11",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "استنتاج",
+    "audioFile": "9b65ab9b750163ce024d285d.wav",
+    "answerAudioFile": "469fc7bb8705cd408e191c0c.wav"
+  },
+  {
+    "id": "AQ-600-12",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مفاجأة",
+    "audioFile": "d503c20f365c4c231694d19b.wav",
+    "answerAudioFile": "ee89d5a7d1c0083229cedb84.wav"
+  },
+  {
+    "id": "AQ-600-13",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "موسوعة",
+    "audioFile": "775d73921e4651feefc99adc.wav",
+    "answerAudioFile": "95b802cdc60d7dc7341e5898.wav"
+  },
+  {
+    "id": "AQ-600-14",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "براكين",
+    "audioFile": "ee526955e277ee818e7150ca.wav",
+    "answerAudioFile": "cfb10938bbd29a4af0de136f.wav"
+  },
+  {
+    "id": "AQ-600-15",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "استقلال",
+    "audioFile": "c851e3c01c44a25df7a23b47.wav",
+    "answerAudioFile": "b93a3ae2c1e2d29c5c14cf1a.wav"
+  },
+  {
+    "id": "AQ-600-16",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مغامرات",
+    "audioFile": "f21e0940f6db1f2706672b37.wav",
+    "answerAudioFile": "6189fb04b50733a6cd10f830.wav"
+  },
+  {
+    "id": "AQ-600-17",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "استثنائية",
+    "audioFile": "8a2bdfceb9c704e70209bc33.wav",
+    "answerAudioFile": "633708e0b2a4d573b3c3c6ec.wav"
+  },
+  {
+    "id": "AQ-600-18",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "كهرومغناطيسية",
+    "audioFile": "c6322a911e1b137a11749e9d.wav",
+    "answerAudioFile": "223a8b258f1c4de68c745000.wav"
+  },
+  {
+    "id": "AQ-600-19",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "مستلزمات",
+    "audioFile": "e9ffbfd20b861dbc25da25de.wav",
+    "answerAudioFile": "c01a2af949fbd9315a8114f7.wav"
+  },
+  {
+    "id": "AQ-600-20",
+    "level": 600,
+    "question": "استمع للأحرف المتقطعة المعكوسة، ما الكلمة الأصلية؟",
+    "answer": "تكنولوجيا",
+    "audioFile": "89a08be38ace59e33888f258.wav",
+    "answerAudioFile": "8ff2032ed93c501e6685132a.wav"
+  }
+]

@@ -1,0 +1,677 @@
+[
+  {
+    "id": "WW-200-01",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "في أي سنة بدأت الحرب العالمية الأولى؟",
+    "answer": "1914",
+    "hint": "بدأت بعد أزمة سياسية كبيرة في أوروبا.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-02",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما الحدث المباشر الذي فجّر أزمة يوليو 1914 وأشعل الحرب العالمية الأولى؟",
+    "answer": "اغتيال الأرشيدوق فرانز فرديناند",
+    "hint": "وقع أثناء زيارة رسمية في البلقان.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-03",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "في أي مدينة اغتيل الأرشيدوق فرانز فرديناند عام 1914؟",
+    "answer": "سراييفو",
+    "hint": "كانت المدينة جزءًا من البوسنة والهرسك.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-04",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "إلى أي إمبراطورية كان ينتمي ولي العهد فرانز فرديناند؟",
+    "answer": "الإمبراطورية النمساوية المجرية",
+    "hint": "كانت إمبراطورية متعددة القوميات في وسط أوروبا.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-05",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما اسم التحالف الذي ضم بريطانيا وفرنسا وروسيا قبل الحرب العالمية الأولى؟",
+    "answer": "الوفاق الثلاثي",
+    "hint": "كان الطرف المقابل للتحالف الثلاثي السابق للحرب.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-06",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما اسم الجبهة التي اشتهرت بحرب الخنادق بين فرنسا وألمانيا خلال الحرب العالمية الأولى؟",
+    "answer": "الجبهة الغربية",
+    "hint": "امتدت بصورة رئيسية عبر فرنسا وبلجيكا.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-07",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "في أي دولة جرت معركة السوم الشهيرة عام 1916؟",
+    "answer": "فرنسا",
+    "hint": "كانت من أبرز معارك الجبهة الغربية.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-08",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "أي دولتين كانتا الخصمين الرئيسيين في معركة فردان عام 1916؟",
+    "answer": "فرنسا وألمانيا",
+    "hint": "اتخذت المعركة اسم مدينة فرنسية محصنة.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-09",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما الدولة التي دخلت الحرب العالمية الأولى إلى جانب الحلفاء عام 1917 وغيرت ميزان القوى؟",
+    "answer": "الولايات المتحدة الأمريكية",
+    "hint": "دخلت الحرب بعد سنوات من الحياد الرسمي.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-10",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "في أي عام انتهت المعارك الرئيسية للحرب العالمية الأولى في أوروبا؟",
+    "answer": "1918",
+    "hint": "جاءت الهدنة بعد أربعة أعوام من القتال.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-11",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "في أي يوم وشهر وُقّعت هدنة إنهاء القتال مع ألمانيا عام 1918؟",
+    "answer": "11 نوفمبر",
+    "hint": "صار هذا التاريخ مرتبطًا بإحياء ذكرى الهدنة.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-12",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما اسم معاهدة السلام التي وقعتها ألمانيا مع الحلفاء عام 1919؟",
+    "answer": "معاهدة فرساي",
+    "hint": "سُمّيت على اسم موقع تاريخي قرب باريس.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-200-13",
+    "category": "الحرب العالمية الأولى",
+    "points": 200,
+    "question": "ما الإمبراطورية التي انضمت إلى دول المركز سنة 1914 وسيطرت على المضائق التركية؟",
+    "answer": "الإمبراطورية العثمانية",
+    "hint": "كانت عاصمتها القسطنطينية.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-200-14",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "ما الدولة التي غزتها ألمانيا في 1 سبتمبر 1939 لتبدأ الحرب العالمية الثانية في أوروبا؟",
+    "answer": "بولندا",
+    "hint": "وقعت في وسط أوروبا.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates"
+  },
+  {
+    "id": "WW-200-15",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "من كان زعيم ألمانيا النازية أثناء الحرب العالمية الثانية؟",
+    "answer": "أدولف هتلر",
+    "hint": "كان يقود الحزب النازي.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth"
+  },
+  {
+    "id": "WW-200-16",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "من أصبح رئيس وزراء بريطانيا في مايو 1940 وقادها خلال معظم سنوات الحرب؟",
+    "answer": "ونستون تشرشل",
+    "hint": "ألقى خطابات معروفة أثناء معركة بريطانيا.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-200-17",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "من كان الزعيم الفاشي لإيطاليا عند دخولها الحرب العالمية الثانية عام 1940؟",
+    "answer": "بينيتو موسوليني",
+    "hint": "لقبه السياسي كان «الدوتشي».",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-200-18",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "في أي سنة وقع الهجوم الياباني على بيرل هاربر؟",
+    "answer": "1941",
+    "hint": "تسبب الهجوم في دخول الولايات المتحدة الحرب.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates"
+  },
+  {
+    "id": "WW-200-19",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "على أي ساحل فرنسي نزلت قوات الحلفاء في يوم الإنزال 6 يونيو 1944؟",
+    "answer": "نورماندي",
+    "hint": "كان إنزالًا ضخمًا لفتح جبهة غربية جديدة.",
+    "fact_source_url": "https://www.nps.gov/articles/the-great-crusade-75-years-ago.htm"
+  },
+  {
+    "id": "WW-200-20",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "ما الاسم الرمزي للعملية التي شملت إنزال الحلفاء في نورماندي عام 1944؟",
+    "answer": "عملية أوفرلورد (Overlord)",
+    "hint": "يشير الاسم إلى حملة غزو شمال غربي أوروبا.",
+    "fact_source_url": "https://www.pbs.org/wgbh/americanexperience/features/dday-world-war-two-europe/"
+  },
+  {
+    "id": "WW-200-21",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "ما اسم المعركة الجوية التي خاضتها بريطانيا دفاعًا عن أجوائها سنة 1940؟",
+    "answer": "معركة بريطانيا",
+    "hint": "كانت مواجهة جوية بارزة بعد سقوط فرنسا.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth"
+  },
+  {
+    "id": "WW-200-22",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "في أي دولة كانت مدينة ستالينغراد التي شهدت معركة فاصلة بين 1942 و1943؟",
+    "answer": "الاتحاد السوفيتي",
+    "hint": "حملت المدينة آنذاك اسم الزعيم السوفيتي.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-200-23",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "ما التاريخ الذي يُحتفل فيه بيوم النصر في أوروبا الغربية بعد استسلام ألمانيا عام 1945؟",
+    "answer": "8 مايو 1945",
+    "hint": "يُعرف اختصارًا باسم VE Day.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates"
+  },
+  {
+    "id": "WW-200-24",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "ما المنظمة الدولية التي تأسست رسميًا في 24 أكتوبر 1945 لتعزيز التعاون والسلام؟",
+    "answer": "الأمم المتحدة",
+    "hint": "خلفت عصبة الأمم في النظام الدولي.",
+    "fact_source_url": "https://www.un.org/en/about-us/un-charter/"
+  },
+  {
+    "id": "WW-200-25",
+    "category": "الحرب العالمية الثانية",
+    "points": 200,
+    "question": "في أي سنة انتهت الحرب العالمية الثانية باستسلام اليابان؟",
+    "answer": "1945",
+    "hint": "انتهت الحرب بعد ست سنوات في أوروبا.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates"
+  },
+  {
+    "id": "WW-400-01",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "ما اسم الخطة الألمانية المرتبطة باجتياح بلجيكا للوصول إلى فرنسا في بداية الحرب الأولى؟",
+    "answer": "خطة شليفن",
+    "hint": "نُسبت إلى رئيس أركان ألماني سابق.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-400-02",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "أي دولة محايدة اجتاحتها ألمانيا في أغسطس 1914 قبل دخول بريطانيا الحرب؟",
+    "answer": "بلجيكا",
+    "hint": "كان انتهاك حيادها عاملًا مهمًا في إعلان بريطانيا الحرب.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-400-03",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "في أي شبه جزيرة عثمانية جرت حملة الحلفاء المعروفة بمعركة غاليبولي عام 1915؟",
+    "answer": "شبه جزيرة غاليبولي",
+    "hint": "كانت قرب مضيق الدردنيل.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-400-04",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "ما اسم سفينة الركاب البريطانية التي أغرقتها غواصة ألمانية عام 1915 وأثارت غضبًا دوليًا؟",
+    "answer": "لوسيتانيا (Lusitania)",
+    "hint": "كانت سفينة ركاب تعبر الأطلسي.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-400-05",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "ما اسم البرقية الألمانية السرية عام 1917 التي اقترحت تحالفًا مع المكسيك؟",
+    "answer": "برقية زيمرمان",
+    "hint": "اعترضتها الاستخبارات البريطانية.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-400-06",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "في أي معركة فرعية من حملة السوم استخدم البريطانيون الدبابات لأول مرة في القتال عام 1916؟",
+    "answer": "فلير-كورسيليت (Flers–Courcelette)",
+    "hint": "كانت ضمن حملة السوم.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-400-07",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "في أي معركة عام 1915 استخدمت القوات الألمانية الغاز السام على نطاق واسع على الجبهة الغربية؟",
+    "answer": "معركة إيبر الثانية",
+    "hint": "وقعت في بلجيكا.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-400-08",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "ما الثورة التي أوصلت البلاشفة إلى السلطة في روسيا عام 1917؟",
+    "answer": "ثورة أكتوبر",
+    "hint": "كانت بعد ثورة فبراير في العام نفسه.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-400-09",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "ما المعاهدة التي أنهت مشاركة روسيا السوفيتية في الحرب الأولى عام 1918؟",
+    "answer": "معاهدة بريست ليتوفسك",
+    "hint": "وقعتها روسيا مع دول المركز.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-400-10",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "بأي اسم تُعرف سلسلة الهجمات الألمانية الكبرى على الجبهة الغربية في ربيع 1918؟",
+    "answer": "هجوم الربيع الألماني",
+    "hint": "وقع قبل هجوم المئة يوم للحلفاء.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-400-11",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "أي قوات من إحدى دول الكومنولث ارتبط اسمها خصوصًا بالاستيلاء على مرتفعات فيمي عام 1917؟",
+    "answer": "القوات الكندية",
+    "hint": "كانت معركة مهمة في الذاكرة الوطنية لتلك الدولة.",
+    "fact_source_url": "https://www.theworldwar.org/interactive-wwi-timeline"
+  },
+  {
+    "id": "WW-400-12",
+    "category": "الحرب العالمية الأولى",
+    "points": 400,
+    "question": "في أي مدينة انعقد مؤتمر السلام الذي أعاد رسم خريطة أوروبا بعد الحرب الأولى عام 1919؟",
+    "answer": "باريس",
+    "hint": "شهد توقيع معاهدات عدة مع دول المركز.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-400-13",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما الاسم الرمزي لعملية إجلاء جنود الحلفاء من دونكيرك عام 1940؟",
+    "answer": "عملية دينامو (Dynamo)",
+    "hint": "استُخدمت فيها سفن حربية ومدنية.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-14",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما الاسم الرمزي للغزو الألماني للاتحاد السوفيتي في يونيو 1941؟",
+    "answer": "عملية بارباروسا",
+    "hint": "فتحت جبهة برية شرقية ضخمة.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth"
+  },
+  {
+    "id": "WW-400-15",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "في أي محيط وقعت معركة ميدواي البحرية الشهيرة عام 1942؟",
+    "answer": "المحيط الهادئ",
+    "hint": "تقابلت فيها حاملات طائرات أمريكية ويابانية.",
+    "fact_source_url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942.html"
+  },
+  {
+    "id": "WW-400-16",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "في أي دولة جرت معركة العلمين الثانية عام 1942؟",
+    "answer": "مصر",
+    "hint": "كانت ضمن حملة الصحراء الغربية.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-17",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما اسم العملية التي أنزلت قوات الحلفاء في صقلية عام 1943؟",
+    "answer": "عملية هاسكي (Husky)",
+    "hint": "كانت مقدمة للقتال في شبه الجزيرة الإيطالية.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-18",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "أي دولة أعلنت الحرب على ألمانيا في أكتوبر 1943 بعد تغيير حكومتها وانقسامها داخليًا؟",
+    "answer": "إيطاليا",
+    "hint": "كانت حليفًا سابقًا لألمانيا.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-19",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "أي عاصمة أوروبية حررها الحلفاء في أغسطس 1944 بعد سنوات من الاحتلال الألماني؟",
+    "answer": "باريس",
+    "hint": "تقع على نهر السين.",
+    "fact_source_url": "https://www.pbs.org/wgbh/americanexperience/features/dday-world-war-two-europe/"
+  },
+  {
+    "id": "WW-400-20",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما الاسم الذي يطلق على مجموعة ألمانيا وإيطاليا واليابان في الحرب الثانية؟",
+    "answer": "دول المحور",
+    "hint": "كانت تقابل تحالف الحلفاء.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-21",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما اسم المدينة اليابانية التي تعرضت لأول قصف نووي حربي في 6 أغسطس 1945؟",
+    "answer": "هيروشيما",
+    "hint": "تُذكر عادة مع مدينة يابانية ثانية تعرضت للقصف بعدها بأيام.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates"
+  },
+  {
+    "id": "WW-400-22",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما اسم المؤتمر الذي التقى فيه روزفلت وتشرشل وستالين في فبراير 1945؟",
+    "answer": "مؤتمر يالطا",
+    "hint": "عقد في شبه جزيرة القرم.",
+    "fact_source_url": "https://www.pbs.org/wgbh/americanexperience/features/dday-world-war-two-europe/"
+  },
+  {
+    "id": "WW-400-23",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "في أي مدينة ألمانية جرت المحاكمات الدولية الكبرى لقادة ألمانيا النازية بعد الحرب؟",
+    "answer": "نورمبرغ",
+    "hint": "ارتبطت باسمها القوانين العنصرية النازية قبل الحرب.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/international-military-tribunal-at-nuremberg"
+  },
+  {
+    "id": "WW-400-24",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "أي اختراع بريطاني ساهم في كشف الطائرات المعادية أثناء معركة بريطانيا سنة 1940؟",
+    "answer": "الرادار",
+    "hint": "يستخدم موجات كهرومغناطيسية للرصد.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-400-25",
+    "category": "الحرب العالمية الثانية",
+    "points": 400,
+    "question": "ما اسم الحملة البحرية الطويلة التي سعت فيها ألمانيا إلى قطع خطوط الإمداد عبر المحيط بين 1939 و1945؟",
+    "answer": "معركة الأطلسي",
+    "hint": "شملت قوافل السفن التجارية العابرة للمحيط.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-600-01",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما اسم معركة أغسطس 1914 التي هزمت فيها ألمانيا جيشًا روسيًا كبيرًا في بروسيا الشرقية؟",
+    "answer": "معركة تاننبرغ",
+    "hint": "كانت في الأسابيع الأولى من الحرب على الجبهة الشرقية.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-600-02",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما اسم المعركة البحرية الكبرى بين الأسطولين البريطاني والألماني في بحر الشمال عام 1916؟",
+    "answer": "معركة جوتلاند",
+    "hint": "حدثت قرب الساحل الدنماركي.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-600-03",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "أي جنرال فرنسي ارتبط به الهجوم الفاشل على جبهة الأيسن عام 1917 الذي حمل اسمه؟",
+    "answer": "روبير نيفيل",
+    "hint": "ارتبطت العملية باسمه مباشرة.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-600-04",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "بأي اسم آخر تُعرف معركة إيبر الثالثة عام 1917؟",
+    "answer": "باشنديل (Passchendaele)",
+    "hint": "سميت على اسم قرية بلجيكية.",
+    "fact_source_url": "https://www.iwm.org.uk/sites/default/files/press-release/passchendaele_fact_sheet.pdf"
+  },
+  {
+    "id": "WW-600-05",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "في أي سنة استأنفت ألمانيا حرب الغواصات غير المقيّدة، مما ساعد على دخول أمريكا الحرب؟",
+    "answer": "1917",
+    "hint": "وقعت الخطوة في العام الذي أُرسلت فيه برقية زيمرمان.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-600-06",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما اسم المدينة العراقية التي انتهى حصارها باستسلام قوة بريطانية-هندية للقوات العثمانية عام 1916؟",
+    "answer": "الكوت",
+    "hint": "تقع على نهر دجلة.",
+    "fact_source_url": "https://pressbooks.palomar.edu/historyofthemiddleeast/chapter/chapter-ten-a-peace-to-end-all-peace-1916-1922/"
+  },
+  {
+    "id": "WW-600-07",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "من هو القائد البريطاني الذي دخل القدس في ديسمبر 1917 خلال حملة فلسطين؟",
+    "answer": "إدموند ألنبي",
+    "hint": "قاد قوة التجريدة المصرية.",
+    "fact_source_url": "https://pressbooks.palomar.edu/historyofthemiddleeast/chapter/chapter-ten-a-peace-to-end-all-peace-1916-1922/"
+  },
+  {
+    "id": "WW-600-08",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما المعركة التي بدأت في 8 أغسطس 1918 ومهدت لهجوم المئة يوم للحلفاء؟",
+    "answer": "معركة أميان",
+    "hint": "كانت في شمال فرنسا.",
+    "fact_source_url": "https://ww1.nam.ac.uk/timeline/"
+  },
+  {
+    "id": "WW-600-09",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "من هو الشريف الذي قاد انطلاق الثورة العربية الكبرى في الحجاز سنة 1916؟",
+    "answer": "الشريف حسين بن علي",
+    "hint": "كان شريف مكة.",
+    "fact_source_url": "https://pressbooks.palomar.edu/historyofthemiddleeast/chapter/chapter-ten-a-peace-to-end-all-peace-1916-1922/"
+  },
+  {
+    "id": "WW-600-10",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما اسم الاتفاق السري البريطاني الفرنسي عام 1916 حول مناطق النفوذ في المشرق العثماني؟",
+    "answer": "اتفاقية سايكس بيكو",
+    "hint": "حمل اسم دبلوماسي بريطاني وآخر فرنسي.",
+    "fact_source_url": "https://www.theworldwar.org/learn/about-wwi/key-dates"
+  },
+  {
+    "id": "WW-600-11",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما الدولة الأولى بين دول المركز التي وقعت هدنة عام 1918، في سبتمبر؟",
+    "answer": "بلغاريا",
+    "hint": "خرجت من الحرب قبل الدولة العثمانية والنمسا-المجر وألمانيا.",
+    "fact_source_url": "https://nzhistory.govt.nz/war/armistice-day/pre-armistice-surrenders"
+  },
+  {
+    "id": "WW-600-12",
+    "category": "الحرب العالمية الأولى",
+    "points": 600,
+    "question": "ما اسم معاهدة 1919 الموقعة مع النمسا بعد الحرب الأولى، غير معاهدة فرساي؟",
+    "answer": "معاهدة سان جيرمان",
+    "hint": "سميت نسبة إلى بلدة قرب باريس.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-and-its-aftermath-key-dates"
+  },
+  {
+    "id": "WW-600-13",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما اسم المعركة البحرية في مايو 1942 التي دارت بين حاملات الطائرات الأمريكية واليابانية دون اشتباك مباشر بين الأساطيل؟",
+    "answer": "معركة بحر المرجان",
+    "hint": "سبقت معركة ميدواي بأسابيع.",
+    "fact_source_url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/battle-of-coral-sea.html"
+  },
+  {
+    "id": "WW-600-14",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما الاسم الرمزي للهجوم الألماني على منطقة كورسك السوفيتية في يوليو 1943؟",
+    "answer": "عملية القلعة (Citadel)",
+    "hint": "ارتبط بمعركة مدرعات واسعة.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth"
+  },
+  {
+    "id": "WW-600-15",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما اسم العملية السوفيتية الضخمة في صيف 1944 التي هزمت مجموعة الجيوش الألمانية الوسطى في بيلاروسيا؟",
+    "answer": "عملية باغراتيون",
+    "hint": "حملت اسم قائد روسي من حروب نابليون.",
+    "fact_source_url": "https://www.nationalww2museum.org/war/articles/operation-tempest-eastern-front"
+  },
+  {
+    "id": "WW-600-16",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما اسم الجزيرة في جزر سليمان التي بدأ فيها الحلفاء حملة كبرى ضد اليابان في أغسطس 1942؟",
+    "answer": "غوادالكانال",
+    "hint": "ارتبطت بمطار هندرسون.",
+    "fact_source_url": "https://www.nationalww2museum.org/war/articles/solomon-islands-campaign-guadalcanal"
+  },
+  {
+    "id": "WW-600-17",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "في أي مدينة التقى روزفلت وتشرشل وستالين لأول مرة معًا في مؤتمر أواخر 1943؟",
+    "answer": "طهران",
+    "hint": "تقع المدينة في إيران.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-600-18",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "من كان رئيس الولايات المتحدة في مؤتمر بوتسدام عام 1945؟",
+    "answer": "هاري ترومان",
+    "hint": "تولى الرئاسة بعد وفاة فرانكلين روزفلت.",
+    "fact_source_url": "https://www.pbs.org/wgbh/americanexperience/features/dday-world-war-two-europe/"
+  },
+  {
+    "id": "WW-600-19",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما اسم العملية التي شهدت إنزال قوات أمريكية وبريطانية في المغرب والجزائر في نوفمبر 1942؟",
+    "answer": "عملية الشعلة (Torch)",
+    "hint": "كان اسمها الرمزي يشير إلى مصدر ضوء.",
+    "fact_source_url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942.html"
+  },
+  {
+    "id": "WW-600-20",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما الاسم الرمزي للعملية الألمانية التي غزت الدنمارك والنرويج في أبريل 1940؟",
+    "answer": "عملية فيزيروبونغ (Weserübung)",
+    "hint": "سبقت الهجوم الألماني غربًا في مايو.",
+    "fact_source_url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth"
+  },
+  {
+    "id": "WW-600-21",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "بأي اسم تشتهر معركة أردين في ديسمبر 1944 على الجبهة الغربية؟",
+    "answer": "معركة الثغرة (Battle of the Bulge)",
+    "hint": "كانت آخر هجمة ألمانية كبيرة في الغرب.",
+    "fact_source_url": "https://www.nam.ac.uk/explore/second-world-war"
+  },
+  {
+    "id": "WW-600-22",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما اسم انتفاضة الجيش الوطني البولندي في أغسطس 1944 ضد الاحتلال الألماني؟",
+    "answer": "انتفاضة وارسو",
+    "hint": "حدثت في العاصمة البولندية، وهي غير انتفاضة الغيتو عام 1943.",
+    "fact_source_url": "https://www.nationalww2museum.org/war/articles/allied-responses-warsaw-uprising-1944"
+  },
+  {
+    "id": "WW-600-23",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "ما الجزيرة اليابانية التي دارت فيها معركة كبرى بدأت في أبريل 1945، قبل استسلام اليابان؟",
+    "answer": "أوكيناوا",
+    "hint": "تقع جنوب الجزر اليابانية الرئيسية.",
+    "fact_source_url": "https://www.nationalww2museum.org/war/articles/solomon-islands-campaign-guadalcanal"
+  },
+  {
+    "id": "WW-600-24",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "في أي مدينة أمريكية وُقّع ميثاق الأمم المتحدة في يونيو 1945؟",
+    "answer": "سان فرانسيسكو",
+    "hint": "تقع على الساحل الغربي للولايات المتحدة.",
+    "fact_source_url": "https://www.un.org/en/about-us/un-charter/"
+  },
+  {
+    "id": "WW-600-25",
+    "category": "الحرب العالمية الثانية",
+    "points": 600,
+    "question": "على متن أي سفينة أمريكية وُقعت وثيقة استسلام اليابان رسميًا في 2 سبتمبر 1945؟",
+    "answer": "يو إس إس ميسوري (USS Missouri)",
+    "hint": "جرت مراسم التوقيع في خليج طوكيو.",
+    "fact_source_url": "https://www.archives.gov/milestone-documents/surrender-of-japan"
+  }
+]

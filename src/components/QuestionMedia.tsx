@@ -4,20 +4,27 @@ import { EyeOff, X, ZoomIn } from 'lucide-react';
 
 interface QuestionMediaProps {
   imageSrc?: string;
+  sourceUrl?: string;
+  sourceLabel?: string;
   caption?: string;
   pageNumber?: number;
   compact?: boolean;
   obscured?: boolean;
+  wide?: boolean;
 }
 
 export function QuestionMedia({
   imageSrc,
+  sourceUrl,
+  sourceLabel = 'مصدر الصورة',
   caption,
   pageNumber,
   compact = false,
   obscured = false,
+  wide = false,
 }: QuestionMediaProps) {
   const [zoomed, setZoomed] = useState(false);
+  const [failedImage, setFailedImage] = useState<string>();
 
   useEffect(() => {
     if (obscured && zoomed) {
@@ -34,7 +41,12 @@ export function QuestionMedia({
     return () => window.removeEventListener('keydown', handleKey);
   }, [zoomed]);
 
-  if (!imageSrc) return null;
+  const sourceLink = sourceUrl && (
+    <a className="text-xs font-bold underline" href={sourceUrl} target="_blank" rel="noreferrer">
+      {sourceLabel}
+    </a>
+  );
+  if (!imageSrc || imageSrc === failedImage) return sourceLink || null;
 
   const altText = obscured
     ? 'شعار مموّه للتخمين'
@@ -81,6 +93,7 @@ export function QuestionMedia({
               <div className={`rounded-2xl border-2 border-[#1F112E]/20 ${surfaceClass} p-3 flex items-center justify-center`}>
                 <img
                   src={imageSrc}
+                  referrerPolicy="no-referrer"
                   alt={altText}
                   className="max-h-[76vh] w-auto max-w-full rounded-xl object-contain"
                 />
@@ -92,14 +105,14 @@ export function QuestionMedia({
       : null;
 
   const imgClasses = `mx-auto w-auto max-w-full rounded-xl object-contain transition-all duration-500 ${
-    compact ? 'max-h-[155px]' : 'max-h-[210px] md:max-h-[260px]'
+    compact ? 'max-h-[155px]' : wide ? 'max-h-[410px]' : 'max-h-[210px] md:max-h-[260px]'
   } ${obscured ? 'blur-[14px] scale-110 select-none pointer-events-none' : 'blur-0 scale-100'}`;
 
   return (
     <>
       <figure
         className={`question-media-figure mx-auto mb-3 w-full ${
-          compact ? 'max-w-lg' : 'max-w-2xl'
+          compact ? 'max-w-lg' : wide ? 'max-w-3xl' : 'max-w-2xl'
         } flex flex-col items-center`}
         data-obscured={obscured ? 'true' : 'false'}
       >
@@ -136,6 +149,11 @@ export function QuestionMedia({
           >
             <img
               src={imageSrc}
+              referrerPolicy="no-referrer"
+              onError={sourceUrl ? () => {
+                setZoomed(false);
+                setFailedImage(imageSrc);
+              } : undefined}
               alt={altText}
               className={imgClasses}
             />
@@ -156,6 +174,7 @@ export function QuestionMedia({
             {caption && <span>{caption}</span>}
           </figcaption>
         )}
+        {sourceLink && <div className="mt-2">{sourceLink}</div>}
       </figure>
       {modalContent}
     </>

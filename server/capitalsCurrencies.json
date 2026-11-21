@@ -1,0 +1,1058 @@
+[
+  {
+    "id": "GEO-200-01",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "عمّان",
+    "answer_en": "Amman",
+    "country": "الأردن",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-01",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-02",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الريال السعودي",
+    "answer_en": "Saudi riyal",
+    "country": "السعودية",
+    "currency_code": "SAR",
+    "note": "",
+    "flagId": "FLAG-200-02",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-03",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "أبوظبي",
+    "answer_en": "Abu Dhabi",
+    "country": "الإمارات العربية المتحدة",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-03",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-04",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الجنيه المصري",
+    "answer_en": "Egyptian pound",
+    "country": "مصر",
+    "currency_code": "EGP",
+    "note": "",
+    "flagId": "FLAG-200-04",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-05",
+    "points": 200,
+    "question": "وفق القانون الأساسي الفلسطيني، ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "القدس",
+    "answer_en": "Jerusalem",
+    "country": "فلسطين",
+    "currency_code": "",
+    "note": "ينصّ القانون الأساسي الفلسطيني في المادة الثالثة على أن القدس عاصمة فلسطين، مع وجود مؤسسات للسلطة الفلسطينية في رام الله.",
+    "flagId": "FLAG-200-05",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html",
+      "https://tscc.pna.ps/en/pages?id=palestinian_basic_law"
+    ]
+  },
+  {
+    "id": "GEO-200-06",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الليرة التركية",
+    "answer_en": "Turkish lira",
+    "country": "تركيا",
+    "currency_code": "TRY",
+    "note": "",
+    "flagId": "FLAG-200-06",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-07",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "طوكيو",
+    "answer_en": "Tokyo",
+    "country": "اليابان",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-07",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-08",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "اليوان الصيني",
+    "answer_en": "Chinese yuan",
+    "country": "الصين",
+    "currency_code": "CNY",
+    "note": "",
+    "flagId": "FLAG-200-08",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-09",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "واشنطن العاصمة",
+    "answer_en": "Washington D.C.",
+    "country": "الولايات المتحدة الأمريكية",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-09",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-10",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الجنيه الإسترليني",
+    "answer_en": "Pound sterling",
+    "country": "المملكة المتحدة",
+    "currency_code": "GBP",
+    "note": "",
+    "flagId": "FLAG-200-10",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-11",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "باريس",
+    "answer_en": "Paris",
+    "country": "فرنسا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-11",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-12",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "اليورو",
+    "answer_en": "Euro",
+    "country": "ألمانيا",
+    "currency_code": "EUR",
+    "note": "",
+    "flagId": "FLAG-200-12",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-13",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "روما",
+    "answer_en": "Rome",
+    "country": "إيطاليا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-13",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-14",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "مدريد",
+    "answer_en": "Madrid",
+    "country": "إسبانيا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-14",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-15",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "برازيليا",
+    "answer_en": "Brasília",
+    "country": "البرازيل",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-15",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-16",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدولار الكندي",
+    "answer_en": "Canadian dollar",
+    "country": "كندا",
+    "currency_code": "CAD",
+    "note": "",
+    "flagId": "FLAG-200-16",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-17",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "موسكو",
+    "answer_en": "Moscow",
+    "country": "روسيا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-17",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-18",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الهريفنيا الأوكرانية",
+    "answer_en": "Ukrainian hryvnia",
+    "country": "أوكرانيا",
+    "currency_code": "UAH",
+    "note": "",
+    "flagId": "FLAG-200-18",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-19",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "نيودلهي",
+    "answer_en": "New Delhi",
+    "country": "الهند",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-19",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-20",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدولار الأسترالي",
+    "answer_en": "Australian dollar",
+    "country": "أستراليا",
+    "currency_code": "AUD",
+    "note": "",
+    "flagId": "FLAG-200-20",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-21",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "سيول",
+    "answer_en": "Seoul",
+    "country": "كوريا الجنوبية",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-21",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-22",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الفرنك السويسري",
+    "answer_en": "Swiss franc",
+    "country": "سويسرا",
+    "currency_code": "CHF",
+    "note": "",
+    "flagId": "FLAG-200-22",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-23",
+    "points": 200,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "ستوكهولم",
+    "answer_en": "Stockholm",
+    "country": "السويد",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-200-23",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-200-24",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدرهم المغربي",
+    "answer_en": "Moroccan dirham",
+    "country": "المغرب",
+    "currency_code": "MAD",
+    "note": "",
+    "flagId": "FLAG-200-24",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-200-25",
+    "points": 200,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الراند الجنوب أفريقي",
+    "answer_en": "South African rand",
+    "country": "جنوب أفريقيا",
+    "currency_code": "ZAR",
+    "note": "الراند العملة الوطنية؛ جنوب أفريقيا لديها عواصم وظيفية متعددة.",
+    "flagId": "FLAG-200-25",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-01",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الريال القطري",
+    "answer_en": "Qatari riyal",
+    "country": "قطر",
+    "currency_code": "QAR",
+    "note": "",
+    "flagId": "FLAG-400-01",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-02",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدينار الكويتي",
+    "answer_en": "Kuwaiti dinar",
+    "country": "الكويت",
+    "currency_code": "KWD",
+    "note": "",
+    "flagId": "FLAG-400-02",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-03",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدينار البحريني",
+    "answer_en": "Bahraini dinar",
+    "country": "البحرين",
+    "currency_code": "BHD",
+    "note": "",
+    "flagId": "FLAG-400-03",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-04",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الريال العُماني",
+    "answer_en": "Omani rial",
+    "country": "عُمان",
+    "currency_code": "OMR",
+    "note": "",
+    "flagId": "FLAG-400-04",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-05",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "تونس",
+    "answer_en": "Tunis",
+    "country": "تونس",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-05",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-06",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدينار الجزائري",
+    "answer_en": "Algerian dinar",
+    "country": "الجزائر",
+    "currency_code": "DZD",
+    "note": "",
+    "flagId": "FLAG-400-06",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-07",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "بيروت",
+    "answer_en": "Beirut",
+    "country": "لبنان",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-07",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-08",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الروبية الباكستانية",
+    "answer_en": "Pakistani rupee",
+    "country": "باكستان",
+    "currency_code": "PKR",
+    "note": "",
+    "flagId": "FLAG-400-08",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-09",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "دكا",
+    "answer_en": "Dhaka",
+    "country": "بنغلاديش",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-09",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-10",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الروبية الإندونيسية",
+    "answer_en": "Indonesian rupiah",
+    "country": "إندونيسيا",
+    "currency_code": "IDR",
+    "note": "",
+    "flagId": "FLAG-400-10",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-11",
+    "points": 400,
+    "question": "ما العاصمة الرسمية للدولة صاحبة هذا العلم، وليس مركزها الإداري؟",
+    "answer": "كوالالمبور",
+    "answer_en": "Kuala Lumpur",
+    "country": "ماليزيا",
+    "currency_code": "",
+    "note": "كوالالمبور العاصمة الرسمية، أما بوتراجايا فهي المركز الإداري الاتحادي.",
+    "flagId": "FLAG-400-11",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-12",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "البات التايلاندي",
+    "answer_en": "Thai baht",
+    "country": "تايلاند",
+    "currency_code": "THB",
+    "note": "",
+    "flagId": "FLAG-400-12",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-13",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "هانوي",
+    "answer_en": "Hanoi",
+    "country": "فيتنام",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-13",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-14",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "البيزو الفلبيني",
+    "answer_en": "Philippine peso",
+    "country": "الفلبين",
+    "currency_code": "PHP",
+    "note": "",
+    "flagId": "FLAG-400-14",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-15",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "أثينا",
+    "answer_en": "Athens",
+    "country": "اليونان",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-15",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-16",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "لشبونة",
+    "answer_en": "Lisbon",
+    "country": "البرتغال",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-16",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-17",
+    "points": 400,
+    "question": "ما العاصمة الرسمية للدولة صاحبة هذا العلم، وليس مقر حكومتها؟",
+    "answer": "أمستردام",
+    "answer_en": "Amsterdam",
+    "country": "هولندا",
+    "currency_code": "",
+    "note": "أمستردام عاصمة هولندا وفق الدستور، بينما مقر الحكومة في لاهاي.",
+    "flagId": "FLAG-400-17",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-18",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "بروكسل",
+    "answer_en": "Brussels",
+    "country": "بلجيكا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-18",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-19",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "وارسو",
+    "answer_en": "Warsaw",
+    "country": "بولندا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-19",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-20",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الكرونة النرويجية",
+    "answer_en": "Norwegian krone",
+    "country": "النرويج",
+    "currency_code": "NOK",
+    "note": "",
+    "flagId": "FLAG-400-20",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-21",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "هلسنكي",
+    "answer_en": "Helsinki",
+    "country": "فنلندا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-21",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-22",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "البيزو المكسيكي",
+    "answer_en": "Mexican peso",
+    "country": "المكسيك",
+    "currency_code": "MXN",
+    "note": "",
+    "flagId": "FLAG-400-22",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-23",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "بوينس آيرس",
+    "answer_en": "Buenos Aires",
+    "country": "الأرجنتين",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-23",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-400-24",
+    "points": 400,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "البيزو الكولومبي",
+    "answer_en": "Colombian peso",
+    "country": "كولومبيا",
+    "currency_code": "COP",
+    "note": "",
+    "flagId": "FLAG-400-24",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-400-25",
+    "points": 400,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "نيروبي",
+    "answer_en": "Nairobi",
+    "country": "كينيا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-400-25",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-01",
+    "points": 600,
+    "question": "ما منطقة العاصمة التي تتمركز فيها مؤسسات الحكومة للدولة صاحبة هذا العلم؟",
+    "answer": "جنوب تاراوا",
+    "answer_en": "South Tarawa",
+    "country": "كيريباتي",
+    "currency_code": "",
+    "note": "تقع المراكز الحكومية في جنوب تاراوا؛ وتورد بعض المراجع الاسم المختصر تاراوا.",
+    "flagId": "FLAG-600-01",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html",
+      "https://www.investinkiribati.mtcic.gov.ki/key-advantages-for-investors-in-kiribati/kiribati-at-a-glance"
+    ]
+  },
+  {
+    "id": "GEO-600-02",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدولار الأسترالي",
+    "answer_en": "Australian dollar",
+    "country": "ناورو",
+    "currency_code": "AUD",
+    "note": "ناورو لا تملك عاصمة رسمية؛ لهذا يختبر السؤال عملتها لا عاصمتها.",
+    "flagId": "FLAG-600-02",
+    "sources": [
+      "https://www.iban.com/currency-codes",
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-03",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "فونافوتي",
+    "answer_en": "Funafuti",
+    "country": "توفالو",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-03",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-04",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "باليكير",
+    "answer_en": "Palikir",
+    "country": "ولايات ميكرونيسيا المتحدة",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-04",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html",
+      "https://www.dfat.gov.au/geo/federated-states-of-micronesia/federated-states-of-micronesia-country-brief"
+    ]
+  },
+  {
+    "id": "GEO-600-05",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدولار الأمريكي",
+    "answer_en": "US dollar",
+    "country": "جزر مارشال",
+    "currency_code": "USD",
+    "note": "تستخدم جزر مارشال الدولار الأمريكي عملةً رسمية.",
+    "flagId": "FLAG-600-05",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-06",
+    "points": 600,
+    "question": "ما العاصمة الرسمية الحالية للدولة صاحبة هذا العلم، وليس عاصمتها السابقة؟",
+    "answer": "نغيرولمود",
+    "answer_en": "Ngerulmud",
+    "country": "بالاو",
+    "currency_code": "",
+    "note": "نغيرولمود هي العاصمة منذ انتقال مقر الحكومة من كورور عام 2006.",
+    "flagId": "FLAG-600-06",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-07",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "التالا الساموية",
+    "answer_en": "Samoan tala",
+    "country": "ساموا",
+    "currency_code": "WST",
+    "note": "",
+    "flagId": "FLAG-600-07",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-08",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "البانغا التونغية",
+    "answer_en": "Tongan paʻanga",
+    "country": "تونغا",
+    "currency_code": "TOP",
+    "note": "",
+    "flagId": "FLAG-600-08",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-09",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الدولار الفيجي",
+    "answer_en": "Fijian dollar",
+    "country": "فيجي",
+    "currency_code": "FJD",
+    "note": "",
+    "flagId": "FLAG-600-09",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-10",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "دولار جزر سليمان",
+    "answer_en": "Solomon Islands dollar",
+    "country": "جزر سليمان",
+    "currency_code": "SBD",
+    "note": "",
+    "flagId": "FLAG-600-10",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-11",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الفاتو الفانواتي",
+    "answer_en": "Vanuatu vatu",
+    "country": "فانواتو",
+    "currency_code": "VUV",
+    "note": "",
+    "flagId": "FLAG-600-11",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-12",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الكينا البابوية الغينية",
+    "answer_en": "Papua New Guinean kina",
+    "country": "بابوا غينيا الجديدة",
+    "currency_code": "PGK",
+    "note": "",
+    "flagId": "FLAG-600-12",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-13",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "كاستريس",
+    "answer_en": "Castries",
+    "country": "سانت لوسيا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-13",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-14",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "كينغستاون",
+    "answer_en": "Kingstown",
+    "country": "سانت فنسنت والغرينادين",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-14",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-15",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "سانت جورج",
+    "answer_en": "Saint George’s",
+    "country": "غرينادا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-15",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-16",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "سانت جونز",
+    "answer_en": "Saint John’s",
+    "country": "أنتيغوا وبربودا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-16",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-17",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "روزو",
+    "answer_en": "Roseau",
+    "country": "دومينيكا",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-17",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-18",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "دولار شرق الكاريبي",
+    "answer_en": "East Caribbean dollar",
+    "country": "سانت كيتس ونيفيس",
+    "currency_code": "XCD",
+    "note": "",
+    "flagId": "FLAG-600-18",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-19",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الروبية السيشلية",
+    "answer_en": "Seychelles rupee",
+    "country": "سيشل",
+    "currency_code": "SCR",
+    "note": "",
+    "flagId": "FLAG-600-19",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-20",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "موروني",
+    "answer_en": "Moroni",
+    "country": "جزر القمر",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-20",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-21",
+    "points": 600,
+    "question": "ما اسم العملة الوطنية الخاصة بالدولة صاحبة هذا العلم، إلى جانب الراند المتداول فيها؟",
+    "answer": "اللوتي الليسوتي",
+    "answer_en": "Lesotho loti",
+    "country": "ليسوتو",
+    "currency_code": "LSL",
+    "note": "اللوتي هي عملة ليسوتو الوطنية، والراند الجنوب أفريقي متداول وقانوني أيضًا.",
+    "flagId": "FLAG-600-21",
+    "sources": [
+      "https://www.iban.com/currency-codes",
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-22",
+    "points": 600,
+    "question": "ما العاصمة الإدارية للدولة صاحبة هذا العلم؟",
+    "answer": "مبابان",
+    "answer_en": "Mbabane",
+    "country": "إسواتيني",
+    "currency_code": "",
+    "note": "مبابان العاصمة الإدارية، ولوبامبا العاصمة التشريعية والملكية.",
+    "flagId": "FLAG-600-22",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html",
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  },
+  {
+    "id": "GEO-600-23",
+    "points": 600,
+    "question": "ما اسم العملة الرسمية للدولة صاحبة هذا العلم؟",
+    "answer": "الفرنك البوروندي",
+    "answer_en": "Burundian franc",
+    "country": "بوروندي",
+    "currency_code": "BIF",
+    "note": "الفرنك البوروندي هو العملة الوطنية لبوروندي؛ وعاصمتها السياسية غيتيغا.",
+    "flagId": "FLAG-600-23",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-24",
+    "points": 600,
+    "question": "ما اسم العملة الوطنية التي تصدرها الدولة صاحبة هذا العلم؟",
+    "answer": "النغولترم البوتاني",
+    "answer_en": "Bhutanese ngultrum",
+    "country": "بوتان",
+    "currency_code": "BTN",
+    "note": "النغولترم عملة بوتان الوطنية؛ كما تُستخدم الروبية الهندية.",
+    "flagId": "FLAG-600-24",
+    "sources": [
+      "https://www.iban.com/currency-codes"
+    ]
+  },
+  {
+    "id": "GEO-600-25",
+    "points": 600,
+    "question": "ما عاصمة الدولة صاحبة هذا العلم؟",
+    "answer": "ديلي",
+    "answer_en": "Dili",
+    "country": "تيمور الشرقية",
+    "currency_code": "",
+    "note": "",
+    "flagId": "FLAG-600-25",
+    "sources": [
+      "https://www.visaray.com/blog/countries-capitals-currencies-list-2026.html"
+    ]
+  }
+]

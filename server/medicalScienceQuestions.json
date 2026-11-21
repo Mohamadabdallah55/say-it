@@ -1,0 +1,1956 @@
+{
+  "medical": [
+    {
+      "id": "MED-001",
+      "points": 200,
+      "question": "ما العضو الذي يضخ الدم إلى أنحاء الجسم؟",
+      "answer": "قلب",
+      "explanation": "ينقبض القلب ليدفع الدم عبر الدوران الرئوي والجهازي.",
+      "topic": "تشريح",
+      "letter": "ق"
+    },
+    {
+      "id": "MED-002",
+      "points": 600,
+      "question": "ما الإنزيم الذي يفصل سلسلتي DNA عند شوكة تضاعف الحمض النووي؟",
+      "answer": "هيليكاز",
+      "explanation": "يفك الهيليكاز اللولب المزدوج للسماح لآلات التضاعف بالعمل.",
+      "topic": "الوراثة",
+      "letter": "ه"
+    },
+    {
+      "id": "MED-003",
+      "points": 600,
+      "question": "أي نوع من RNA ينقل الأحماض الأمينية إلى الريبوسوم في الترجمة؟",
+      "answer": "حمض نووي ريبي ناقل (tRNA)",
+      "explanation": "يحمل tRNA حمضًا أمينيًا محددًا ويطابق الكودون عبر مضاد الكودون.",
+      "topic": "الوراثة",
+      "letter": "ح"
+    },
+    {
+      "id": "MED-004",
+      "points": 400,
+      "question": "ما العصب القحفي الثاني الذي ينقل المعلومات البصرية من الشبكية؟",
+      "answer": "عصب بصري",
+      "explanation": "يرتبط العصب البصري بالخلايا العقدية للشبكية وينقل الإشارات البصرية.",
+      "topic": "الأعصاب",
+      "letter": "ع"
+    },
+    {
+      "id": "MED-005",
+      "points": 600,
+      "question": "ما الخلايا الحويصلية التي تنتج السورفاكتانت الرئوي؟",
+      "answer": "خلايا سنخية من النمط الثاني",
+      "explanation": "تفرز الخلايا السنخية من النمط الثاني مادة تقلل التوتر السطحي بالحويصلات.",
+      "topic": "التنفس",
+      "letter": "خ"
+    },
+    {
+      "id": "MED-006",
+      "points": 200,
+      "question": "ما الخلايا التي تنقل معظم الأكسجين في الدم بفضل الهيموغلوبين؟",
+      "answer": "كريات الدم الحمراء",
+      "explanation": "تحتوي كريات الدم الحمراء على الهيموغلوبين الذي يرتبط بالأكسجين.",
+      "topic": "الدم",
+      "letter": "ك"
+    },
+    {
+      "id": "MED-007",
+      "points": 200,
+      "question": "ما العضوان اللذان يرشحان الدم ويساهمان في تكوين البول؟",
+      "answer": "كليتان",
+      "explanation": "ترشح الكليتان البلازما وتعدلان الماء والأملاح والفضلات.",
+      "topic": "الكلى",
+      "letter": "ك"
+    },
+    {
+      "id": "MED-008",
+      "points": 400,
+      "question": "ما الغاز الذي ينتقل من الدم إلى الحويصلات الرئوية ليُطرح مع الزفير؟",
+      "answer": "ثاني أكسيد الكربون",
+      "explanation": "ينتشر ثاني أكسيد الكربون بحسب تدرج الضغط الجزئي ثم يخرج بالزفير.",
+      "topic": "التنفس",
+      "letter": "ث"
+    },
+    {
+      "id": "MED-009",
+      "points": 600,
+      "question": "ما البروتين البلازمي الذي يرتبط بنقل معظم النحاس في الدم ويكون منخفضًا غالبًا في داء ويلسون؟",
+      "answer": "سيرولوبلازمين",
+      "explanation": "السيرولوبلازمين بروتين يحمل النحاس؛ انخفاضه مؤشر مساعد لكنه ليس تشخيصًا مستقلًا.",
+      "topic": "التمثيل الغذائي",
+      "letter": "س"
+    },
+    {
+      "id": "MED-010",
+      "points": 400,
+      "question": "ما البروتين الذي يُقاس عادةً في التحاليل للمساعدة في تقدير مخزون الحديد؟",
+      "answer": "فيريتين",
+      "explanation": "يرتبط الفيريتين بتخزين الحديد؛ وقد يتأثر أيضًا بحالات الالتهاب.",
+      "topic": "الدم",
+      "letter": "ف"
+    },
+    {
+      "id": "MED-011",
+      "points": 200,
+      "question": "ما الفيتامين الذي يبدأ الجلد تصنيعَه عند التعرض لأشعة الشمس المناسبة؟",
+      "answer": "فيتامين د",
+      "explanation": "تبدأ الأشعة فوق البنفسجية سلسلة تكوين فيتامين د في الجلد.",
+      "topic": "الفيتامينات",
+      "letter": "ف"
+    },
+    {
+      "id": "MED-012",
+      "points": 200,
+      "question": "ما المصطلح الطبي لارتفاع ضغط الدم باستمرار؟",
+      "answer": "فرط ضغط الدم",
+      "explanation": "يشير المصطلح إلى ارتفاع ضغط الدم على نحو مستمر.",
+      "topic": "القلب",
+      "letter": "ف"
+    },
+    {
+      "id": "MED-013",
+      "points": 400,
+      "question": "أي جزء من الأمعاء الدقيقة يُعد موقعًا رئيسيًا لامتصاص كثير من المغذيات بعد الإثني عشر؟",
+      "answer": "صائم",
+      "explanation": "الصائم جزء من الأمعاء الدقيقة تتخصص بطانته في الامتصاص.",
+      "topic": "الهضم",
+      "letter": "ص"
+    },
+    {
+      "id": "MED-014",
+      "points": 400,
+      "question": "ما اسم الوحدة التركيبية والوظيفية الأساسية في الكلية؟",
+      "answer": "نفرون",
+      "explanation": "يضم النفرون الكبيبة وأجزاء النبيبات المسؤولة عن تكوين البول.",
+      "topic": "الكلى",
+      "letter": "ن"
+    },
+    {
+      "id": "MED-015",
+      "points": 400,
+      "question": "ما الإنزيم الموجود في اللعاب الذي يبدأ هضم النشويات؟",
+      "answer": "أميلاز لعابي",
+      "explanation": "يساهم الأميلاز اللعابي في تكسير روابط النشا إلى جزيئات أصغر.",
+      "topic": "الهضم",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-016",
+      "points": 400,
+      "question": "أي جزء من الدماغ يرتبط بتنسيق الحركات وحفظ التوازن؟",
+      "answer": "مخيخ",
+      "explanation": "يساهم المخيخ في تنسيق التوقيت والدقة والتوازن الحركي.",
+      "topic": "الأعصاب",
+      "letter": "م"
+    },
+    {
+      "id": "MED-017",
+      "points": 600,
+      "question": "ما الغاز الذي يرتبط بالهيموغلوبين بألفة عالية ويضعف نقل الأكسجين؟",
+      "answer": "أول أكسيد الكربون",
+      "explanation": "قد يشغل أول أكسيد الكربون مواقع ارتباط الأكسجين بالهيموغلوبين.",
+      "topic": "الدم",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-018",
+      "points": 600,
+      "question": "ما الناقل العصبي الذي يُفرز عند الوصلة العصبية العضلية في العضلات الهيكلية؟",
+      "answer": "أستيل كولين",
+      "explanation": "يرتبط الأستيل كولين بمستقبلات نيكوتينية على اللوحة النهائية الحركية.",
+      "topic": "الأعصاب والعضلات",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-019",
+      "points": 600,
+      "question": "ما البنية في بطينات الدماغ التي تنتج غالبية السائل الدماغي الشوكي؟",
+      "answer": "ضفيرة مشيمية",
+      "explanation": "تفرز الضفيرة المشيمية معظم السائل الدماغي الشوكي.",
+      "topic": "الأعصاب",
+      "letter": "ض"
+    },
+    {
+      "id": "MED-020",
+      "points": 600,
+      "question": "ما العضية التي تحتوي إنزيمات محللة تعمل بفاعلية داخل وسط حمضي؟",
+      "answer": "جسيم حال",
+      "explanation": "تحتوي الجسيمات الحالة على هيدرولازات حمضية لهضم المواد داخل الخلية.",
+      "topic": "علم الخلية",
+      "letter": "ج"
+    },
+    {
+      "id": "MED-021",
+      "points": 200,
+      "question": "ما أكبر عضو في جسم الإنسان من حيث المساحة السطحية؟",
+      "answer": "جلد",
+      "explanation": "يغطي الجلد السطح الخارجي للجسم ويؤدي وظائف وقائية وتنظيمية.",
+      "topic": "الجلد",
+      "letter": "ج"
+    },
+    {
+      "id": "MED-022",
+      "points": 600,
+      "question": "أي تركيب في الجهاز المجاور للكبيبات يستشعر تركيز كلوريد الصوديوم في النبيب البعيد؟",
+      "answer": "بقعة كثيفة",
+      "explanation": "تساهم البقعة الكثيفة في التغذية الراجعة الأنبوبية الكبيبية.",
+      "topic": "الكلى",
+      "letter": "ب"
+    },
+    {
+      "id": "MED-023",
+      "points": 200,
+      "question": "ما نوع الأوعية الذي يعيد الدم عادةً من الأنسجة إلى القلب؟",
+      "answer": "أوردة",
+      "explanation": "يتجه تدفق الدم في الأوردة نحو القلب في الدورة الجهازية.",
+      "topic": "الدورة الدموية",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-024",
+      "points": 400,
+      "question": "ما نوع الروابط التي تصل الأحماض الأمينية في سلسلة البروتين؟",
+      "answer": "روابط ببتيدية",
+      "explanation": "تتكوّن رابطة ببتيدية بين المجموعة الكربوكسيلية والزمرة الأمينية.",
+      "topic": "الكيمياء الحيوية",
+      "letter": "ر"
+    },
+    {
+      "id": "MED-025",
+      "points": 400,
+      "question": "ما الاسم الشائع لهرمون الغدة الدرقية T4؟",
+      "answer": "ثيروكسين",
+      "explanation": "يمتلك T4 أربع ذرات يود ويُعرف بالثيروكسين.",
+      "topic": "الغدد",
+      "letter": "ث"
+    },
+    {
+      "id": "MED-026",
+      "points": 600,
+      "question": "ما المرض الوراثي المرتبط بطفرات مسببة للمرض في جين CFTR؟",
+      "answer": "تليف كيسي",
+      "explanation": "تؤثر تغيرات CFTR الممرضة في انتقال أيونات الكلوريد والبيكربونات عبر الأغشية.",
+      "topic": "الوراثة",
+      "letter": "ت"
+    },
+    {
+      "id": "MED-027",
+      "points": 400,
+      "question": "ما اسم العظم الموجود في الرقبة والذي لا يتصل مباشرةً بعظم آخر بمفصل عظمي؟",
+      "answer": "عظم لامي",
+      "explanation": "يُعلّق العظم اللامي بواسطة عضلات وأربطة دون اتصال عظمي مباشر.",
+      "topic": "تشريح",
+      "letter": "ع"
+    },
+    {
+      "id": "MED-028",
+      "points": 600,
+      "question": "ما الإنزيم الذي يحوّل الفيبرينوجين إلى فيبرين أثناء التخثر؟",
+      "answer": "ثرومبين",
+      "explanation": "يقوم الثرومبين بشطر الفيبرينوجين لتكوين وحدات الفيبرين.",
+      "topic": "الدم",
+      "letter": "ث"
+    },
+    {
+      "id": "MED-029",
+      "points": 600,
+      "question": "ما الأيون الذي يدخل خلايا عضلة البطين عبر قنوات L-type ويساهم في طور الهضبة؟",
+      "answer": "كالسيوم",
+      "explanation": "يساهم دخول أيونات الكالسيوم عبر قنوات النوع L في استمرار طور الهضبة.",
+      "topic": "القلب",
+      "letter": "ك"
+    },
+    {
+      "id": "MED-030",
+      "points": 600,
+      "question": "ما الخلايا التي تصنع غمد الميالين في الجهاز العصبي الطرفي؟",
+      "answer": "خلايا شوان",
+      "explanation": "تشكّل خلايا شوان الميالين في الجهاز العصبي الطرفي.",
+      "topic": "الأعصاب",
+      "letter": "خ"
+    },
+    {
+      "id": "MED-031",
+      "points": 400,
+      "question": "ما اسم الموضع الذي تنتقل عنده الإشارة من عصبون إلى خلية أخرى؟",
+      "answer": "مشبك عصبي",
+      "explanation": "تنتقل الإشارة في المشابك كيميائيًا أو كهربائيًا بحسب نوع المشبك.",
+      "topic": "الأعصاب",
+      "letter": "م"
+    },
+    {
+      "id": "MED-032",
+      "points": 200,
+      "question": "ما الصبغة المسؤولة أساسًا عن اختلاف لون الجلد والشعر؟",
+      "answer": "ميلانين",
+      "explanation": "الميلانين صبغة تصنعها الخلايا الميلانينية.",
+      "topic": "الجلد",
+      "letter": "م"
+    },
+    {
+      "id": "MED-033",
+      "points": 400,
+      "question": "ما نوع المناعة التي يصنع فيها الجسم استجابته بنفسه عقب التطعيم؟",
+      "answer": "مناعة مكتسبة نشطة",
+      "explanation": "يحرض التطعيم استجابة مناعية تكيفية وقد يكوّن خلايا ذاكرة.",
+      "topic": "المناعة",
+      "letter": "م"
+    },
+    {
+      "id": "MED-034",
+      "points": 400,
+      "question": "أي خلايا مناعية يمكن أن تتمايز إلى خلايا بلازمية منتجة للأجسام المضادة؟",
+      "answer": "خلايا بائية",
+      "explanation": "تتمايز الخلايا البائية المنشطة إلى خلايا بلازمية تفرز الأجسام المضادة.",
+      "topic": "المناعة",
+      "letter": "خ"
+    },
+    {
+      "id": "MED-035",
+      "points": 400,
+      "question": "في نظام ABO، ما الفصيلة التي لا تحمل كرياتها الحمراء مستضد A ولا مستضد B؟",
+      "answer": "فصيلة O",
+      "explanation": "لا تحتوي الكريات الحمراء من الفصيلة O على المستضدين A وB؛ مع بقاء عامل Rh تصنيفًا مستقلًا.",
+      "topic": "فصائل الدم",
+      "letter": "ف"
+    },
+    {
+      "id": "MED-036",
+      "points": 400,
+      "question": "ما اسم الصمام الذي يفصل الأذين الأيسر عن البطين الأيسر؟",
+      "answer": "صمام تاجي",
+      "explanation": "يسمى أيضًا الصمام المترالي ويمنع رجوع الدم للأذين أثناء انقباض البطين.",
+      "topic": "القلب",
+      "letter": "ص"
+    },
+    {
+      "id": "MED-037",
+      "points": 600,
+      "question": "أي عامل تخثر يحدث فيه نقص وظيفي في الهيموفيليا A؟",
+      "answer": "عامل التخثر الثامن",
+      "explanation": "ترتبط الهيموفيليا A بنقص أو خلل العامل الثامن (VIII).",
+      "topic": "الدم",
+      "letter": "ع"
+    },
+    {
+      "id": "MED-038",
+      "points": 600,
+      "question": "ما الإنزيم الذي يحوّل أنجيوتنسين I إلى أنجيوتنسين II؟",
+      "answer": "إنزيم محوّل للأنجيوتنسين",
+      "explanation": "ACE جزء من منظومة الرينين–أنجيوتنسين–ألدوستيرون.",
+      "topic": "الغدد والكلى",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-039",
+      "points": 600,
+      "question": "ما فئة الأجسام المضادة السائدة في الإفرازات المخاطية مثل اللعاب؟",
+      "answer": "غلوبولين مناعي A (IgA)",
+      "explanation": "يؤدي IgA الإفرازي دورًا دفاعيًا مهمًا على الأسطح المخاطية.",
+      "topic": "المناعة",
+      "letter": "غ"
+    },
+    {
+      "id": "MED-040",
+      "points": 400,
+      "question": "ما الهرمون الذي تحفّز الكلى إفرازه لزيادة إنتاج كريات الدم الحمراء؟",
+      "answer": "إريثروبويتين",
+      "explanation": "تنتج الكلى معظم الإريثروبويتين استجابةً لانخفاض الأكسجين.",
+      "topic": "الكلى",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-041",
+      "points": 200,
+      "question": "أي عضو يحتوي على خلايا بيتا التي تفرز الإنسولين؟",
+      "answer": "بنكرياس",
+      "explanation": "تقع خلايا بيتا داخل جزر لانغرهانس في البنكرياس.",
+      "topic": "الغدد",
+      "letter": "ب"
+    },
+    {
+      "id": "MED-042",
+      "points": 600,
+      "question": "ما نمط المناعة الذي تتوسطه الخلايا التائية بصورة رئيسية بدل الأجسام المضادة؟",
+      "answer": "مناعة خلوية",
+      "explanation": "تتوسط الخلايا التائية الاستجابة المناعية الخلوية.",
+      "topic": "المناعة",
+      "letter": "م"
+    },
+    {
+      "id": "MED-043",
+      "points": 600,
+      "question": "أي نمط من فرط الحساسية يرتبط بالأجسام المضادة IgE والاستجابة التحسسية الفورية؟",
+      "answer": "فرط الحساسية من النمط الأول",
+      "explanation": "يشارك IgE والخلايا البدينة في فرط الحساسية الفوري من النمط الأول.",
+      "topic": "المناعة",
+      "letter": "ف"
+    },
+    {
+      "id": "MED-044",
+      "points": 600,
+      "question": "أين تقع مستقبلات كثير من الهرمونات الستيرويدية داخل الخلية؟",
+      "answer": "سيتوبلازم أو نواة",
+      "explanation": "تعمل كثير من المستقبلات الستيرويدية كعوامل نسخ بعد الارتباط بالهرمون.",
+      "topic": "الغدد",
+      "letter": "س"
+    },
+    {
+      "id": "MED-045",
+      "points": 200,
+      "question": "ما العضلة الرئيسة للشهيق الهادئ لدى الإنسان؟",
+      "answer": "حجاب حاجز",
+      "explanation": "انقباض الحجاب الحاجز يزيد حجم التجويف الصدري أثناء الشهيق.",
+      "topic": "التنفس",
+      "letter": "ح"
+    },
+    {
+      "id": "MED-046",
+      "points": 400,
+      "question": "ما الأوعية التي تنقل الدم المؤكسج من الرئتين إلى الأذين الأيسر؟",
+      "answer": "أوردة رئوية",
+      "explanation": "تعد الأوردة الرئوية استثناءً مهمًا لأنها تحمل دمًا غنيًا بالأكسجين.",
+      "topic": "الدورة الدموية",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-047",
+      "points": 400,
+      "question": "ما اسم النسيج الليفي الذي يصل العضلة بالعظم؟",
+      "answer": "وتر",
+      "explanation": "ينقل الوتر قوة انقباض العضلة إلى العظم.",
+      "topic": "تشريح",
+      "letter": "و"
+    },
+    {
+      "id": "MED-048",
+      "points": 200,
+      "question": "ما مكوّن الدم المسؤول بصورة أساسية عن بدء سد موضع إصابة الوعاء الدموي؟",
+      "answer": "صفائح دموية",
+      "explanation": "تلتصق الصفائح بموضع الأذية وتشارك في تكوين السدادة الأولية.",
+      "topic": "الدم",
+      "letter": "ص"
+    },
+    {
+      "id": "MED-049",
+      "points": 600,
+      "question": "ما النمط الكروموسومي الكلاسيكي لمتلازمة تيرنر؟",
+      "answer": "أحادية الصبغي X (45,X)",
+      "explanation": "النمط 45,X هو النمط الكلاسيكي، مع وجود أنماط فسيفسائية أو تغيرات أخرى أيضًا.",
+      "topic": "الوراثة",
+      "letter": "ا"
+    },
+    {
+      "id": "MED-050",
+      "points": 200,
+      "question": "ما البنية العظمية التي تحيط بالدماغ وتحميه؟",
+      "answer": "جمجمة",
+      "explanation": "تكوّن عظام الجمجمة غلافًا يحمي أنسجة الدماغ.",
+      "topic": "تشريح",
+      "letter": "ج"
+    }
+  ],
+  "science": [
+    {
+      "id": "SCI-001",
+      "points": 200,
+      "question": "أي جزء من النبتة يمتص الماء من التربة؟",
+      "answer": "الجذور",
+      "explanation": "تمتص الجذور الماء والأملاح من التربة وتنقلها إلى بقية أجزاء النبات.",
+      "topic": "الأحياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-002",
+      "points": 200,
+      "question": "ما العضو الذي يضخ الدم في الجسم؟",
+      "answer": "القلب",
+      "explanation": "تنقبض عضلة القلب لضخ الدم عبر الأوعية الدموية.",
+      "topic": "جسم الإنسان والطب",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-003",
+      "points": 200,
+      "question": "ما القوة التي تجعل التفاحة تسقط نحو الأرض؟",
+      "answer": "الجاذبية",
+      "explanation": "تسحب الأرض الأجسام نحو مركزها بفعل الجاذبية.",
+      "topic": "الفيزياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-004",
+      "points": 200,
+      "question": "ما الاسم الذي نطلقه على الماء عندما يتحول إلى الحالة الصلبة؟",
+      "answer": "الجليد",
+      "explanation": "يتحول الماء السائل إلى جليد عند التجمد.",
+      "topic": "الكيمياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-005",
+      "points": 200,
+      "question": "ما اسم النجم الذي تدور حوله الأرض؟",
+      "answer": "الشمس",
+      "explanation": "الشمس هي النجم المركزي في نظامنا الشمسي.",
+      "topic": "الفلك والفضاء",
+      "level": "براعم",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-006",
+      "points": 200,
+      "question": "من أين يسقط المطر عادةً؟",
+      "answer": "من السحب",
+      "explanation": "يتشكل المطر من قطرات الماء المتجمعة في السحب.",
+      "topic": "الأرض والبيئة",
+      "level": "براعم",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-007",
+      "points": 200,
+      "question": "ما اسم صغير الضفدع الذي يعيش في الماء قبل أن يصبح ضفدعًا بالغًا؟",
+      "answer": "الشرغوف (أبو ذنيبة)",
+      "explanation": "يمر الضفدع بمرحلة شرغوف مائي قبل التحول إلى ضفدع بالغ.",
+      "topic": "الأحياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-008",
+      "points": 200,
+      "question": "بأي عضو نسمع الأصوات؟",
+      "answer": "الأذن",
+      "explanation": "تجمع الأذن الموجات الصوتية ويساعد الجهاز السمعي على إدراكها.",
+      "topic": "جسم الإنسان والطب",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-009",
+      "points": 200,
+      "question": "أي المواد يجذبها المغناطيس عادةً: الخشب أم الحديد؟",
+      "answer": "الحديد",
+      "explanation": "الحديد من المواد التي تنجذب إلى المغناطيس.",
+      "topic": "الفيزياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-010",
+      "points": 200,
+      "question": "ما الغاز الضروري للاحتراق المعتاد في الهواء؟",
+      "answer": "الأكسجين",
+      "explanation": "يدعم الأكسجين عملية احتراق كثير من المواد.",
+      "topic": "الكيمياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-011",
+      "points": 200,
+      "question": "ما اسم الكوكب الذي نعيش عليه؟",
+      "answer": "الأرض",
+      "explanation": "الأرض ثالث كواكب النظام الشمسي من حيث البعد عن الشمس.",
+      "topic": "الفلك والفضاء",
+      "level": "براعم",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-012",
+      "points": 200,
+      "question": "ما اسم الصخور المنصهرة عندما تخرج إلى سطح البركان؟",
+      "answer": "الحمم البركانية (اللابة)",
+      "explanation": "تسمى المادة الصخرية المنصهرة على السطح لابة.",
+      "topic": "الأرض والبيئة",
+      "level": "براعم",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-013",
+      "points": 200,
+      "question": "ما الكائن الحي الذي يصنع غذاءه عادةً باستخدام ضوء الشمس؟",
+      "answer": "النبات الأخضر",
+      "explanation": "تستغل النباتات الطاقة الضوئية لصنع السكريات في البناء الضوئي.",
+      "topic": "الأحياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-014",
+      "points": 200,
+      "question": "ما الجزء الصلب الذي يحمي الدماغ داخل الرأس؟",
+      "answer": "الجمجمة",
+      "explanation": "تحيط عظام الجمجمة بالدماغ وتساعد على حمايته.",
+      "topic": "جسم الإنسان والطب",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-015",
+      "points": 200,
+      "question": "ما الجهاز الذي نستخدمه لقياس درجة الحرارة؟",
+      "answer": "ميزان الحرارة",
+      "explanation": "تقيس موازين الحرارة سخونة الأجسام وبرودتها.",
+      "topic": "الفيزياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-016",
+      "points": 200,
+      "question": "ماذا يسمى تحول الماء من سائل إلى غاز؟",
+      "answer": "التبخر",
+      "explanation": "تتحرر جزيئات الماء من السائل لتصبح بخارًا.",
+      "topic": "الكيمياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-017",
+      "points": 200,
+      "question": "ما التابع الطبيعي المعروف للأرض؟",
+      "answer": "القمر",
+      "explanation": "يدور القمر حول الأرض بفعل الجاذبية.",
+      "topic": "الفلك والفضاء",
+      "level": "براعم",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-018",
+      "points": 200,
+      "question": "أيّهما يغطي مساحة أكبر من سطح الأرض: اليابسة أم الماء؟",
+      "answer": "الماء",
+      "explanation": "تغطي المياه نحو 71% من سطح الأرض.",
+      "topic": "الأرض والبيئة",
+      "level": "براعم",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-019",
+      "points": 200,
+      "question": "ما الجزء الملون من الزهرة الذي يجذب كثيرًا من الحشرات؟",
+      "answer": "البتلات",
+      "explanation": "تساعد ألوان البتلات وأشكالها في جذب الملقحات.",
+      "topic": "الأحياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-020",
+      "points": 200,
+      "question": "ما وظيفة الأسنان الأمامية في الفم؟",
+      "answer": "قطع الطعام",
+      "explanation": "تساعد القواطع على قضم الطعام وقطعه.",
+      "topic": "جسم الإنسان والطب",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-021",
+      "points": 200,
+      "question": "ما الذي ينتقل إلينا من الشمس ويتيح لنا رؤية الأشياء؟",
+      "answer": "الضوء",
+      "explanation": "يصل ضوء الشمس إلى الأرض على شكل إشعاع كهرومغناطيسي.",
+      "topic": "الفيزياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-022",
+      "points": 200,
+      "question": "ما المادة الشائعة التي إذا ذابت في الماء جعلته مالحًا؟",
+      "answer": "الملح",
+      "explanation": "تحتوي مياه البحر على أملاح مذابة، أبرزها كلوريد الصوديوم.",
+      "topic": "الكيمياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-023",
+      "points": 200,
+      "question": "ما سبب تعاقب الليل والنهار على الأرض؟",
+      "answer": "دوران الأرض حول محورها",
+      "explanation": "يواجه جزء من الأرض الشمس بينما يكون الجزء الآخر بعيدًا عنها.",
+      "topic": "الفلك والفضاء",
+      "level": "براعم",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-024",
+      "points": 200,
+      "question": "ماذا نسمي الماء المتجمد الذي يسقط من السماء على هيئة بلورات بيضاء؟",
+      "answer": "الثلج",
+      "explanation": "يتشكل الثلج عندما تنمو بلورات الجليد داخل السحب.",
+      "topic": "الأرض والبيئة",
+      "level": "براعم",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-025",
+      "points": 200,
+      "question": "بعد مرور يرقة الفراشة بمرحلة العذراء، ما الحشرة التي تخرج؟",
+      "answer": "فراشة بالغة",
+      "explanation": "تمر الفراشات بالبيضة واليرقة والعذراء ثم الحشرة البالغة.",
+      "topic": "الأحياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-026",
+      "points": 200,
+      "question": "ما العضوان اللذان يدخل إليهما الهواء أثناء التنفس؟",
+      "answer": "الرئتان",
+      "explanation": "يصل الهواء إلى الرئتين حيث يحدث تبادل الغازات.",
+      "topic": "جسم الإنسان والطب",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-027",
+      "points": 200,
+      "question": "إذا أطفأت مصباحًا في غرفة مظلمة، فما الذي يقل فورًا: الضوء أم الجاذبية؟",
+      "answer": "الضوء",
+      "explanation": "الضوء الصادر عن المصباح يتوقف بينما تبقى جاذبية الأرض.",
+      "topic": "الفيزياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-028",
+      "points": 200,
+      "question": "عندما يذوب السكر في الماء، هل يختفي أم ينتشر في الماء؟",
+      "answer": "ينتشر في الماء",
+      "explanation": "تبقى جزيئات السكر موجودة داخل المحلول وإن لم نرها.",
+      "topic": "الكيمياء",
+      "level": "براعم",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-029",
+      "points": 200,
+      "question": "كم كوكبًا معترفًا به في النظام الشمسي؟",
+      "answer": "ثمانية كواكب",
+      "explanation": "يضم النظام الشمسي ثمانية كواكب، بينما يصنف بلوتو كوكبًا قزمًا.",
+      "topic": "الفلك والفضاء",
+      "level": "براعم",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-030",
+      "points": 200,
+      "question": "ما الظاهرة الملونة التي قد نراها عندما تتلاقى أشعة الشمس مع قطرات المطر؟",
+      "answer": "قوس قزح",
+      "explanation": "ينحرف الضوء ويتشتت داخل قطرات الماء فتظهر ألوان الطيف.",
+      "topic": "الأرض والبيئة",
+      "level": "براعم",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-031",
+      "points": 300,
+      "question": "ما العضيّة المسؤولة عن البناء الضوئي في الخلايا النباتية؟",
+      "answer": "البلاستيدة الخضراء",
+      "explanation": "تحتوي البلاستيدات الخضراء على اليخضور الذي يمتص الضوء.",
+      "topic": "الأحياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-032",
+      "points": 300,
+      "question": "ما المادة الموجودة في كريات الدم الحمراء وتساعد على نقل الأكسجين؟",
+      "answer": "الهيموغلوبين",
+      "explanation": "يرتبط الهيموغلوبين بالأكسجين داخل كريات الدم الحمراء.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-033",
+      "points": 300,
+      "question": "هل ينتقل الصوت عبر الفراغ التام؟",
+      "answer": "لا",
+      "explanation": "الصوت موجة ميكانيكية يحتاج انتقالها إلى وسط مادي.",
+      "topic": "الفيزياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-034",
+      "points": 300,
+      "question": "ما الذي يحدد هوية العنصر الكيميائي: عدد البروتونات أم عدد النيوترونات؟",
+      "answer": "عدد البروتونات",
+      "explanation": "العدد الذري هو عدد البروتونات في النواة.",
+      "topic": "الكيمياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-035",
+      "points": 300,
+      "question": "ما أكبر كوكب في النظام الشمسي من حيث القطر؟",
+      "answer": "المشتري",
+      "explanation": "المشتري أكبر كواكب النظام الشمسي.",
+      "topic": "الفلك والفضاء",
+      "level": "ناشئة",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-036",
+      "points": 300,
+      "question": "ما الطبقة الصلبة الخارجية للأرض التي تضم القشرة والجزء الأعلى الصلب من الوشاح؟",
+      "answer": "الغلاف الصخري",
+      "explanation": "يتكون الغلاف الصخري من صفائح تكتونية.",
+      "topic": "الأرض والبيئة",
+      "level": "ناشئة",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-037",
+      "points": 300,
+      "question": "ما اسم الجزيء الذي يحمل معظم التعليمات الوراثية لدى الكائنات الحية؟",
+      "answer": "الحمض النووي DNA",
+      "explanation": "يحفظ DNA المعلومات التي تُورّث بين الأجيال.",
+      "topic": "الأحياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-038",
+      "points": 300,
+      "question": "في أي عضو يُمتص معظم الغذاء المهضوم؟",
+      "answer": "الأمعاء الدقيقة",
+      "explanation": "تزيد الزغابات مساحة الامتصاص في الأمعاء الدقيقة.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-039",
+      "points": 300,
+      "question": "كيف تُحسب الكثافة من الكتلة والحجم؟",
+      "answer": "الكتلة ÷ الحجم",
+      "explanation": "الكثافة تحدد كتلة وحدة الحجم.",
+      "topic": "الفيزياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-040",
+      "points": 300,
+      "question": "كم ذرة هيدروجين توجد في جزيء الماء H₂O؟",
+      "answer": "ذرتان",
+      "explanation": "يشير الرقم 2 في الصيغة إلى ذرتي هيدروجين.",
+      "topic": "الكيمياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-041",
+      "points": 300,
+      "question": "لماذا يُعرف المريخ بالكوكب الأحمر؟",
+      "answer": "لوجود أكاسيد الحديد على سطحه",
+      "explanation": "تمنح أكاسيد الحديد التربة المريخية لونها المحمر.",
+      "topic": "الفلك والفضاء",
+      "level": "ناشئة",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-042",
+      "points": 300,
+      "question": "ما العامل الجيولوجي الأساسي المسبب لكثير من الزلازل الكبيرة؟",
+      "answer": "حركة الصفائح التكتونية على الصدوع",
+      "explanation": "يؤدي تراكم الإجهاد ثم تحرره إلى اهتزاز الأرض.",
+      "topic": "الأرض والبيئة",
+      "level": "ناشئة",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-043",
+      "points": 300,
+      "question": "ما دور المنتجين في السلسلة الغذائية؟",
+      "answer": "صنع المادة العضوية من مصادر غير عضوية",
+      "explanation": "تصنع النباتات وكائنات أخرى غذاءها وتكون قاعدة كثير من الشبكات الغذائية.",
+      "topic": "الأحياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-044",
+      "points": 300,
+      "question": "ما وظيفة الكليتين الأساسية؟",
+      "answer": "ترشيح الدم وتنظيم الماء والأملاح وإخراج الفضلات",
+      "explanation": "تساعد الكليتان في الحفاظ على توازن سوائل الجسم.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-045",
+      "points": 300,
+      "question": "ماذا يحدث عادةً لاتجاه شعاع الضوء عند انتقاله مائلًا من الهواء إلى الماء؟",
+      "answer": "ينكسر (يتغير اتجاهه)",
+      "explanation": "يتغير اتجاه الضوء عند اختلاف سرعته بين الوسطين.",
+      "topic": "الفيزياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-046",
+      "points": 300,
+      "question": "هل المحلول ذو pH يساوي 3 حمضي أم قاعدي عند درجة الغرفة؟",
+      "answer": "حمضي",
+      "explanation": "المحاليل ذات pH أقل من 7 تكون حمضية في الظروف المعتادة.",
+      "topic": "الكيمياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-047",
+      "points": 300,
+      "question": "ما اسم المجرة التي تضم نظامنا الشمسي؟",
+      "answer": "درب التبانة",
+      "explanation": "الشمس واحدة من مئات المليارات من النجوم في هذه المجرة.",
+      "topic": "الفلك والفضاء",
+      "level": "ناشئة",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-048",
+      "points": 300,
+      "question": "ماذا نسمي تحول بخار الماء إلى قطرات سائلة؟",
+      "answer": "التكاثف",
+      "explanation": "يحدث عندما يبرد الهواء الرطب بدرجة كافية.",
+      "topic": "الأرض والبيئة",
+      "level": "ناشئة",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-049",
+      "points": 300,
+      "question": "ما العملية التي تنقل حبوب اللقاح إلى الميسم في الأزهار؟",
+      "answer": "التلقيح",
+      "explanation": "يسبق انتقال حبوب اللقاح الإخصاب في النباتات الزهرية.",
+      "topic": "الأحياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-050",
+      "points": 300,
+      "question": "أي هرمون يخفض عادةً تركيز السكر في الدم؟",
+      "answer": "الإنسولين",
+      "explanation": "يعزز الإنسولين دخول الغلوكوز إلى أنسجة عديدة وتخزينه.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-051",
+      "points": 300,
+      "question": "ما وحدة قياس القوة في النظام الدولي؟",
+      "answer": "النيوتن",
+      "explanation": "نيوتن واحد يساوي كيلوجرامًا مترًا لكل ثانية مربعة.",
+      "topic": "الفيزياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-052",
+      "points": 300,
+      "question": "ما الفرق بين نظيري العنصر الواحد؟",
+      "answer": "عدد النيوترونات",
+      "explanation": "يمتلك النظيران العدد نفسه من البروتونات ويختلفان في النيوترونات.",
+      "topic": "الكيمياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-053",
+      "points": 300,
+      "question": "ما السبب الرئيسي لأطوار القمر التي نراها؟",
+      "answer": "تغير الجزء المضيء المرئي منه أثناء دورانه حول الأرض",
+      "explanation": "لا ترجع الأطوار المعتادة إلى ظل الأرض.",
+      "topic": "الفلك والفضاء",
+      "level": "ناشئة",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-054",
+      "points": 300,
+      "question": "اذكر غازًا دفيئًا رئيسيًا يزداد بفعل حرق الوقود الأحفوري.",
+      "answer": "ثاني أكسيد الكربون",
+      "explanation": "يمتص ثاني أكسيد الكربون بعض الإشعاع الحراري الصادر عن الأرض.",
+      "topic": "الأرض والبيئة",
+      "level": "ناشئة",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-055",
+      "points": 300,
+      "question": "ما السمة المشتركة بين جميع الفقاريات؟",
+      "answer": "وجود عمود فقري",
+      "explanation": "تمتلك الفقاريات عمودًا فقريًا في بنيتها الهيكلية.",
+      "topic": "الأحياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-056",
+      "points": 300,
+      "question": "ما الفكرة الأساسية وراء عمل اللقاحات؟",
+      "answer": "تدريب الجهاز المناعي على التعرف إلى مسبب المرض",
+      "explanation": "تنشّط اللقاحات استجابة مناعية وذاكرة قد تحمي عند التعرض لاحقًا.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-057",
+      "points": 300,
+      "question": "إذا أثرت القوة نفسها على مساحة أصغر، فماذا يحدث للضغط؟",
+      "answer": "يزداد",
+      "explanation": "الضغط يساوي القوة العمودية موزعة على المساحة.",
+      "topic": "الفيزياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-058",
+      "points": 300,
+      "question": "ماذا نسمي خليطًا متجانسًا من الملح والماء؟",
+      "answer": "محلولًا",
+      "explanation": "يتوزع المذاب في المذيب توزيعًا متجانسًا.",
+      "topic": "الكيمياء",
+      "level": "ناشئة",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-059",
+      "points": 300,
+      "question": "هل السنة الضوئية وحدة زمن أم مسافة؟",
+      "answer": "مسافة",
+      "explanation": "هي المسافة التي يقطعها الضوء في الفراغ خلال سنة.",
+      "topic": "الفلك والفضاء",
+      "level": "ناشئة",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-060",
+      "points": 300,
+      "question": "ما سبب حدوث كثير من أمواج التسونامي؟",
+      "answer": "إزاحة مفاجئة لكمية كبيرة من مياه البحر بسبب زلزال تحت البحر",
+      "explanation": "يمكن للتغير المفاجئ في قاع البحر أن يولد أمواجًا طويلة.",
+      "topic": "الأرض والبيئة",
+      "level": "ناشئة",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-061",
+      "points": 400,
+      "question": "كم خلية ابنة تنتج عادةً من انقسام متساوٍ واحد لخلية جسدية؟",
+      "answer": "خليتان",
+      "explanation": "ينتج الانقسام المتساوي خليتين تحملان غالبًا المعلومات الوراثية نفسها.",
+      "topic": "الأحياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-062",
+      "points": 400,
+      "question": "في أي تراكيب رئوية يحدث تبادل الأكسجين وثاني أكسيد الكربون مع الدم؟",
+      "answer": "الحويصلات الهوائية",
+      "explanation": "يفصل غشاء رقيق بين هواء الحويصلات والشعيرات الدموية.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-063",
+      "points": 400,
+      "question": "تؤثر قوة محصلة مقدارها 12 نيوتن في جسم كتلته 3 كغ؛ كم تسارعه؟",
+      "answer": "4 م/ث²",
+      "explanation": "حسب قانون نيوتن الثاني: التسارع = القوة ÷ الكتلة = 12 ÷ 3.",
+      "topic": "الفيزياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-064",
+      "points": 400,
+      "question": "ما الكتلة المولية التقريبية للماء H₂O إذا كان H=1 وO=16؟",
+      "answer": "18 غ/مول",
+      "explanation": "2 × 1 + 16 = 18.",
+      "topic": "الكيمياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-065",
+      "points": 400,
+      "question": "ما التفسير الكوني المعتاد لانزياح أطياف المجرات البعيدة نحو الأحمر؟",
+      "answer": "تمدد الكون",
+      "explanation": "تتمدد أطوال موجات الضوء مع تمدد الفضاء.",
+      "topic": "الفلك والفضاء",
+      "level": "ثانوي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-066",
+      "points": 400,
+      "question": "لماذا لا تستطيع الموجات الزلزالية الثانوية S العبور خلال اللب الخارجي السائل؟",
+      "answer": "لأنها موجات قص لا تنتقل في السوائل",
+      "explanation": "لا يدعم السائل إجهاد القص بالطريقة اللازمة لانتشار هذه الموجات.",
+      "topic": "الأرض والبيئة",
+      "level": "ثانوي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-067",
+      "points": 400,
+      "question": "كم خلية أحادية المجموعة الصبغية تنتج عادةً من الانقسام المنصف الكامل؟",
+      "answer": "أربع خلايا",
+      "explanation": "يمر الانقسام المنصف بجولتي انقسام لخفض عدد الصبغيات.",
+      "topic": "الأحياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-068",
+      "points": 400,
+      "question": "ما العقدة المسؤولة عادةً عن بدء النبضات الكهربائية للقلب السليم؟",
+      "answer": "العقدة الجيبية الأذينية SA",
+      "explanation": "تعمل بوصفها المنظم الطبيعي الأساسي لنبض القلب.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-069",
+      "points": 400,
+      "question": "ما الطاقة الحركية لجسم كتلته 2 كغ وسرعته 3 م/ث؟",
+      "answer": "9 جول",
+      "explanation": "الطاقة الحركية = نصف الكتلة × مربع السرعة = 0.5 × 2 × 9.",
+      "topic": "الفيزياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-070",
+      "points": 400,
+      "question": "ما نوع الرابطة الأساسية في بلورة كلوريد الصوديوم NaCl؟",
+      "answer": "رابطة أيونية",
+      "explanation": "تتجاذب أيونات الصوديوم الموجبة والكلوريد السالبة.",
+      "topic": "الكيمياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-071",
+      "points": 400,
+      "question": "إذا تضاعفت المسافة من مصدر ضوئي نقطي، فإلى كم تنخفض شدة الضوء تقريبًا؟",
+      "answer": "الربع",
+      "explanation": "تتبع شدة الإضاءة قانون التربيع العكسي.",
+      "topic": "الفلك والفضاء",
+      "level": "ثانوي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-072",
+      "points": 400,
+      "question": "إلى أي جهة تنحرف الحركة الأفقية الحرة تقريبًا بفعل كوريوليس في نصف الكرة الشمالي؟",
+      "answer": "إلى اليمين نسبةً لاتجاه الحركة",
+      "explanation": "ينتج الأثر عن دوران الأرض ويؤثر في حركة الهواء والماء.",
+      "topic": "الأرض والبيئة",
+      "level": "ثانوي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-073",
+      "points": 400,
+      "question": "ما دور الحمض النووي الرسول mRNA في تصنيع البروتين؟",
+      "answer": "نقل التعليمات الوراثية إلى الريبوسوم",
+      "explanation": "تُقرأ شيفرة mRNA لتحديد تسلسل الأحماض الأمينية.",
+      "topic": "الأحياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-074",
+      "points": 400,
+      "question": "ما تأثير تنشيط الجهاز العصبي الودي عادةً في معدل ضربات القلب؟",
+      "answer": "زيادته",
+      "explanation": "تحفز الإشارات الودية القلب في حالات التنبه والنشاط.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-075",
+      "points": 400,
+      "question": "دائرة فيها فرق جهد 12 فولت وشدة تيار 3 أمبير؛ ما المقاومة؟",
+      "answer": "4 أوم",
+      "explanation": "من قانون أوم: المقاومة = 12 ÷ 3.",
+      "topic": "الفيزياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-076",
+      "points": 400,
+      "question": "ما إشارة التغير في الإنثالبي ΔH لتفاعل طارد للحرارة عند ضغط ثابت؟",
+      "answer": "سالبة",
+      "explanation": "يحرر التفاعل حرارة إلى الوسط المحيط.",
+      "topic": "الكيمياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-077",
+      "points": 400,
+      "question": "بماذا ينص قانون كبلر الثاني لحركة الكواكب؟",
+      "answer": "يمسح الخط الواصل بين الكوكب والشمس مساحات متساوية في أزمنة متساوية",
+      "explanation": "يعكس القانون حفظ الزخم الزاوي في مدار الكوكب.",
+      "topic": "الفلك والفضاء",
+      "level": "ثانوي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-078",
+      "points": 400,
+      "question": "كيف تؤثر عملية البناء الضوئي مباشرة في ثاني أكسيد الكربون الجوي؟",
+      "answer": "تمتصه",
+      "explanation": "تستخدم الكائنات الضوئية الكربون لتكوين مركبات عضوية.",
+      "topic": "الأرض والبيئة",
+      "level": "ثانوي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-079",
+      "points": 400,
+      "question": "في تهجين Aa × Aa مع سيادة تامة، ما احتمال النمط الجيني aa؟",
+      "answer": "25%",
+      "explanation": "الاحتمالات الجينية هي AA وAa وAa وaa بنسب 1:2:1.",
+      "topic": "الأحياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-080",
+      "points": 400,
+      "question": "ما أثر الهرمون المضاد لإدرار البول ADH على امتصاص الماء في الكلية؟",
+      "answer": "يزيد إعادة امتصاص الماء",
+      "explanation": "يعزز ADH نفاذية أجزاء من القنوات الجامعة للماء.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-081",
+      "points": 400,
+      "question": "إذا أثرت قوة عمودية 100 نيوتن على مساحة 0.5 م²، فما الضغط؟",
+      "answer": "200 باسكال",
+      "explanation": "الضغط = القوة ÷ المساحة = 100 ÷ 0.5.",
+      "topic": "الفيزياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-082",
+      "points": 400,
+      "question": "كم جسيمًا تقريبًا يوجد في مول واحد من مادة؟",
+      "answer": "6.022 × 10²³",
+      "explanation": "هذا هو ثابت أفوجادرو بوحدة لكل مول.",
+      "topic": "الكيمياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-083",
+      "points": 400,
+      "question": "ما التفاعل الذي يزوّد الشمس بمعظم طاقتها؟",
+      "answer": "اندماج الهيدروجين إلى هيليوم",
+      "explanation": "تتحد نوى الهيدروجين في اللب وتتحول بعض الكتلة إلى طاقة.",
+      "topic": "الفلك والفضاء",
+      "level": "ثانوي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-084",
+      "points": 400,
+      "question": "ما الاسم الذي يُطلق على ماء المصب المختلط بين ماء النهر العذب وماء البحر المالح؟",
+      "answer": "ماء شروب (قليل الملوحة نسبيًا)",
+      "explanation": "تختلط المياه العذبة والمالحة في مصبات الأنهار.",
+      "topic": "الأرض والبيئة",
+      "level": "ثانوي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-085",
+      "points": 400,
+      "question": "أين يحدث معظم إنتاج ATP في التنفس الهوائي للخلايا حقيقية النوى؟",
+      "answer": "في الميتوكوندريا",
+      "explanation": "تنتج الفسفرة التأكسدية معظم ATP في التنفس الهوائي المعتاد.",
+      "topic": "الأحياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-086",
+      "points": 400,
+      "question": "ما الناقل العصبي الذي يُفرَز عند الوصلة العصبية العضلية للعضلات الهيكلية؟",
+      "answer": "الأستيل كولين",
+      "explanation": "يرتبط بمستقبلات في غشاء الليف العضلي لبدء الاستجابة.",
+      "topic": "جسم الإنسان والطب",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-087",
+      "points": 400,
+      "question": "بدأ جسم من السكون وتسارع بانتظام بمقدار 2 م/ث² لمدة 5 ثوانٍ؛ كم إزاحته؟",
+      "answer": "25 مترًا",
+      "explanation": "الإزاحة = 0.5 × 2 × 5² = 25 مترًا.",
+      "topic": "الفيزياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-088",
+      "points": 400,
+      "question": "مم يتكوّن محلول منظم حمضي تقليدي؟",
+      "answer": "حمض ضعيف وقاعدته المرافقة",
+      "explanation": "يقاوم الزوج تغير pH عند إضافة كميات صغيرة من حمض أو قاعدة.",
+      "topic": "الكيمياء",
+      "level": "ثانوي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-089",
+      "points": 400,
+      "question": "ما الإشارة الرئيسية التي تبحث عنها طريقة العبور لاكتشاف كوكب خارج المجموعة الشمسية؟",
+      "answer": "انخفاض دوري في سطوع نجمه",
+      "explanation": "يحجب الكوكب جزءًا من ضوء النجم أثناء مروره أمامه.",
+      "topic": "الفلك والفضاء",
+      "level": "ثانوي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-090",
+      "points": 400,
+      "question": "إذا بقيت كمية بخار الماء ثابتة ثم انخفضت حرارة الهواء، فما الاتجاه المعتاد للرطوبة النسبية؟",
+      "answer": "ترتفع",
+      "explanation": "تقل قدرة الهواء على الإشباع ببخار الماء مع انخفاض الحرارة.",
+      "topic": "الأرض والبيئة",
+      "level": "ثانوي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-091",
+      "points": 500,
+      "question": "ما المقصود بأن تضاعف DNA شبه محافظ؟",
+      "answer": "يتكون كل جزيء جديد من شريط قديم وشريط مُصنّع حديثًا",
+      "explanation": "يعمل كل شريط أبوي قالبًا لنسخ شريط مكمل.",
+      "topic": "الأحياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-092",
+      "points": 500,
+      "question": "إذا كان معدل القلب 70 ضربة/دقيقة وحجم الضربة 70 مل، فما النتاج القلبي؟",
+      "answer": "4.9 لتر/دقيقة",
+      "explanation": "النتاج القلبي = 70 × 70 = 4900 مل/دقيقة.",
+      "topic": "جسم الإنسان والطب",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-093",
+      "points": 500,
+      "question": "ما مبدأ القانون الثاني للديناميكا الحرارية لنظام معزول؟",
+      "answer": "إنتروبيته لا تنقص",
+      "explanation": "تبقى إنتروبيا النظام المعزول ثابتة في العملية العكوسة وتزداد في غير العكوسة.",
+      "topic": "الفيزياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-094",
+      "points": 500,
+      "question": "في معادلة هندرسون–هاسلبالخ، ماذا يساوي pH عندما يتساوى تركيز الحمض الضعيف مع قاعدته المرافقة؟",
+      "answer": "يساوي pKa",
+      "explanation": "لأن log([A−]/[HA])=log(1)=0.",
+      "topic": "الكيمياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-095",
+      "points": 500,
+      "question": "ما الحد التقريبي لكتلة قزم أبيض غير دوار مدعوم بضغط انحلال الإلكترونات؟",
+      "answer": "حد تشاندراسيخار، نحو 1.4 كتلة شمسية",
+      "explanation": "فوقه لا يكفي ضغط انحلال الإلكترونات في النموذج المثالي.",
+      "topic": "الفلك والفضاء",
+      "level": "جامعي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-096",
+      "points": 500,
+      "question": "في الوسط نفسه، أي الموجات الزلزالية تنتشر أسرع عادةً: P أم S؟",
+      "answer": "موجات P",
+      "explanation": "الموجات الانضغاطية الأولية أسرع من موجات القص الثانوية.",
+      "topic": "الأرض والبيئة",
+      "level": "جامعي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-097",
+      "points": 500,
+      "question": "كيف تؤثر مثبطات الإنزيم التنافسية البحتة في Km وVmax بنموذج ميكايليس–منتن؟",
+      "answer": "تزيد Km الظاهرية ولا تغير Vmax",
+      "explanation": "يمكن التغلب على التثبيط التنافسي بزيادة تركيز الركيزة.",
+      "topic": "الأحياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-098",
+      "points": 500,
+      "question": "في آلية فرانك–ستارلينغ ضمن الحدود الفسيولوجية، ماذا يحدث لحجم الضربة عند زيادة العود الوريدي؟",
+      "answer": "يزداد",
+      "explanation": "يزيد الامتلاء الانبساطي استطالة الألياف ويعزز قوة الانقباض.",
+      "topic": "جسم الإنسان والطب",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-099",
+      "points": 500,
+      "question": "محرك كارنو يعمل بين خزانين عند 600 كلفن و300 كلفن؛ ما كفاءته القصوى؟",
+      "answer": "50%",
+      "explanation": "الكفاءة = 1 − 300/600 = 0.5.",
+      "topic": "الفيزياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-100",
+      "points": 500,
+      "question": "ما معادلة ربط تغير طاقة غيبس بالإنثالبي والإنتروبي ودرجة الحرارة؟",
+      "answer": "ΔG = ΔH − TΔS",
+      "explanation": "عند درجة حرارة وضغط ثابتين تحدد ΔG الاتجاه التلقائي للتغير.",
+      "topic": "الكيمياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-101",
+      "points": 500,
+      "question": "كم يبلغ تقريبًا نصف قطر شوارزشيلد لكتلة مساوية لكتلة الشمس؟",
+      "answer": "نحو 3 كيلومترات",
+      "explanation": "يحسب من 2GM/c² لكتلة شمسية واحدة.",
+      "topic": "الفلك والفضاء",
+      "level": "جامعي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-102",
+      "points": 500,
+      "question": "ما اسم توازن ارتفاع القشرة مع الكثافة وسُمكها فوق الوشاح؟",
+      "answer": "التوازن الأيزوستاتي",
+      "explanation": "تتوازن كتل القشرة وفق اختلاف كثافتها وسُمكها.",
+      "topic": "الأرض والبيئة",
+      "level": "جامعي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-103",
+      "points": 500,
+      "question": "في جماعة هاردي–واينبرغ، إذا كان تواتر النمط المتنحي aa هو 0.09، فما تواتر حاملي Aa؟",
+      "answer": "0.42 (42%)",
+      "explanation": "q²=0.09 فيكون q=0.3 وp=0.7، ومن ثم 2pq=0.42.",
+      "topic": "الأحياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-104",
+      "points": 500,
+      "question": "كيف يؤثر انخفاض pH في قابلية الهيموغلوبين للارتباط بالأكسجين؟",
+      "answer": "يخفض الألفة ويزيح منحنى التفكك إلى اليمين",
+      "explanation": "يُعرف هذا بتأثير بوهر الذي يسهل تحرير الأكسجين للأنسجة.",
+      "topic": "جسم الإنسان والطب",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-105",
+      "points": 500,
+      "question": "ما معامل لورنتز γ لجسم سرعته 0.6 من سرعة الضوء؟",
+      "answer": "1.25",
+      "explanation": "γ=1/√(1−0.6²)=1/0.8.",
+      "topic": "الفيزياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-106",
+      "points": 500,
+      "question": "في تفاعل من المرتبة الأولى، ما علاقة نصف العمر بثابت السرعة k؟",
+      "answer": "t½ = ln(2)/k",
+      "explanation": "نصف العمر لا يعتمد على التركيز الابتدائي في هذه الحالة.",
+      "topic": "الكيمياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-107",
+      "points": 500,
+      "question": "ما درجة حرارة إشعاع الخلفية الكونية الميكروي اليوم تقريبًا؟",
+      "answer": "2.725 كلفن",
+      "explanation": "هذا الإشعاع بقايا من الكون المبكر.",
+      "topic": "الفلك والفضاء",
+      "level": "جامعي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-108",
+      "points": 500,
+      "question": "بماذا يتأثر دوران المحيط الحراري الملحي على نطاق واسع؟",
+      "answer": "فروق كثافة الماء الناتجة من الحرارة والملوحة",
+      "explanation": "تغير الحرارة والملوحة كثافة مياه البحر وسلوك غوصها.",
+      "topic": "الأرض والبيئة",
+      "level": "جامعي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-109",
+      "points": 500,
+      "question": "أين تحدث معظم خطوات أكسدة بيتا للأحماض الدهنية الطويلة في الخلايا البشرية؟",
+      "answer": "مصفوفة الميتوكوندريا",
+      "explanation": "تنتقل سلاسل الأحماض الدهنية الطويلة إلى الميتوكوندريا ويجري تكسيرها دوريًا.",
+      "topic": "الأحياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-110",
+      "points": 500,
+      "question": "ما التركيب الكلوي الأساسي في إنشاء التدرج الأسموزي النخاعي بآلية الجريان المعاكس؟",
+      "answer": "عروة هنلي",
+      "explanation": "تسهم الفروع النازلة والصاعدة في توليد التدرج الأسموزي.",
+      "topic": "جسم الإنسان والطب",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-111",
+      "points": 500,
+      "question": "ما الحد الذي أضافه ماكسويل إلى قانون أمبير للسماح للمجال الكهربائي المتغير بتوليد مجال مغناطيسي؟",
+      "answer": "تيار الإزاحة",
+      "explanation": "يصحح الحد القانون في ظروف تغير الفيض الكهربائي.",
+      "topic": "الفيزياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-112",
+      "points": 500,
+      "question": "ما العامل الذي تعتمد عليه سرعة تفاعل SN1 في قانون السرعة المثالي؟",
+      "answer": "تركيز الركيزة فقط",
+      "explanation": "الخطوة المحددة للسرعة هي تأين الركيزة الأحادي الجزيء.",
+      "topic": "الكيمياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-113",
+      "points": 500,
+      "question": "ما العلاقة الأساسية لقانون هابل–لومتر عند الانزياحات الصغيرة؟",
+      "answer": "سرعة التباعد ≈ ثابت هابل × المسافة",
+      "explanation": "ترمز المعادلة إلى التوسع الكوني على المقاييس الكبيرة.",
+      "topic": "الفلك والفضاء",
+      "level": "جامعي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-114",
+      "points": 500,
+      "question": "ما القوتان اللتان تتوازنان تقريبًا في الجريان الجيوستروفي الأفقي؟",
+      "answer": "قوة تدرج الضغط وقوة كوريوليس",
+      "explanation": "يعادل انحراف كوريوليس تدرج الضغط في جريان مثالي بعيدًا عن خط الاستواء.",
+      "topic": "الأرض والبيئة",
+      "level": "جامعي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-115",
+      "points": 500,
+      "question": "ما المكوّن الخلوي الذي يحتوي مواقع A وP وE أثناء الترجمة؟",
+      "answer": "الريبوسوم",
+      "explanation": "تتحرك جزيئات tRNA عبر هذه المواقع خلال تركيب البروتين.",
+      "topic": "الأحياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/biology-2e/pages/4-introduction"
+    },
+    {
+      "id": "SCI-116",
+      "points": 500,
+      "question": "ما البروتين الذي يُستخدم قياسه في الدم كدليل حساس على أذية عضلة القلب، مع ضرورة تفسيره سريريًا؟",
+      "answer": "التروبونين القلبي",
+      "explanation": "ارتفاعه يشير لأذية عضلة القلب لكنه وحده لا يحدد سببها.",
+      "topic": "جسم الإنسان والطب",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-117",
+      "points": 500,
+      "question": "في عقدة كهربائية لا يتراكم فيها الشحن، ما مجموع التيارات الداخلة مقارنة بالخارجة؟",
+      "answer": "متساويان",
+      "explanation": "ينص قانون كيرشوف للتيار على حفظ الشحنة عند العقدة.",
+      "topic": "الفيزياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction"
+    },
+    {
+      "id": "SCI-118",
+      "points": 500,
+      "question": "عند 25 °م وفي تفاعل كهروكيميائي ينقل إلكترونًا واحدًا، ماذا يحدث للجهد إذا ارتفع Q عشرة أضعاف وفق نرنست؟",
+      "answer": "ينخفض بنحو 0.059 فولت",
+      "explanation": "التغير −(0.05916/1) log10(10) فولت.",
+      "topic": "الكيمياء",
+      "level": "جامعي",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-119",
+      "points": 500,
+      "question": "ما معنى وقوع كوكب في المنطقة القابلة للسكن حول نجم؟",
+      "answer": "إمكان وجود ماء سائل سطحي بشروط جوية مناسبة، وليس ضمان الحياة",
+      "explanation": "يحدد البعد عن النجم مجالًا تقريبيًا للحرارة الممكنة.",
+      "topic": "الفلك والفضاء",
+      "level": "جامعي",
+      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+    },
+    {
+      "id": "SCI-120",
+      "points": 500,
+      "question": "ما وحدة القياس الشائعة للتأثير الإشعاعي المناخي Radiative forcing؟",
+      "answer": "واط لكل متر مربع",
+      "explanation": "يعبّر عن تغير صافي تدفق الطاقة الإشعاعية.",
+      "topic": "الأرض والبيئة",
+      "level": "جامعي",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-121",
+      "points": 600,
+      "question": "عند تحليل RNA-seq لمقارنة التعبير الجيني، لماذا لا يكفي مقارنة عدد القراءات الخام بين العينات؟",
+      "answer": "لاختلاف عمق التسلسل وتركيب مكتبة التعبير، لذا يلزم التطبيع",
+      "explanation": "قد تظهر فروق مصطنعة إن اختلفت أحجام المكتبات أو انحاز توزيع القراءات.",
+      "topic": "الأحياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "SCI-122",
+      "points": 600,
+      "question": "في تجربة سريرية عشوائية، ما الميزة الرئيسية لتحليل نية العلاج Intention-to-treat؟",
+      "answer": "الحفاظ قدر الإمكان على فوائد التوزيع العشوائي بتحليل المشاركين في مجموعاتهم الأصلية",
+      "explanation": "يقلل انحياز الاستبعاد بعد التوزيع العشوائي.",
+      "topic": "جسم الإنسان والطب",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-123",
+      "points": 600,
+      "question": "في المجموعة القانونية في الميكانيكا الإحصائية، ما علاقة طاقة هلمهولتز الحرة بدالة التقسيم Z؟",
+      "answer": "F = −kBT ln(Z)",
+      "explanation": "تربط دالة التقسيم الحالات المجهرية بخواص الاتزان الحراري.",
+      "topic": "الفيزياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-3/pages/7-introduction"
+    },
+    {
+      "id": "SCI-124",
+      "points": 600,
+      "question": "عند الاتزان الكيميائي عند ثبوت T وP، ما قيمة ΔrG وكيف ترتبط Q بـ K؟",
+      "answer": "ΔrG = 0 وQ = K",
+      "explanation": "لا توجد قوة دافعة صافية للتفاعل في الحالة المتزنة.",
+      "topic": "الكيمياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-125",
+      "points": 600,
+      "question": "ما المقياس الطولي القياسي الذي تطبعه تذبذبات الباريونات الصوتية BAO في توزع المجرات؟",
+      "answer": "أفق الصوت عند عصر سحب الباريونات",
+      "explanation": "يمثل مسافة قطعتها الموجات الصوتية في البلازما المبكرة قبل الانفصال الديناميكي للباريونات عن الفوتونات.",
+      "topic": "الفلك والفضاء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://science.nasa.gov/astrophysics/programs/physics-of-the-cosmos/"
+    },
+    {
+      "id": "SCI-126",
+      "points": 600,
+      "question": "في مائع مسخن من الأسفل، ماذا يقيس عدد رايلي Rayleigh number بصورة عامة؟",
+      "answer": "قوة الطفو الحراري مقارنة بتأثيرَي اللزوجة والانتشار الحراري",
+      "explanation": "يساعد عدد رايلي على تحديد قابلية نشوء الحمل الحراري.",
+      "topic": "الأرض والبيئة",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-127",
+      "points": 600,
+      "question": "ما مسار إصلاح DNA الذي يغلق غالبًا الكسور مزدوجة السلسلة الناتجة عن Cas9 دون قالب إصلاح مخصص؟",
+      "answer": "الربط النهائي غير المتماثل NHEJ",
+      "explanation": "قد يُدخل NHEJ حذفًا أو إضافة صغيرة في موقع القطع.",
+      "topic": "الأحياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "SCI-128",
+      "points": 600,
+      "question": "في اختبار تشخيصي حساسيته 90% ونوعيته 80%، ما نسبة الاحتمال الموجبة LR+؟",
+      "answer": "4.5",
+      "explanation": "LR+ = الحساسية/(1−النوعية) = 0.9/0.2.",
+      "topic": "جسم الإنسان والطب",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-129",
+      "points": 600,
+      "question": "وفق مبرهنة نويثر، ما الكمية المحفوظة المرتبطة بتماثل الانتقال المستمر في الزمن؟",
+      "answer": "الطاقة",
+      "explanation": "تماثلات الفعل المستمرة تقابل تيارات أو كميات محفوظة.",
+      "topic": "الفيزياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-3/pages/7-introduction"
+    },
+    {
+      "id": "SCI-130",
+      "points": 600,
+      "question": "في نظرية الحالة الانتقالية، ما التعبير التقريبي لثابت السرعة k بدلالة حاجز غيبس ΔG‡ مع إهمال عوامل التصحيح؟",
+      "answer": "k ≈ (kBT/h) exp(−ΔG‡/RT)",
+      "explanation": "تصف معادلة إيرينغ ارتباط معدل التفاعل بطاقة التنشيط الحرة.",
+      "topic": "الكيمياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-131",
+      "points": 600,
+      "question": "ما المعادلة التي تصف الاتزان الهيدروستاتيكي النسبي لنجم نيوتروني كروي ساكن؟",
+      "answer": "معادلة تولمان–أوبنهايمر–فولكوف TOV",
+      "explanation": "تعمم اتزان الضغط والجاذبية في النسبية العامة.",
+      "topic": "الفلك والفضاء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://science.nasa.gov/astrophysics/programs/physics-of-the-cosmos/"
+    },
+    {
+      "id": "SCI-132",
+      "points": 600,
+      "question": "في أحداث النينيو النموذجية، ماذا يحدث غالبًا لرياح التجارة وصعود المياه الباردة شرق الهادئ الاستوائي؟",
+      "answer": "تضعف رياح التجارة ويضعف صعود المياه الباردة",
+      "explanation": "يؤدي ذلك عادةً إلى ارتفاع حرارة سطح البحر في الشرق والوسط.",
+      "topic": "الأرض والبيئة",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-133",
+      "points": 600,
+      "question": "ما وظيفة UMI في تجارب تسلسل RNA أحادي الخلية؟",
+      "answer": "تمييز جزيئات RNA الأصلية للحد من عد النسخ الناتجة عن PCR أكثر من مرة",
+      "explanation": "العلامات الجزيئية الفريدة تساعد على عد الجزيئات بصورة أدق.",
+      "topic": "الأحياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "SCI-134",
+      "points": 600,
+      "question": "ما المقصود بشرط الاستبعاد Exclusion restriction في الاستدلال السببي بالمتغير الأداتي؟",
+      "answer": "يؤثر المتغير الأداتي في النتيجة فقط عبر التعرض محل الدراسة",
+      "explanation": "يشترط عدم وجود مسار مباشر أو بديل من الأداة إلى النتيجة.",
+      "topic": "جسم الإنسان والطب",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-135",
+      "points": 600,
+      "question": "ما المبدّل الكمي القانوني بين مؤثري الموضع والزخم لنفس البعد؟",
+      "answer": "[x,p] = iħ",
+      "explanation": "تعكس هذه العلاقة عدم تبادل القياس في ميكانيكا الكم.",
+      "topic": "الفيزياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-3/pages/7-introduction"
+    },
+    {
+      "id": "SCI-136",
+      "points": 600,
+      "question": "في حركية ميكايليس–منتن تحت فرض الحالة شبه المستقرة، ما تعبير Km بدلالة k₁ وk₋₁ وkcat؟",
+      "answer": "Km = (k₋₁ + kcat)/k₁",
+      "explanation": "لذلك لا يساوي Km ثابت التفكك Kd عمومًا إلا في حدود معينة.",
+      "topic": "الكيمياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-137",
+      "points": 600,
+      "question": "أي تركيب كتلوي يحدد تطور الطور الرائد لإشارة الموجات الثقالية في دوران جسمين مدمجين نحو الاندماج؟",
+      "answer": "كتلة التغريد Chirp mass",
+      "explanation": "هي تركيب من كتلتي الجسمين يتحكم في تطور التردد والطور في المرتبة الرائدة.",
+      "topic": "الفلك والفضاء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://science.nasa.gov/astrophysics/programs/physics-of-the-cosmos/"
+    },
+    {
+      "id": "SCI-138",
+      "points": 600,
+      "question": "كيف يؤثر امتصاص المحيط مزيدًا من CO₂ في تركيز أيونات الكربونات CO₃²⁻ عند ثبات العوامل الأخرى تقريبًا؟",
+      "answer": "يُنقصه",
+      "explanation": "تزيد حموضة البحر النسبية، فتتحول توازنات الكربون اللاعضوي بعيدًا عن الكربونات.",
+      "topic": "الأرض والبيئة",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-139",
+      "points": 600,
+      "question": "ماذا يشير عادةً معدل dN/dS الأقل من 1 في تسلسل جيني ضمن النموذج المناسب؟",
+      "answer": "انتقاء تنقيحي (سلبي)",
+      "explanation": "تتعرض الطفرات المغيرة للأحماض الأمينية للإزالة أكثر من الطفرات الصامتة نسبيًا.",
+      "topic": "الأحياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "SCI-140",
+      "points": 600,
+      "question": "لماذا يُستخدم نموذج Fine–Gray في تحليل البقاء مع مخاطر متنافسة؟",
+      "answer": "لنمذجة خطر التوزيع الفرعي المرتبط بالاحتمال التراكمي لوقوع حدث محدد",
+      "explanation": "يختلف عن نموذج الخطر السببي النوعي عند وجود حدث يمنع تحقق الحدث الأصلي.",
+      "topic": "جسم الإنسان والطب",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-141",
+      "points": 600,
+      "question": "في نظرية المجال الكمي، لماذا يُدخل مجال قياسي كهرومغناطيسي عند فرض تناظر U(1) الموضعي؟",
+      "answer": "لجعل النظرية ثابتة تحت تحولات الطور المحلية باستخدام مشتقة تغايرية",
+      "explanation": "يتطلب التعويض عن تغير طور الحقل محليًا اقترانًا بمجال معياري.",
+      "topic": "الفيزياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-3/pages/7-introduction"
+    },
+    {
+      "id": "SCI-142",
+      "points": 600,
+      "question": "ما المقصود بمنطقة ماركوس المعكوسة في انتقال الإلكترون؟",
+      "answer": "تناقص معدل الانتقال عند ازدياد القوة الدافعة السالبة بعد تجاوز طاقة إعادة التنظيم",
+      "explanation": "تتنبأ نظرية ماركوس بأقصى معدل ثم منطقة يتباطأ فيها الانتقال.",
+      "topic": "الكيمياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-143",
+      "points": 600,
+      "question": "ما سبب التخميد السيليكي Silk damping في طيف تباينات الخلفية الكونية؟",
+      "answer": "انتشار الفوتونات الذي يمحو اضطرابات الكثافة على المقاييس الصغيرة",
+      "explanation": "ينشر انتقال الفوتونات الطاقة عبر مناطق مختلفة قبل إعادة الاتحاد.",
+      "topic": "الفلك والفضاء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://science.nasa.gov/astrophysics/programs/physics-of-the-cosmos/"
+    },
+    {
+      "id": "SCI-144",
+      "points": 600,
+      "question": "لماذا لا يجوز تفسير δ¹⁸O في أصداف المنخربات القديمة على أنه مقياس درجة حرارة فقط؟",
+      "answer": "يتأثر أيضًا بتركيب نظائر مياه البحر وحجم الجليد العالمي وعوامل بيئية",
+      "explanation": "يجب فصل الإشارات الحرارية عن تغيرات مخزون الجليد وغيره.",
+      "topic": "الأرض والبيئة",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    },
+    {
+      "id": "SCI-145",
+      "points": 600,
+      "question": "في الاستدلال التطوري البايزي، ماذا تعبّر عنه الاحتمالية اللاحقة لشجرة نسبية؟",
+      "answer": "احتمال الشجرة شرطيًا على البيانات والنموذج والقبليات",
+      "explanation": "ليست الاحتمالية اللاحقة مساوية تلقائيًا لقيمة bootstrap.",
+      "topic": "الأحياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "SCI-146",
+      "points": 600,
+      "question": "في بيانات مرض نادر جدًا، لماذا قد تكون الدقة الكلية Accuracy مضللة عند تقييم مصنف؟",
+      "answer": "قد يحقق مصنف يتنبأ دائمًا بعدم المرض دقة مرتفعة رغم فشله في اكتشاف الحالات",
+      "explanation": "يفضّل النظر إلى الحساسية والقيمة التنبؤية الإيجابية ومقاييس مناسبة للانتشار.",
+      "topic": "جسم الإنسان والطب",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    {
+      "id": "SCI-147",
+      "points": 600,
+      "question": "ما الهوية الهندسية التي تضمن انعدام التباعد التغايري لموتر أينشتاين Gμν؟",
+      "answer": "هوية بيانكي المنكمشة",
+      "explanation": "ينتج عنها ∇μGμν=0 بما يتسق مع حفظ موتر الطاقة والزخم.",
+      "topic": "الفيزياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/university-physics-volume-3/pages/7-introduction"
+    },
+    {
+      "id": "SCI-148",
+      "points": 600,
+      "question": "في مبرهنة هوهنبرغ–كون الأولى في نظرية الكثافة الوظيفية، ما الذي تحدده كثافة إلكترونات الحالة القاعية غير المنحلّة؟",
+      "answer": "الجهد الخارجي حتى ثابت إضافي، ومنه الهاملتوني وخواص الحالة القاعية",
+      "explanation": "تعتمد النظرية على استخدام الكثافة بدل دالة الموجة كاملة.",
+      "topic": "الكيمياء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+    },
+    {
+      "id": "SCI-149",
+      "points": 600,
+      "question": "كيف يمكن لفروق أزمنة وصول صور كوازار متعدد بسبب عدسة الجاذبية أن تُستخدم في علم الكون؟",
+      "answer": "لتقدير مسافة تأخر الزمن المقيدة بثابت هابل ضمن نموذج عدسة محدد",
+      "explanation": "تتوقف فروق الزمن على هندسة المسافات والجهد العدسي.",
+      "topic": "الفلك والفضاء",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://science.nasa.gov/astrophysics/programs/physics-of-the-cosmos/"
+    },
+    {
+      "id": "SCI-150",
+      "points": 600,
+      "question": "في نصف الكرة الشمالي، أين يتجه النقل الإكماني الصافي للماء بالنسبة لاتجاه الرياح المثالية فوق المحيط؟",
+      "answer": "نحو 90° إلى يمين اتجاه الرياح",
+      "explanation": "تنتج المحصلة من توازن إجهاد الرياح وكوريوليس عبر عمود إكمان.",
+      "topic": "الأرض والبيئة",
+      "level": "متخصص / دكتوراه",
+      "referenceUrl": "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-floor-features"
+    }
+  ]
+}
