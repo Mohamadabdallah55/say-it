@@ -1,7 +1,9 @@
 import { GUESS_PRICE_CATEGORY } from '../src/game/guessPrice';
 import { JORDAN_BRANDS_CATEGORY } from '../src/game/jordanBrands';
+import { PALESTINIAN_PROVERBS_CATEGORY } from '../src/game/palestinianProverbs';
 import { PROPHET_STORIES_CATEGORY } from '../src/game/prophetStories';
 import { RASHIDUN_CATEGORY } from '../src/game/rashidun';
+import { VISUAL_MEMORY_CATEGORY } from '../src/game/visualMemory';
 import { WORLD_CUP_2026_CATEGORY } from '../src/game/worldCup2026';
 import type { QuizDeck, RoomState } from '../src/game/types';
 
@@ -11,6 +13,8 @@ export const ROTATING_BUILTIN_CATEGORY_IDS = new Set<string>([
   RASHIDUN_CATEGORY.id,
   JORDAN_BRANDS_CATEGORY.id,
   WORLD_CUP_2026_CATEGORY.id,
+  PALESTINIAN_PROVERBS_CATEGORY.id,
+  VISUAL_MEMORY_CATEGORY.id,
 ]);
 
 export function filterPlayedProphetQuestions(deck: QuizDeck, rooms: RoomState[], libraryId: string, now: number): QuizDeck {
@@ -66,6 +70,11 @@ export function reserveProphetQuestions(room: RoomState) {
   if (activeRotatingIds.size === 0) return;
 
   const boardIds = new Set(room.boardTiles.map((tile) => tile.questionId));
+  const usedMemorySceneIds = new Set(
+    room.questionPool
+      .filter((q) => boardIds.has(q.id) && q.memorySceneId)
+      .map((q) => q.memorySceneId as string),
+  );
   const backupCounts = new Map<string, number>();
   const allowSwap = room.settings.lifelinesEnabled && (room.settings.cards?.includes('swap_question') ?? true);
   room.questionPool = room.questionPool.flatMap((question) => {
@@ -73,6 +82,8 @@ export function reserveProphetQuestions(room: RoomState) {
     const key = `${question.categoryId}:${question.difficulty}`;
     const count = backupCounts.get(key) ?? 0;
     if (!allowSwap || count >= room.teams.length) return [];
+    if (question.memorySceneId && usedMemorySceneIds.has(question.memorySceneId)) return [];
+    if (question.memorySceneId) usedMemorySceneIds.add(question.memorySceneId);
     backupCounts.set(key, count + 1);
     return [{ ...question, isBackup: true }];
   });

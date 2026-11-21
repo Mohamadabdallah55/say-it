@@ -25,6 +25,8 @@ export const ALLOWED_ICON_KEYS: CategoryIconKey[] = [
   'rashidun',
   'jordan_logos',
   'world_cup_2026',
+  'palestinian_proverbs',
+  'visual_memory',
 ];
 
 export const ALLOWED_QUESTION_TYPES: QuestionType[] = [

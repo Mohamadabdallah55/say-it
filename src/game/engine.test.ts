@@ -853,8 +853,9 @@ test('curated category picker allows 1 to 8 categories without forcing the 5 sta
     true,
   );
 
-  // All 8 curated categories work cleanly end-to-end
-  const allEightIds = ALL_CURATED_CATEGORIES.map((c) => c.id);
+  // Picking up to 8 curated categories works cleanly end-to-end
+  assert.ok(ALL_CURATED_CATEGORIES.length >= 13);
+  const allEightIds = ALL_CURATED_CATEGORIES.slice(0, 8).map((c) => c.id);
   assert.equal(allEightIds.length, 8);
   const eightDeck = buildBoardDeckFromCategories(allEightIds, undefined, PROPHET_STORIES_QUESTIONS);
   assert.equal(eightDeck.categories.length, 8);

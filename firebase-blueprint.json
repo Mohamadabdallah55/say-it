@@ -46,7 +46,7 @@
         },
         "iconKey": {
           "type": "string",
-          "enum": ["general", "science", "history", "arabic", "puzzles", "sports", "islamic", "pdf", "skills", "geography", "tech"]
+          "enum": ["general", "science", "history", "arabic", "puzzles", "sports", "islamic", "pdf", "skills", "geography", "tech", "price_tag", "rashidun", "jordan_logos", "world_cup_2026", "palestinian_proverbs", "visual_memory"]
         },
         "accentColor": {
           "type": "string",

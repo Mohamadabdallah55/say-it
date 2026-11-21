@@ -28,6 +28,8 @@ export const CATEGORY_3D_ART: Record<CategoryIconKey, string> = {
   rashidun: '/assets/categories/cat_rashidun.svg',
   jordan_logos: '/assets/categories/cat_jordan_logos.svg',
   world_cup_2026: '/assets/categories/cat_world_cup_2026.svg',
+  palestinian_proverbs: '/assets/categories/cat_palestinian_proverbs.svg',
+  visual_memory: '/assets/categories/cat_visual_memory.svg',
 };
 
 export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
@@ -46,4 +48,6 @@ export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
   rashidun: '/assets/categories/cat_rashidun.svg',
   jordan_logos: '/assets/categories/cat_jordan_logos.svg',
   world_cup_2026: '/assets/categories/cat_world_cup_2026.svg',
+  palestinian_proverbs: '/assets/categories/cat_palestinian_proverbs.svg',
+  visual_memory: '/assets/categories/cat_visual_memory.svg',
 };

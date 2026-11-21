@@ -1,7 +1,9 @@
 import { pickCommentary } from './commentary';
 import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
+import { PALESTINIAN_PROVERBS_CATEGORY } from './palestinianProverbs';
 import { PROPHET_STORIES_CATEGORY } from './prophetStories';
 import { RASHIDUN_CATEGORY } from './rashidun';
+import { VISUAL_MEMORY_CATEGORY } from './visualMemory';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -59,8 +61,44 @@ function snapshotTimer(timer: TimerState, nowMs: number): TimerState {
     startedAtMs: timer.running ? nowMs : null };
 }
 
+function createMemoryFields(question: QuizQuestion) {
+  if (question.showSeconds && question.showSeconds > 0) {
+    return {
+      memoryStage: 'MEMORIZE' as const,
+      memorizeDurationSeconds: question.showSeconds,
+      memorizeEndsAtMs: null as number | null,
+    };
+  }
+  return {
+    memoryStage: undefined,
+    memorizeDurationSeconds: undefined,
+    memorizeEndsAtMs: undefined,
+  };
+}
+
 function openQuestion(state: RoomState, nowMs: number): RoomState {
-  if (!state.settings.countUp || state.phase !== 'QUESTION_READY') return state;
+  if (state.phase !== 'QUESTION_READY') return state;
+  if (state.activeRound?.memoryStage === 'MEMORIZE') {
+    const durSec =
+      state.activeRound.memorizeDurationSeconds ||
+      state.activeRound.question.showSeconds ||
+      6;
+    return {
+      ...state,
+      phase: state.settings.countUp ? 'PLAYING' : 'QUESTION_READY',
+      activeRound: {
+        ...state.activeRound,
+        memorizeEndsAtMs: state.activeRound.memorizeEndsAtMs ?? nowMs + durSec * 1000,
+      },
+      timer: {
+        ...state.timer,
+        ...(state.settings.countUp ? { elapsedMs: 0 } : {}),
+        running: false,
+        startedAtMs: null,
+      },
+    };
+  }
+  if (!state.settings.countUp) return state;
   return { ...state, phase: 'PLAYING', timer: { ...state.timer, elapsedMs: 0, running: true, startedAtMs: nowMs } };
 }
 
@@ -90,15 +128,28 @@ function findAvailableBackupQuestion(
   );
   if (backups.length === 0) return null;
 
+  const sameCategoryNonRepeatingScene = backups.filter(
+    (q) =>
+      q.categoryId === currentQuestion.categoryId &&
+      (!q.memorySceneId ||
+        (q.memorySceneId !== currentQuestion.memorySceneId &&
+          q.memorySceneId !== state.lastPlayedMemorySceneId)),
+  );
+  const pool =
+    sameCategoryNonRepeatingScene.length > 0
+      ? sameCategoryNonRepeatingScene
+      : backups;
+
   return (
-    backups.find(
+    pool.find(
       (q) =>
         q.categoryId === currentQuestion.categoryId &&
         q.difficulty === currentQuestion.difficulty,
     ) ??
     (currentQuestion.categoryId !== PROPHET_STORIES_CATEGORY.id
-      ? backups.find((q) => q.categoryId === currentQuestion.categoryId)
-      : undefined) ?? null
+      ? pool.find((q) => q.categoryId === currentQuestion.categoryId)
+      : undefined) ??
+    null
   );
 }
 
@@ -214,12 +265,45 @@ export function selectBoardTile(
     return { ok: false, error: 'لم يتم العثور على السؤال المرتبط بهذه الخانة.', state };
   }
 
+  if (question.memorySceneId && state.lastPlayedMemorySceneId === question.memorySceneId) {
+    const currentTeamId = state.teams[state.currentTurnTeamIndex]?.id;
+    const hasAlternativeTile = state.boardTiles.some((t) => {
+      if (t.used || t.questionId === questionId) return false;
+      if (t.ownerTeamId && t.ownerTeamId !== currentTeamId) return false;
+      const candidate = state.questionPool.find((q) => q.id === t.questionId);
+      return !candidate?.memorySceneId || candidate.memorySceneId !== state.lastPlayedMemorySceneId;
+    });
+    if (hasAlternativeTile) {
+      return {
+        ok: false,
+        error: 'لا يمكن عرض نفس المشهد البصري في جولتين متتاليتين؛ اختر سؤالًا آخر أولًا.',
+        state,
+      };
+    }
+  }
+
   const parked = state.parkedRounds?.[questionId];
   if (parked) {
     const remaining = { ...state.parkedRounds };
     delete remaining[questionId];
-    return { ok: true, state: { ...state, phase: parked.phase, activeRound: parked.round,
-      timer: parked.timer.elapsedMs !== undefined && parked.phase === 'PLAYING' ? { ...parked.timer, running: true, startedAtMs: nowMs } : parked.timer, parkedRounds: remaining,
+    const restoredRound =
+      parked.round.memoryStage === 'MEMORIZE'
+        ? {
+            ...parked.round,
+            memorizeEndsAtMs:
+              nowMs +
+              (parked.round.memorizeDurationSeconds ||
+                parked.round.question.showSeconds ||
+                6) *
+                1000,
+          }
+        : parked.round;
+    return { ok: true, state: { ...state, phase: parked.phase, activeRound: restoredRound,
+      timer: restoredRound.memoryStage === 'MEMORIZE'
+        ? { ...parked.timer, running: false, startedAtMs: null }
+        : parked.timer.elapsedMs !== undefined && parked.phase === 'PLAYING'
+          ? { ...parked.timer, running: true, startedAtMs: nowMs }
+          : parked.timer, parkedRounds: remaining,
       processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() } };
   }
   const durationSec = question.timeLimitSeconds || state.settings.timerSeconds;
@@ -243,6 +327,7 @@ export function selectBoardTile(
     winningTeamIds: [],
     awardedDelta: 0,
     isCorrectionMode: false,
+    ...createMemoryFields(question),
   };
 
   const configuredCards =
@@ -396,7 +481,18 @@ export function applyLifeline(
       swappedFromQuestionId: oldId,
       hintRevealed: false,
       twoAnswersActive: false,
+      ...createMemoryFields(backup),
     };
+    if (nextRound.memoryStage === 'MEMORIZE' && state.phase !== 'LIFELINE_PICK') {
+      const durSec = nextRound.memorizeDurationSeconds || backup.showSeconds || 6;
+      nextRound.memorizeEndsAtMs = nowMs + durSec * 1000;
+      nextTimer = {
+        ...nextTimer,
+        ...(state.settings.countUp ? { elapsedMs: 0 } : {}),
+        running: false,
+        startedAtMs: null,
+      };
+    }
     nextBoardTiles = state.boardTiles.map((t) =>
       t.questionId === oldId ? { ...t, questionId: backup.id } : t,
     );
@@ -461,6 +557,12 @@ export function swapActiveWithBackup(
   const oldId = state.activeRound.question.id;
   const durationSec = backup.timeLimitSeconds || state.settings.timerSeconds;
 
+  const swappedMemory = createMemoryFields(backup);
+  if (swappedMemory.memoryStage === 'MEMORIZE') {
+    const durSec = swappedMemory.memorizeDurationSeconds || backup.showSeconds || 6;
+    swappedMemory.memorizeEndsAtMs = nowMs + durSec * 1000;
+  }
+
   return {
     ok: true,
     state: {
@@ -480,14 +582,60 @@ export function swapActiveWithBackup(
         hintRevealed: false,
         twoAnswersActive: false,
         buzzerQueue: [],
+        ...swappedMemory,
       },
       timer: {
         durationSeconds: durationSec,
         remainingMs: durationSec * 1000,
+        ...(state.settings.countUp ? { elapsedMs: 0 } : {}),
         running: false,
         startedAtMs: null,
         secondChanceGranted: false,
       },
+      processedActionIds: [...state.processedActionIds, actionId].slice(-200),
+      updatedAt: new Date(nowMs).toISOString(),
+    },
+  };
+}
+
+export function advanceMemoryToQuestion(
+  state: RoomState,
+  actionId: string,
+  nowMs = Date.now(),
+): { ok: boolean; error?: string; state: RoomState } {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  if (
+    !state.activeRound ||
+    state.activeRound.memoryStage !== 'MEMORIZE' ||
+    (state.phase !== 'QUESTION_READY' && state.phase !== 'PLAYING')
+  ) {
+    return { ok: false, error: 'لا يوجد مشهد قيد العرض حاليًا.', state };
+  }
+
+  const cmt = pickCommentary(
+    'questionShown',
+    state.settings.commentaryMode,
+    state.recentCommentaryTexts,
+  );
+
+  return {
+    ok: true,
+    state: {
+      ...state,
+      phase: 'PLAYING',
+      activeRound: {
+        ...state.activeRound,
+        memoryStage: 'QUESTION',
+        memorizeEndsAtMs: null,
+      },
+      timer: {
+        ...state.timer,
+        ...(state.settings.countUp ? { elapsedMs: 0 } : {}),
+        running: true,
+        startedAtMs: nowMs,
+      },
+      commentary: cmt.item ?? state.commentary,
+      recentCommentaryTexts: cmt.updatedRecent,
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       updatedAt: new Date(nowMs).toISOString(),
     },
@@ -682,6 +830,32 @@ export function submitOrder(state: RoomState, indices: unknown, actionId: string
   return finished ? revealAnswer(next, actionId + '_reveal', nowMs) : {ok:true,state:next};
 }
 
+export function revealRoundHint(
+  state: RoomState,
+  actionId: string,
+  nowMs = Date.now(),
+): { ok: boolean; error?: string; state: RoomState } {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  if (!state.activeRound || !['QUESTION_READY', 'PLAYING', 'TIME_UP'].includes(state.phase)) {
+    return { ok: false, error: 'لا يوجد سؤال نشط لعرض التلميح.', state };
+  }
+  if (!state.activeRound.question.hint?.trim()) {
+    return { ok: false, error: 'لا يتوفر تلميح لهذا السؤال.', state };
+  }
+  return {
+    ok: true,
+    state: {
+      ...state,
+      activeRound: {
+        ...state.activeRound,
+        hintRevealed: true,
+      },
+      processedActionIds: [...state.processedActionIds, actionId].slice(-200),
+      updatedAt: new Date(nowMs).toISOString(),
+    },
+  };
+}
+
 export function revealAnswer(
   state: RoomState,
   actionId: string,
@@ -700,6 +874,14 @@ export function revealAnswer(
     state: {
       ...state,
       phase: 'REVEAL',
+      activeRound:
+        state.activeRound.memoryStage === 'MEMORIZE'
+          ? {
+              ...state.activeRound,
+              memoryStage: 'QUESTION',
+              memorizeEndsAtMs: null,
+            }
+          : state.activeRound,
       timer: {
         ...snapshotTimer(state.timer, nowMs),
         remainingMs: remaining,
@@ -867,6 +1049,9 @@ export function awardRoundAndReturnToBoard(
       },
       currentTurnTeamIndex: nextTurn,
       activeRound: null,
+      lastPlayedMemorySceneId: round.isCorrectionMode
+        ? state.lastPlayedMemorySceneId ?? null
+        : round.question.memorySceneId ?? null,
       scoreHistory: [entry, ...workingHistory].slice(0, 100),
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       commentary: cmt.item ?? state.commentary,
@@ -918,6 +1103,13 @@ export function reopenQuestionForCorrection(
         winningTeamIds: prevWinners,
         awardedDelta,
         isCorrectionMode: true,
+        ...(question.showSeconds && question.memorySceneId
+          ? {
+              memoryStage: 'QUESTION' as const,
+              memorizeDurationSeconds: question.showSeconds,
+              memorizeEndsAtMs: null,
+            }
+          : {}),
       },
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       updatedAt: new Date(nowMs).toISOString(),
@@ -978,6 +1170,8 @@ export function skipActiveQuestion(
   const allDone = nextTiles.every((t) => t.used);
   const nextTurn = nextEligibleTurn(state, nextTiles);
 
+  const lastMemoryScene = state.activeRound.question.memorySceneId ?? null;
+
   return {
     ok: true,
     state: {
@@ -986,6 +1180,7 @@ export function skipActiveQuestion(
       boardTiles: nextTiles,
       currentTurnTeamIndex: nextTurn,
       activeRound: null,
+      lastPlayedMemorySceneId: lastMemoryScene,
       timer: {
         ...state.timer,
         running: false,
@@ -1124,6 +1319,13 @@ export function sanitizeStateForRole(
     };
   }
 
+  const canRevealAnswer =
+    state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL';
+  const isMemorizing =
+    state.activeRound?.memoryStage === 'MEMORIZE' && !canRevealAnswer;
+  const isMemoryQuestionOnly =
+    state.activeRound?.memoryStage === 'QUESTION' && !canRevealAnswer;
+
   if (role === 'buzzer') {
     return {
       schemaVersion: 2,
@@ -1145,7 +1347,7 @@ export function sanitizeStateForRole(
             categoryName: state.activeRound.question.categoryName,
             points: state.activeRound.basePoints,
             questionType: state.activeRound.question.questionType,
-            prompt: state.activeRound.question.prompt,
+            prompt: isMemorizing ? '' : state.activeRound.question.prompt,
             exclusiveTeamId: state.activeRound.activeLifeline === 'silence' ? state.activeRound.ownerTeamId : undefined,
             buzzerOpen: state.activeRound.buzzerOpen,
             buzzerQueue: state.activeRound.buzzerQueue,
@@ -1154,10 +1356,6 @@ export function sanitizeStateForRole(
       timer: liveTimer,
     };
   }
-
-  // Projector role: STRICTLY strip answers & unrevealed hints & full questionPool
-  const canRevealAnswer =
-    state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL';
 
   return {
     schemaVersion: 2,
@@ -1186,26 +1384,34 @@ export function sanitizeStateForRole(
             canRevealAnswer ||
             (state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id &&
               state.activeRound.question.categoryId !== RASHIDUN_CATEGORY.id &&
-              state.activeRound.question.categoryId !== JORDAN_BRANDS_CATEGORY.id)
+              state.activeRound.question.categoryId !== JORDAN_BRANDS_CATEGORY.id &&
+              state.activeRound.question.categoryId !== PALESTINIAN_PROVERBS_CATEGORY.id &&
+              state.activeRound.question.categoryId !== VISUAL_MEMORY_CATEGORY.id)
               ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
               : undefined,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,
-          prompt: state.activeRound.question.prompt,
-          options: state.activeRound.question.options,
-          orderItems: state.activeRound.question.orderItems,
+          prompt: isMemorizing ? '' : state.activeRound.question.prompt,
+          options: isMemorizing ? undefined : state.activeRound.question.options,
+          orderItems: isMemorizing ? undefined : state.activeRound.question.orderItems,
           orderPlay: state.activeRound.orderPlay,
-          hint: state.activeRound.hintRevealed ? state.activeRound.question.hint : undefined,
+          hint:
+            !isMemorizing && state.activeRound.hintRevealed
+              ? state.activeRound.question.hint
+              : undefined,
           answer: canRevealAnswer ? state.activeRound.question.answer : undefined,
           acceptableAnswers: canRevealAnswer
             ? state.activeRound.question.acceptableAnswers
             : undefined,
           explanation: canRevealAnswer ? state.activeRound.question.explanation : undefined,
-          imageUrl: state.activeRound.question.imageUrl,
-          imageBase64: state.activeRound.question.imageBase64,
-          imageCaption: state.activeRound.question.imageCaption,
-          beforeImageUrls: state.activeRound.question.beforeImageUrls,
+          imageUrl: isMemoryQuestionOnly ? undefined : state.activeRound.question.imageUrl,
+          imageBase64: isMemoryQuestionOnly ? undefined : state.activeRound.question.imageBase64,
+          imageCaption:
+            isMemorizing || isMemoryQuestionOnly
+              ? undefined
+              : state.activeRound.question.imageCaption,
+          beforeImageUrls: isMemorizing ? undefined : state.activeRound.question.beforeImageUrls,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,
@@ -1221,6 +1427,9 @@ export function sanitizeStateForRole(
           winningTeamIds: state.activeRound.winningTeamIds,
           awardedDelta: state.activeRound.awardedDelta,
           isCorrectionMode: state.activeRound.isCorrectionMode,
+          memoryStage: state.activeRound.memoryStage,
+          memorizeDurationSeconds: state.activeRound.memorizeDurationSeconds,
+          memorizeEndsAtMs: state.activeRound.memorizeEndsAtMs,
         }
       : null,
     timer: liveTimer,

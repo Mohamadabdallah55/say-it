@@ -53,6 +53,8 @@ import { GUESS_PRICE_QUESTIONS } from './server/guessPriceProducts';
 import { JORDAN_BRANDS_QUESTIONS } from './server/jordanBrandsQuestions';
 import { PROPHET_STORIES_QUESTIONS } from './server/prophetStories';
 import { RASHIDUN_QUESTIONS } from './server/rashidunQuestions';
+import { PALESTINIAN_PROVERBS_QUESTIONS } from './server/palestinianProverbsQuestions';
+import { VISUAL_MEMORY_QUESTIONS } from './server/visualMemoryQuestions';
 import { WORLD_CUP_2026_QUESTIONS } from './server/worldCup2026Questions';
 import { CURATED_QUESTIONS } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
@@ -163,6 +165,8 @@ async function startServer() {
       ...RASHIDUN_QUESTIONS,
       ...JORDAN_BRANDS_QUESTIONS,
       ...WORLD_CUP_2026_QUESTIONS,
+      ...PALESTINIAN_PROVERBS_QUESTIONS,
+      ...VISUAL_MEMORY_QUESTIONS,
     ]) {
       if (q.status !== 'approved') continue;
       if (!questionIdsByCategory[q.categoryId]) {

@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import QRCode from 'qrcode';
 import { WebSocket } from 'ws';
 import {
+  advanceMemoryToQuestion,
   applyLifeline,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
@@ -15,6 +16,7 @@ import {
   reopenQuestionForCorrection,
   resumeChallengeTimer,
   revealAnswer,
+  revealRoundHint,
   sanitizeStateForRole,
   selectBoardTile,
   skipActiveQuestion,
@@ -27,8 +29,10 @@ import {
 } from '../src/game/engine';
 import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
 import { JORDAN_BRANDS_QUESTIONS } from './jordanBrandsQuestions';
+import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
 import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
+import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
 import { WORLD_CUP_2026_QUESTIONS } from './worldCup2026Questions';
 import {
   filterPlayedProphetQuestions,
@@ -83,6 +87,24 @@ class RoomManager {
           changed = true;
           continue;
         }
+        if (
+          (room.phase === 'PLAYING' || room.phase === 'QUESTION_READY') &&
+          room.activeRound?.memoryStage === 'MEMORIZE' &&
+          room.activeRound.memorizeEndsAtMs &&
+          now >= room.activeRound.memorizeEndsAtMs
+        ) {
+          const res = advanceMemoryToQuestion(
+            room,
+            `mem-expire-${room.activeRound.roundId}`,
+            now,
+          );
+          if (res.ok) {
+            this.rooms[code] = res.state;
+            changed = true;
+            this.broadcastRoom(code);
+          }
+          continue;
+        }
         if (room.phase === 'PLAYING' && room.timer.running && room.timer.elapsedMs === undefined) {
           const remaining = computeRemainingMs(room.timer, now);
           if (remaining <= 0) {
@@ -131,6 +153,8 @@ class RoomManager {
       ...RASHIDUN_QUESTIONS,
       ...JORDAN_BRANDS_QUESTIONS,
       ...WORLD_CUP_2026_QUESTIONS,
+      ...PALESTINIAN_PROVERBS_QUESTIONS,
+      ...VISUAL_MEMORY_QUESTIONS,
     ];
 
     let deck: QuizDeck = STARTER_DEMO_DECK;
@@ -412,6 +436,9 @@ class RoomManager {
       case 'SKIP_CARD_PICK':
         result = skipLifelinePick(room, actionId, now);
         break;
+      case 'SKIP_MEMORY_PREVIEW':
+        result = advanceMemoryToQuestion(room, actionId, now);
+        break;
       case 'APPLY_LIFELINE':
         result = applyLifeline(room, payload.lifeline as LifelineType, actionId, now);
         break;
@@ -435,6 +462,9 @@ class RoomManager {
         break;
       case 'TEAM_BUZZ':
         result = recordBuzzerPress(room, String(payload.teamId || ''), now);
+        break;
+      case 'REVEAL_HINT':
+        result = revealRoundHint(room, actionId, now);
         break;
       case 'REVEAL_ANSWER':
         result = revealAnswer(room, actionId, now);

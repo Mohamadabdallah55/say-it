@@ -301,6 +301,14 @@ export function validateQuizQuestion(
       typeof question.imageCaption === 'string' && question.imageCaption.trim()
         ? question.imageCaption.trim()
         : undefined,
+    showSeconds:
+      typeof question.showSeconds === 'number' && question.showSeconds > 0
+        ? question.showSeconds
+        : undefined,
+    memorySceneId:
+      typeof question.memorySceneId === 'string' && question.memorySceneId.trim()
+        ? question.memorySceneId.trim()
+        : undefined,
     timeLimitSeconds: question.timeLimitSeconds,
     subtopic: question.subtopic?.trim() || question.sourceRef?.trim() || undefined,
     teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,
@@ -495,20 +503,52 @@ export function selectActiveBoardForDeck(
 
   const tiles: BoardTileState[] = [];
   const usedIds = new Set<string>();
+  const usedSceneIds = new Set<string>();
 
   for (const cat of categories) {
     for (const diff of difficulties) {
-      const available = poolToUse.filter(
+      const allPrimary = poolToUse.filter(
         (q) => q.categoryId === cat.id && q.difficulty === diff && !q.isBackup && !usedIds.has(q.id),
       );
-      const fallback = poolToUse.find(
-        (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+      const distinctScenePrimary = allPrimary.filter(
+        (q) => !q.memorySceneId || !usedSceneIds.has(q.memorySceneId),
       );
+      const available = distinctScenePrimary.length > 0 ? distinctScenePrimary : allPrimary;
+      const fallback =
+        poolToUse.find(
+          (q) =>
+            q.categoryId === cat.id &&
+            q.difficulty === diff &&
+            !usedIds.has(q.id) &&
+            (!q.memorySceneId || !usedSceneIds.has(q.memorySceneId)),
+        ) ??
+        poolToUse.find(
+          (q) => q.categoryId === cat.id && q.difficulty === diff && !usedIds.has(q.id),
+        );
       const perTeam = teamCount > 1 && available.length >= teamCount;
-      const selected = perTeam ? available.slice(0, teamCount) : available.slice(0, 1);
+      const selected: QuizQuestion[] = [];
+      if (perTeam) {
+        for (const candidate of available) {
+          if (
+            candidate.memorySceneId &&
+            selected.some((s) => s.memorySceneId === candidate.memorySceneId)
+          ) {
+            continue;
+          }
+          selected.push(candidate);
+          if (selected.length >= teamCount) break;
+        }
+        for (const candidate of available) {
+          if (selected.length >= teamCount) break;
+          if (!selected.some((s) => s.id === candidate.id)) selected.push(candidate);
+        }
+      } else if (available.length > 0) {
+        selected.push(available[0]);
+      }
       if (!selected.length && fallback) selected.push(fallback);
       selected.forEach((question, index) => {
         usedIds.add(question.id);
+        if (question.memorySceneId) usedSceneIds.add(question.memorySceneId);
         tiles.push({
           questionId: question.id,
           categoryId: cat.id,

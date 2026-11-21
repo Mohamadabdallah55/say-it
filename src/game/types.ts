@@ -55,7 +55,9 @@ export type CategoryIconKey =
   | 'price_tag'
   | 'rashidun'
   | 'jordan_logos'
-  | 'world_cup_2026';
+  | 'world_cup_2026'
+  | 'palestinian_proverbs'
+  | 'visual_memory';
 
 export interface PageRange {
   startPage: number;
@@ -132,6 +134,8 @@ export interface QuizQuestion {
   imageCaption?: string;
   beforeImageUrls?: string[];
   afterImageUrl?: string;
+  showSeconds?: number;
+  memorySceneId?: string;
   timeLimitSeconds?: number;
   subtopic?: string;
   teamIndex?: number;
@@ -361,6 +365,9 @@ export interface ActiveRound {
   awardedDelta: number;
   isCorrectionMode: boolean;
   swappedFromQuestionId?: string;
+  memoryStage?: 'MEMORIZE' | 'QUESTION';
+  memorizeDurationSeconds?: number;
+  memorizeEndsAtMs?: number | null;
 }
 
 export interface CommentaryItem {
@@ -388,6 +395,7 @@ export interface PreflightResult {
 export interface RoomState {
   playedProphetQuestionIds?: string[];
   playedRotatingQuestionIds?: Record<string, string[]>;
+  lastPlayedMemorySceneId?: string | null;
   libraryId?: string;
   lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
@@ -454,6 +462,9 @@ export interface SanitizedActiveRound {
   winningTeamIds: string[];
   awardedDelta: number;
   isCorrectionMode: boolean;
+  memoryStage?: 'MEMORIZE' | 'QUESTION';
+  memorizeDurationSeconds?: number;
+  memorizeEndsAtMs?: number | null;
 }
 
 export interface PublicProjectorState {

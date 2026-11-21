@@ -33,8 +33,10 @@ import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
+import { PALESTINIAN_PROVERBS_CATEGORY } from '../game/palestinianProverbs';
 import { PROPHET_STORIES_CATEGORY } from '../game/prophetStories';
 import { RASHIDUN_CATEGORY } from '../game/rashidun';
+import { VISUAL_MEMORY_CATEGORY } from '../game/visualMemory';
 import { WORLD_CUP_2026_CATEGORY } from '../game/worldCup2026';
 
 interface LobbySetupProps {
@@ -232,6 +234,8 @@ export function LobbySetup({
               RASHIDUN_CATEGORY.id,
               JORDAN_BRANDS_CATEGORY.id,
               WORLD_CUP_2026_CATEGORY.id,
+              PALESTINIAN_PROVERBS_CATEGORY.id,
+              VISUAL_MEMORY_CATEGORY.id,
             ]
           : [],
       teams,

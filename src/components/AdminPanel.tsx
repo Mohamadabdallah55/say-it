@@ -68,6 +68,8 @@ const ICON_LABELS: Record<CategoryIconKey, string> = {
   rashidun: 'الخلفاء',
   jordan_logos: 'شعارات الأردن',
   world_cup_2026: 'كأس العالم 2026',
+  palestinian_proverbs: 'أمثال فلسطينية',
+  visual_memory: 'ذاكرة بصرية',
 };
 
 const DIFFICULTY_META: Array<{ value: Difficulty; label: string; points: 200 | 400 | 600 }> = [

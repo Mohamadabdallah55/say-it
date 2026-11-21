@@ -1,7 +1,9 @@
 import { GUESS_PRICE_CATEGORY } from './guessPrice';
 import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
+import { PALESTINIAN_PROVERBS_CATEGORY } from './palestinianProverbs';
 import { PROPHET_STORIES_CATEGORY } from './prophetStories';
 import { RASHIDUN_CATEGORY } from './rashidun';
+import { VISUAL_MEMORY_CATEGORY } from './visualMemory';
 import { WORLD_CUP_2026_CATEGORY } from './worldCup2026';
 import type { DeckCategory, QuizDeck, QuizQuestion } from './types';
 
@@ -95,6 +97,8 @@ export const ALL_CURATED_CATEGORIES: DeckCategory[] = [
   RASHIDUN_CATEGORY,
   JORDAN_BRANDS_CATEGORY,
   WORLD_CUP_2026_CATEGORY,
+  PALESTINIAN_PROVERBS_CATEGORY,
+  VISUAL_MEMORY_CATEGORY,
 ];
 
 export const CURATED_QUESTIONS: QuizQuestion[] = [
