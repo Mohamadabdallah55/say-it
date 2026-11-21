@@ -23,7 +23,6 @@ import {
 } from '../game/pdfValidation';
 import {
   buildBoardDeckFromCategories,
-  STARTER_CATEGORIES,
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
 import type { DeckCategory, LifelineType, MatchSettings, QuizDeck } from '../game/types';
@@ -31,7 +30,14 @@ import { CATEGORY_3D_ART } from '../utils/gameAssets';
 import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
-import { SERVER_CURATED_CATEGORY_IDS } from '../game/curatedBanks';
+import {
+  ARABIC_ROOTS_CATEGORY,
+  CAPITALS_CURRENCIES_CATEGORY,
+  SCIENCE_QUIZ_CATEGORY,
+  SERVER_CURATED_CATEGORY_IDS,
+  STORY_LOGIC_CATEGORY,
+  WORLD_WARS_CATEGORY,
+} from '../game/curatedBanks';
 
 interface LobbySetupProps {
   decks: QuizDeck[];
@@ -57,6 +63,14 @@ const TEAM_COLORS = [
   { label: 'ذهبي', hex: '#E59A00' },
   { label: 'بنفسجي', hex: '#63349B' },
   { label: 'وردي', hex: '#D9468F' },
+];
+
+const CLASSIC_CATEGORY_IDS = [
+  CAPITALS_CURRENCIES_CATEGORY.id,
+  SCIENCE_QUIZ_CATEGORY.id,
+  WORLD_WARS_CATEGORY.id,
+  ARABIC_ROOTS_CATEGORY.id,
+  STORY_LOGIC_CATEGORY.id,
 ];
 
 const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
@@ -376,9 +390,9 @@ export function LobbySetup({
 
   const filteredDecks = useMemo(() => {
     const q = normalizeArabicText(searchQuery);
-    if (!q) return decks;
     return decks.filter(
-      (d) => normalizeArabicText(d.title).includes(q) || normalizeArabicText(d.description).includes(q),
+      (d) => d.id !== STARTER_DEMO_DECK.id &&
+        (!q || normalizeArabicText(d.title).includes(q) || normalizeArabicText(d.description).includes(q)),
     );
   }, [decks, searchQuery]);
 
@@ -394,8 +408,8 @@ export function LobbySetup({
 
   const isClassicPresetActive =
     selectedDeckId === 'curated_custom' &&
-    customCategories.length === STARTER_CATEGORIES.length &&
-    STARTER_CATEGORIES.every((c) => customCategories.includes(c.id));
+    customCategories.length === CLASSIC_CATEGORY_IDS.length &&
+    CLASSIC_CATEGORY_IDS.every((id) => customCategories.includes(id));
 
   const maxCategoryLimit = isMatrixDeck ? selectedDeck.categories.length : 8;
   const activeCategoryBadgeText = `${selectedCategoryItems.length}/${maxCategoryLimit}`;
@@ -549,7 +563,7 @@ export function LobbySetup({
                   onClick={() => {
                     soundFX.playClick();
                     setSelectedDeckId('curated_custom');
-                    setCustomCategories(STARTER_CATEGORIES.map((c) => c.id));
+                    setCustomCategories(CLASSIC_CATEGORY_IDS);
                     setCategoryTab('official');
                   }}
                   className={`game-btn-3d py-2.5 px-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer ${

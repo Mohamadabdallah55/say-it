@@ -42,6 +42,7 @@ import {
   VALID_HEX_COLOR_REGEX,
   VALID_ID_REGEX,
 } from '../game/categoryProgress';
+import { SERVER_CURATED_CATEGORIES } from '../game/curatedBanks';
 import { ALL_CURATED_CATEGORIES, CURATED_QUESTIONS } from '../game/starterDecks';
 import type {
   CategoryConsumptionStats,
@@ -415,7 +416,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const allCategoriesForLobby = useMemo(() => {
     const activeCustom = customCategories.filter((c) => c.isActive !== false);
     const mergedMap = new Map<string, DeckCategory>();
-    for (const c of ALL_CURATED_CATEGORIES) mergedMap.set(c.id, c);
+    for (const { category } of SERVER_CURATED_CATEGORIES) mergedMap.set(category.id, category);
     for (const c of activeCustom) mergedMap.set(c.id, c);
     return Array.from(mergedMap.values());
   }, [customCategories]);
