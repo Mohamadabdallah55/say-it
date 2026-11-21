@@ -51,7 +51,11 @@ export type CategoryIconKey =
   | 'pdf'
   | 'skills'
   | 'geography'
-  | 'tech';
+  | 'tech'
+  | 'price_tag'
+  | 'rashidun'
+  | 'jordan_logos'
+  | 'world_cup_2026';
 
 export interface PageRange {
   startPage: number;
@@ -126,6 +130,8 @@ export interface QuizQuestion {
   imageUrl?: string;
   imageBase64?: string;
   imageCaption?: string;
+  beforeImageUrls?: string[];
+  afterImageUrl?: string;
   timeLimitSeconds?: number;
   subtopic?: string;
   teamIndex?: number;
@@ -381,6 +387,7 @@ export interface PreflightResult {
 
 export interface RoomState {
   playedProphetQuestionIds?: string[];
+  playedRotatingQuestionIds?: Record<string, string[]>;
   libraryId?: string;
   lastAward?: { at: number; changes: Record<string, number>; corrected?: boolean };
   matchEndsAt?: number;
@@ -432,6 +439,8 @@ export interface SanitizedActiveRound {
   imageUrl?: string;
   imageBase64?: string;
   imageCaption?: string;
+  beforeImageUrls?: string[];
+  afterImageUrl?: string;
   sourceRef?: string;
   pageNumber?: number;
   basePoints: PointValue;

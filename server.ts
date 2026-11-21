@@ -49,7 +49,11 @@ import {
   isQuotaError,
   isServiceUnavailableError,
 } from './server/geminiHelpers';
+import { GUESS_PRICE_QUESTIONS } from './server/guessPriceProducts';
+import { JORDAN_BRANDS_QUESTIONS } from './server/jordanBrandsQuestions';
 import { PROPHET_STORIES_QUESTIONS } from './server/prophetStories';
+import { RASHIDUN_QUESTIONS } from './server/rashidunQuestions';
+import { WORLD_CUP_2026_QUESTIONS } from './server/worldCup2026Questions';
 import { CURATED_QUESTIONS } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
 import {
@@ -152,7 +156,14 @@ async function startServer() {
 
   app.get('/api/catalog/builtin-ids', (_req, res) => {
     const questionIdsByCategory: Record<string, string[]> = {};
-    for (const q of [...CURATED_QUESTIONS, ...PROPHET_STORIES_QUESTIONS]) {
+    for (const q of [
+      ...CURATED_QUESTIONS,
+      ...PROPHET_STORIES_QUESTIONS,
+      ...GUESS_PRICE_QUESTIONS,
+      ...RASHIDUN_QUESTIONS,
+      ...JORDAN_BRANDS_QUESTIONS,
+      ...WORLD_CUP_2026_QUESTIONS,
+    ]) {
       if (q.status !== 'approved') continue;
       if (!questionIdsByCategory[q.categoryId]) {
         questionIdsByCategory[q.categoryId] = [];

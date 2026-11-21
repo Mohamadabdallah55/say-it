@@ -1,0 +1,384 @@
+﻿question_id,phase,kind,url,codex_action,verified_status
+WC26-200-01,before,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-01,before,country_flag,https://flagcdn.com/w320/za.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-01,after,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-02,before,country_flag,https://flagcdn.com/w320/us.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-02,before,country_flag,https://flagcdn.com/w320/py.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-03,before,country_flag,https://flagcdn.com/w320/au.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-03,before,country_flag,https://flagcdn.com/w320/tr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-03,after,country_flag,https://flagcdn.com/w320/au.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-04,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-04,before,country_flag,https://flagcdn.com/w320/cw.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-04,after,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-05,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-05,before,country_flag,https://flagcdn.com/w320/tn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-06,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-06,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-06,after,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-07,before,country_flag,https://flagcdn.com/w320/iq.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-07,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-07,after,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-08,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-08,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-09,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-09,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-09,after,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-10,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-10,before,country_flag,https://flagcdn.com/w320/hr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-10,after,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-11,before,country_flag,https://flagcdn.com/w320/ca.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-11,before,country_flag,https://flagcdn.com/w320/qa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-12,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-12,before,country_flag,https://flagcdn.com/w320/ht.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-12,after,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-13,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-13,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-13,after,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-14,before,country_flag,https://flagcdn.com/w320/tn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-14,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-15,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-15,before,country_flag,https://flagcdn.com/w320/sa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-15,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-16,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-16,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-16,after,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-17,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-17,before,country_flag,https://flagcdn.com/w320/iq.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-18,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-18,before,country_flag,https://flagcdn.com/w320/uz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-18,after,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-19,before,country_flag,https://flagcdn.com/w320/cz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-19,before,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-19,after,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-20,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-20,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-01,before,country_flag,https://flagcdn.com/w320/kr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-01,before,country_flag,https://flagcdn.com/w320/cz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-01,after,country_flag,https://flagcdn.com/w320/kr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-02,before,country_flag,https://flagcdn.com/w320/qa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-02,before,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-03,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-03,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-04,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-04,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-05,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-05,before,country_flag,https://flagcdn.com/w320/ec.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-06,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-06,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-07,before,country_flag,https://flagcdn.com/w320/sa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-07,before,country_flag,https://flagcdn.com/w320/uy.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-08,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-08,before,country_flag,https://flagcdn.com/w320/cd.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-09,before,country_flag,https://flagcdn.com/w320/gh.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-09,before,country_flag,https://flagcdn.com/w320/pa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-09,after,country_flag,https://flagcdn.com/w320/gh.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-10,before,country_flag,https://flagcdn.com/w320/us.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-10,before,country_flag,https://flagcdn.com/w320/au.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-10,after,country_flag,https://flagcdn.com/w320/us.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-11,before,country_flag,https://flagcdn.com/w320/gb-sct.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-11,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-12,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-12,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-12,after,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-13,before,country_flag,https://flagcdn.com/w320/nz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-13,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-13,after,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-14,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-14,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-15,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-15,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-15,after,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-16,before,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-16,before,country_flag,https://flagcdn.com/w320/ca.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-16,after,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-17,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-17,before,country_flag,https://flagcdn.com/w320/ht.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-18,before,country_flag,https://flagcdn.com/w320/ec.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-18,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-18,after,country_flag,https://flagcdn.com/w320/ec.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-19,before,country_flag,https://flagcdn.com/w320/tr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-19,before,country_flag,https://flagcdn.com/w320/us.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-19,after,country_flag,https://flagcdn.com/w320/tr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-20,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-20,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-21,before,country_flag,https://flagcdn.com/w320/uy.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-21,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-21,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-22,before,country_flag,https://flagcdn.com/w320/nz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-22,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-22,after,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-23,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-23,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-24,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-24,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-24,after,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-25,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-25,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-25,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-01,before,country_flag,https://flagcdn.com/w320/co.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-01,before,country_flag,https://flagcdn.com/w320/cd.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-01,after,country_flag,https://flagcdn.com/w320/co.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-02,before,country_flag,https://flagcdn.com/w320/za.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-02,before,country_flag,https://flagcdn.com/w320/kr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-03,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-03,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-04,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-04,before,country_flag,https://flagcdn.com/w320/iq.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-04,after,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-05,before,country_flag,https://flagcdn.com/w320/hr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-05,before,country_flag,https://flagcdn.com/w320/gh.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-06,before,country_flag,https://flagcdn.com/w320/co.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-06,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-07,before,country_flag,https://flagcdn.com/w320/cd.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-07,before,country_flag,https://flagcdn.com/w320/uz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-07,after,country_flag,https://flagcdn.com/w320/cd.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-08,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-08,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-09,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-09,before,country_flag,https://flagcdn.com/w320/py.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-10,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-10,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-11,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-11,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-12,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-12,before,country_flag,https://flagcdn.com/w320/cd.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-12,after,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-13,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-13,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-13,after,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-14,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-14,before,country_flag,https://flagcdn.com/w320/hr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-15,before,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-15,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-15,after,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-16,before,country_flag,https://flagcdn.com/w320/au.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-16,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-17,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-17,before,country_flag,https://flagcdn.com/w320/cv.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-18,before,country_flag,https://flagcdn.com/w320/ca.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-18,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-18,after,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-19,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-19,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-19,after,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-20,before,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-20,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-21,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-21,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-21,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-22,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-22,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-22,after,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-23,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-23,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-24,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-24,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-24,after,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-25,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-25,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-25,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-21,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-21,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-21,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Lionel+Messi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-22,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-22,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-22,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ali+Olwan+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-23,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-23,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-23,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Nizar+Al-Rashdan+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-24,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-24,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-24,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Mousa+Al-Tamari+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-25,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-25,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-25,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ferran+Torres+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-26,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-26,before,country_flag,https://flagcdn.com/w320/sa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-26,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Lamine+Yamal+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-27,before,country_flag,https://flagcdn.com/w320/ca.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-27,before,country_flag,https://flagcdn.com/w320/qa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-27,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Jonathan+David+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-28,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-28,before,country_flag,https://flagcdn.com/w320/uz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-28,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Cristiano+Ronaldo+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-29,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-29,before,country_flag,https://flagcdn.com/w320/ht.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-29,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Vinicius+Junior+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-30,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-30,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-30,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Kylian+Mbappe+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-31,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-31,before,country_flag,https://flagcdn.com/w320/hr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-31,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Harry+Kane+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-32,before,country_flag,https://flagcdn.com/w320/nz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-32,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-32,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Mohamed+Salah+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-33,before,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-33,before,country_flag,https://flagcdn.com/w320/za.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-33,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Raul+Jimenez+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-34,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-34,before,country_flag,https://flagcdn.com/w320/ht.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-34,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Matheus+Cunha+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-35,before,country_flag,https://flagcdn.com/w320/iq.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-35,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-35,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Erling+Haaland+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-36,before,country_flag,https://flagcdn.com/w320/cz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-36,before,country_flag,https://flagcdn.com/w320/mx.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-36,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Julian+Quinones+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-37,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-37,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-37,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Cody+Gakpo+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-38,before,country_flag,https://flagcdn.com/w320/us.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-38,before,country_flag,https://flagcdn.com/w320/py.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-38,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Folarin+Balogun+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-26,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-26,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-26,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ismael+Saibari+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-27,before,country_flag,https://flagcdn.com/w320/gb-sct.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-27,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-27,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ismael+Saibari+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-28,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-28,before,country_flag,https://flagcdn.com/w320/ht.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-28,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Achraf+Hakimi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-29,before,country_flag,https://flagcdn.com/w320/nz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-29,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-29,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Kevin+De+Bruyne+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-30,before,country_flag,https://flagcdn.com/w320/nz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-30,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-30,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Leandro+Trossard+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-31,before,country_flag,https://flagcdn.com/w320/dz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-31,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-31,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Riyad+Mahrez+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-32,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-32,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-32,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Erling+Haaland+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-33,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-33,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-33,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ousmane+Dembele+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-34,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-34,before,country_flag,https://flagcdn.com/w320/sa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-34,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Mikel+Oyarzabal+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-35,before,country_flag,https://flagcdn.com/w320/ec.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-35,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-35,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Gonzalo+Plata+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-36,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-36,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-36,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Deniz+Undav+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-37,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-37,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-37,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Gabriel+Martinelli+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-38,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-38,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-38,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Erling+Haaland+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-39,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-39,before,country_flag,https://flagcdn.com/w320/se.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-39,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Bradley+Barcola+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-40,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-40,before,country_flag,https://flagcdn.com/w320/hr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-40,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Goncalo+Ramos+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-41,before,country_flag,https://flagcdn.com/w320/ca.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-41,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-41,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Azzedine+Ounahi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-42,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-42,before,country_flag,https://flagcdn.com/w320/be.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-42,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Mikel+Merino+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-26,before,country_flag,https://flagcdn.com/w320/gh.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-26,before,country_flag,https://flagcdn.com/w320/pa.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-26,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Caleb+Yirenkyi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-27,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-27,before,country_flag,https://flagcdn.com/w320/ec.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-27,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Amad+Diallo+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-28,before,country_flag,https://flagcdn.com/w320/za.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-28,before,country_flag,https://flagcdn.com/w320/kr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-28,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Thapelo+Maseko+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-29,before,country_flag,https://flagcdn.com/w320/cw.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-29,before,country_flag,https://flagcdn.com/w320/ci.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-29,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Nicolas+Pepe+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-30,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-30,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-30,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Virgil+van+Dijk+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-31,before,country_flag,https://flagcdn.com/w320/kr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-31,before,country_flag,https://flagcdn.com/w320/cz.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-31,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Hwang+In-beom+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-32,before,country_flag,https://flagcdn.com/w320/tn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-32,before,country_flag,https://flagcdn.com/w320/jp.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-32,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Daichi+Kamada+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-33,before,country_flag,https://flagcdn.com/w320/sn.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-33,before,country_flag,https://flagcdn.com/w320/iq.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-33,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ismaila+Sarr+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-34,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-34,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-34,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Pedro+Porro+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-35,before,country_flag,https://flagcdn.com/w320/de.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-35,before,country_flag,https://flagcdn.com/w320/py.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-35,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Julio+Enciso+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-36,before,country_flag,https://flagcdn.com/w320/nl.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-36,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-36,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Cody+Gakpo+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-37,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-37,before,country_flag,https://flagcdn.com/w320/cv.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-37,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Lionel+Messi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-38,before,country_flag,https://flagcdn.com/w320/br.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-38,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-38,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Neymar+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-39,before,country_flag,https://flagcdn.com/w320/pt.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-39,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-39,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Mikel+Merino+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-40,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-40,before,country_flag,https://flagcdn.com/w320/eg.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-40,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Enzo+Fernandez+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-41,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-41,before,country_flag,https://flagcdn.com/w320/ma.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-41,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Ousmane+Dembele+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-42,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-42,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-42,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Jude+Bellingham+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-43,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-43,before,country_flag,https://flagcdn.com/w320/ch.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-43,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Julian+Alvarez+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-44,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-44,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-44,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Pedro+Porro+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-45,before,country_flag,https://flagcdn.com/w320/fr.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-45,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-600-45,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Bukayo+Saka+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-39,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-39,after,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-40,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-40,after,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-41,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-42,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-43,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-44,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-45,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-45,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-46,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-46,after,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-47,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-47,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Kylian+Mbappe+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-48,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-200-48,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Rodri+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-200-49,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-50,before,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-200-50,after,country_flag,https://flagcdn.com/w320/at.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-43,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-400-43,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Pau+Cubarsi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-44,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-400-44,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Unai+Simon+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-400-45,before,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-45,after,country_flag,https://flagcdn.com/w320/gb-eng.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-46,before,country_flag,https://flagcdn.com/w320/es.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-46,before,country_flag,https://flagcdn.com/w320/ar.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-47,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-400-48,before,country_flag,https://flagcdn.com/w320/jo.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-49,before,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-49,after,country_flag,https://flagcdn.com/w320/no.png,download png; verify country; deduplicate,known_url_pattern_not_download_checked
+WC26-400-50,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-600-46,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-600-46,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Lionel+Messi+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-47,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-600-47,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Kylian+Mbappe+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-48,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-600-48,after,real_player_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Kylian+Mbappe+footballer&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct human portrait and extract thumbnail.source; verify Commons license",requires_codex_fetch_and_identity_check
+WC26-600-49,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check
+WC26-600-50,before,trophy_photo_api,https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=FIFA+World+Cup+trophy&gsrlimit=3&prop=pageimages%7Cinfo&inprop=url&pithumbsize=900&format=json&origin=%2A,"GET JSON, choose correct cup trophy image, verify Wikimedia license",requires_codex_fetch_and_check

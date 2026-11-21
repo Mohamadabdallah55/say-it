@@ -21,6 +21,10 @@ export const ALLOWED_ICON_KEYS: CategoryIconKey[] = [
   'skills',
   'geography',
   'tech',
+  'price_tag',
+  'rashidun',
+  'jordan_logos',
+  'world_cup_2026',
 ];
 
 export const ALLOWED_QUESTION_TYPES: QuestionType[] = [
@@ -43,7 +47,7 @@ export const VALID_HEX_COLOR_REGEX = /^#[0-9a-fA-F]{3,8}$/;
 export function sanitizeSafeImageUrl(url?: string | null): string {
   const trimmed = (url ?? '').trim();
   if (!trimmed) return '';
-  if (/^https?:\/\//i.test(trimmed) || /^\/assets\//.test(trimmed)) {
+  if (/^https?:\/\//i.test(trimmed) || /^\/(?:assets|images)\//.test(trimmed)) {
     return trimmed.slice(0, 1000);
   }
   return '';

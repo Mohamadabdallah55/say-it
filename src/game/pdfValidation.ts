@@ -135,6 +135,16 @@ export function normalizeArabicText(value: string): string {
     .toLowerCase();
 }
 
+export function questionUniquenessKey(q: {
+  prompt: string;
+  imageUrl?: string;
+  imageBase64?: string;
+}): string {
+  const normPrompt = normalizeArabicText(q.prompt);
+  const mediaKey = q.imageUrl?.trim() || (q.imageBase64 ? q.imageBase64.slice(0, 64) : '');
+  return mediaKey ? `${normPrompt}::${mediaKey}` : normPrompt;
+}
+
 const SACRED_PANTOMIME_GUARD_TERMS = [
   'نبي',
   'رسول',
@@ -246,7 +256,11 @@ export function validateQuizQuestion(
   if (question.questionType === 'order_steps' && question.correctOrder && !correctOrder) {
     return {valid: false, reason: 'الترتيب الصحيح يجب أن يضم كل الخطوات مرة واحدة.'};
   }
-  const promptNorm = normalizeArabicText(prompt);
+  const promptNorm = questionUniquenessKey({
+    prompt,
+    imageUrl: question.imageUrl,
+    imageBase64: question.imageBase64,
+  });
   if (options?.existingPromptsNorm?.has(promptNorm)) {
     return { valid: false, reason: 'سؤال مكرر في نفس اللوحة أو البنك.' };
   }
@@ -695,11 +709,11 @@ export function runBoardPreflightCheck(params: {
     detail: emptyAnswers.length === 0 ? undefined : `${emptyAnswers.length} سؤال بدون إجابة`,
   });
 
-  // 5. No duplicate questions
+  // 5. No duplicate questions (image-based questions are unique per prompt + image)
   const seenPrompts = new Set<string>();
   let dupCount = 0;
   for (const q of activeQuestions) {
-    const norm = normalizeArabicText(q.prompt);
+    const norm = questionUniquenessKey(q);
     if (seenPrompts.has(norm)) dupCount += 1;
     seenPrompts.add(norm);
   }
@@ -882,7 +896,7 @@ export function validateAndImportDeckJson(
       existingPromptsNorm: seenPrompts,
     });
     if (res.valid && res.normalized) {
-      seenPrompts.add(normalizeArabicText(res.normalized.prompt));
+      seenPrompts.add(questionUniquenessKey(res.normalized));
       validQuestions.push(res.normalized);
     } else {
       skippedCount += 1;

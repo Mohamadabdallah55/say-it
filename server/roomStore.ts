@@ -25,9 +25,17 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { PROPHET_STORIES_CATEGORY } from '../src/game/prophetStories';
+import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
+import { JORDAN_BRANDS_QUESTIONS } from './jordanBrandsQuestions';
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
-import { filterPlayedProphetQuestions, recordPlayedProphetQuestion, reserveProphetQuestions } from './prophetQuestionRotation';
+import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
+import { WORLD_CUP_2026_QUESTIONS } from './worldCup2026Questions';
+import {
+  filterPlayedProphetQuestions,
+  recordPlayedProphetQuestion,
+  reserveProphetQuestions,
+  ROTATING_BUILTIN_CATEGORY_IDS,
+} from './prophetQuestionRotation';
 import { runBoardPreflightCheck } from '../src/game/pdfValidation';
 import {
   applyAccountProgressToDeck,
@@ -117,6 +125,14 @@ class RoomManager {
     const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions);
     const cleanPlayedMap = sanitizePlayedMap(params.playedQuestionIdsByCategory);
 
+    const builtinRotatingQuestions = [
+      ...PROPHET_STORIES_QUESTIONS,
+      ...GUESS_PRICE_QUESTIONS,
+      ...RASHIDUN_QUESTIONS,
+      ...JORDAN_BRANDS_QUESTIONS,
+      ...WORLD_CUP_2026_QUESTIONS,
+    ];
+
     let deck: QuizDeck = STARTER_DEMO_DECK;
     if (params.deckId === 'curated_custom') {
       if (!params.selectedCategoryIds?.length) {
@@ -125,7 +141,7 @@ class RoomManager {
       deck = buildBoardDeckFromCategories(
         params.selectedCategoryIds,
         undefined,
-        [...PROPHET_STORIES_QUESTIONS, ...cleanExtraQuestions],
+        [...builtinRotatingQuestions, ...cleanExtraQuestions],
         cleanExtraCategories,
       );
     } else if (params.deckId) {
@@ -144,19 +160,30 @@ class RoomManager {
       resetCategoryIds = applied.resetCategoryIds;
     } else {
       deck = filterPlayedProphetQuestions(deck, Object.values(this.rooms), libraryId, now);
-      if (params.deckId === 'curated_custom' && deck.categories.some(category => category.id === PROPHET_STORIES_CATEGORY.id)) {
-        const remaining = new Set(deck.questions
-          .filter(question => question.categoryId === PROPHET_STORIES_CATEGORY.id && question.status === 'approved')
-          .map(question => question.points));
-        if (remaining.size < 3) {
-          // Auto-reset local Prophet Stories rotation instead of dead-ending at 100%
-          deck = buildBoardDeckFromCategories(
-            params.selectedCategoryIds ?? [],
-            undefined,
-            [...PROPHET_STORIES_QUESTIONS, ...cleanExtraQuestions],
-            cleanExtraCategories,
+      if (params.deckId === 'curated_custom') {
+        const exhaustedCats: string[] = [];
+        for (const cat of deck.categories) {
+          if (!ROTATING_BUILTIN_CATEGORY_IDS.has(cat.id)) continue;
+          const remaining = new Set(
+            deck.questions
+              .filter((question) => question.categoryId === cat.id && question.status === 'approved')
+              .map((question) => question.points),
           );
-          resetCategoryIds = [PROPHET_STORIES_CATEGORY.id];
+          if (remaining.size < 3) {
+            exhaustedCats.push(cat.id);
+          }
+        }
+        if (exhaustedCats.length > 0) {
+          const exhaustedSet = new Set(exhaustedCats);
+          const replenished = builtinRotatingQuestions.filter((q) => exhaustedSet.has(q.categoryId));
+          deck = {
+            ...deck,
+            questions: [
+              ...deck.questions.filter((q) => !exhaustedSet.has(q.categoryId)),
+              ...replenished,
+            ],
+          };
+          resetCategoryIds = exhaustedCats;
         }
       }
     }

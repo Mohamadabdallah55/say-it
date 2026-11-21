@@ -27,6 +27,7 @@ import {
   X,
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
+import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -38,6 +39,7 @@ import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
+import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
 import { ScoreCounter } from './ScoreCounter';
@@ -216,6 +218,8 @@ export function GameArena({
         imageUrl: ar.question.imageUrl,
         imageBase64: ar.question.imageBase64,
         imageCaption: ar.question.imageCaption,
+        beforeImageUrls: ar.question.beforeImageUrls,
+        afterImageUrl: ar.question.afterImageUrl,
         options: ar.question.options,
         correctOptionIndex: ar.question.correctOptionIndex,
         orderItems: ar.question.orderItems,
@@ -671,15 +675,66 @@ export function GameArena({
 
                   {/* Question Prompt Centerpiece */}
                   <div className="question-face">
-                    {getQuestionImageSrc(roundMeta) && (
+                    {getQuestionImageSrc(roundMeta) ? (
                       <QuestionMedia
                         imageSrc={getQuestionImageSrc(roundMeta)}
                         caption={roundMeta.imageCaption}
                         pageNumber={roundMeta.pageNumber}
                         compact={state.phase === 'REVEAL'}
+                        obscured={
+                          roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
+                          state.phase !== 'REVEAL'
+                        }
                       />
-                    )}
-                    <p className="font-display font-black text-[#1F112E]">
+                    ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 2 ? (
+                      <div
+                        data-testid="wc26-matchup-flags"
+                        className={`flex items-center justify-center gap-3 md:gap-5 ${
+                          state.phase === 'REVEAL' ? 'mb-1.5' : 'mb-4'
+                        } transition-all`}
+                      >
+                        <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
+                          <img
+                            src={roundMeta.beforeImageUrls[0]}
+                            alt="علم المنتخب الأول"
+                            className={`rounded-lg object-contain bg-[#F8FAFC] ${
+                              state.phase === 'REVEAL'
+                                ? 'h-10 w-16 md:h-12 md:w-20'
+                                : 'h-14 w-24 md:h-20 md:w-32'
+                            }`}
+                            loading="eager"
+                          />
+                        </div>
+                        <span
+                          dir="ltr"
+                          className={`inline-flex items-center justify-center rounded-full border-2 border-[#1F112E] bg-[#FFE047] font-display font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] shrink-0 ${
+                            state.phase === 'REVEAL'
+                              ? 'h-8 w-8 text-xs'
+                              : 'h-10 w-10 md:h-11 md:w-11 text-sm md:text-base'
+                          }`}
+                        >
+                          VS
+                        </span>
+                        <div className="rounded-xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
+                          <img
+                            src={roundMeta.beforeImageUrls[1]}
+                            alt="علم المنتخب الثاني"
+                            className={`rounded-lg object-contain bg-[#F8FAFC] ${
+                              state.phase === 'REVEAL'
+                                ? 'h-10 w-16 md:h-12 md:w-20'
+                                : 'h-14 w-24 md:h-20 md:w-32'
+                            }`}
+                            loading="eager"
+                          />
+                        </div>
+                      </div>
+                    ) : roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 1 ? (
+                      <QuestionMedia
+                        imageSrc={roundMeta.beforeImageUrls[0]}
+                        compact={state.phase === 'REVEAL'}
+                      />
+                    ) : null}
+                    <p className="font-display font-black text-[#1F112E] whitespace-pre-line">
                       {roundMeta.prompt}
                     </p>
 
@@ -794,8 +849,23 @@ export function GameArena({
                       className="answer-face space-y-1.5"
                     >
                       <span className="text-xs md:text-sm font-bold text-white/90 block">
-                        الإجابة الصحيحة
+                        {roundMeta.categoryId === GUESS_PRICE_CATEGORY.id
+                          ? 'السعر الحقيقي في الأردن — الأقرب يفوز'
+                          : 'الإجابة الصحيحة'}
                       </span>
+                      {roundMeta.afterImageUrl && (
+                        <div className="flex justify-center py-1">
+                          <div className="rounded-2xl border-2 border-[#1F112E] bg-white p-1.5 shadow-[0_3px_0_#1F112E]">
+                            <img
+                              data-testid="wc26-reveal-media"
+                              src={roundMeta.afterImageUrl}
+                              alt={roundMeta.answer}
+                              className="max-h-[120px] md:max-h-[140px] max-w-[220px] rounded-xl object-contain"
+                              loading="eager"
+                            />
+                          </div>
+                        </div>
+                      )}
                       <p className="font-display font-black">{roundMeta.answer}</p>
                       {(roundMeta.explanation || roundMeta.pageNumber) && (
                         <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
@@ -922,7 +992,9 @@ export function GameArena({
                     <h3 className="font-display font-black text-xl text-center text-[#1F112E]">
                       {roundMeta.isCorrectionMode
                         ? 'وضع التصحيح — من أجاب إجابة صحيحة؟'
-                        : 'من أجاب إجابة صحيحة؟'}
+                        : roundMeta.categoryId === GUESS_PRICE_CATEGORY.id
+                          ? 'أي فريق كان الأقرب للسعر الحقيقي؟'
+                          : 'من أجاب إجابة صحيحة؟'}
                     </h3>
 
                     {roundMeta.orderPlay && !roundMeta.isCorrectionMode ? (

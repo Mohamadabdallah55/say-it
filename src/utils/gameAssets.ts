@@ -24,6 +24,10 @@ export const CATEGORY_3D_ART: Record<CategoryIconKey, string> = {
   general: '/assets/categories/cat_general.png',
   tech: '/assets/categories/cat_tech.png',
   pdf: '/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png',
+  price_tag: '/assets/categories/cat_price_tag.svg',
+  rashidun: '/assets/categories/cat_rashidun.svg',
+  jordan_logos: '/assets/categories/cat_jordan_logos.svg',
+  world_cup_2026: '/assets/categories/cat_world_cup_2026.svg',
 };
 
 export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
@@ -38,4 +42,8 @@ export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
   general: '/assets/categories/cat_general.png',
   tech: '/assets/categories/cat_tech.png',
   pdf: '/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png',
+  price_tag: '/assets/categories/cat_price_tag.svg',
+  rashidun: '/assets/categories/cat_rashidun.svg',
+  jordan_logos: '/assets/categories/cat_jordan_logos.svg',
+  world_cup_2026: '/assets/categories/cat_world_cup_2026.svg',
 };

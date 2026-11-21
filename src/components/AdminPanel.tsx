@@ -64,6 +64,10 @@ const ICON_LABELS: Record<CategoryIconKey, string> = {
   skills: 'مهارات',
   geography: 'جغرافيا',
   tech: 'تقنية',
+  price_tag: 'أسعار',
+  rashidun: 'الخلفاء',
+  jordan_logos: 'شعارات الأردن',
+  world_cup_2026: 'كأس العالم 2026',
 };
 
 const DIFFICULTY_META: Array<{ value: Difficulty; label: string; points: 200 | 400 | 600 }> = [

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" fill="none">
+  <defs>
+    <linearGradient id="rBg" x1="0" y1="0" x2="320" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E6F5C"/>
+      <stop offset="100%" stop-color="#11463A"/>
+    </linearGradient>
+    <linearGradient id="rGold" x1="100" y1="30" x2="220" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFE87C"/>
+      <stop offset="100%" stop-color="#D99416"/>
+    </linearGradient>
+    <linearGradient id="rScroll" x1="95" y1="50" x2="225" y2="145" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF4"/>
+      <stop offset="100%" stop-color="#F6E5BE"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#rBg)"/>
+  <circle cx="56" cy="34" r="46" fill="#FFFFFF" opacity="0.09"/>
+  <circle cx="272" cy="146" r="54" fill="#FFE87C" opacity="0.1"/>
+
+  <!-- Geometric 8-point star aura -->
+  <g transform="translate(160 88)" opacity="0.18">
+    <rect x="-46" y="-46" width="92" height="92" rx="10" fill="#FFE87C"/>
+    <rect x="-46" y="-46" width="92" height="92" rx="10" transform="rotate(45)" fill="#FFE87C"/>
+  </g>
+
+  <!-- Shadow -->
+  <ellipse cx="160" cy="154" rx="78" ry="11" fill="#1F112E" opacity="0.28"/>
+
+  <!-- Mosque Dome Silhouette Behind Scroll -->
+  <path d="M110 112 C110 70, 140 50, 160 36 C180 50, 210 70, 210 112 Z" fill="url(#rGold)" stroke="#1F112E" stroke-width="4.5" stroke-linejoin="round"/>
+  <line x1="160" y1="36" x2="160" y2="21" stroke="#1F112E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M163 14 a9 9 0 1 0 0 14 a6.5 6.5 0 1 1 0-14z" fill="#FFE87C" stroke="#1F112E" stroke-width="2.5"/>
+
+  <!-- Twin Minarets -->
+  <rect x="82" y="64" width="16" height="62" rx="4" fill="#E8B949" stroke="#1F112E" stroke-width="4"/>
+  <path d="M80 64 L90 46 L100 64 Z" fill="#FFE87C" stroke="#1F112E" stroke-width="3.5" stroke-linejoin="round"/>
+  <rect x="222" y="64" width="16" height="62" rx="4" fill="#E8B949" stroke="#1F112E" stroke-width="4"/>
+  <path d="M220 64 L230 46 L240 64 Z" fill="#FFE87C" stroke="#1F112E" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Open Heritage Parchment Banner in Foreground -->
+  <g transform="translate(0 6)">
+    <rect x="92" y="96" width="136" height="44" rx="14" transform="translate(0 5)" fill="#1F112E"/>
+    <rect x="92" y="96" width="136" height="44" rx="14" fill="url(#rScroll)" stroke="#1F112E" stroke-width="4.5"/>
+    <!-- Four Golden Stars representing the 4 Rightly Guided Caliphs -->
+    <g fill="#D99416" stroke="#1F112E" stroke-width="2">
+      <circle cx="118" cy="118" r="8"/>
+      <circle cx="146" cy="118" r="8"/>
+      <circle cx="174" cy="118" r="8"/>
+      <circle cx="202" cy="118" r="8"/>
+    </g>
+    <g fill="#FFFDF4">
+      <circle cx="118" cy="118" r="2.6"/>
+      <circle cx="146" cy="118" r="2.6"/>
+      <circle cx="174" cy="118" r="2.6"/>
+      <circle cx="202" cy="118" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <path d="M58 100l3.5 8.5 8.5 3.5-8.5 3.5-3.5 8.5-3.5-8.5-8.5-3.5 8.5-3.5 3.5-8.5z" fill="#FFE87C" opacity="0.9"/>
+  <path d="M264 46l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="#FFFDF4" opacity="0.85"/>
+</svg>

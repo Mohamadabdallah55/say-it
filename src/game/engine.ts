@@ -1,5 +1,7 @@
 import { pickCommentary } from './commentary';
+import { JORDAN_BRANDS_CATEGORY } from './jordanBrands';
 import { PROPHET_STORIES_CATEGORY } from './prophetStories';
+import { RASHIDUN_CATEGORY } from './rashidun';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -1180,9 +1182,13 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
-          subtopic: canRevealAnswer || state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id
-            ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
-            : undefined,
+          subtopic:
+            canRevealAnswer ||
+            (state.activeRound.question.categoryId !== PROPHET_STORIES_CATEGORY.id &&
+              state.activeRound.question.categoryId !== RASHIDUN_CATEGORY.id &&
+              state.activeRound.question.categoryId !== JORDAN_BRANDS_CATEGORY.id)
+              ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
+              : undefined,
           difficulty: state.activeRound.question.difficulty,
           points: state.activeRound.basePoints,
           questionType: state.activeRound.question.questionType,
@@ -1199,6 +1205,8 @@ export function sanitizeStateForRole(
           imageUrl: state.activeRound.question.imageUrl,
           imageBase64: state.activeRound.question.imageBase64,
           imageCaption: state.activeRound.question.imageCaption,
+          beforeImageUrls: state.activeRound.question.beforeImageUrls,
+          afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,
           ownerTeamId: state.activeRound.ownerTeamId,

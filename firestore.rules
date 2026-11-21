@@ -55,7 +55,11 @@ service cloud.firestore {
         'cat_puzzles',
         'cat_sports',
         'cat_islamic',
-        'cat_prophet_stories'
+        'cat_prophet_stories',
+        'cat_guess_price',
+        'cat_rashidun',
+        'jordan_brands_nostalgia',
+        'cat_world_cup_2026'
       ] || exists(/databases/$(database)/documents/catalogCategories/$(catId));
     }
 
@@ -82,7 +86,7 @@ service cloud.firestore {
         && data.description is string && data.description.size() <= 280
         && data.iconKey is string && data.iconKey in [
           'general', 'science', 'history', 'arabic', 'puzzles',
-          'sports', 'islamic', 'pdf', 'skills', 'geography', 'tech'
+          'sports', 'islamic', 'pdf', 'skills', 'geography', 'tech', 'price_tag', 'rashidun', 'jordan_logos', 'world_cup_2026'
         ]
         && data.accentColor is string && data.accentColor.size() >= 4 && data.accentColor.size() <= 16
         && data.accentColor.matches('^#[0-9a-fA-F]{3,8}$')
@@ -129,7 +133,7 @@ service cloud.firestore {
         && (!('correctOptionIndex' in data) || (data.correctOptionIndex is int && data.correctOptionIndex >= 0 && data.correctOptionIndex <= 5))
         && (!('hint' in data) || (data.hint is string && data.hint.size() <= 300))
         && (!('explanation' in data) || (data.explanation is string && data.explanation.size() <= 600))
-        && (!('imageUrl' in data) || (data.imageUrl is string && data.imageUrl.size() <= 1000 && (data.imageUrl == '' || data.imageUrl.matches('^https?://.*') || data.imageUrl.matches('^/assets/.*'))))
+        && (!('imageUrl' in data) || (data.imageUrl is string && data.imageUrl.size() <= 1000 && (data.imageUrl == '' || data.imageUrl.matches('^https?://.*') || data.imageUrl.matches('^/assets/.*') || data.imageUrl.matches('^/images/.*'))))
         && (!('imageCaption' in data) || (data.imageCaption is string && data.imageCaption.size() <= 200))
         && data.status is string && data.status in ['approved', 'needs_review', 'rejected']
         && data.isBackup is bool

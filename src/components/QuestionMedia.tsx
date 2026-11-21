@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ZoomIn } from 'lucide-react';
+import { EyeOff, X, ZoomIn } from 'lucide-react';
 
 interface QuestionMediaProps {
   imageSrc?: string;
   caption?: string;
   pageNumber?: number;
   compact?: boolean;
+  obscured?: boolean;
 }
 
 export function QuestionMedia({
@@ -14,8 +15,15 @@ export function QuestionMedia({
   caption,
   pageNumber,
   compact = false,
+  obscured = false,
 }: QuestionMediaProps) {
   const [zoomed, setZoomed] = useState(false);
+
+  useEffect(() => {
+    if (obscured && zoomed) {
+      setZoomed(false);
+    }
+  }, [obscured, zoomed]);
 
   useEffect(() => {
     if (!zoomed) return;
@@ -28,10 +36,15 @@ export function QuestionMedia({
 
   if (!imageSrc) return null;
 
-  const altText = caption?.trim() || 'شكل أو صورة توضيحية للسؤال';
+  const altText = obscured
+    ? 'شعار مموّه للتخمين'
+    : caption?.trim() || 'شكل أو صورة توضيحية للسؤال';
+  const needsDarkSurface =
+    /\/assets\/jordan_brands_nostalgia\/JOR-MEM-LOGO-(003|026|028|075|093)\./i.test(imageSrc);
+  const surfaceClass = needsDarkSurface ? 'bg-[#1E2433]' : 'bg-white';
 
   const modalContent =
-    zoomed && typeof document !== 'undefined'
+    zoomed && !obscured && typeof document !== 'undefined'
       ? createPortal(
           <div
             role="dialog"
@@ -65,7 +78,7 @@ export function QuestionMedia({
                 </button>
               </div>
 
-              <div className="rounded-2xl border-2 border-[#1F112E]/20 bg-white p-2 flex items-center justify-center">
+              <div className={`rounded-2xl border-2 border-[#1F112E]/20 ${surfaceClass} p-3 flex items-center justify-center`}>
                 <img
                   src={imageSrc}
                   alt={altText}
@@ -78,31 +91,60 @@ export function QuestionMedia({
         )
       : null;
 
+  const imgClasses = `mx-auto w-auto max-w-full rounded-xl object-contain transition-all duration-500 ${
+    compact ? 'max-h-[155px]' : 'max-h-[210px] md:max-h-[260px]'
+  } ${obscured ? 'blur-[14px] scale-110 select-none pointer-events-none' : 'blur-0 scale-100'}`;
+
   return (
     <>
-      <figure className="question-media-figure mx-auto mb-3 w-full max-w-xl flex flex-col items-center">
-        <button
-          type="button"
-          onClick={() => setZoomed(true)}
-          aria-label={`تكبير الصورة: ${altText}`}
-          className={`group relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E] transition hover:-translate-y-0.5 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[#63349B] ${
-            compact ? 'p-1.5' : 'p-2.5'
-          }`}
-        >
-          <img
-            src={imageSrc}
-            alt={altText}
-            className={`mx-auto w-auto max-w-full rounded-xl object-contain ${
-              compact ? 'max-h-[155px]' : 'max-h-[210px] md:max-h-[260px]'
+      <figure
+        className="question-media-figure mx-auto mb-3 w-full max-w-xl flex flex-col items-center"
+        data-obscured={obscured ? 'true' : 'false'}
+      >
+        {obscured ? (
+          <div
+            aria-label="شعار مموّه قبل كشف الإجابة"
+            className={`relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} shadow-[0_4px_0_#1F112E] ${
+              compact ? 'p-1.5' : 'p-2.5'
             }`}
-          />
-          <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#FFE047] px-2 py-0.5 text-[11px] font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
-            <ZoomIn className="w-3.5 h-3.5" />
-            <span>اضغط للتكبير</span>
-          </span>
-        </button>
+          >
+            <img
+              src={imageSrc}
+              alt={altText}
+              draggable={false}
+              className={imgClasses}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1F112E]/10 via-transparent to-[#1F112E]/15 backdrop-blur-[3px]"
+            />
+            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#1F112E] px-2.5 py-0.5 text-[11px] font-black text-[#FFE047] shadow-[0_2px_0_#1F112E]">
+              <EyeOff className="w-3.5 h-3.5" />
+              <span>شعار مموّه</span>
+            </span>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setZoomed(true)}
+            aria-label={`تكبير الصورة: ${altText}`}
+            className={`group relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} shadow-[0_4px_0_#1F112E] transition hover:-translate-y-0.5 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[#63349B] ${
+              compact ? 'p-1.5' : 'p-2.5'
+            }`}
+          >
+            <img
+              src={imageSrc}
+              alt={altText}
+              className={imgClasses}
+            />
+            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#FFE047] px-2 py-0.5 text-[11px] font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
+              <ZoomIn className="w-3.5 h-3.5" />
+              <span>اضغط للتكبير</span>
+            </span>
+          </button>
+        )}
 
-        {(caption || pageNumber) && (
+        {(caption || pageNumber) && !obscured && (
           <figcaption className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 text-center text-xs font-bold text-[#1F112E]/80">
             {pageNumber && (
               <span className="rounded-md border border-[#1F112E]/25 bg-[#EDE7F6] px-1.5 py-0.5 text-[10px] font-black text-[#63349B] tabular-nums">
@@ -117,4 +159,3 @@ export function QuestionMedia({
     </>
   );
 }
-
