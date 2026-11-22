@@ -18,8 +18,6 @@ import {
   QrCode,
   RefreshCw,
   RotateCcw,
-  ShieldAlert,
-  Lock,
   SkipForward,
   Sparkles,
   Trophy,
@@ -115,12 +113,7 @@ export function GameArena({
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const [memoryReviewVisible, setMemoryReviewVisible] = useState(true);
-  const [actingQrInfo, setActingQrInfo] = useState<{
-    token: string;
-    qrDataUrl: string;
-    actingUrl: string;
-    actingPath: string;
-  } | null>(null);
+  const [actingQr, setActingQr] = useState<{ actingPath: string; actingUrl: string; qrDataUrl: string } | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
@@ -294,6 +287,27 @@ export function GameArena({
     };
   }, [state]);
 
+  const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
+
+  useEffect(() => {
+    if (!isSilentActingRound || !roundMeta?.actingToken || state?.phase === 'REVEAL') {
+      setActingQr(null);
+      return;
+    }
+    let active = true;
+    fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(roundMeta.actingToken)}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (active && data?.qrDataUrl) {
+          setActingQr(data);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [roomCode, isSilentActingRound, roundMeta?.actingToken, state?.phase]);
+
   // Automatically track displayed questions in the host's account progress for non-repetition
   useEffect(() => {
     if (!isHost || !user || !state || !roundMeta) return;
@@ -315,47 +329,10 @@ export function GameArena({
   const isGrammarRound = roundMeta?.categoryId === ARABIC_GRAMMAR_CATEGORY.id;
   const isFirstNameRound = roundMeta?.categoryId === FOOTBALL_FIRST_NAME_CATEGORY.id;
   const isGeometryRound = roundMeta?.categoryId === GEOMETRY_CATEGORY.id;
-  const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
   const grammarPrompt = isGrammarRound ? roundMeta?.prompt.match(/^(.*)【([^】]+)】(.*)$/s) : null;
   const alternatePlurals = roundMeta?.categoryId === ARABIC_PLURALS_CATEGORY.id
     ? roundMeta.acceptableAnswers
     : undefined;
-
-  useEffect(() => {
-    const tokenVal = roundMeta?.actingToken;
-    if (
-      !isSilentActingRound ||
-      !tokenVal ||
-      !state ||
-      state.phase === 'BOARD' ||
-      state.phase === 'FINAL' ||
-      state.phase === 'REVEAL' ||
-      state.phase === 'AWARD' ||
-      state.phase === 'LIFELINE_PICK'
-    ) {
-      setActingQrInfo(null);
-      return;
-    }
-    let mounted = true;
-    fetch(
-      `/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(tokenVal)}`,
-    )
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (mounted && data?.qrDataUrl) {
-          setActingQrInfo({
-            token: tokenVal,
-            qrDataUrl: data.qrDataUrl,
-            actingUrl: data.actingUrl,
-            actingPath: data.actingPath,
-          });
-        }
-      })
-      .catch(() => {});
-    return () => {
-      mounted = false;
-    };
-  }, [isSilentActingRound, roundMeta?.actingToken, roomCode, state?.phase]);
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
@@ -970,9 +947,13 @@ export function GameArena({
                         <audio
                           key={roundMeta.questionId}
                           className="mx-auto mt-4 w-full max-w-md"
-                          src={roundMeta.audioUrl}
+                          src={
+                            roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id
+                              ? `${roundMeta.audioUrl}?v=fast2`
+                              : roundMeta.audioUrl
+                          }
                           controls
-                          preload="none"
+                          preload={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'metadata' : 'none'}
                           aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
                         />
                       )}
@@ -1030,76 +1011,56 @@ export function GameArena({
                           </div>
                         )}
 
+                      {/* Silent Acting Single-Device QR Reveal & Anti-Cheat Banner */}
+                      {isSilentActingRound && state.phase !== 'REVEAL' && (
+                        <div className="mt-4 flex flex-col items-center gap-3 w-full">
+                          {(roundMeta.actingCheatAttempts ?? 0) > 0 && (
+                            <div
+                              data-testid="silent-acting-cheat-alert"
+                              role="alert"
+                              className="w-full max-w-md rounded-2xl border-2 border-[#1F112E] bg-[#FFE5E7] px-4 py-3 text-center font-display font-black text-base text-[#991B1B] shadow-[0_4px_0_#1F112E] animate-bounce"
+                            >
+                              يا غشاشش!! محاولة فتح الرمز من جهاز ثانٍ ({roundMeta.actingCheatAttempts})
+                            </div>
+                          )}
+                          {actingQr && (
+                            <div
+                              data-testid="silent-acting-qr-card"
+                              data-acting-path={actingQr.actingPath}
+                              className="rounded-2xl border-[2.5px] border-[#1F112E] bg-white p-4 shadow-[0_4px_0_#1F112E] flex flex-col items-center gap-2.5"
+                            >
+                              {roundMeta.subtopic && (
+                                <span className="rounded-lg border border-[#1F112E]/25 bg-[#EDE7F6] px-3 py-0.5 text-xs font-black text-[#5C2E91]">
+                                  التصنيف: {roundMeta.subtopic}
+                                </span>
+                              )}
+                              <img
+                                data-testid="silent-acting-qr-image"
+                                src={actingQr.qrDataUrl}
+                                alt="رمز QR لكشف كلمة التمثيل الصامت على هاتف واحد فقط"
+                                className="w-44 h-44 rounded-xl border-2 border-[#1F112E] bg-white p-1"
+                              />
+                              <span
+                                data-testid="silent-acting-status"
+                                className={`rounded-xl border border-[#1F112E]/25 px-3 py-1 text-xs font-black ${
+                                  roundMeta.actingClaimed
+                                    ? 'bg-[#E6F9F0] text-[#065F46]'
+                                    : 'bg-[#FFF2CD] text-[#78350F]'
+                                }`}
+                              >
+                                {roundMeta.actingClaimed
+                                  ? 'تم فتح الكلمة على هاتف الممثّل (مقفل لجهاز واحد)'
+                                  : 'امسح الرمز بهاتف الممثّل فقط — يُقفل تلقائيًا بعد أول فتح'}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
                       {/* Optional Pantomime Reminder */}
                       {roundMeta.questionType === 'pantomime_optional' && state.phase !== 'REVEAL' && (
                         <div className="mt-4 inline-flex items-center gap-2 bg-[#EDE7F6] border border-[#7042A1] px-4 py-1.5 rounded-xl text-xs font-bold text-[#7042A1]">
                           <span>نشاط تمثيل صامت اختياري — يمكن تبديله ببطاقة شنّص</span>
-                        </div>
-                      )}
-
-                      {/* Dedicated Silent Acting Single-Device QR Stage (secret answer hidden until REVEAL) */}
-                      {isSilentActingRound && state.phase !== 'REVEAL' && (
-                        <div
-                          data-testid="silent-acting-qr-card"
-                          data-acting-path={actingQrInfo?.actingPath || ''}
-                          className="mt-5 mx-auto max-w-md rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FFF4D6] p-4 sm:p-5 shadow-[0_4px_0_#1F112E] space-y-3 text-center"
-                        >
-                          {roundMeta.subtopic && (
-                            <div className="inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-white px-3.5 py-1 text-xs font-black text-[#63349B]">
-                              <Sparkles className="w-3.5 h-3.5" />
-                              <span>{roundMeta.subtopic}</span>
-                            </div>
-                          )}
-
-                          <div className="mx-auto w-fit rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FFFDF7] p-3 shadow-[0_3px_0_#1F112E]">
-                            {actingQrInfo?.qrDataUrl ? (
-                              <img
-                                data-testid="silent-acting-qr-image"
-                                src={actingQrInfo.qrDataUrl}
-                                alt="رمز QR لفتح كلمة التمثيل الصامت"
-                                className="w-44 h-44 sm:w-48 sm:h-48 object-contain"
-                              />
-                            ) : (
-                              <div className="w-44 h-44 sm:w-48 sm:h-48 flex flex-col items-center justify-center gap-2 text-[#1F112E]/60">
-                                <QrCode className="w-10 h-10 animate-pulse" />
-                                <span className="text-xs font-bold">جارٍ تجهيز رمز QR...</span>
-                              </div>
-                            )}
-                          </div>
-
-                          <div
-                            data-testid="silent-acting-status"
-                            className={`inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#1F112E] px-3.5 py-1.5 text-xs sm:text-sm font-black shadow-[0_2px_0_#1F112E] ${
-                              roundMeta.actingClaimed
-                                ? 'bg-[#00A86B] text-white'
-                                : 'bg-white text-[#1F112E]'
-                            }`}
-                          >
-                            {roundMeta.actingClaimed ? (
-                              <>
-                                <Lock className="w-4 h-4 shrink-0" />
-                                <span>تم فتح المطلوب على هاتف الممثّل فقط</span>
-                              </>
-                            ) : (
-                              <>
-                                <QrCode className="w-4 h-4 shrink-0 text-[#63349B]" />
-                                <span>بانتظار مسح الرمز من هاتف واحد فقط...</span>
-                              </>
-                            )}
-                          </div>
-
-                          {(roundMeta.actingCheatAttempts ?? 0) > 0 && (
-                            <div
-                              data-testid="silent-acting-cheat-alert"
-                              className="rounded-xl border-2 border-[#1F112E] bg-[#F05B63] px-4 py-2.5 text-white shadow-[0_3px_0_#1F112E] flex items-center justify-center gap-2"
-                            >
-                              <ShieldAlert className="w-5 h-5 shrink-0 text-[#FFE047]" />
-                              <span className="font-display font-black text-xs sm:text-sm">
-                                يا غشاشش! تم رصد {roundMeta.actingCheatAttempts}{' '}
-                                {roundMeta.actingCheatAttempts === 1 ? 'محاولة غش' : 'محاولات غش'} من جهاز آخر ومنعها!
-                              </span>
-                            </div>
-                          )}
                         </div>
                       )}
                     </div>

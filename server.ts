@@ -766,24 +766,28 @@ async function startServer() {
   });
 
   app.get('/api/rooms/:code/acting-qr', async (req, res) => {
-    const token = String(req.query.token || '');
+    const token = typeof req.query.token === 'string' ? req.query.token : '';
     if (!token) {
-      return res.status(400).json({ error: 'رمز التمثيل مطلوب.' });
+      return res.status(400).json({ error: 'رمز التمثيل مفقود.' });
     }
-    const qr = await roomManager.getActingQr(req.params.code, token, resolvePublicOrigin(req));
-    if (!qr) {
-      return res.status(404).json({ error: 'تعذر إنشاء رمز QR لهذه الجولة.' });
+    const qrBundle = await roomManager.getActingQr(
+      req.params.code,
+      token,
+      resolvePublicOrigin(req),
+    );
+    if (!qrBundle) {
+      return res.status(404).json({ error: 'رمز التمثيل غير متاح حاليًا.' });
     }
-    res.json(qr);
+    res.json(qrBundle);
   });
 
   app.post('/api/rooms/:code/acting-reveal', (req, res) => {
     const { token, deviceId } = req.body as { token?: string; deviceId?: string };
     if (!token || !deviceId) {
-      return res.status(400).json({ status: 'expired', error: 'بيانات الجهاز والرمز مطلوبة.' });
+      return res.status(400).json({ status: 'expired', message: 'بيانات الكشف غير مكتملة.' });
     }
-    const result = roomManager.claimSilentActingWord(req.params.code, token, deviceId);
-    res.json(result);
+    const outcome = roomManager.claimSilentActingWord(req.params.code, token, deviceId);
+    res.json(outcome);
   });
 
   app.post('/api/rooms/:code/command', (req, res) => {

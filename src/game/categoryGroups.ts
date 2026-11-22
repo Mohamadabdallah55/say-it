@@ -1,5 +1,5 @@
 import { normalizeArabicText } from './pdfValidation';
-import type { DeckCategory } from './types';
+import type { CategoryIconKey, DeckCategory } from './types';
 
 export type CategoryMenuId =
   | 'football'
@@ -9,215 +9,169 @@ export type CategoryMenuId =
   | 'science'
   | 'world'
   | 'jordan'
-  | 'visual'
-  | 'custom';
+  | 'visual';
 
 export interface CategoryGroupMeta {
   id: CategoryMenuId;
-  emoji: string;
   label: string;
   description: string;
+  emoji: string;
   accentColor: string;
   dotColor: string;
-  categoryIds: readonly string[];
 }
 
-export const OFFICIAL_CATEGORY_GROUPS: readonly CategoryGroupMeta[] = [
+export const CATEGORY_GROUPS: CategoryGroupMeta[] = [
   {
     id: 'football',
-    emoji: '⚽',
     label: 'عالم كرة القدم',
-    description: 'دوري أبطال أوروبا، كأس العالم، ريال مدريد، الكلاسيكو وتحديات اللاعبين',
-    accentColor: '#00A86B',
-    dotColor: '#00A86B',
-    categoryIds: [
-      'cat_world_football',
-      'cat_football_ordering',
-      'cat_champions_league',
-      'cat_real_madrid',
-      'cat_el_clasico',
-      'cat_football_letters',
-      'cat_world_cup_2026',
-      'cat_club_logos',
-      'cat_football_first_name',
-      'cat_football_career',
-    ],
+    description: 'كأس العالم ٢٠٢٦، الأندية، اللاعبين، والتحديات الكروية',
+    emoji: '⚽',
+    accentColor: '#1B758E',
+    dotColor: '#279ED6',
   },
   {
     id: 'islamic',
-    emoji: '🕌',
     label: 'التاريخ والثقافة الإسلامية',
-    description: 'قصص الأنبياء، السيرة النبوية، الأحاديث النبوية، الخلفاء والترتيب الإسلامي',
-    accentColor: '#0F766E',
-    dotColor: '#0F766E',
-    categoryIds: [
-      'cat_prophet_stories',
-      'cat_prophetic_biography',
-      'cat_hadith',
-      'cat_rashidun',
-      'cat_islamic_ordering',
-      'cat_islamic_letters',
-    ],
+    description: 'الخلفاء الراشدين، السيرة النبوية، قصص الأنبياء، والأحاديث',
+    emoji: '🕌',
+    accentColor: '#23765B',
+    dotColor: '#00A86B',
   },
   {
     id: 'quran',
+    label: 'القرآن الكريم',
+    description: 'التلاوات، القراء، جزء عمّ وتبارك، ومعاني الآيات',
     emoji: '📖',
-    label: 'القرآن والأناشيد',
-    description: 'من القارئ، تحديد السور والآيات، جزء تبارك وجزء عمّ',
-    accentColor: '#B45309',
-    dotColor: '#D97706',
-    categoryIds: [
-      'cat_quran_reciter',
-      'cat_quran_media',
-      'cat_quran_verse_meanings',
-      'cat_juz_tabarak',
-      'cat_juz_amma',
-    ],
+    accentColor: '#286449',
+    dotColor: '#127C56',
   },
   {
     id: 'language',
-    emoji: '🔤',
     label: 'اللغة والكلمات',
-    description: 'الإعراب، الجذور، اللهجات العربية، الأمثال الفلسطينية والجمع والمعكوس',
-    accentColor: '#C25B3F',
-    dotColor: '#DC2626',
-    categoryIds: [
-      'cat_arabic_grammar',
-      'cat_arabic_roots',
-      'cat_arabic_dialects',
-      'cat_english_letters',
-      'cat_palestinian_proverbs',
-      'cat_arabic_plurals',
-      'cat_reversed_words',
-    ],
+    description: 'كلمات معكوسة، الإعراب، الجذور، والأمثال الشعبية',
+    emoji: '✍️',
+    accentColor: '#6855A3',
+    dotColor: '#8B5CF6',
   },
   {
     id: 'science',
-    emoji: '🧠',
     label: 'العلوم والذكاء',
-    description: 'العلوم والطبيعة، الطب، ألغاز الذكاء والهندسة الرياضية',
-    accentColor: '#4338CA',
-    dotColor: '#4F46E5',
-    categoryIds: [
-      'cat_science_quiz',
-      'cat_medical',
-      'cat_brain_teasers',
-      'cat_geometry',
-    ],
+    description: 'العلوم، الطب، الهندسة، وألغاز الذكاء والاستنتاج',
+    emoji: '🔬',
+    accentColor: '#35735D',
+    dotColor: '#0EA5E9',
   },
   {
     id: 'world',
-    emoji: '🌍',
     label: 'العالم والتاريخ',
-    description: 'أعلام الدول، العواصم والعملات وتاريخ الحرب العالمية',
-    accentColor: '#0369A1',
-    dotColor: '#0284C7',
-    categoryIds: [
-      'cat_flags',
-      'cat_capitals_currencies',
-      'cat_world_wars',
-    ],
+    description: 'الأعلام، العواصم والعملات، والحروب العالمية',
+    emoji: '🌍',
+    accentColor: '#226BA2',
+    dotColor: '#3B82F6',
   },
   {
     id: 'jordan',
-    emoji: '🇯🇴',
     label: 'الأردن والذكريات',
-    description: 'شعارات الأردن، الجامعة الهاشمية وخمّن السعر من السوق الأردني',
-    accentColor: '#BE123C',
-    dotColor: '#E11D48',
-    categoryIds: [
-      'jordan_brands_nostalgia',
-      'cat_hashemite_university',
-      'cat_guess_price',
-    ],
+    description: 'شعارات الأردن، خمن السعر، والجامعة الهاشمية',
+    emoji: '🇯🇴',
+    accentColor: '#885B2C',
+    dotColor: '#E59A00',
   },
   {
     id: 'visual',
-    emoji: '🧩',
     label: 'التحديات البصرية والأدائية',
-    description: 'أربع صور وكلمة، الذاكرة البصرية وتحدّي التمثيل الصامت عبر QR',
+    description: 'الذاكرة البصرية، أربع صور، والفئات المضافة',
+    emoji: '👁️',
     accentColor: '#63349B',
-    dotColor: '#7C3AED',
-    categoryIds: [
-      'cat_four_pictures',
-      'cat_visual_memory',
-      'cat_silent_acting',
-    ],
+    dotColor: '#F05B63',
   },
-] as const;
+];
 
-export const CUSTOM_CATEGORY_GROUP: CategoryGroupMeta = {
-  id: 'custom',
-  emoji: '✨',
-  label: 'فئات مخصصة',
-  description: 'فئات إضافية مُدارة من لوحة التحكم',
-  accentColor: '#63349B',
-  dotColor: '#63349B',
-  categoryIds: [],
+const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
+  // 1. عالم كرة القدم
+  cat_world_cup_2026: 'football',
+  cat_world_football: 'football',
+  cat_football_ordering: 'football',
+  cat_champions_league: 'football',
+  cat_real_madrid: 'football',
+  cat_el_clasico: 'football',
+  cat_football_letters: 'football',
+  cat_club_logos: 'football',
+  cat_football_first_name: 'football',
+  cat_football_career: 'football',
+  cat_sports: 'football',
+
+  // 2. التاريخ والثقافة الإسلامية
+  cat_rashidun: 'islamic',
+  cat_prophet_stories: 'islamic',
+  cat_prophetic_biography: 'islamic',
+  cat_hadith: 'islamic',
+  cat_islamic_ordering: 'islamic',
+  cat_islamic_letters: 'islamic',
+  cat_islamic: 'islamic',
+
+  // 3. القرآن الكريم
+  cat_quran_reciter: 'quran',
+  cat_quran_media: 'quran',
+  cat_quran_verse_meanings: 'quran',
+  cat_juz_tabarak: 'quran',
+  cat_juz_amma: 'quran',
+
+  // 4. اللغة والكلمات
+  cat_reversed_words: 'language',
+  cat_arabic_grammar: 'language',
+  cat_arabic_roots: 'language',
+  cat_arabic_plurals: 'language',
+  cat_english_letters: 'language',
+  cat_palestinian_proverbs: 'language',
+  cat_arabic_dialects: 'language',
+  cat_arabic: 'language',
+
+  // 5. العلوم والذكاء
+  cat_science_quiz: 'science',
+  cat_medical: 'science',
+  cat_brain_teasers: 'science',
+  cat_geometry: 'science',
+  cat_science: 'science',
+  cat_puzzles: 'science',
+
+  // 6. العالم والتاريخ
+  cat_flags: 'world',
+  cat_capitals_currencies: 'world',
+  cat_world_wars: 'world',
+  cat_general: 'world',
+  cat_history: 'world',
+
+  // 7. الأردن والذكريات
+  jordan_brands_nostalgia: 'jordan',
+  cat_hashemite_university: 'jordan',
+  cat_guess_price: 'jordan',
+
+  // 8. التحديات البصرية
+  cat_four_pictures: 'visual',
+  cat_visual_memory: 'visual',
+  cat_silent_acting: 'visual',
 };
 
-const GROUP_BY_CATEGORY_ID = new Map<string, CategoryGroupMeta>();
-const ORDER_WITHIN_GROUP = new Map<string, number>();
+const ICON_TO_GROUP: Partial<Record<CategoryIconKey, CategoryMenuId>> = {
+  sports: 'football',
+  world_cup_2026: 'football',
+  islamic: 'islamic',
+  rashidun: 'islamic',
+  arabic: 'language',
+  palestinian_proverbs: 'language',
+  science: 'science',
+  puzzles: 'science',
+  geography: 'world',
+  history: 'world',
+  jordan_logos: 'jordan',
+  price_tag: 'jordan',
+  visual_memory: 'visual',
+  silent_acting: 'visual',
+};
 
-for (const group of OFFICIAL_CATEGORY_GROUPS) {
-  group.categoryIds.forEach((catId, index) => {
-    GROUP_BY_CATEGORY_ID.set(catId, group);
-    ORDER_WITHIN_GROUP.set(catId, index);
-  });
-}
-
-export function getCategoryGroup(categoryId: string): CategoryGroupMeta {
-  return GROUP_BY_CATEGORY_ID.get(categoryId) ?? CUSTOM_CATEGORY_GROUP;
-}
-
-export interface GroupedCategorySection {
-  group: CategoryGroupMeta;
-  categories: DeckCategory[];
-}
-
-export function filterCategoriesByQuery(
-  categories: DeckCategory[],
-  searchQuery: string,
-): DeckCategory[] {
-  const q = normalizeArabicText(searchQuery);
-  if (!q) return categories;
-  return categories.filter(
-    (c) =>
-      normalizeArabicText(c.name).includes(q) ||
-      normalizeArabicText(c.description || '').includes(q) ||
-      normalizeArabicText(getCategoryGroup(c.id).label).includes(q),
-  );
-}
-
-export function groupCategoriesForLobby(
-  categories: DeckCategory[],
-  searchQuery = '',
-  selectedGroupId: 'all' | CategoryMenuId = 'all',
-): GroupedCategorySection[] {
-  const searched = filterCategoriesByQuery(categories, searchQuery);
-  const buckets = new Map<CategoryMenuId, DeckCategory[]>();
-
-  for (const cat of searched) {
-    const group = getCategoryGroup(cat.id);
-    if (selectedGroupId !== 'all' && group.id !== selectedGroupId) continue;
-    const list = buckets.get(group.id) ?? [];
-    list.push(cat);
-    buckets.set(group.id, list);
-  }
-
-  const sections: GroupedCategorySection[] = [];
-  for (const group of [...OFFICIAL_CATEGORY_GROUPS, CUSTOM_CATEGORY_GROUP]) {
-    const list = buckets.get(group.id);
-    if (!list || list.length === 0) continue;
-    const ordered = [...list].sort((a, b) => {
-      const idxA = ORDER_WITHIN_GROUP.get(a.id) ?? Number.MAX_SAFE_INTEGER;
-      const idxB = ORDER_WITHIN_GROUP.get(b.id) ?? Number.MAX_SAFE_INTEGER;
-      return idxA - idxB;
-    });
-    sections.push({ group, categories: ordered });
-  }
-
-  return sections;
+export function resolveCategoryMenuGroup(cat: DeckCategory): CategoryMenuId {
+  return CATEGORY_TO_GROUP[cat.id] ?? ICON_TO_GROUP[cat.iconKey] ?? 'visual';
 }
 
 export function getAvailableMenuTabs(
@@ -225,15 +179,42 @@ export function getAvailableMenuTabs(
 ): Array<{ group: CategoryGroupMeta; count: number }> {
   const counts = new Map<CategoryMenuId, number>();
   for (const cat of categories) {
-    const gid = getCategoryGroup(cat.id).id;
-    counts.set(gid, (counts.get(gid) ?? 0) + 1);
+    const groupId = resolveCategoryMenuGroup(cat);
+    counts.set(groupId, (counts.get(groupId) ?? 0) + 1);
   }
-  const tabs: Array<{ group: CategoryGroupMeta; count: number }> = [];
-  for (const group of [...OFFICIAL_CATEGORY_GROUPS, CUSTOM_CATEGORY_GROUP]) {
+  return CATEGORY_GROUPS.flatMap((group) => {
     const count = counts.get(group.id) ?? 0;
-    if (count > 0) {
-      tabs.push({ group, count });
+    return count > 0 ? [{ group, count }] : [];
+  });
+}
+
+export function groupCategoriesForLobby(
+  categories: DeckCategory[],
+  searchQuery: string,
+  focusedMenuGroup: 'all' | CategoryMenuId,
+): Array<{ group: CategoryGroupMeta; categories: DeckCategory[] }> {
+  const normalizedQuery = normalizeArabicText(searchQuery);
+  const buckets = new Map<CategoryMenuId, DeckCategory[]>();
+
+  for (const cat of categories) {
+    const groupId = resolveCategoryMenuGroup(cat);
+    if (focusedMenuGroup !== 'all' && groupId !== focusedMenuGroup) continue;
+
+    if (normalizedQuery) {
+      const groupMeta = CATEGORY_GROUPS.find((g) => g.id === groupId);
+      const haystack = normalizeArabicText(
+        `${cat.name} ${cat.description ?? ''} ${groupMeta?.label ?? ''}`,
+      );
+      if (!haystack.includes(normalizedQuery)) continue;
     }
+
+    const list = buckets.get(groupId) ?? [];
+    list.push(cat);
+    buckets.set(groupId, list);
   }
-  return tabs;
+
+  return CATEGORY_GROUPS.flatMap((group) => {
+    const list = buckets.get(group.id);
+    return list && list.length > 0 ? [{ group, categories: list }] : [];
+  });
 }

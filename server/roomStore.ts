@@ -27,7 +27,7 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { SERVER_CURATED_CATEGORY_IDS, SILENT_ACTING_CATEGORY } from '../src/game/curatedBanks';
+import { SERVER_CURATED_CATEGORY_IDS } from '../src/game/curatedBanks';
 import { SERVER_CURATED_QUESTIONS } from './curatedQuestionBanks';
 import {
   applyAccountProgressToDeck,
@@ -60,8 +60,8 @@ interface ConnectedClient {
 class RoomManager {
   private rooms: Record<string, RoomState>;
   private clients: Set<ConnectedClient> = new Set();
-  private actingClaims: Map<string, { deviceId: string; claimedAtMs: number; cheatAttempts: number }> = new Map();
   private tickInterval: NodeJS.Timeout | null = null;
+  private actingClaims: Map<string, { deviceId: string; claimedAtMs: number; cheatAttempts: number }> = new Map();
 
   constructor() {
     this.rooms = loadSavedRooms();
@@ -331,28 +331,16 @@ class RoomManager {
   }
 
   async getActingQr(roomCode: string, token: string, originUrl: string) {
-    const room = this.getRoom(roomCode);
-    if (!room || !room.activeRound) return null;
-    if (
-      room.activeRound.question.categoryId !== SILENT_ACTING_CATEGORY.id ||
-      !room.activeRound.actingToken ||
-      room.activeRound.actingToken !== token
-    ) {
+    const code = roomCode.toUpperCase();
+    const room = this.getRoom(code);
+    if (!room || !room.activeRound || room.activeRound.actingToken !== token) {
       return null;
     }
     const cleanOrigin = originUrl.replace(/\/$/, '');
-    const actingPath = `/?mode=act&room=${encodeURIComponent(room.roomCode)}&token=${encodeURIComponent(token)}`;
+    const actingPath = `/?mode=act&room=${encodeURIComponent(code)}&token=${encodeURIComponent(token)}`;
     const actingUrl = `${cleanOrigin}${actingPath}`;
-    const qrDataUrl = await QRCode.toDataURL(actingUrl, {
-      margin: 2,
-      width: 320,
-      color: { dark: '#1F112E', light: '#FFFDF7' },
-    });
-    return {
-      actingPath,
-      actingUrl,
-      qrDataUrl,
-    };
+    const qrDataUrl = await QRCode.toDataURL(actingUrl, { margin: 1, width: 220 });
+    return { actingPath, actingUrl, qrDataUrl };
   }
 
   claimSilentActingWord(
@@ -362,47 +350,39 @@ class RoomManager {
   ):
     | {
         status: 'ok';
-        alreadyClaimedByYou: boolean;
-        roomCode: string;
-        roundId: string;
-        categoryName: string;
-        phrase: string;
-        difficulty: string;
-        points: number;
+        word: string;
         subtopic?: string;
-        explanation?: string;
-        wordCount: number;
+        difficulty: 'easy' | 'medium' | 'hard';
+        points: number;
+        hint?: string;
+        alreadyClaimedByYou: boolean;
       }
-    | { status: 'cheater'; cheatAttempts: number; error: string }
-    | { status: 'expired'; error: string } {
+    | { status: 'cheater'; message: string; cheatAttempts: number }
+    | { status: 'expired'; message: string } {
     const code = roomCode.toUpperCase();
     const room = this.rooms[code];
-    if (!room || !room.activeRound) {
-      return { status: 'expired', error: 'لا توجد جولة تمثيل صامت نشطة حاليًا.' };
-    }
-    if (['LOBBY', 'BOARD', 'REVEAL', 'AWARD', 'FINAL', 'LIFELINE_PICK'].includes(room.phase)) {
-      return { status: 'expired', error: 'انتهت هذه الجولة أو تم كشف الإجابة بالفعل.' };
-    }
     if (
-      room.activeRound.question.categoryId !== SILENT_ACTING_CATEGORY.id ||
-      !room.activeRound.actingToken ||
+      !room ||
+      !room.activeRound ||
+      room.phase === 'REVEAL' ||
+      room.phase === 'BOARD' ||
+      room.phase === 'FINAL' ||
       room.activeRound.actingToken !== token
     ) {
-      return { status: 'expired', error: 'رمز QR منتهي الصلاحية أو يخص سؤالاً سابقًا.' };
+      return { status: 'expired', message: 'انتهت صلاحية رمز التمثيل الصامت أو لم تعد الجولة نشطة.' };
     }
 
     const deviceId = String(deviceIdRaw || '').trim();
     if (deviceId.length < 6) {
-      return { status: 'expired', error: 'تعذر التحقق من معرّف الجهاز.' };
+      return { status: 'expired', message: 'معرّف الجهاز غير صالح؛ أعد فتح الرابط من جديد.' };
     }
 
-    const claimKey = `${code}:${room.activeRound.roundId}:${token}`;
-    const existing = this.actingClaims.get(claimKey);
+    const key = `${code}:${token}`;
+    const existing = this.actingClaims.get(key);
     const question = room.activeRound.question;
-    const wordCount = question.answer.trim().split(/\s+/).filter(Boolean).length;
 
     if (!existing) {
-      this.actingClaims.set(claimKey, {
+      this.actingClaims.set(key, {
         deviceId,
         claimedAtMs: Date.now(),
         cheatAttempts: 0,
@@ -420,32 +400,24 @@ class RoomManager {
       this.broadcastRoom(code);
       return {
         status: 'ok',
-        alreadyClaimedByYou: false,
-        roomCode: code,
-        roundId: room.activeRound.roundId,
-        categoryName: question.categoryName,
-        phrase: question.answer,
+        word: question.answer,
+        subtopic: question.subtopic,
         difficulty: question.difficulty,
         points: room.activeRound.basePoints,
-        subtopic: question.subtopic,
-        explanation: question.explanation,
-        wordCount,
+        hint: question.hint,
+        alreadyClaimedByYou: false,
       };
     }
 
     if (existing.deviceId === deviceId) {
       return {
         status: 'ok',
-        alreadyClaimedByYou: true,
-        roomCode: code,
-        roundId: room.activeRound.roundId,
-        categoryName: question.categoryName,
-        phrase: question.answer,
+        word: question.answer,
+        subtopic: question.subtopic,
         difficulty: question.difficulty,
         points: room.activeRound.basePoints,
-        subtopic: question.subtopic,
-        explanation: question.explanation,
-        wordCount,
+        hint: question.hint,
+        alreadyClaimedByYou: true,
       };
     }
 
@@ -461,11 +433,10 @@ class RoomManager {
     };
     persistRoomsMap(this.rooms);
     this.broadcastRoom(code);
-
     return {
       status: 'cheater',
+      message: 'يا غشاشش!! هذا الرمز فُتح بالفعل على جهاز الممثّل فقط!',
       cheatAttempts: existing.cheatAttempts,
-      error: 'يا غشاشش!! هذا الرمز فُتح بالفعل على جهاز الممثّل فقط!',
     };
   }
 

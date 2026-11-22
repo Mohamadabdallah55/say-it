@@ -12,34 +12,34 @@ export const LIFELINE_CARD_ART: Record<LifelineType, string> = {
   buzzer_challenge: '/assets/cards/card_silence.png',
 };
 
-const PHOTO_FOOTBALL_PITCH = '/src/assets/images/real_cat_football_pitch_1795341642220.jpg';
-const PHOTO_CHAMPIONS = '/src/assets/images/real_cat_champions_trophy_1795341641790.jpg';
-const PHOTO_WORLD_CUP = '/src/assets/images/real_cat_world_cup_1795341643320.jpg';
-const PHOTO_SOCCER_CLEATS = '/src/assets/images/real_cat_soccer_cleats_1795341641757.jpg';
-const PHOTO_MOSQUE = '/src/assets/images/real_cat_islamic_mosque_1795341643291.jpg';
-const PHOTO_MANUSCRIPT = '/src/assets/images/real_cat_islamic_manuscript_1795341641792.jpg';
-const PHOTO_QURAN = '/src/assets/images/real_cat_quran_stand_1795341641687.jpg';
-const PHOTO_STUDIO_MIC = '/src/assets/images/real_cat_studio_mic_1795341643423.jpg';
-const PHOTO_ARABIC_INK = '/src/assets/images/real_cat_arabic_ink_1795341641562.jpg';
-const PHOTO_PALESTINIAN = '/src/assets/images/real_cat_palestinian_olive_1795341641446.jpg';
-const PHOTO_BOOKS = '/src/assets/images/real_cat_vintage_books_1795341642135.jpg';
-const PHOTO_SCIENCE = '/src/assets/images/real_cat_science_lab_1795341643591.jpg';
-const PHOTO_MEDICAL = '/src/assets/images/real_cat_medical_1795341642404.jpg';
-const PHOTO_CHESS_LOGIC = '/src/assets/images/real_cat_chess_logic_1795341643351.jpg';
-const PHOTO_JORDAN_AMMAN = '/src/assets/images/real_cat_jordan_amman_1795341641739.jpg';
-const PHOTO_SUPERMARKET = '/src/assets/images/real_cat_supermarket_1795341642510.jpg';
-const PHOTO_FLAGS = '/src/assets/images/real_cat_flags_1795354932277.jpg';
-const PHOTO_EL_CLASICO = '/src/assets/images/real_cat_clasico_1795354937239.jpg';
-const PHOTO_REAL_MADRID = '/src/assets/images/real_cat_madrid_1795354937851.jpg';
-const PHOTO_FOCUS_SCULPTURE = '/src/assets/images/real_cat_focus_1795354937633.jpg';
-const PHOTO_CLUB_LOGOS = '/src/assets/images/real_cat_clubs_1795354938429.jpg';
-const PHOTO_CURRENCIES = '/src/assets/images/real_cat_currencies_1795354936844.jpg';
-const PHOTO_WORLD_WARS = '/src/assets/images/real_cat_wars_1795354937607.jpg';
-const PHOTO_GEOMETRY = '/src/assets/images/real_cat_geometry_1795354937228.jpg';
-const PHOTO_FOUR_PICTURES = '/src/assets/images/four_photo_grid_1795354936525.jpg';
-const PHOTO_UNIVERSITY = '/src/assets/images/jordan_university_campus_1795354937592.jpg';
-const PHOTO_ENGLISH_LETTERS = '/src/assets/images/english_letter_tiles_1795354937245.jpg';
-const PHOTO_SILENT_ACTING = '/src/assets/images/silent_acting_stage_1795356233307.jpg';
+const PHOTO_FOOTBALL_PITCH = '/src/assets/images/cat_football_pitch_1795382193501.jpg';
+const PHOTO_CHAMPIONS = '/src/assets/images/cat_champions_trophy_1795381387638.jpg';
+const PHOTO_WORLD_CUP = '/src/assets/images/cat_world_cup_1795382192849.jpg';
+const PHOTO_SOCCER_CLEATS = '/src/assets/images/cat_soccer_cleats_1795381386218.jpg';
+const PHOTO_MOSQUE = '/src/assets/images/cat_islamic_mosque_1795381390971.jpg';
+const PHOTO_MANUSCRIPT = '/src/assets/images/cat_islamic_manuscript_1795381387638.jpg';
+const PHOTO_QURAN = '/src/assets/images/cat_quran_stand_1795381387581.jpg';
+const PHOTO_STUDIO_MIC = '/src/assets/images/cat_studio_mic_1795381387761.jpg';
+const PHOTO_ARABIC_INK = '/src/assets/images/cat_arabic_ink_1795381387458.jpg';
+const PHOTO_PALESTINIAN = '/src/assets/images/cat_palestinian_olive_1795382191788.jpg';
+const PHOTO_BOOKS = '/src/assets/images/cat_vintage_books_1795381388591.jpg';
+const PHOTO_SCIENCE = '/src/assets/images/cat_science_lab_1795381388297.jpg';
+const PHOTO_MEDICAL = '/src/assets/images/cat_medical_care_1795381387394.jpg';
+const PHOTO_CHESS_LOGIC = '/src/assets/images/cat_chess_logic_1795382191950.jpg';
+const PHOTO_JORDAN_AMMAN = '/src/assets/images/cat_jordan_amman_1795382192256.jpg';
+const PHOTO_SUPERMARKET = '/src/assets/images/cat_supermarket_aisle_1795381386098.jpg';
+const PHOTO_FLAGS = '/src/assets/images/cat_world_flags_1795381387781.jpg';
+const PHOTO_EL_CLASICO = '/src/assets/images/cat_clasico_rivalry_1795382193084.jpg';
+const PHOTO_REAL_MADRID = '/src/assets/images/cat_royal_madrid_1795381387945.jpg';
+const PHOTO_FOCUS_SCULPTURE = '/src/assets/images/cat_focus_sculpture_1795381388768.jpg';
+const PHOTO_CLUB_LOGOS = '/src/assets/images/cat_club_badges_1795382193208.jpg';
+const PHOTO_CURRENCIES = '/src/assets/images/cat_world_currencies_1795382191478.jpg';
+const PHOTO_WORLD_WARS = '/src/assets/images/cat_world_wars_1795381387824.jpg';
+const PHOTO_GEOMETRY = '/src/assets/images/cat_math_geometry_1795381389600.jpg';
+const PHOTO_FOUR_PICTURES = '/src/assets/images/cat_four_pictures_1795381386588.jpg';
+const PHOTO_UNIVERSITY = '/src/assets/images/cat_jordan_university_1795381387525.jpg';
+const PHOTO_ENGLISH_LETTERS = '/src/assets/images/cat_english_letters_1795381386633.jpg';
+const PHOTO_SILENT_ACTING = '/src/assets/images/cat_silent_acting_1795382191657.jpg';
 
 export const CATEGORY_REAL_ART: Record<string, string> = {
   // 1. عالم كرة القدم
@@ -62,7 +62,7 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
   cat_islamic_ordering: PHOTO_MANUSCRIPT,
   cat_islamic_letters: PHOTO_MOSQUE,
 
-  // 3. القرآن والأناشيد
+  // 3. القرآن الكريم
   cat_quran_reciter: PHOTO_STUDIO_MIC,
   cat_quran_media: PHOTO_QURAN,
   cat_quran_verse_meanings: PHOTO_QURAN,
@@ -72,11 +72,11 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
   // 4. اللغة والكلمات
   cat_arabic_grammar: PHOTO_ARABIC_INK,
   cat_arabic_roots: PHOTO_ARABIC_INK,
-  cat_arabic_dialects: PHOTO_BOOKS,
   cat_english_letters: PHOTO_ENGLISH_LETTERS,
   cat_palestinian_proverbs: PHOTO_PALESTINIAN,
   cat_arabic_plurals: PHOTO_ARABIC_INK,
   cat_reversed_words: PHOTO_STUDIO_MIC,
+  cat_arabic_dialects: PHOTO_BOOKS,
 
   // 5. العلوم والذكاء
   cat_science_quiz: PHOTO_SCIENCE,
@@ -103,15 +103,15 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
 export const CATEGORY_3D_ART: Record<CategoryIconKey, string> = {
   islamic: PHOTO_MOSQUE,
   science: PHOTO_SCIENCE,
-  history: PHOTO_MANUSCRIPT,
+  history: PHOTO_WORLD_WARS,
   arabic: PHOTO_ARABIC_INK,
   geography: PHOTO_FLAGS,
-  skills: PHOTO_CHESS_LOGIC,
+  skills: PHOTO_BOOKS,
   sports: PHOTO_FOOTBALL_PITCH,
   puzzles: PHOTO_CHESS_LOGIC,
   general: PHOTO_BOOKS,
-  tech: PHOTO_STUDIO_MIC,
-  pdf: PHOTO_BOOKS,
+  tech: PHOTO_FOCUS_SCULPTURE,
+  pdf: PHOTO_MANUSCRIPT,
   price_tag: PHOTO_SUPERMARKET,
   rashidun: PHOTO_MOSQUE,
   jordan_logos: PHOTO_JORDAN_AMMAN,

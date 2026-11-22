@@ -18,7 +18,7 @@ type ViewScreen =
   | { name: 'admin' }
   | { name: 'arena'; roomCode: string; role: 'host' | 'projector'; token?: string }
   | { name: 'buzzer'; roomCode: string; token: string }
-  | { name: 'silent_acting'; roomCode: string; token: string };
+  | { name: 'act'; roomCode: string; token: string };
 
 interface SavedRoomSummary {
   roomCode: string;
@@ -55,18 +55,18 @@ export default function App() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const mode = params.get('mode');
     const room = params.get('room');
+    const mode = params.get('mode');
     const role = params.get('role') as ClientRole | null;
     const token = params.get('token') || undefined;
     const autostart = params.get('autostart');
 
     if (!room) refreshDecksAndRooms();
-    if (mode === 'act' && room && token) {
-      setScreen({ name: 'silent_acting', roomCode: room.toUpperCase(), token });
-    } else if (room) {
+    if (room) {
       if (role === 'host' && token) localStorage.setItem('yh-host-' + room.toUpperCase(), token);
-      if (role === 'buzzer' && token) {
+      if (mode === 'act' && token) {
+        setScreen({ name: 'act', roomCode: room.toUpperCase(), token });
+      } else if (role === 'buzzer' && token) {
         setScreen({ name: 'buzzer', roomCode: room.toUpperCase(), token });
       } else {
         setScreen({
@@ -146,7 +146,7 @@ export default function App() {
     );
   }
 
-  if (screen.name === 'silent_acting') {
+  if (screen.name === 'act') {
     return <SilentActingScreen roomCode={screen.roomCode} token={screen.token} />;
   }
 

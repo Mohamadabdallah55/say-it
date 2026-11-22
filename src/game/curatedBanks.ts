@@ -278,20 +278,19 @@ export const ARABIC_DIALECTS_CATEGORY: DeckCategory = {
   iconKey: 'arabic',
   accentColor: '#C25B3F',
 };
-
 export const ARABIC_DIALECTS_COUNT = 60;
 
 export const SILENT_ACTING_CATEGORY: DeckCategory = {
   id: 'cat_silent_acting',
   name: 'تمثيل صامت',
-  description: 'تحدّي تمثيل صامت (تثميل صامت): يظهر المطلوب على هاتف واحد عبر QR فقط مع كشف فوري لمحاولات الغش',
+  description: 'تحدّي تمثيل صامت: يظهر المطلوب على هاتف واحد عبر QR فقط مع كشف فوري لمحاولات الغش',
   iconKey: 'silent_acting',
   accentColor: '#63349B',
 };
-
 export const SILENT_ACTING_COUNT = 100;
 
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
+  SILENT_ACTING_CATEGORY.id,
   HASHEMITE_UNIVERSITY_CATEGORY.id,
   PROPHET_STORIES_CATEGORY.id,
   RASHIDUN_CATEGORY.id,
@@ -313,7 +312,6 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   WORLD_FOOTBALL_CATEGORY.id,
   FOOTBALL_FIRST_NAME_CATEGORY.id,
   FOOTBALL_ORDERING_CATEGORY.id,
-  SILENT_ACTING_CATEGORY.id,
 ];
 
 export const SERVER_CURATED_CATEGORIES = [

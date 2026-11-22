@@ -4,7 +4,7 @@ import type { QuizQuestion } from '../src/game/types';
 import rows from './arabicDialects.json';
 
 export const ARABIC_DIALECTS_QUESTIONS: QuizQuestion[] = rows.map((row) => {
-  const difficulty = difficultyForPoints(row.points);
+  const difficulty = difficultyForPoints(row.level);
   return {
     id: row.id,
     categoryId: ARABIC_DIALECTS_CATEGORY.id,
@@ -12,11 +12,13 @@ export const ARABIC_DIALECTS_QUESTIONS: QuizQuestion[] = rows.map((row) => {
     difficulty,
     points: pointsForDifficulty(difficulty),
     questionType: 'direct_qa',
+    subtopic: row.subtopic,
     prompt: row.question,
     answer: row.answer,
     acceptableAnswers: row.acceptableAnswers,
+    hint: row.hint,
     explanation: row.explanation,
-    verificationStatus: 'verified',
     status: 'approved',
+    isBackup: false,
   };
 });

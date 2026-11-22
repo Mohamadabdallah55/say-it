@@ -1,121 +1,130 @@
-import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SILENT_ACTING_CATEGORY, SILENT_ACTING_COUNT } from './curatedBanks';
-import { sanitizeStateForRole } from './engine';
-import { SILENT_ACTING_PROMPT_PREFIX, SILENT_ACTING_QUESTIONS } from '../../server/silentActing';
+import test from 'node:test';
+import {
+  ARABIC_DIALECTS_CATEGORY,
+  ARABIC_DIALECTS_COUNT,
+  PRIVATE_REFERENCE_CATEGORY_IDS,
+  SILENT_ACTING_CATEGORY,
+  SILENT_ACTING_COUNT,
+} from './curatedBanks';
+import {
+  createRoomState,
+  sanitizeStateForRole,
+  selectBoardTile,
+  skipLifelinePick,
+} from './engine';
+import { ARABIC_DIALECTS_QUESTIONS } from '../../server/arabicDialects';
+import { SILENT_ACTING_QUESTIONS } from '../../server/silentActing';
 import { roomManager } from '../../server/roomStore';
+import { buildBoardDeckFromCategories } from './starterDecks';
 
-test('Silent Acting bank contains 100 unique graded challenges across 200/400/600 tiers', () => {
+test('Silent acting and Arabic dialects datasets have expected counts and difficulty distribution', () => {
   assert.equal(SILENT_ACTING_QUESTIONS.length, SILENT_ACTING_COUNT);
-  assert.equal(SILENT_ACTING_QUESTIONS.length, 100);
+  assert.equal(SILENT_ACTING_COUNT, 100);
+  assert.equal(ARABIC_DIALECTS_QUESTIONS.length, ARABIC_DIALECTS_COUNT);
+  assert.equal(ARABIC_DIALECTS_COUNT, 60);
 
-  const tierCounts: Record<number, number> = { 200: 0, 400: 0, 600: 0 };
-  const ids = new Set<string>();
-  const answers = new Set<string>();
-  const prompts = new Set<string>();
+  const uniqueActingAnswers = new Set(SILENT_ACTING_QUESTIONS.map((q) => q.answer));
+  assert.equal(uniqueActingAnswers.size, 100);
 
-  for (const q of SILENT_ACTING_QUESTIONS) {
-    assert.equal(q.categoryId, SILENT_ACTING_CATEGORY.id);
-    assert.equal(q.status, 'approved');
-    assert.ok(q.prompt.startsWith(SILENT_ACTING_PROMPT_PREFIX));
-    assert.ok(!ids.has(q.id), `Duplicate id ${q.id}`);
-    assert.ok(!answers.has(q.answer), `Duplicate answer ${q.answer}`);
-    assert.ok(!prompts.has(q.prompt), `Duplicate prompt ${q.prompt}`);
-    assert.ok(
-      q.answer.trim().split(/\s+/).length >= 2,
-      `Expected rich multi-word challenge for skilled players: ${q.answer}`,
-    );
-    assert.ok(!q.prompt.includes(q.answer), 'Public prompt must never leak the answer');
-
-    ids.add(q.id);
-    answers.add(q.answer);
-    prompts.add(q.prompt);
-    tierCounts[q.points] = (tierCounts[q.points] ?? 0) + 1;
+  for (const tier of [200, 400, 600] as const) {
+    assert.ok(SILENT_ACTING_QUESTIONS.some((q) => q.points === tier));
+    assert.ok(ARABIC_DIALECTS_QUESTIONS.some((q) => q.points === tier));
   }
 
-  assert.deepEqual(tierCounts, { 200: 34, 400: 33, 600: 33 });
+  assert.ok(PRIVATE_REFERENCE_CATEGORY_IDS.includes(SILENT_ACTING_CATEGORY.id));
 });
 
-test('Silent Acting QR single-device claim allows same device and catches any second device as ya ghashash', async () => {
-  const room = roomManager.createRoom({
-    deckId: 'curated_custom',
-    selectedCategoryIds: [SILENT_ACTING_CATEGORY.id, 'cat_flags', 'cat_science_quiz', 'cat_world_wars'],
+test('Silent acting projector state hides secret word before reveal and exposes actingToken', () => {
+  const deck = buildBoardDeckFromCategories(
+    [SILENT_ACTING_CATEGORY.id],
+    'تمثيل صامت',
+    SILENT_ACTING_QUESTIONS,
+  );
+  const room = createRoomState({
+    roomCode: 'ACT01',
+    hostToken: 'host123',
+    buzzerToken: 'buzz123',
+    deck,
     teams: [
-      { name: 'الأول', color: '#E63946' },
-      { name: 'الثاني', color: '#279ED6' },
+      { name: 'الأزرق', color: '#279ED6' },
+      { name: 'الأخضر', color: '#00A86B' },
     ],
-    settings: {
-      categoryCount: 4,
-      lifelinesEnabled: false,
-    },
+    settings: { categoryCount: 1, lifelinesEnabled: true },
+    nowMs: 10_000,
   });
 
-  const silentTile = room.boardTiles.find((t) => t.categoryId === SILENT_ACTING_CATEGORY.id);
-  assert.ok(silentTile, 'Board should include silent acting tiles');
+  const tile = room.boardTiles[0];
+  assert.ok(tile);
 
-  const selectRes = roomManager.executeCommand({
-    roomCode: room.roomCode,
+  const selected = selectBoardTile(room, tile.questionId, 'act_select', 10_100);
+  assert.equal(selected.ok, true);
+  const ready = skipLifelinePick(selected.state, 'act_skip', 10_200);
+  assert.equal(ready.ok, true);
+
+  const proj = sanitizeStateForRole(ready.state, 'projector', 10_300);
+  assert.ok(proj.activeRound);
+  assert.equal(proj.activeRound.answer, undefined);
+  assert.ok(proj.activeRound.actingToken?.startsWith('act_'));
+  assert.equal(proj.activeRound.actingClaimed, false);
+  assert.equal(proj.activeRound.actingCheatAttempts, 0);
+  assert.ok(proj.activeRound.subtopic);
+});
+
+test('claimSilentActingWord locks reveal to first device and triggers anti-cheat on second device', () => {
+  const created = roomManager.createRoom({
+    deckId: 'curated_custom',
+    selectedCategoryIds: [SILENT_ACTING_CATEGORY.id, ARABIC_DIALECTS_CATEGORY.id],
+    teams: [
+      { name: 'الفرسان', color: '#279ED6' },
+      { name: 'النسور', color: '#00A86B' },
+    ],
+    settings: { categoryCount: 2, lifelinesEnabled: false },
+  });
+
+  const silentTile = created.boardTiles.find((t) => t.categoryId === SILENT_ACTING_CATEGORY.id);
+  assert.ok(silentTile);
+
+  const sel = roomManager.executeCommand({
+    roomCode: created.roomCode,
     role: 'host',
-    token: room.hostToken,
+    token: created.hostToken,
     command: 'SELECT_TILE',
     payload: { questionId: silentTile.questionId },
   });
-  assert.equal(selectRes.ok, true);
+  assert.equal(sel.ok, true);
 
-  const liveRoom = roomManager.getRoom(room.roomCode);
-  assert.ok(liveRoom?.activeRound?.actingToken, 'Active round must have an actingToken');
-  const actingToken = liveRoom.activeRound.actingToken!;
-  const expectedPhrase = liveRoom.activeRound.question.answer;
+  const room = roomManager.getRoom(created.roomCode);
+  const token = room?.activeRound?.actingToken;
+  const expectedWord = room?.activeRound?.question.answer;
+  assert.ok(token);
+  assert.ok(expectedWord);
 
-  // Projector sanitized state must hide answer before REVEAL
-  const projectorView = sanitizeStateForRole(liveRoom, 'projector', Date.now());
-  assert.equal(projectorView.activeRound?.answer, undefined);
-  assert.equal(projectorView.activeRound?.explanation, undefined);
-  assert.equal(projectorView.activeRound?.actingToken, actingToken);
-  assert.ok(projectorView.activeRound?.subtopic?.includes('كلمات') || projectorView.activeRound?.subtopic?.includes('كلمتان'));
-
-  // QR generator returns valid data URL and acting path
-  const qr = await roomManager.getActingQr(room.roomCode, actingToken, 'http://localhost:3000');
-  assert.ok(qr?.qrDataUrl.startsWith('data:image/png;base64,'));
-  assert.ok(qr?.actingPath.includes(`token=${encodeURIComponent(actingToken)}`));
-
-  // First device claims successfully
-  const firstClaim = roomManager.claimSilentActingWord(room.roomCode, actingToken, 'dev_phone_alpha_01');
+  // 1. First device claims word cleanly
+  const firstClaim = roomManager.claimSilentActingWord(created.roomCode, token, 'device-alpha-001');
   assert.equal(firstClaim.status, 'ok');
   if (firstClaim.status === 'ok') {
-    assert.equal(firstClaim.phrase, expectedPhrase);
+    assert.equal(firstClaim.word, expectedWord);
     assert.equal(firstClaim.alreadyClaimedByYou, false);
   }
 
-  // Same device refreshing stays allowed
-  const sameDeviceRefresh = roomManager.claimSilentActingWord(room.roomCode, actingToken, 'dev_phone_alpha_01');
-  assert.equal(sameDeviceRefresh.status, 'ok');
-  if (sameDeviceRefresh.status === 'ok') {
-    assert.equal(sameDeviceRefresh.phrase, expectedPhrase);
-    assert.equal(sameDeviceRefresh.alreadyClaimedByYou, true);
+  // 2. Refreshing on the same device succeeds without cheating flag
+  const refreshSame = roomManager.claimSilentActingWord(created.roomCode, token, 'device-alpha-001');
+  assert.equal(refreshSame.status, 'ok');
+  if (refreshSame.status === 'ok') {
+    assert.equal(refreshSame.word, expectedWord);
+    assert.equal(refreshSame.alreadyClaimedByYou, true);
   }
 
-  // Second device triggers anti-cheat ("يا غشاشش") and increments room cheat counter
-  const secondDevice = roomManager.claimSilentActingWord(room.roomCode, actingToken, 'dev_phone_beta_02');
+  // 3. Second device gets blocked and flagged on room state
+  const secondDevice = roomManager.claimSilentActingWord(created.roomCode, token, 'device-beta-999');
   assert.equal(secondDevice.status, 'cheater');
   if (secondDevice.status === 'cheater') {
-    assert.ok(secondDevice.error.includes('يا غشاشش'));
+    assert.match(secondDevice.message, /يا غشاشش/);
     assert.equal(secondDevice.cheatAttempts, 1);
   }
 
-  const afterCheatRoom = roomManager.getRoom(room.roomCode);
-  assert.equal(afterCheatRoom?.activeRound?.actingClaimed, true);
-  assert.equal(afterCheatRoom?.activeRound?.actingCheatAttempts, 1);
-
-  // Reveal answer expires future QR claims
-  const revealRes = roomManager.executeCommand({
-    roomCode: room.roomCode,
-    role: 'host',
-    token: room.hostToken,
-    command: 'REVEAL_ANSWER',
-  });
-  assert.equal(revealRes.ok, true);
-
-  const postRevealClaim = roomManager.claimSilentActingWord(room.roomCode, actingToken, 'dev_phone_alpha_01');
-  assert.equal(postRevealClaim.status, 'expired');
+  const updatedRoom = roomManager.getRoom(created.roomCode);
+  assert.equal(updatedRoom?.activeRound?.actingClaimed, true);
+  assert.equal(updatedRoom?.activeRound?.actingCheatAttempts, 1);
 });

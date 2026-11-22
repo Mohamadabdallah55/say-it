@@ -138,6 +138,10 @@ export function normalizeArabicText(value: string): string {
 
 export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const prompt = normalizeArabicText(question.prompt || '');
+  const actingTarget =
+    question.categoryId === 'cat_silent_acting'
+      ? normalizeArabicText(question.answer || question.id || '')
+      : undefined;
   const image = question.imageDisplay === 'after_reveal'
     ? undefined
     : getQuestionImageSrc(question);
@@ -146,7 +150,7 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, image, question.memorySecondImageUrl, audio, video, orderItems].filter(Boolean).join('\n');
+  return [prompt, actingTarget, image, question.memorySecondImageUrl, audio, video, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [

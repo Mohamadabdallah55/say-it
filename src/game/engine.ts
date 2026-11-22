@@ -74,9 +74,8 @@ function createMemoryFields(question: QuizQuestion) {
 
 function createActingFields(question: QuizQuestion, nowMs: number) {
   if (question.categoryId === SILENT_ACTING_CATEGORY.id) {
-    const rand = Math.random().toString(36).slice(2, 10);
     return {
-      actingToken: `act_${nowMs.toString(36)}_${rand}`,
+      actingToken: `act_${nowMs.toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
       actingClaimed: false,
       actingCheatAttempts: 0,
     };
@@ -1399,11 +1398,9 @@ export function sanitizeStateForRole(
           questionId: state.activeRound.question.id,
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
-          subtopic: canRevealAnswer || (
-            !isMemorizing && !isMemoryQuestionOnly && canShowImage && (
-              !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId) ||
-              state.activeRound.question.categoryId === SILENT_ACTING_CATEGORY.id
-            )
+          subtopic: canRevealAnswer || state.activeRound.question.categoryId === SILENT_ACTING_CATEGORY.id || (
+            !isMemorizing && !isMemoryQuestionOnly && canShowImage &&
+            !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
           )
             ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
             : undefined,
