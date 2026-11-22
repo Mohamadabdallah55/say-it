@@ -5,12 +5,8 @@ import path from 'node:path';
 import {
   VISUAL_MEMORY_CATEGORY,
   VISUAL_MEMORY_PLAYABLE_COUNT,
-  VISUAL_MEMORY_SOURCE_COUNT,
 } from './visualMemory';
-import {
-  VISUAL_MEMORY_ALL_ROWS,
-  VISUAL_MEMORY_QUESTIONS,
-} from '../../server/visualMemoryQuestions';
+import { VISUAL_MEMORY_QUESTIONS } from '../../server/visualMemoryQuestions';
 import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories } from './starterDecks';
 import { runBoardPreflightCheck, selectActiveBoardForDeck } from './pdfValidation';
 import { applyAccountProgressToDeck } from './categoryProgress';
@@ -57,29 +53,17 @@ test('Visual Memory category is registered alongside the existing categories', (
   }
 });
 
-test('Visual Memory dataset tracks 100 source rows and exposes only the 90 verified image questions', () => {
-  assert.equal(VISUAL_MEMORY_ALL_ROWS.length, VISUAL_MEMORY_SOURCE_COUNT);
+test('Visual Memory exposes all 100 questions and the ten timed image sequences', () => {
   assert.equal(VISUAL_MEMORY_QUESTIONS.length, VISUAL_MEMORY_PLAYABLE_COUNT);
-
-  const videoRows = VISUAL_MEMORY_ALL_ROWS.filter((r) => r.media_type === 'video');
-  assert.equal(videoRows.length, 10);
-  for (const row of videoRows) {
-    assert.equal(row.status, 'needs_review');
-    assert.equal(row.needs_video_review, true);
-    assert.equal(row.is_playable_offline, false);
-    assert.ok(
-      !VISUAL_MEMORY_QUESTIONS.some((q) => q.id === row.id),
-      `Unverified video row ${row.id} must stay excluded from playable questions`,
-    );
-  }
+  assert.equal(VISUAL_MEMORY_QUESTIONS.filter(q => q.memorySecondImageUrl).length, 10);
 
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
-  const expectedShowSeconds = { 200: 6, 400: 9, 600: 12 } as const;
+  const expectedShowSeconds = { 200: 10, 400: 8, 600: 6 } as const;
 
   for (let i = 0; i < VISUAL_MEMORY_QUESTIONS.length; i += 1) {
     const q = VISUAL_MEMORY_QUESTIONS[i];
-    const expectedId = `VM-${String(i + 1).padStart(3, '0')}`;
+    const expectedId = `MEM-${String(i + 1).padStart(3, '0')}`;
     assert.equal(q.id, expectedId);
     assert.equal(q.categoryId, VISUAL_MEMORY_CATEGORY.id);
     assert.equal(q.questionType, 'direct_qa');
@@ -87,8 +71,12 @@ test('Visual Memory dataset tracks 100 source rows and exposes only the 90 verif
     assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
     ids.add(q.id);
     assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
-    assert.equal(q.showSeconds, expectedShowSeconds[q.points]);
-    assert.ok(q.memorySceneId && /^SC-\d{3}$/.test(q.memorySceneId));
+    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 10 : expectedShowSeconds[q.points]);
+    const firstScene = path.basename(q.imageUrl ?? '', '.jpg');
+    const expectedScene = q.memorySecondImageUrl
+      ? `PAIR-${firstScene}-${path.basename(q.memorySecondImageUrl, '.jpg')}`
+      : firstScene;
+    assert.equal(q.memorySceneId, expectedScene);
     assert.ok(q.prompt.trim().length > 0);
     assert.ok(q.answer.trim().length > 0);
     assert.equal(q.subtopic, undefined, 'Must not store scene name as subtopic');
@@ -97,35 +85,33 @@ test('Visual Memory dataset tracks 100 source rows and exposes only the 90 verif
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 30, 400: 30, 600: 30 });
+  assert.deepEqual(tierCounts, { 200: 30, 400: 30, 600: 40 });
 });
 
-test('All 90 Visual Memory scene files resolve to local JPEG images on disk (never collage or external URLs)', () => {
+test('All 36 Visual Memory image assets are local JPEGs', () => {
   const publicDir = path.join(process.cwd(), 'public');
-  const seenScenes = new Set<string>();
-
-  for (const q of VISUAL_MEMORY_QUESTIONS) {
-    const url = q.imageUrl ?? '';
-    assert.ok(!/^https?:\/\//i.test(url), `External URL forbidden in ${q.id}: ${url}`);
-    assert.ok(
-      !url.includes('preview_natural_scenes'),
-      `Composite collage forbidden in ${q.id}: ${url}`,
-    );
-    assert.ok(
-      url.startsWith(`/assets/aistudio/${q.memorySceneId}_`) && url.endsWith('.jpg'),
-      `Expected local SC-XXX JPEG path for ${q.id}, got ${url}`,
-    );
-    seenScenes.add(q.memorySceneId!);
-
-    const diskPath = path.join(publicDir, url.replace(/^\//, ''));
-    assert.ok(fs.existsSync(diskPath), `Missing JPG file on disk for ${q.id}: ${diskPath}`);
-    const data = fs.readFileSync(diskPath);
-    assert.ok(data.byteLength > 1000, `Suspiciously tiny JPG file for ${q.id}`);
-    assert.equal(data[0], 0xff, `Invalid JPEG SOI byte 0 for ${q.id}`);
-    assert.equal(data[1], 0xd8, `Invalid JPEG SOI byte 1 for ${q.id}`);
+  const images = new Set<string>();
+  const scenes = new Set<string>();
+  for (const question of VISUAL_MEMORY_QUESTIONS) {
+    assert.ok(question.imageUrl);
+    assert.ok(question.memorySceneId);
+    scenes.add(question.memorySceneId);
+    images.add(question.imageUrl);
+    if (question.memorySecondImageUrl) {
+      assert.notEqual(question.memorySecondImageUrl, question.imageUrl);
+      images.add(question.memorySecondImageUrl);
+    }
   }
+  assert.equal(images.size, 36);
+  assert.equal(scenes.size, 41);
 
-  assert.equal(seenScenes.size, 45, 'Expected 45 unique visual scenes across 90 questions');
+  for (const url of images) {
+    assert.match(url, /^\/assets\/questions\/visual-memory\/[EHJM]\d{2}\.jpg$/);
+    const data = fs.readFileSync(path.join(publicDir, url.slice(1)));
+    assert.ok(data.byteLength > 1000, `Suspiciously tiny JPG file: ${url}`);
+    assert.equal(data[0], 0xff);
+    assert.equal(data[1], 0xd8);
+  }
 
   const catSvg = path.join(publicDir, 'assets', 'categories', 'cat_visual_memory.svg');
   assert.ok(fs.existsSync(catSvg), 'Category SVG artwork should exist on disk');
@@ -180,13 +166,13 @@ test('Visual Memory passes preflight, picks distinct scenes on board & backups, 
     [VISUAL_MEMORY_CATEGORY.id]: allIds.slice(0, 12),
   });
   assert.deepEqual(partial.resetCategoryIds, []);
-  assert.equal(partial.filteredDeck.questions.length, 78);
+  assert.equal(partial.filteredDeck.questions.length, VISUAL_MEMORY_PLAYABLE_COUNT - 12);
 
   const exhausted = applyAccountProgressToDeck(deck, {
     [VISUAL_MEMORY_CATEGORY.id]: allIds,
   });
   assert.deepEqual(exhausted.resetCategoryIds, [VISUAL_MEMORY_CATEGORY.id]);
-  assert.equal(exhausted.filteredDeck.questions.length, 90);
+  assert.equal(exhausted.filteredDeck.questions.length, VISUAL_MEMORY_PLAYABLE_COUNT);
 });
 
 test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene during QUESTION, and reveals answer + review scene on REVEAL', () => {
@@ -279,9 +265,9 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
 });
 
 test('Consecutive rounds reject the same memorySceneId when an alternative tile exists', () => {
-  const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'SC-001');
-  const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'SC-002')!;
-  assert.equal(scene1Qs.length, 2);
+  const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'E01');
+  const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'E02')!;
+  assert.ok(scene1Qs.length >= 2);
 
   const qA = { ...scene1Qs[0], points: 200 as const, difficulty: 'easy' as const };
   const qB = { ...scene1Qs[1], points: 400 as const, difficulty: 'medium' as const };
@@ -311,27 +297,64 @@ test('Consecutive rounds reject the same memorySceneId when an alternative tile 
     selectedCategoryIds: [VISUAL_MEMORY_CATEGORY.id],
   });
 
-  // Play qA (SC-001)
+  // Play qA (E01)
   room = selectBoardTile(room, qA.id, 's1').state;
   if (room.phase === 'LIFELINE_PICK') room = skipLifelinePick(room, 'sk1').state;
   room = advanceMemoryToQuestion(room, 'a1').state;
   room = revealAnswer(room, 'r1').state;
   room = awardRoundAndReturnToBoard(room, ['team_1'], 'w1').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'SC-001');
+  assert.equal(room.lastPlayedMemorySceneId, 'E01');
 
-  // Selecting qB (also SC-001) immediately after must be blocked because qC (SC-002) is available
+  // Selecting qB (also E01) immediately after must be blocked because qC (E02) is available
   const blocked = selectBoardTile(room, qB.id, 's2_blocked');
   assert.equal(blocked.ok, false);
   assert.ok(blocked.error?.includes('المشهد البصري'));
 
-  // Play qC (SC-002) instead
+  // Play qC (E02) instead
   room = selectBoardTile(room, qC.id, 's2_ok').state;
   room = advanceMemoryToQuestion(room, 'a2').state;
   room = revealAnswer(room, 'r2').state;
   room = awardRoundAndReturnToBoard(room, ['team_2'], 'w2').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'SC-002');
+  assert.equal(room.lastPlayedMemorySceneId, 'E02');
 
-  // Now qB (SC-001) is allowed again
+  // Now qB (E01) is allowed again
   const unblocked = selectBoardTile(room, qB.id, 's3_ok');
   assert.equal(unblocked.ok, true);
+});
+
+test('A paired scene exposes both images for preview and review while hiding them during the question', () => {
+  const question = VISUAL_MEMORY_QUESTIONS.find(q => q.memorySecondImageUrl)!;
+  const deck = buildBoardDeckFromCategories([VISUAL_MEMORY_CATEGORY.id], undefined, [question]);
+  const now = 1_700_000_000_000;
+  const room = createRoomState({
+    roomCode: 'VMPAIR',
+    hostToken: 'host',
+    buzzerToken: 'buzz',
+    deck,
+    teams: [{ name: 'الأول', color: '#F05B63' }, { name: 'الثاني', color: '#279ED6' }],
+    settings: { categoryCount: 1, countUp: true, lifelinesEnabled: false },
+    nowMs: now,
+  });
+
+  const previewRound = selectBoardTile(room, question.id, 'preview', now);
+  assert.equal(previewRound.ok, true);
+  const preview = sanitizeStateForRole(previewRound.state, 'projector', now).activeRound;
+  assert.equal(preview?.imageUrl, question.imageUrl);
+  assert.equal(preview?.memorySecondImageUrl, question.memorySecondImageUrl);
+  assert.equal(preview?.memorizeDurationSeconds, 10);
+  assert.equal(preview?.prompt, '');
+  assert.equal(preview?.answer, undefined);
+
+  const opened = advanceMemoryToQuestion(previewRound.state, 'open', now + 10_000);
+  const prompt = sanitizeStateForRole(opened.state, 'projector', now + 10_000).activeRound;
+  assert.equal(prompt?.prompt, question.prompt);
+  assert.equal(prompt?.imageUrl, undefined);
+  assert.equal(prompt?.memorySecondImageUrl, undefined);
+  assert.equal(prompt?.answer, undefined);
+
+  const revealed = revealAnswer(opened.state, 'reveal', now + 11_000);
+  const review = sanitizeStateForRole(revealed.state, 'projector', now + 11_000).activeRound;
+  assert.equal(review?.answer, question.answer);
+  assert.equal(review?.imageUrl, question.imageUrl);
+  assert.equal(review?.memorySecondImageUrl, question.memorySecondImageUrl);
 });

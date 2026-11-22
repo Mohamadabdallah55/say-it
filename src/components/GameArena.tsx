@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -237,9 +237,12 @@ export function GameArena({
         questionType: ar.question.questionType,
         prompt: ar.question.prompt,
         startingLetter: ar.question.startingLetter,
-        imageUrl: ar.question.imageUrl,
+        imageUrl: state.phase === 'REVEAL'
+          ? ar.question.imageUrl
+          : clubLogoPreviewUrl(ar.question.imageUrl),
         imageBase64: ar.question.imageBase64,
         imageCaption: ar.question.imageCaption,
+        memorySecondImageUrl: ar.question.memorySecondImageUrl,
         beforeImageUrls: ar.question.beforeImageUrls,
         afterImageUrl: ar.question.afterImageUrl,
         imageDisplay: ar.question.imageDisplay,
@@ -422,7 +425,15 @@ export function GameArena({
       ? Math.min(roundMeta.memorizeDurationSeconds, rawMemorizeSec)
       : rawMemorizeSec
     : 0;
-  const displayClockSec = isMemorizeStage ? memorizeRemainingSec : remainingSec;
+  const memoryImageUrl = getQuestionImageSrc(roundMeta);
+  const memorySecondImageUrl = roundMeta?.memorySecondImageUrl;
+  const memoryFrameSeconds = memorySecondImageUrl ? (roundMeta?.memorizeDurationSeconds ?? 0) / 2 : 0;
+  const showingSecondMemoryImage = Boolean(memorySecondImageUrl && memorizeRemainingSec <= memoryFrameSeconds);
+  const visibleMemoryImage = showingSecondMemoryImage ? memorySecondImageUrl : memoryImageUrl;
+  const memoryFrameRemainingSec = showingSecondMemoryImage
+    ? memorizeRemainingSec
+    : memorizeRemainingSec - memoryFrameSeconds;
+  const displayClockSec = isMemorizeStage ? memoryFrameRemainingSec : remainingSec;
   const [RoundCueIcon, roundCue] = getRoundCue(
     state.phase,
     state.activeRound?.isCorrectionMode,
@@ -666,7 +677,7 @@ export function GameArena({
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FAF7EE] px-4 py-1 font-mono text-base font-black tabular-nums shadow-[0_3px_0_#1F112E] ${
                         isMemorizeStage
-                          ? memorizeRemainingSec <= 3
+                          ? memoryFrameRemainingSec <= 3
                             ? 'text-[#F05B63]'
                             : 'text-[#0284C7]'
                           : !state.settings.countUp && remainingSec <= 5 && state.timer.running
@@ -754,25 +765,32 @@ export function GameArena({
                       <div className="flex flex-wrap items-center justify-center gap-2.5">
                         <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 rounded-xl border-2 border-[#1F112E] bg-[#E0F2FE] px-4 py-1.5 text-sm md:text-base font-black text-[#0369A1] shadow-[0_2px_0_#1F112E] leading-snug">
                           <Eye className="w-4 h-4 shrink-0" />
-                          <span>تأمل المشهد جيدًا — سيختفي خلال</span>
+                          <span>
+                            {memorySecondImageUrl
+                              ? showingSecondMemoryImage ? 'الصورة الثانية تختفي خلال' : 'الصورة الأولى تختفي خلال'
+                              : 'تأمل المشهد جيدًا — سيختفي خلال'}
+                          </span>
                           <span
                             data-testid="visual-memory-countdown"
                             className="font-mono text-base md:text-lg tabular-nums text-[#1F112E]"
                           >
-                            {memorizeRemainingSec}
+                            {memoryFrameRemainingSec}
                           </span>
                           <span>ثوانٍ</span>
                         </span>
                       </div>
 
-                      {getQuestionImageSrc(roundMeta) && (
+                      {memorySecondImageUrl && !showingSecondMemoryImage && (
+                        <link rel="preload" as="image" href={memorySecondImageUrl} />
+                      )}
+                      {visibleMemoryImage && (
                         <div className="flex justify-center">
                           <div
                             data-testid="visual-memory-scene"
                             className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
                           >
                             <img
-                              src={getQuestionImageSrc(roundMeta)}
+                              src={visibleMemoryImage}
                               alt="مشهد تحدّي الذاكرة البصرية"
                               draggable={false}
                               loading="eager"
@@ -1082,7 +1100,7 @@ export function GameArena({
                   )}
 
                   {/* REVEAL (Visual Memory): Re-display clean full scene image for verification */}
-                  {state.phase === 'REVEAL' && isMemoryRound && getQuestionImageSrc(roundMeta) && (
+                  {state.phase === 'REVEAL' && isMemoryRound && memoryImageUrl && (
                     <div className="space-y-2.5 text-center pt-1" dir="rtl">
                       <div className="flex items-center justify-center">
                         <button
@@ -1099,18 +1117,23 @@ export function GameArena({
                         </button>
                       </div>
                       {memoryReviewVisible && (
-                        <div className="flex justify-center">
-                          <div
-                            data-testid="visual-memory-review-scene"
-                            className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
-                          >
-                            <img
-                              src={getQuestionImageSrc(roundMeta)}
-                              alt="مراجعة المشهد الكامل"
-                              draggable={false}
-                              className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
-                            />
-                          </div>
+                        <div
+                          data-testid="visual-memory-review-scene"
+                          className={memorySecondImageUrl ? 'grid gap-3 sm:grid-cols-2' : 'flex justify-center'}
+                        >
+                          {(memorySecondImageUrl ? [memoryImageUrl, memorySecondImageUrl] : [memoryImageUrl]).map((src, index) => (
+                            <div
+                              key={src}
+                              className="mx-auto w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
+                            >
+                              <img
+                                src={src}
+                                alt={memorySecondImageUrl ? (index === 0 ? 'الصورة الأولى' : 'الصورة الثانية') : 'مراجعة المشهد الكامل'}
+                                draggable={false}
+                                className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
+                              />
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>

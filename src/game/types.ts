@@ -140,6 +140,7 @@ export interface QuizQuestion {
   afterImageUrl?: string;
   showSeconds?: number;
   memorySceneId?: string;
+  memorySecondImageUrl?: string;
   imageDisplay?: QuestionImageDisplay;
   imageSourceUrl?: string;
   answerImageUrl?: string;
@@ -458,6 +459,7 @@ export interface SanitizedActiveRound {
   imageUrl?: string;
   imageBase64?: string;
   imageCaption?: string;
+  memorySecondImageUrl?: string;
   beforeImageUrls?: string[];
   afterImageUrl?: string;
   imageDisplay?: QuestionImageDisplay;

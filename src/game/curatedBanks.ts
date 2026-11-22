@@ -55,6 +55,13 @@ export const CLUB_LOGOS_CATEGORY: DeckCategory = {
   accentColor: '#1C7468',
 };
 
+export function clubLogoPreviewUrl(imageUrl?: string): string | undefined {
+  return imageUrl?.replace(
+    /^\/assets\/questions\/club-logos\/(CLUB-\d{3})\.png$/,
+    '/api/club-logos/$1/preview',
+  );
+}
+
 export const QURAN_MEDIA_CATEGORY: DeckCategory = {
   id: 'cat_quran_media',
   name: 'قرآن كريم',

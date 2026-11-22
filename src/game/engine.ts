@@ -1,5 +1,5 @@
 import { pickCommentary } from './commentary';
-import { PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS } from './curatedBanks';
+import { clubLogoPreviewUrl, PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS } from './curatedBanks';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -1401,7 +1401,14 @@ export function sanitizeStateForRole(
             ? state.activeRound.question.acceptableAnswers
             : undefined,
           explanation: canRevealAnswer ? state.activeRound.question.explanation : undefined,
-          imageUrl: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.imageUrl : undefined,
+          imageUrl: canShowImage && !isMemoryQuestionOnly
+            ? (canRevealAnswer
+              ? state.activeRound.question.imageUrl
+              : clubLogoPreviewUrl(state.activeRound.question.imageUrl))
+            : undefined,
+          memorySecondImageUrl: canShowImage && !isMemoryQuestionOnly
+            ? state.activeRound.question.memorySecondImageUrl
+            : undefined,
           imageBase64: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.imageBase64 : undefined,
           imageCaption: canShowImage && !isMemorizing && !isMemoryQuestionOnly ? state.activeRound.question.imageCaption : undefined,
           imageDisplay: state.activeRound.question.imageDisplay,

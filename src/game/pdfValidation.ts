@@ -144,7 +144,7 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, image, audio, orderItems].filter(Boolean).join('\n');
+  return [prompt, image, question.memorySecondImageUrl, audio, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [
@@ -307,6 +307,10 @@ export function validateQuizQuestion(
     memorySceneId:
       typeof question.memorySceneId === 'string' && question.memorySceneId.trim()
         ? question.memorySceneId.trim()
+        : undefined,
+    memorySecondImageUrl:
+      typeof question.memorySecondImageUrl === 'string' && question.memorySecondImageUrl.trim()
+        ? question.memorySecondImageUrl.trim()
         : undefined,
     imageDisplay: question.imageDisplay === 'before_reveal' || question.imageDisplay === 'after_reveal'
       ? question.imageDisplay

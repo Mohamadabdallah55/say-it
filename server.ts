@@ -50,6 +50,7 @@ import {
   isServiceUnavailableError,
 } from './server/geminiHelpers';
 import { SERVER_CURATED_QUESTIONS } from './server/curatedQuestionBanks';
+import { serveClubLogoPreview } from './server/clubLogoPreview';
 import { CURATED_QUESTIONS } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
 import { serveQuranRecitation } from './server/quranRecitation';
@@ -166,6 +167,7 @@ async function startServer() {
   app.use(['/api/decks', '/api/pdf'], selectLibrary);
   app.post('/api/rooms', selectLibrary);
   app.get('/api/quran-audio/:id', serveQuranRecitation);
+  app.get('/api/club-logos/:id/preview', serveClubLogoPreview);
 
   // --- Decks & USB JSON Export/Import ---
   app.get('/api/decks', (_req, res) => {
