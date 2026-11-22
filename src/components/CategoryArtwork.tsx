@@ -1,19 +1,26 @@
 import { useState } from 'react';
 import type { CategoryIconKey } from '../game/types';
-import { CATEGORY_3D_ART } from '../utils/gameAssets';
+import { getCategoryCardArt } from '../utils/gameAssets';
 
 interface CategoryArtworkProps {
+  categoryId?: string;
   iconKey: CategoryIconKey;
   accentColor: string;
   topic?: string;
   coverage?: string[];
 }
 
-export function CategoryArtwork({ iconKey, accentColor, topic = '', coverage = [] }: CategoryArtworkProps) {
+export function CategoryArtwork({
+  categoryId = '',
+  iconKey,
+  accentColor,
+  topic = '',
+  coverage = [],
+}: CategoryArtworkProps) {
   const [imgFailed, setImgFailed] = useState(false);
   const subject = topic.replace(/[\u064B-\u065F]/g, '');
   const waterMotif = ['تبخر', 'تكاثف', 'هطول', 'جريان', 'تسرب'].find((word) => subject.includes(word));
-  const artSrc = CATEGORY_3D_ART[iconKey] || CATEGORY_3D_ART.general;
+  const artSrc = getCategoryCardArt(categoryId, iconKey);
 
   if (waterMotif) {
     return (
@@ -78,14 +85,10 @@ export function CategoryArtwork({ iconKey, accentColor, topic = '', coverage = [
       {!imgFailed ? (
         <img
           src={artSrc}
-          alt={topic || 'أيقونة الفئة'}
+          alt={topic || 'صورة الفئة'}
           referrerPolicy="no-referrer"
           onError={() => setImgFailed(true)}
-          className={
-            iconKey === 'sports' || iconKey === 'history' || iconKey === 'pdf'
-              ? 'h-[92%] w-auto object-contain drop-shadow-[0_4px_0_rgba(31,17,46,0.28)] select-none'
-              : 'w-full h-full object-cover select-none'
-          }
+          className="w-full h-full object-cover select-none"
         />
       ) : (
         <span className="font-display font-black text-2xl text-white drop-shadow-[0_2px_0_#1F112E]">

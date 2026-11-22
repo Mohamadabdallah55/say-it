@@ -59,7 +59,7 @@ test('Visual Memory exposes all 100 questions and the ten timed image sequences'
 
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
-  const expectedShowSeconds = { 200: 10, 400: 8, 600: 6 } as const;
+  const expectedShowSeconds = { 200: 6, 400: 5, 600: 4 } as const;
 
   for (let i = 0; i < VISUAL_MEMORY_QUESTIONS.length; i += 1) {
     const q = VISUAL_MEMORY_QUESTIONS[i];
@@ -71,7 +71,7 @@ test('Visual Memory exposes all 100 questions and the ten timed image sequences'
     assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
     ids.add(q.id);
     assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
-    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 10 : expectedShowSeconds[q.points]);
+    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 6 : expectedShowSeconds[q.points]);
     const firstScene = path.basename(q.imageUrl ?? '', '.jpg');
     const expectedScene = q.memorySecondImageUrl
       ? `PAIR-${firstScene}-${path.basename(q.memorySecondImageUrl, '.jpg')}`
@@ -341,20 +341,60 @@ test('A paired scene exposes both images for preview and review while hiding the
   const preview = sanitizeStateForRole(previewRound.state, 'projector', now).activeRound;
   assert.equal(preview?.imageUrl, question.imageUrl);
   assert.equal(preview?.memorySecondImageUrl, question.memorySecondImageUrl);
-  assert.equal(preview?.memorizeDurationSeconds, 10);
+  assert.equal(preview?.memorizeDurationSeconds, 6);
   assert.equal(preview?.prompt, '');
   assert.equal(preview?.answer, undefined);
 
-  const opened = advanceMemoryToQuestion(previewRound.state, 'open', now + 10_000);
-  const prompt = sanitizeStateForRole(opened.state, 'projector', now + 10_000).activeRound;
+  const opened = advanceMemoryToQuestion(previewRound.state, 'open', now + 6_000);
+  const prompt = sanitizeStateForRole(opened.state, 'projector', now + 6_000).activeRound;
   assert.equal(prompt?.prompt, question.prompt);
   assert.equal(prompt?.imageUrl, undefined);
   assert.equal(prompt?.memorySecondImageUrl, undefined);
   assert.equal(prompt?.answer, undefined);
 
-  const revealed = revealAnswer(opened.state, 'reveal', now + 11_000);
-  const review = sanitizeStateForRole(revealed.state, 'projector', now + 11_000).activeRound;
+  const revealed = revealAnswer(opened.state, 'reveal', now + 7_000);
+  const review = sanitizeStateForRole(revealed.state, 'projector', now + 7_000).activeRound;
   assert.equal(review?.answer, question.answer);
   assert.equal(review?.imageUrl, question.imageUrl);
   assert.equal(review?.memorySecondImageUrl, question.memorySecondImageUrl);
+});
+
+test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and REVEAL and hides it during QUESTION', () => {
+  const videoQuestion = {
+    ...VISUAL_MEMORY_QUESTIONS[0],
+    id: 'MEM-VID-TEST',
+    points: 400 as const,
+    difficulty: 'medium' as const,
+    showSeconds: 5,
+    videoUrl: '/assets/questions/visual-memory/sample-clip.mp4',
+  };
+  const deck = buildBoardDeckFromCategories([VISUAL_MEMORY_CATEGORY.id], undefined, [videoQuestion]);
+  const now = 1_700_000_000_000;
+  const room = createRoomState({
+    roomCode: 'VMVID1',
+    hostToken: 'host',
+    buzzerToken: 'buzz',
+    deck,
+    teams: [{ name: 'الأول', color: '#F05B63' }, { name: 'الثاني', color: '#279ED6' }],
+    settings: { categoryCount: 1, countUp: true, lifelinesEnabled: false },
+    nowMs: now,
+  });
+
+  const selected = selectBoardTile(room, videoQuestion.id, 'vid_sel', now);
+  assert.equal(selected.ok, true);
+  const projMemorize = sanitizeStateForRole(selected.state, 'projector', now).activeRound;
+  assert.equal(projMemorize?.memoryStage, 'MEMORIZE');
+  assert.equal(projMemorize?.videoUrl, videoQuestion.videoUrl);
+  assert.equal(projMemorize?.prompt, '');
+
+  const opened = advanceMemoryToQuestion(selected.state, 'vid_open', now + 5_000);
+  const projQuestion = sanitizeStateForRole(opened.state, 'projector', now + 5_000).activeRound;
+  assert.equal(projQuestion?.memoryStage, 'QUESTION');
+  assert.equal(projQuestion?.videoUrl, undefined);
+  assert.equal(projQuestion?.prompt, videoQuestion.prompt);
+
+  const revealed = revealAnswer(opened.state, 'vid_rev', now + 8_000);
+  const projReveal = sanitizeStateForRole(revealed.state, 'projector', now + 8_000).activeRound;
+  assert.equal(projReveal?.videoUrl, videoQuestion.videoUrl);
+  assert.equal(projReveal?.answer, videoQuestion.answer);
 });

@@ -741,24 +741,49 @@ async function startServer() {
     res.json({ state: sanitized });
   });
 
+  const resolvePublicOrigin = (req: express.Request) => {
+    const origin =
+      process.env.APP_URL && process.env.APP_URL !== 'MY_APP_URL'
+        ? process.env.APP_URL
+        : `${req.protocol}://${req.get('host')}`;
+    const linkOrigin = new URL(origin);
+    if (['localhost', '127.0.0.1', '[::1]'].includes(linkOrigin.hostname)) {
+      const lan = Object.values(networkInterfaces()).flat().find(address =>
+        address?.family === 'IPv4' && !address.internal && /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(address.address));
+      if (lan) linkOrigin.hostname = lan.address;
+    }
+    return linkOrigin.origin;
+  };
+
   app.get('/api/rooms/:code/share', async (req, res) => {
     const token = req.query.token as string | undefined;
     const auth = roomManager.verifyAccess(req.params.code, 'host', token);
     if (!auth.allowed) {
       return res.status(403).json({ error: auth.error });
     }
-    const origin =
-      process.env.APP_URL && process.env.APP_URL !== 'MY_APP_URL'
-        ? process.env.APP_URL
-        : `${req.protocol}://${req.get('host')}`;
-    const linkOrigin = new URL(origin);
-    if (['localhost','127.0.0.1','[::1]'].includes(linkOrigin.hostname)) {
-      const lan = Object.values(networkInterfaces()).flat().find(address =>
-        address?.family === 'IPv4' && !address.internal && /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(address.address));
-      if (lan) linkOrigin.hostname = lan.address;
-    }
-    const bundle = await roomManager.getShareBundle(req.params.code, linkOrigin.origin);
+    const bundle = await roomManager.getShareBundle(req.params.code, resolvePublicOrigin(req));
     res.json({ share: bundle });
+  });
+
+  app.get('/api/rooms/:code/acting-qr', async (req, res) => {
+    const token = String(req.query.token || '');
+    if (!token) {
+      return res.status(400).json({ error: 'رمز التمثيل مطلوب.' });
+    }
+    const qr = await roomManager.getActingQr(req.params.code, token, resolvePublicOrigin(req));
+    if (!qr) {
+      return res.status(404).json({ error: 'تعذر إنشاء رمز QR لهذه الجولة.' });
+    }
+    res.json(qr);
+  });
+
+  app.post('/api/rooms/:code/acting-reveal', (req, res) => {
+    const { token, deviceId } = req.body as { token?: string; deviceId?: string };
+    if (!token || !deviceId) {
+      return res.status(400).json({ status: 'expired', error: 'بيانات الجهاز والرمز مطلوبة.' });
+    }
+    const result = roomManager.claimSilentActingWord(req.params.code, token, deviceId);
+    res.json(result);
   });
 
   app.post('/api/rooms/:code/command', (req, res) => {

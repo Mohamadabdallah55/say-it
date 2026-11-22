@@ -57,7 +57,8 @@ export type CategoryIconKey =
   | 'jordan_logos'
   | 'world_cup_2026'
   | 'palestinian_proverbs'
-  | 'visual_memory';
+  | 'visual_memory'
+  | 'silent_acting';
 
 export type QuestionImageDisplay = 'before_reveal' | 'after_reveal';
 
@@ -147,6 +148,7 @@ export interface QuizQuestion {
   answerImageUrl?: string;
   audioUrl?: string;
   answerAudioUrl?: string;
+  videoUrl?: string;
   timeLimitSeconds?: number;
   subtopic?: string;
   teamIndex?: number;
@@ -379,6 +381,9 @@ export interface ActiveRound {
   memoryStage?: 'MEMORIZE' | 'QUESTION';
   memorizeDurationSeconds?: number;
   memorizeEndsAtMs?: number | null;
+  actingToken?: string;
+  actingClaimed?: boolean;
+  actingCheatAttempts?: number;
 }
 
 export interface CommentaryItem {
@@ -468,6 +473,7 @@ export interface SanitizedActiveRound {
   answerImageUrl?: string;
   audioUrl?: string;
   answerAudioUrl?: string;
+  videoUrl?: string;
   sourceRef?: string;
   pageNumber?: number;
   basePoints: PointValue;
@@ -484,6 +490,9 @@ export interface SanitizedActiveRound {
   memoryStage?: 'MEMORIZE' | 'QUESTION';
   memorizeDurationSeconds?: number;
   memorizeEndsAtMs?: number | null;
+  actingToken?: string;
+  actingClaimed?: boolean;
+  actingCheatAttempts?: number;
 }
 
 export interface PublicProjectorState {

@@ -25,7 +25,7 @@ import {
 import { ALLOWED_ICON_KEYS, sanitizeSafeImageUrl } from '../game/categoryProgress';
 import { QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type { CategoryIconKey, DeckCategory, Difficulty, QuestionType, QuizQuestion } from '../game/types';
-import { CATEGORY_3D_ART } from '../utils/gameAssets';
+import { getCategoryCardArt } from '../utils/gameAssets';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
 
@@ -70,6 +70,7 @@ const ICON_LABELS: Record<CategoryIconKey, string> = {
   world_cup_2026: 'كأس العالم 2026',
   palestinian_proverbs: 'أمثال فلسطينية',
   visual_memory: 'ذاكرة بصرية',
+  silent_acting: 'تمثيل صامت',
 };
 
 const DIFFICULTY_META: Array<{ value: Difficulty; label: string; points: 200 | 400 | 600 }> = [
@@ -659,7 +660,7 @@ export function AdminPanel({
                   <div className="space-y-3">
                     {allCategoriesForAdmin.map((cat) => {
                       const stats = getCategoryStats(cat.id);
-                      const artSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
+                      const artSrc = getCategoryCardArt(cat.id, cat.iconKey);
                       const adminAddedCount = customQuestions.filter((q) => q.categoryId === cat.id).length;
 
                       return (
@@ -676,7 +677,7 @@ export function AdminPanel({
                                 src={artSrc}
                                 alt={cat.name}
                                 referrerPolicy="no-referrer"
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover"
                               />
                             </span>
                             <div className="min-w-0">

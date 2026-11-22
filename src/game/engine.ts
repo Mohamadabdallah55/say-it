@@ -1,5 +1,5 @@
 import { pickCommentary } from './commentary';
-import { clubLogoPreviewUrl, PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS } from './curatedBanks';
+import { clubLogoPreviewUrl, PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS, SILENT_ACTING_CATEGORY } from './curatedBanks';
 import {
   IN_QUESTION_LIFELINES,
   isCategoryTeamMatrixDeck,
@@ -72,13 +72,29 @@ function createMemoryFields(question: QuizQuestion) {
   };
 }
 
+function createActingFields(question: QuizQuestion, nowMs: number) {
+  if (question.categoryId === SILENT_ACTING_CATEGORY.id) {
+    const rand = Math.random().toString(36).slice(2, 10);
+    return {
+      actingToken: `act_${nowMs.toString(36)}_${rand}`,
+      actingClaimed: false,
+      actingCheatAttempts: 0,
+    };
+  }
+  return {
+    actingToken: undefined,
+    actingClaimed: undefined,
+    actingCheatAttempts: undefined,
+  };
+}
+
 function openQuestion(state: RoomState, nowMs: number): RoomState {
   if (state.phase !== 'QUESTION_READY') return state;
   if (state.activeRound?.memoryStage === 'MEMORIZE') {
     const durSec =
       state.activeRound.memorizeDurationSeconds ||
       state.activeRound.question.showSeconds ||
-      6;
+      4;
     return {
       ...state,
       phase: state.settings.countUp ? 'PLAYING' : 'QUESTION_READY',
@@ -291,7 +307,7 @@ export function selectBoardTile(
               nowMs +
               (parked.round.memorizeDurationSeconds ||
                 parked.round.question.showSeconds ||
-                6) *
+                4) *
                 1000,
           }
         : parked.round;
@@ -325,6 +341,7 @@ export function selectBoardTile(
     awardedDelta: 0,
     isCorrectionMode: false,
     ...createMemoryFields(question),
+    ...createActingFields(question, nowMs),
   };
 
   const configuredCards =
@@ -479,9 +496,10 @@ export function applyLifeline(
       hintRevealed: false,
       twoAnswersActive: false,
       ...createMemoryFields(backup),
+      ...createActingFields(backup, nowMs),
     };
     if (nextRound.memoryStage === 'MEMORIZE' && state.phase !== 'LIFELINE_PICK') {
-      const durSec = nextRound.memorizeDurationSeconds || backup.showSeconds || 6;
+      const durSec = nextRound.memorizeDurationSeconds || backup.showSeconds || 4;
       nextRound.memorizeEndsAtMs = nowMs + durSec * 1000;
       nextTimer = {
         ...nextTimer,
@@ -556,7 +574,7 @@ export function swapActiveWithBackup(
 
   const swappedMemory = createMemoryFields(backup);
   if (swappedMemory.memoryStage === 'MEMORIZE') {
-    const durSec = swappedMemory.memorizeDurationSeconds || backup.showSeconds || 6;
+    const durSec = swappedMemory.memorizeDurationSeconds || backup.showSeconds || 4;
     swappedMemory.memorizeEndsAtMs = nowMs + durSec * 1000;
   }
 
@@ -580,6 +598,7 @@ export function swapActiveWithBackup(
         twoAnswersActive: false,
         buzzerQueue: [],
         ...swappedMemory,
+        ...createActingFields(backup, nowMs),
       },
       timer: {
         durationSeconds: durationSec,
@@ -1107,6 +1126,7 @@ export function reopenQuestionForCorrection(
               memorizeEndsAtMs: null,
             }
           : {}),
+        ...createActingFields(question, nowMs),
       },
       processedActionIds: [...state.processedActionIds, actionId].slice(-200),
       updatedAt: new Date(nowMs).toISOString(),
@@ -1380,7 +1400,10 @@ export function sanitizeStateForRole(
           categoryId: state.activeRound.question.categoryId,
           categoryName: state.activeRound.question.categoryName,
           subtopic: canRevealAnswer || (
-            !isMemorizing && !isMemoryQuestionOnly && canShowImage && !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
+            !isMemorizing && !isMemoryQuestionOnly && canShowImage && (
+              !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId) ||
+              state.activeRound.question.categoryId === SILENT_ACTING_CATEGORY.id
+            )
           )
             ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
             : undefined,
@@ -1416,6 +1439,7 @@ export function sanitizeStateForRole(
           answerImageUrl: canRevealAnswer ? state.activeRound.question.answerImageUrl : undefined,
           audioUrl: canRevealAnswer || isMemorizing ? undefined : state.activeRound.question.audioUrl,
           answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
+          videoUrl: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
           beforeImageUrls: canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
@@ -1435,6 +1459,9 @@ export function sanitizeStateForRole(
           memoryStage: state.activeRound.memoryStage,
           memorizeDurationSeconds: state.activeRound.memorizeDurationSeconds,
           memorizeEndsAtMs: state.activeRound.memorizeEndsAtMs,
+          actingToken: state.activeRound.actingToken,
+          actingClaimed: state.activeRound.actingClaimed,
+          actingCheatAttempts: state.activeRound.actingCheatAttempts,
         }
       : null,
     timer: liveTimer,

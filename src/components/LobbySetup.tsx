@@ -26,7 +26,12 @@ import {
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
 import type { DeckCategory, LifelineType, MatchSettings, QuizDeck } from '../game/types';
-import { CATEGORY_3D_ART } from '../utils/gameAssets';
+import { CATEGORY_3D_ART, getCategoryCardArt } from '../utils/gameAssets';
+import {
+  getAvailableMenuTabs,
+  groupCategoriesForLobby,
+  type CategoryMenuId,
+} from '../game/categoryGroups';
 import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { TopNavHeader } from './TopNavHeader';
@@ -123,9 +128,61 @@ export function LobbySetup({
   const [selectedDrawerOpen, setSelectedDrawerOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeMenuGroup, setActiveMenuGroup] = useState<'all' | CategoryMenuId>('all');
+  const [focusedMenuGroup, setFocusedMenuGroup] = useState<'all' | CategoryMenuId>('all');
+  const [highlightedGroupId, setHighlightedGroupId] = useState<CategoryMenuId | null>(null);
+  const [headerStickyTop, setHeaderStickyTop] = useState<number>(72);
+  const categoriesTopRef = useRef<HTMLDivElement | null>(null);
+  const stickyMenuWrapRef = useRef<HTMLDivElement | null>(null);
+  const tablistRef = useRef<HTMLDivElement | null>(null);
+  const tabButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const scrollAnimRef = useRef<number | null>(null);
+  const isProgrammaticScrollRef = useRef<boolean>(false);
+  const highlightTimerRef = useRef<number | null>(null);
   const [infoTip, setInfoTip] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const headerEl = document.querySelector('header');
+      if (headerEl) {
+        setHeaderStickyTop(Math.ceil(headerEl.getBoundingClientRect().height) + 6);
+      }
+    };
+    updateHeaderHeight();
+    const headerEl = document.querySelector('header');
+    const ro = typeof ResizeObserver !== 'undefined' && headerEl
+      ? new ResizeObserver(updateHeaderHeight)
+      : null;
+    if (ro && headerEl) ro.observe(headerEl);
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener('resize', updateHeaderHeight);
+    };
+  }, []);
+
+  useEffect(() => {
+    const cancelAnim = () => {
+      if (scrollAnimRef.current !== null) {
+        cancelAnimationFrame(scrollAnimRef.current);
+        scrollAnimRef.current = null;
+        isProgrammaticScrollRef.current = false;
+      }
+    };
+    window.addEventListener('wheel', cancelAnim, { passive: true });
+    window.addEventListener('touchstart', cancelAnim, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', cancelAnim);
+      window.removeEventListener('touchstart', cancelAnim);
+      cancelAnim();
+      if (highlightTimerRef.current !== null) {
+        window.clearTimeout(highlightTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (!selectedDrawerOpen) return;
@@ -380,13 +437,166 @@ export function LobbySetup({
     }
   };
 
-  const filteredCategories = useMemo(() => {
-    const q = normalizeArabicText(searchQuery);
-    if (!q) return allCategoriesForLobby;
-    return allCategoriesForLobby.filter(
-      (c) => normalizeArabicText(c.name).includes(q) || normalizeArabicText(c.description || '').includes(q),
+  const menuTabs = useMemo(
+    () => getAvailableMenuTabs(allCategoriesForLobby),
+    [allCategoriesForLobby],
+  );
+
+  const groupedCategorySections = useMemo(
+    () => groupCategoriesForLobby(allCategoriesForLobby, searchQuery, focusedMenuGroup),
+    [allCategoriesForLobby, searchQuery, focusedMenuGroup],
+  );
+
+  const centerMenuTabPill = (groupId: 'all' | CategoryMenuId) => {
+    const listEl = tablistRef.current;
+    const tabEl = tabButtonRefs.current[groupId];
+    if (!listEl || !tabEl) return;
+    const listRect = listEl.getBoundingClientRect();
+    const tabRect = tabEl.getBoundingClientRect();
+    const deltaX = tabRect.left + tabRect.width / 2 - (listRect.left + listRect.width / 2);
+    if (Math.abs(deltaX) > 4) {
+      listEl.scrollBy({ left: deltaX, behavior: 'smooth' });
+    }
+  };
+
+  const smoothScrollToTarget = (targetEl: HTMLElement | null, highlightId?: CategoryMenuId) => {
+    if (!targetEl) return;
+    if (scrollAnimRef.current !== null) {
+      cancelAnimationFrame(scrollAnimRef.current);
+      scrollAnimRef.current = null;
+    }
+
+    const menuBarH = stickyMenuWrapRef.current?.getBoundingClientRect().height ?? 56;
+    const topClearance = headerStickyTop + menuBarH + 14;
+    const startY = window.scrollY;
+    const targetY = Math.max(
+      0,
+      targetEl.getBoundingClientRect().top + window.scrollY - topClearance,
     );
-  }, [searchQuery, allCategoriesForLobby]);
+    const distance = targetY - startY;
+
+    const triggerArrivalGlow = () => {
+      if (!highlightId) return;
+      if (highlightTimerRef.current !== null) {
+        window.clearTimeout(highlightTimerRef.current);
+      }
+      setHighlightedGroupId(highlightId);
+      highlightTimerRef.current = window.setTimeout(() => {
+        setHighlightedGroupId((curr) => (curr === highlightId ? null : curr));
+      }, 1150);
+    };
+
+    const reducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion || Math.abs(distance) < 4) {
+      window.scrollTo({ top: targetY });
+      triggerArrivalGlow();
+      return;
+    }
+
+    const duration = Math.min(780, Math.max(460, Math.abs(distance) * 0.38));
+    const startTime = performance.now();
+    isProgrammaticScrollRef.current = true;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo({ top: startY + distance * eased });
+      if (progress < 1) {
+        scrollAnimRef.current = requestAnimationFrame(step);
+      } else {
+        scrollAnimRef.current = null;
+        isProgrammaticScrollRef.current = false;
+        triggerArrivalGlow();
+      }
+    };
+
+    scrollAnimRef.current = requestAnimationFrame(step);
+  };
+
+  const handleMenuTabClick = (groupId: 'all' | CategoryMenuId) => {
+    soundFX.playClick();
+    setActiveMenuGroup(groupId);
+    centerMenuTabPill(groupId);
+
+    if (groupId === 'all') {
+      const hadFocus = focusedMenuGroup !== 'all';
+      setFocusedMenuGroup('all');
+      if (hadFocus) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => smoothScrollToTarget(categoriesTopRef.current));
+        });
+      } else {
+        smoothScrollToTarget(categoriesTopRef.current);
+      }
+      return;
+    }
+
+    const needsUnfocus = focusedMenuGroup !== 'all' && focusedMenuGroup !== groupId;
+    if (needsUnfocus) {
+      setFocusedMenuGroup('all');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() =>
+          smoothScrollToTarget(sectionRefs.current[groupId] ?? null, groupId),
+        );
+      });
+      return;
+    }
+
+    smoothScrollToTarget(sectionRefs.current[groupId] ?? null, groupId);
+  };
+
+  useEffect(() => {
+    if (categoryTab !== 'official' || groupedCategorySections.length === 0) return;
+
+    let rafPending = false;
+    const syncActiveFromScroll = () => {
+      rafPending = false;
+      if (isProgrammaticScrollRef.current) return;
+
+      const menuBarH = stickyMenuWrapRef.current?.getBoundingClientRect().height ?? 56;
+      const anchorY = headerStickyTop + menuBarH + 44;
+
+      let currentGroup: 'all' | CategoryMenuId = 'all';
+      const firstSection = groupedCategorySections[0];
+      const firstEl = firstSection ? sectionRefs.current[firstSection.group.id] : null;
+      if (firstEl && firstEl.getBoundingClientRect().top <= anchorY + 140) {
+        for (const { group } of groupedCategorySections) {
+          const el = sectionRefs.current[group.id];
+          if (!el) continue;
+          if (el.getBoundingClientRect().top <= anchorY) {
+            currentGroup = group.id;
+          }
+        }
+        if (currentGroup === 'all') {
+          currentGroup = firstSection.group.id;
+        }
+      }
+
+      setActiveMenuGroup((prev) => {
+        if (prev !== currentGroup) {
+          centerMenuTabPill(currentGroup);
+        }
+        return currentGroup;
+      });
+    };
+
+    const onScroll = () => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(syncActiveFromScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [categoryTab, groupedCategorySections, headerStickyTop]);
 
   const filteredDecks = useMemo(() => {
     const q = normalizeArabicText(searchQuery);
@@ -848,10 +1058,95 @@ export function LobbySetup({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="ابحث عن فئة أو بنك أسئلة..."
+              placeholder="ابحث عن فئة أو قائمة أو بنك أسئلة..."
               className="w-full bg-[#FFFDF7] border-2 border-[#1F112E] focus:border-[#63349B] rounded-2xl pr-4 pl-11 py-2.5 font-bold text-sm text-[#1F112E] outline-none"
             />
           </div>
+
+          <div ref={categoriesTopRef} />
+
+          {/* Sticky Horizontal Category Menu Strip with Smooth Jump Scroll */}
+          {categoryTab === 'official' && (
+            <div
+              ref={stickyMenuWrapRef}
+              style={{ top: `${headerStickyTop}px` }}
+              className="sticky z-30 -mx-2 px-2.5 py-2 rounded-2xl bg-[#FFFDF7]/95 backdrop-blur-md border-2 border-[#1F112E]/15 shadow-[0_6px_18px_rgba(31,17,46,0.10)]"
+            >
+              <div
+                ref={tablistRef}
+                role="tablist"
+                aria-label="قوائم الفئات"
+                className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 no-scrollbar scroll-smooth"
+              >
+                <button
+                  ref={(el) => {
+                    tabButtonRefs.current.all = el;
+                  }}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMenuGroup === 'all'}
+                  data-testid="menu-tab-all"
+                  onClick={() => handleMenuTabClick('all')}
+                  className={`inline-flex items-center gap-2 rounded-full border-2 border-[#1F112E] px-4 py-1.5 font-display font-black text-xs sm:text-sm whitespace-nowrap shrink-0 cursor-pointer transition-all duration-200 ${
+                    activeMenuGroup === 'all'
+                      ? 'bg-[#63349B] text-white shadow-[0_3px_0_#1F112E] -translate-y-0.5'
+                      : 'bg-[#FFFDF7] text-[#1F112E] shadow-[0_2px_0_#1F112E] hover:bg-[#FFF6DB]'
+                  }`}
+                >
+                  <span>كل القوائم</span>
+                  <span
+                    dir="ltr"
+                    className={`rounded-full px-2 py-0.5 leading-none text-[11px] font-black tabular-nums ${
+                      activeMenuGroup === 'all'
+                        ? 'bg-white/20 text-white'
+                        : 'bg-[#F2ECE0] text-[#1F112E]'
+                    }`}
+                  >
+                    {allCategoriesForLobby.length}
+                  </span>
+                </button>
+
+                {menuTabs.map(({ group, count }) => {
+                  const active = activeMenuGroup === group.id;
+                  return (
+                    <button
+                      key={group.id}
+                      ref={(el) => {
+                        tabButtonRefs.current[group.id] = el;
+                      }}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      data-testid={`menu-tab-${group.id}`}
+                      onClick={() => handleMenuTabClick(group.id)}
+                      className={`inline-flex items-center gap-2 rounded-full border-2 border-[#1F112E] px-3.5 py-1.5 font-display font-black text-xs sm:text-sm whitespace-nowrap shrink-0 cursor-pointer transition-all duration-200 ${
+                        active
+                          ? 'text-white shadow-[0_3px_0_#1F112E] -translate-y-0.5'
+                          : 'bg-[#FFFDF7] text-[#1F112E] shadow-[0_2px_0_#1F112E] hover:bg-[#FFF6DB]'
+                      }`}
+                      style={active ? { backgroundColor: group.accentColor } : undefined}
+                    >
+                      <span
+                        className="w-2.5 h-2.5 rounded-full border border-[#1F112E]/35 shrink-0"
+                        style={{ backgroundColor: active ? '#FFE047' : group.dotColor }}
+                        aria-hidden="true"
+                      />
+                      <span aria-hidden="true">{group.emoji}</span>
+                      <span>{group.label}</span>
+                      <span
+                        dir="ltr"
+                        className={`rounded-full px-2 py-0.5 leading-none text-[11px] font-black tabular-nums ${
+                          active ? 'bg-black/20 text-white' : 'bg-[#F2ECE0] text-[#1F112E]/80'
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {!preflight.canStart && (
             <div className="bg-[#FFE5E7] border-2 border-[#F05B63] rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-[#1F112E]">
@@ -903,117 +1198,197 @@ export function LobbySetup({
                 </div>
               )}
 
-              <div className="bg-[#00A86B] border-2 border-[#1F112E] rounded-xl px-4 py-2 text-white font-display font-black text-base shadow-[0_3px_0_#1F112E] flex items-center justify-between">
-                <span>فئات مكتبة يمكن هاي</span>
-                <span className="text-xs font-bold opacity-95">اختر من 1 إلى 8 فئات</span>
-              </div>
-
-              <div
-                className={`grid gap-4 ${
-                  compactGrid
-                    ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'
-                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-                }`}
-              >
-                {filteredCategories.map((cat) => {
-                  const isSelected =
-                    selectedDeckId === 'curated_custom'
-                      ? customCategories.includes(cat.id)
-                      : activeCategoryIdsForPreflight.includes(cat.id);
-                  const stats = getCategoryStats(cat.id);
-                  const artSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
-                  const pctToneClass =
-                    stats.percent >= 100
-                      ? 'from-[#FB7185] to-[#E11D48] text-white'
-                      : stats.percent >= 80
-                        ? 'from-[#FCD34D] to-[#D97706] text-[#1F112E]'
-                        : 'from-[#9FD7B3] to-[#6DA884] text-white';
-
-                  return (
+              {groupedCategorySections.length === 0 ? (
+                <div className="rounded-2xl bg-[#F2ECE0] border-2 border-dashed border-[#1F112E]/30 p-8 text-center space-y-3">
+                  <p className="font-display font-black text-base text-[#1F112E]">
+                    لا توجد فئات مطابقة لبحثك في هذه القائمة
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundFX.playClick();
+                      setSearchQuery('');
+                      setFocusedMenuGroup('all');
+                      setActiveMenuGroup('all');
+                    }}
+                    className="game-btn-3d bg-[#FFE047] text-[#1F112E] px-4 py-2 rounded-xl font-display font-black text-xs sm:text-sm cursor-pointer"
+                  >
+                    عرض جميع القوائم والفئات
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-7">
+                  {groupedCategorySections.map(({ group, categories }) => {
+                    const isHighlighted = highlightedGroupId === group.id;
+                    const isIsolated = focusedMenuGroup === group.id;
+                    return (
                     <div
-                      key={cat.id}
-                      className={`group relative rounded-[22px] overflow-hidden border-[2.5px] transition-all select-none ${
-                        isSelected
-                          ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_6px_0_#63349B]'
-                          : 'border-[#1F112E] shadow-[0_4px_0_#1F112E] opacity-90 hover:opacity-100'
-                      }`}
-                      style={{ backgroundColor: cat.accentColor }}
+                      key={group.id}
+                      ref={(el) => {
+                        sectionRefs.current[group.id] = el;
+                      }}
+                      data-testid={`menu-section-${group.id}`}
+                      className="space-y-3.5"
                     >
-                      {/* Top Overlay Controls: (i) + Tactile 3D VIP & Percentage Badges (matching reference) */}
-                      <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
-                        <div className="flex items-center gap-1.5 pointer-events-auto">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setInfoTip(
-                                `${cat.name}: ${cat.description || 'أسئلة متنوعة'} · المستهلك: ${stats.playedCount} من ${stats.totalCount} سؤال (${stats.percent}%)${stats.cycleCount > 0 ? ` · الدورة ${stats.cycleCount + 1}` : ''}`,
-                              )
-                            }
-                            aria-label={`تفاصيل ${cat.name}`}
-                            className="w-7 h-7 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer shadow-[0_2px_0_#1F112E]"
-                          >
-                            <Info className="w-3.5 h-3.5" />
-                          </button>
-
-                          {isSelected && (
-                            <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center shadow-[0_2px_0_#1F112E]">
-                              <Check className="w-4 h-4 stroke-[3]" />
-                            </span>
-                          )}
+                      <div
+                        className={`border-2 border-[#1F112E] rounded-xl px-4 py-2.5 text-white font-display font-black shadow-[0_3px_0_#1F112E] flex flex-wrap items-center justify-between gap-2 transition-all duration-500 ${
+                          isHighlighted
+                            ? 'ring-4 ring-[#FFE047] shadow-[0_0_24px_rgba(255,224,71,0.75)] scale-[1.01]'
+                            : ''
+                        }`}
+                        style={{ backgroundColor: group.accentColor }}
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <span className="text-lg leading-none" aria-hidden="true">
+                            {group.emoji}
+                          </span>
+                          <div className="min-w-0">
+                            <h3 className="text-sm sm:text-base font-black truncate">{group.label}</h3>
+                            <p className="text-[11px] font-bold text-white/85 truncate hidden sm:block">
+                              {group.description}
+                            </p>
+                          </div>
                         </div>
 
-                        {/* 3D Tactile Percentage Pill & Optional VIP Pill (matching Screenshot_2026-11-21_at_7.22.02_PM) */}
-                        <div className="flex items-center gap-1.5" dir="ltr">
-                          {cat.isVip && (
-                            <span className="inline-flex items-center justify-center min-w-[44px] h-8 px-2.5 rounded-full bg-gradient-to-b from-[#FFF099] to-[#F2C954] border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tracking-wide text-[#4A4352]">
-                              VIP
-                            </span>
-                          )}
-                          <span
-                            data-testid={`cat-percent-${cat.id}`}
-                            title={
-                              stats.percent >= 100
-                                ? `اكتملت الفئة (${stats.playedCount}/${stats.totalCount}) — ستُصفَّر تلقائيًا لبدء دورة جديدة`
-                                : `تم استهلاك ${stats.playedCount} من ${stats.totalCount} سؤال`
-                            }
-                            className={`inline-flex items-center justify-center min-w-[50px] h-8 px-2.5 rounded-full bg-gradient-to-b ${pctToneClass} border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tabular-nums`}
-                          >
-                            {stats.percent}%
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="rounded-full bg-black/20 border border-white/25 px-2.5 py-0.5 text-[11px] font-black tabular-nums">
+                            {categories.length} فئات
                           </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              soundFX.playClick();
+                              const nextFocus = isIsolated ? 'all' : group.id;
+                              setFocusedMenuGroup(nextFocus);
+                              setActiveMenuGroup(group.id);
+                              requestAnimationFrame(() => {
+                                requestAnimationFrame(() =>
+                                  smoothScrollToTarget(sectionRefs.current[group.id] ?? null, group.id),
+                                );
+                              });
+                            }}
+                            className="rounded-lg bg-[#FFFDF7] text-[#1F112E] border-2 border-[#1F112E] px-2.5 py-0.5 text-[11px] font-black cursor-pointer hover:bg-[#FFE047] transition"
+                          >
+                            {isIsolated ? 'كل القوائم' : 'تركيز القائمة'}
+                          </button>
                         </div>
                       </div>
 
-                      <button
-                        type="button"
-                        onClick={() => toggleCustomCategory(cat.id)}
-                        aria-pressed={isSelected}
-                        aria-label={`${isSelected ? 'إلغاء اختيار' : 'اختيار'} فئة ${cat.name}`}
-                        className="w-full text-right block cursor-pointer"
+                      <div
+                        className={`grid gap-4 ${
+                          compactGrid
+                            ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'
+                            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                        }`}
                       >
-                        {/* 3D Artwork Body */}
-                        <div className="h-44 sm:h-48 w-full overflow-hidden flex items-center justify-center">
-                          <img
-                            src={artSrc}
-                            alt={cat.name}
-                            referrerPolicy="no-referrer"
-                            className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200"
-                          />
-                        </div>
+                        {categories.map((cat) => {
+                          const isSelected =
+                            selectedDeckId === 'curated_custom'
+                              ? customCategories.includes(cat.id)
+                              : activeCategoryIdsForPreflight.includes(cat.id);
+                          const stats = getCategoryStats(cat.id);
+                          const artSrc = getCategoryCardArt(cat.id, cat.iconKey);
+                          const pctToneClass =
+                            stats.percent >= 100
+                              ? 'from-[#FB7185] to-[#E11D48] text-white'
+                              : stats.percent >= 80
+                                ? 'from-[#FCD34D] to-[#D97706] text-[#1F112E]'
+                                : 'from-[#9FD7B3] to-[#6DA884] text-white';
 
-                        {/* Cream Pill Title Strip at Bottom */}
-                        <div className="bg-gradient-to-t from-black/25 to-transparent p-3 pt-1">
-                          <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-base text-[#1F112E] shadow-[0_2px_0_#1F112E] flex items-center justify-between gap-2">
-                            <span className="truncate flex-1 text-center">{cat.name}</span>
-                            <span className="text-[11px] font-bold text-[#1F112E]/65 tabular-nums shrink-0">
-                              {stats.playedCount}/{stats.totalCount}
-                            </span>
-                          </div>
-                        </div>
-                      </button>
+                          return (
+                            <div
+                              key={cat.id}
+                              className={`group relative rounded-[22px] overflow-hidden border-[2.5px] transition-all select-none ${
+                                isSelected
+                                  ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_6px_0_#63349B]'
+                                  : 'border-[#1F112E] shadow-[0_4px_0_#1F112E] hover:-translate-y-0.5'
+                              }`}
+                              style={{ backgroundColor: cat.accentColor }}
+                            >
+                              {/* Top Overlay Controls: (i) + Tactile 3D VIP & Percentage Badges */}
+                              <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
+                                <div className="flex items-center gap-1.5 pointer-events-auto">
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      setInfoTip(
+                                        `${cat.name}: ${cat.description || 'أسئلة متنوعة'} · المستهلك: ${stats.playedCount} من ${stats.totalCount} سؤال (${stats.percent}%)${stats.cycleCount > 0 ? ` · الدورة ${stats.cycleCount + 1}` : ''}`,
+                                      )
+                                    }
+                                    aria-label={`تفاصيل ${cat.name}`}
+                                    className="w-7 h-7 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer shadow-[0_2px_0_#1F112E]"
+                                  >
+                                    <Info className="w-3.5 h-3.5" />
+                                  </button>
+
+                                  {isSelected && (
+                                    <span className="w-7 h-7 rounded-full bg-[#63349B] border-2 border-[#1F112E] text-white flex items-center justify-center shadow-[0_2px_0_#1F112E]">
+                                      <Check className="w-4 h-4 stroke-[3]" />
+                                    </span>
+                                  )}
+                                </div>
+
+                                <div className="flex items-center gap-1.5" dir="ltr">
+                                  {cat.isVip && (
+                                    <span className="inline-flex items-center justify-center min-w-[44px] h-8 px-2.5 rounded-full bg-gradient-to-b from-[#FFF099] to-[#F2C954] border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tracking-wide text-[#4A4352]">
+                                      VIP
+                                    </span>
+                                  )}
+                                  <span
+                                    data-testid={`cat-percent-${cat.id}`}
+                                    title={
+                                      stats.percent >= 100
+                                        ? `اكتملت الفئة (${stats.playedCount}/${stats.totalCount}) — ستُصفَّر تلقائيًا لبدء دورة جديدة`
+                                        : `تم استهلاك ${stats.playedCount} من ${stats.totalCount} سؤال`
+                                    }
+                                    className={`inline-flex items-center justify-center min-w-[50px] h-8 px-2.5 rounded-full bg-gradient-to-b ${pctToneClass} border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tabular-nums`}
+                                  >
+                                    {stats.percent}%
+                                  </span>
+                                </div>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => toggleCustomCategory(cat.id)}
+                                aria-pressed={isSelected}
+                                aria-label={`${isSelected ? 'إلغاء اختيار' : 'اختيار'} فئة ${cat.name}`}
+                                className="w-full text-right block cursor-pointer relative"
+                              >
+                                {/* Realistic Photography Artwork Body */}
+                                <div className="h-44 sm:h-48 w-full overflow-hidden relative">
+                                  <img
+                                    src={artSrc}
+                                    alt={cat.name}
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer"
+                                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
+                                  />
+                                  <div
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F112E]/75 via-[#1F112E]/10 to-black/25"
+                                  />
+                                </div>
+
+                                {/* Cream Pill Title Strip Overlaid at Bottom */}
+                                <div className="absolute inset-x-0 bottom-0 p-3 pt-6">
+                                  <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-sm sm:text-base text-[#1F112E] shadow-[0_2px_0_#1F112E] flex items-center justify-between gap-2">
+                                    <span className="truncate flex-1 text-center">{cat.name}</span>
+                                    <span className="text-[11px] font-bold text-[#1F112E]/65 tabular-nums shrink-0">
+                                      {stats.playedCount}/{stats.totalCount}
+                                    </span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           ) : (
             <div className="space-y-4">
@@ -1071,16 +1446,20 @@ export function LobbySetup({
                         </div>
                       </div>
 
-                      <div className="h-44 w-full overflow-hidden flex items-center justify-center p-2">
+                      <div className="h-44 w-full overflow-hidden relative">
                         <img
                           src={artSrc}
                           alt={d.title}
                           referrerPolicy="no-referrer"
-                          className="h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-200"
+                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F112E]/70 via-transparent to-black/20"
                         />
                       </div>
 
-                      <div className="bg-gradient-to-t from-black/25 to-transparent p-3 pt-1">
+                      <div className="absolute inset-x-0 bottom-0 p-3 pt-6">
                         <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-sm sm:text-base text-[#1F112E] truncate shadow-[0_2px_0_#1F112E]">
                           {d.title}
                         </div>
@@ -1128,7 +1507,7 @@ export function LobbySetup({
             ) : (
               <ul className="max-h-56 overflow-y-auto space-y-2 pl-0.5">
                 {selectedCategoryItems.map((cat) => {
-                  const thumbSrc = CATEGORY_3D_ART[cat.iconKey] || CATEGORY_3D_ART.general;
+                  const thumbSrc = getCategoryCardArt(cat.id, cat.iconKey);
                   return (
                     <li
                       key={cat.id}
@@ -1144,7 +1523,7 @@ export function LobbySetup({
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                           />
                         </span>
                         <span className="font-display font-black text-sm text-[#1F112E] truncate">

@@ -18,6 +18,8 @@ import {
   QrCode,
   RefreshCw,
   RotateCcw,
+  ShieldAlert,
+  Lock,
   SkipForward,
   Sparkles,
   Trophy,
@@ -28,7 +30,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY, SILENT_ACTING_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -113,6 +115,12 @@ export function GameArena({
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const [memoryReviewVisible, setMemoryReviewVisible] = useState(true);
+  const [actingQrInfo, setActingQrInfo] = useState<{
+    token: string;
+    qrDataUrl: string;
+    actingUrl: string;
+    actingPath: string;
+  } | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
@@ -250,6 +258,7 @@ export function GameArena({
         answerImageUrl: ar.question.answerImageUrl,
         audioUrl: ar.question.audioUrl,
         answerAudioUrl: ar.question.answerAudioUrl,
+        videoUrl: ar.question.videoUrl,
         options: ar.question.options,
         correctOptionIndex: ar.question.correctOptionIndex,
         orderItems: ar.question.orderItems,
@@ -272,6 +281,9 @@ export function GameArena({
         memoryStage: ar.memoryStage,
         memorizeDurationSeconds: ar.memorizeDurationSeconds,
         memorizeEndsAtMs: ar.memorizeEndsAtMs,
+        actingToken: ar.actingToken,
+        actingClaimed: ar.actingClaimed,
+        actingCheatAttempts: ar.actingCheatAttempts,
       };
     }
     const sr = state.activeRound as SanitizedActiveRound;
@@ -303,10 +315,47 @@ export function GameArena({
   const isGrammarRound = roundMeta?.categoryId === ARABIC_GRAMMAR_CATEGORY.id;
   const isFirstNameRound = roundMeta?.categoryId === FOOTBALL_FIRST_NAME_CATEGORY.id;
   const isGeometryRound = roundMeta?.categoryId === GEOMETRY_CATEGORY.id;
+  const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
   const grammarPrompt = isGrammarRound ? roundMeta?.prompt.match(/^(.*)【([^】]+)】(.*)$/s) : null;
   const alternatePlurals = roundMeta?.categoryId === ARABIC_PLURALS_CATEGORY.id
     ? roundMeta.acceptableAnswers
     : undefined;
+
+  useEffect(() => {
+    const tokenVal = roundMeta?.actingToken;
+    if (
+      !isSilentActingRound ||
+      !tokenVal ||
+      !state ||
+      state.phase === 'BOARD' ||
+      state.phase === 'FINAL' ||
+      state.phase === 'REVEAL' ||
+      state.phase === 'AWARD' ||
+      state.phase === 'LIFELINE_PICK'
+    ) {
+      setActingQrInfo(null);
+      return;
+    }
+    let mounted = true;
+    fetch(
+      `/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(tokenVal)}`,
+    )
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (mounted && data?.qrDataUrl) {
+          setActingQrInfo({
+            token: tokenVal,
+            qrDataUrl: data.qrDataUrl,
+            actingUrl: data.actingUrl,
+            actingPath: data.actingPath,
+          });
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, [isSilentActingRound, roundMeta?.actingToken, roomCode, state?.phase]);
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
@@ -550,7 +599,7 @@ export function GameArena({
                       key={cat.id}
                       className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
-                      <CategoryArtwork iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
+                      <CategoryArtwork categoryId={cat.id} iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
 
                       <div className="category-caption">
                         <div className="text-center">
@@ -766,9 +815,11 @@ export function GameArena({
                         <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 rounded-xl border-2 border-[#1F112E] bg-[#E0F2FE] px-4 py-1.5 text-sm md:text-base font-black text-[#0369A1] shadow-[0_2px_0_#1F112E] leading-snug">
                           <Eye className="w-4 h-4 shrink-0" />
                           <span>
-                            {memorySecondImageUrl
-                              ? showingSecondMemoryImage ? 'الصورة الثانية تختفي خلال' : 'الصورة الأولى تختفي خلال'
-                              : 'تأمل المشهد جيدًا — سيختفي خلال'}
+                            {roundMeta.videoUrl
+                              ? 'شاهد المقطع جيدًا — سيختفي خلال'
+                              : memorySecondImageUrl
+                                ? showingSecondMemoryImage ? 'الصورة الثانية تختفي خلال' : 'الصورة الأولى تختفي خلال'
+                                : 'تأمل المشهد جيدًا — سيختفي خلال'}
                           </span>
                           <span
                             data-testid="visual-memory-countdown"
@@ -783,7 +834,26 @@ export function GameArena({
                       {memorySecondImageUrl && !showingSecondMemoryImage && (
                         <link rel="preload" as="image" href={memorySecondImageUrl} />
                       )}
-                      {visibleMemoryImage && (
+                      {roundMeta.videoUrl ? (
+                        <div className="flex justify-center">
+                          <div
+                            data-testid="visual-memory-video-box"
+                            className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
+                          >
+                            <video
+                              key={roundMeta.questionId}
+                              data-testid="visual-memory-video"
+                              src={roundMeta.videoUrl}
+                              autoPlay
+                              muted
+                              playsInline
+                              controls
+                              preload="auto"
+                              className="block max-w-full max-h-[54vh] w-auto h-auto select-none"
+                            />
+                          </div>
+                        </div>
+                      ) : visibleMemoryImage ? (
                         <div className="flex justify-center">
                           <div
                             data-testid="visual-memory-scene"
@@ -798,7 +868,7 @@ export function GameArena({
                             />
                           </div>
                         </div>
-                      )}
+                      ) : null}
                     </div>
                   ) : (
                     <div className="question-face">
@@ -906,6 +976,16 @@ export function GameArena({
                           aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
                         />
                       )}
+                      {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
+                        <video
+                          key={`q-video-${roundMeta.questionId}`}
+                          className="mx-auto mt-4 max-h-[42vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
+                          src={roundMeta.videoUrl}
+                          controls
+                          playsInline
+                          preload="metadata"
+                        />
+                      )}
 
                       {/* Multiple Choice Options */}
                       {roundMeta.questionType === 'multiple_choice' && roundMeta.options && (
@@ -954,6 +1034,72 @@ export function GameArena({
                       {roundMeta.questionType === 'pantomime_optional' && state.phase !== 'REVEAL' && (
                         <div className="mt-4 inline-flex items-center gap-2 bg-[#EDE7F6] border border-[#7042A1] px-4 py-1.5 rounded-xl text-xs font-bold text-[#7042A1]">
                           <span>نشاط تمثيل صامت اختياري — يمكن تبديله ببطاقة شنّص</span>
+                        </div>
+                      )}
+
+                      {/* Dedicated Silent Acting Single-Device QR Stage (secret answer hidden until REVEAL) */}
+                      {isSilentActingRound && state.phase !== 'REVEAL' && (
+                        <div
+                          data-testid="silent-acting-qr-card"
+                          data-acting-path={actingQrInfo?.actingPath || ''}
+                          className="mt-5 mx-auto max-w-md rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FFF4D6] p-4 sm:p-5 shadow-[0_4px_0_#1F112E] space-y-3 text-center"
+                        >
+                          {roundMeta.subtopic && (
+                            <div className="inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-white px-3.5 py-1 text-xs font-black text-[#63349B]">
+                              <Sparkles className="w-3.5 h-3.5" />
+                              <span>{roundMeta.subtopic}</span>
+                            </div>
+                          )}
+
+                          <div className="mx-auto w-fit rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FFFDF7] p-3 shadow-[0_3px_0_#1F112E]">
+                            {actingQrInfo?.qrDataUrl ? (
+                              <img
+                                data-testid="silent-acting-qr-image"
+                                src={actingQrInfo.qrDataUrl}
+                                alt="رمز QR لفتح كلمة التمثيل الصامت"
+                                className="w-44 h-44 sm:w-48 sm:h-48 object-contain"
+                              />
+                            ) : (
+                              <div className="w-44 h-44 sm:w-48 sm:h-48 flex flex-col items-center justify-center gap-2 text-[#1F112E]/60">
+                                <QrCode className="w-10 h-10 animate-pulse" />
+                                <span className="text-xs font-bold">جارٍ تجهيز رمز QR...</span>
+                              </div>
+                            )}
+                          </div>
+
+                          <div
+                            data-testid="silent-acting-status"
+                            className={`inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#1F112E] px-3.5 py-1.5 text-xs sm:text-sm font-black shadow-[0_2px_0_#1F112E] ${
+                              roundMeta.actingClaimed
+                                ? 'bg-[#00A86B] text-white'
+                                : 'bg-white text-[#1F112E]'
+                            }`}
+                          >
+                            {roundMeta.actingClaimed ? (
+                              <>
+                                <Lock className="w-4 h-4 shrink-0" />
+                                <span>تم فتح المطلوب على هاتف الممثّل فقط</span>
+                              </>
+                            ) : (
+                              <>
+                                <QrCode className="w-4 h-4 shrink-0 text-[#63349B]" />
+                                <span>بانتظار مسح الرمز من هاتف واحد فقط...</span>
+                              </>
+                            )}
+                          </div>
+
+                          {(roundMeta.actingCheatAttempts ?? 0) > 0 && (
+                            <div
+                              data-testid="silent-acting-cheat-alert"
+                              className="rounded-xl border-2 border-[#1F112E] bg-[#F05B63] px-4 py-2.5 text-white shadow-[0_3px_0_#1F112E] flex items-center justify-center gap-2"
+                            >
+                              <ShieldAlert className="w-5 h-5 shrink-0 text-[#FFE047]" />
+                              <span className="font-display font-black text-xs sm:text-sm">
+                                يا غشاشش! تم رصد {roundMeta.actingCheatAttempts}{' '}
+                                {roundMeta.actingCheatAttempts === 1 ? 'محاولة غش' : 'محاولات غش'} من جهاز آخر ومنعها!
+                              </span>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -1102,8 +1248,8 @@ export function GameArena({
                     </motion.div>
                   )}
 
-                  {/* REVEAL (Visual Memory): Re-display clean full scene image for verification */}
-                  {state.phase === 'REVEAL' && isMemoryRound && memoryImageUrl && (
+                  {/* REVEAL (Visual Memory): Re-display clean full scene image or video clip for verification */}
+                  {state.phase === 'REVEAL' && isMemoryRound && (memoryImageUrl || roundMeta.videoUrl) && (
                     <div className="space-y-2.5 text-center pt-1" dir="rtl">
                       <div className="flex items-center justify-center">
                         <button
@@ -1114,30 +1260,45 @@ export function GameArena({
                           <Eye className="w-4 h-4" />
                           <span>
                             {memoryReviewVisible
-                              ? 'إخفاء المشهد الكامل'
-                              : 'إعادة المشهد للمراجعة'}
+                              ? roundMeta.videoUrl ? 'إخفاء المقطع' : 'إخفاء المشهد الكامل'
+                              : roundMeta.videoUrl ? 'إعادة المقطع للمراجعة' : 'إعادة المشهد للمراجعة'}
                           </span>
                         </button>
                       </div>
                       {memoryReviewVisible && (
-                        <div
-                          data-testid="visual-memory-review-scene"
-                          className={memorySecondImageUrl ? 'grid gap-3 sm:grid-cols-2' : 'flex justify-center'}
-                        >
-                          {(memorySecondImageUrl ? [memoryImageUrl, memorySecondImageUrl] : [memoryImageUrl]).map((src, index) => (
-                            <div
-                              key={src}
-                              className="mx-auto w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
-                            >
-                              <img
-                                src={src}
-                                alt={memorySecondImageUrl ? (index === 0 ? 'الصورة الأولى' : 'الصورة الثانية') : 'مراجعة المشهد الكامل'}
-                                draggable={false}
-                                className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
-                              />
-                            </div>
-                          ))}
-                        </div>
+                        roundMeta.videoUrl ? (
+                          <div
+                            data-testid="visual-memory-review-video"
+                            className="flex justify-center"
+                          >
+                            <video
+                              src={roundMeta.videoUrl}
+                              controls
+                              playsInline
+                              preload="metadata"
+                              className="max-h-[34vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
+                            />
+                          </div>
+                        ) : memoryImageUrl ? (
+                          <div
+                            data-testid="visual-memory-review-scene"
+                            className={memorySecondImageUrl ? 'grid gap-3 sm:grid-cols-2' : 'flex justify-center'}
+                          >
+                            {(memorySecondImageUrl ? [memoryImageUrl, memorySecondImageUrl] : [memoryImageUrl]).map((src, index) => (
+                              <div
+                                key={src}
+                                className="mx-auto w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-white shadow-[0_4px_0_#1F112E]"
+                              >
+                                <img
+                                  src={src}
+                                  alt={memorySecondImageUrl ? (index === 0 ? 'الصورة الأولى' : 'الصورة الثانية') : 'مراجعة المشهد الكامل'}
+                                  draggable={false}
+                                  className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ) : null
                       )}
                     </div>
                   )}

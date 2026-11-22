@@ -271,6 +271,26 @@ export const FOUR_PICTURES_CATEGORY: DeckCategory = {
   accentColor: '#E36652',
 };
 
+export const ARABIC_DIALECTS_CATEGORY: DeckCategory = {
+  id: 'cat_arabic_dialects',
+  name: 'اللهجات',
+  description: 'تحدّي المفردات والتعابير الشعبية في اللهجات العربية الأصيلة',
+  iconKey: 'arabic',
+  accentColor: '#C25B3F',
+};
+
+export const ARABIC_DIALECTS_COUNT = 60;
+
+export const SILENT_ACTING_CATEGORY: DeckCategory = {
+  id: 'cat_silent_acting',
+  name: 'تمثيل صامت',
+  description: 'تحدّي تمثيل صامت (تثميل صامت): يظهر المطلوب على هاتف واحد عبر QR فقط مع كشف فوري لمحاولات الغش',
+  iconKey: 'silent_acting',
+  accentColor: '#63349B',
+};
+
+export const SILENT_ACTING_COUNT = 100;
+
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   HASHEMITE_UNIVERSITY_CATEGORY.id,
   PROPHET_STORIES_CATEGORY.id,
@@ -293,6 +313,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   WORLD_FOOTBALL_CATEGORY.id,
   FOOTBALL_FIRST_NAME_CATEGORY.id,
   FOOTBALL_ORDERING_CATEGORY.id,
+  SILENT_ACTING_CATEGORY.id,
 ];
 
 export const SERVER_CURATED_CATEGORIES = [
@@ -335,6 +356,8 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: FOOTBALL_ORDERING_CATEGORY, questionCount: 130 },
   { category: HASHEMITE_UNIVERSITY_CATEGORY, questionCount: 100 },
   { category: FOUR_PICTURES_CATEGORY, questionCount: 38 },
+  { category: ARABIC_DIALECTS_CATEGORY, questionCount: ARABIC_DIALECTS_COUNT },
+  { category: SILENT_ACTING_CATEGORY, questionCount: SILENT_ACTING_COUNT },
 ];
 
 export const SERVER_CURATED_CATEGORY_IDS = SERVER_CURATED_CATEGORIES.map(({ category }) => category.id);

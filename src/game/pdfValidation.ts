@@ -142,10 +142,11 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
     ? undefined
     : getQuestionImageSrc(question);
   const audio = question.audioUrl?.trim();
+  const video = question.videoUrl?.trim();
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, image, question.memorySecondImageUrl, audio, orderItems].filter(Boolean).join('\n');
+  return [prompt, image, question.memorySecondImageUrl, audio, video, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [
@@ -328,6 +329,7 @@ export function validateQuizQuestion(
       : undefined,
     audioUrl: typeof question.audioUrl === 'string' ? question.audioUrl.trim() || undefined : undefined,
     answerAudioUrl: typeof question.answerAudioUrl === 'string' ? question.answerAudioUrl.trim() || undefined : undefined,
+    videoUrl: typeof question.videoUrl === 'string' ? question.videoUrl.trim() || undefined : undefined,
     timeLimitSeconds: question.timeLimitSeconds,
     subtopic: question.subtopic?.trim() || question.sourceRef?.trim() || undefined,
     teamIndex: typeof question.teamIndex === 'number' ? question.teamIndex : undefined,

@@ -21,7 +21,7 @@
     background-color: #240E35;
     color: var(--gs-ink);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,
@@ -785,3 +785,12 @@
   35%, 81% { opacity: 1; transform: none; }
   100% { opacity: 0; transform: translateY(-10px) scale(.98); }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
