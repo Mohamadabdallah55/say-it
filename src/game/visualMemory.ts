@@ -8,5 +8,4 @@ export const VISUAL_MEMORY_CATEGORY: DeckCategory = {
   accentColor: '#0EA5E9',
 };
 
-export const VISUAL_MEMORY_SOURCE_COUNT = 100;
-export const VISUAL_MEMORY_PLAYABLE_COUNT = 90;
+export const VISUAL_MEMORY_PLAYABLE_COUNT = 100;

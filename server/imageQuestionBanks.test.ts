@@ -214,7 +214,7 @@ test('club badges load before reveal without exposing the club or its source URL
   const played = selectBoardTile(room, question.id, 'club');
   assert.ok(played.ok, played.error);
   const hidden = sanitizeStateForRole(played.state, 'projector').activeRound;
-  assert.equal(hidden?.imageUrl, `/assets/questions/club-logos/${question.id}.png`);
+  assert.equal(hidden?.imageUrl, `/api/club-logos/${question.id}/preview`);
   assert.equal(hidden?.answer, undefined);
   assert.equal(hidden?.acceptableAnswers, undefined);
   assert.equal(hidden?.subtopic, undefined);
@@ -222,6 +222,7 @@ test('club badges load before reveal without exposing the club or its source URL
   const revealed = sanitizeStateForRole(revealAnswer(played.state, 'reveal').state, 'projector').activeRound;
   assert.equal(revealed?.answer, question.answer);
   assert.equal(revealed?.sourceRef, question.sourceRef);
+  assert.equal(revealed?.imageUrl, question.imageUrl);
 });
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {

@@ -1,0 +1,113 @@
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import type { NextFunction, Request, Response } from 'express';
+
+function rect(x: number, y: number, right: number, bottom: number): string {
+  return `${x},${y} ${right},${y} ${right},${bottom} ${x},${bottom}`;
+}
+
+// Coordinates use a 100 × 100 view box. Mask lettering and keep the rest of the badge visible.
+const nameRegions: Readonly<Record<string, readonly string[]>> = {
+  '002': [rect(11, 5, 90, 23)],
+  '003': ['3,43 98,16 98,53 8,75'],
+  '004': [rect(2, 51, 98, 78)],
+  '005': ['5,33 18,20 32,14 48,11 68,13 84,21 95,35 84,43 74,35 62,29 49,26 31,31 18,44', rect(24, 71, 78, 89)],
+  '007': [rect(8, 8, 90, 18), '3,56 96,33 99,54 12,78'],
+  '010': [rect(7, 1, 95, 16)],
+  '011': ['1,39 12,20 26,13 48,10 72,15 88,23 99,40 99,64 88,65 82,44 71,31 51,23 31,28 19,40 12,66 1,64', rect(17, 38, 83, 55)],
+  '012': [rect(12, 5, 88, 30)],
+  '013': [rect(5, 4, 98, 26), rect(19, 43, 87, 75)],
+  '014': [rect(25, 24, 73, 39)],
+  '015': [rect(14, 13, 90, 33)],
+  '016': [rect(21, 79, 80, 95)],
+  '017': [rect(29, 23, 72, 35), rect(15, 39, 33, 56), rect(69, 39, 88, 56)],
+  '018': [rect(4, 5, 95, 18)],
+  '019': [rect(24, 0, 80, 18), '8,67 22,44 48,30 82,22 94,31 71,43 43,57 18,78'],
+  '021': ['7,45 88,28 91,46 11,63'],
+  '022': ['1,47 9,28 27,15 50,10 75,16 93,29 99,49 94,73 83,73 87,50 80,35 67,27 48,23 27,29 15,41 13,70 3,72', rect(31, 73, 69, 87)],
+  '023': [rect(5, 17, 95, 33), rect(5, 70, 94, 87)],
+  '024': [rect(22, 10, 78, 48)],
+  '025': ['18,36 82,22 88,52 20,68'],
+  '026': [rect(13, 19, 86, 39)],
+  '027': ['14,22 29,13 50,10 72,13 89,24 79,38 64,29 49,25 36,29 22,38', '12,71 23,64 40,72 53,76 69,71 79,63 90,72 78,83 51,91 28,82'],
+  '028': [rect(13, 41, 86, 54)],
+  '029': [rect(11, 9, 90, 24)],
+  '030': [rect(20, 10, 82, 25)],
+  '031': ['4,39 15,23 35,12 60,10 82,19 97,35 91,44 82,34 62,27 41,24 24,31 14,46 4,49'],
+  '032': [rect(5, 4, 96, 24)],
+  '033': ['16,62 87,15 96,29 25,75'],
+  '034': [rect(24, 26, 75, 38), rect(6, 70, 94, 89)],
+  '035': ['21,52 25,40 38,32 58,31 76,39 80,56 74,63 67,53 61,44 44,43 33,53 28,64', rect(29, 60, 71, 75)],
+  '036': ['2,62 87,4 99,17 17,79', rect(6, 11, 52, 30)],
+  '037': ['12,67 84,10 94,26 23,82'],
+  '038': [rect(8, 7, 93, 34)],
+  '039': [rect(16, 36, 86, 79)],
+  '040': [rect(19, 2, 82, 19)],
+  '041': ['3,57 13,56 31,70 50,75 73,69 88,58 97,65 83,83 50,90 22,82'],
+  '042': [rect(25, 0, 77, 24), rect(29, 78, 72, 94)],
+  '043': ['2,29 21,16 50,11 77,16 98,30 91,42 68,33 53,28 34,30 9,42', '3,68 11,58 33,69 51,73 67,70 87,59 98,68 82,79 51,89 22,81'],
+  '044': [rect(7, 17, 95, 32)],
+  '045': ['4,61 83,6 100,20 16,78'],
+  '046': [rect(5, 43, 96, 98)],
+  '047': ['33,64 68,23 80,27 73,54 43,76'],
+  '048': [rect(12, 35, 87, 73)],
+  '050': ['5,60 10,43 28,26 68,20 78,28 71,41 49,49 27,59 33,68 66,63 72,75 54,80 23,78'],
+  '052': [rect(10, 53, 92, 85)],
+  '053': [rect(13, 15, 87, 42)],
+  '054': ['8,30 26,18 52,12 76,17 94,33 87,41 72,30 49,25 30,30 14,41', '12,64 26,65 51,75 68,70 84,62 94,70 75,84 47,90 23,82'],
+  '055': [rect(17, 27, 83, 46)],
+  '056': ['2,37 14,24 34,12 62,12 82,23 98,38 92,48 82,40 65,29 48,27 27,33 12,48'],
+  '057': [rect(20, 20, 78, 41), '12,57 22,49 40,60 54,63 68,57 86,49 92,67 77,81 49,90 21,80'],
+  '058': [rect(17, 18, 83, 35)],
+  '059': [rect(3, 3, 97, 21)],
+  '060': ['3,33 20,19 50,10 81,18 96,34 86,42 71,32 53,25 35,30 12,43', rect(20, 69, 79, 88)],
+  '062': ['10,54 78,16 91,30 21,69'],
+  '063': ['11,46 26,34 53,31 75,38 88,50 81,61 62,49 50,46 29,53 20,63', rect(66, 57, 91, 76), '14,76 24,70 43,83 61,82 84,73 87,82 64,95 35,94'],
+  '065': [rect(17, 41, 84, 59)],
+  '066': ['1,48 12,28 32,15 57,11 84,20 97,41 97,65 86,65 80,40 64,29 47,27 28,34 19,48 13,63 3,61'],
+  '067': [rect(13, 10, 87, 35)],
+  '068': ['13,23 28,14 51,11 76,16 88,26 79,33 65,27 49,24 34,28 22,35'],
+  '069': [rect(10, 15, 89, 41)],
+  '070': [rect(16, 37, 96, 69)],
+  '071': [rect(4, 39, 96, 63)],
+  '073': ['15,38 29,29 50,25 76,32 91,46 82,53 69,44 51,39 33,44 23,54 13,51'],
+};
+
+export async function serveClubLogoPreview(req: Request<{ id: string }>, res: Response, next: NextFunction) {
+  const id = req.params.id;
+  if (!/^CLUB-\d{3}$/.test(id)) {
+    res.sendStatus(404);
+    return;
+  }
+
+  const file = path.resolve('public', 'assets', 'questions', 'club-logos', `${id}.png`);
+  try {
+    const original = await readFile(file);
+    const regions = nameRegions[id.slice(5)];
+    if (!regions) {
+      res.type('png').send(original);
+      return;
+    }
+
+    const polygons = regions.map(points => `<polygon points="${points}"/>`).join('');
+    const originalHref = `data:image/png;base64,${original.toString('base64')}`;
+    const preview = `<svg xmlns="http://www.w3.org/2000/svg" width="139" height="181" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <image id="badge" href="${originalHref}" width="100" height="100" preserveAspectRatio="none"/>
+        <mask id="outside"><rect width="100" height="100" fill="white"/><g fill="black">${polygons}</g></mask>
+        <mask id="silhouette" mask-type="alpha"><use href="#badge"/></mask>
+        <clipPath id="lettering">${polygons}</clipPath>
+        <filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
+      </defs>
+      <use href="#badge" mask="url(#outside)"/>
+      <g mask="url(#silhouette)" clip-path="url(#lettering)"><use href="#badge" filter="url(#blur)"/></g>
+    </svg>`;
+    res.type('image/svg+xml').send(preview);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      res.sendStatus(404);
+      return;
+    }
+    next(error);
+  }
+}
