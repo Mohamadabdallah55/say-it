@@ -134,6 +134,7 @@ export interface QuizQuestion {
   hint?: string;
   explanation?: string;
   imageUrl?: string;
+  previewImageUrl?: string;
   imageBase64?: string;
   imageCaption?: string;
   beforeImageUrls?: string[];

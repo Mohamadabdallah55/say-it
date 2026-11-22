@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { NextFunction, Request, Response } from 'express';
+import { renderBlurredImagePreview } from './blurredImagePreview';
 
 function rect(x: number, y: number, right: number, bottom: number): string {
   return `${x},${y} ${right},${y} ${right},${bottom} ${x},${bottom}`;
@@ -89,20 +90,7 @@ export async function serveClubLogoPreview(req: Request<{ id: string }>, res: Re
       return;
     }
 
-    const polygons = regions.map(points => `<polygon points="${points}"/>`).join('');
-    const originalHref = `data:image/png;base64,${original.toString('base64')}`;
-    const preview = `<svg xmlns="http://www.w3.org/2000/svg" width="139" height="181" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <defs>
-        <image id="badge" href="${originalHref}" width="100" height="100" preserveAspectRatio="none"/>
-        <mask id="outside"><rect width="100" height="100" fill="white"/><g fill="black">${polygons}</g></mask>
-        <mask id="silhouette" mask-type="alpha"><use href="#badge"/></mask>
-        <clipPath id="lettering">${polygons}</clipPath>
-        <filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
-      </defs>
-      <use href="#badge" mask="url(#outside)"/>
-      <g mask="url(#silhouette)" clip-path="url(#lettering)"><use href="#badge" filter="url(#blur)"/></g>
-    </svg>`;
-    res.type('image/svg+xml').send(preview);
+    res.type('image/svg+xml').send(renderBlurredImagePreview(original, 'image/png', 139, 181, regions));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       res.sendStatus(404);
