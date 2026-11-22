@@ -13,12 +13,18 @@ const categories = ['cat_general', 'cat_science', categoryId];
 const deck = buildBoardDeckFromCategories(categories, undefined, PROPHET_STORIES_QUESTIONS);
 const teams = [{ name: 'أ', color: '#cc4455' }, { name: 'ب', color: '#3344aa' }];
 
-test('prophet pack has unique prompts across the official bank and the supplied point distribution', () => {
-  const pack = PROPHET_STORIES_QUESTIONS;
+test('the original prophet pack keeps its prompts and the expansion preserves IDs, references and tiers', () => {
+  const pack = PROPHET_STORIES_QUESTIONS.filter(q => /^ANB-\d{3}$/.test(q.id));
+  const expansion = PROPHET_STORIES_QUESTIONS.filter(q => /^ANB-R2-\d{3}$/.test(q.id));
   const normalizePrompt = (prompt: string) => normalizeArabicText(prompt).replace(/[^\p{L}\p{N}\s]/gu, '').trim();
   assert.equal(new Set([...CURATED_QUESTIONS, ...pack].map(q => normalizePrompt(q.prompt))).size, CURATED_QUESTIONS.length + pack.length);
-  assert.equal(pack.length, PROPHET_STORIES_COUNT);
+  assert.equal(PROPHET_STORIES_QUESTIONS.length, PROPHET_STORIES_COUNT);
+  assert.equal(new Set(PROPHET_STORIES_QUESTIONS.map(q => q.id)).size, PROPHET_STORIES_COUNT);
+  assert.equal(pack.length, 200);
+  assert.equal(expansion.length, 200);
   assert.deepEqual([200, 400, 600].map(points => pack.filter(q => q.points === points).length), [46, 76, 78]);
+  assert.deepEqual([200, 400, 600].map(points => expansion.filter(q => q.points === points).length), [25, 65, 110]);
+  assert.ok(expansion.every(q => q.sourceRef && q.explanation && q.status === 'approved'));
   for (const [index, question] of pack.entries()) {
     const previous = [...pack.slice(0, index), ...CURATED_QUESTIONS.filter(q => q.categoryId !== categoryId)];
     assert.ok(!previous.some(q => areQuestionsNearDuplicate(q.prompt, question.prompt)), question.id);

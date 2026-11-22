@@ -1,3 +1,4 @@
+import { PROPHET_STORIES_CATEGORY } from './prophetStories';
 import type {
   BoardTileState,
   DeckCategory,
@@ -389,6 +390,21 @@ export function categoryPointValues(category: DeckCategory, difficulties: Diffic
     .map(pointsForDifficulty);
 }
 
+function questionsForMatch(deck: QuizDeck): QuizQuestion[] {
+  const prophetCategoryId = PROPHET_STORIES_CATEGORY.id;
+  if (deck.sourceType !== 'curated' || !deck.categories.some(({ id }) => id === prophetCategoryId)) return deck.questions;
+
+  // The Prophet Stories catalog keeps both editions. A single match draws each prompt once.
+  const seenPrompts = new Set<string>();
+  return deck.questions.filter(question => {
+    if (question.categoryId !== prophetCategoryId || question.status !== 'approved') return true;
+    const prompt = questionUniquenessKey(question);
+    if (seenPrompts.has(prompt)) return false;
+    seenPrompts.add(prompt);
+    return true;
+  });
+}
+
 export function selectActiveBoardForDeck(
   deck: QuizDeck,
   requestedCategoryCount = 5,
@@ -399,7 +415,7 @@ export function selectActiveBoardForDeck(
   tiles: BoardTileState[];
   questionPool: QuizQuestion[];
 } {
-  const poolToUse = deck.questions.filter((q) => q.status === 'approved');
+  const poolToUse = questionsForMatch(deck).filter((q) => q.status === 'approved');
   const matrixMode = isCategoryTeamMatrixDeck(deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
   const difficulties = resolveDeckDifficulties(deck);
@@ -597,6 +613,7 @@ export function runBoardPreflightCheck(params: {
   settings: Partial<MatchSettings>;
 }): PreflightResult {
   const { deck, selectedCategoryIds, serverValidatedCategoryIds = [], teams, settings } = params;
+  const matchQuestions = questionsForMatch(deck);
   const checks: PreflightCheckItem[] = [];
   const matrixMode = isCategoryTeamMatrixDeck(deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(deck);
@@ -676,7 +693,7 @@ export function runBoardPreflightCheck(params: {
   }
 
   // 2. Every category (and every team slot in matrixMode) has selected difficulty approved questions
-  const approvedPrimary = deck.questions.filter((q) => q.status === 'approved' && !q.isBackup);
+  const approvedPrimary = matchQuestions.filter((q) => q.status === 'approved' && !q.isBackup);
   const missingSlots: string[] = [];
   if (matrixMode) {
     const approvedUsedIds = new Set<string>();
@@ -713,7 +730,7 @@ export function runBoardPreflightCheck(params: {
     for (const cat of selectedCats) {
       if (serverValidatedCategoryIds.includes(cat.id)) continue;
       for (const points of categoryPointValues(cat, activeDifficulties)) {
-        const hasSlot = deck.questions.some(
+        const hasSlot = matchQuestions.some(
           (q) => q.categoryId === cat.id && q.points === points && q.status === 'approved',
         );
         if (!hasSlot) missingSlots.push(`${cat.name} (${points})`);
@@ -738,7 +755,7 @@ export function runBoardPreflightCheck(params: {
   const allSelectedAreServerValidated =
     selectedCats.length > 0 &&
     selectedCats.every((c) => serverValidatedCategoryIds.includes(c.id));
-  const activeQuestions = deck.questions.filter((q) => catIdSet.has(q.categoryId) && q.status !== 'rejected');
+  const activeQuestions = matchQuestions.filter((q) => catIdSet.has(q.categoryId) && q.status !== 'rejected');
   const emptyPrompts = activeQuestions.filter((q) => !q.prompt || q.prompt.trim().length < 6);
   const emptyAnswers = activeQuestions.filter((q) => !q.answer || q.answer.trim().length < 1);
 

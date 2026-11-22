@@ -5,6 +5,7 @@ import rows from './prophetStories.json';
 
 export const PROPHET_STORIES_QUESTIONS: QuizQuestion[] = rows.map(row => {
   const points = row.points as PointValue;
+  const references = row.source_references;
   return {
     id: row.id,
     categoryId: PROPHET_STORIES_CATEGORY.id,
@@ -15,8 +16,12 @@ export const PROPHET_STORIES_QUESTIONS: QuizQuestion[] = rows.map(row => {
     prompt: row.question,
     answer: row.answer,
     subtopic: row.topic,
-    explanation: `المرجع القرآني ${row.reference}`,
-    sourceRef: `${row.reference} · ${row.source_url}`,
+    explanation: references
+      ? references.map(ref => `${ref.collection}، ${ref.reference}`).join(' · ')
+      : `المرجع القرآني ${row.reference}`,
+    sourceRef: references
+      ? references.map(ref => `${ref.reference} · ${ref.url}`).join('\n')
+      : `${row.reference} · ${row.source_url}`,
     isSensitiveReligious: true,
     status: 'approved',
   };
