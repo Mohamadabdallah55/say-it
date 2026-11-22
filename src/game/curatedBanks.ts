@@ -255,7 +255,16 @@ export const FOOTBALL_ORDERING_CATEGORY: DeckCategory = {
   accentColor: '#3C7C5D',
 };
 
+export const HASHEMITE_UNIVERSITY_CATEGORY: DeckCategory = {
+  id: 'cat_hashemite_university',
+  name: 'الجامعة الهاشمية',
+  description: 'أماكن الحرم الجامعي ومواقف وذكريات الدوام',
+  iconKey: 'geography',
+  accentColor: '#297D75',
+};
+
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
+  HASHEMITE_UNIVERSITY_CATEGORY.id,
   PROPHET_STORIES_CATEGORY.id,
   RASHIDUN_CATEGORY.id,
   JORDAN_BRANDS_CATEGORY.id,
@@ -316,6 +325,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: FOOTBALL_FIRST_NAME_CATEGORY, questionCount: 100 },
   { category: GEOMETRY_CATEGORY, questionCount: 100 },
   { category: FOOTBALL_ORDERING_CATEGORY, questionCount: 130 },
+  { category: HASHEMITE_UNIVERSITY_CATEGORY, questionCount: 100 },
 ];
 
 export const SERVER_CURATED_CATEGORY_IDS = SERVER_CURATED_CATEGORIES.map(({ category }) => category.id);

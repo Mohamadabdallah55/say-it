@@ -1404,7 +1404,7 @@ export function sanitizeStateForRole(
           imageUrl: canShowImage && !isMemoryQuestionOnly
             ? (canRevealAnswer
               ? state.activeRound.question.imageUrl
-              : clubLogoPreviewUrl(state.activeRound.question.imageUrl))
+              : state.activeRound.question.previewImageUrl ?? clubLogoPreviewUrl(state.activeRound.question.imageUrl))
             : undefined,
           memorySecondImageUrl: canShowImage && !isMemoryQuestionOnly
             ? state.activeRound.question.memorySecondImageUrl

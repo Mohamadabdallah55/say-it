@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -239,7 +239,7 @@ export function GameArena({
         startingLetter: ar.question.startingLetter,
         imageUrl: state.phase === 'REVEAL'
           ? ar.question.imageUrl
-          : clubLogoPreviewUrl(ar.question.imageUrl),
+          : ar.question.previewImageUrl ?? clubLogoPreviewUrl(ar.question.imageUrl),
         imageBase64: ar.question.imageBase64,
         imageCaption: ar.question.imageCaption,
         memorySecondImageUrl: ar.question.memorySecondImageUrl,
@@ -814,6 +814,9 @@ export function GameArena({
                         <QuestionMedia
                           imageSrc={getQuestionImageSrc(roundMeta)}
                           caption={roundMeta.imageCaption}
+                          sourceUrl={state.phase === 'REVEAL' && roundMeta.categoryId === HASHEMITE_UNIVERSITY_CATEGORY.id
+                            ? roundMeta.imageSourceUrl
+                            : undefined}
                           pageNumber={roundMeta.pageNumber}
                           compact={state.phase === 'REVEAL'}
                           wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id}

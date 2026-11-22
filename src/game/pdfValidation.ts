@@ -293,6 +293,10 @@ export function validateQuizQuestion(
       typeof question.imageUrl === 'string' && question.imageUrl.trim()
         ? question.imageUrl.trim()
         : undefined,
+    previewImageUrl:
+      typeof question.previewImageUrl === 'string' && question.previewImageUrl.trim().startsWith('/api/hashemite-university/photos/')
+        ? question.previewImageUrl.trim()
+        : undefined,
     imageBase64:
       typeof question.imageBase64 === 'string' && question.imageBase64.trim()
         ? question.imageBase64.trim()
