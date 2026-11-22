@@ -263,6 +263,14 @@ export const HASHEMITE_UNIVERSITY_CATEGORY: DeckCategory = {
   accentColor: '#297D75',
 };
 
+export const FOUR_PICTURES_CATEGORY: DeckCategory = {
+  id: 'cat_four_pictures',
+  name: 'أربع صور',
+  description: 'خمن الكلمة التي تربط الصور الأربع',
+  iconKey: 'puzzles',
+  accentColor: '#E36652',
+};
+
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   HASHEMITE_UNIVERSITY_CATEGORY.id,
   PROPHET_STORIES_CATEGORY.id,
@@ -326,6 +334,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: GEOMETRY_CATEGORY, questionCount: 100 },
   { category: FOOTBALL_ORDERING_CATEGORY, questionCount: 130 },
   { category: HASHEMITE_UNIVERSITY_CATEGORY, questionCount: 100 },
+  { category: FOUR_PICTURES_CATEGORY, questionCount: 38 },
 ];
 
 export const SERVER_CURATED_CATEGORY_IDS = SERVER_CURATED_CATEGORIES.map(({ category }) => category.id);

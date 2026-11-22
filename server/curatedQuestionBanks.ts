@@ -13,6 +13,7 @@ import { STORY_LOGIC_QUESTIONS } from './storyLogic';
 import { ISLAMIC_ORDERING_QUESTIONS } from './islamicOrderingQuestions';
 import { FOOTBALL_ORDERING_QUESTIONS } from './footballOrderingQuestions';
 import { HASHEMITE_UNIVERSITY_QUESTIONS } from './hashemiteUniversityQuestions';
+import { FOUR_PICTURES_QUESTIONS } from './fourPicturesQuestions';
 import { REVERSED_WORDS_QUESTIONS } from './reversedWords';
 import {
   ARABIC_GRAMMAR_QUESTIONS,
@@ -67,4 +68,5 @@ export const SERVER_CURATED_QUESTIONS = [
   ...GEOMETRY_QUESTIONS,
   ...FOOTBALL_ORDERING_QUESTIONS,
   ...HASHEMITE_UNIVERSITY_QUESTIONS,
+  ...FOUR_PICTURES_QUESTIONS,
 ];

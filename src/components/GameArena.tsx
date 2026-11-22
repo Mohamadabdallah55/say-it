@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -819,7 +819,7 @@ export function GameArena({
                             : undefined}
                           pageNumber={roundMeta.pageNumber}
                           compact={state.phase === 'REVEAL'}
-                          wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id}
+                          wide={roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id || roundMeta.categoryId === FOUR_PICTURES_CATEGORY.id}
                           obscured={
                             roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
                             state.phase !== 'REVEAL'
