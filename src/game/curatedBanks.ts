@@ -329,7 +329,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: WORLD_CUP_2026_CATEGORY, questionCount: WORLD_CUP_2026_COUNT },
   { category: PALESTINIAN_PROVERBS_CATEGORY, questionCount: PALESTINIAN_PROVERBS_COUNT },
   { category: VISUAL_MEMORY_CATEGORY, questionCount: VISUAL_MEMORY_PLAYABLE_COUNT },
-  { category: FLAGS_CATEGORY, questionCount: 75 },
+  { category: FLAGS_CATEGORY, questionCount: 100 },
   { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 50 },
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },
   { category: JUZ_TABARAK_CATEGORY, questionCount: 150 },

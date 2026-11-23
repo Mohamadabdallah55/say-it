@@ -30,7 +30,7 @@ function createQuestion(
 
 export const FLAGS_QUESTIONS = flagRows.map((row): QuizQuestion => ({
   ...createQuestion(FLAGS_CATEGORY, row),
-  imageUrl: `/assets/questions/flags/${row.id}.png`,
+  imageUrl: `/assets/questions/flags/${row.id}.${row.id.startsWith('FLAG-X-') ? 'svg' : 'png'}`,
   imageDisplay: 'before_reveal',
   imageCaption: 'علم الدولة',
 }));

@@ -48,30 +48,6 @@
     "answer": "الصين"
   },
   {
-    "id": "FLAG-200-09",
-    "points": 200,
-    "question": "ما هذا العلم؟",
-    "answer": "الولايات المتحدة الأمريكية"
-  },
-  {
-    "id": "FLAG-200-10",
-    "points": 200,
-    "question": "ما هذا العلم؟",
-    "answer": "المملكة المتحدة"
-  },
-  {
-    "id": "FLAG-200-11",
-    "points": 200,
-    "question": "ما هذا العلم؟",
-    "answer": "فرنسا"
-  },
-  {
-    "id": "FLAG-200-12",
-    "points": 200,
-    "question": "ما هذا العلم؟",
-    "answer": "ألمانيا"
-  },
-  {
     "id": "FLAG-200-13",
     "points": 200,
     "question": "ما هذا العلم؟",
@@ -82,12 +58,6 @@
     "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "إسبانيا"
-  },
-  {
-    "id": "FLAG-200-15",
-    "points": 200,
-    "question": "ما هذا العلم؟",
-    "answer": "البرازيل"
   },
   {
     "id": "FLAG-200-16",
@@ -151,31 +121,31 @@
   },
   {
     "id": "FLAG-400-01",
-    "points": 400,
+    "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "قطر"
   },
   {
     "id": "FLAG-400-02",
-    "points": 400,
+    "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "الكويت"
   },
   {
     "id": "FLAG-400-03",
-    "points": 400,
+    "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "البحرين"
   },
   {
     "id": "FLAG-400-04",
-    "points": 400,
+    "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "عُمان"
   },
   {
     "id": "FLAG-400-05",
-    "points": 400,
+    "points": 200,
     "question": "ما هذا العلم؟",
     "answer": "تونس"
   },
@@ -300,6 +270,96 @@
     "answer": "كينيا"
   },
   {
+    "id": "FLAG-600-07",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "ساموا"
+  },
+  {
+    "id": "FLAG-600-08",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "تونغا"
+  },
+  {
+    "id": "FLAG-600-09",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "فيجي"
+  },
+  {
+    "id": "FLAG-600-10",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "جزر سليمان"
+  },
+  {
+    "id": "FLAG-600-11",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "فانواتو"
+  },
+  {
+    "id": "FLAG-600-12",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "بابوا غينيا الجديدة"
+  },
+  {
+    "id": "FLAG-600-19",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "سيشل"
+  },
+  {
+    "id": "FLAG-600-20",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "جزر القمر"
+  },
+  {
+    "id": "FLAG-600-24",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "بوتان"
+  },
+  {
+    "id": "FLAG-600-25",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "تيمور الشرقية"
+  },
+  {
+    "id": "FLAG-X-001",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "أوزبكستان"
+  },
+  {
+    "id": "FLAG-X-002",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "كازاخستان"
+  },
+  {
+    "id": "FLAG-X-003",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "سريلانكا"
+  },
+  {
+    "id": "FLAG-X-004",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "جورجيا"
+  },
+  {
+    "id": "FLAG-X-005",
+    "points": 400,
+    "question": "ما هذا العلم؟",
+    "answer": "أذربيجان"
+  },
+  {
     "id": "FLAG-600-01",
     "points": 600,
     "question": "ما هذا العلم؟",
@@ -334,42 +394,6 @@
     "points": 600,
     "question": "ما هذا العلم؟",
     "answer": "بالاو"
-  },
-  {
-    "id": "FLAG-600-07",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "ساموا"
-  },
-  {
-    "id": "FLAG-600-08",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "تونغا"
-  },
-  {
-    "id": "FLAG-600-09",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "فيجي"
-  },
-  {
-    "id": "FLAG-600-10",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "جزر سليمان"
-  },
-  {
-    "id": "FLAG-600-11",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "فانواتو"
-  },
-  {
-    "id": "FLAG-600-12",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "بابوا غينيا الجديدة"
   },
   {
     "id": "FLAG-600-13",
@@ -408,18 +432,6 @@
     "answer": "سانت كيتس ونيفيس"
   },
   {
-    "id": "FLAG-600-19",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "سيشل"
-  },
-  {
-    "id": "FLAG-600-20",
-    "points": 600,
-    "question": "ما هذا العلم؟",
-    "answer": "جزر القمر"
-  },
-  {
     "id": "FLAG-600-21",
     "points": 600,
     "question": "ما هذا العلم؟",
@@ -438,15 +450,153 @@
     "answer": "بوروندي"
   },
   {
-    "id": "FLAG-600-24",
+    "id": "FLAG-X-006",
     "points": 600,
     "question": "ما هذا العلم؟",
-    "answer": "بوتان"
+    "answer": "ساو تومي وبرينسيب"
   },
   {
-    "id": "FLAG-600-25",
+    "id": "FLAG-X-007",
     "points": 600,
     "question": "ما هذا العلم؟",
-    "answer": "تيمور الشرقية"
+    "answer": "غينيا بيساو"
+  },
+  {
+    "id": "FLAG-X-008",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "الرأس الأخضر"
+  },
+  {
+    "id": "FLAG-X-009",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "غينيا الاستوائية"
+  },
+  {
+    "id": "FLAG-X-010",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "الغابون"
+  },
+  {
+    "id": "FLAG-X-011",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "جمهورية الكونغو"
+  },
+  {
+    "id": "FLAG-X-012",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "جمهورية الكونغو الديمقراطية"
+  },
+  {
+    "id": "FLAG-X-013",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "جمهورية أفريقيا الوسطى"
+  },
+  {
+    "id": "FLAG-X-014",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "بنين"
+  },
+  {
+    "id": "FLAG-X-015",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "توغو"
+  },
+  {
+    "id": "FLAG-X-016",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "بوركينا فاسو"
+  },
+  {
+    "id": "FLAG-X-017",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "النيجر"
+  },
+  {
+    "id": "FLAG-X-018",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "مالي"
+  },
+  {
+    "id": "FLAG-X-019",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "غينيا"
+  },
+  {
+    "id": "FLAG-X-020",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "سيراليون"
+  },
+  {
+    "id": "FLAG-X-021",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "ليبيريا"
+  },
+  {
+    "id": "FLAG-X-022",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "غامبيا"
+  },
+  {
+    "id": "FLAG-X-023",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "موريتانيا"
+  },
+  {
+    "id": "FLAG-X-024",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "رواندا"
+  },
+  {
+    "id": "FLAG-X-025",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "جيبوتي"
+  },
+  {
+    "id": "FLAG-X-026",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "إريتريا"
+  },
+  {
+    "id": "FLAG-X-027",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "مدغشقر"
+  },
+  {
+    "id": "FLAG-X-028",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "موريشيوس"
+  },
+  {
+    "id": "FLAG-X-029",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "بليز"
+  },
+  {
+    "id": "FLAG-X-030",
+    "points": 600,
+    "question": "ما هذا العلم؟",
+    "answer": "غيانا"
   }
 ]

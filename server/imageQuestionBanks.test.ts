@@ -143,13 +143,13 @@ function makeRoom() {
 test('both packs are selectable, have all tiers, and do not count distinct flags as duplicate prompts', () => {
   const tierCounts = (questions: typeof FLAGS_QUESTIONS) =>
     [200, 400, 600].map(points => questions.filter(q => q.points === points).length);
-  assert.deepEqual(tierCounts(FLAGS_QUESTIONS), [25, 25, 25]);
+  assert.deepEqual(tierCounts(FLAGS_QUESTIONS), [25, 35, 40]);
   assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [17, 17, 16]);
   assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.filter(q => q.imageDisplay === 'after_reveal').length, 25);
   const flagHashes = FLAGS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
-  assert.equal(new Set(flagHashes).size, 75);
-  assert.equal(new Set(FLAGS_QUESTIONS.map(q => q.answer)).size, 75);
+  assert.equal(new Set(flagHashes).size, 100);
+  assert.equal(new Set(FLAGS_QUESTIONS.map(q => q.answer)).size, 100);
   assert.equal(runBoardPreflightCheck({ deck, teams, settings }).canStart, true);
   const repeatedFlag = { ...FLAGS_QUESTIONS[0], id: 'duplicate-flag' };
   assert.ok(!runBoardPreflightCheck({ deck: { ...deck, questions: [...deck.questions, repeatedFlag] }, teams, settings }).canStart);
