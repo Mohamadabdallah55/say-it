@@ -1482,7 +1482,7 @@ export function LobbySetup({
                                 playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
                               })
                             : getCategoryStats(cat.id);
-                          const artSrc = getCategoryCardArt(cat.id, cat.iconKey);
+                          const artSrc = cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
                           const pctToneClass =
                             stats.percent >= 100
                               ? 'from-[#FB7185] to-[#E11D48] text-white'
