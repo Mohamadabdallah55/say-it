@@ -26,7 +26,7 @@ test('world map bank contains exactly 100 playable, uniquely answered questions'
   const result = validateRemoteDeckV2(PAYLOAD, CDN, {
     id: 'country_highlight_maps_v1',
     file: 'world-country-maps/deck.json',
-    version: 1,
+    version: 2,
   });
   assert.equal(result.valid, true, result.errors.join('; '));
   assert.equal(result.skippedInvalidCount, 0, result.warnings.join('; '));
@@ -34,12 +34,12 @@ test('world map bank contains exactly 100 playable, uniquely answered questions'
   assert.equal(result.imageUrlsToFetch.length, 100);
 });
 
-test('every country map is a real nameless PNG with one orange-highlighted country', () => {
+test('every country map is a real nameless PNG with one red-highlighted country', () => {
   const PNG = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
   for (const question of PAYLOAD.deck.questions) {
     assert.equal(question.questionType, 'direct_qa');
     assert.equal(question.status, 'approved');
-    assert.match(question.imageUrl, /^images\/[a-z]{3}\.png$/);
+    assert.match(question.imageUrl, /^images-v2\/[a-z]{3}\.png$/);
     const filepath = path.join(ROOT, question.imageUrl);
     assert.equal(existsSync(filepath), true, 'missing ' + question.imageUrl);
     const bytes = readFileSync(filepath);
@@ -53,20 +53,20 @@ test('every country map is a real nameless PNG with one orange-highlighted count
       if (type === 'IDAT') chunkData.push(bytes.subarray(offset + 8, offset + 8 + size));
       offset += 12 + size;
     }
-    assert.equal(bytes.readUInt32BE(16), 320);
-    assert.equal(bytes.readUInt32BE(20), 220);
+    assert.equal(bytes.readUInt32BE(16), 768);
+    assert.equal(bytes.readUInt32BE(20), 720);
     assert.equal(bytes[24], 2, 'expected a 2-bit indexed PNG');
     assert.equal(bytes[25], 3, 'expected indexed color');
     const raw = inflateSync(Buffer.concat(chunkData));
     let highlighted = 0;
-    for (let y = 0; y < 220; y++) {
-      assert.equal(raw[y * 81], 0, 'PNG row must be unfiltered');
-      for (let x = 0; x < 320; x++) {
-        const v = raw[y * 81 + 1 + (x >> 2)];
+    for (let y = 0; y < 720; y++) {
+      assert.equal(raw[y * 193], 0, 'PNG row must be unfiltered');
+      for (let x = 0; x < 768; x++) {
+        const v = raw[y * 193 + 1 + (x >> 2)];
         if (((v >> (6 - 2 * (x % 4))) & 3) === 3) highlighted++;
       }
     }
     assert.ok(highlighted >= 10, 'country highlight missing for ' + question.answer);
-    assert.ok(highlighted < 70000, 'entire image highlighted for ' + question.answer);
+    assert.ok(highlighted < 552960, 'entire image highlighted for ' + question.answer);
   }
 });
