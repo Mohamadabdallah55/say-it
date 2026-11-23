@@ -146,11 +146,14 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
     ? undefined
     : getQuestionImageSrc(question);
   const audio = question.audioUrl?.trim();
+  const audioTracks = Array.isArray(question.audioUrls)
+    ? question.audioUrls.map((u) => u.trim()).filter(Boolean).join('|')
+    : undefined;
   const video = question.videoUrl?.trim();
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, actingTarget, image, question.memorySecondImageUrl, audio, video, orderItems].filter(Boolean).join('\n');
+  return [prompt, actingTarget, image, question.memorySecondImageUrl, audio, audioTracks, video, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [
@@ -332,6 +335,12 @@ export function validateQuizQuestion(
       ? question.answerImageUrl.trim()
       : undefined,
     audioUrl: typeof question.audioUrl === 'string' ? question.audioUrl.trim() || undefined : undefined,
+    audioUrls: Array.isArray(question.audioUrls)
+      ? question.audioUrls
+          .filter((item): item is string => typeof item === 'string' && Boolean(item.trim()))
+          .map((item) => item.trim())
+      : undefined,
+    audioMode: question.audioMode === 'solo' || question.audioMode === 'mix' ? question.audioMode : undefined,
     answerAudioUrl: typeof question.answerAudioUrl === 'string' ? question.answerAudioUrl.trim() || undefined : undefined,
     videoUrl: typeof question.videoUrl === 'string' ? question.videoUrl.trim() || undefined : undefined,
     timeLimitSeconds: question.timeLimitSeconds,

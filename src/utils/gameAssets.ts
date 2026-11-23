@@ -90,6 +90,7 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
   cat_world_wars: PHOTO_WORLD_WARS,
 
   // 7. الأردن والذكريات
+  cat_jordan_nostalgia: '/assets/jordan_nostalgia/JONOS-115.jpg',
   jordan_brands_nostalgia: PHOTO_JORDAN_AMMAN,
   cat_hashemite_university: PHOTO_UNIVERSITY,
   cat_guess_price: PHOTO_SUPERMARKET,
@@ -98,6 +99,7 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
   cat_four_pictures: PHOTO_FOUR_PICTURES,
   cat_visual_memory: PHOTO_FOCUS_SCULPTURE,
   cat_silent_acting: PHOTO_SILENT_ACTING,
+  cat_guess_sound: PHOTO_STUDIO_MIC,
 };
 
 export const CATEGORY_3D_ART: Record<CategoryIconKey, string> = {

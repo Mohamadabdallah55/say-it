@@ -72,7 +72,7 @@ export const CATEGORY_GROUPS: CategoryGroupMeta[] = [
   {
     id: 'jordan',
     label: 'الأردن والذكريات',
-    description: 'شعارات الأردن، خمن السعر، والجامعة الهاشمية',
+    description: 'زمن الطيبين، شعارات الأردن، خمن السعر، والجامعة الهاشمية',
     emoji: '🇯🇴',
     accentColor: '#885B2C',
     dotColor: '#E59A00',
@@ -80,7 +80,7 @@ export const CATEGORY_GROUPS: CategoryGroupMeta[] = [
   {
     id: 'visual',
     label: 'التحديات البصرية والأدائية',
-    description: 'الذاكرة البصرية، أربع صور، والفئات المضافة',
+    description: 'الذاكرة البصرية، أربع صور، تمثيل صامت، وخمن الصوت',
     emoji: '👁️',
     accentColor: '#63349B',
     dotColor: '#F05B63',
@@ -143,14 +143,16 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_history: 'world',
 
   // 7. الأردن والذكريات
+  cat_jordan_nostalgia: 'jordan',
   jordan_brands_nostalgia: 'jordan',
   cat_hashemite_university: 'jordan',
   cat_guess_price: 'jordan',
 
-  // 8. التحديات البصرية
+  // 8. التحديات البصرية والأدائية
   cat_four_pictures: 'visual',
   cat_visual_memory: 'visual',
   cat_silent_acting: 'visual',
+  cat_guess_sound: 'visual',
 };
 
 const ICON_TO_GROUP: Partial<Record<CategoryIconKey, CategoryMenuId>> = {

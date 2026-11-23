@@ -2,6 +2,7 @@ import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
 import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
 import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
 import { JORDAN_BRANDS_QUESTIONS } from './jordanBrandsQuestions';
+import { JORDAN_NOSTALGIA_QUESTIONS } from './jordanNostalgiaQuestions';
 import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
 import { WORLD_CUP_2026_QUESTIONS } from './worldCup2026Questions';
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
@@ -30,12 +31,14 @@ import { EL_CLASICO_QUESTIONS } from './elClasico';
 import { CAPITALS_CURRENCIES_QUESTIONS, FLAGS_QUESTIONS, CHAMPIONS_LEAGUE_QUESTIONS, CLUB_LOGOS_QUESTIONS, FOOTBALL_CAREER_QUESTIONS, FOOTBALL_FIRST_NAME_QUESTIONS, REAL_MADRID_QUESTIONS, WORLD_FOOTBALL_QUESTIONS } from './imageQuestionBanks';
 import { ARABIC_DIALECTS_QUESTIONS } from './arabicDialects';
 import { SILENT_ACTING_QUESTIONS } from './silentActing';
+import { GUESS_SOUND_QUESTIONS } from './guessSoundQuestions';
 
 export const SERVER_CURATED_QUESTIONS = [
   ...PROPHET_STORIES_QUESTIONS,
   ...GUESS_PRICE_QUESTIONS,
   ...RASHIDUN_QUESTIONS,
   ...JORDAN_BRANDS_QUESTIONS,
+  ...JORDAN_NOSTALGIA_QUESTIONS,
   ...WORLD_CUP_2026_QUESTIONS,
   ...PALESTINIAN_PROVERBS_QUESTIONS,
   ...VISUAL_MEMORY_QUESTIONS,
@@ -73,4 +76,5 @@ export const SERVER_CURATED_QUESTIONS = [
   ...FOUR_PICTURES_QUESTIONS,
   ...ARABIC_DIALECTS_QUESTIONS,
   ...SILENT_ACTING_QUESTIONS,
+  ...GUESS_SOUND_QUESTIONS,
 ];

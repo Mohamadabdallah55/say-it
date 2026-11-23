@@ -147,6 +147,8 @@ export interface QuizQuestion {
   imageSourceUrl?: string;
   answerImageUrl?: string;
   audioUrl?: string;
+  audioUrls?: string[];
+  audioMode?: 'solo' | 'mix';
   answerAudioUrl?: string;
   videoUrl?: string;
   timeLimitSeconds?: number;
@@ -472,6 +474,8 @@ export interface SanitizedActiveRound {
   imageSourceUrl?: string;
   answerImageUrl?: string;
   audioUrl?: string;
+  audioUrls?: string[];
+  audioMode?: 'solo' | 'mix';
   answerAudioUrl?: string;
   videoUrl?: string;
   sourceRef?: string;

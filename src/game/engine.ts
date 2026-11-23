@@ -1435,6 +1435,8 @@ export function sanitizeStateForRole(
           imageSourceUrl: canRevealAnswer ? state.activeRound.question.imageSourceUrl : undefined,
           answerImageUrl: canRevealAnswer ? state.activeRound.question.answerImageUrl : undefined,
           audioUrl: canRevealAnswer || isMemorizing ? undefined : state.activeRound.question.audioUrl,
+          audioUrls: isMemorizing ? undefined : state.activeRound.question.audioUrls,
+          audioMode: isMemorizing ? undefined : state.activeRound.question.audioMode,
           answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
           videoUrl: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
           beforeImageUrls: canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,

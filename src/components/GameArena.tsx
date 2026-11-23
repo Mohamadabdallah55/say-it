@@ -40,7 +40,10 @@ import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia } from './QuestionMedia';
+import { GuessSoundPlayer } from './GuessSoundPlayer';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
+import { JORDAN_NOSTALGIA_CATEGORY } from '../game/jordanNostalgia';
+import { GUESS_SOUND_CATEGORY } from '../game/guessSound';
 import { VISUAL_MEMORY_CATEGORY } from '../game/visualMemory';
 import { SpecialCards } from './SpecialCards';
 import { CategoryArtwork } from './CategoryArtwork';
@@ -250,6 +253,8 @@ export function GameArena({
         imageSourceUrl: ar.question.imageSourceUrl,
         answerImageUrl: ar.question.answerImageUrl,
         audioUrl: ar.question.audioUrl,
+        audioUrls: ar.question.audioUrls,
+        audioMode: ar.question.audioMode,
         answerAudioUrl: ar.question.answerAudioUrl,
         videoUrl: ar.question.videoUrl,
         options: ar.question.options,
@@ -861,7 +866,10 @@ export function GameArena({
                         <QuestionMedia
                           imageSrc={getQuestionImageSrc(roundMeta)}
                           caption={roundMeta.imageCaption}
-                          sourceUrl={state.phase === 'REVEAL' && roundMeta.categoryId === HASHEMITE_UNIVERSITY_CATEGORY.id
+                          sourceUrl={state.phase === 'REVEAL' && (
+                            roundMeta.categoryId === HASHEMITE_UNIVERSITY_CATEGORY.id ||
+                            roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id
+                          )
                             ? roundMeta.imageSourceUrl
                             : undefined}
                           pageNumber={roundMeta.pageNumber}
@@ -943,7 +951,14 @@ export function GameArena({
                           </>
                         ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
                       </p>
-                      {roundMeta.audioUrl && state.phase !== 'REVEAL' && (
+                      {roundMeta.categoryId === GUESS_SOUND_CATEGORY.id && roundMeta.audioUrls?.length ? (
+                        <GuessSoundPlayer
+                          questionId={roundMeta.questionId}
+                          audioUrls={roundMeta.audioUrls}
+                          audioMode={roundMeta.audioMode}
+                          compact={state.phase === 'REVEAL'}
+                        />
+                      ) : roundMeta.audioUrl && state.phase !== 'REVEAL' ? (
                         <audio
                           key={roundMeta.questionId}
                           className="mx-auto mt-4 w-full max-w-md"
@@ -956,7 +971,7 @@ export function GameArena({
                           preload={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'metadata' : 'none'}
                           aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
                         />
-                      )}
+                      ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
                         <video
                           key={`q-video-${roundMeta.questionId}`}
@@ -1158,6 +1173,16 @@ export function GameArena({
                           يُقبل أيضًا {alternatePlurals?.join('، ')}
                         </p>
                       )}
+                      {roundMeta.categoryId === GUESS_SOUND_CATEGORY.id &&
+                        roundMeta.acceptableAnswers &&
+                        roundMeta.acceptableAnswers.filter((item) => item !== roundMeta.answer).length > 0 && (
+                          <p className="font-bold text-xs md:text-sm text-white/90">
+                            إجابات مقبولة أيضًا:{' '}
+                            {roundMeta.acceptableAnswers
+                              .filter((item) => item !== roundMeta.answer)
+                              .join(' · ')}
+                          </p>
+                        )}
                       {roundMeta.answerAudioUrl && (
                         <audio
                           key={roundMeta.questionId}
