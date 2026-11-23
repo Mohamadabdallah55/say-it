@@ -1,0 +1,945 @@
+{
+  "schemaVersion": 2,
+  "exportedAt": "2026-11-23T14:19:03.557Z",
+  "app": "yemken-hay",
+  "deck": {
+    "schemaVersion": 2,
+    "id": "world_food_images_v1",
+    "title": "أكلات العالم بالصور",
+    "description": "45 سؤال تخمين أكلات وحلويات من مطابخ العالم. صور مرتبطة بأسماء الأطباق، بلا خيارات، مستويات 200 و400 و600.",
+    "sourceType": "curated",
+    "boardMode": "categories",
+    "ageGroup": "mixed",
+    "createdAt": "2026-11-23T14:19:03.557Z",
+    "updatedAt": "2026-11-23T14:19:03.557Z",
+    "categories": [
+      {
+        "id": "world_food",
+        "name": "أكلات العالم",
+        "description": "خمن اسم الأكلة من صورتها",
+        "iconKey": "general",
+        "accentColor": "#E98E32",
+        "availableDifficulties": [
+          "easy",
+          "medium",
+          "hard"
+        ],
+        "topicCoverage": [
+          "أكلات عالمية",
+          "حلويات من دول مختلفة",
+          "أطباق تقليدية"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "world_food_001",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "بيتزا",
+        "acceptableAnswers": [
+          "البيتزا"
+        ],
+        "explanation": "أكلة من إيطاليا.",
+        "imageUrl": "https://www.delonghi.com/Global/recipes/multifry/97.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_002",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "باستا",
+        "acceptableAnswers": [
+          "معكرونة",
+          "مكرونة",
+          "فيتوتشيني ألفريدو"
+        ],
+        "explanation": "أكلة من إيطاليا.",
+        "imageUrl": "https://hips.hearstapps.com/delish/assets/17/36/1504715566-delish-fettuccine-alfredo.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_003",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "برغر",
+        "acceptableAnswers": [
+          "همبرغر",
+          "هامبرغر"
+        ],
+        "explanation": "أكلة من الولايات المتحدة.",
+        "imageUrl": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_004",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "بيغل",
+        "acceptableAnswers": [
+          "باغل"
+        ],
+        "explanation": "أكلة من بولندا والولايات المتحدة.",
+        "imageUrl": "https://images-prod.healthline.com/hlcmsresource/images/AN_images/are-bagels-vegan-1296x728-feature.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_005",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "هوت دوغ",
+        "acceptableAnswers": [
+          "هوت دوج",
+          "نقانق بالخبز"
+        ],
+        "explanation": "أكلة من الولايات المتحدة.",
+        "imageUrl": "https://media3.s-nbcnews.com/i/newscms/2020_27/1586837/hotdogs-te-main-200702_1e1ea98797356fd7f729a2b294d7bb26.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_006",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "تاكو",
+        "acceptableAnswers": [
+          "تاكوس"
+        ],
+        "explanation": "أكلة من المكسيك.",
+        "imageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520956952-chicken-tacos-horizontal.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_007",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "سوشي",
+        "explanation": "أكلة من اليابان.",
+        "imageUrl": "https://www.readersdigest.ca/wp-content/uploads/2011/11/japanese-sushi-rolls-scaled.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_008",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "بوتين",
+        "acceptableAnswers": [
+          "بوتين الكندي"
+        ],
+        "explanation": "أكلة من كندا.",
+        "imageUrl": "https://www.tourismecentreduquebec.com/upload/Attach/1600_660/fromagerie_victoria_poutine.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_009",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "آيس كريم",
+        "acceptableAnswers": [
+          "بوظة",
+          "آيسكريم"
+        ],
+        "explanation": "أكلة من انتشر عالميًا.",
+        "imageUrl": "https://static01.nyt.com/images/2020/06/07/multimedia/07virus-ice-cream2/07virus-ice-cream2-videoSixteenByNineJumbo1600.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_010",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "فطيرة",
+        "acceptableAnswers": [
+          "باي"
+        ],
+        "explanation": "أكلة من منتشرة في مطابخ متعددة.",
+        "imageUrl": "https://i.ytimg.com/vi/RoHWiA6pogg/maxresdefault.jpg",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/gurjot129/Food-App-API",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_011",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "أبام باليك",
+        "acceptableAnswers": [
+          "آبام باليك"
+        ],
+        "explanation": "أكلة من ماليزيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.nyonyacooking.com/recipes/apam-balik~SJ5WuvsDf9WQ",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_012",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "تارت بيكويل",
+        "acceptableAnswers": [
+          "بيكويل تارت"
+        ],
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/wyrqqq1468233628.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.google.com/search?q=bakewell+tart+recipe",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_013",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "إيتون ميس",
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/uuxwvq1483907861.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.google.com/search?q=eton+mess+recipe",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_014",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "بودينغ التوفي اللزج",
+        "acceptableAnswers": [
+          "ستكي توفي بودينغ"
+        ],
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/xqqqtu1511637379.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbc.co.uk/food/recipes/marys_sticky_toffee_41970",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_015",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "تارت دبس السكر",
+        "acceptableAnswers": [
+          "تريكل تارت"
+        ],
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/wprvrw1511641295.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbc.co.uk/food/recipes/mary_berrys_treacle_tart_28524",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_016",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "تشيز كيك نيويورك",
+        "acceptableAnswers": [
+          "تشيز كيك",
+          "نيويورك تشيزكيك"
+        ],
+        "explanation": "أكلة من الولايات المتحدة.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/swttys1511385853.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbcgoodfood.com/recipes/2869/new-york-cheesecake",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_017",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "جاتوه الشوكولاتة",
+        "acceptableAnswers": [
+          "كيك الشوكولاتة",
+          "جاتو الشوكولاتة"
+        ],
+        "explanation": "أكلة من فرنسا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "http://www.goodtoknow.co.uk/recipes/536028/chocolate-gateau",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_018",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "باستيل دي ناتا",
+        "acceptableAnswers": [
+          "باستيش دي ناتا",
+          "تارت الكاسترد البرتغالي"
+        ],
+        "explanation": "أكلة من البرتغال.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/vmz7gl1614350221.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.olivemagazine.com/recipes/baking-and-desserts/portuguese-custard-tarts/",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_019",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "كيكة الجزر",
+        "acceptableAnswers": [
+          "كيك الجزر"
+        ],
+        "explanation": "أكلة من بريطانيا والولايات المتحدة.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/vrspxv1511722107.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbc.co.uk/food/recipes/classic_carrot_cake_08513",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_020",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "دونات",
+        "acceptableAnswers": [
+          "دونت",
+          "كرسبي كريم دونات"
+        ],
+        "explanation": "أكلة من الولايات المتحدة.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/4i5cnx1587672171.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.mythirtyspot.com/krispy-kreme-copycat-recipe-for/",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_021",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "تارت التفاح والفرانجيبان",
+        "acceptableAnswers": [
+          "تارت فرانجيبان بالتفاح"
+        ],
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.google.com/search?q=apple+frangipan+tart+recipe",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_022",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "بودينو دي ريكوتا",
+        "acceptableAnswers": [
+          "بودينغ الريكوتا"
+        ],
+        "explanation": "أكلة من إيطاليا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/1549542877.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://thehappyfoodie.co.uk/recipes/ricotta-cake-budino-di-ricotta",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_023",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "تارت تفاح شينون",
+        "acceptableAnswers": [
+          "تارت شينون"
+        ],
+        "explanation": "أكلة من فرنسا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/qtqwwu1511792650.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbcgoodfood.com/recipes/chinon-apple-tarts",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_024",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "روك كيك",
+        "acceptableAnswers": [
+          "كيك الصخور"
+        ],
+        "explanation": "أكلة من بريطانيا.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/tqrrsq1511723764.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.bbc.co.uk/food/recipes/rock_cakes_03094",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_025",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "فطيرة الفراولة والراوند",
+        "acceptableAnswers": [
+          "ستروبيري روبارب باي"
+        ],
+        "explanation": "أكلة من الولايات المتحدة.",
+        "imageUrl": "https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg/large",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://www.joyofbaking.com/StrawberryRhubarbPie.html",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_026",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "بيغوس",
+        "acceptableAnswers": [
+          "بيغوس البولندي"
+        ],
+        "explanation": "أكلة من بولندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/bigos/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/bigos",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_027",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "بيروغي روسكي",
+        "acceptableAnswers": [
+          "بيروغي",
+          "فطائر البيروغي"
+        ],
+        "explanation": "أكلة من بولندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/pierogi-ruskie/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/pierogi-ruskie",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_028",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "بورشت أحمر",
+        "acceptableAnswers": [
+          "بارشتش تشرفوني",
+          "شوربة الشمندر البولندية"
+        ],
+        "explanation": "أكلة من بولندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/barszcz-czerwony/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/barszcz-czerwony",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_029",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "بلاكي زيمنياتشاني",
+        "acceptableAnswers": [
+          "فطائر البطاطا البولندية"
+        ],
+        "explanation": "أكلة من بولندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/placki-ziemniaczane/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/placki-ziemniaczane",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_030",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "كوتيا",
+        "explanation": "أكلة من بولندا وأوكرانيا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/kutia/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/kutia",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_031",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "كارتاتشي",
+        "acceptableAnswers": [
+          "كارتاتشه"
+        ],
+        "explanation": "أكلة من بولندا وليتوانيا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/kartacze/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/kartacze",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_032",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "تاراتور",
+        "acceptableAnswers": [
+          "شوربة التاراتور"
+        ],
+        "explanation": "أكلة من بلغاريا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-tarator/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-tarator",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_033",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "تمبيت",
+        "acceptableAnswers": [
+          "تومبيت",
+          "تومبت"
+        ],
+        "explanation": "أكلة من إسبانيا - مايوركا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-tumbet/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-tumbet",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_034",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "أوليبول",
+        "acceptableAnswers": [
+          "أوليبولين",
+          "أوليبولن"
+        ],
+        "explanation": "أكلة من هولندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-oliebol/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-oliebol",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_035",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "كبابشيتا",
+        "acceptableAnswers": [
+          "كيبابتشيتا",
+          "كيبابشيتا"
+        ],
+        "explanation": "أكلة من بلغاريا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-kebapczeta/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-kebapczeta",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_036",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "دال",
+        "acceptableAnswers": [
+          "دال هندي",
+          "شوربة العدس الهندية"
+        ],
+        "explanation": "أكلة من الهند.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-zupa-dal-dhal/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-zupa-dal-dhal",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_037",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "سوفريتو كورفو",
+        "acceptableAnswers": [
+          "سوفريتو"
+        ],
+        "explanation": "أكلة من اليونان - كورفو.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-sofrito-z-korfu-sofrito-kerkiraiko/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-sofrito-z-korfu-sofrito-kerkiraiko",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_038",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "باي فلوتر",
+        "acceptableAnswers": [
+          "فطيرة عائمة"
+        ],
+        "explanation": "أكلة من أستراليا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-pie-floater/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-pie-floater",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_039",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "تعرّف على الطبق من شكله: ما اسمه؟",
+        "answer": "بانيتسا باللحم",
+        "acceptableAnswers": [
+          "بانيتسا",
+          "بانيца"
+        ],
+        "explanation": "أكلة من بلغاريا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-banica-z-miesem/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-banica-z-miesem",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_040",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "خمن اسم الطعام الظاهر في الصورة.",
+        "answer": "كولوراكيا",
+        "acceptableAnswers": [
+          "كولوراكي"
+        ],
+        "explanation": "أكلة من اليونان.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-greckie-rogaliki-maslane-kulurakia-wutiru/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-greckie-rogaliki-maslane-kulurakia-wutiru",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_041",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "تحت أي اسم تُعرف هذه الأكلة؟",
+        "answer": "بسكويت أنزاك",
+        "acceptableAnswers": [
+          "أنزاك"
+        ],
+        "explanation": "أكلة من أستراليا ونيوزيلندا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-en-anzac-biscuits-ii/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-en-anzac-biscuits-ii",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_042",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحلوى أو الطبق الموجود بالصورة؟",
+        "answer": "شوربة قربان",
+        "acceptableAnswers": [
+          "كوربان شوربا",
+          "شوربة كوربان"
+        ],
+        "explanation": "أكلة من بلغاريا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-zupa-kurban/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-zupa-kurban",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_043",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "انظر إلى الصورة: ما اسم هذه الأكلة؟",
+        "answer": "بوتجيكوس",
+        "acceptableAnswers": [
+          "بوتجيكوس الجنوب أفريقي"
+        ],
+        "explanation": "أكلة من جنوب أفريقيا.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-potjiekos-z-karkowki-baraniej-z-kapusta/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-potjiekos-z-karkowki-baraniej-z-kapusta",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_044",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الطبق الذي تشاهده في الصورة؟",
+        "answer": "لفائف الزيتون",
+        "acceptableAnswers": [
+          "رولات الزيتون"
+        ],
+        "explanation": "أكلة من مطبخ البحر المتوسط.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-zwijki-oliwkowe/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-zwijki-oliwkowe",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      },
+      {
+        "id": "world_food_045",
+        "categoryId": "world_food",
+        "categoryName": "أكلات العالم",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "تحدّي أكلات العالم: ما اسم هذه الأكلة؟",
+        "answer": "لحم الضأن القبرصي",
+        "acceptableAnswers": [
+          "ضأن على الطريقة القبرصية"
+        ],
+        "explanation": "أكلة من قبرص.",
+        "imageUrl": "https://raw.githubusercontent.com/Rippy1911/open-recipe-corpus/main/ai-images/catalog-pl-jagniecina-po-cypryjsku/1.webp",
+        "imageDisplay": "before_reveal",
+        "imageSourceUrl": "https://github.com/Rippy1911/open-recipe-corpus/tree/main/ai-images/catalog-pl-jagniecina-po-cypryjsku",
+        "imageCaption": "تعرّف على الأكلة من الصورة",
+        "status": "approved",
+        "verificationStatus": "verified"
+      }
+    ]
+  }
+}
