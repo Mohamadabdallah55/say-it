@@ -333,9 +333,17 @@ export async function syncRemoteDecks(options?: {
       skippedInvalidQuestionsCount += validation.skippedInvalidCount;
 
       const imagesToSave: CachedRemoteImageRecord[] = [];
-      for (const imgUrl of validation.imageUrlsToFetch) {
-        const fetched = await fetchAndCacheImage(imgUrl, cachedImagesMap);
-        if (fetched) {
+      // Bounded parallel downloads keep illustrated banks with 100+ questions
+      // practical without flooding the CDN or browser connection pool.
+      const imageUrls = validation.imageUrlsToFetch;
+      const IMAGE_BATCH_SIZE = 6;
+      for (let start = 0; start < imageUrls.length; start += IMAGE_BATCH_SIZE) {
+        const batch = imageUrls.slice(start, start + IMAGE_BATCH_SIZE);
+        const fetchedBatch = await Promise.all(
+          batch.map((url) => fetchAndCacheImage(url, cachedImagesMap)),
+        );
+        for (const fetched of fetchedBatch) {
+          if (!fetched) continue;
           cachedImagesMap[fetched.url] = fetched.dataUrl;
           imagesToSave.push(fetched);
         }
