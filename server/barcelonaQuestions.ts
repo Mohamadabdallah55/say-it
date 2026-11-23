@@ -20,7 +20,7 @@ export const BARCELONA_QUESTIONS: QuizQuestion[] = rows.map(row => {
     imageUrl: row.imageUrl,
     imageSourceUrl: row.imageSourceUrl,
     imageCaption: row.imageCaption,
-    imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
+    imageDisplay: row.imageUrl ? (row.kind === 'photo' ? 'before_reveal' : 'after_reveal') : undefined,
     status: 'approved',
   };
 });

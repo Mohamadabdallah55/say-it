@@ -14,11 +14,13 @@ test('Barcelona is registered, has unique questions and images on every player a
   assert.equal(SERVER_CURATED_QUESTIONS.filter(q => q.categoryId === BARCELONA_CATEGORY.id).length, 50);
   assert.equal(new Set(rows.map(q => q.id)).size, 50);
   assert.equal(new Set(rows.map(q => q.question)).size, 50);
-  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [10, 15, 25]);
+  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [18,20,12]);
+  assert.equal(rows.filter(q => q.kind === 'number').length, 30);
+  assert.equal(rows.filter(q => q.kind === 'photo').length, 10);
   for (const row of rows.filter(q => q.isPlayer)) {
     const question = BARCELONA_QUESTIONS.find(q => q.id === row.id);
     assert.ok(question?.imageUrl && question.imageSourceUrl);
-    assert.equal(question.imageDisplay, 'after_reveal');
+    assert.equal(question.imageDisplay, row.kind === 'photo' ? 'before_reveal' : 'after_reveal');
     if (question.imageUrl.startsWith('/')) assert.ok(existsSync('public' + question.imageUrl));
   }
 });

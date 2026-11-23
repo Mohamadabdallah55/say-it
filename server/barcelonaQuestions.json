@@ -9,7 +9,8 @@
     "isPlayer": false,
     "acceptableAnswers": [
       "Sampdoria"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-002",
@@ -21,7 +22,8 @@
     "isPlayer": false,
     "acceptableAnswers": [
       "Berlin"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-003",
@@ -34,7 +36,8 @@
     "acceptableAnswers": [
       "إستوديانتس",
       "Estudiantes"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-004",
@@ -50,7 +53,9 @@
     ],
     "imageUrl": "/assets/questions/football-first-name/bbc8ca3ed89499ca551c8886.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Rakiti%C4%87_2020_(cropped).jpg",
-    "imageCaption": "صورة إيفان راكيتيتش · Дмитрий Пукалик · CC BY-SA 3.0"
+    "imageCaption": "صورة إيفان راكيتيتش · Дмитрий Пукалик · CC BY-SA 3.0",
+    "imageDisplay": "after_reveal",
+    "kind": "history"
   },
   {
     "id": "BAR-005",
@@ -62,7 +67,8 @@
     "isPlayer": false,
     "acceptableAnswers": [
       "River Plate"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-006",
@@ -75,7 +81,8 @@
     "acceptableAnswers": [
       "إيه سي ميلان",
       "AC Milan"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-007",
@@ -87,33 +94,8 @@
     "isPlayer": false,
     "acceptableAnswers": [
       "Santos"
-    ]
-  },
-  {
-    "id": "BAR-008",
-    "points": 200,
-    "question": "ما اسم الملعب الذي سبق كامب نو بوصفه الملعب الرئيسي لبرشلونة؟",
-    "answer": "ليس كورتس",
-    "explanation": "افتتح الملعب سنة 1922.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4440891/60-years-since-les-corts-stadium-was-demolished",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "لاس كورتس",
-      "Les Corts"
-    ]
-  },
-  {
-    "id": "BAR-009",
-    "points": 200,
-    "question": "كم لقبًا رسميًا حصد برشلونة في سنة 2015؟",
-    "answer": "خمسة ألقاب",
-    "explanation": "الثلاثية والسوبر الأوروبي ومونديال الأندية.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "5",
-      "خمسة"
-    ]
+    ],
+    "kind": "history"
   },
   {
     "id": "BAR-010",
@@ -129,44 +111,159 @@
     ],
     "imageUrl": "/assets/questions/football-first-name/a070ec7457f26176b4ca3e2b.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti,_Confederations_Cup_2013_(02)_(Villa_crop).jpg",
-    "imageCaption": "صورة دافيد فيا · Tânia Rêgo/ABr · CC BY 3.0 br"
+    "imageCaption": "صورة دافيد فيا · Tânia Rêgo/ABr · CC BY 3.0 br",
+    "imageDisplay": "after_reveal",
+    "kind": "history"
   },
   {
-    "id": "BAR-011",
-    "points": 400,
-    "question": "ما الفريق الألماني الذي واجهه برشلونة في نهائي كأس الكؤوس الأوروبية 1979؟",
-    "answer": "فورتونا دوسلدورف",
-    "explanation": "فاز برشلونة 4-3 بعد التمديد.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/1218594",
-    "isPlayer": false,
+    "id": "BAR-N-001",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص ليونيل ميسي مع برشلونة بموسم 2006-07؟",
+    "answer": "19",
     "acceptableAnswers": [
-      "فورتونا دوسلدورف",
-      "Fortuna Düsseldorf"
-    ]
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى ليونيل ميسي القميص رقم 19 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
   },
   {
-    "id": "BAR-012",
-    "points": 400,
-    "question": "في أي مدينة أقيم نهائي كأس الكؤوس الأوروبية 1979 الذي انتهى 4-3 لبرشلونة؟",
-    "answer": "بازل",
-    "explanation": "أقيم النهائي في سويسرا.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/1218594",
-    "isPlayer": false,
+    "id": "BAR-N-002",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص رونالدينيو مع برشلونة بموسم 2005-06؟",
+    "answer": "10",
     "acceptableAnswers": [
-      "Basel"
-    ]
+      "١٠",
+      "رقم 10",
+      "رقم ١٠"
+    ],
+    "explanation": "ارتدى رونالدينيو القميص رقم 10 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
   },
   {
-    "id": "BAR-013",
-    "points": 400,
-    "question": "في أي مدينة أقيم نهائي كأس الكؤوس الأوروبية 1997 ضد باريس سان جيرمان؟",
-    "answer": "روتردام",
-    "explanation": "أقيم على ملعب دي كويب.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/763989/twenty-years-on-from-robsons-cup-winners-cup-victory",
-    "isPlayer": false,
+    "id": "BAR-N-003",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص كارليس بويول مع برشلونة بموسم 2008-09؟",
+    "answer": "5",
     "acceptableAnswers": [
-      "Rotterdam"
-    ]
+      "٥",
+      "رقم 5",
+      "رقم ٥"
+    ],
+    "explanation": "ارتدى كارليس بويول القميص رقم 5 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-004",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص نيمار مع برشلونة بموسم 2014-15؟",
+    "answer": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى نيمار القميص رقم 11 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-005",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص جوردي ألبا مع برشلونة بموسم 2014-15؟",
+    "answer": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى جوردي ألبا القميص رقم 18 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-006",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص داني ألفيش مع برشلونة بموسم 2014-15؟",
+    "answer": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى داني ألفيش القميص رقم 22 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-007",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص لويس سواريز مع برشلونة بموسم 2014-15؟",
+    "answer": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى لويس سواريز القميص رقم 9 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-008",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص تشافي هيرنانديز مع برشلونة بموسم 2014-15؟",
+    "answer": "6",
+    "acceptableAnswers": [
+      "٦",
+      "رقم 6",
+      "رقم ٦"
+    ],
+    "explanation": "ارتدى تشافي هيرنانديز القميص رقم 6 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-009",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص صامويل إيتو مع برشلونة بموسم 2005-06؟",
+    "answer": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى صامويل إيتو القميص رقم 9 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-010",
+    "points": 200,
+    "kind": "number",
+    "question": "شو كان رقم قميص دافيد فيا مع برشلونة بموسم 2010-11؟",
+    "answer": "7",
+    "acceptableAnswers": [
+      "٧",
+      "رقم 7",
+      "رقم ٧"
+    ],
+    "explanation": "ارتدى دافيد فيا القميص رقم 7 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
   },
   {
     "id": "BAR-014",
@@ -182,7 +279,9 @@
     ],
     "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
-    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
+    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0",
+    "imageDisplay": "after_reveal",
+    "kind": "history"
   },
   {
     "id": "BAR-015",
@@ -196,475 +295,497 @@
       "Ronaldinho"
     ],
     "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2020/11/18/cc74146c-45e7-43c6-9c0b-4b03378e469e/mini_ReialMadrid-FCBarcelona0-3J12Lliga1aDivisi20052006_pic_19-11-05ronaldinho2gol02.jpg",
-    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
+    "imageDisplay": "after_reveal",
+    "kind": "history"
   },
   {
-    "id": "BAR-016",
+    "id": "BAR-N-011",
     "points": 400,
-    "question": "أمام أي نادٍ لعب ميسي أول مباراة ودية له مع الفريق الأول سنة 2003؟",
-    "answer": "بورتو",
-    "explanation": "جاء ظهوره في افتتاح ملعب دراغاو.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/4403264/22-years-since-leo-messi-debuted-for-fc-barcelona",
-    "isPlayer": false,
+    "kind": "number",
+    "question": "شو كان رقم قميص أندريس إنييستا مع برشلونة بموسم 2006-07؟",
+    "answer": "24",
     "acceptableAnswers": [
-      "FC Porto"
-    ]
-  },
-  {
-    "id": "BAR-017",
-    "points": 400,
-    "question": "أمام أي نادٍ شارك أندريس إنييستا للمرة الأولى رسميًا مع الفريق الأول في دوري الأبطال عام 2002؟",
-    "answer": "كلوب بروج",
-    "explanation": "دفع به لويس فان غال في تلك المباراة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/barca-legends/players/4231989/iniesta",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "بروج",
-      "Club Brugge"
-    ]
-  },
-  {
-    "id": "BAR-018",
-    "points": 400,
-    "question": "أي فريق واجه برشلونة في نهائي السوبر الأوروبي 2009 في موناكو؟",
-    "answer": "شاختار دونيتسك",
-    "explanation": "فاز برشلونة عليه بهدف في الوقت الإضافي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "شاختار",
-      "Shakhtar Donetsk"
-    ]
-  },
-  {
-    "id": "BAR-019",
-    "points": 400,
-    "question": "ما الفريق المكسيكي الذي أقصاه برشلونة في نصف نهائي كأس العالم للأندية 2009؟",
-    "answer": "أتلانتي",
-    "explanation": "تأهل برشلونة بعد الفوز عليه.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Atlante"
-    ]
-  },
-  {
-    "id": "BAR-020",
-    "points": 400,
-    "question": "أي فريق فرنسي أقصاه برشلونة في ثمن نهائي دوري الأبطال 2008-09؟",
-    "answer": "أولمبيك ليون",
-    "explanation": "واجهه قبل بايرن ميونخ في ربع النهائي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "ليون",
-      "Lyon"
-    ]
-  },
-  {
-    "id": "BAR-021",
-    "points": 400,
-    "question": "أي فريق أقصاه برشلونة في ربع نهائي دوري الأبطال موسم 2010-11؟",
-    "answer": "شاختار دونيتسك",
-    "explanation": "جاء ذلك قبل مواجهة ريال مدريد في نصف النهائي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "شاختار",
-      "Shakhtar Donetsk"
-    ]
-  },
-  {
-    "id": "BAR-022",
-    "points": 400,
-    "question": "أي نادٍ أقصاه برشلونة في ربع نهائي دوري الأبطال 2005-06 قبل مواجهة ميلان؟",
-    "answer": "بنفيكا",
-    "explanation": "كان بنفيكا الخصم في ربع النهائي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Benfica"
-    ]
-  },
-  {
-    "id": "BAR-023",
-    "points": 400,
-    "question": "ما المدينة التي استضافت نهائي السوبر الأوروبي 2015 بين برشلونة وإشبيلية؟",
-    "answer": "تبليسي",
-    "explanation": "أقيم اللقاء في عاصمة جورجيا.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1095042/fc-barcelona-v-sevilla-fc-fourth-title-of-2015-54",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Tbilisi"
-    ]
-  },
-  {
-    "id": "BAR-024",
-    "points": 400,
-    "question": "أي نادٍ خسر أمام برشلونة في نهائي كأس الملك 2009 بنتيجة 4-1؟",
-    "answer": "أتلتيك بلباو",
-    "explanation": "كان النهائي أول ألقاب السداسية.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "أتلتيك بيلباو",
-      "Athletic Club"
-    ]
-  },
-  {
-    "id": "BAR-025",
-    "points": 400,
-    "question": "ما البطولة الوحيدة من الألقاب الستة الممكنة التي لم يفز بها برشلونة في سنة 2011؟",
-    "answer": "كأس ملك إسبانيا",
-    "explanation": "فاز بخمسة من أصل ستة ألقاب.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "كأس الملك",
-      "Copa del Rey"
-    ]
-  },
-  {
-    "id": "BAR-026",
-    "points": 600,
-    "question": "من دخل بدل إدميلسون مع بداية الشوط الثاني في نهائي دوري الأبطال 2006؟",
-    "answer": "أندريس إنييستا",
-    "explanation": "دفع به ريكارد في الدقيقة 46.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "إنييستا",
-      "Andres Iniesta"
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
     ],
-    "imageUrl": "/assets/questions/football-first-name/3ba31c4c7434a929d4be072d.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg",
-    "imageCaption": "صورة أندريس إنييستا · Кирилл Венедиктов · CC BY-SA 3.0"
+    "explanation": "ارتدى أندريس إنييستا القميص رقم 24 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
   },
   {
-    "id": "BAR-027",
-    "points": 600,
-    "question": "من اللاعب الذي دخل بدل أوليغير في الدقيقة 71 من نهائي باريس 2006؟",
-    "answer": "جوليانو بيليتي",
-    "explanation": "شارك بديلًا ثم سجل هدف الفوز.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "id": "BAR-N-012",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص زلاتان إبراهيموفيتش مع برشلونة بموسم 2009-10؟",
+    "answer": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى زلاتان إبراهيموفيتش القميص رقم 9 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-013",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص سيرخيو بوسكيتس مع برشلونة بموسم 2010-11؟",
+    "answer": "16",
+    "acceptableAnswers": [
+      "١٦",
+      "رقم 16",
+      "رقم ١٦"
+    ],
+    "explanation": "ارتدى سيرخيو بوسكيتس القميص رقم 16 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-014",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص خافيير ماسكيرانو مع برشلونة بموسم 2014-15؟",
+    "answer": "14",
+    "acceptableAnswers": [
+      "١٤",
+      "رقم 14",
+      "رقم ١٤"
+    ],
+    "explanation": "ارتدى خافيير ماسكيرانو القميص رقم 14 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-015",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص سيسك فابريغاس مع برشلونة بموسم 2013-14؟",
+    "answer": "4",
+    "acceptableAnswers": [
+      "٤",
+      "رقم 4",
+      "رقم ٤"
+    ],
+    "explanation": "ارتدى سيسك فابريغاس القميص رقم 4 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-016",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص فيليب كوتينيو مع برشلونة بموسم 2018-19؟",
+    "answer": "7",
+    "acceptableAnswers": [
+      "٧",
+      "رقم 7",
+      "رقم ٧"
+    ],
+    "explanation": "ارتدى فيليب كوتينيو القميص رقم 7 في ذلك الموسم.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticies/860440/els-dorsals-definitius-del-fc-barcelona-201819",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-017",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص أرتورو فيدال مع برشلونة بموسم 2018-19؟",
+    "answer": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى أرتورو فيدال القميص رقم 22 في ذلك الموسم.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticies/860440/els-dorsals-definitius-del-fc-barcelona-201819",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-018",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص بويان كركيتش مع برشلونة بموسم 2010-11؟",
+    "answer": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى بويان كركيتش القميص رقم 9 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-019",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص ديكو مع برشلونة بموسم 2005-06؟",
+    "answer": "20",
+    "acceptableAnswers": [
+      "٢٠",
+      "رقم 20",
+      "رقم ٢٠"
+    ],
+    "explanation": "ارتدى ديكو القميص رقم 20 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-020",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص رافاييل ماركيز مع برشلونة بموسم 2005-06؟",
+    "answer": "4",
+    "acceptableAnswers": [
+      "٤",
+      "رقم 4",
+      "رقم ٤"
+    ],
+    "explanation": "ارتدى رافاييل ماركيز القميص رقم 4 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-021",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص إيريك أبيدال مع برشلونة بموسم 2008-09؟",
+    "answer": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى إيريك أبيدال القميص رقم 22 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-022",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص يايا توريه مع برشلونة بموسم 2008-09؟",
+    "answer": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى يايا توريه القميص رقم 24 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-023",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص أليكسيس سانشيز مع برشلونة بموسم 2013-14؟",
+    "answer": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى أليكسيس سانشيز القميص رقم 9 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-024",
+    "points": 400,
+    "kind": "number",
+    "question": "شو كان رقم قميص كلوديو برافو مع برشلونة بموسم 2014-15؟",
+    "answer": "13",
+    "acceptableAnswers": [
+      "١٣",
+      "رقم 13",
+      "رقم ١٣"
+    ],
+    "explanation": "ارتدى كلوديو برافو القميص رقم 13 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-P-001",
+    "points": 400,
+    "kind": "photo",
+    "question": "مين هذا الجناح الفرنسي اللي لعب مع برشلونة بين 2004 و2007؟",
+    "answer": "لودوفيك جيولي",
+    "acceptableAnswers": [
+      "جيولي",
+      "جولي",
+      "لودوفيك جولي",
+      "Ludovic Giuly"
+    ],
+    "explanation": "لاعب فرنسي من فترة 2004-2007 مع برشلونة.",
+    "sourceUrl": "https://www.sporting-heroes.net/football/barcelona/ludovic-giuly-8379/final-uefa-champions-league-2005-06_a21507/",
     "isPlayer": true,
+    "imageUrl": "https://www.sporting-heroes.net/content/thumbnails/00216/21507-zoom.jpg",
+    "imageSourceUrl": "https://www.sporting-heroes.net/football/barcelona/ludovic-giuly-8379/final-uefa-champions-league-2005-06_a21507/",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-002",
+    "points": 400,
+    "kind": "photo",
+    "question": "شو اسم المهاجم الأرجنتيني الظاهر بالصورة من جيل بداية الألفينات؟",
+    "answer": "خافيير سافيولا",
+    "acceptableAnswers": [
+      "سافيولا",
+      "خافيير سافيولا",
+      "Javier Saviola"
+    ],
+    "explanation": "لاعب أرجنتيني من فترة 2001-2007 مع برشلونة.",
+    "sourceUrl": "https://www.youm7.com/story/2018/8/10/3906030",
+    "isPlayer": true,
+    "imageUrl": "https://img.youm7.com/ArticleImgs/2018/8/9/129662-%D8%AE%D8%A7%D9%81%D9%8A%D9%8A%D8%B1-%D8%B3%D8%A7%D9%81%D9%8A%D9%88%D9%84%D8%A7.jpg",
+    "imageSourceUrl": "https://www.youm7.com/story/2018/8/10/3906030",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-003",
+    "points": 400,
+    "kind": "photo",
+    "question": "مين هذا الجناح البرتغالي اللي لعب مع برشلونة موسم 2003-04؟",
+    "answer": "ريكاردو كواريزما",
+    "acceptableAnswers": [
+      "كواريزما",
+      "كواريسما",
+      "ريكاردو كواريسما",
+      "Ricardo Quaresma"
+    ],
+    "explanation": "لاعب برتغالي من فترة 2003-2004 مع برشلونة.",
+    "sourceUrl": "https://www.imdb.com/title/tt30589300/mediaviewer/rm2952809985/",
+    "isPlayer": true,
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BNmQ4MzJhMGYtMzA0ZS00NDNhLWE1NDEtYWRhYjE5MDU4MDY1XkEyXkFqcGc%40._V1_.jpg",
+    "imageSourceUrl": "https://www.imdb.com/title/tt30589300/mediaviewer/rm2952809985/",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-004",
+    "points": 400,
+    "kind": "photo",
+    "question": "مين هذا اللاعب الآيسلندي اللي كان ببرشلونة أيام ريكارد وغوارديولا؟",
+    "answer": "إيدور غوديونسن",
+    "acceptableAnswers": [
+      "غوديونسن",
+      "غوديونسون",
+      "جوديونسن",
+      "غودجونسون",
+      "Eidur Gudjohnsen"
+    ],
+    "explanation": "لاعب آيسلندي من فترة 2006-2009 مع برشلونة.",
+    "sourceUrl": "https://fr.uefa.com/uefachampionsleague/news/01d2-0e70188bc14d-ed75a7a8d154-1000--le-barca-sans-gudjohnsen-a-bale/",
+    "isPlayer": true,
+    "imageUrl": "https://editorial.uefa.com/resources/01d2-0e70188bbe66-9eeec9a757c9-1000/eidur_gudjohnsen_says_barcelona_are_in_great_form.jpeg",
+    "imageSourceUrl": "https://fr.uefa.com/uefachampionsleague/news/01d2-0e70188bc14d-ed75a7a8d154-1000--le-barca-sans-gudjohnsen-a-bale/",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-N-025",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص جيانلوكا زامبروتا مع برشلونة بموسم 2006-07؟",
+    "answer": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى جيانلوكا زامبروتا القميص رقم 11 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-026",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص هنريك لارسون مع برشلونة بموسم 2005-06؟",
+    "answer": "7",
+    "acceptableAnswers": [
+      "٧",
+      "رقم 7",
+      "رقم ٧"
+    ],
+    "explanation": "ارتدى هنريك لارسون القميص رقم 7 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-027",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص ألكسندر هليب مع برشلونة بموسم 2008-09؟",
+    "answer": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى ألكسندر هليب القميص رقم 21 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-028",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص سيدو كيتا مع برشلونة بموسم 2010-11؟",
+    "answer": "15",
+    "acceptableAnswers": [
+      "١٥",
+      "رقم 15",
+      "رقم ١٥"
+    ],
+    "explanation": "ارتدى سيدو كيتا القميص رقم 15 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-029",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص خوسيه مانويل بينتو مع برشلونة بموسم 2010-11؟",
+    "answer": "13",
+    "acceptableAnswers": [
+      "١٣",
+      "رقم 13",
+      "رقم ١٣"
+    ],
+    "explanation": "ارتدى خوسيه مانويل بينتو القميص رقم 13 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-N-030",
+    "points": 600,
+    "kind": "number",
+    "question": "شو كان رقم قميص أليكس سونغ مع برشلونة بموسم 2013-14؟",
+    "answer": "17",
+    "acceptableAnswers": [
+      "١٧",
+      "رقم 17",
+      "رقم ١٧"
+    ],
+    "explanation": "ارتدى أليكس سونغ القميص رقم 17 في ذلك الموسم.",
+    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
+    "isPlayer": false
+  },
+  {
+    "id": "BAR-P-005",
+    "points": 600,
+    "kind": "photo",
+    "question": "شو اسم المدافع الإسباني الظاهر بالصورة من جيل 2006؟",
+    "answer": "أوليغير بريساس",
+    "acceptableAnswers": [
+      "أوليغير",
+      "أوليجر",
+      "أوليغوير",
+      "Oleguer",
+      "Oleguer Presas"
+    ],
+    "explanation": "لاعب إسباني من فترة 2001-2008 مع برشلونة.",
+    "sourceUrl": "https://www.sport.es/es/noticias/barca/oleguer-presas-que-representa-seleccion-espanola-generaba-rechazo-4518188",
+    "isPlayer": true,
+    "imageUrl": "https://estaticos-cdn.sport.es/clip/70247039-eca9-40de-8a4c-abb53b5765c4_alta-libre-aspect-ratio_default_0.jpg",
+    "imageSourceUrl": "https://www.sport.es/es/noticias/barca/oleguer-presas-que-representa-seleccion-espanola-generaba-rechazo-4518188",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-006",
+    "points": 600,
+    "kind": "photo",
+    "question": "مين هذا المهاجم الأرجنتيني اللي انضم لبرشلونة في 2005؟",
+    "answer": "ماكسي لوبيز",
+    "acceptableAnswers": [
+      "ماكسي لوبيز",
+      "ماكسي لوبيس",
+      "Maxi Lopez"
+    ],
+    "explanation": "لاعب أرجنتيني من فترة 2005-2007 مع برشلونة.",
+    "sourceUrl": "https://www.lanacion.com.ar/deportes/se-retiro-maxi-lopez-a-los-37-anos-un-delantero-potente-que-dejo-su-huella-mas-alla-de-los-goles-nid29072021/",
+    "isPlayer": true,
+    "imageUrl": "https://www.lanacion.com.ar/resizer/v2/maxi-lopez-actuo-en-barcelona-la-cuspide-de-su-B2RW2KV5PJFV5I2POREINXSL2Y.jpg?auth=a96fd871a5cb60c293d839f49557434a2fd5ca9d35b0080104b2e5f916779090&height=900&quality=70&smart=true&width=1200",
+    "imageSourceUrl": "https://www.lanacion.com.ar/deportes/se-retiro-maxi-lopez-a-los-37-anos-un-delantero-potente-que-dejo-su-huella-mas-alla-de-los-goles-nid29072021/",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-007",
+    "points": 600,
+    "kind": "photo",
+    "question": "شو اسم لاعب الوسط البرازيلي الظاهر بالصورة من جيل ريكارد؟",
+    "answer": "إدميلسون",
+    "acceptableAnswers": [
+      "ادميلسون",
+      "إد ميلسون",
+      "Edmilson",
+      "Edmílson"
+    ],
+    "explanation": "لاعب برازيلي من فترة 2004-2008 مع برشلونة.",
+    "sourceUrl": "https://www.transfermarkt.co.in/fc-barcelona/kader/verein/131/saison_id/2006/galerie/1/page/15",
+    "isPlayer": true,
+    "imageUrl": "https://tmssl.akamaized.net/images/foto/galerie/edmilson-barcelona-2006-2007-1704409648-125589.jpg?lm=1704409672",
+    "imageSourceUrl": "https://www.transfermarkt.co.in/fc-barcelona/kader/verein/131/saison_id/2006/galerie/1/page/15",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-008",
+    "points": 600,
+    "kind": "photo",
+    "question": "مين هذا الحارس الاحتياطي لبرشلونة في جيل الألفينات؟",
+    "answer": "ألبرت خوركيرا",
+    "acceptableAnswers": [
+      "خوركيرا",
+      "جوركيرا",
+      "هوركيرا",
+      "Albert Jorquera"
+    ],
+    "explanation": "لاعب إسباني من فترة 2003-2009 مع برشلونة.",
+    "sourceUrl": "https://www.transfermarkt.com/fc-barcelona/kader/verein/131/saison_id/2007/plus/0/galerie/1/page/3",
+    "isPlayer": true,
+    "imageUrl": "https://tmssl.akamaized.net/images/foto/galerie/albert-jorquera-fc-barcelona-1585294790-34943.jpg?lm=1585294806",
+    "imageSourceUrl": "https://www.transfermarkt.com/fc-barcelona/kader/verein/131/saison_id/2007/plus/0/galerie/1/page/3",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-009",
+    "points": 600,
+    "kind": "photo",
+    "question": "مين هذا الظهير البرازيلي اللي لعب مع برشلونة بين 2004 و2009؟",
+    "answer": "سيلفينيو",
+    "acceptableAnswers": [
+      "سيلفينهو",
+      "سيلفينيو",
+      "Sylvinho"
+    ],
+    "explanation": "لاعب برازيلي من فترة 2004-2009 مع برشلونة.",
+    "sourceUrl": "https://www.playmakerstats.com/player/sylvinho/814",
+    "isPlayer": true,
+    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/94/45/299445_sylvinho_20250505190722.jpg",
+    "imageSourceUrl": "https://www.playmakerstats.com/player/sylvinho/814",
+    "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-P-010",
+    "points": 600,
+    "kind": "photo",
+    "question": "مين هذا الظهير البرازيلي اللي لعب مع برشلونة بين 2004 و2007؟",
+    "answer": "جوليانو بيليتي",
     "acceptableAnswers": [
       "بيليتي",
+      "بيلليتي",
+      "جوليانو بيلتي",
       "Juliano Belletti"
     ],
+    "explanation": "لاعب برازيلي من فترة 2004-2007 مع برشلونة.",
+    "sourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5",
+    "isPlayer": true,
     "imageUrl": "https://assets.goal.com/images/v3/blt3d23107bdff5db12/33ca853a963799c92659cbf4b7201364472b75cc.jpg?format=jpg",
-    "imageSourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5"
-  },
-  {
-    "id": "BAR-028",
-    "points": 600,
-    "question": "من لاعب أرسنال الذي خرج في الدقيقة 74 من نهائي 2006 أمام برشلونة ليدخل ماتيو فلاميني؟",
-    "answer": "سيسك فابريغاس",
-    "explanation": "كان فابريغاس أساسيًا في صفوف أرسنال قبل انضمامه لاحقًا لبرشلونة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "فابريغاس",
-      "Cesc Fabregas"
-    ],
-    "imageUrl": "/assets/questions/football-first-name/f7f38b6c532503dd1af964a8.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2023_-_Cesc_Fabregas_(cropped).jpg",
-    "imageCaption": "صورة سيسك فابريغاس · Web Summit · CC BY 2.0"
-  },
-  {
-    "id": "BAR-029",
-    "points": 600,
-    "question": "ما اسم الملعب الذي استضاف نهائي أرسنال وبرشلونة في دوري الأبطال عام 2006؟",
-    "answer": "ستاد دو فرانس",
-    "explanation": "أقيم النهائي في باريس على الملعب الوطني الفرنسي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "ملعب فرنسا",
-      "Stade de France"
-    ]
-  },
-  {
-    "id": "BAR-030",
-    "points": 600,
-    "question": "من نال جائزة رجل مباراة نهائي دوري الأبطال عام 2006 بين برشلونة وأرسنال؟",
-    "answer": "صامويل إيتو",
-    "explanation": "اختير المهاجم رجلًا للمباراة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "إيتو",
-      "Samuel Eto'o"
-    ],
-    "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
-    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
-  },
-  {
-    "id": "BAR-031",
-    "points": 600,
-    "question": "ما جنسية حكم نهائي دوري الأبطال 2006 تيري هاوغ؟",
-    "answer": "نرويجي",
-    "explanation": "كان الحكم تيري هاوغ من النرويج.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "النرويج",
-      "Norwegian"
-    ]
-  },
-  {
-    "id": "BAR-032",
-    "points": 600,
-    "question": "أي فريق ألماني واجه برشلونة في دور الـ16 لكأس أوروبا موسم 1991-92 وتجاوزه بهدف متأخر خارج أرضه؟",
-    "answer": "كايزرسلاوترن",
-    "explanation": "نجح برشلونة في العبور قبل مرحلة المجموعات.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Kaiserslautern",
-      "كايزر سلاوترن"
-    ]
-  },
-  {
-    "id": "BAR-033",
-    "points": 600,
-    "question": "أي فريق ألماني كان أول خصم في مشوار برشلونة بكأس أوروبا 1991-92؟",
-    "answer": "هانزا روستوك",
-    "explanation": "واجهه برشلونة في طريقه إلى لقبه الأوروبي الأول.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "هانسا روستوك",
-      "Hansa Rostock"
-    ]
-  },
-  {
-    "id": "BAR-034",
-    "points": 600,
-    "question": "كم لقب دوري إسباني متتاليًا أحرزه برشلونة تحت قيادة كرويف من 1991 إلى 1994؟",
-    "answer": "أربعة",
-    "explanation": "تُوّج بالدوري أربعة مواسم متتالية.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "4",
-      "أربعة ألقاب"
-    ]
-  },
-  {
-    "id": "BAR-035",
-    "points": 600,
-    "question": "كم لقبًا في السوبر الإسباني أحرزه كرويف بصفته مدربًا لبرشلونة؟",
-    "answer": "أربعة ألقاب",
-    "explanation": "حقق أربعة ألقاب في السوبر ضمن مسيرته التدريبية.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "4",
-      "أربعة"
-    ]
-  },
-  {
-    "id": "BAR-036",
-    "points": 600,
-    "question": "أي فريق إيطالي هزمه برشلونة في نهائي كأس الكؤوس 1989 قبل مواجهته في نهائي كأس أوروبا بعد ثلاث سنوات؟",
-    "answer": "سامبدوريا",
-    "explanation": "انتهت مباراة 1989 بنتيجة 2-0 لبرشلونة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Sampdoria"
-    ]
-  },
-  {
-    "id": "BAR-037",
-    "points": 600,
-    "question": "ما اسم الملعب الهولندي الذي شهد تتويج برشلونة بكأس الكؤوس في 14 مايو 1997؟",
-    "answer": "دي كويب",
-    "explanation": "أقيم النهائي ضد باريس سان جيرمان في روتردام.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/763989/twenty-years-on-from-robsons-cup-winners-cup-victory",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "De Kuip",
-      "ملعب فينورد"
-    ]
-  },
-  {
-    "id": "BAR-038",
-    "points": 600,
-    "question": "ما النادي البرتغالي الذي واجهه برشلونة في نهائي الكأس اللاتينية سنة 1949؟",
-    "answer": "سبورتينغ لشبونة",
-    "explanation": "فاز برشلونة في النهائي 2-1.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticias/1133174/fc-barcelona-reach-european-milestone",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "سبورتينغ",
-      "Sporting CP"
-    ]
-  },
-  {
-    "id": "BAR-039",
-    "points": 600,
-    "question": "أي فريق فرنسي واجهه برشلونة في نصف نهائي الكأس اللاتينية سنة 1949؟",
-    "answer": "ستاد ريمس",
-    "explanation": "جاءت المواجهة قبل النهائي أمام سبورتينغ لشبونة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticias/1133174/fc-barcelona-reach-european-milestone",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "ريمس",
-      "Stade de Reims"
-    ]
-  },
-  {
-    "id": "BAR-040",
-    "points": 600,
-    "question": "في أي عام هُدم ملعب ليس كورتس القديم؟",
-    "answer": "1966",
-    "explanation": "بدأ هدمه في فبراير 1966 بعد سنوات من افتتاح كامب نو.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4440891/60-years-since-les-corts-stadium-was-demolished",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "١٩٦٦"
-    ]
-  },
-  {
-    "id": "BAR-041",
-    "points": 600,
-    "question": "أي فريق بولندي شارك في مباراة افتتاح كامب نو عام 1957؟",
-    "answer": "منتخب وارسو",
-    "explanation": "فاز برشلونة 4-2 في المباراة الودية أمام فريق وارسو.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/history",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "وارسو",
-      "Warsaw XI",
-      "فريق وارسو"
-    ]
-  },
-  {
-    "id": "BAR-042",
-    "points": 600,
-    "question": "ما نتيجة المباراة الافتتاحية لكامب نو في سبتمبر 1957؟",
-    "answer": "4-2 لبرشلونة",
-    "explanation": "تفوق برشلونة على فريق وارسو بأربعة أهداف مقابل هدفين.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/history",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "4-2",
-      "٤-٢"
-    ]
-  },
-  {
-    "id": "BAR-043",
-    "points": 600,
-    "question": "أي نادٍ هزم برشلونة في أول مباراة دوري له تحت قيادة غوارديولا سنة 2008؟",
-    "answer": "نومانسيا",
-    "explanation": "خسر برشلونة 1-0 قبل أن ينطلق في موسمه التاريخي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "Numancia"
-    ]
-  },
-  {
-    "id": "BAR-044",
-    "points": 600,
-    "question": "أمام أي نادٍ تعادل برشلونة 1-1 في ثاني مباراة بالدوري تحت قيادة غوارديولا موسم 2008-09؟",
-    "answer": "راسينغ سانتاندير",
-    "explanation": "جاء التعادل بعد الخسارة من نومانسيا.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "راسينغ",
-      "Racing Santander"
-    ]
-  },
-  {
-    "id": "BAR-045",
-    "points": 600,
-    "question": "من سجل هدف برشلونة الافتتاحي في نهائي السوبر الأوروبي 2015 بعدما تقدم إشبيلية مبكرًا؟",
-    "answer": "ليونيل ميسي",
-    "explanation": "عادل ميسي النتيجة بركلة حرة ثم سجل أخرى.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1095042/fc-barcelona-v-sevilla-fc-fourth-title-of-2015-54",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "ميسي",
-      "Lionel Messi"
-    ],
-    "imageUrl": "/assets/questions/football-first-name/e060ca186507497ba449c2b0.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
-    "imageCaption": "صورة ليونيل ميسي · Bryan Berlin · CC BY-SA 4.0"
-  },
-  {
-    "id": "BAR-046",
-    "points": 600,
-    "question": "أي لاعب سجّل في الدقيقة 68 من نهائي دوري الأبطال 2015 ليعيد التقدم لبرشلونة بعد التعادل؟",
-    "answer": "لويس سواريز",
-    "explanation": "سجل الهدف الثاني لبرشلونة في النهائي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/matches/10444/juventus-fc-barcelona-ucl-2014-15",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "سواريز",
-      "Luis Suarez"
-    ],
-    "imageUrl": "/assets/questions/football-first-name/8faa19c167b1ebefb40d1dfc.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_2026_(cropped).jpg",
-    "imageCaption": "صورة لويس سواريز · The White House · Public domain"
-  },
-  {
-    "id": "BAR-047",
-    "points": 600,
-    "question": "من استبدله ريكارد بميسي في الدقيقة 87 في مباراة ألباسيتي التي شهدت هدفه الرسمي الأول؟",
-    "answer": "صامويل إيتو",
-    "explanation": "خرج إيتو ودخل ميسي قبل تسجيل الهدف التاريخي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1655354/15-years-since-lionel-messis-first-official-goal/featured",
-    "isPlayer": true,
-    "acceptableAnswers": [
-      "إيتو",
-      "Samuel Eto'o"
-    ],
-    "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
-    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
-  },
-  {
-    "id": "BAR-048",
-    "points": 600,
-    "question": "أمام أي نادٍ سجّل ميسي هدفًا في مباراة ودية تحضيرية في يوليو 2004 قبل هدفه الرسمي الأول؟",
-    "answer": "بالاموس",
-    "explanation": "كانت المباراة الودية ضد الفريق الكتالوني وانتهت 6-0.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/814346/do-you-remember-leo-messis-first-ever-goal-for-fc-barcelona",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "بالاموس",
-      "Palamos"
-    ]
-  },
-  {
-    "id": "BAR-049",
-    "points": 600,
-    "question": "كم لقب دوري أبطال أوروبا فاز به تشافي مع برشلونة خلال مسيرته لاعبًا؟",
-    "answer": "أربعة ألقاب",
-    "explanation": "كان ضمن فرق الألقاب في 2006 و2009 و2011 و2015.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/711040/20-years-since-xavi-hernandez-barca-debut",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "4",
-      "أربعة"
-    ]
-  },
-  {
-    "id": "BAR-050",
-    "points": 600,
-    "question": "كم نقطة حقق برشلونة في الدوري الإسباني موسم 2009-10 تحت قيادة غوارديولا؟",
-    "answer": "99 نقطة",
-    "explanation": "حقق النادي لقب الدوري في موسم سجل فيه 99 نقطة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/3326425/15-years-since-pep-guardiola-announced-as-fc-barcelona-coach",
-    "isPlayer": false,
-    "acceptableAnswers": [
-      "99",
-      "٩٩"
-    ]
+    "imageSourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5",
+    "imageDisplay": "before_reveal"
   }
 ]
