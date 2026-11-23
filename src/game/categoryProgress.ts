@@ -295,7 +295,11 @@ export function sanitizeExternalQuestions(raw: unknown): QuizQuestion[] {
         ? rec.correctOptionIndex
         : undefined;
 
-    const imageUrl = sanitizeSafeImageUrl(typeof rec.imageUrl === 'string' ? rec.imageUrl : undefined);
+    const imageUrl = sanitizeSafeImageUrl(
+      typeof rec.remoteOriginalImageUrl === 'string' && /^https?:\/\//i.test(rec.remoteOriginalImageUrl)
+        ? rec.remoteOriginalImageUrl
+        : typeof rec.imageUrl === 'string' ? rec.imageUrl : undefined,
+    );
     seen.add(id);
     out.push({
       id,
