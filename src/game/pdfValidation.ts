@@ -76,8 +76,7 @@ export const LIFELINE_META: Record<
   },
   two_answers: {
     label: 'إجابتان',
-    description: 'لديك فرصتان للإجابة (لأسئلة الاختيار من متعدد).',
-    mcqOnly: true,
+    description: 'لديك فرصتان للإجابة عن هذا السؤال.',
     timing: 'pre_question',
   },
   swap_question: {
@@ -297,16 +296,25 @@ export function validateQuizQuestion(
     orderItems: question.orderItems?.map((o) => o.trim()).filter(Boolean),
     hint: question.hint?.trim() || undefined,
     explanation: question.explanation?.trim() || undefined,
-    imageUrl:
-      typeof question.imageUrl === 'string' && question.imageUrl.trim()
-        ? question.imageUrl.trim()
-        : undefined,
+    imageUrl: (() => {
+      const raw = typeof question.imageUrl === 'string' ? question.imageUrl.trim() : '';
+      if (!raw) return undefined;
+      if (
+        /^https?:\/\//i.test(raw) ||
+        raw.startsWith('/') ||
+        /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)
+      ) {
+        return raw;
+      }
+      return undefined;
+    })(),
     previewImageUrl:
       typeof question.previewImageUrl === 'string' && question.previewImageUrl.trim().startsWith('/api/hashemite-university/photos/')
         ? question.previewImageUrl.trim()
         : undefined,
     imageBase64:
-      typeof question.imageBase64 === 'string' && question.imageBase64.trim()
+      typeof question.imageBase64 === 'string' &&
+      /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(question.imageBase64.trim())
         ? question.imageBase64.trim()
         : undefined,
     imageCaption:
@@ -321,18 +329,58 @@ export function validateQuizQuestion(
       typeof question.memorySceneId === 'string' && question.memorySceneId.trim()
         ? question.memorySceneId.trim()
         : undefined,
-    memorySecondImageUrl:
-      typeof question.memorySecondImageUrl === 'string' && question.memorySecondImageUrl.trim()
-        ? question.memorySecondImageUrl.trim()
-        : undefined,
+    memorySecondImageUrl: (() => {
+      const raw = typeof question.memorySecondImageUrl === 'string' ? question.memorySecondImageUrl.trim() : '';
+      if (!raw) return undefined;
+      if (
+        /^https?:\/\//i.test(raw) ||
+        raw.startsWith('/') ||
+        /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)
+      ) {
+        return raw;
+      }
+      return undefined;
+    })(),
     imageDisplay: question.imageDisplay === 'before_reveal' || question.imageDisplay === 'after_reveal'
       ? question.imageDisplay
       : undefined,
-    imageSourceUrl: typeof question.imageSourceUrl === 'string' && /^https:\/\//i.test(question.imageSourceUrl.trim())
+    imageSourceUrl: typeof question.imageSourceUrl === 'string' && /^https?:\/\//i.test(question.imageSourceUrl.trim())
       ? question.imageSourceUrl.trim()
       : undefined,
-    answerImageUrl: typeof question.answerImageUrl === 'string' && /^https:\/\//i.test(question.answerImageUrl.trim())
-      ? question.answerImageUrl.trim()
+    answerImageUrl: (() => {
+      const raw = typeof question.answerImageUrl === 'string' ? question.answerImageUrl.trim() : '';
+      if (!raw) return undefined;
+      if (
+        /^https?:\/\//i.test(raw) ||
+        raw.startsWith('/') ||
+        /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)
+      ) {
+        return raw;
+      }
+      return undefined;
+    })(),
+    afterImageUrl: (() => {
+      const raw = typeof question.afterImageUrl === 'string' ? question.afterImageUrl.trim() : '';
+      if (!raw) return undefined;
+      if (
+        /^https?:\/\//i.test(raw) ||
+        raw.startsWith('/') ||
+        /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)
+      ) {
+        return raw;
+      }
+      return undefined;
+    })(),
+    beforeImageUrls: Array.isArray(question.beforeImageUrls)
+      ? question.beforeImageUrls
+          .map((item) => (typeof item === 'string' ? item.trim() : ''))
+          .filter(
+            (raw) =>
+              Boolean(raw) &&
+              (/^https?:\/\//i.test(raw) ||
+                raw.startsWith('/') ||
+                /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)),
+          )
       : undefined,
     audioUrl: typeof question.audioUrl === 'string' ? question.audioUrl.trim() || undefined : undefined,
     audioUrls: Array.isArray(question.audioUrls)

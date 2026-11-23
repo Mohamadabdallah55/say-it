@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AdminPanel } from './components/AdminPanel';
 import { BuzzerScreen } from './components/BuzzerScreen';
 import { GameArena } from './components/GameArena';
@@ -7,7 +7,22 @@ import { PdfStudio } from './components/PdfStudio';
 import { SavedLibrary } from './components/SavedLibrary';
 import { SilentActingScreen } from './components/SilentActingScreen';
 import { TitleScreen } from './components/TitleScreen';
+import {
+  DEFAULT_REMOTE_DECKS_BASE_URL,
+  mergeDecksWithRecovered,
+  type RecoveredDeckRecord,
+} from './game/remoteDecks';
 import type { ClientRole, QuizDeck, TeamState } from './game/types';
+import {
+  dismissRecoveredDeckNewBadge,
+  loadHydratedRecoveredState,
+  SESSION_REMOTE_SYNC_KEY,
+  syncRemoteDecks,
+  toggleRecoveredDeckVisibility,
+  updateRemoteBaseUrl,
+  type RemoteSyncProgress,
+  type RemoteSyncSummary,
+} from './utils/remoteDeckSync';
 import { soundFX } from './utils/sound';
 
 type ViewScreen =
@@ -33,21 +48,56 @@ interface SavedRoomSummary {
 
 export default function App() {
   const [screen, setScreen] = useState<ViewScreen>({ name: 'title' });
-  const [decks, setDecks] = useState<QuizDeck[]>([]);
+  const [serverDecks, setServerDecks] = useState<QuizDeck[]>([]);
+  const [recoveredRecords, setRecoveredRecords] = useState<RecoveredDeckRecord[]>([]);
+  const [hiddenDeckIds, setHiddenDeckIds] = useState<string[]>([]);
+  const [remoteBaseUrl, setRemoteBaseUrl] = useState<string>(DEFAULT_REMOTE_DECKS_BASE_URL);
+  const [syncingRemote, setSyncingRemote] = useState(false);
+  const [syncProgress, setSyncProgress] = useState<RemoteSyncProgress | null>(null);
+  const [syncSummary, setSyncSummary] = useState<RemoteSyncSummary | null>(null);
   const [rooms, setRooms] = useState<SavedRoomSummary[]>([]);
   const [soundEnabled, setSoundEnabled] = useState(true);
 
+  const decks = useMemo(
+    () => mergeDecksWithRecovered(serverDecks, recoveredRecords, hiddenDeckIds),
+    [serverDecks, recoveredRecords, hiddenDeckIds],
+  );
+
+  const recoveredMetaById = useMemo(() => {
+    const map: Record<string, RecoveredDeckRecord> = {};
+    for (const rec of recoveredRecords) {
+      map[rec.id] = rec;
+    }
+    return map;
+  }, [recoveredRecords]);
+
+  const applyRemoteState = useCallback(
+    (remote: {
+      baseUrl: string;
+      hiddenDeckIds: string[];
+      records: RecoveredDeckRecord[];
+    }) => {
+      setRemoteBaseUrl(remote.baseUrl);
+      setHiddenDeckIds(remote.hiddenDeckIds);
+      setRecoveredRecords(remote.records);
+    },
+    [],
+  );
+
   const refreshDecksAndRooms = useCallback(async () => {
     try {
-      const dRes = await fetch('/api/decks');
-      const rRes = await fetch('/api/rooms');
+      const [dRes, rRes] = await Promise.all([fetch('/api/decks'), fetch('/api/rooms')]);
       const dData = await dRes.json();
       const rData = await rRes.json();
-      if (dData.decks) setDecks(dData.decks);
-      if (rData.rooms) setRooms(rData.rooms.flatMap((room: SavedRoomSummary) => {
-        const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
-        return hostToken ? [{ ...room, hostToken }] : [];
-      }));
+      if (dData.decks) setServerDecks(dData.decks);
+      if (rData.rooms) {
+        setRooms(
+          rData.rooms.flatMap((room: SavedRoomSummary) => {
+            const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
+            return hostToken ? [{ ...room, hostToken }] : [];
+          }),
+        );
+      }
     } catch {
       // ignore initial offline error
     }
@@ -61,7 +111,34 @@ export default function App() {
     const token = params.get('token') || undefined;
     const autostart = params.get('autostart');
 
-    if (!room) refreshDecksAndRooms();
+    if (!room) {
+      refreshDecksAndRooms();
+      // Hydrate offline IndexedDB recovered decks immediately without blocking UI
+      loadHydratedRecoveredState()
+        .then((cachedState) => {
+          applyRemoteState(cachedState);
+          let alreadyChecked = false;
+          try {
+            alreadyChecked = sessionStorage.getItem(SESSION_REMOTE_SYNC_KEY) === '1';
+            if (!alreadyChecked) {
+              sessionStorage.setItem(SESSION_REMOTE_SYNC_KEY, '1');
+            }
+          } catch {
+            // ignore sessionStorage limitations
+          }
+          if (!alreadyChecked) {
+            syncRemoteDecks({ force: false })
+              .then(({ state }) => {
+                applyRemoteState(state);
+              })
+              .catch(() => {
+                // Keep silently cached IndexedDB decks when background sync fails/offline
+              });
+          }
+        })
+        .catch(() => {});
+    }
+
     if (room) {
       if (role === 'host' && token) localStorage.setItem('yh-host-' + room.toUpperCase(), token);
       if (mode === 'act' && token) {
@@ -83,10 +160,62 @@ export default function App() {
     const onOpenAdmin = () => setScreen({ name: 'admin' });
     window.addEventListener('yh:open-admin', onOpenAdmin);
     return () => window.removeEventListener('yh:open-admin', onOpenAdmin);
-  }, [refreshDecksAndRooms]);
+  }, [refreshDecksAndRooms, applyRemoteState]);
+
+  const handleManualRemoteSync = useCallback(async () => {
+    if (syncingRemote) return;
+    setSyncingRemote(true);
+    setSyncProgress({
+      completed: 0,
+      total: 1,
+      percent: 5,
+      currentLabel: 'بدء فحص البنوك...',
+    });
+    setSyncSummary(null);
+    try {
+      const { summary, state } = await syncRemoteDecks({
+        force: true,
+        onProgress: (p) => setSyncProgress(p),
+      });
+      applyRemoteState(state);
+      setSyncSummary(summary);
+    } catch {
+      setSyncSummary({
+        ok: false,
+        addedCount: 0,
+        updatedCount: 0,
+        skippedInvalidQuestionsCount: 0,
+        failedDecksCount: 0,
+        offlineOrSkipped: false,
+        message: 'تعذر إكمال استرداد البنوك حاليًا.',
+      });
+    } finally {
+      setSyncingRemote(false);
+    }
+  }, [syncingRemote, applyRemoteState]);
+
+  const handleSaveRemoteBaseUrl = useCallback(async (rawUrl: string) => {
+    const res = await updateRemoteBaseUrl(rawUrl);
+    if (res.valid && res.baseUrl) {
+      setRemoteBaseUrl(res.baseUrl);
+    }
+    return res;
+  }, []);
+
+  const handleToggleDeckHidden = useCallback(async (deckId: string, hidden: boolean) => {
+    const nextHidden = await toggleRecoveredDeckVisibility(deckId, hidden);
+    setHiddenDeckIds(nextHidden);
+  }, []);
+
+  const handleMarkDeckSeen = useCallback((deckId: string) => {
+    setRecoveredRecords((prev) =>
+      prev.map((rec) => (rec.id === deckId && rec.isNew ? { ...rec, isNew: false } : rec)),
+    );
+    dismissRecoveredDeckNewBadge(deckId).catch(() => {});
+  }, []);
 
   const rememberDeck = (deck: QuizDeck) => {
-    setDecks(current => [deck, ...current.filter(item => item.id !== deck.id)]);
+    setServerDecks((current) => [deck, ...current.filter((item) => item.id !== deck.id)]);
   };
 
   const toggleSound = () => {
@@ -175,6 +304,8 @@ export default function App() {
     return (
       <LobbySetup
         decks={decks}
+        recoveredMetaById={recoveredMetaById}
+        onMarkDeckSeen={handleMarkDeckSeen}
         initialDeckId={screen.preselectDeckId}
         approvedLesson={screen.approvedLesson}
         soundEnabled={soundEnabled}
@@ -232,6 +363,17 @@ export default function App() {
       <SavedLibrary
         mode={screen.mode}
         decks={decks}
+        recoveredMetaById={recoveredMetaById}
+        recoveredRecords={recoveredRecords}
+        hiddenDeckIds={hiddenDeckIds}
+        remoteBaseUrl={remoteBaseUrl}
+        syncingRemote={syncingRemote}
+        syncProgress={syncProgress}
+        syncSummary={syncSummary}
+        onManualRemoteSync={handleManualRemoteSync}
+        onSaveRemoteBaseUrl={handleSaveRemoteBaseUrl}
+        onToggleDeckHidden={handleToggleDeckHidden}
+        onMarkDeckSeen={handleMarkDeckSeen}
         rooms={rooms}
         soundEnabled={soundEnabled}
         onToggleSound={toggleSound}
@@ -240,7 +382,7 @@ export default function App() {
         onBack={() => setScreen({ name: 'title' })}
         onSelectDeckToPlay={(deckId) => setScreen({ name: 'lobby', preselectDeckId: deckId })}
         onEditDeckInStudio={(deck) => setScreen({ name: 'pdf_studio', editDeck: deck })}
-        onDecksChanged={(nextDecks) => setDecks(nextDecks)}
+        onDecksChanged={(nextServerDecks) => setServerDecks(nextServerDecks)}
         onResumeRoom={(roomCode, hostToken) => handleRoomCreated({ roomCode, hostToken, buzzerToken: '' })}
       />
     );

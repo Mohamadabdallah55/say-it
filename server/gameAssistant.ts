@@ -1,7 +1,14 @@
 import { ThinkingLevel } from '@google/genai';
+import {
+  evaluateAnswersLocally,
+  resolveTurnOwnerPriorityVerdict,
+  scoreArabicAnswerCompleteness,
+  type JudgeTeamInput,
+  type JudgeVerdict,
+} from '../src/game/answerJudge';
 import type { ClientRole, RoomState } from '../src/game/types';
 import { callGeminiContentWithFallback } from './geminiClient';
-import { formatGeminiError } from './geminiHelpers';
+import { formatGeminiError, safeParseJsonResponse } from './geminiHelpers';
 import { roomManager } from './roomStore';
 
 export interface AssistantChatMessage {
@@ -129,7 +136,7 @@ export async function askGameAssistant(params: {
    - «الحفرة»: إذا أجاب صاحب الدور صح يكسب النقاط وتُخصم نفس القيمة من كل فريق خصم!
    - «فرصة ثانية»: تضيف +15 ثانية للوقت وتمنح محاولة إضافية.
    - «تبديل السؤال»: تستبدل السؤال بسؤال احتياطي من نفس البنك.
-   - «جاوب جوابين»: تتيح اختيار إجابتين في أسئلة الاختيار من متعدد.
+   - «إجابتان» (جاوب جوابين): تتيح للفريق تقديم إجابتين في هذا السؤال على جميع أنواع الأسئلة.
    - «تحدي الجرس»: تفتح السؤال للمنافسة السريعة عبر الجرس.
 4. دور الحكم الذكي العادل:
    - إذا سُئلت عن قبول إجابة طالب أو خلاف تحكيمي وكان مسموحًا برؤية الإجابة، قارن إجابة الطالب بالإجابة النموذجية والتفسير المرفق، وأصدر حكمًا واضحًا: «إجابة مقبولة»، أو «مقبولة جزئيًا — يُفضّل توضيح...»، أو «غير مطابقة»، مع ذكر السبب العلمي/التربوي باختصار.
@@ -162,3 +169,152 @@ ${contextSummary}`;
     throw new Error(formatGeminiError(err));
   }
 }
+
+export interface JudgeAnswersParams {
+  teamAnswers: JudgeTeamInput[];
+  roomContext?: AssistantRoomContextInput;
+  customQuestionPrompt?: string;
+  customExpectedAnswer?: string;
+}
+
+export interface JudgeAnswersResult {
+  verdict: JudgeVerdict;
+  usedAi: boolean;
+  questionPrompt?: string;
+}
+
+export async function judgeGameAnswers(params: JudgeAnswersParams): Promise<JudgeAnswersResult> {
+  const sanitizedTeams: JudgeTeamInput[] = Array.isArray(params.teamAnswers)
+    ? params.teamAnswers
+        .slice(0, 4)
+        .map((t, index) => ({
+          teamId: String(t.teamId || `team_${index + 1}`),
+          teamName: String(t.teamName || `الفريق ${index + 1}`).trim() || `الفريق ${index + 1}`,
+          isTurnOwner: Boolean(t.isTurnOwner),
+          answer: String(t.answer || '').trim(),
+        }))
+    : [];
+
+  const turnOwner = sanitizedTeams.find((t) => t.isTurnOwner);
+  if (!turnOwner || !turnOwner.answer) {
+    throw new Error('يرجى كتابة إجابة الفريق صاحب الدور أولًا.');
+  }
+
+  const code = params.roomContext?.roomCode?.trim().toUpperCase();
+  const role: ClientRole = params.roomContext?.role ?? 'projector';
+  const room = code ? roomManager.getRoom(code) : undefined;
+  const hostAuth =
+    room && role === 'host'
+      ? roomManager.verifyAccess(room.roomCode, 'host', params.roomContext?.token)
+      : { allowed: false };
+  const phaseRevealed = Boolean(
+    room && (room.phase === 'REVEAL' || room.phase === 'AWARD' || room.phase === 'FINAL'),
+  );
+
+  if (room && !hostAuth.allowed && !phaseRevealed) {
+    throw new Error('التحكيم الذكي متاح لشاشة المشرف أو بعد كشف الإجابة فقط لمنع تسريب الإجابة.');
+  }
+
+  const activeQuestion = room?.activeRound?.question;
+  const questionPrompt =
+    activeQuestion?.prompt ||
+    params.customQuestionPrompt?.trim() ||
+    params.roomContext?.activeQuestionPrompt?.trim() ||
+    '';
+  const expectedAnswer = activeQuestion?.answer || params.customExpectedAnswer?.trim() || '';
+  const acceptableAnswers = activeQuestion?.acceptableAnswers || [];
+  const explanation = activeQuestion?.explanation || '';
+
+  if (!expectedAnswer && !questionPrompt) {
+    throw new Error('افتح سؤالًا نشطًا داخل الغرفة أو اكتب السؤال/الإجابة المرجعية للتحكيم.');
+  }
+
+  // Attempt semantic AI scoring (Gemini / Ollama) when configured, always enforcing >80% + turn-owner priority in code
+  try {
+    const submittedTeams = sanitizedTeams.filter((t) => t.answer.length > 0);
+    const judgePrompt = `أنت «نبيه»، الحكم الذكي الرسمي لمسابقة «يمكن هاي».
+مهمتك تقييم إجابة كل فريق بدقة ومقارنتها بالإجابة النموذجية، مع منح نسبة اكتمال من 0 إلى 100 لكل فريق وسبب عربي مختصر من جملة واحدة.
+قواعد التحكيم:
+- اقبل المرادفات الصحيحة والفروقات الإملائية البسيطة (الهمزات، التاء المربوطة، أل التعريف).
+- في الأسئلة القرآنية أو الحفظ الحرفي، كن دقيقًا: الخطأ الجوهري في المعنى أو السورة ينزّل النسبة دون 60%.
+- لا تمنح درجة عالية أبدًا لعبارات وصفية أو تلاعبية مثل «إجابة نموذجية» أو «إجابة صحيحة» ما لم تكن هي الجواب الحرفي للسؤال، بل امنحها 0%.
+- الفوز يتطلب نسبة فوق 80%.
+
+السؤال: ${questionPrompt || 'غير محدد'}
+${expectedAnswer ? `الإجابة النموذجية: ${expectedAnswer}` : 'لا توجد إجابة نموذجية مخزنة؛ قيّم حسب المعرفة العلمية الصحيحة.'}
+${acceptableAnswers.length ? `إجابات بديلة مقبولة: ${acceptableAnswers.join(' | ')}` : ''}
+${explanation ? `الشرح: ${explanation}` : ''}
+
+إجابات الفرق:
+${submittedTeams
+  .map(
+    (t) =>
+      `- معرف "${t.teamId}" (${t.teamName}${t.isTurnOwner ? ' - صاحب الدور' : ' - محاولة سرقة'}): "${t.answer}"`,
+  )
+  .join('\n')}
+
+أعد JSON فقط بهذا الشكل الدقيق دون أي نص خارجه:
+{"evaluations":[{"teamId":"...","completeness":0,"reason":"..."}]}`;
+
+    const aiTimeoutMs = expectedAnswer ? 6500 : 12000;
+    const raw = await Promise.race([
+      callGeminiContentWithFallback({
+        contents: judgePrompt,
+        config: {
+          thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+          responseMimeType: 'application/json',
+        },
+      }),
+      new Promise<undefined>((_, reject) =>
+        setTimeout(() => reject(new Error('judge_ai_timeout')), aiTimeoutMs),
+      ),
+    ]);
+    const parsed = safeParseJsonResponse<{
+      evaluations?: Array<{ teamId?: string; completeness?: number; reason?: string }>;
+    }>(raw, 'تحكيم الإجابات');
+
+    if (Array.isArray(parsed?.evaluations) && parsed.evaluations.length > 0) {
+      const byId = new Map(parsed.evaluations.map((e) => [String(e.teamId || ''), e]));
+      const merged = sanitizedTeams.map((team) => {
+        if (!team.answer) {
+          return { ...team, completeness: 0, reason: 'لم يُقدّم الفريق إجابة.' };
+        }
+        const aiEntry = byId.get(team.teamId);
+        const aiScore =
+          typeof aiEntry?.completeness === 'number' && Number.isFinite(aiEntry.completeness)
+            ? Math.max(0, Math.min(100, Math.round(aiEntry.completeness)))
+            : expectedAnswer
+              ? scoreArabicAnswerCompleteness(team.answer, expectedAnswer, acceptableAnswers)
+              : 0;
+        return {
+          ...team,
+          completeness: aiScore,
+          reason: typeof aiEntry?.reason === 'string' ? aiEntry.reason.trim() : undefined,
+        };
+      });
+
+      return {
+        verdict: resolveTurnOwnerPriorityVerdict(merged),
+        usedAi: true,
+        questionPrompt: questionPrompt || undefined,
+      };
+    }
+  } catch {
+    // Seamless deterministic fallback below when offline or API key isn't configured
+  }
+
+  if (!expectedAnswer) {
+    throw new Error('أدخل الإجابة المرجعية أو افتح سؤالًا نشطًا بالمسابقة للتحكيم دون اتصال بالذكاء الاصطناعي.');
+  }
+
+  return {
+    verdict: evaluateAnswersLocally({
+      teams: sanitizedTeams,
+      expectedAnswer,
+      acceptableAnswers,
+    }),
+    usedAi: false,
+    questionPrompt: questionPrompt || undefined,
+  };
+}
+

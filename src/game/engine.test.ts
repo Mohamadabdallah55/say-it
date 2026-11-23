@@ -136,7 +136,7 @@ test('Timer pause, resume, expiration, and non-negative clamp', () => {
   assert.equal(expired.state.timer.remainingMs, 0);
 });
 
-test('Lifelines: two_answers allowed ONLY on multiple_choice, double_points doubles reward, limit enforced', () => {
+test('Lifelines: two_answers allowed on all question types including direct_qa, double_points doubles reward, limit enforced', () => {
   let state = createRoomState({
     roomCode: 'QZ104',
     hostToken: 'host_secret',
@@ -147,17 +147,24 @@ test('Lifelines: two_answers allowed ONLY on multiple_choice, double_points doub
     nowMs: 1000,
   });
 
-  // direct_qa question should reject two_answers
+  // direct_qa question should accept two_answers now
   const directTile = state.boardTiles.find((t) => {
     const q = state.questionPool.find((x) => x.id === t.questionId);
     return q?.questionType === 'direct_qa';
   })!;
-  state = selectBoardTile(state, directTile.questionId, 'l1', 2000).state;
+  const directPicked = selectBoardTile(state, directTile.questionId, 'l1', 2000).state;
 
-  const badTwoAns = applyLifeline(state, 'two_answers', 'l2', 3000);
-  assert.equal(badTwoAns.ok, false);
+  const okTwoAns = applyLifeline(directPicked, 'two_answers', 'l2', 3000);
+  assert.equal(okTwoAns.ok, true);
+  assert.equal(okTwoAns.state.activeRound?.twoAnswersActive, true);
+  assert.equal(okTwoAns.state.teams[0].lifelinesRemaining, 0);
 
-  const dbl = applyLifeline(state, 'double_points', 'l3', 3500);
+  // Team with 1 max lifeline cannot apply a second lifeline after using two_answers
+  const overLimit = applyLifeline(okTwoAns.state, 'double_points', 'l2b', 3100);
+  assert.equal(overLimit.ok, false);
+
+  // Separate round from directPicked tests double_points & undo
+  const dbl = applyLifeline(directPicked, 'double_points', 'l3', 3500);
   assert.equal(dbl.ok, true);
   state = dbl.state;
   assert.equal(state.activeRound?.effectivePoints, directTile.points * 2);
@@ -167,7 +174,7 @@ test('Lifelines: two_answers allowed ONLY on multiple_choice, double_points doub
   state = awardRoundAndReturnToBoard(state, ['team_1'], 'l5', 5000).state;
   assert.equal(state.teams[0].score, directTile.points * 2);
 
-  // Next turn for team_1 exhausted lifeline check: undo test too
+  // Undo test
   const undo = undoLastScoreAction(state, 'u1', 6000);
   assert.equal(undo.ok, true);
   assert.equal(undo.state.teams[0].score, 0);

@@ -11,18 +11,26 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function hasTokenEmail() {
+      return isSignedIn()
+        && ('email' in request.auth.token)
+        && (request.auth.token.email is string)
+        && request.auth.token.email.size() > 0;
+    }
+
     function isVerifiedUser() {
-      return isSignedIn() && request.auth.token.email_verified == true;
+      return isSignedIn() && request.auth.token.email_verified == true && hasTokenEmail();
     }
 
     function isBootstrapAdmin() {
-      return isVerifiedUser() && request.auth.token.email == 'emanzabbout@gmail.com';
+      return isVerifiedUser() && request.auth.token.email.lower() == 'yazanmohaamed070@gmail.com';
     }
 
     function isAdmin() {
       return isBootstrapAdmin() || (
         isVerifiedUser() &&
-        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isActive == true
       );
     }
 
@@ -61,17 +69,37 @@ service cloud.firestore {
         'jordan_brands_nostalgia',
         'cat_world_cup_2026',
         'cat_palestinian_proverbs',
-        'cat_visual_memory'
+        'cat_visual_memory',
+        'cat_silent_acting'
       ] || exists(/databases/$(database)/documents/catalogCategories/$(catId));
     }
 
     // --- Validation Blueprints ---
     function isValidAdminRecord(data, adminUid) {
-      return data.keys().hasAll(['uid', 'email', 'createdAt'])
-        && data.keys().hasOnly(['uid', 'email', 'createdAt'])
+      return data.keys().hasAll(['uid', 'email', 'role', 'isActive', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'label', 'role', 'isActive', 'inviteId', 'assignedBy', 'createdAt', 'updatedAt'])
         && data.uid is string && data.uid == adminUid && isValidId(data.uid)
         && data.email is string && data.email.size() >= 3 && data.email.size() <= 200
-        && data.createdAt is timestamp;
+        && (!('label' in data) || (data.label is string && data.label.size() <= 80))
+        && data.role is string && data.role in ['bootstrap_admin', 'controller']
+        && data.isActive is bool
+        && (!('inviteId' in data) || (data.inviteId is string && isValidId(data.inviteId)))
+        && (!('assignedBy' in data) || (data.assignedBy is string && isValidId(data.assignedBy)))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidControllerInvite(data, inviteId) {
+      return data.keys().hasAll(['id', 'email', 'isActive', 'invitedBy', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'email', 'label', 'isActive', 'activatedUid', 'invitedBy', 'createdAt', 'updatedAt'])
+        && data.id is string && data.id == inviteId && data.id.size() >= 2 && isValidId(data.id)
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 200
+        && (!('label' in data) || (data.label is string && data.label.size() <= 80))
+        && data.isActive is bool
+        && (!('activatedUid' in data) || (data.activatedUid is string && isValidId(data.activatedUid)))
+        && data.invitedBy is string && isValidId(data.invitedBy)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
     }
 
     function isValidCatalogCategory(data, categoryId) {
@@ -88,7 +116,7 @@ service cloud.firestore {
         && data.description is string && data.description.size() <= 280
         && data.iconKey is string && data.iconKey in [
           'general', 'science', 'history', 'arabic', 'puzzles',
-          'sports', 'islamic', 'pdf', 'skills', 'geography', 'tech', 'price_tag', 'rashidun', 'jordan_logos', 'world_cup_2026', 'palestinian_proverbs', 'visual_memory'
+          'sports', 'islamic', 'pdf', 'skills', 'geography', 'tech', 'price_tag', 'rashidun', 'jordan_logos', 'world_cup_2026', 'palestinian_proverbs', 'visual_memory', 'silent_acting'
         ]
         && data.accentColor is string && data.accentColor.size() >= 4 && data.accentColor.size() <= 16
         && data.accentColor.matches('^#[0-9a-fA-F]{3,8}$')
@@ -173,20 +201,87 @@ service cloud.firestore {
 
     // --- Collection: /admins/{adminUid} ---
     match /admins/{adminUid} {
-      allow get: if isValidId(adminUid) && (isOwner(adminUid) || isBootstrapAdmin());
+      allow get: if isValidId(adminUid) && (isOwner(adminUid) || isAdmin());
       allow list: if isBootstrapAdmin();
-      allow create: if isBootstrapAdmin()
+      allow create: if isVerifiedUser()
         && isValidId(adminUid)
         && isValidAdminRecord(incoming(), adminUid)
-        && incoming().createdAt == request.time;
-      allow update: if false;
-      allow delete: if isBootstrapAdmin() && isValidId(adminUid);
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (
+          isBootstrapAdmin() ||
+          (
+            adminUid == request.auth.uid
+            && incoming().role == 'controller'
+            && incoming().isActive == true
+            && incoming().email.lower() == request.auth.token.email.lower()
+            && 'inviteId' in incoming()
+            && exists(/databases/$(database)/documents/adminInvites/$(incoming().inviteId))
+            && get(/databases/$(database)/documents/adminInvites/$(incoming().inviteId)).data.isActive == true
+            && get(/databases/$(database)/documents/adminInvites/$(incoming().inviteId)).data.email.lower() == request.auth.token.email.lower()
+          )
+        );
+      allow update: if isVerifiedUser()
+        && isValidId(adminUid)
+        && isValidAdminRecord(incoming(), adminUid)
+        && incoming().uid == existing().uid
+        && incoming().email == existing().email
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          isBootstrapAdmin() ||
+          (
+            isAdmin()
+            && existing().role == 'controller'
+            && incoming().role == 'controller'
+            && incoming().diff(existing()).affectedKeys().hasOnly(['label', 'isActive', 'updatedAt'])
+          )
+        );
+      allow delete: if isValidId(adminUid) && (isBootstrapAdmin() || (isAdmin() && existing().role == 'controller'));
+    }
+
+    // --- Collection: /adminInvites/{inviteId} ---
+    match /adminInvites/{inviteId} {
+      allow get: if isValidId(inviteId) && isVerifiedUser() && (
+        existing().email.lower() == request.auth.token.email.lower() || isAdmin()
+      );
+      allow list: if isVerifiedUser() && (
+        resource.data.email == request.auth.token.email.lower() ||
+        resource.data.email == request.auth.token.email ||
+        resource.data.invitedBy == request.auth.uid ||
+        isBootstrapAdmin()
+      );
+      allow create: if isVerifiedUser()
+        && isValidId(inviteId)
+        && isValidControllerInvite(incoming(), inviteId)
+        && incoming().invitedBy == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && isAdmin();
+      allow update: if isVerifiedUser()
+        && isValidId(inviteId)
+        && isValidControllerInvite(incoming(), inviteId)
+        && incoming().id == existing().id
+        && incoming().email == existing().email
+        && incoming().invitedBy == existing().invitedBy
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly(['label', 'isActive', 'activatedUid', 'updatedAt'])) ||
+          (
+            existing().email.lower() == request.auth.token.email.lower()
+            && existing().isActive == true
+            && incoming().activatedUid == request.auth.uid
+            && incoming().diff(existing()).affectedKeys().hasOnly(['activatedUid', 'updatedAt'])
+          )
+        );
+      allow delete: if isValidId(inviteId) && isAdmin();
     }
 
     // --- Collection: /catalogCategories/{categoryId} ---
     match /catalogCategories/{categoryId} {
       allow get: if isValidCatId(categoryId) && (existing().isActive == true || isAdmin());
-      allow list: if resource.data.isActive == true || isBootstrapAdmin();
+      allow list: if resource.data.isActive == true || (isVerifiedUser() && resource.data.createdBy == request.auth.uid) || isBootstrapAdmin();
       allow create: if isVerifiedUser()
         && isValidCatId(categoryId)
         && isValidCatalogCategory(incoming(), categoryId)
@@ -208,7 +303,7 @@ service cloud.firestore {
     // --- Collection: /catalogQuestions/{questionId} ---
     match /catalogQuestions/{questionId} {
       allow get: if isValidId(questionId) && (existing().status == 'approved' || isAdmin());
-      allow list: if resource.data.status == 'approved' || isBootstrapAdmin();
+      allow list: if resource.data.status == 'approved' || (isVerifiedUser() && resource.data.createdBy == request.auth.uid) || isBootstrapAdmin();
       allow create: if isVerifiedUser()
         && isValidId(questionId)
         && isValidCatalogQuestion(incoming(), questionId)
@@ -240,14 +335,14 @@ service cloud.firestore {
       allow create: if isOwner(userId)
         && isValidId(userId)
         && isValidUserProfile(incoming(), userId)
-        && incoming().email == request.auth.token.email
+        && incoming().email.lower() == request.auth.token.email.lower()
         && incoming().createdAt == request.time
         && incoming().updatedAt == request.time;
       allow update: if isOwner(userId)
         && isValidId(userId)
         && isValidUserProfile(incoming(), userId)
         && incoming().uid == existing().uid
-        && incoming().email == request.auth.token.email
+        && incoming().email.lower() == request.auth.token.email.lower()
         && incoming().createdAt == existing().createdAt
         && incoming().updatedAt == request.time
         && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'email', 'photoURL', 'totalPlayedQuestions', 'updatedAt']);

@@ -33,8 +33,10 @@ import {
 } from './server/aiPdfEngine';
 import {
   askGameAssistant,
+  judgeGameAnswers,
   type AssistantChatMessage,
   type AssistantRoomContextInput,
+  type JudgeAnswersParams,
 } from './server/gameAssistant';
 import {
   detectVisualRegionsFromPageImages,
@@ -682,6 +684,26 @@ async function startServer() {
     }
   });
 
+  app.post('/api/assistant/judge', async (req, res) => {
+    try {
+      const body = req.body as JudgeAnswersParams;
+      if (!Array.isArray(body?.teamAnswers) || body.teamAnswers.length === 0) {
+        return res.status(400).json({ error: 'يرجى إرسال إجابات الفرق للتحكيم.' });
+      }
+      const result = await judgeGameAnswers(body);
+      res.json(result);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'تعذر تحكيم الإجابة حاليًا.';
+      if (message.includes('صاحب الدور') || message.includes('افتح سؤالًا') || message.includes('أدخل الإجابة')) {
+        return res.status(400).json({ error: message });
+      }
+      if (message.includes('لشاشة المشرف')) {
+        return res.status(403).json({ error: message });
+      }
+      handlePdfAiError(res, err, 'تعذر تحكيم الإجابة حاليًا.');
+    }
+  });
+
   // --- Rooms & Multi-Screen Match API ---
   app.get('/api/rooms', selectLibrary, (_req, res) => {
     res.json({ rooms: roomManager.listRooms() });
@@ -698,6 +720,7 @@ async function startServer() {
         extraQuestions,
         playedQuestionIdsByCategory,
         accountActive,
+        clientDeck,
       } = req.body;
       if (!Array.isArray(teams) || teams.length < 2 || teams.length > 4) {
         return res.status(400).json({ error: 'يجب اختيار فريقين إلى أربعة فرق.' });
@@ -711,6 +734,7 @@ async function startServer() {
         extraQuestions,
         playedQuestionIdsByCategory,
         accountActive: Boolean(accountActive),
+        clientDeck,
       });
       res.json({
         roomCode: room.roomCode,

@@ -6,15 +6,21 @@ import {
   Eye,
   EyeOff,
   FolderPlus,
+  KeyRound,
   Layers,
   ListPlus,
   LogIn,
+  LogOut,
   Plus,
+  Power,
+  RefreshCw,
   Search,
   ShieldAlert,
   ShieldCheck,
   Trash2,
   Upload,
+  UserCheck,
+  UserPlus,
   X,
 } from 'lucide-react';
 import {
@@ -22,6 +28,8 @@ import {
   type AdminCategoryInput,
   type AdminQuestionInput,
 } from '../context/AccountContext';
+import { BOOTSTRAP_ADMIN_EMAIL } from '../firebase';
+import type { ControllerInviteRecord } from '../game/adminControllers';
 import { ALLOWED_ICON_KEYS, sanitizeSafeImageUrl } from '../game/categoryProgress';
 import { QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type { CategoryIconKey, DeckCategory, Difficulty, QuestionType, QuizQuestion } from '../game/types';
@@ -92,8 +100,18 @@ export function AdminPanel({
     user,
     authReady,
     isAdmin,
+    isBootstrapAdmin,
+    adminSyncWarning,
+    controllerInvites,
     signingIn,
+    authError,
     signInWithGoogle,
+    signOutUser,
+    clearAuthError,
+    refreshAdminStatus,
+    assignControllerInvite,
+    toggleControllerActive,
+    removeControllerInvite,
     allCategoriesForAdmin,
     customQuestions,
     getCategoryStats,
@@ -104,9 +122,15 @@ export function AdminPanel({
     bulkImportAdminQuestions,
   } = useAccount();
 
-  const [tab, setTab] = useState<'categories' | 'questions'>('categories');
+  const [tab, setTab] = useState<'categories' | 'questions' | 'controllers'>('categories');
   const [notice, setNotice] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
+  const [refreshingAdmin, setRefreshingAdmin] = useState(false);
+
+  // Controller assignment form state
+  const [ctrlEmail, setCtrlEmail] = useState('');
+  const [ctrlLabel, setCtrlLabel] = useState('');
+  const [ctrlActiveOnCreate, setCtrlActiveOnCreate] = useState(true);
 
   // Category Form State
   const [editingCatId, setEditingCatId] = useState<string | null>(null);
@@ -379,6 +403,97 @@ export function AdminPanel({
     }
   };
 
+  const handleRefreshAccess = async () => {
+    soundFX.playClick();
+    setNotice(null);
+    setRefreshingAdmin(true);
+    try {
+      const granted = await refreshAdminStatus();
+      if (granted) {
+        soundFX.playCorrect();
+        setNotice({ type: 'ok', text: 'تم التحقق وتفعيل صلاحية الحساب المتحكم بنجاح!' });
+      } else {
+        setNotice({
+          type: 'err',
+          text: 'هذا الحساب غير معيّن أو غير مفعّل كحساب متحكم حاليًا. تأكد من إضافته وتفعيله من الحساب الأساسي.',
+        });
+      }
+    } finally {
+      setRefreshingAdmin(false);
+    }
+  };
+
+  const handleAssignController = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNotice(null);
+    setBusy(true);
+    try {
+      const saved = await assignControllerInvite({
+        email: ctrlEmail,
+        label: ctrlLabel,
+        isActive: ctrlActiveOnCreate,
+      });
+      soundFX.playCorrect();
+      setNotice({
+        type: 'ok',
+        text: saved.isActive
+          ? `تم تعيين وتفعيل الحساب المتحكم (${saved.email}) بنجاح. بمجرد تسجيل دخوله بحساب Google ستُفعّل صلاحياته تلقائيًا.`
+          : `تمت إضافة الحساب (${saved.email}) بحالة موقوفة لحين تفعيله.`,
+      });
+      setCtrlEmail('');
+      setCtrlLabel('');
+      setCtrlActiveOnCreate(true);
+    } catch (err) {
+      setNotice({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'تعذر حفظ الحساب المتحكم.',
+      });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleToggleController = async (invite: ControllerInviteRecord) => {
+    soundFX.playClick();
+    setNotice(null);
+    setBusy(true);
+    try {
+      const nextActive = !invite.isActive;
+      await toggleControllerActive(invite, nextActive);
+      soundFX.playCorrect();
+      setNotice({
+        type: 'ok',
+        text: nextActive
+          ? `تم تفعيل الحساب المتحكم (${invite.email}).`
+          : `تم إيقاف صلاحية الحساب (${invite.email}).`,
+      });
+    } catch (err) {
+      setNotice({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'تعذر تحديث حالة الحساب.',
+      });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleRemoveController = async (invite: ControllerInviteRecord) => {
+    soundFX.playClick();
+    setNotice(null);
+    setBusy(true);
+    try {
+      await removeControllerInvite(invite);
+      setNotice({ type: 'ok', text: `تمت إزالة الحساب (${invite.email}) من قائمة المتحكمين.` });
+    } catch (err) {
+      setNotice({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'تعذر حذف الحساب المتحكم.',
+      });
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <div dir="rtl" className="min-h-screen w-full game-pattern-bg flex flex-col pb-16">
       <TopNavHeader
@@ -403,56 +518,105 @@ export function AdminPanel({
             <div className="w-16 h-16 mx-auto rounded-2xl bg-[#FFE047] border-2 border-[#1F112E] flex items-center justify-center shadow-[0_4px_0_#1F112E]">
               <ShieldCheck className="w-8 h-8 text-[#1F112E]" />
             </div>
-            <h1 className="font-display font-black text-2xl text-[#1F112E]">لوحة المسؤول</h1>
-            <p className="text-sm font-bold text-[#1F112E]/75">
-              سجّل الدخول بحساب المسؤول عبر Google لإضافة الفئات والأسئلة ونشرها لجميع اللاعبين.
+            <h1 className="font-display font-black text-2xl text-[#1F112E]">لوحة المسؤول والمتحكمين</h1>
+            <p className="text-sm font-bold text-[#1F112E]/75 leading-relaxed">
+              سجّل الدخول بحساب Google المصرّح له لإدارة الفئات والأسئلة وتعيين الحسابات المتحكمة وتفعيلها.
             </p>
+            {authError && (
+              <div
+                role="alert"
+                className="rounded-xl bg-[#FFE5E7] border-2 border-[#F05B63] text-[#991B1B] px-3.5 py-2.5 text-xs font-bold text-right flex items-start justify-between gap-2"
+              >
+                <span>{authError}</span>
+                <button
+                  type="button"
+                  onClick={clearAuthError}
+                  aria-label="إغلاق التنبيه"
+                  className="p-0.5 rounded hover:bg-black/5 shrink-0 cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            )}
             <button
               type="button"
               disabled={signingIn}
               onClick={() => signInWithGoogle()}
-              className="game-btn-purple px-6 py-3 rounded-xl font-display font-black text-base inline-flex items-center gap-2 cursor-pointer"
+              className="game-btn-purple px-6 py-3 rounded-xl font-display font-black text-base inline-flex items-center gap-2 cursor-pointer disabled:opacity-60"
             >
               <LogIn className="w-5 h-5" />
               <span>{signingIn ? 'جارٍ الدخول...' : 'تسجيل الدخول بحساب Google'}</span>
             </button>
           </div>
         ) : !isAdmin ? (
-          <div className="shannes-panel max-w-lg mx-auto p-8 text-center space-y-4">
+          <div className="shannes-panel max-w-xl mx-auto p-8 text-center space-y-4">
             <div className="w-16 h-16 mx-auto rounded-2xl bg-[#FFE5E7] border-2 border-[#1F112E] flex items-center justify-center shadow-[0_4px_0_#1F112E]">
               <ShieldAlert className="w-8 h-8 text-[#DC2626]" />
             </div>
             <h1 className="font-display font-black text-2xl text-[#1F112E]">
-              صلاحية المسؤول مطلوبة
+              تفعيل صلاحية الحساب المتحكم
             </h1>
-            <p className="text-sm font-bold text-[#1F112E]/75">
-              الحساب الحالي ({user.email}) لا يملك صلاحية الوصول إلى لوحة إدارة الفئات والأسئلة.
+            <p className="text-sm font-bold text-[#1F112E]/80 leading-relaxed">
+              الحساب الحالي (<span dir="ltr" className="font-mono text-[#63349B]">{user.email}</span>) غير مفعّل حاليًا كحساب متحكم.
+              يجب تسجيل الدخول بالحساب الأساسي (<span dir="ltr" className="font-mono">{BOOTSTRAP_ADMIN_EMAIL}</span>) أو إضافة وتفعيل هذا البريد من تبويب «الحسابات المتحكمة».
             </p>
-            <button
-              type="button"
-              onClick={onStartQuick}
-              className="game-btn-3d bg-[#FFE047] text-[#1F112E] px-6 py-2.5 rounded-xl font-display font-black text-sm cursor-pointer"
-            >
-              العودة إلى إعداد اللوحة
-            </button>
+            {(notice || authError) && (
+              <div
+                role="status"
+                className="rounded-xl bg-[#FFE5E7] border-2 border-[#F05B63] text-[#991B1B] px-3.5 py-2.5 text-xs font-bold text-right"
+              >
+                {notice?.text || authError}
+              </div>
+            )}
+            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+              <button
+                type="button"
+                disabled={refreshingAdmin}
+                onClick={handleRefreshAccess}
+                className="game-btn-purple px-4 py-2.5 rounded-xl font-display font-black text-sm inline-flex items-center gap-2 cursor-pointer disabled:opacity-60"
+              >
+                <RefreshCw className={`w-4 h-4 ${refreshingAdmin ? 'animate-spin' : ''}`} />
+                <span>{refreshingAdmin ? 'جارٍ التحقق...' : 'تحديث وتفعيل الصلاحية'}</span>
+              </button>
+              <button
+                type="button"
+                disabled={signingIn}
+                onClick={() => signInWithGoogle()}
+                className="game-btn-3d bg-[#FFE047] text-[#1F112E] px-4 py-2.5 rounded-xl font-display font-black text-sm inline-flex items-center gap-2 cursor-pointer"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>تبديل حساب Google</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => signOutUser()}
+                className="game-btn-3d bg-[#FFFDF7] text-[#DC2626] px-4 py-2.5 rounded-xl font-display font-black text-sm inline-flex items-center gap-2 cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
           </div>
         ) : (
           <>
             {/* Admin Header & Tab Switcher */}
             <div className="shannes-panel p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
               <div className="space-y-1">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <ShieldCheck className="w-6 h-6 text-[#63349B]" />
                   <h1 className="font-display font-black text-2xl sm:text-3xl text-[#1F112E]">
-                    لوحة المسؤول
+                    لوحة المسؤول والمتحكمين
                   </h1>
+                  <span className="text-[11px] font-display font-black px-2.5 py-0.5 rounded-full bg-[#EFE4FF] border border-[#63349B]/30 text-[#4B1D7E]">
+                    {isBootstrapAdmin ? 'الحساب الأساسي' : 'حساب متحكم مفعّل'}
+                  </span>
                 </div>
                 <p className="text-xs sm:text-sm font-bold text-[#1F112E]/70">
-                  أضف فئات جديدة أو وسّع الفئات القائمة بالأسئلة؛ تنعكس التغييرات فورًا لجميع الحسابات وتحدّث نسب الاستهلاك تلقائيًا.
+                  أدر الفئات والأسئلة وعيّن حسابات متحكمة إضافية وفعّلها؛ تنعكس التغييرات فورًا لجميع الحسابات.
                 </p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <button
                   type="button"
                   onClick={() => {
@@ -485,8 +649,33 @@ export function AdminPanel({
                   <ListPlus className="w-4 h-4" />
                   <span>إدارة الأسئلة ({customQuestions.length})</span>
                 </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFX.playClick();
+                    setTab('controllers');
+                    setNotice(null);
+                  }}
+                  className={`game-btn-3d px-4 py-2 rounded-xl font-display font-black text-sm flex items-center gap-2 cursor-pointer ${
+                    tab === 'controllers'
+                      ? 'bg-[#63349B] text-white'
+                      : 'bg-[#FFFDF7] text-[#1F112E]'
+                  }`}
+                >
+                  <KeyRound className="w-4 h-4" />
+                  <span>الحسابات المتحكمة ({controllerInvites.length + 1})</span>
+                </button>
               </div>
             </div>
+
+            {adminSyncWarning && (
+              <div
+                role="status"
+                className="rounded-2xl border-2 border-[#E59A00] bg-[#FFF7D6] text-[#78350F] px-4 py-3 text-xs sm:text-sm font-bold"
+              >
+                {adminSyncWarning}
+              </div>
+            )}
 
             {notice && (
               <div
@@ -750,7 +939,7 @@ export function AdminPanel({
                   </div>
                 </div>
               </div>
-            ) : (
+            ) : tab === 'questions' ? (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 {/* Create / Edit Question Form */}
                 <form
@@ -1116,6 +1305,194 @@ export function AdminPanel({
                           <p className="text-xs font-bold text-[#065F46] bg-[#E6F9F0] rounded-lg px-2.5 py-1.5 border border-[#00A86B]/30">
                             الإجابة: {item.answer}
                           </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                {/* Assign & Activate Controller Form */}
+                <form
+                  onSubmit={handleAssignController}
+                  className="lg:col-span-5 shannes-panel p-5 sm:p-6 space-y-4"
+                >
+                  <h2 className="font-display font-black text-xl text-[#1F112E] flex items-center gap-2">
+                    <UserPlus className="w-5 h-5 text-[#63349B]" />
+                    <span>تعيين وتفعيل حساب متحكم جديد</span>
+                  </h2>
+                  <p className="text-xs font-bold text-[#1F112E]/70 leading-relaxed">
+                    أضف بريد حساب Google لأي مشرف أو متحكم وفعّله مباشرة. عند تسجيل دخوله بحساب Google سيحصل تلقائيًا على صلاحية الوصول إلى لوحة المسؤول وإدارة المحتوى.
+                  </p>
+
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-black text-[#1F112E]/80">
+                      بريد حساب Google
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      dir="ltr"
+                      maxLength={200}
+                      value={ctrlEmail}
+                      onChange={(e) => setCtrlEmail(e.target.value)}
+                      placeholder="controller@gmail.com"
+                      className="w-full bg-[#FFFDF7] border-2 border-[#1F112E] focus:border-[#63349B] rounded-xl px-3.5 py-2.5 font-bold text-sm text-[#1F112E] outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-black text-[#1F112E]/80">
+                      الاسم أو الوصف (اختياري)
+                    </label>
+                    <input
+                      type="text"
+                      maxLength={80}
+                      value={ctrlLabel}
+                      onChange={(e) => setCtrlLabel(e.target.value)}
+                      placeholder="مثال: مشرف الأسئلة - أحمد"
+                      className="w-full bg-[#FFFDF7] border-2 border-[#1F112E] focus:border-[#63349B] rounded-xl px-3.5 py-2.5 font-bold text-sm text-[#1F112E] outline-none"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setCtrlActiveOnCreate((v) => !v)}
+                    aria-pressed={ctrlActiveOnCreate}
+                    className={`w-full rounded-xl border-2 px-3.5 py-2.5 font-display font-black text-xs flex items-center justify-between cursor-pointer transition ${
+                      ctrlActiveOnCreate
+                        ? 'bg-[#E6F9F0] border-[#00A86B] text-[#065F46]'
+                        : 'bg-[#FFE5E7] border-[#F05B63] text-[#991B1B]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Power className="w-4 h-4" />
+                      <span>حالة الحساب عند التعيين</span>
+                    </span>
+                    <span>{ctrlActiveOnCreate ? 'مفعّل فورًا' : 'موقوف مؤقتًا'}</span>
+                  </button>
+
+                  <button
+                    type="submit"
+                    disabled={busy}
+                    className="game-btn-purple w-full py-3 rounded-xl font-display font-black text-base flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                  >
+                    <Check className="w-5 h-5" />
+                    <span>{busy ? 'جارٍ الحفظ...' : 'حفظ وتفعيل الحساب المتحكم'}</span>
+                  </button>
+                </form>
+
+                {/* Active & Invited Controllers List */}
+                <div className="lg:col-span-7 shannes-panel p-5 sm:p-6 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h2 className="font-display font-black text-xl text-[#1F112E]">
+                      قائمة الحسابات المتحكمة ({controllerInvites.length + 1})
+                    </h2>
+                    <span className="text-xs font-bold text-[#1F112E]/65">
+                      يمكنك التفعيل أو الإيقاف في أي لحظة
+                    </span>
+                  </div>
+
+                  {/* Bootstrap Primary Controller Card */}
+                  <div className="rounded-2xl bg-[#EFE4FF] border-2 border-[#63349B] p-4 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="w-11 h-11 rounded-xl bg-[#63349B] text-white border-2 border-[#1F112E] flex items-center justify-center shrink-0">
+                        <Crown className="w-5 h-5" />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-display font-black text-sm text-[#1F112E]">
+                            الحساب المتحكم الأساسي
+                          </span>
+                          <span className="text-[11px] font-display font-black px-2 py-0.5 rounded-full bg-[#E6F9F0] border border-[#00A86B] text-[#065F46]">
+                            مفعّل دائمًا
+                          </span>
+                        </div>
+                        <p dir="ltr" className="text-xs font-mono font-bold text-[#4B1D7E] truncate">
+                          {BOOTSTRAP_ADMIN_EMAIL}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {controllerInvites.length === 0 ? (
+                    <div className="rounded-2xl bg-[#F2ECE0] border-2 border-dashed border-[#1F112E]/25 p-7 text-center space-y-1">
+                      <p className="font-display font-black text-base text-[#1F112E]">
+                        لا توجد حسابات متحكمة مضافة بعد
+                      </p>
+                      <p className="text-xs font-bold text-[#1F112E]/65">
+                        أضف بريد Google من النموذج الجانبي لتعيين وتفعيل متحكم جديد.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      {controllerInvites.map((invite) => (
+                        <div
+                          key={invite.id}
+                          className="rounded-2xl bg-[#F2ECE0] border-2 border-[#1F112E]/20 p-3.5 flex flex-wrap items-center justify-between gap-3"
+                        >
+                          <div className="flex items-center gap-3 min-w-0 flex-1">
+                            <span
+                              className={`w-10 h-10 rounded-xl border-2 border-[#1F112E] flex items-center justify-center shrink-0 ${
+                                invite.isActive
+                                  ? 'bg-[#00A86B] text-white'
+                                  : 'bg-[#FFE5E7] text-[#DC2626]'
+                              }`}
+                            >
+                              <UserCheck className="w-5 h-5" />
+                            </span>
+                            <div className="min-w-0 space-y-0.5">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className="font-display font-black text-sm text-[#1F112E] truncate">
+                                  {invite.label || invite.email}
+                                </span>
+                                <span
+                                  className={`text-[11px] font-display font-black px-2 py-0.5 rounded-full border ${
+                                    !invite.isActive
+                                      ? 'bg-[#FFE5E7] border-[#F05B63] text-[#991B1B]'
+                                      : invite.activatedUid
+                                        ? 'bg-[#E6F9F0] border-[#00A86B] text-[#065F46]'
+                                        : 'bg-[#FFF7D6] border-[#E59A00] text-[#78350F]'
+                                  }`}
+                                >
+                                  {!invite.isActive
+                                    ? 'موقوف'
+                                    : invite.activatedUid
+                                      ? 'مفعّل ومرتبط بحساب جوجل'
+                                      : 'مفعّل — بانتظار تسجيل الدخول بجوجل'}
+                                </span>
+                              </div>
+                              <p dir="ltr" className="text-xs font-mono font-bold text-[#1F112E]/70 truncate">
+                                {invite.email}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              type="button"
+                              disabled={busy}
+                              onClick={() => handleToggleController(invite)}
+                              className={`game-btn-3d px-3 py-1.5 rounded-xl font-display font-black text-xs flex items-center gap-1.5 cursor-pointer disabled:opacity-60 ${
+                                invite.isActive
+                                  ? 'bg-[#FFE5E7] text-[#991B1B]'
+                                  : 'bg-[#E6F9F0] text-[#065F46]'
+                              }`}
+                            >
+                              <Power className="w-3.5 h-3.5" />
+                              <span>{invite.isActive ? 'إيقاف' : 'تفعيل'}</span>
+                            </button>
+                            <button
+                              type="button"
+                              disabled={busy}
+                              onClick={() => handleRemoveController(invite)}
+                              aria-label={`حذف ${invite.email}`}
+                              className="w-9 h-9 rounded-xl bg-[#FFFDF7] border-2 border-[#1F112E]/30 hover:bg-[#FFE5E7] text-[#DC2626] flex items-center justify-center cursor-pointer disabled:opacity-60"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
                         </div>
                       ))}
                     </div>

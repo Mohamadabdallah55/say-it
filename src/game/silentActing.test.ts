@@ -26,6 +26,21 @@ test('Silent acting and Arabic dialects datasets have expected counts and diffic
 
   const uniqueActingAnswers = new Set(SILENT_ACTING_QUESTIONS.map((q) => q.answer));
   assert.equal(uniqueActingAnswers.size, 100);
+  assert.ok(uniqueActingAnswers.has('بدك الوووو'));
+  assert.ok(uniqueActingAnswers.has('منسف عالواقف'));
+  assert.ok(uniqueActingAnswers.has('التغريبة الفلسطينية'));
+  assert.ok(uniqueActingAnswers.has('إجت الحزينة تفرح'));
+
+  for (const q of SILENT_ACTING_QUESTIONS) {
+    const words = q.answer.trim().split(/\s+/).filter(Boolean).length;
+    assert.ok(words >= 1 && words <= 4, `Expected 1-4 words for ${q.id}: ${q.answer}`);
+  }
+
+  const tierCounts: Record<number, number> = { 200: 0, 400: 0, 600: 0 };
+  for (const q of SILENT_ACTING_QUESTIONS) {
+    tierCounts[q.points] = (tierCounts[q.points] || 0) + 1;
+  }
+  assert.deepEqual(tierCounts, { 200: 24, 400: 42, 600: 34 });
 
   for (const tier of [200, 400, 600] as const) {
     assert.ok(SILENT_ACTING_QUESTIONS.some((q) => q.points === tier));

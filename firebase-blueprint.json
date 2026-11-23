@@ -2,7 +2,7 @@
   "entities": {
     "AdminRecord": {
       "title": "AdminRecord",
-      "description": "Authorized administrator registry record keyed by Firebase Auth UID.",
+      "description": "Authorized administrator or activated controller record keyed by Firebase Auth UID.",
       "type": "object",
       "properties": {
         "uid": {
@@ -17,12 +17,86 @@
           "minLength": 3,
           "maxLength": 200
         },
+        "label": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "role": {
+          "type": "string",
+          "enum": ["bootstrap_admin", "controller"]
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "inviteId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "assignedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
         "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
           "type": "string",
           "format": "date-time"
         }
       },
-      "required": ["uid", "email", "createdAt"]
+      "required": ["uid", "email", "role", "isActive", "createdAt", "updatedAt"]
+    },
+    "ControllerInvite": {
+      "title": "ControllerInvite",
+      "description": "Email-based controller assignment and activation record managed by administrators.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "activatedUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "invitedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["id", "email", "isActive", "invitedBy", "createdAt", "updatedAt"]
     },
     "CatalogCategory": {
       "title": "CatalogCategory",
@@ -46,7 +120,7 @@
         },
         "iconKey": {
           "type": "string",
-          "enum": ["general", "science", "history", "arabic", "puzzles", "sports", "islamic", "pdf", "skills", "geography", "tech", "price_tag", "rashidun", "jordan_logos", "world_cup_2026", "palestinian_proverbs", "visual_memory"]
+          "enum": ["general", "science", "history", "arabic", "puzzles", "sports", "islamic", "pdf", "skills", "geography", "tech", "price_tag", "rashidun", "jordan_logos", "world_cup_2026", "palestinian_proverbs", "visual_memory", "silent_acting"]
         },
         "accentColor": {
           "type": "string",
@@ -260,7 +334,11 @@
   "firestore": {
     "/admins/{adminUid}": {
       "schema": { "$ref": "#/entities/AdminRecord" },
-      "description": "Authorized admin accounts keyed by Firebase Auth UID."
+      "description": "Authorized admin & activated controller accounts keyed by Firebase Auth UID."
+    },
+    "/adminInvites/{inviteId}": {
+      "schema": { "$ref": "#/entities/ControllerInvite" },
+      "description": "Email-based controller invitations & active/disabled status managed by administrators."
     },
     "/catalogCategories/{categoryId}": {
       "schema": { "$ref": "#/entities/CatalogCategory" },

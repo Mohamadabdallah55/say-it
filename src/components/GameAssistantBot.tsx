@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Loader2, Scale, Send, Sparkles, X } from 'lucide-react';
+import { CheckCircle2, Loader2, RotateCcw, Scale, Send, X, XCircle } from 'lucide-react';
+import type { JudgeVerdict } from '../game/answerJudge';
 import { soundFX } from '../utils/sound';
 
 interface ChatMessage {
@@ -9,12 +10,20 @@ interface ChatMessage {
   text: string;
 }
 
+interface AssistantTeamSummary {
+  id: string;
+  name: string;
+  color?: string;
+}
+
 interface GameAssistantBotProps {
   roomCode?: string;
   role?: 'host' | 'projector';
   token?: string;
   phase?: string;
   activeQuestionPrompt?: string;
+  teams?: AssistantTeamSummary[];
+  currentTurnTeamId?: string;
   compact?: boolean;
   triggerVariant?: 'pill' | 'icon';
 }
@@ -36,10 +45,15 @@ function NabeehMascotSvg({ className = 'w-6 h-6' }: { className?: string }) {
   );
 }
 
+const DEFAULT_TEAMS: AssistantTeamSummary[] = [
+  { id: 'team_1', name: 'الفريق الأول', color: '#E11D48' },
+  { id: 'team_2', name: 'الفريق الثاني', color: '#279ED6' },
+];
+
 const INITIAL_GREETING: ChatMessage = {
   id: 'welcome',
   role: 'assistant',
-  text: 'أهلًا بك! أنا «نبيه»، المساعد والحكم الذكي لمسابقة «يمكن هاي». اسألني عن نظام الفئات الـ 5، أو البطاقات الخاصة، أو احتكم لي لتقييم إجابة متنازع عليها!',
+  text: 'أهلًا أهلًا! أنا نبيه ⭐ مساعد يمكن هاي وبعرف كل شي عن اللعبة. اسألوني عن طريقة اللعب، البطاقات، أو نظام الفئات — وإذا اختلفتوا على إجابة، أنا الحكم!',
 };
 
 export function GameAssistantBot({
@@ -48,22 +62,64 @@ export function GameAssistantBot({
   token,
   phase,
   activeQuestionPrompt,
+  teams,
+  currentTurnTeamId,
   compact = false,
   triggerVariant = 'pill',
 }: GameAssistantBotProps) {
   const [open, setOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<'chat' | 'judge'>('chat');
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_GREETING]);
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const [teamAnswerDrafts, setTeamAnswerDrafts] = useState<Record<string, string>>({});
+  const [customQuestionPrompt, setCustomQuestionPrompt] = useState('');
+  const [customExpectedAnswer, setCustomExpectedAnswer] = useState('');
+  const [judging, setJudging] = useState(false);
+  const [judgeError, setJudgeError] = useState<string | null>(null);
+  const [judgeVerdict, setJudgeVerdict] = useState<JudgeVerdict | null>(null);
+
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const orderedTeams = useMemo(() => {
+    const base = teams && teams.length >= 2 ? teams : DEFAULT_TEAMS;
+    const turnId = currentTurnTeamId && base.some((t) => t.id === currentTurnTeamId)
+      ? currentTurnTeamId
+      : base[0].id;
+    const turnTeam = base.find((t) => t.id === turnId) || base[0];
+    const others = base.filter((t) => t.id !== turnTeam.id);
+    return [
+      { ...turnTeam, isTurnOwner: true },
+      ...others.map((t) => ({ ...t, isTurnOwner: false })),
+    ];
+  }, [teams, currentTurnTeamId]);
+
+  const turnOwnerTeam = orderedTeams[0];
+  const turnOwnerAnswer = (teamAnswerDrafts[turnOwnerTeam.id] || '').trim();
+  const hasActiveRoomRound = Boolean(roomCode && activeQuestionPrompt);
+
   useEffect(() => {
-    if (open && scrollRef.current) {
+    if (open && viewMode === 'chat' && scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [open, messages]);
+  }, [open, viewMode, messages]);
+
+  useEffect(() => {
+    setJudgeVerdict(null);
+    setJudgeError(null);
+  }, [activeQuestionPrompt, currentTurnTeamId]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
 
   const sendMessage = async (textOverride?: string) => {
     const text = (textOverride ?? input).trim();
@@ -75,8 +131,7 @@ export function GameAssistantBot({
       role: 'user',
       text,
     };
-    const nextHistory = [...messages, userMsg];
-    setMessages(nextHistory);
+    setMessages((prev) => [...prev, userMsg]);
     if (!textOverride) setInput('');
     setSending(true);
 
@@ -117,6 +172,53 @@ export function GameAssistantBot({
     }
   };
 
+  const submitJudgeAnswers = async () => {
+    if (!turnOwnerAnswer || judging) return;
+    setJudgeError(null);
+    setJudging(true);
+    try {
+      const res = await fetch('/api/assistant/judge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          teamAnswers: orderedTeams.map((t) => ({
+            teamId: t.id,
+            teamName: t.name,
+            isTurnOwner: t.isTurnOwner,
+            answer: (teamAnswerDrafts[t.id] || '').trim(),
+          })),
+          roomContext: roomCode
+            ? {
+                roomCode,
+                role,
+                token,
+                phase,
+                activeQuestionPrompt,
+              }
+            : undefined,
+          customQuestionPrompt: !hasActiveRoomRound ? customQuestionPrompt.trim() || undefined : undefined,
+          customExpectedAnswer: !hasActiveRoomRound ? customExpectedAnswer.trim() || undefined : undefined,
+        }),
+      });
+      const data = (await res.json()) as { verdict?: JudgeVerdict; error?: string };
+      if (!res.ok || !data.verdict) {
+        throw new Error(data.error || 'تعذر تحكيم الإجابة حاليًا.');
+      }
+      setJudgeVerdict(data.verdict);
+      soundFX.playClick();
+    } catch (err) {
+      setJudgeError(err instanceof Error ? err.message : 'تعذر تحكيم الإجابة.');
+    } finally {
+      setJudging(false);
+    }
+  };
+
+  const resetJudgeRound = () => {
+    setTeamAnswerDrafts({});
+    setJudgeVerdict(null);
+    setJudgeError(null);
+  };
+
   return (
     <>
       <button
@@ -130,9 +232,9 @@ export function GameAssistantBot({
         aria-label="فتح نبيه المساعد والحكم الذكي"
         className={
           triggerVariant === 'icon'
-            ? 'game-btn-3d bg-[#FFE047] text-[#1F112E] w-9 h-9 rounded-xl flex items-center justify-center shrink-0 cursor-pointer'
+            ? 'game-btn-3d bg-[#FFE047] text-[#1F112E] w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center shrink-0 cursor-pointer'
             : `game-btn-3d bg-[#FFD95A] text-[#291B40] rounded-xl font-display font-black flex items-center gap-2 cursor-pointer shrink-0 ${
-                compact ? 'px-2.5 py-1.5 text-xs' : 'px-3.5 py-1.5 text-sm'
+                compact ? 'px-2.5 py-2 text-xs min-h-[44px]' : 'px-3.5 py-2 text-sm min-h-[44px]'
               }`
         }
       >
@@ -144,144 +246,372 @@ export function GameAssistantBot({
         typeof document !== 'undefined' &&
         createPortal(
           <div
-            className="fixed inset-0 z-[9999] bg-[#291B40]/60 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-5"
+            dir="rtl"
+            className="fixed inset-0 z-[9999] bg-[#1F112E]/55 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-5"
             role="dialog"
             aria-modal="true"
             aria-labelledby="nabeeh-modal-title"
             onClick={() => setOpen(false)}
           >
-          <div
-            className="game-card-frame rounded-3xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[88vh] bg-[#FFF9E9]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between gap-3 px-5 py-3.5 bg-[#FFF2CD] border-b-[3px] border-[#291B40]">
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="إغلاق المساعد"
-                className="game-btn-3d bg-white text-[#291B40] w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-2.5">
-                <div className="text-left sm:text-right">
-                  <h2 id="nabeeh-modal-title" className="font-display font-black text-lg text-[#291B40] leading-tight">
-                    نبيه — مساعد وحكم يمكن هاي
-                  </h2>
-                  <p className="text-[11px] font-bold text-[#7042A1]">
-                    {roomCode
-                      ? `متصل بالغرفة ${roomCode}${role === 'host' ? ' (وضع المشرف والحكم)' : ''}`
-                      : 'مساعد القواعد والتحكيم الذكي'}
-                  </p>
-                </div>
-                <NabeehMascotSvg className="w-10 h-10 shrink-0" />
-              </div>
-            </div>
-
-            {/* Messages Area */}
             <div
-              ref={scrollRef}
-              className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3 bg-[#FFF9E9]"
+              data-testid="nabeeh-modal"
+              className="w-full max-w-[600px] sm:min-h-[470px] rounded-[28px] border-[3px] border-[#1F112E] bg-[#FFF8EA] shadow-[0_14px_40px_rgba(31,17,46,0.34)] overflow-hidden flex flex-col max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
             >
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`flex items-end gap-2 ${
-                    msg.role === 'user' ? 'justify-start' : 'justify-end'
-                  }`}
-                >
-                  {msg.role === 'assistant' ? (
-                    <div className="max-w-[88%] bg-white border-[2.5px] border-[#291B40] rounded-2xl rounded-tl-sm px-4 py-3 shadow-[0_3px_0_#291B40] text-sm font-bold leading-relaxed text-[#291B40] whitespace-pre-wrap">
-                      {msg.text}
-                    </div>
-                  ) : (
-                    <div className="max-w-[85%] bg-[#7042A1] text-white border-[2.5px] border-[#291B40] rounded-2xl rounded-tr-sm px-4 py-2.5 shadow-[0_3px_0_#291B40] text-sm font-bold leading-relaxed whitespace-pre-wrap">
-                      {msg.text}
-                    </div>
-                  )}
-                  {msg.role === 'assistant' && (
-                    <NabeehMascotSvg className="w-7 h-7 shrink-0 hidden sm:block" />
-                  )}
-                </div>
-              ))}
-
-              {sending && (
-                <div className="flex justify-end items-center gap-2">
-                  <div className="bg-white border-2 border-[#291B40] rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs font-black text-[#7042A1]">
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>نبيه يراجع القواعد والدرس...</span>
+              {/* Clean Header Matching Reference */}
+              <div className="flex items-center justify-between gap-3 px-6 pt-5 pb-3 bg-[#FFF8EA]">
+                <div className="flex items-center gap-3 min-w-0">
+                  <NabeehMascotSvg className="w-8 h-8 shrink-0" />
+                  <div className="flex flex-wrap items-baseline gap-2.5 min-w-0">
+                    <h2
+                      id="nabeeh-modal-title"
+                      className="font-display font-black text-xl text-[#1F112E] leading-tight"
+                    >
+                      {viewMode === 'judge' ? 'حكّم الإجابة' : 'نبيه'}
+                    </h2>
+                    {viewMode === 'judge' ? (
+                      <button
+                        type="button"
+                        data-testid="back-to-chat-btn"
+                        onClick={() => {
+                          soundFX.playClick();
+                          setViewMode('chat');
+                        }}
+                        className="text-xs sm:text-sm font-bold text-[#1F112E]/70 underline underline-offset-4 hover:text-[#63349B] cursor-pointer"
+                      >
+                        رجوع للدردشة
+                      </button>
+                    ) : (
+                      <span className="text-xs sm:text-sm font-bold text-[#1F112E]/60">
+                        مساعد يمكن هاي
+                      </span>
+                    )}
                   </div>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="إغلاق المساعد"
+                  className="w-10 h-10 rounded-xl border-2 border-[#1F112E] bg-white hover:bg-[#FFF2CD] text-[#1F112E] flex items-center justify-center shrink-0 cursor-pointer shadow-[0_2px_0_#1F112E] transition"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {viewMode === 'chat' ? (
+                <>
+                  {/* Messages & Quick Action Chips */}
+                  <div
+                    ref={scrollRef}
+                    className="flex-1 overflow-y-auto px-6 py-4 space-y-4 bg-[#FFF8EA]"
+                  >
+                    {messages.map((msg) => (
+                      <div
+                        key={msg.id}
+                        className={`flex items-end gap-2 ${
+                          msg.role === 'user' ? 'justify-end' : 'justify-start'
+                        }`}
+                      >
+                        {msg.role === 'assistant' && (
+                          <NabeehMascotSvg className="w-6 h-6 shrink-0 mb-0.5 hidden sm:block" />
+                        )}
+                        {msg.role === 'assistant' ? (
+                          <div className="max-w-[90%] bg-white border-2 border-[#1F112E] rounded-2xl rounded-br-sm px-4 py-3 text-sm sm:text-[15px] font-bold leading-relaxed text-[#1F112E] whitespace-pre-wrap shadow-[0_2px_0_rgba(31,17,46,0.12)]">
+                            {msg.text}
+                          </div>
+                        ) : (
+                          <div className="max-w-[85%] bg-[#63349B] text-white border-2 border-[#1F112E] rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm font-bold leading-relaxed whitespace-pre-wrap shadow-[0_2px_0_#1F112E]">
+                            {msg.text}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+
+                    {sending && (
+                      <div className="flex items-center gap-2">
+                        <div className="bg-white border-2 border-[#1F112E] rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs font-black text-[#63349B]">
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>نبيه يراجع القواعد والدرس...</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Quick Suggestions + Highlighted Judge CTA */}
+                    <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+                      <button
+                        type="button"
+                        data-testid="open-judge-mode-btn"
+                        disabled={sending}
+                        onClick={() => {
+                          soundFX.playClick();
+                          setJudgeError(null);
+                          setViewMode('judge');
+                        }}
+                        className="bg-gradient-to-b from-[#FFE66D] to-[#F3C63F] hover:brightness-105 text-[#1F112E] border-2 border-[#1F112E] rounded-full px-4 py-2 font-display font-black text-xs sm:text-sm inline-flex items-center gap-1.5 shadow-[0_3px_0_#1F112E] active:translate-y-0.5 cursor-pointer transition"
+                      >
+                        <Scale className="w-4 h-4" />
+                        <span>حكّم الإجابة</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        disabled={sending}
+                        onClick={() => void sendMessage('كيف تعمل اللوحة وحساب النقاط في يمكن هاي؟')}
+                        className="bg-white hover:bg-[#FFF6DB] text-[#1F112E] border-2 border-[#1F112E] rounded-full px-4 py-2 font-display font-black text-xs sm:text-sm shadow-[0_3px_0_#1F112E] active:translate-y-0.5 cursor-pointer transition"
+                      >
+                        كيف تُحسب النقاط؟
+                      </button>
+
+                      <button
+                        type="button"
+                        disabled={sending}
+                        onClick={() => void sendMessage('شو وظائف البطاقات الخاصة مثل الحفرة وإجابتان ونقاط مضاعفة؟')}
+                        className="bg-white hover:bg-[#FFF6DB] text-[#1F112E] border-2 border-[#1F112E] rounded-full px-4 py-2 font-display font-black text-xs sm:text-sm shadow-[0_3px_0_#1F112E] active:translate-y-0.5 cursor-pointer transition"
+                      >
+                        شو وظائف البطاقات الخاصة؟
+                      </button>
+
+                      <button
+                        type="button"
+                        disabled={sending}
+                        onClick={() => void sendMessage('كيف يشتغل تحدي التمثيل الصامت ووضع الفئات؟')}
+                        className="bg-white hover:bg-[#FFF6DB] text-[#1F112E] border-2 border-[#1F112E] rounded-full px-4 py-2 font-display font-black text-xs sm:text-sm shadow-[0_3px_0_#1F112E] active:translate-y-0.5 cursor-pointer transition"
+                      >
+                        كيف يشتغل التمثيل الصامت؟
+                      </button>
+                    </div>
+                  </div>
+
+                  {error && (
+                    <div className="mx-6 mb-2 bg-[#FFE5E7] border-2 border-[#F05B63] text-[#1F112E] text-xs font-bold px-3.5 py-2 rounded-xl">
+                      {error}
+                    </div>
+                  )}
+
+                  {/* Clean Pill Composer */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      void sendMessage();
+                    }}
+                    className="px-6 pb-5 pt-2 bg-[#FFF8EA] flex items-center gap-2.5"
+                  >
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      placeholder="اسأل عن أي شيء في اللعبة..."
+                      className="flex-1 bg-white border-2 border-[#1F112E] focus:border-[#63349B] rounded-full px-5 py-3 text-sm font-bold text-[#1F112E] outline-none placeholder:text-[#1F112E]/40"
+                    />
+                    <button
+                      type="submit"
+                      disabled={!input.trim() || sending}
+                      aria-label="إرسال للمساعد"
+                      className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 transition border-2 ${
+                        !input.trim() || sending
+                          ? 'bg-[#CBBBD8] border-[#CBBBD8] text-white cursor-not-allowed'
+                          : 'bg-[#63349B] border-[#1F112E] text-white shadow-[0_3px_0_#1F112E] cursor-pointer hover:bg-[#522883]'
+                      }`}
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </form>
+                </>
+              ) : (
+                /* Judge Mode Screen (حكّم الإجابة) Matching Screenshot 2 */
+                <div
+                  data-testid="judge-mode-panel"
+                  className="flex-1 overflow-y-auto px-6 pb-6 pt-2 space-y-4 bg-[#FFF8EA]"
+                >
+                  <p className="text-xs sm:text-sm font-bold text-[#63349B] leading-relaxed text-center sm:text-right">
+                    اكتب إجابة الفريق صاحب الدور (إجبارية)، وأضف إجابات الفرق الأخرى إذا حاولوا السرقة.
+                    الفوز يتطلب اكتمالًا فوق 80%، وصاحب الدور له الأولوية إذا تجاوزت إجابته هذا الحد.
+                  </p>
+
+                  {!hasActiveRoomRound && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 rounded-2xl border-2 border-[#1F112E]/15 bg-white/80 p-3">
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="judge-custom-question"
+                          className="block text-[11px] font-display font-black text-[#1F112E]/75"
+                        >
+                          السؤال (خارج جولة نشطة)
+                        </label>
+                        <input
+                          id="judge-custom-question"
+                          type="text"
+                          value={customQuestionPrompt}
+                          onChange={(e) => setCustomQuestionPrompt(e.target.value)}
+                          placeholder="مثال: ما عاصمة الأردن؟"
+                          className="w-full rounded-full border-2 border-[#1F112E]/20 focus:border-[#63349B] bg-white px-3.5 py-2 text-xs font-bold text-[#1F112E] outline-none"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="judge-custom-answer"
+                          className="block text-[11px] font-display font-black text-[#1F112E]/75"
+                        >
+                          الإجابة المرجعية للتحكيم
+                        </label>
+                        <input
+                          id="judge-custom-answer"
+                          type="text"
+                          value={customExpectedAnswer}
+                          onChange={(e) => setCustomExpectedAnswer(e.target.value)}
+                          placeholder="مثال: عمّان"
+                          className="w-full rounded-full border-2 border-[#1F112E]/20 focus:border-[#63349B] bg-white px-3.5 py-2 text-xs font-bold text-[#1F112E] outline-none"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      void submitJudgeAnswers();
+                    }}
+                    className="space-y-4"
+                  >
+                    {orderedTeams.map((team) => {
+                      const inputId = `judge-team-input-${team.id}`;
+                      return (
+                        <div key={team.id} className="space-y-1.5">
+                          <label
+                            htmlFor={inputId}
+                            className="block font-display font-black text-xs sm:text-sm text-[#63349B]"
+                          >
+                            {team.isTurnOwner
+                              ? `إجابة ${team.name} (صاحب الدور)`
+                              : `إجابة ${team.name} (اختياري)`}
+                          </label>
+                          <input
+                            id={inputId}
+                            data-testid={inputId}
+                            type="text"
+                            value={teamAnswerDrafts[team.id] || ''}
+                            onChange={(e) =>
+                              setTeamAnswerDrafts((prev) => ({
+                                ...prev,
+                                [team.id]: e.target.value,
+                              }))
+                            }
+                            placeholder={
+                              team.isTurnOwner
+                                ? 'الإجابة كما قالها الفريق...'
+                                : 'اتركه فارغًا إذا لم يجب'
+                            }
+                            className="w-full rounded-full border-2 border-[#1F112E]/20 focus:border-[#63349B] bg-white px-4 py-3 text-sm font-bold text-[#1F112E] outline-none placeholder:text-[#1F112E]/35 transition"
+                          />
+                        </div>
+                      );
+                    })}
+
+                    {judgeError && (
+                      <div
+                        role="alert"
+                        className="rounded-2xl border-2 border-[#F05B63] bg-[#FFE5E7] px-4 py-2.5 text-xs sm:text-sm font-bold text-[#991B1B]"
+                      >
+                        {judgeError}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      data-testid="judge-submit-btn"
+                      disabled={!turnOwnerAnswer || judging}
+                      className={`w-full rounded-full py-3.5 px-6 font-display font-black text-base flex items-center justify-center gap-2 transition ${
+                        !turnOwnerAnswer || judging
+                          ? 'bg-[#CBBBD8] text-white cursor-not-allowed'
+                          : 'bg-[#63349B] hover:bg-[#522883] text-white border-2 border-[#1F112E] shadow-[0_4px_0_#1F112E] cursor-pointer active:translate-y-0.5'
+                      }`}
+                    >
+                      {judging ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span>جارٍ التحكيم...</span>
+                        </>
+                      ) : (
+                        <span>احكم الآن</span>
+                      )}
+                    </button>
+                  </form>
+
+                  {judgeVerdict && (
+                    <div
+                      data-testid="judge-verdict-card"
+                      className="rounded-2xl border-2 border-[#1F112E] bg-white p-4 space-y-3 shadow-[0_4px_0_#1F112E]"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span
+                          className={`inline-flex items-center gap-1.5 rounded-full border-2 border-[#1F112E] px-3 py-1 font-display font-black text-xs sm:text-sm ${
+                            judgeVerdict.winnerTeamId
+                              ? 'bg-[#E6F9F0] text-[#065F46]'
+                              : 'bg-[#FFE5E7] text-[#991B1B]'
+                          }`}
+                        >
+                          {judgeVerdict.winnerTeamId ? (
+                            <CheckCircle2 className="w-4 h-4 shrink-0" />
+                          ) : (
+                            <XCircle className="w-4 h-4 shrink-0" />
+                          )}
+                          <span>
+                            {judgeVerdict.winnerTeamName
+                              ? `الفائز بالتحكيم: ${judgeVerdict.winnerTeamName}`
+                              : 'لا يوجد فائز (أقل من 80%)'}
+                          </span>
+                        </span>
+
+                        <button
+                          type="button"
+                          onClick={resetJudgeRound}
+                          className="inline-flex items-center gap-1 text-xs font-black text-[#63349B] hover:underline cursor-pointer"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          <span>تصفير الإجابات</span>
+                        </button>
+                      </div>
+
+                      <p className="text-xs sm:text-sm font-bold text-[#1F112E] leading-relaxed">
+                        {judgeVerdict.summary}
+                      </p>
+
+                      <div className="space-y-2">
+                        {judgeVerdict.teamResults.map((res) => (
+                          <div
+                            key={res.teamId}
+                            className={`rounded-xl border px-3.5 py-2.5 text-xs ${
+                              judgeVerdict.winnerTeamId === res.teamId
+                                ? 'border-[#00A86B] bg-[#F0FDF4]'
+                                : 'border-[#1F112E]/15 bg-[#FFFDF7]'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between gap-2 font-display font-black text-[#1F112E]">
+                              <span>
+                                {res.teamName}
+                                {res.isTurnOwner ? ' (صاحب الدور)' : ''}
+                              </span>
+                              <span
+                                dir="ltr"
+                                className={`tabular-nums px-2 py-0.5 rounded-full text-[11px] ${
+                                  res.passed
+                                    ? 'bg-[#DCFCE7] text-[#065F46]'
+                                    : 'bg-[#F3F4F6] text-[#4B5563]'
+                                }`}
+                              >
+                                {res.completeness}%
+                              </span>
+                            </div>
+                            <p className="mt-1 font-medium text-[#1F112E]/75">{res.reason}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               )}
-
-              {/* Quick Suggestions */}
-              <div className="flex flex-wrap justify-center gap-2 pt-2">
-                <button
-                  type="button"
-                  disabled={sending}
-                  onClick={() => void sendMessage('اشرح لي نظام اللوحة (5 فئات × الفرق) وطريقة حساب النقاط.')}
-                  className="game-btn-3d bg-white text-[#291B40] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-[#7042A1]" />
-                  <span>كيف تعمل اللوحة والنقاط؟</span>
-                </button>
-                <button
-                  type="button"
-                  disabled={sending}
-                  onClick={() => void sendMessage('ما وظيفة البطاقات الخاصة مثل الحفرة ونقاط مضاعفة والفرصة الثانية؟')}
-                  className="game-btn-3d bg-white text-[#291B40] px-3 py-1.5 rounded-xl text-xs font-black cursor-pointer"
-                >
-                  <span>شو وظائف البطاقات الخاصة؟</span>
-                </button>
-                <button
-                  type="button"
-                  disabled={sending}
-                  onClick={() => {
-                    setInput('أجاب الفريق: «» — هل تعتبر الإجابة صحيحة ومقبولة؟');
-                    setTimeout(() => inputRef.current?.focus(), 20);
-                  }}
-                  className="game-btn-3d bg-[#E8F8F2] text-[#007F52] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer"
-                >
-                  <Scale className="w-3.5 h-3.5" />
-                  <span>تحكيم إجابة متنازع عليها</span>
-                </button>
-              </div>
             </div>
-
-            {error && (
-              <div className="mx-4 mb-2 bg-[#FFE5E7] border-2 border-[#F05B63] text-[#291B40] text-xs font-bold px-3 py-2 rounded-xl">
-                {error}
-              </div>
-            )}
-
-            {/* Composer */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                void sendMessage();
-              }}
-              className="p-3.5 bg-[#FFF2CD] border-t-[3px] border-[#291B40] flex items-center gap-2"
-            >
-              <button
-                type="submit"
-                disabled={!input.trim() || sending}
-                aria-label="إرسال للمساعد"
-                className="game-btn-3d bg-[#7042A1] text-white w-11 h-11 rounded-xl flex items-center justify-center shrink-0 cursor-pointer disabled:opacity-45"
-              >
-                <Send className="w-5 h-5" />
-              </button>
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="اسأل عن قواعد اللوحة، أو اكتب إجابة طالب للتحكيم..."
-                className="flex-1 bg-white border-[2.5px] border-[#291B40] rounded-xl px-4 py-2.5 text-sm font-bold text-[#291B40] outline-none focus:border-[#7042A1]"
-              />
-            </form>
-          </div>
           </div>,
           document.body,
         )}

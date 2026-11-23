@@ -18,6 +18,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
+  getDocs,
   onSnapshot,
   query,
   serverTimestamp,
@@ -33,9 +34,18 @@ import {
   db,
   googleProvider,
   handleFirestoreError,
+  isBootstrapAdminEmail,
   OperationType,
   testFirestoreConnection,
 } from '../firebase';
+import {
+  type ControllerInviteRecord,
+  formatFirebaseAuthError,
+  isValidControllerEmail,
+  makeControllerInviteId,
+  normalizeControllerEmail,
+  resolveControllerAccessState,
+} from '../game/adminControllers';
 import {
   computeCategoryConsumption,
   sanitizeSafeImageUrl,
@@ -85,10 +95,20 @@ export interface AdminQuestionInput {
   isBackup?: boolean;
 }
 
+export interface AssignControllerInput {
+  email: string;
+  label?: string;
+  isActive?: boolean;
+}
+
 interface AccountContextValue {
   user: User | null;
   authReady: boolean;
   isAdmin: boolean;
+  isBootstrapAdmin: boolean;
+  controllerRole: 'bootstrap_admin' | 'controller' | null;
+  adminSyncWarning: string | null;
+  controllerInvites: ControllerInviteRecord[];
   signingIn: boolean;
   authError: string | null;
   catalogLoaded: boolean;
@@ -101,6 +121,10 @@ interface AccountContextValue {
   signInWithGoogle: () => Promise<void>;
   signOutUser: () => Promise<void>;
   clearAuthError: () => void;
+  refreshAdminStatus: () => Promise<boolean>;
+  assignControllerInvite: (input: AssignControllerInput) => Promise<ControllerInviteRecord>;
+  toggleControllerActive: (invite: ControllerInviteRecord, nextActive: boolean) => Promise<void>;
+  removeControllerInvite: (invite: ControllerInviteRecord) => Promise<void>;
   getCategoryStats: (categoryId: string) => CategoryConsumptionStats;
   getPlayedMapForMatch: () => Record<string, string[]>;
   recordPlayedQuestion: (categoryId: string, questionId: string) => Promise<void>;
@@ -136,6 +160,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isBootstrapAdmin, setIsBootstrapAdmin] = useState(false);
+  const [controllerRole, setControllerRole] = useState<'bootstrap_admin' | 'controller' | null>(null);
+  const [adminSyncWarning, setAdminSyncWarning] = useState<string | null>(null);
+  const [controllerInvites, setControllerInvites] = useState<ControllerInviteRecord[]>([]);
   const [signingIn, setSigningIn] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
 
@@ -170,34 +198,200 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       });
   }, []);
 
-  // Auth listener + user profile bootstrap + admin verification
+  const syncControllerAuthorization = useCallback(
+    async (
+      nextUser: User,
+    ): Promise<{
+      adminGranted: boolean;
+      isBootstrap: boolean;
+      role: 'bootstrap_admin' | 'controller' | null;
+      warning: string | null;
+    }> => {
+      const email = normalizeControllerEmail(nextUser.email || '');
+      const verified = Boolean(nextUser.emailVerified);
+      const isBootstrap = verified && isBootstrapAdminEmail(email);
+
+      let adminRecord: { isActive?: boolean; role?: string } | null = null;
+      let matchingInvite: {
+        id: string;
+        isActive?: boolean;
+        label?: string;
+        activatedUid?: string;
+      } | null = null;
+      let warning: string | null = null;
+
+      const adminRef = doc(db, 'admins', nextUser.uid);
+      try {
+        const adminSnap = await getDoc(adminRef);
+        if (adminSnap.exists()) {
+          const data = adminSnap.data();
+          adminRecord = {
+            isActive: typeof data.isActive === 'boolean' ? data.isActive : true,
+            role: typeof data.role === 'string' ? data.role : 'controller',
+          };
+        }
+      } catch (err) {
+        console.warn('[AccountContext] admins getDoc warning:', err);
+      }
+
+      if (isBootstrap) {
+        try {
+          if (!adminRecord) {
+            await setDoc(adminRef, {
+              uid: nextUser.uid,
+              email,
+              label: 'الحساب المتحكم الأساسي',
+              role: 'bootstrap_admin',
+              isActive: true,
+              createdAt: serverTimestamp(),
+              updatedAt: serverTimestamp(),
+            });
+            adminRecord = { isActive: true, role: 'bootstrap_admin' };
+          } else if (adminRecord.role !== 'bootstrap_admin' || adminRecord.isActive !== true) {
+            await updateDoc(adminRef, {
+              role: 'bootstrap_admin',
+              isActive: true,
+              updatedAt: serverTimestamp(),
+            });
+            adminRecord = { isActive: true, role: 'bootstrap_admin' };
+          }
+        } catch (err) {
+          console.warn('[AccountContext] Bootstrap admin sync warning:', err);
+          warning =
+            'تم التحقق من الحساب المتحكم الأساسي، ولكن تعذّر تحديث وثيقة الصلاحية في Firestore (تأكد من نشر قواعد firestore.rules المحدّثة).';
+        }
+      } else if (verified && email) {
+        const deterministicId = makeControllerInviteId(email);
+        try {
+          const directSnap = await getDoc(doc(db, 'adminInvites', deterministicId));
+          if (directSnap.exists()) {
+            const data = directSnap.data();
+            matchingInvite = {
+              id: directSnap.id,
+              isActive: data.isActive === true,
+              label: typeof data.label === 'string' ? data.label : '',
+              activatedUid: typeof data.activatedUid === 'string' ? data.activatedUid : undefined,
+            };
+          }
+        } catch {
+          // Invite does not exist or rules forbid reading uninvited doc
+        }
+
+        if (!matchingInvite) {
+          try {
+            const inviteSnap = await getDocs(
+              query(collection(db, 'adminInvites'), where('email', '==', email)),
+            );
+            const firstDoc = inviteSnap.docs[0];
+            if (firstDoc) {
+              const data = firstDoc.data();
+              matchingInvite = {
+                id: firstDoc.id,
+                isActive: data.isActive === true,
+                label: typeof data.label === 'string' ? data.label : '',
+                activatedUid:
+                  typeof data.activatedUid === 'string' ? data.activatedUid : undefined,
+              };
+            }
+          } catch {
+            // No matching invite or rules restrict list
+          }
+        }
+      }
+
+      const initialAccess = resolveControllerAccessState({
+        email,
+        emailVerified: verified,
+        bootstrapEmail: BOOTSTRAP_ADMIN_EMAIL,
+        adminRecord,
+        matchingInvite,
+      });
+
+      if (initialAccess.canAutoClaimInvite && matchingInvite && !adminRecord) {
+        try {
+          await setDoc(adminRef, {
+            uid: nextUser.uid,
+            email,
+            ...(matchingInvite.label ? { label: matchingInvite.label.slice(0, 80) } : {}),
+            role: 'controller',
+            isActive: true,
+            inviteId: matchingInvite.id,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+          });
+          adminRecord = { isActive: true, role: 'controller' };
+        } catch (err) {
+          console.warn('[AccountContext] Controller auto-claim /admins failed:', err);
+          warning =
+            'تم العثور على دعوة حساب متحكم لهذا البريد، لكن تعذّر تفعيلها تلقائيًا في Firestore. تحقق من نشر قواعد firestore.rules.';
+        }
+      }
+
+      if (matchingInvite && matchingInvite.isActive && matchingInvite.activatedUid !== nextUser.uid) {
+        try {
+          await updateDoc(doc(db, 'adminInvites', matchingInvite.id), {
+            activatedUid: nextUser.uid,
+            updatedAt: serverTimestamp(),
+          });
+        } catch {
+          // Non-fatal if invite doc wasn't updated
+        }
+      }
+
+      const finalAccess = resolveControllerAccessState({
+        email,
+        emailVerified: verified,
+        bootstrapEmail: BOOTSTRAP_ADMIN_EMAIL,
+        adminRecord,
+        matchingInvite,
+      });
+
+      const role: 'bootstrap_admin' | 'controller' | null = finalAccess.isBootstrap
+        ? 'bootstrap_admin'
+        : finalAccess.isControllerActive
+          ? 'controller'
+          : null;
+
+      return {
+        adminGranted: finalAccess.isControllerActive,
+        isBootstrap: finalAccess.isBootstrap,
+        role,
+        warning,
+      };
+    },
+    [],
+  );
+
+  // Auth listener + user profile bootstrap + controller verification
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (nextUser) => {
       setUser(nextUser);
       if (!nextUser) {
         setIsAdmin(false);
+        setIsBootstrapAdmin(false);
+        setControllerRole(null);
+        setAdminSyncWarning(null);
+        setControllerInvites([]);
         setProgressByCategory({});
         setProfileTotalPlayed(0);
         setAuthReady(true);
         return;
       }
 
-      const email = (nextUser.email || '').trim().toLowerCase();
-      const verified = Boolean(nextUser.emailVerified);
-      const isBootstrap = verified && email === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+      setAuthError(null);
+      const email = normalizeControllerEmail(nextUser.email || '');
 
       // Ensure /users/{uid} exists before any progress writes (Master Gate invariant)
-      const userPath = `users/${nextUser.uid}`;
       try {
         const userRef = doc(db, 'users', nextUser.uid);
         const snap = await getDoc(userRef);
         const displayName = (nextUser.displayName || email.split('@')[0] || 'لاعب').slice(0, 120);
-        const photoURL = sanitizeSafeImageUrl(nextUser.photoURL);
+        const photoURL = sanitizeSafeImageUrl(nextUser.photoURL).slice(0, 600);
         if (!snap.exists()) {
           await setDoc(userRef, {
             uid: nextUser.uid,
             displayName,
-            email: nextUser.email || '',
+            email: email || nextUser.email || '',
             photoURL,
             totalPlayedQuestions: 0,
             createdAt: serverTimestamp(),
@@ -211,7 +405,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           setProfileTotalPlayed(currentTotal);
           await updateDoc(userRef, {
             displayName,
-            email: nextUser.email || '',
+            email: email || nextUser.email || '',
             photoURL,
             totalPlayedQuestions: currentTotal,
             updatedAt: serverTimestamp(),
@@ -221,66 +415,147 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         console.error('[AccountContext] User profile sync warning:', err);
       }
 
-      // Check admin status
-      let adminGranted = isBootstrap;
-      try {
-        const adminRef = doc(db, 'admins', nextUser.uid);
-        const adminSnap = await getDoc(adminRef);
-        if (adminSnap.exists()) {
-          adminGranted = true;
-        } else if (isBootstrap) {
-          await setDoc(adminRef, {
-            uid: nextUser.uid,
-            email: nextUser.email || BOOTSTRAP_ADMIN_EMAIL,
-            createdAt: serverTimestamp(),
-          });
-        }
-      } catch {
-        // Non-admin users may not have access or admin doc does not exist
-      }
-
-      setIsAdmin(adminGranted);
+      const authRes = await syncControllerAuthorization(nextUser);
+      setIsAdmin(authRes.adminGranted);
+      setIsBootstrapAdmin(authRes.isBootstrap);
+      setControllerRole(authRes.role);
+      setAdminSyncWarning(authRes.warning);
       setAuthReady(true);
     });
 
     return () => unsub();
-  }, []);
+  }, [syncControllerAuthorization]);
+
+  // Real-time listener on own /admins/{uid} & matching invite so controller activation/deactivation updates live
+  useEffect(() => {
+    if (!authReady || !user || !user.emailVerified) return;
+    const email = normalizeControllerEmail(user.email || '');
+    if (!email) return;
+
+    const unsubAdminDoc = onSnapshot(
+      doc(db, 'admins', user.uid),
+      () => {
+        void syncControllerAuthorization(user).then((res) => {
+          setIsAdmin(res.adminGranted);
+          setIsBootstrapAdmin(res.isBootstrap);
+          setControllerRole(res.role);
+          setAdminSyncWarning(res.warning);
+        });
+      },
+      () => {
+        // Non-admins do not have an /admins doc yet; ignore cleanly
+      },
+    );
+
+    let unsubOwnInvite: (() => void) | null = null;
+    if (!isBootstrapAdminEmail(email)) {
+      unsubOwnInvite = onSnapshot(
+        query(collection(db, 'adminInvites'), where('email', '==', email)),
+        () => {
+          void syncControllerAuthorization(user).then((res) => {
+            setIsAdmin(res.adminGranted);
+            setIsBootstrapAdmin(res.isBootstrap);
+            setControllerRole(res.role);
+            setAdminSyncWarning(res.warning);
+          });
+        },
+        () => {
+          // Ignore gracefully if rules disallow or not deployed yet
+        },
+      );
+    }
+
+    return () => {
+      unsubAdminDoc();
+      if (unsubOwnInvite) unsubOwnInvite();
+    };
+  }, [authReady, user, syncControllerAuthorization]);
+
+  // Subscribe to controller invites list for active admins/controllers
+  useEffect(() => {
+    if (!authReady || !user || !user.emailVerified || !isAdmin) {
+      setControllerInvites([]);
+      return;
+    }
+
+    const invitesQuery = isBootstrapAdminEmail(user.email)
+      ? query(collection(db, 'adminInvites'))
+      : query(collection(db, 'adminInvites'), where('invitedBy', '==', user.uid));
+
+    const unsub = onSnapshot(
+      invitesQuery,
+      (snap) => {
+        const list: ControllerInviteRecord[] = snap.docs
+          .map((d) => {
+            const data = d.data();
+            return {
+              id: d.id,
+              email: normalizeControllerEmail(String(data.email || '')),
+              label: String(data.label || ''),
+              isActive: data.isActive !== false,
+              activatedUid:
+                typeof data.activatedUid === 'string' && data.activatedUid
+                  ? data.activatedUid
+                  : undefined,
+              invitedBy: String(data.invitedBy || ''),
+              createdAt: tsToIso(data.createdAt),
+              updatedAt: tsToIso(data.updatedAt),
+            };
+          })
+          .sort((a, b) => (b.updatedAt || b.createdAt || '').localeCompare(a.updatedAt || a.createdAt || ''));
+        setControllerInvites(list);
+      },
+      (err) => {
+        console.warn('[AccountContext] adminInvites listener warning:', err);
+      },
+    );
+
+    return () => unsub();
+  }, [authReady, user, isAdmin]);
 
   // Subscribe to global catalogCategories
   useEffect(() => {
     if (!authReady) return;
     const isBootstrap =
-      Boolean(user?.emailVerified) &&
-      (user?.email || '').toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+      Boolean(user?.emailVerified) && isBootstrapAdminEmail(user?.email);
     const catQuery = isBootstrap
       ? query(collection(db, 'catalogCategories'))
       : query(collection(db, 'catalogCategories'), where('isActive', '==', true));
 
+    const mapCatDocs = (docs: Array<{ id: string; data: () => Record<string, unknown> }>) =>
+      docs
+        .map((d) => {
+          const data = d.data();
+          return {
+            id: d.id,
+            name: String(data.name || ''),
+            description: String(data.description || ''),
+            iconKey: (data.iconKey || 'general') as CategoryIconKey,
+            accentColor: String(data.accentColor || '#63349B'),
+            isVip: Boolean(data.isVip),
+            isActive: data.isActive !== false,
+            isCustom: true,
+            order: typeof data.order === 'number' ? data.order : 100,
+          };
+        })
+        .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
+
     const unsub = onSnapshot(
       catQuery,
       (snap) => {
-        const items: DeckCategory[] = snap.docs
-          .map((d) => {
-            const data = d.data();
-            return {
-              id: d.id,
-              name: String(data.name || ''),
-              description: String(data.description || ''),
-              iconKey: (data.iconKey || 'general') as CategoryIconKey,
-              accentColor: String(data.accentColor || '#63349B'),
-              isVip: Boolean(data.isVip),
-              isActive: data.isActive !== false,
-              isCustom: true,
-              order: typeof data.order === 'number' ? data.order : 100,
-            };
-          })
-          .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
-        setCustomCategories(items);
+        setCustomCategories(mapCatDocs(snap.docs));
         setCatalogLoaded(true);
       },
       (err) => {
-        console.error('[AccountContext] catalogCategories listener error:', err);
-        setCatalogLoaded(true);
+        console.warn('[AccountContext] catalogCategories listener warning:', err);
+        if (isBootstrap) {
+          void getDocs(query(collection(db, 'catalogCategories'), where('isActive', '==', true)))
+            .then((fallbackSnap) => setCustomCategories(mapCatDocs(fallbackSnap.docs)))
+            .catch(() => {})
+            .finally(() => setCatalogLoaded(true));
+        } else {
+          setCatalogLoaded(true);
+        }
       },
     );
 
@@ -291,53 +566,61 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!authReady) return;
     const isBootstrap =
-      Boolean(user?.emailVerified) &&
-      (user?.email || '').toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+      Boolean(user?.emailVerified) && isBootstrapAdminEmail(user?.email);
     const qQuery = isBootstrap
       ? query(collection(db, 'catalogQuestions'))
       : query(collection(db, 'catalogQuestions'), where('status', '==', 'approved'));
 
+    const mapQDocs = (docs: Array<{ id: string; data: () => Record<string, unknown> }>): QuizQuestion[] =>
+      docs.map((d) => {
+        const data = d.data();
+        const difficulty = (data.difficulty || 'easy') as Difficulty;
+        const points: PointValue =
+          data.points === 600 ? 600 : data.points === 400 ? 400 : 200;
+        return {
+          id: d.id,
+          categoryId: String(data.categoryId || ''),
+          categoryName: String(data.categoryName || ''),
+          difficulty,
+          points,
+          questionType: (data.questionType || 'direct_qa') as QuestionType,
+          prompt: String(data.prompt || ''),
+          answer: String(data.answer || ''),
+          acceptableAnswers: Array.isArray(data.acceptableAnswers)
+            ? data.acceptableAnswers.map(String)
+            : undefined,
+          options: Array.isArray(data.options) ? data.options.map(String) : undefined,
+          correctOptionIndex:
+            typeof data.correctOptionIndex === 'number' ? data.correctOptionIndex : undefined,
+          hint: typeof data.hint === 'string' && data.hint ? data.hint : undefined,
+          explanation:
+            typeof data.explanation === 'string' && data.explanation
+              ? data.explanation
+              : undefined,
+          imageUrl: typeof data.imageUrl === 'string' && data.imageUrl ? data.imageUrl : undefined,
+          imageCaption:
+            typeof data.imageCaption === 'string' && data.imageCaption
+              ? data.imageCaption
+              : undefined,
+          isBackup: Boolean(data.isBackup),
+          status: (data.status || 'approved') as QuizQuestion['status'],
+        };
+      });
+
     const unsub = onSnapshot(
       qQuery,
       (snap) => {
-        const items: QuizQuestion[] = snap.docs.map((d) => {
-          const data = d.data();
-          const difficulty = (data.difficulty || 'easy') as Difficulty;
-          const points: PointValue =
-            data.points === 600 ? 600 : data.points === 400 ? 400 : 200;
-          return {
-            id: d.id,
-            categoryId: String(data.categoryId || ''),
-            categoryName: String(data.categoryName || ''),
-            difficulty,
-            points,
-            questionType: (data.questionType || 'direct_qa') as QuestionType,
-            prompt: String(data.prompt || ''),
-            answer: String(data.answer || ''),
-            acceptableAnswers: Array.isArray(data.acceptableAnswers)
-              ? data.acceptableAnswers.map(String)
-              : undefined,
-            options: Array.isArray(data.options) ? data.options.map(String) : undefined,
-            correctOptionIndex:
-              typeof data.correctOptionIndex === 'number' ? data.correctOptionIndex : undefined,
-            hint: typeof data.hint === 'string' && data.hint ? data.hint : undefined,
-            explanation:
-              typeof data.explanation === 'string' && data.explanation
-                ? data.explanation
-                : undefined,
-            imageUrl: typeof data.imageUrl === 'string' && data.imageUrl ? data.imageUrl : undefined,
-            imageCaption:
-              typeof data.imageCaption === 'string' && data.imageCaption
-                ? data.imageCaption
-                : undefined,
-            isBackup: Boolean(data.isBackup),
-            status: (data.status || 'approved') as QuizQuestion['status'],
-          };
-        });
-        setCustomQuestions(items);
+        setCustomQuestions(mapQDocs(snap.docs));
       },
       (err) => {
-        console.error('[AccountContext] catalogQuestions listener error:', err);
+        console.warn('[AccountContext] catalogQuestions listener warning:', err);
+        if (isBootstrap) {
+          void getDocs(
+            query(collection(db, 'catalogQuestions'), where('status', '==', 'approved')),
+          )
+            .then((fallbackSnap) => setCustomQuestions(mapQDocs(fallbackSnap.docs)))
+            .catch(() => {});
+        }
       },
     );
 
@@ -392,14 +675,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (err: unknown) {
-      const code = (err as { code?: string })?.code || '';
-      if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
-        setAuthError(null);
-      } else if (code === 'auth/popup-blocked') {
-        setAuthError('المتصفح منع نافذة تسجيل الدخول. يرجى السماح بالنوافذ المنبثقة والمحاولة مجددًا.');
-      } else {
-        setAuthError('تعذر إتمام تسجيل الدخول بجوجل حاليًا. حاول مرة أخرى.');
-      }
+      const hostname = typeof window !== 'undefined' ? window.location.hostname : undefined;
+      console.error('[AccountContext] Google signInWithPopup error:', err);
+      setAuthError(formatFirebaseAuthError(err, hostname));
     } finally {
       setSigningIn(false);
     }
@@ -411,6 +689,146 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const clearAuthError = useCallback(() => setAuthError(null), []);
+
+  const refreshAdminStatus = useCallback(async (): Promise<boolean> => {
+    const activeUser = auth.currentUser || user;
+    if (!activeUser) return false;
+    const res = await syncControllerAuthorization(activeUser);
+    setIsAdmin(res.adminGranted);
+    setIsBootstrapAdmin(res.isBootstrap);
+    setControllerRole(res.role);
+    setAdminSyncWarning(res.warning);
+    return res.adminGranted;
+  }, [user, syncControllerAuthorization]);
+
+  const assignControllerInvite = useCallback(
+    async (input: AssignControllerInput): Promise<ControllerInviteRecord> => {
+      if (!user || !isAdmin) throw new Error('تتطلب هذه العملية صلاحية الحساب المتحكم.');
+      const normalizedEmail = normalizeControllerEmail(input.email);
+      if (!isValidControllerEmail(normalizedEmail)) {
+        throw new Error('يرجى إدخال بريد إلكتروني صحيح لحساب Google.');
+      }
+      if (isBootstrapAdminEmail(normalizedEmail)) {
+        throw new Error('هذا هو الحساب المتحكم الأساسي ومفعّل تلقائيًا دائمًا.');
+      }
+      const id = makeControllerInviteId(normalizedEmail);
+      const label = (input.label || '').trim().slice(0, 80);
+      const isActive = input.isActive !== false;
+      const inviteRef = doc(db, 'adminInvites', id);
+      let activatedUid: string | undefined;
+
+      try {
+        const snap = await getDoc(inviteRef);
+        if (snap.exists()) {
+          const data = snap.data();
+          activatedUid =
+            typeof data.activatedUid === 'string' && data.activatedUid
+              ? data.activatedUid
+              : undefined;
+          await updateDoc(inviteRef, {
+            label,
+            isActive,
+            updatedAt: serverTimestamp(),
+          });
+          if (activatedUid) {
+            try {
+              await updateDoc(doc(db, 'admins', activatedUid), {
+                isActive,
+                ...(label ? { label } : {}),
+                updatedAt: serverTimestamp(),
+              });
+            } catch {
+              // Admin record may not exist yet or rules restrict
+            }
+          }
+        } else {
+          await setDoc(inviteRef, {
+            id,
+            email: normalizedEmail,
+            label,
+            isActive,
+            invitedBy: user.uid,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+          });
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.toLowerCase().includes('permission')) {
+          throw new Error(
+            'تعذر حفظ صلاحية الحساب المتحكم في Firestore. تأكد من نشر قواعد firestore.rules المحدّثة.',
+          );
+        }
+        handleFirestoreError(err, OperationType.WRITE, `adminInvites/${id}`);
+      }
+
+      return {
+        id,
+        email: normalizedEmail,
+        label,
+        isActive,
+        activatedUid,
+        invitedBy: user.uid,
+      };
+    },
+    [user, isAdmin],
+  );
+
+  const toggleControllerActive = useCallback(
+    async (invite: ControllerInviteRecord, nextActive: boolean) => {
+      if (!user || !isAdmin) throw new Error('تتطلب هذه العملية صلاحية الحساب المتحكم.');
+      try {
+        await updateDoc(doc(db, 'adminInvites', invite.id), {
+          isActive: nextActive,
+          updatedAt: serverTimestamp(),
+        });
+        if (invite.activatedUid) {
+          try {
+            await updateDoc(doc(db, 'admins', invite.activatedUid), {
+              isActive: nextActive,
+              updatedAt: serverTimestamp(),
+            });
+          } catch {
+            // Ignore if admin doc not claimed yet
+          }
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.toLowerCase().includes('permission')) {
+          throw new Error(
+            'تعذر تحديث حالة التفعيل في Firestore. تأكد من نشر قواعد firestore.rules المحدّثة.',
+          );
+        }
+        handleFirestoreError(err, OperationType.UPDATE, `adminInvites/${invite.id}`);
+      }
+    },
+    [user, isAdmin],
+  );
+
+  const removeControllerInvite = useCallback(
+    async (invite: ControllerInviteRecord) => {
+      if (!user || !isAdmin) throw new Error('تتطلب هذه العملية صلاحية الحساب المتحكم.');
+      try {
+        await deleteDoc(doc(db, 'adminInvites', invite.id));
+        if (invite.activatedUid) {
+          try {
+            await deleteDoc(doc(db, 'admins', invite.activatedUid));
+          } catch {
+            // Ignore if admin doc absent
+          }
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.toLowerCase().includes('permission')) {
+          throw new Error(
+            'تعذر حذف الحساب المتحكم في Firestore. تأكد من نشر قواعد firestore.rules المحدّثة.',
+          );
+        }
+        handleFirestoreError(err, OperationType.DELETE, `adminInvites/${invite.id}`);
+      }
+    },
+    [user, isAdmin],
+  );
 
   // Merge built-in categories + active custom categories (for Lobby)
   const allCategoriesForLobby = useMemo(() => {
@@ -788,6 +1206,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       user,
       authReady,
       isAdmin,
+      isBootstrapAdmin,
+      controllerRole,
+      adminSyncWarning,
+      controllerInvites,
       signingIn,
       authError,
       catalogLoaded,
@@ -800,6 +1222,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       signInWithGoogle,
       signOutUser,
       clearAuthError,
+      refreshAdminStatus,
+      assignControllerInvite,
+      toggleControllerActive,
+      removeControllerInvite,
       getCategoryStats,
       getPlayedMapForMatch,
       recordPlayedQuestion,
@@ -814,6 +1240,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       user,
       authReady,
       isAdmin,
+      isBootstrapAdmin,
+      controllerRole,
+      adminSyncWarning,
+      controllerInvites,
       signingIn,
       authError,
       catalogLoaded,
@@ -826,6 +1256,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       signInWithGoogle,
       signOutUser,
       clearAuthError,
+      refreshAdminStatus,
+      assignControllerInvite,
+      toggleControllerActive,
+      removeControllerInvite,
       getCategoryStats,
       getPlayedMapForMatch,
       recordPlayedQuestion,

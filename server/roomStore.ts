@@ -38,7 +38,7 @@ import {
 import { refreshJuzAmmaAnswers } from './quranQuestionBanks';
 import { refreshElClasicoPhotos } from './elClasico';
 import { filterPlayedCuratedQuestions, recordPlayedCuratedQuestion, reserveCuratedQuestions } from './curatedQuestionRotation';
-import { categoryPointValues, resolveDeckDifficulties, runBoardPreflightCheck } from '../src/game/pdfValidation';
+import { categoryPointValues, resolveDeckDifficulties, runBoardPreflightCheck, validateAndImportDeckJson } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories, STARTER_DEMO_DECK } from '../src/game/starterDecks';
 import type {
   ClientRole,
@@ -138,6 +138,7 @@ class RoomManager {
     extraQuestions?: QuizQuestion[];
     playedQuestionIdsByCategory?: Record<string, string[]>;
     accountActive?: boolean;
+    clientDeck?: QuizDeck;
   }): RoomState & { resetCategoryIds?: string[] } {
     const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories);
     const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions);
@@ -156,8 +157,20 @@ class RoomManager {
       );
     } else if (params.deckId) {
       const saved = getDeckById(params.deckId);
-      if (!saved) throw new Error('البنك غير موجود في مكتبتك.');
-      deck = saved;
+      if (saved) {
+        deck = saved;
+      } else if (params.clientDeck && params.clientDeck.id === params.deckId) {
+        const imported = validateAndImportDeckJson(
+          { schemaVersion: 2, deck: params.clientDeck },
+          [],
+        );
+        if (!imported.valid || !imported.deck) {
+          throw new Error(imported.errors[0] || 'تعذر التحقق من بيانات البنك المسترد.');
+        }
+        deck = imported.deck;
+      } else {
+        throw new Error('البنك غير موجود في مكتبتك.');
+      }
     }
 
     // Shuffle before applying play history so unseen questions keep priority when a cycle resets.

@@ -18,6 +18,7 @@ export function CategoryArtwork({
   coverage = [],
 }: CategoryArtworkProps) {
   const [imgFailed, setImgFailed] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const subject = topic.replace(/[\u064B-\u065F]/g, '');
   const waterMotif = ['تبخر', 'تكاثف', 'هطول', 'جريان', 'تسرب'].find((word) => subject.includes(word));
   const artSrc = getCategoryCardArt(categoryId, iconKey);
@@ -68,7 +69,7 @@ export function CategoryArtwork({
 
   return (
     <div
-      className="relative w-full h-32 rounded-t-[13px] overflow-hidden border-b-[2.5px] border-[#1F112E] flex items-center justify-center"
+      className="relative w-full aspect-[4/3] max-h-48 rounded-t-[13px] overflow-hidden border-b-[2.5px] border-[#1F112E] flex items-center justify-center"
       style={{ backgroundColor: accentColor }}
     >
       {coverage.length > 0 && (
@@ -83,16 +84,27 @@ export function CategoryArtwork({
       )}
 
       {!imgFailed ? (
-        <img
-          src={artSrc}
-          alt={topic || 'صورة الفئة'}
-          referrerPolicy="no-referrer"
-          onError={() => setImgFailed(true)}
-          className="w-full h-full object-cover select-none"
-        />
+        <>
+          {!imgLoaded && (
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-white/15 animate-pulse"
+            />
+          )}
+          <img
+            src={artSrc}
+            alt={topic || 'صورة الفئة'}
+            referrerPolicy="no-referrer"
+            onLoad={() => setImgLoaded(true)}
+            onError={() => setImgFailed(true)}
+            className={`w-full h-full object-cover select-none transition-opacity duration-200 ${
+              imgLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        </>
       ) : (
-        <span className="font-display font-black text-2xl text-white drop-shadow-[0_2px_0_#1F112E]">
-          {topic.slice(0, 14)}
+        <span className="font-display font-black text-2xl text-white drop-shadow-[0_2px_0_#1F112E] px-3 text-center">
+          {topic.slice(0, 18)}
         </span>
       )}
     </div>

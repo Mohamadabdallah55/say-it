@@ -449,13 +449,6 @@ export function applyLifeline(
   let nextBoardTiles = state.boardTiles;
 
   if (lifeline === 'two_answers') {
-    if (state.activeRound.question.questionType !== 'multiple_choice') {
-      return {
-        ok: false,
-        error: 'وسيلة «جاوب جوابين» متاحة فقط لأسئلة الاختيار من متعدد.',
-        state,
-      };
-    }
     nextRound = { ...nextRound, twoAnswersActive: true };
   } else if (lifeline === 'hint') {
     nextRound = { ...nextRound, hintRevealed: true };

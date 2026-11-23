@@ -3,7 +3,13 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { doc, getDocFromServer, getFirestore } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
-export const BOOTSTRAP_ADMIN_EMAIL = 'emanzabbout@gmail.com';
+import { normalizeControllerEmail } from './game/adminControllers';
+
+export const BOOTSTRAP_ADMIN_EMAIL = 'yazanmohaamed070@gmail.com';
+
+export function isBootstrapAdminEmail(email?: string | null): boolean {
+  return Boolean(email && normalizeControllerEmail(email) === BOOTSTRAP_ADMIN_EMAIL);
+}
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
