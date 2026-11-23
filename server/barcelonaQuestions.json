@@ -450,7 +450,10 @@
     ],
     "explanation": "ارتدى ديكو القميص رقم 20 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://api.fifavn.org/uploads/2025/08/cac-cau-thu-ao-so-20.jpg",
+    "imageSourceUrl": "https://fifavn.org/y-nghia-ao-so-20/",
+    "imageCaption": "ديكو — رقم 20 على الشورت، صورة من موسم آخر بنفس الرقم"
   },
   {
     "id": "BAR-N-020",
@@ -613,7 +616,10 @@
     ],
     "explanation": "ارتدى جيانلوكا زامبروتا القميص رقم 11 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://image.news.livedoor.com/newsimage/stf/8/f/8fea3_1469_ff7a82aa79852b246cc8d35d93b3d466.jpg",
+    "imageSourceUrl": "https://news.livedoor.com/article/detail/23518398/",
+    "imageCaption": "زامبروتا — رقم 11 على الشورت، صورة أرشيفية"
   },
   {
     "id": "BAR-N-026",
@@ -628,7 +634,10 @@
     ],
     "explanation": "ارتدى هنريك لارسون القميص رقم 7 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://pliki.meczyki.pl/big700/344/5f466f68ee9b8.jpg",
+    "imageSourceUrl": "https://www.meczyki.pl/newsy/plus/zmienil-bieg-historii-klubu-teraz-wraca-na-camp-nou-szwedzki-joker-wraca-by-budowac-nowa-fc-barcelone/150235",
+    "imageCaption": "لارسون — رقم 7 على الشورت، صورة أرشيفية"
   },
   {
     "id": "BAR-N-027",
@@ -679,7 +688,10 @@
     ],
     "explanation": "ارتدى خوسيه مانويل بينتو القميص رقم 13 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://cadenaser.com/resizer/v2/RNMHQCJJNNO4DA5HFRGPCNAMBM.jpg?auth=0e3f9b921c4f43c14f2a4c371121eafde6f5292eb20d95eb4318ba7fa89b08fd",
+    "imageSourceUrl": "https://cadenaser.com/ser/2010/10/21/deportes/1287617289_850215.html",
+    "imageCaption": "بينتو — رقم 13 على الشورت، أكتوبر 2010"
   },
   {
     "id": "BAR-N-030",
