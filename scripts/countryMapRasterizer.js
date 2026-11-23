@@ -2,26 +2,53 @@
 // Does not draw names, capitals, flag icons, or explanatory markers.
 // Works in both Node and the connector's standard JavaScript runtime.
 function generateMapPngBase64(features, iso, difficulty) {
-  const W=320,H=220;
-  const getRings=(f)=>f.geometry.type==="Polygon"?f.geometry.coordinates:f.geometry.type==="MultiPolygon"?f.geometry.coordinates.flatMap(p=>p):[];
-  const mapped=features.map(f=>({id:f.id,rings:getRings(f)}));
-  const bounds=(rings)=>{
-    let x0=Infinity,x1=-Infinity,y0=Infinity,y1=-Infinity;
-    for(const ring of rings)for(const point of ring){const x=point[0],y=point[1];if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;}
-    return {x0,x1,y0,y1,xc:(x0+x1)/2,yc:(y0+y1)/2,w:x1-x0,h:y1-y0};
+  const W=768,H=720;
+  const groups={
+    africa:"EGY ZAF MAR ETH KEN NGA GHA DZA TUN LSO GNB BEN TGO ERI DJI BWA NAM MWI ZMB GAB GNQ TCD",
+    europe:"ITA FRA DEU ESP PRT NOR SWE POL ROU GRC UKR FIN BGR AUT CHE DNK NLD BEL CZE HUN HRV MDA SVN SVK LVA LTU ALB MNE MKD BIH",
+    asia:"SAU JPN IND TUR CHN ARE IDN IRN IRQ KOR THA VNM KAZ PAK MNG NPL BTN BRN TLS KGZ TJK KHM LAO AZE ARM GEO",
+    northAmerica:"CAN USA MEX CUB BLZ GTM HND NIC",
+    southAmerica:"BRA ARG CHL COL PER VEN ECU SUR GUY PRY URY",
+    oceania:"AUS NZL",
+    eurasia:"RUS"
   };
-  for(const f of mapped)f.b=bounds(f.rings);
+  const frames={
+    africa:[-27,59,-39,40],
+    europe:[-27,66,32,74],
+    asia:[19,190,-14,82],
+    northAmerica:[-174,-15,4,84],
+    southAmerica:[-90,-27,-59,16],
+    oceania:[105,190,-51,10],
+    eurasia:[-16,190,29,83]
+  };
+  const continent=Object.keys(groups).find(key=>groups[key].split(" ").includes(iso));
+  if(!continent)throw new Error("No continent frame for "+iso);
+  const [west,east,south,north]=frames[continent];
+  const cx=(west+east)/2,cy=(south+north)/2;
+  const longitudeScale=Math.cos(cy*Math.PI/180);
+  const worldWidth=Math.max((east-west)*longitudeScale,(north-south)*W/H);
+  const worldHeight=worldWidth*H/W;
+  const getRings=f=>f.geometry.type==="Polygon"?f.geometry.coordinates:f.geometry.type==="MultiPolygon"?f.geometry.coordinates.flatMap(p=>p):[];
+  // Keep each ring continuous across the date line, then shift it to the visible hemisphere.
+  const wrapRing=ring=>{
+    if(!ring.length)return ring;
+    const unwrapped=[];let prev=ring[0][0];
+    for(const [raw,lat] of ring){let lon=raw;while(lon-prev>180)lon-=360;while(lon-prev< -180)lon+=360;unwrapped.push([lon,lat]);prev=lon;}
+    const avg=unwrapped.reduce((sum,xy)=>sum+xy[0],0)/unwrapped.length;
+    const shift=360*Math.round((cx-avg)/360);
+    return unwrapped.map(([lon,lat])=>[lon+shift,lat]);
+  };
+  const mapped=features.map(f=>({id:f.id,rings:getRings(f).map(wrapRing)}));
   const target=mapped.find(f=>f.id===iso);
   if(!target)throw new Error("No geographic boundaries for "+iso);
-  const bb=target.b;
-  let width=Math.max(difficulty==="easy"?48:difficulty==="medium"?25:12,bb.w*1.55,bb.h*2.3);
-  let cx=bb.xc,cy=bb.yc;
-  if(iso==="USA"){cx=-97;cy=37;width=90;}
-  if(iso==="RUS"){cx=85;cy=57;width=185;}
-  const height=width*H/W,x0=cx-width/2,y0=cy+height/2;
-  const p=xy=>[(xy[0]-x0)/width*W,(y0-xy[1])/height*H];
+  const p=([lon,lat])=>[W/2+(lon-cx)*longitudeScale/worldWidth*W,H/2-(lat-cy)/worldHeight*H];
   const pixels=new Uint8Array(W*H);
-  const nearby=mapped.filter(f=>!(f.b.x1<x0||f.b.x0>x0+width||f.b.y1<y0-height||f.b.y0>y0));
+  const ringVisible=ring=>{
+    let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+    for(const xy of ring){const [x,y]=p(xy);minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}
+    return maxX>=0&&minX<W&&maxY>=0&&minY<H;
+  };
+  const nearby=mapped.map(f=>({...f,rings:f.rings.filter(ringVisible)})).filter(f=>f.rings.length);
   const fill=(ring,idx)=>{
     if(ring.length<3)return;
     const pts=ring.map(p);let minY=H-1,maxY=0;
@@ -38,7 +65,6 @@ function generateMapPngBase64(features, iso, difficulty) {
     }
   };
   for(const f of nearby)for(const r of f.rings)fill(r,1);
-  for(const r of target.rings)fill(r,3);
   const line=(a,b,idx)=>{
     let [xA,yA]=p(a),[xB,yB]=p(b),dx=xB-xA,dy=yB-yA,t0=0,t1=1;
     const ps=[-dx,dx,-dy,dy],qs=[xA,W-1-xA,yA,H-1-yA];
@@ -50,7 +76,8 @@ function generateMapPngBase64(features, iso, difficulty) {
     for(let z=0;z<W+H+5;z++){if(xA>=0&&xA<W&&yA>=0&&yA<H)pixels[yA*W+xA]=idx;if(xA===xB&&yA===yB)break;const e2=2*err;if(e2>-ddy){err-=ddy;xA+=sx;}if(e2<ddx){err+=ddx;yA+=sy;}}
   };
   for(const f of nearby)for(const r of f.rings)for(let i=1;i<r.length;i++)line(r[i-1],r[i],2);
-  for(const r of target.rings)for(let i=1;i<r.length;i++)line(r[i-1],r[i],2);
+  for(const r of target.rings.filter(ringVisible))fill(r,3);
+  // Thin boundaries remain visible around other countries; target fill stays readable at continent scale.
   const raw=new Uint8Array(H*(1+W/4));let off=0;
   for(let y=0;y<H;y++){raw[off++]=0;for(let x=0;x<W;x+=4)raw[off++]=(pixels[y*W+x]<<6)|(pixels[y*W+x+1]<<4)|(pixels[y*W+x+2]<<2)|pixels[y*W+x+3];}
   const out=[];const put=(...v)=>{for(const n of v)out.push(n&255);};const word=n=>put(n>>>24,n>>>16,n>>>8,n);
@@ -60,9 +87,29 @@ function generateMapPngBase64(features, iso, difficulty) {
   const chunk=(type,arr)=>{word(arr.length);const t=[...type].map(c=>c.charCodeAt(0));put(...t);for(const v of arr)out.push(v);word(crc32([...t,...arr]));};
   put(137,80,78,71,13,10,26,10);
   const ihdr=new Uint8Array(13);new DataView(ihdr.buffer).setUint32(0,W);new DataView(ihdr.buffer).setUint32(4,H);ihdr[8]=2;ihdr[9]=3;
-  chunk("IHDR",ihdr);chunk("PLTE",new Uint8Array([242,247,249,217,225,225,115,137,146,239,137,41]));
-  const z=[0x78,0x01];let pos=0;
-  while(pos<raw.length){const len=Math.min(65535,raw.length-pos),end=(pos+len>=raw.length)?1:0;z.push(end,len&255,(len>>8)&255,(~len)&255,((~len)>>8)&255);for(let j=pos;j<pos+len;j++)z.push(raw[j]);pos+=len;}
+  chunk("IHDR",ihdr);chunk("PLTE",new Uint8Array([195,234,247,255,252,226,143,145,139,169,24,49]));
+  const z=[0x78,0x01];
+  let bitBuffer=0,bitCount=0;
+  const bits=(value,n)=>{bitBuffer|=value<<bitCount;bitCount+=n;while(bitCount>=8){z.push(bitBuffer&255);bitBuffer>>>=8;bitCount-=8;}};
+  const reverse=(v,n)=>{let out=0;for(let i=0;i<n;i++){out=(out<<1)|(v&1);v>>>=1;}return out;};
+  const literal=v=>{if(v<=143)bits(reverse(0x30+v,8),8);else if(v<=255)bits(reverse(0x190+v-144,9),9);else if(v<=279)bits(reverse(v-256,7),7);else bits(reverse(0xc0+v-280,8),8);};
+  const lenBases=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258];
+  const lenExtras=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0];
+  const distBases=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];
+  const distExtras=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+  const match=(len,dist)=>{let li=lenBases.length-1;while(lenBases[li]>len)li--;literal(257+li);bits(len-lenBases[li],lenExtras[li]);let di=distBases.length-1;while(distBases[di]>dist)di--;bits(reverse(di,5),5);bits(dist-distBases[di],distExtras[di]);};
+  bits(1,1);bits(1,2); // last block, fixed Huffman
+  const stride=1+W/4;
+  for(let pos=0;pos<raw.length;){
+    let best=0,distance=0;
+    for(const d of [1,stride,stride*2]){
+      if(pos<d)continue;
+      let len=0;while(len<258&&pos+len<raw.length&&raw[pos+len]===raw[pos+len-d])len++;
+      if(len>best){best=len;distance=d;}
+    }
+    if(best>=4){match(best,distance);pos+=best;}else{literal(raw[pos]);pos++;}
+  }
+  literal(256);if(bitCount)z.push(bitBuffer&255);
   let a=1,b=0;for(const v of raw){a=(a+v)%65521;b=(b+a)%65521;}const adler=(((b<<16)>>>0)|a)>>>0;
   z.push(adler>>>24,(adler>>>16)&255,(adler>>>8)&255,adler&255);
   chunk("IDAT",z);chunk("IEND",[]);
