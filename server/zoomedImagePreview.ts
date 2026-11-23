@@ -28,7 +28,7 @@ export async function serveZoomedImagePreview(req: Request<{ id: string }>, res:
   try {
     let svg = previewCache.get(row.id);
     if (!svg) {
-      if (!/^\/(?:images\/guess-price\/JP-\d+|assets\/jordan_nostalgia\/JONOS-\d+)\.(?:jpe?g|png|webp)$/i.test(row.imageUrl)) {
+      if (!/^\/(?:images\/guess-price\/JP-\d+|assets\/jordan_nostalgia\/JONOS-\d+|assets\/questions\/zoomed-image\/ZOOM-\d+)\.(?:jpe?g|png|webp)$/i.test(row.imageUrl)) {
         res.sendStatus(404); return;
       }
       const relative = row.imageUrl.slice(1);

@@ -19,7 +19,8 @@ test('zoomed image category has 60 distinct original photos and safe square crop
   for (const row of ZOOMED_IMAGE_ROWS) {
     const { x, y, size } = row.crop;
     assert.ok(x >= 0 && y >= 0 && size > 0 && x + size <= row.width && y + size <= row.height);
-    assert.ok(size / Math.min(row.width, row.height) <= 0.45);
+    assert.ok(size / Math.min(row.width, row.height) <= (row.points === 600 ? 0.205 : row.points === 400 ? 0.25 : 0.45));
+    if (row.points === 600) assert.ok(Number(row.id.slice(5)) >= 61, 'hard tier must use the replacement photos');
     const photo = readFileSync(path.join(process.cwd(), 'public', row.imageUrl.slice(1)));
     assert.ok(photo.length > 0);
     const svg = renderZoomedPreview(photo, row);
