@@ -1,0 +1,670 @@
+[
+  {
+    "id": "BAR-001",
+    "points": 200,
+    "question": "أي فريق إيطالي واجه برشلونة في أول نهائي أوروبي توّج به بكأس أوروبا عام 1992؟",
+    "answer": "سامبدوريا",
+    "explanation": "فاز برشلونة عليه بهدف في الوقت الإضافي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/first-champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Sampdoria"
+    ]
+  },
+  {
+    "id": "BAR-002",
+    "points": 200,
+    "question": "في أي مدينة تُوّج برشلونة بدوري الأبطال سنة 2015؟",
+    "answer": "برلين",
+    "explanation": "أقيم النهائي أمام يوفنتوس في برلين.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Berlin"
+    ]
+  },
+  {
+    "id": "BAR-003",
+    "points": 200,
+    "question": "ما اسم الفريق الأرجنتيني الذي خسره برشلونة أمامه حتى الدقائق الأخيرة من نهائي مونديال الأندية 2009 قبل أن يقلب النتيجة؟",
+    "answer": "إستوديانتس دي لا بلاتا",
+    "explanation": "أدرك برشلونة التعادل قبل الفوز في الوقت الإضافي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "إستوديانتس",
+      "Estudiantes"
+    ]
+  },
+  {
+    "id": "BAR-004",
+    "points": 200,
+    "question": "من سجل هدف برشلونة الأول أمام يوفنتوس في نهائي دوري الأبطال 2015؟",
+    "answer": "إيفان راكيتيتش",
+    "explanation": "سجل في الدقيقة الرابعة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/matches/10444/juventus-fc-barcelona-ucl-2014-15",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "Ivan Rakitic",
+      "راكيتيتش"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/bbc8ca3ed89499ca551c8886.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Rakiti%C4%87_2020_(cropped).jpg",
+    "imageCaption": "صورة إيفان راكيتيتش · Дмитрий Пукалик · CC BY-SA 3.0"
+  },
+  {
+    "id": "BAR-005",
+    "points": 200,
+    "question": "ما النادي الذي واجه برشلونة في نهائي كأس العالم للأندية 2015؟",
+    "answer": "ريفر بليت",
+    "explanation": "انتهى النهائي بفوز برشلونة 3-0.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "River Plate"
+    ]
+  },
+  {
+    "id": "BAR-006",
+    "points": 200,
+    "question": "أي فريق هزم برشلونة في نهائي دوري الأبطال 1994 بأثينا؟",
+    "answer": "ميلان",
+    "explanation": "خسر برشلونة النهائي أمام ميلان.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "إيه سي ميلان",
+      "AC Milan"
+    ]
+  },
+  {
+    "id": "BAR-007",
+    "points": 200,
+    "question": "ما الفريق الذي هزمه برشلونة في نهائي كأس العالم للأندية 2011 بنتيجة 4-0؟",
+    "answer": "سانتوس",
+    "explanation": "فاز برشلونة على الفريق البرازيلي برباعية.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/guardiolas-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Santos"
+    ]
+  },
+  {
+    "id": "BAR-008",
+    "points": 200,
+    "question": "ما اسم الملعب الذي سبق كامب نو بوصفه الملعب الرئيسي لبرشلونة؟",
+    "answer": "ليس كورتس",
+    "explanation": "افتتح الملعب سنة 1922.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4440891/60-years-since-les-corts-stadium-was-demolished",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "لاس كورتس",
+      "Les Corts"
+    ]
+  },
+  {
+    "id": "BAR-009",
+    "points": 200,
+    "question": "كم لقبًا رسميًا حصد برشلونة في سنة 2015؟",
+    "answer": "خمسة ألقاب",
+    "explanation": "الثلاثية والسوبر الأوروبي ومونديال الأندية.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "5",
+      "خمسة"
+    ]
+  },
+  {
+    "id": "BAR-010",
+    "points": 200,
+    "question": "من سجل هدف برشلونة الأخير في نهائي دوري أبطال أوروبا 2011 أمام مانشستر يونايتد؟",
+    "answer": "دافيد فيا",
+    "explanation": "كان فيا أحد مسجلي الأهداف الثلاثة في ويمبلي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "ديفيد فيا",
+      "David Villa"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/a070ec7457f26176b4ca3e2b.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti,_Confederations_Cup_2013_(02)_(Villa_crop).jpg",
+    "imageCaption": "صورة دافيد فيا · Tânia Rêgo/ABr · CC BY 3.0 br"
+  },
+  {
+    "id": "BAR-011",
+    "points": 400,
+    "question": "ما الفريق الألماني الذي واجهه برشلونة في نهائي كأس الكؤوس الأوروبية 1979؟",
+    "answer": "فورتونا دوسلدورف",
+    "explanation": "فاز برشلونة 4-3 بعد التمديد.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/1218594",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "فورتونا دوسلدورف",
+      "Fortuna Düsseldorf"
+    ]
+  },
+  {
+    "id": "BAR-012",
+    "points": 400,
+    "question": "في أي مدينة أقيم نهائي كأس الكؤوس الأوروبية 1979 الذي انتهى 4-3 لبرشلونة؟",
+    "answer": "بازل",
+    "explanation": "أقيم النهائي في سويسرا.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/1218594",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Basel"
+    ]
+  },
+  {
+    "id": "BAR-013",
+    "points": 400,
+    "question": "في أي مدينة أقيم نهائي كأس الكؤوس الأوروبية 1997 ضد باريس سان جيرمان؟",
+    "answer": "روتردام",
+    "explanation": "أقيم على ملعب دي كويب.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/763989/twenty-years-on-from-robsons-cup-winners-cup-victory",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Rotterdam"
+    ]
+  },
+  {
+    "id": "BAR-014",
+    "points": 400,
+    "question": "من سجل هدف تعادل برشلونة أمام أرسنال في نهائي دوري الأبطال 2006؟",
+    "answer": "صامويل إيتو",
+    "explanation": "عادل النتيجة بعد تقدم أرسنال.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "إيتو",
+      "Samuel Eto'o"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
+    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
+  },
+  {
+    "id": "BAR-015",
+    "points": 400,
+    "question": "من صنع أول هدف رسمي لميسي مع برشلونة أمام ألباسيتي سنة 2005؟",
+    "answer": "رونالدينيو",
+    "explanation": "مرر الكرة لميسي ليسجل هدفه الرسمي الأول.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1655354/15-years-since-lionel-messis-first-official-goal/featured",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "Ronaldinho"
+    ],
+    "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2020/11/18/cc74146c-45e7-43c6-9c0b-4b03378e469e/mini_ReialMadrid-FCBarcelona0-3J12Lliga1aDivisi20052006_pic_19-11-05ronaldinho2gol02.jpg",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
+  },
+  {
+    "id": "BAR-016",
+    "points": 400,
+    "question": "أمام أي نادٍ لعب ميسي أول مباراة ودية له مع الفريق الأول سنة 2003؟",
+    "answer": "بورتو",
+    "explanation": "جاء ظهوره في افتتاح ملعب دراغاو.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/4403264/22-years-since-leo-messi-debuted-for-fc-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "FC Porto"
+    ]
+  },
+  {
+    "id": "BAR-017",
+    "points": 400,
+    "question": "أمام أي نادٍ شارك أندريس إنييستا للمرة الأولى رسميًا مع الفريق الأول في دوري الأبطال عام 2002؟",
+    "answer": "كلوب بروج",
+    "explanation": "دفع به لويس فان غال في تلك المباراة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/barca-legends/players/4231989/iniesta",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "بروج",
+      "Club Brugge"
+    ]
+  },
+  {
+    "id": "BAR-018",
+    "points": 400,
+    "question": "أي فريق واجه برشلونة في نهائي السوبر الأوروبي 2009 في موناكو؟",
+    "answer": "شاختار دونيتسك",
+    "explanation": "فاز برشلونة عليه بهدف في الوقت الإضافي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "شاختار",
+      "Shakhtar Donetsk"
+    ]
+  },
+  {
+    "id": "BAR-019",
+    "points": 400,
+    "question": "ما الفريق المكسيكي الذي أقصاه برشلونة في نصف نهائي كأس العالم للأندية 2009؟",
+    "answer": "أتلانتي",
+    "explanation": "تأهل برشلونة بعد الفوز عليه.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Atlante"
+    ]
+  },
+  {
+    "id": "BAR-020",
+    "points": 400,
+    "question": "أي فريق فرنسي أقصاه برشلونة في ثمن نهائي دوري الأبطال 2008-09؟",
+    "answer": "أولمبيك ليون",
+    "explanation": "واجهه قبل بايرن ميونخ في ربع النهائي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "ليون",
+      "Lyon"
+    ]
+  },
+  {
+    "id": "BAR-021",
+    "points": 400,
+    "question": "أي فريق أقصاه برشلونة في ربع نهائي دوري الأبطال موسم 2010-11؟",
+    "answer": "شاختار دونيتسك",
+    "explanation": "جاء ذلك قبل مواجهة ريال مدريد في نصف النهائي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "شاختار",
+      "Shakhtar Donetsk"
+    ]
+  },
+  {
+    "id": "BAR-022",
+    "points": 400,
+    "question": "أي نادٍ أقصاه برشلونة في ربع نهائي دوري الأبطال 2005-06 قبل مواجهة ميلان؟",
+    "answer": "بنفيكا",
+    "explanation": "كان بنفيكا الخصم في ربع النهائي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Benfica"
+    ]
+  },
+  {
+    "id": "BAR-023",
+    "points": 400,
+    "question": "ما المدينة التي استضافت نهائي السوبر الأوروبي 2015 بين برشلونة وإشبيلية؟",
+    "answer": "تبليسي",
+    "explanation": "أقيم اللقاء في عاصمة جورجيا.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1095042/fc-barcelona-v-sevilla-fc-fourth-title-of-2015-54",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Tbilisi"
+    ]
+  },
+  {
+    "id": "BAR-024",
+    "points": 400,
+    "question": "أي نادٍ خسر أمام برشلونة في نهائي كأس الملك 2009 بنتيجة 4-1؟",
+    "answer": "أتلتيك بلباو",
+    "explanation": "كان النهائي أول ألقاب السداسية.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "أتلتيك بيلباو",
+      "Athletic Club"
+    ]
+  },
+  {
+    "id": "BAR-025",
+    "points": 400,
+    "question": "ما البطولة الوحيدة من الألقاب الستة الممكنة التي لم يفز بها برشلونة في سنة 2011؟",
+    "answer": "كأس ملك إسبانيا",
+    "explanation": "فاز بخمسة من أصل ستة ألقاب.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "كأس الملك",
+      "Copa del Rey"
+    ]
+  },
+  {
+    "id": "BAR-026",
+    "points": 600,
+    "question": "من دخل بدل إدميلسون مع بداية الشوط الثاني في نهائي دوري الأبطال 2006؟",
+    "answer": "أندريس إنييستا",
+    "explanation": "دفع به ريكارد في الدقيقة 46.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "إنييستا",
+      "Andres Iniesta"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/3ba31c4c7434a929d4be072d.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg",
+    "imageCaption": "صورة أندريس إنييستا · Кирилл Венедиктов · CC BY-SA 3.0"
+  },
+  {
+    "id": "BAR-027",
+    "points": 600,
+    "question": "من اللاعب الذي دخل بدل أوليغير في الدقيقة 71 من نهائي باريس 2006؟",
+    "answer": "جوليانو بيليتي",
+    "explanation": "شارك بديلًا ثم سجل هدف الفوز.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "بيليتي",
+      "Juliano Belletti"
+    ],
+    "imageUrl": "https://assets.goal.com/images/v3/blt3d23107bdff5db12/33ca853a963799c92659cbf4b7201364472b75cc.jpg?format=jpg",
+    "imageSourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5"
+  },
+  {
+    "id": "BAR-028",
+    "points": 600,
+    "question": "من لاعب أرسنال الذي خرج في الدقيقة 74 من نهائي 2006 أمام برشلونة ليدخل ماتيو فلاميني؟",
+    "answer": "سيسك فابريغاس",
+    "explanation": "كان فابريغاس أساسيًا في صفوف أرسنال قبل انضمامه لاحقًا لبرشلونة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "فابريغاس",
+      "Cesc Fabregas"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/f7f38b6c532503dd1af964a8.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2023_-_Cesc_Fabregas_(cropped).jpg",
+    "imageCaption": "صورة سيسك فابريغاس · Web Summit · CC BY 2.0"
+  },
+  {
+    "id": "BAR-029",
+    "points": 600,
+    "question": "ما اسم الملعب الذي استضاف نهائي أرسنال وبرشلونة في دوري الأبطال عام 2006؟",
+    "answer": "ستاد دو فرانس",
+    "explanation": "أقيم النهائي في باريس على الملعب الوطني الفرنسي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "ملعب فرنسا",
+      "Stade de France"
+    ]
+  },
+  {
+    "id": "BAR-030",
+    "points": 600,
+    "question": "من نال جائزة رجل مباراة نهائي دوري الأبطال عام 2006 بين برشلونة وأرسنال؟",
+    "answer": "صامويل إيتو",
+    "explanation": "اختير المهاجم رجلًا للمباراة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "إيتو",
+      "Samuel Eto'o"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
+    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
+  },
+  {
+    "id": "BAR-031",
+    "points": 600,
+    "question": "ما جنسية حكم نهائي دوري الأبطال 2006 تيري هاوغ؟",
+    "answer": "نرويجي",
+    "explanation": "كان الحكم تيري هاوغ من النرويج.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "النرويج",
+      "Norwegian"
+    ]
+  },
+  {
+    "id": "BAR-032",
+    "points": 600,
+    "question": "أي فريق ألماني واجه برشلونة في دور الـ16 لكأس أوروبا موسم 1991-92 وتجاوزه بهدف متأخر خارج أرضه؟",
+    "answer": "كايزرسلاوترن",
+    "explanation": "نجح برشلونة في العبور قبل مرحلة المجموعات.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Kaiserslautern",
+      "كايزر سلاوترن"
+    ]
+  },
+  {
+    "id": "BAR-033",
+    "points": 600,
+    "question": "أي فريق ألماني كان أول خصم في مشوار برشلونة بكأس أوروبا 1991-92؟",
+    "answer": "هانزا روستوك",
+    "explanation": "واجهه برشلونة في طريقه إلى لقبه الأوروبي الأول.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "هانسا روستوك",
+      "Hansa Rostock"
+    ]
+  },
+  {
+    "id": "BAR-034",
+    "points": 600,
+    "question": "كم لقب دوري إسباني متتاليًا أحرزه برشلونة تحت قيادة كرويف من 1991 إلى 1994؟",
+    "answer": "أربعة",
+    "explanation": "تُوّج بالدوري أربعة مواسم متتالية.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "4",
+      "أربعة ألقاب"
+    ]
+  },
+  {
+    "id": "BAR-035",
+    "points": 600,
+    "question": "كم لقبًا في السوبر الإسباني أحرزه كرويف بصفته مدربًا لبرشلونة؟",
+    "answer": "أربعة ألقاب",
+    "explanation": "حقق أربعة ألقاب في السوبر ضمن مسيرته التدريبية.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "4",
+      "أربعة"
+    ]
+  },
+  {
+    "id": "BAR-036",
+    "points": 600,
+    "question": "أي فريق إيطالي هزمه برشلونة في نهائي كأس الكؤوس 1989 قبل مواجهته في نهائي كأس أوروبا بعد ثلاث سنوات؟",
+    "answer": "سامبدوريا",
+    "explanation": "انتهت مباراة 1989 بنتيجة 2-0 لبرشلونة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Sampdoria"
+    ]
+  },
+  {
+    "id": "BAR-037",
+    "points": 600,
+    "question": "ما اسم الملعب الهولندي الذي شهد تتويج برشلونة بكأس الكؤوس في 14 مايو 1997؟",
+    "answer": "دي كويب",
+    "explanation": "أقيم النهائي ضد باريس سان جيرمان في روتردام.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/763989/twenty-years-on-from-robsons-cup-winners-cup-victory",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "De Kuip",
+      "ملعب فينورد"
+    ]
+  },
+  {
+    "id": "BAR-038",
+    "points": 600,
+    "question": "ما النادي البرتغالي الذي واجهه برشلونة في نهائي الكأس اللاتينية سنة 1949؟",
+    "answer": "سبورتينغ لشبونة",
+    "explanation": "فاز برشلونة في النهائي 2-1.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticias/1133174/fc-barcelona-reach-european-milestone",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "سبورتينغ",
+      "Sporting CP"
+    ]
+  },
+  {
+    "id": "BAR-039",
+    "points": 600,
+    "question": "أي فريق فرنسي واجهه برشلونة في نصف نهائي الكأس اللاتينية سنة 1949؟",
+    "answer": "ستاد ريمس",
+    "explanation": "جاءت المواجهة قبل النهائي أمام سبورتينغ لشبونة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticias/1133174/fc-barcelona-reach-european-milestone",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "ريمس",
+      "Stade de Reims"
+    ]
+  },
+  {
+    "id": "BAR-040",
+    "points": 600,
+    "question": "في أي عام هُدم ملعب ليس كورتس القديم؟",
+    "answer": "1966",
+    "explanation": "بدأ هدمه في فبراير 1966 بعد سنوات من افتتاح كامب نو.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4440891/60-years-since-les-corts-stadium-was-demolished",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "١٩٦٦"
+    ]
+  },
+  {
+    "id": "BAR-041",
+    "points": 600,
+    "question": "أي فريق بولندي شارك في مباراة افتتاح كامب نو عام 1957؟",
+    "answer": "منتخب وارسو",
+    "explanation": "فاز برشلونة 4-2 في المباراة الودية أمام فريق وارسو.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/history",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "وارسو",
+      "Warsaw XI",
+      "فريق وارسو"
+    ]
+  },
+  {
+    "id": "BAR-042",
+    "points": 600,
+    "question": "ما نتيجة المباراة الافتتاحية لكامب نو في سبتمبر 1957؟",
+    "answer": "4-2 لبرشلونة",
+    "explanation": "تفوق برشلونة على فريق وارسو بأربعة أهداف مقابل هدفين.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/history",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "4-2",
+      "٤-٢"
+    ]
+  },
+  {
+    "id": "BAR-043",
+    "points": 600,
+    "question": "أي نادٍ هزم برشلونة في أول مباراة دوري له تحت قيادة غوارديولا سنة 2008؟",
+    "answer": "نومانسيا",
+    "explanation": "خسر برشلونة 1-0 قبل أن ينطلق في موسمه التاريخي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "Numancia"
+    ]
+  },
+  {
+    "id": "BAR-044",
+    "points": 600,
+    "question": "أمام أي نادٍ تعادل برشلونة 1-1 في ثاني مباراة بالدوري تحت قيادة غوارديولا موسم 2008-09؟",
+    "answer": "راسينغ سانتاندير",
+    "explanation": "جاء التعادل بعد الخسارة من نومانسيا.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "راسينغ",
+      "Racing Santander"
+    ]
+  },
+  {
+    "id": "BAR-045",
+    "points": 600,
+    "question": "من سجل هدف برشلونة الافتتاحي في نهائي السوبر الأوروبي 2015 بعدما تقدم إشبيلية مبكرًا؟",
+    "answer": "ليونيل ميسي",
+    "explanation": "عادل ميسي النتيجة بركلة حرة ثم سجل أخرى.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1095042/fc-barcelona-v-sevilla-fc-fourth-title-of-2015-54",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "ميسي",
+      "Lionel Messi"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/e060ca186507497ba449c2b0.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+    "imageCaption": "صورة ليونيل ميسي · Bryan Berlin · CC BY-SA 4.0"
+  },
+  {
+    "id": "BAR-046",
+    "points": 600,
+    "question": "أي لاعب سجّل في الدقيقة 68 من نهائي دوري الأبطال 2015 ليعيد التقدم لبرشلونة بعد التعادل؟",
+    "answer": "لويس سواريز",
+    "explanation": "سجل الهدف الثاني لبرشلونة في النهائي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/matches/10444/juventus-fc-barcelona-ucl-2014-15",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "سواريز",
+      "Luis Suarez"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/8faa19c167b1ebefb40d1dfc.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_2026_(cropped).jpg",
+    "imageCaption": "صورة لويس سواريز · The White House · Public domain"
+  },
+  {
+    "id": "BAR-047",
+    "points": 600,
+    "question": "من استبدله ريكارد بميسي في الدقيقة 87 في مباراة ألباسيتي التي شهدت هدفه الرسمي الأول؟",
+    "answer": "صامويل إيتو",
+    "explanation": "خرج إيتو ودخل ميسي قبل تسجيل الهدف التاريخي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1655354/15-years-since-lionel-messis-first-official-goal/featured",
+    "isPlayer": true,
+    "acceptableAnswers": [
+      "إيتو",
+      "Samuel Eto'o"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/5b9928574f2347d5a6e2843d.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg",
+    "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
+  },
+  {
+    "id": "BAR-048",
+    "points": 600,
+    "question": "أمام أي نادٍ سجّل ميسي هدفًا في مباراة ودية تحضيرية في يوليو 2004 قبل هدفه الرسمي الأول؟",
+    "answer": "بالاموس",
+    "explanation": "كانت المباراة الودية ضد الفريق الكتالوني وانتهت 6-0.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/814346/do-you-remember-leo-messis-first-ever-goal-for-fc-barcelona",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "بالاموس",
+      "Palamos"
+    ]
+  },
+  {
+    "id": "BAR-049",
+    "points": 600,
+    "question": "كم لقب دوري أبطال أوروبا فاز به تشافي مع برشلونة خلال مسيرته لاعبًا؟",
+    "answer": "أربعة ألقاب",
+    "explanation": "كان ضمن فرق الألقاب في 2006 و2009 و2011 و2015.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/711040/20-years-since-xavi-hernandez-barca-debut",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "4",
+      "أربعة"
+    ]
+  },
+  {
+    "id": "BAR-050",
+    "points": 600,
+    "question": "كم نقطة حقق برشلونة في الدوري الإسباني موسم 2009-10 تحت قيادة غوارديولا؟",
+    "answer": "99 نقطة",
+    "explanation": "حقق النادي لقب الدوري في موسم سجل فيه 99 نقطة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/3326425/15-years-since-pep-guardiola-announced-as-fc-barcelona-coach",
+    "isPlayer": false,
+    "acceptableAnswers": [
+      "99",
+      "٩٩"
+    ]
+  }
+]

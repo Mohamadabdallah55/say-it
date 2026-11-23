@@ -94,6 +94,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_football_ordering: 'football',
   cat_champions_league: 'football',
   cat_real_madrid: 'football',
+  cat_barcelona: 'football',
   cat_el_clasico: 'football',
   cat_football_letters: 'football',
   cat_club_logos: 'football',

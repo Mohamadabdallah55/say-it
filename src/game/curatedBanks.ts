@@ -129,6 +129,15 @@ export const REAL_MADRID_CATEGORY: DeckCategory = {
   accentColor: '#4557A6',
 };
 
+export const BARCELONA_CATEGORY: DeckCategory = {
+  id: 'cat_barcelona',
+  name: 'برشلونة',
+  description: 'تاريخ برشلونة والبطولات والتشكيلات ولحظات لا يعرفها إلا المتابعون',
+  iconKey: 'sports',
+  menuGroup: 'football',
+  accentColor: '#A50044',
+};
+
 export const REVERSED_WORDS_CATEGORY: DeckCategory = {
   id: 'cat_reversed_words',
   name: 'كلمات معكوسة',
@@ -314,6 +323,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   WORLD_WARS_CATEGORY.id,
   HADITH_CATEGORY.id,
   REAL_MADRID_CATEGORY.id,
+  BARCELONA_CATEGORY.id,
   ISLAMIC_ORDERING_CATEGORY.id,
   WORLD_FOOTBALL_CATEGORY.id,
   FOOTBALL_FIRST_NAME_CATEGORY.id,
@@ -343,6 +353,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: HADITH_CATEGORY, questionCount: 50 },
   { category: STORY_LOGIC_CATEGORY, questionCount: 75 },
   { category: REAL_MADRID_CATEGORY, questionCount: 70 },
+  { category: BARCELONA_CATEGORY, questionCount: 50 },
   { category: REVERSED_WORDS_CATEGORY, questionCount: 60 },
   { category: FOOTBALL_LETTERS_CATEGORY, questionCount: 100 },
   { category: ISLAMIC_LETTERS_CATEGORY, questionCount: 150 },
