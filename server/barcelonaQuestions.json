@@ -465,7 +465,10 @@
     ],
     "explanation": "ارتدى رافاييل ماركيز القميص رقم 4 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://cdn-3.expansion.mx/dims4/default/1db4c1d/2147483647/resize/1280x/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fmedia%2F2010%2F05%2F17%2Frafael-marquez.jpg",
+    "imageSourceUrl": "https://expansion.mx/deportes/2010/05/17/rafael-marquez-se-despide-del-barcelona-con-trofeo-en-mano",
+    "imageCaption": "رافاييل ماركيز — الرقم 4 على الشورت (2009-10)"
   },
   {
     "id": "BAR-N-021",
@@ -498,7 +501,10 @@
     ],
     "explanation": "ارتدى يايا توريه القميص رقم 24 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://www.sofoot.com/convert/aHR0cHM6Ly9iYWNrLm5ldy5zb2Zvb3QuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDI1LzEyLzEwODYxMDEtMTQwMHgxMDA0LmpwZw/image/yaya-toure-raconte-son-transfert-avorte-au-psg.jpg",
+    "imageSourceUrl": "https://www.sofoot.com/breves/yaya-toure-barcelone-cote-divoire-raconte-son-transfert-avorte-au-psg",
+    "imageCaption": "يايا توريه — الرقم 24 على الشورت (موسم آخر بنفس الرقم)"
   },
   {
     "id": "BAR-N-024",
@@ -637,7 +643,10 @@
     ],
     "explanation": "ارتدى ألكسندر هليب القميص رقم 21 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://media.tycsports.com/files/2020/10/27/130188/alexander-hleb.jpg",
+    "imageSourceUrl": "https://www.tycsports.com/espana/la-liga/alexander-hleb-el-jugador-que-se-arrepiente-de-haber-jugado-en-barcelona-id278931.html",
+    "imageCaption": "ألكسندر هليب — الرقم 21 على الشورت (2008-09)"
   },
   {
     "id": "BAR-N-028",
