@@ -174,6 +174,9 @@ const ICON_TO_GROUP: Partial<Record<CategoryIconKey, CategoryMenuId>> = {
 };
 
 export function resolveCategoryMenuGroup(cat: DeckCategory): CategoryMenuId {
+  if (cat.menuGroup && CATEGORY_GROUPS.some((group) => group.id === cat.menuGroup)) {
+    return cat.menuGroup;
+  }
   return CATEGORY_TO_GROUP[cat.id] ?? ICON_TO_GROUP[cat.iconKey] ?? 'visual';
 }
 
