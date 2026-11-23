@@ -58,7 +58,8 @@ function makeValidDeckPayload(overrides?: Partial<Record<string, unknown>>) {
 }
 
 test('normalizeRemoteBaseUrl accepts https/http and appends trailing slash, rejects unsafe schemes', () => {
-  assert.equal(isPlaceholderRemoteBaseUrl(DEFAULT_REMOTE_DECKS_BASE_URL), true);
+  assert.equal(isPlaceholderRemoteBaseUrl(DEFAULT_REMOTE_DECKS_BASE_URL), false);
+  assert.match(DEFAULT_REMOTE_DECKS_BASE_URL, /Mohamadabdallah55\/say-it\/main\/decks\//);
   assert.equal(isPlaceholderRemoteBaseUrl('https://raw.githubusercontent.com/acme/banks/main/decks/'), false);
 
   const ok = normalizeRemoteBaseUrl('https://example.com/banks');
@@ -221,6 +222,10 @@ test('hydrateDeckImagesFromCache substitutes locally stored Data URLs cleanly', 
   });
 
   assert.equal(hydrated.questions[0].imageUrl, 'data:image/webp;base64,AAAA');
+  assert.equal(
+    hydrated.questions[0].remoteOriginalImageUrl,
+    'https://raw.githubusercontent.com/acme/repo/main/decks/deck_geo_01/images/q1.webp',
+  );
   assert.equal(
     hydrated.questions[0].answerImageUrl,
     'https://raw.githubusercontent.com/acme/repo/main/decks/deck_geo_01/images/a1.webp',
