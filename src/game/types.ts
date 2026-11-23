@@ -135,6 +135,8 @@ export interface QuizQuestion {
   hint?: string;
   explanation?: string;
   imageUrl?: string;
+  /** Original HTTPS image address, retained when IndexedDB replaces imageUrl with an offline data URL. */
+  remoteOriginalImageUrl?: string;
   previewImageUrl?: string;
   imageBase64?: string;
   imageCaption?: string;
