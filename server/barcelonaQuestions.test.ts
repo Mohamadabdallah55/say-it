@@ -17,6 +17,11 @@ test('Barcelona is registered, has unique questions and images on every player a
   assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [18,20,12]);
   assert.equal(rows.filter(q => q.kind === 'number').length, 30);
   assert.equal(rows.filter(q => q.kind === 'photo').length, 10);
+  for (const row of rows.filter(q => q.kind === 'number' && q.imageUrl)) {
+    const question = BARCELONA_QUESTIONS.find(q => q.id === row.id);
+    assert.ok(question?.imageUrl && question.imageSourceUrl);
+    assert.equal(question.imageDisplay, 'after_reveal');
+  }
   for (const row of rows.filter(q => q.isPlayer)) {
     const question = BARCELONA_QUESTIONS.find(q => q.id === row.id);
     assert.ok(question?.imageUrl && question.imageSourceUrl);

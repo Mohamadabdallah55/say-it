@@ -16,7 +16,13 @@ test('Madrid preserves the original questions and adds shirt numbers and histori
       assert.equal(q.imageDisplay, 'before_reveal');
     } else if (row.id.startsWith('RM-N-')) {
       assert.ok(/^\d+$/.test(q.answer));
-      assert.equal(q.imageUrl, undefined);
+      if ('imageUrl' in row && row.imageUrl) {
+        assert.equal(q.imageUrl, row.imageUrl);
+        assert.ok(q.imageSourceUrl);
+        assert.equal(q.imageDisplay, 'after_reveal');
+      } else {
+        assert.equal(q.imageUrl, undefined);
+      }
     } else {
       assert.equal(q.imageDisplay, 'after_reveal');
     }
