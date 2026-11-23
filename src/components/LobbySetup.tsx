@@ -27,6 +27,7 @@ import {
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
 import type { DeckCategory, LifelineType, MatchSettings, QuizDeck, QuizQuestion } from '../game/types';
+import { computeCategoryConsumption } from '../game/categoryProgress';
 import { CATEGORY_3D_ART, getCategoryCardArt } from '../utils/gameAssets';
 import {
   getAvailableMenuTabs,
@@ -291,6 +292,19 @@ export function LobbySetup({
   const selectableCategories = useMemo(
     () => [...allCategoriesForLobby, ...recoveredCategories],
     [allCategoriesForLobby, recoveredCategories],
+  );
+
+  const recoveredQuestionIdsByCategory = useMemo(() => {
+    const ids: Record<string, string[]> = {};
+    for (const question of recoveredQuestions) {
+      (ids[question.categoryId] ??= []).push(question.id);
+    }
+    return ids;
+  }, [recoveredQuestions]);
+
+  const playedIdsByCategory = useMemo(
+    () => (user ? getPlayedMapForMatch() : {}),
+    [user, getPlayedMapForMatch],
   );
 
   const selectedDeck = useMemo(() => {
@@ -1449,7 +1463,14 @@ export function LobbySetup({
                             selectedDeckId === 'curated_custom'
                               ? customCategories.includes(cat.id)
                               : activeCategoryIdsForPreflight.includes(cat.id);
-                          const stats = getCategoryStats(cat.id);
+                          const recoveredIds = recoveredQuestionIdsByCategory[cat.id];
+                          const stats = recoveredIds
+                            ? computeCategoryConsumption({
+                                categoryId: cat.id,
+                                allQuestionIds: recoveredIds,
+                                playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
+                              })
+                            : getCategoryStats(cat.id);
                           const artSrc = getCategoryCardArt(cat.id, cat.iconKey);
                           const pctToneClass =
                             stats.percent >= 100
