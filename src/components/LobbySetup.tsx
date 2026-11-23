@@ -307,6 +307,17 @@ export function LobbySetup({
     [user, getPlayedMapForMatch],
   );
 
+  // Avoid sending huge cached base64 photo strings back to the room server.
+  // The server uses the original HTTPS URL for recovered photos.
+  const recoveredQuestionsForRoom = useMemo(
+    () => recoveredQuestions.map((question) => ({
+      ...question,
+      imageUrl: question.remoteOriginalImageUrl || question.imageUrl,
+      imageBase64: undefined,
+    })),
+    [recoveredQuestions],
+  );
+
   const selectedDeck = useMemo(() => {
     if (selectedDeckId === 'curated_custom') {
       return buildBoardDeckFromCategories(
@@ -510,7 +521,7 @@ export function LobbySetup({
           teams,
           settings,
           extraCategories: [...adminCustomCategories, ...recoveredCategories],
-          extraQuestions: [...adminCustomQuestions, ...recoveredQuestions],
+          extraQuestions: [...adminCustomQuestions, ...recoveredQuestionsForRoom],
           playedQuestionIdsByCategory: user ? getPlayedMapForMatch() : {},
           accountActive: Boolean(user),
           clientDeck: isRecoveredSelected ? selectedDeck : undefined,
