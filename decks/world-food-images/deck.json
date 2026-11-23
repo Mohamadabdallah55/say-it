@@ -11,13 +11,13 @@
     "boardMode": "categories",
     "ageGroup": "mixed",
     "createdAt": "2026-11-23T14:19:03.557Z",
-    "updatedAt": "2026-11-23T14:19:03.557Z",
+    "updatedAt": "2026-11-23T14:41:21.949Z",
     "categories": [
       {
         "id": "world_food",
         "name": "أكلات العالم",
         "description": "خمن اسم الأكلة من صورتها",
-        "iconKey": "general",
+        "iconKey": "geography",
         "accentColor": "#E98E32",
         "availableDifficulties": [
           "easy",
@@ -28,7 +28,9 @@
           "أكلات عالمية",
           "حلويات من دول مختلفة",
           "أطباق تقليدية"
-        ]
+        ],
+        "menuGroup": "world",
+        "coverImageUrl": "https://www.themealdb.com/images/media/meals/vmz7gl1614350221.jpg/large"
       }
     ],
     "questions": [
