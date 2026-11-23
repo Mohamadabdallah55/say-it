@@ -11,7 +11,7 @@ import type {
 } from './types';
 
 export const DEFAULT_REMOTE_DECKS_BASE_URL =
-  'https://raw.githubusercontent.com/USER/REPO/main/decks/';
+  'https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/decks/';
 
 export interface RemoteDeckIndexEntry {
   id: string;
