@@ -67,15 +67,17 @@ export const CHAMPIONS_LEAGUE_QUESTIONS = championsLeagueRows.map((row): QuizQue
   imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
 }));
 
-export const REAL_MADRID_QUESTIONS = realMadridRows.map((row): QuizQuestion => ({
+type RealMadridRow = { id: string; points: number; question: string; answer: string; answer_english: string; explanation: string; source_url: string; kind?: 'number' | 'photo'; acceptableAnswers?: string[]; imageUrl?: string; imageSourceUrl?: string; imageCaption?: string };
+
+export const REAL_MADRID_QUESTIONS = (realMadridRows as RealMadridRow[]).map((row): QuizQuestion => ({
   ...createQuestion(REAL_MADRID_CATEGORY, row),
-  acceptableAnswers: [row.answer_english],
+  acceptableAnswers: [...new Set([row.answer_english, ...(row.acceptableAnswers ?? [])])],
   explanation: row.explanation,
   sourceRef: row.source_url,
   imageUrl: row.imageUrl,
   imageSourceUrl: row.imageSourceUrl,
   imageCaption: row.imageCaption,
-  imageDisplay: 'after_reveal',
+  imageDisplay: row.imageUrl ? (row.kind === 'photo' ? 'before_reveal' : 'after_reveal') : undefined,
 }));
 
 export const FOOTBALL_CAREER_QUESTIONS = footballCareerRows.map((row): QuizQuestion => ({

@@ -32,10 +32,10 @@ const deck = buildBoardDeckFromCategories(
 );
 
 test('language banks preserve every clue, answer and points tier in the supplied files', () => {
-  assert.equal(new Set([...questions, ...ARABIC_ROOTS_QUESTIONS].map(question => question.id)).size, 400);
+  assert.equal(new Set([...questions, ...ARABIC_ROOTS_QUESTIONS].map(question => question.id)).size, 430);
   const countByTier = (bank: typeof questions) =>
     [200, 400, 600].map(points => bank.filter(question => question.points === points).length);
-  assert.deepEqual(countByTier(FOOTBALL_LETTERS_QUESTIONS), [0, 30, 70]);
+  assert.deepEqual(countByTier(FOOTBALL_LETTERS_QUESTIONS), [30, 30, 70]);
   assert.deepEqual(countByTier(ISLAMIC_LETTERS_QUESTIONS), [50, 50, 50]);
   assert.deepEqual(countByTier(ENGLISH_LETTERS_QUESTIONS), [15, 17, 18]);
   assert.deepEqual(countByTier(ARABIC_ROOTS_QUESTIONS), [30, 35, 35]);
@@ -95,7 +95,7 @@ test('a mixed board starts with the supported tiers and exposes the letter befor
   assert.equal(runBoardPreflightCheck({ deck: depleted, teams, settings }).canStart, false);
 
   const room = createRoomState({ roomCode: 'LETTER', hostToken: 'host', buzzerToken: 'buzzer', deck, teams, settings });
-  assert.deepEqual(room.boardTiles.filter(tile => tile.categoryId === FOOTBALL_LETTERS_CATEGORY.id).map(tile => tile.points), [400, 400, 600, 600]);
+  assert.deepEqual(room.boardTiles.filter(tile => tile.categoryId === FOOTBALL_LETTERS_CATEGORY.id).map(tile => tile.points), [200, 200, 400, 400, 600, 600]);
   for (const bank of [...letterBanks, ARABIC_ROOTS_QUESTIONS]) {
     const question = bank[0];
     const opened = selectBoardTile(room, question.id, 'open');

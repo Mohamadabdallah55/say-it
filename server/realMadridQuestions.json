@@ -780,5 +780,1531 @@
     "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261754?%24Mobile%24=&fit=wrap&wid=312",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco"
+  },
+  {
+    "id": "RM-N-001",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص زين الدين زيدان مع ريال مدريد بموسم 2005-06؟",
+    "answer": "5",
+    "answer_english": "5",
+    "acceptableAnswers": [
+      "٥",
+      "رقم 5",
+      "رقم ٥"
+    ],
+    "explanation": "ارتدى زين الدين زيدان القميص رقم 5 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-002",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص رونالدو نازاريو مع ريال مدريد بموسم 2005-06؟",
+    "answer": "9",
+    "answer_english": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى رونالدو نازاريو القميص رقم 9 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-003",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص ديفيد بيكهام مع ريال مدريد بموسم 2005-06؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى ديفيد بيكهام القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-004",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص روبرتو كارلوس مع ريال مدريد بموسم 2005-06؟",
+    "answer": "3",
+    "answer_english": "3",
+    "acceptableAnswers": [
+      "٣",
+      "رقم 3",
+      "رقم ٣"
+    ],
+    "explanation": "ارتدى روبرتو كارلوس القميص رقم 3 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-005",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص إيكر كاسياس مع ريال مدريد بموسم 2005-06؟",
+    "answer": "1",
+    "answer_english": "1",
+    "acceptableAnswers": [
+      "١",
+      "رقم 1",
+      "رقم ١"
+    ],
+    "explanation": "ارتدى إيكر كاسياس القميص رقم 1 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-006",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص كريستيانو رونالدو مع ريال مدريد بموسم 2016-17؟",
+    "answer": "7",
+    "answer_english": "7",
+    "acceptableAnswers": [
+      "٧",
+      "رقم 7",
+      "رقم ٧"
+    ],
+    "explanation": "ارتدى كريستيانو رونالدو القميص رقم 7 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-007",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص كريم بنزيما مع ريال مدريد بموسم 2016-17؟",
+    "answer": "9",
+    "answer_english": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى كريم بنزيما القميص رقم 9 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-008",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص سيرخيو راموس مع ريال مدريد بموسم 2016-17؟",
+    "answer": "4",
+    "answer_english": "4",
+    "acceptableAnswers": [
+      "٤",
+      "رقم 4",
+      "رقم ٤"
+    ],
+    "explanation": "ارتدى سيرخيو راموس القميص رقم 4 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-009",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص غاريث بيل مع ريال مدريد بموسم 2016-17؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى غاريث بيل القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-010",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص مارسيلو مع ريال مدريد بموسم 2016-17؟",
+    "answer": "12",
+    "answer_english": "12",
+    "acceptableAnswers": [
+      "١٢",
+      "رقم 12",
+      "رقم ١٢"
+    ],
+    "explanation": "ارتدى مارسيلو القميص رقم 12 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-011",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص توني كروس مع ريال مدريد بموسم 2016-17؟",
+    "answer": "8",
+    "answer_english": "8",
+    "acceptableAnswers": [
+      "٨",
+      "رقم 8",
+      "رقم ٨"
+    ],
+    "explanation": "ارتدى توني كروس القميص رقم 8 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-012",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص خاميس رودريغيز مع ريال مدريد بموسم 2016-17؟",
+    "answer": "10",
+    "answer_english": "10",
+    "acceptableAnswers": [
+      "١٠",
+      "رقم 10",
+      "رقم ١٠"
+    ],
+    "explanation": "ارتدى خاميس رودريغيز القميص رقم 10 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-013",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص بيبي مع ريال مدريد بموسم 2016-17؟",
+    "answer": "3",
+    "answer_english": "3",
+    "acceptableAnswers": [
+      "٣",
+      "رقم 3",
+      "رقم ٣"
+    ],
+    "explanation": "ارتدى بيبي القميص رقم 3 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-014",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص كيلور نافاس مع ريال مدريد بموسم 2016-17؟",
+    "answer": "1",
+    "answer_english": "1",
+    "acceptableAnswers": [
+      "١",
+      "رقم 1",
+      "رقم ١"
+    ],
+    "explanation": "ارتدى كيلور نافاس القميص رقم 1 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-015",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص لوكا مودريتش مع ريال مدريد بموسم 2016-17؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى لوكا مودريتش القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-016",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص تيبو كورتوا مع ريال مدريد بموسم 2022-23؟",
+    "answer": "1",
+    "answer_english": "1",
+    "acceptableAnswers": [
+      "١",
+      "رقم 1",
+      "رقم ١"
+    ],
+    "explanation": "ارتدى تيبو كورتوا القميص رقم 1 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-017",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص فينيسيوس جونيور مع ريال مدريد بموسم 2022-23؟",
+    "answer": "20",
+    "answer_english": "20",
+    "acceptableAnswers": [
+      "٢٠",
+      "رقم 20",
+      "رقم ٢٠"
+    ],
+    "explanation": "ارتدى فينيسيوس جونيور القميص رقم 20 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-018",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص رودريغو مع ريال مدريد بموسم 2022-23؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى رودريغو القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-019",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص إيدين هازارد مع ريال مدريد بموسم 2022-23؟",
+    "answer": "7",
+    "answer_english": "7",
+    "acceptableAnswers": [
+      "٧",
+      "رقم 7",
+      "رقم ٧"
+    ],
+    "explanation": "ارتدى إيدين هازارد القميص رقم 7 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-020",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص داني كارفاخال مع ريال مدريد بموسم 2022-23؟",
+    "answer": "2",
+    "answer_english": "2",
+    "acceptableAnswers": [
+      "٢",
+      "رقم 2",
+      "رقم ٢"
+    ],
+    "explanation": "ارتدى داني كارفاخال القميص رقم 2 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-021",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص دافيد ألابا مع ريال مدريد بموسم 2022-23؟",
+    "answer": "4",
+    "answer_english": "4",
+    "acceptableAnswers": [
+      "٤",
+      "رقم 4",
+      "رقم ٤"
+    ],
+    "explanation": "ارتدى دافيد ألابا القميص رقم 4 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-022",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص إيدر ميليتاو مع ريال مدريد بموسم 2022-23؟",
+    "answer": "3",
+    "answer_english": "3",
+    "acceptableAnswers": [
+      "٣",
+      "رقم 3",
+      "رقم ٣"
+    ],
+    "explanation": "ارتدى إيدر ميليتاو القميص رقم 3 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-023",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص فيديريكو فالفيردي مع ريال مدريد بموسم 2022-23؟",
+    "answer": "15",
+    "answer_english": "15",
+    "acceptableAnswers": [
+      "١٥",
+      "رقم 15",
+      "رقم ١٥"
+    ],
+    "explanation": "ارتدى فيديريكو فالفيردي القميص رقم 15 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-024",
+    "kind": "number",
+    "points": 200,
+    "question": "شو كان رقم قميص ماركو أسينسيو مع ريال مدريد بموسم 2022-23؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى ماركو أسينسيو القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-025",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كاكا مع ريال مدريد بموسم 2009-10؟",
+    "answer": "8",
+    "answer_english": "8",
+    "acceptableAnswers": [
+      "٨",
+      "رقم 8",
+      "رقم ٨"
+    ],
+    "explanation": "ارتدى كاكا القميص رقم 8 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-026",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كريستيانو رونالدو مع ريال مدريد بموسم 2009-10؟",
+    "answer": "9",
+    "answer_english": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى كريستيانو رونالدو القميص رقم 9 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-027",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كريم بنزيما مع ريال مدريد بموسم 2009-10؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى كريم بنزيما القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-028",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص غوتي مع ريال مدريد بموسم 2009-10؟",
+    "answer": "14",
+    "answer_english": "14",
+    "acceptableAnswers": [
+      "١٤",
+      "رقم 14",
+      "رقم ١٤"
+    ],
+    "explanation": "ارتدى غوتي القميص رقم 14 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-029",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص رود فان نيستلروي مع ريال مدريد بموسم 2009-10؟",
+    "answer": "17",
+    "answer_english": "17",
+    "acceptableAnswers": [
+      "١٧",
+      "رقم 17",
+      "رقم ١٧"
+    ],
+    "explanation": "ارتدى رود فان نيستلروي القميص رقم 17 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-030",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص غونزالو هيغواين مع ريال مدريد بموسم 2009-10؟",
+    "answer": "20",
+    "answer_english": "20",
+    "acceptableAnswers": [
+      "٢٠",
+      "رقم 20",
+      "رقم ٢٠"
+    ],
+    "explanation": "ارتدى غونزالو هيغواين القميص رقم 20 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-031",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص رافاييل فان دير فارت مع ريال مدريد بموسم 2009-10؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى رافاييل فان دير فارت القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-032",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص راؤول ألبيول مع ريال مدريد بموسم 2009-10؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى راؤول ألبيول القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-033",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ألفارو أربيلوا مع ريال مدريد بموسم 2009-10؟",
+    "answer": "2",
+    "answer_english": "2",
+    "acceptableAnswers": [
+      "٢",
+      "رقم 2",
+      "رقم ٢"
+    ],
+    "explanation": "ارتدى ألفارو أربيلوا القميص رقم 2 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-034",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص لاس ديارا مع ريال مدريد بموسم 2009-10؟",
+    "answer": "10",
+    "answer_english": "10",
+    "acceptableAnswers": [
+      "١٠",
+      "رقم 10",
+      "رقم ١٠"
+    ],
+    "explanation": "ارتدى لاس ديارا القميص رقم 10 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-035",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص آريين روبن مع ريال مدريد بموسم 2008-09؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى آريين روبن القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-036",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ويسلي شنايدر مع ريال مدريد بموسم 2008-09؟",
+    "answer": "10",
+    "answer_english": "10",
+    "acceptableAnswers": [
+      "١٠",
+      "رقم 10",
+      "رقم ١٠"
+    ],
+    "explanation": "ارتدى ويسلي شنايدر القميص رقم 10 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-037",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص خافيير سافيولا مع ريال مدريد بموسم 2008-09؟",
+    "answer": "9",
+    "answer_english": "9",
+    "acceptableAnswers": [
+      "٩",
+      "رقم 9",
+      "رقم ٩"
+    ],
+    "explanation": "ارتدى خافيير سافيولا القميص رقم 9 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-038",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كلاس يان هونتيلار مع ريال مدريد بموسم 2008-09؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى كلاس يان هونتيلار القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-039",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص مسعود أوزيل مع ريال مدريد بموسم 2010-11؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى مسعود أوزيل القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-040",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص سامي خضيرة مع ريال مدريد بموسم 2010-11؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى سامي خضيرة القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-041",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص أنخيل دي ماريا مع ريال مدريد بموسم 2010-11؟",
+    "answer": "22",
+    "answer_english": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى أنخيل دي ماريا القميص رقم 22 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-042",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ريكاردو كارفاليو مع ريال مدريد بموسم 2010-11؟",
+    "answer": "2",
+    "answer_english": "2",
+    "acceptableAnswers": [
+      "٢",
+      "رقم 2",
+      "رقم ٢"
+    ],
+    "explanation": "ارتدى ريكاردو كارفاليو القميص رقم 2 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-043",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص إيمانويل أديبايور مع ريال مدريد بموسم 2010-11؟",
+    "answer": "6",
+    "answer_english": "6",
+    "acceptableAnswers": [
+      "٦",
+      "رقم 6",
+      "رقم ٦"
+    ],
+    "explanation": "ارتدى إيمانويل أديبايور القميص رقم 6 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-044",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص إستيبان غرانيرو مع ريال مدريد بموسم 2010-11؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى إستيبان غرانيرو القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-045",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص بيدرو ليون مع ريال مدريد بموسم 2010-11؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى بيدرو ليون القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-046",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص رافائيل فاران مع ريال مدريد بموسم 2014-15؟",
+    "answer": "2",
+    "answer_english": "2",
+    "acceptableAnswers": [
+      "٢",
+      "رقم 2",
+      "رقم ٢"
+    ],
+    "explanation": "ارتدى رافائيل فاران القميص رقم 2 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-047",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص فابيو كوينتراو مع ريال مدريد بموسم 2014-15؟",
+    "answer": "5",
+    "answer_english": "5",
+    "acceptableAnswers": [
+      "٥",
+      "رقم 5",
+      "رقم ٥"
+    ],
+    "explanation": "ارتدى فابيو كوينتراو القميص رقم 5 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-048",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص خافيير هيرنانديز تشيتشاريتو مع ريال مدريد بموسم 2014-15؟",
+    "answer": "14",
+    "answer_english": "14",
+    "acceptableAnswers": [
+      "١٤",
+      "رقم 14",
+      "رقم ١٤"
+    ],
+    "explanation": "ارتدى خافيير هيرنانديز تشيتشاريتو القميص رقم 14 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-049",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ناتشو فيرنانديز مع ريال مدريد بموسم 2014-15؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى ناتشو فيرنانديز القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-050",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص إيسكو مع ريال مدريد بموسم 2014-15؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى إيسكو القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-051",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص آسيير إيارامندي مع ريال مدريد بموسم 2014-15؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى آسيير إيارامندي القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-052",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ألفارو موراتا مع ريال مدريد بموسم 2016-17؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى ألفارو موراتا القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-053",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص ماتيو كوفاتشيتش مع ريال مدريد بموسم 2016-17؟",
+    "answer": "16",
+    "answer_english": "16",
+    "acceptableAnswers": [
+      "١٦",
+      "رقم 16",
+      "رقم ١٦"
+    ],
+    "explanation": "ارتدى ماتيو كوفاتشيتش القميص رقم 16 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-054",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص لوكاس فاسكيز مع ريال مدريد بموسم 2016-17؟",
+    "answer": "17",
+    "answer_english": "17",
+    "acceptableAnswers": [
+      "١٧",
+      "رقم 17",
+      "رقم ١٧"
+    ],
+    "explanation": "ارتدى لوكاس فاسكيز القميص رقم 17 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-055",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص دانيلو مع ريال مدريد بموسم 2016-17؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى دانيلو القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-056",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كيكو كاسيا مع ريال مدريد بموسم 2016-17؟",
+    "answer": "13",
+    "answer_english": "13",
+    "acceptableAnswers": [
+      "١٣",
+      "رقم 13",
+      "رقم ١٣"
+    ],
+    "explanation": "ارتدى كيكو كاسيا القميص رقم 13 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-057",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص خوسيلو مع ريال مدريد بموسم 2023-24؟",
+    "answer": "14",
+    "answer_english": "14",
+    "acceptableAnswers": [
+      "١٤",
+      "رقم 14",
+      "رقم ١٤"
+    ],
+    "explanation": "ارتدى خوسيلو القميص رقم 14 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-058",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص أوريلين تشواميني مع ريال مدريد بموسم 2023-24؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى أوريلين تشواميني القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-059",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص براهيم دياز مع ريال مدريد بموسم 2023-24؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى براهيم دياز القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-060",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص أنطونيو روديغر مع ريال مدريد بموسم 2023-24؟",
+    "answer": "22",
+    "answer_english": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى أنطونيو روديغر القميص رقم 22 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-061",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص أردا غولر مع ريال مدريد بموسم 2023-24؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى أردا غولر القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-062",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص كيبا أريزابالاغا مع ريال مدريد بموسم 2023-24؟",
+    "answer": "25",
+    "answer_english": "25",
+    "acceptableAnswers": [
+      "٢٥",
+      "رقم 25",
+      "رقم ٢٥"
+    ],
+    "explanation": "ارتدى كيبا أريزابالاغا القميص رقم 25 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-063",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص إدواردو كامافينغا مع ريال مدريد بموسم 2023-24؟",
+    "answer": "12",
+    "answer_english": "12",
+    "acceptableAnswers": [
+      "١٢",
+      "رقم 12",
+      "رقم ١٢"
+    ],
+    "explanation": "ارتدى إدواردو كامافينغا القميص رقم 12 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-064",
+    "kind": "number",
+    "points": 400,
+    "question": "شو كان رقم قميص فيرلان ميندي مع ريال مدريد بموسم 2023-24؟",
+    "answer": "23",
+    "answer_english": "23",
+    "acceptableAnswers": [
+      "٢٣",
+      "رقم 23",
+      "رقم ٢٣"
+    ],
+    "explanation": "ارتدى فيرلان ميندي القميص رقم 23 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-065",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص توماس غرافيسن مع ريال مدريد بموسم 2005-06؟",
+    "answer": "16",
+    "answer_english": "16",
+    "acceptableAnswers": [
+      "١٦",
+      "رقم 16",
+      "رقم ١٦"
+    ],
+    "explanation": "ارتدى توماس غرافيسن القميص رقم 16 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-066",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص فرانسيسكو بافون مع ريال مدريد بموسم 2005-06؟",
+    "answer": "22",
+    "answer_english": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى فرانسيسكو بافون القميص رقم 22 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-067",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص راؤول برافو مع ريال مدريد بموسم 2005-06؟",
+    "answer": "15",
+    "answer_english": "15",
+    "acceptableAnswers": [
+      "١٥",
+      "رقم 15",
+      "رقم ١٥"
+    ],
+    "explanation": "ارتدى راؤول برافو القميص رقم 15 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-068",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص كارلوس ديوغو مع ريال مدريد بموسم 2005-06؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى كارلوس ديوغو القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-069",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص جوناثان وودغيت مع ريال مدريد بموسم 2005-06؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى جوناثان وودغيت القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-070",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص أنطونيو كاسانو مع ريال مدريد بموسم 2005-06؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى أنطونيو كاسانو القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-071",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص ألفارو ميخيا مع ريال مدريد بموسم 2005-06؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى ألفارو ميخيا القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-072",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص إيفان هيلغيرا مع ريال مدريد بموسم 2005-06؟",
+    "answer": "6",
+    "answer_english": "6",
+    "acceptableAnswers": [
+      "٦",
+      "رقم 6",
+      "رقم ٦"
+    ],
+    "explanation": "ارتدى إيفان هيلغيرا القميص رقم 6 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-073",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص سيسينيو مع ريال مدريد بموسم 2006-07؟",
+    "answer": "11",
+    "answer_english": "11",
+    "acceptableAnswers": [
+      "١١",
+      "رقم 11",
+      "رقم ١١"
+    ],
+    "explanation": "ارتدى سيسينيو القميص رقم 11 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-074",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص خوسيه أنطونيو رييس مع ريال مدريد بموسم 2006-07؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى خوسيه أنطونيو رييس القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-075",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص مامادو ديارا مع ريال مدريد بموسم 2006-07؟",
+    "answer": "6",
+    "answer_english": "6",
+    "acceptableAnswers": [
+      "٦",
+      "رقم 6",
+      "رقم ٦"
+    ],
+    "explanation": "ارتدى مامادو ديارا القميص رقم 6 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-076",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص إيفان هيلغيرا مع ريال مدريد بموسم 2006-07؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى إيفان هيلغيرا القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-077",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص أوسكار مينامبريس مع ريال مدريد بموسم 2006-07؟",
+    "answer": "25",
+    "answer_english": "25",
+    "acceptableAnswers": [
+      "٢٥",
+      "رقم 25",
+      "رقم ٢٥"
+    ],
+    "explanation": "ارتدى أوسكار مينامبريس القميص رقم 25 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-078",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص رويستون درينثي مع ريال مدريد بموسم 2007-08؟",
+    "answer": "15",
+    "answer_english": "15",
+    "acceptableAnswers": [
+      "١٥",
+      "رقم 15",
+      "رقم ١٥"
+    ],
+    "explanation": "ارتدى رويستون درينثي القميص رقم 15 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-079",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص خافيير بالبوا مع ريال مدريد بموسم 2007-08؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى خافيير بالبوا القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-080",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص خوليو بابتيستا مع ريال مدريد بموسم 2007-08؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى خوليو بابتيستا القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-081",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص كريستوف ميتسلدر مع ريال مدريد بموسم 2007-08؟",
+    "answer": "21",
+    "answer_english": "21",
+    "acceptableAnswers": [
+      "٢١",
+      "رقم 21",
+      "رقم ٢١"
+    ],
+    "explanation": "ارتدى كريستوف ميتسلدر القميص رقم 21 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-082",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص ميغيل توريس مع ريال مدريد بموسم 2007-08؟",
+    "answer": "22",
+    "answer_english": "22",
+    "acceptableAnswers": [
+      "٢٢",
+      "رقم 22",
+      "رقم ٢٢"
+    ],
+    "explanation": "ارتدى ميغيل توريس القميص رقم 22 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-083",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص خوردي كودينا مع ريال مدريد بموسم 2007-08؟",
+    "answer": "13",
+    "answer_english": "13",
+    "acceptableAnswers": [
+      "١٣",
+      "رقم 13",
+      "رقم ١٣"
+    ],
+    "explanation": "ارتدى خوردي كودينا القميص رقم 13 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-084",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص جيرزي دوديك مع ريال مدريد بموسم 2007-08؟",
+    "answer": "25",
+    "answer_english": "25",
+    "acceptableAnswers": [
+      "٢٥",
+      "رقم 25",
+      "رقم ٢٥"
+    ],
+    "explanation": "ارتدى جيرزي دوديك القميص رقم 25 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-085",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص روبن دي لا ريد مع ريال مدريد بموسم 2008-09؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى روبن دي لا ريد القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-086",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص جوليان فوبير مع ريال مدريد بموسم 2008-09؟",
+    "answer": "18",
+    "answer_english": "18",
+    "acceptableAnswers": [
+      "١٨",
+      "رقم 18",
+      "رقم ١٨"
+    ],
+    "explanation": "ارتدى جوليان فوبير القميص رقم 18 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-087",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص خافي غارسيا مع ريال مدريد بموسم 2008-09؟",
+    "answer": "24",
+    "answer_english": "24",
+    "acceptableAnswers": [
+      "٢٤",
+      "رقم 24",
+      "رقم ٢٤"
+    ],
+    "explanation": "ارتدى خافي غارسيا القميص رقم 24 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-088",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص نوري شاهين مع ريال مدريد بموسم 2011-12؟",
+    "answer": "5",
+    "answer_english": "5",
+    "acceptableAnswers": [
+      "٥",
+      "رقم 5",
+      "رقم ٥"
+    ],
+    "explanation": "ارتدى نوري شاهين القميص رقم 5 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-089",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص حميد ألتينتوب مع ريال مدريد بموسم 2011-12؟",
+    "answer": "16",
+    "answer_english": "16",
+    "acceptableAnswers": [
+      "١٦",
+      "رقم 16",
+      "رقم ١٦"
+    ],
+    "explanation": "ارتدى حميد ألتينتوب القميص رقم 16 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-N-090",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص رافائيل فاران مع ريال مدريد بموسم 2011-12؟",
+    "answer": "19",
+    "answer_english": "19",
+    "acceptableAnswers": [
+      "١٩",
+      "رقم 19",
+      "رقم ١٩"
+    ],
+    "explanation": "ارتدى رافائيل فاران القميص رقم 19 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+  },
+  {
+    "id": "RM-P-001",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع إسباني، 2000-2007)",
+    "answer": "فرانسيسكو بافون",
+    "answer_english": "Francisco Pavon",
+    "acceptableAnswers": [
+      "بافون",
+      "باكو بافون",
+      "فرانشيسكو بافون"
+    ],
+    "explanation": "فرانسيسكو بافون — مدافع إسباني، 2000-2007.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/francisco-pavon-barahona",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330613786441?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/francisco-pavon-barahona",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-002",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع إسباني، 2001-2007)",
+    "answer": "راؤول برافو",
+    "answer_english": "Raul Bravo",
+    "acceptableAnswers": [
+      "راؤول برافو",
+      "راول برافو"
+    ],
+    "explanation": "راؤول برافو — مدافع إسباني، 2001-2007.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-bravo-sanfelix",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330785706003?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-bravo-sanfelix",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-003",
+    "kind": "photo",
+    "points": 400,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع إسباني، 1999-2007)",
+    "answer": "إيفان هيلغيرا",
+    "answer_english": "Ivan Helguera",
+    "acceptableAnswers": [
+      "هيلغيرا",
+      "هيلغويرا",
+      "إيفان هيلغويرا"
+    ],
+    "explanation": "إيفان هيلغيرا — مدافع إسباني، 1999-2007.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ivan-helguera-bujia",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261162?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ivan-helguera-bujia",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-004",
+    "kind": "photo",
+    "points": 400,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (ظهير إسباني، 1999-2009)",
+    "answer": "ميشيل سالغادو",
+    "answer_english": "Michel Salgado",
+    "acceptableAnswers": [
+      "سالغادو",
+      "سلغادو",
+      "ميشيل سالجادو"
+    ],
+    "explanation": "ميشيل سالغادو — ظهير إسباني، 1999-2009.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/miguel-angel-salgado-fernandez",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261025?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/miguel-angel-salgado-fernandez",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-005",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع برازيلي، 1999-2000)",
+    "answer": "خوليو سيزار",
+    "answer_english": "Julio Cesar",
+    "acceptableAnswers": [
+      "جوليو سيزار",
+      "خوليو سيزار سانتوس"
+    ],
+    "explanation": "خوليو سيزار — مدافع برازيلي، 1999-2000.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/julio-cesar-santos-correa",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330785706097?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/julio-cesar-santos-correa",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-006",
+    "kind": "photo",
+    "points": 400,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (لاعب وسط إنجليزي، 1999-2003)",
+    "answer": "ستيف ماكمانامان",
+    "answer_english": "Steve McManaman",
+    "acceptableAnswers": [
+      "ماكمانامان",
+      "مكمانامان",
+      "ستيف ماكمانمان"
+    ],
+    "explanation": "ستيف ماكمانامان — لاعب وسط إنجليزي، 1999-2003.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/steven-mcmanaman",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1395344646079?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/steven-mcmanaman",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-007",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع إسباني، 1998-2002)",
+    "answer": "إيفان كامبو",
+    "answer_english": "Ivan Campo",
+    "acceptableAnswers": [
+      "كامبو",
+      "ايفان كامبو"
+    ],
+    "explanation": "إيفان كامبو — مدافع إسباني، 1998-2002.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ivan-campo-ramos",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330613794649?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ivan-campo-ramos",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-008",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (مدافع إسباني، 1997-2002)",
+    "answer": "أيتور كارانكا",
+    "answer_english": "Aitor Karanka",
+    "acceptableAnswers": [
+      "كارانكا",
+      "كارنكا"
+    ],
+    "explanation": "أيتور كارانكا — مدافع إسباني، 1997-2002.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/aitor-karanka-de-la-hoz",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1395344415485?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/aitor-karanka-de-la-hoz",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-009",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (ظهير برازيلي، 2006-2007)",
+    "answer": "سيسينيو",
+    "answer_english": "Cicinho",
+    "acceptableAnswers": [
+      "سيسينهو",
+      "سيسينيو",
+      "سيسينهو"
+    ],
+    "explanation": "سيسينيو — ظهير برازيلي، 2006-2007.",
+    "source_url": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/cicero-joao-de-cezare",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/CICINHO-02?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/cicero-joao-de-cezare",
+    "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-P-010",
+    "kind": "photo",
+    "points": 600,
+    "question": "مين هذا اللاعب اللي لعب مع ريال مدريد؟ (لاعب وسط من مالي، 2006-2011)",
+    "answer": "مامادو ديارا",
+    "answer_english": "Mahamadou Diarra",
+    "acceptableAnswers": [
+      "محمدو ديارا",
+      "مامادو ديارا",
+      "محمد ديارا"
+    ],
+    "explanation": "مامادو ديارا — لاعب وسط من مالي، 2006-2011.",
+    "source_url": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/mahamadou-diarra",
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/DIARRA-01?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/mahamadou-diarra",
+    "imageCaption": "صورة اللاعب"
   }
 ]

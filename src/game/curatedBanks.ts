@@ -152,7 +152,7 @@ export const FOOTBALL_LETTERS_CATEGORY: DeckCategory = {
   description: 'أسئلة كرة قدم تبدأ إجاباتها بالحرف الظاهر',
   iconKey: 'sports',
   accentColor: '#1B758E',
-  availableDifficulties: ['medium', 'hard'],
+  availableDifficulties: ['easy', 'medium', 'hard'],
 };
 
 export const ISLAMIC_LETTERS_CATEGORY: DeckCategory = {
@@ -352,10 +352,10 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: WORLD_WARS_CATEGORY, questionCount: 75 },
   { category: HADITH_CATEGORY, questionCount: 50 },
   { category: STORY_LOGIC_CATEGORY, questionCount: 75 },
-  { category: REAL_MADRID_CATEGORY, questionCount: 70 },
+  { category: REAL_MADRID_CATEGORY, questionCount: 170 },
   { category: BARCELONA_CATEGORY, questionCount: 50 },
   { category: REVERSED_WORDS_CATEGORY, questionCount: 60 },
-  { category: FOOTBALL_LETTERS_CATEGORY, questionCount: 100 },
+  { category: FOOTBALL_LETTERS_CATEGORY, questionCount: 130 },
   { category: ISLAMIC_LETTERS_CATEGORY, questionCount: 150 },
   { category: MEDICAL_CATEGORY, questionCount: 50 },
   { category: SCIENCE_QUIZ_CATEGORY, questionCount: 150 },
