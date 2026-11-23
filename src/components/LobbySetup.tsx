@@ -26,7 +26,7 @@ import {
   buildBoardDeckFromCategories,
   STARTER_DEMO_DECK,
 } from '../game/starterDecks';
-import type { DeckCategory, LifelineType, MatchSettings, QuizDeck } from '../game/types';
+import type { DeckCategory, LifelineType, MatchSettings, QuizDeck, QuizQuestion } from '../game/types';
 import { CATEGORY_3D_ART, getCategoryCardArt } from '../utils/gameAssets';
 import {
   getAvailableMenuTabs,
@@ -266,13 +266,40 @@ export function LobbySetup({
     resetCategoryProgress,
   } = useAccount();
 
+  // Downloaded official decks are also selectable as individual categories alongside
+  // built-in ones. Hidden decks are already excluded from the `decks` prop.
+  const { recoveredCategories, recoveredQuestions } = useMemo(() => {
+    const seenCategoryIds = new Set(allCategoriesForLobby.map((cat) => cat.id));
+    const categories: DeckCategory[] = [];
+    const questions: QuizQuestion[] = [];
+    for (const deck of decks) {
+      if (!recoveredMetaById[deck.id] || (deck.boardMode && deck.boardMode !== 'categories')) continue;
+      for (const category of deck.categories) {
+        if (seenCategoryIds.has(category.id)) continue;
+        const approvedQuestions = deck.questions.filter(
+          (question) => question.categoryId === category.id && question.status === 'approved',
+        );
+        if (approvedQuestions.length === 0) continue;
+        seenCategoryIds.add(category.id);
+        categories.push(category);
+        questions.push(...approvedQuestions);
+      }
+    }
+    return { recoveredCategories: categories, recoveredQuestions: questions };
+  }, [allCategoriesForLobby, decks, recoveredMetaById]);
+
+  const selectableCategories = useMemo(
+    () => [...allCategoriesForLobby, ...recoveredCategories],
+    [allCategoriesForLobby, recoveredCategories],
+  );
+
   const selectedDeck = useMemo(() => {
     if (selectedDeckId === 'curated_custom') {
       return buildBoardDeckFromCategories(
         customCategories,
         undefined,
-        adminCustomQuestions,
-        adminCustomCategories,
+        [...adminCustomQuestions, ...recoveredQuestions],
+        [...adminCustomCategories, ...recoveredCategories],
       );
     }
     if (approvedLesson?.id === selectedDeckId) return approvedLesson;
@@ -282,6 +309,8 @@ export function LobbySetup({
     customCategories,
     adminCustomQuestions,
     adminCustomCategories,
+    recoveredQuestions,
+    recoveredCategories,
     decks,
     approvedLesson,
   ]);
@@ -466,8 +495,8 @@ export function LobbySetup({
               : activeCategoryIdsForPreflight,
           teams,
           settings,
-          extraCategories: adminCustomCategories,
-          extraQuestions: adminCustomQuestions,
+          extraCategories: [...adminCustomCategories, ...recoveredCategories],
+          extraQuestions: [...adminCustomQuestions, ...recoveredQuestions],
           playedQuestionIdsByCategory: user ? getPlayedMapForMatch() : {},
           accountActive: Boolean(user),
           clientDeck: isRecoveredSelected ? selectedDeck : undefined,
@@ -495,13 +524,13 @@ export function LobbySetup({
   };
 
   const menuTabs = useMemo(
-    () => getAvailableMenuTabs(allCategoriesForLobby),
-    [allCategoriesForLobby],
+    () => getAvailableMenuTabs(selectableCategories),
+    [selectableCategories],
   );
 
   const groupedCategorySections = useMemo(
-    () => groupCategoriesForLobby(allCategoriesForLobby, searchQuery, focusedMenuGroup),
-    [allCategoriesForLobby, searchQuery, focusedMenuGroup],
+    () => groupCategoriesForLobby(selectableCategories, searchQuery, focusedMenuGroup),
+    [selectableCategories, searchQuery, focusedMenuGroup],
   );
 
   const centerMenuTabPill = (groupId: 'all' | CategoryMenuId) => {
@@ -665,13 +694,13 @@ export function LobbySetup({
 
   const selectedCategoryItems: DeckCategory[] = useMemo(() => {
     if (selectedDeckId === 'curated_custom') {
-      const byId = new Map(allCategoriesForLobby.map((c) => [c.id, c]));
+      const byId = new Map(selectableCategories.map((c) => [c.id, c]));
       return customCategories
         .map((id) => byId.get(id))
         .filter((c): c is DeckCategory => Boolean(c));
     }
     return selectedDeck.categories.filter((c) => activeCategoryIdsForPreflight.includes(c.id));
-  }, [selectedDeckId, customCategories, selectedDeck, activeCategoryIdsForPreflight, allCategoriesForLobby]);
+  }, [selectedDeckId, customCategories, selectedDeck, activeCategoryIdsForPreflight, selectableCategories]);
 
   const isClassicPresetActive =
     selectedDeckId === 'curated_custom' &&
@@ -683,7 +712,7 @@ export function LobbySetup({
 
   const handlePickRandomCategories = () => {
     soundFX.playClick();
-    const pool = allCategoriesForLobby.map((c) => c.id);
+    const pool = selectableCategories.map((c) => c.id);
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
@@ -1239,7 +1268,7 @@ export function LobbySetup({
                         : 'bg-[#F2ECE0] text-[#1F112E]'
                     }`}
                   >
-                    {allCategoriesForLobby.length}
+                    {selectableCategories.length}
                   </span>
                 </button>
 
