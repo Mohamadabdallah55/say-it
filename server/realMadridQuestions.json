@@ -800,21 +800,6 @@
     "imageCaption": "زيدان بقميص النادي رقم 5 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-002",
-    "kind": "number",
-    "points": 200,
-    "question": "شو كان رقم قميص رونالدو نازاريو مع ريال مدريد بموسم 2005-06؟",
-    "answer": "9",
-    "answer_english": "9",
-    "acceptableAnswers": [
-      "٩",
-      "رقم 9",
-      "رقم ٩"
-    ],
-    "explanation": "ارتدى رونالدو نازاريو القميص رقم 9 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
-  },
-  {
     "id": "RM-N-003",
     "kind": "number",
     "points": 200,
@@ -977,21 +962,6 @@
     "imageCaption": "كروس بقميص النادي رقم 8 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-012",
-    "kind": "number",
-    "points": 200,
-    "question": "شو كان رقم قميص خاميس رودريغيز مع ريال مدريد بموسم 2016-17؟",
-    "answer": "10",
-    "answer_english": "10",
-    "acceptableAnswers": [
-      "١٠",
-      "رقم 10",
-      "رقم ١٠"
-    ],
-    "explanation": "ارتدى خاميس رودريغيز القميص رقم 10 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
-  },
-  {
     "id": "RM-N-013",
     "kind": "number",
     "points": 200,
@@ -1008,21 +978,6 @@
     "imageUrl": "https://assets.goal.com/images/v3/bltdb12ecb47006c381/b648035f6793cda4d2dcc21ea0e63d76f166bfe5.jpg?auto=webp&format=pjpg&quality=60&width=3840",
     "imageSourceUrl": "https://www.goal.com/tr/haber/portekizden-flas-iddia-fenerbahce-de-pepeye-teklif-yapti/yg5zp2hecz1w1qubt7l3udjs8",
     "imageCaption": "بيبي بقميص النادي رقم 3 — صورة توضيحية للرقم وقد تكون من موسم آخر"
-  },
-  {
-    "id": "RM-N-014",
-    "kind": "number",
-    "points": 200,
-    "question": "شو كان رقم قميص كيلور نافاس مع ريال مدريد بموسم 2016-17؟",
-    "answer": "1",
-    "answer_english": "1",
-    "acceptableAnswers": [
-      "١",
-      "رقم 1",
-      "رقم ١"
-    ],
-    "explanation": "ارتدى كيلور نافاس القميص رقم 1 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
   },
   {
     "id": "RM-N-015",
@@ -1241,21 +1196,6 @@
     "imageCaption": "كريستيانو رونالدو بقميص النادي رقم 9 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
   },
   {
-    "id": "RM-N-027",
-    "kind": "number",
-    "points": 400,
-    "question": "شو كان رقم قميص كريم بنزيما مع ريال مدريد بموسم 2009-10؟",
-    "answer": "11",
-    "answer_english": "11",
-    "acceptableAnswers": [
-      "١١",
-      "رقم 11",
-      "رقم ١١"
-    ],
-    "explanation": "ارتدى كريم بنزيما القميص رقم 11 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
-  },
-  {
     "id": "RM-N-028",
     "kind": "number",
     "points": 400,
@@ -1301,7 +1241,10 @@
       "رقم ٢٠"
     ],
     "explanation": "ارتدى غونزالو هيغواين القميص رقم 20 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://dve-images.imggaming.com/original/p/2023/09/07/sdLK4kFEhbVS0OTMiLYI0cAo8HKN17kp-1694078436408.jpg",
+    "imageSourceUrl": "https://play.realmadrid.com/interstitial/494811",
+    "imageCaption": "هيغواين — رقم 20 ظاهر على ظهر القميص"
   },
   {
     "id": "RM-N-031",
@@ -1346,7 +1289,10 @@
       "رقم ٢"
     ],
     "explanation": "ارتدى ألفارو أربيلوا القميص رقم 2 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://sports-pctr.c.yimg.jp/dk/iwiz-sports/text/images/2010/0219/201002190007-spnavi_2010021900012_view.jpg",
+    "imageSourceUrl": "https://sports.yahoo.co.jp/column/detail/201002190007-spnavi",
+    "imageCaption": "أربيلوا — رقم 2 ظاهر على ظهر القميص"
   },
   {
     "id": "RM-N-034",
@@ -1499,7 +1445,10 @@
       "رقم ٦"
     ],
     "explanation": "ارتدى إيمانويل أديبايور القميص رقم 6 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://iv1.lisimg.com/image/9387794/740full-emmanuel-adebayor.jpg",
+    "imageSourceUrl": "https://www.listal.com/viewimage/9387794",
+    "imageCaption": "أديبايور — رقم 6 ظاهر على الشورت"
   },
   {
     "id": "RM-N-044",
@@ -1562,7 +1511,10 @@
       "رقم ٥"
     ],
     "explanation": "ارتدى فابيو كوينتراو القميص رقم 5 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://fotografias.lasexta.com/clipping/cmsimages01/2020/11/16/57DE41D3-E036-4FCC-9152-314E1CED1078/104.jpg?crop=2266%2C2266%2Cx0%2Cy0&format=webply&height=1200&optimize=low&width=1200",
+    "imageSourceUrl": "https://www.lasexta.com/noticias/deportes/futbol/fabio-coentrao-orgulloso-carrera-real-madrid-todos_202011165fb2b4aef1b0790001aa9787.html",
+    "imageCaption": "كوينتراو — رقم 5 ظاهر على الشورت (صورة قد تكون من موسم آخر بنفس الرقم)"
   },
   {
     "id": "RM-N-048",
@@ -1577,7 +1529,10 @@
       "رقم ١٤"
     ],
     "explanation": "ارتدى خافيير هيرنانديز تشيتشاريتو القميص رقم 14 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://d.ibtimes.co.uk/en/full/1433146/javier-hernandez.jpg",
+    "imageSourceUrl": "https://www.ibtimes.co.uk/real-madrid-ready-send-javier-hernandez-chicharito-back-manchester-united-1503013",
+    "imageCaption": "تشيتشاريتو — رقم 14 ظاهر على ظهر القميص"
   },
   {
     "id": "RM-N-049",
@@ -1628,21 +1583,6 @@
     "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
   },
   {
-    "id": "RM-N-052",
-    "kind": "number",
-    "points": 400,
-    "question": "شو كان رقم قميص ألفارو موراتا مع ريال مدريد بموسم 2016-17؟",
-    "answer": "21",
-    "answer_english": "21",
-    "acceptableAnswers": [
-      "٢١",
-      "رقم 21",
-      "رقم ٢١"
-    ],
-    "explanation": "ارتدى ألفارو موراتا القميص رقم 21 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
-  },
-  {
     "id": "RM-N-053",
     "kind": "number",
     "points": 400,
@@ -1688,7 +1628,10 @@
       "رقم ٢٣"
     ],
     "explanation": "ارتدى دانيلو القميص رقم 23 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://cdn.mos.cms.futurecdn.net/v2/t%3A0%2Cl%3A105%2Ccw%3A600%2Cch%3A450%2Cq%3A80%2Cw%3A600/gHvP47zPBcDxpaxNvC5AnH.png",
+    "imageSourceUrl": "https://www.fourfourtwo.com/features/how-danilo-helps-complete-real-madrids-new-watertight-defence",
+    "imageCaption": "دانيلو — رقم 23 ظاهر على ظهر القميص (صورة قد تكون من موسم آخر بنفس الرقم)"
   },
   {
     "id": "RM-N-056",
@@ -1790,7 +1733,10 @@
       "رقم ٢٤"
     ],
     "explanation": "ارتدى أردا غولر القميص رقم 24 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://getfootballnewsspain.com/wp-content/uploads/2024/04/topshot-fbl-esp-liga-real-sociedad-real-madrid.jpg",
+    "imageSourceUrl": "https://getfootballnewsspain.com/arda-guler-explains-why-real-madrid-didnt-celebrate-a-lot-in-win-over-granada/",
+    "imageCaption": "أردا غولر — رقم 24 ظاهر على ظهر القميص"
   },
   {
     "id": "RM-N-062",
@@ -1805,7 +1751,10 @@
       "رقم ٢٥"
     ],
     "explanation": "ارتدى كيبا أريزابالاغا القميص رقم 25 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/y33btGJdVWIocpm21ckFdg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ0MjtjZj13ZWJw/https%3A/media.zenfs.com/en/wealth_of_geeks_188/b7e7e4f532e9be59ac8490669f96e4e5",
+    "imageSourceUrl": "https://uk.sports.yahoo.com/news/final-whistle-hurts-kepa-arrizabalaga-165024760.html",
+    "imageCaption": "كيبا — رقم 25 ظاهر على الشورت"
   },
   {
     "id": "RM-N-063",
@@ -1838,7 +1787,10 @@
       "رقم ٢٣"
     ],
     "explanation": "ارتدى فيرلان ميندي القميص رقم 23 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://minutemedia-ressh.cloudinary.com/image/upload/v1695084524/shape/cover/sport/02cbf6ad6b1eac75a58ffd32c44a4a2d31c97cc3a88fb1e7e8009aa071e547a2.jpg",
+    "imageSourceUrl": "https://therealchamps.com/2022/04/30/real-madrid-open-sell-ferland-mendy/",
+    "imageCaption": "ميندي — رقم 23 ظاهر على ظهر القميص (صورة قد تكون من موسم آخر بنفس الرقم)"
   },
   {
     "id": "RM-N-088",
@@ -1868,7 +1820,10 @@
       "رقم ١٩"
     ],
     "explanation": "ارتدى رافائيل فاران القميص رقم 19 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://www.lequipe.fr/_medias/img-photo-jpg/-j-m-colomo-cordon-presse-spor-presse-sports/1500000002056755/0%3A0%2C1998%3A1332-1008-672-75/81d94.jpg",
+    "imageSourceUrl": "https://www.lequipe.fr/Football/Actualites/Diaporama-raphael-varane-le-parcours-d-un-champion/1509820",
+    "imageCaption": "فاران — رقم 19 ظاهر على الشورت"
   },
   {
     "id": "RM-P-001",
@@ -2045,5 +2000,23 @@
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/DIARRA-01?%24Mobile%24=&fit=wrap&wid=312",
     "imageSourceUrl": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/mahamadou-diarra",
     "imageCaption": "صورة اللاعب"
+  },
+  {
+    "id": "RM-N-089",
+    "kind": "number",
+    "points": 600,
+    "question": "شو كان رقم قميص حميد ألتينتوب مع ريال مدريد بموسم 2011-12؟",
+    "answer": "16",
+    "answer_english": "16",
+    "acceptableAnswers": [
+      "١٦",
+      "رقم 16",
+      "رقم ١٦"
+    ],
+    "explanation": "ارتدى حميد ألتينتوب القميص رقم 16 في ذلك الموسم.",
+    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
+    "imageUrl": "https://dokuzeylulcom.teimg.com/dokuzeylul-com/uploads/2023/07/hamit-altintop-2011-2012-real-madrid.jpeg",
+    "imageSourceUrl": "https://www.dokuzeylul.com/real-madridde-oynayan-turk-futbolcu-var-mi-arda-guler-real-madridde-oynayacak-ilk-turk-mu",
+    "imageCaption": "ألتينتوب — رقم 16 ظاهر على ظهر القميص"
   }
 ]

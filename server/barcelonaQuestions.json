@@ -330,36 +330,6 @@
     "kind": "history"
   },
   {
-    "id": "BAR-N-011",
-    "points": 400,
-    "kind": "number",
-    "question": "شو كان رقم قميص أندريس إنييستا مع برشلونة بموسم 2006-07؟",
-    "answer": "24",
-    "acceptableAnswers": [
-      "٢٤",
-      "رقم 24",
-      "رقم ٢٤"
-    ],
-    "explanation": "ارتدى أندريس إنييستا القميص رقم 24 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
-  },
-  {
-    "id": "BAR-N-012",
-    "points": 400,
-    "kind": "number",
-    "question": "شو كان رقم قميص زلاتان إبراهيموفيتش مع برشلونة بموسم 2009-10؟",
-    "answer": "9",
-    "acceptableAnswers": [
-      "٩",
-      "رقم 9",
-      "رقم ٩"
-    ],
-    "explanation": "ارتدى زلاتان إبراهيموفيتش القميص رقم 9 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
-  },
-  {
     "id": "BAR-N-013",
     "points": 400,
     "kind": "number",
@@ -462,7 +432,10 @@
     ],
     "explanation": "ارتدى بويان كركيتش القميص رقم 9 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://isport.ua/i/71/98/21/6/7198216/image_main/1551841743244bcc58b4ca06559d17cd-quality_70Xresize_1Xallow_enlarge_0Xw_835Xh_0.jpg",
+    "imageSourceUrl": "https://isport.ua/football/europe/7198216-krkich-obyavil-o-zavershenii-karery",
+    "imageCaption": "بويان — رقم 9 ظاهر على الشورت"
   },
   {
     "id": "BAR-N-019",
@@ -507,7 +480,10 @@
     ],
     "explanation": "ارتدى إيريك أبيدال القميص رقم 22 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://cdn.resfu.com/media/img_news/eric-abidal-celebra-su-gol-en-el-bernabeu-ante-el-real-madrid-en-la-copa-del-rey-de-la-temporada-2011-12--fcbarcelona.jpg?lossy=1&size=1200x",
+    "imageSourceUrl": "https://es.besoccer.com/noticia/abidal-convencido-de-que-el-mejor-barcelona-volvera",
+    "imageCaption": "أبيدال — رقم 22 ظاهر على ظهر القميص (صورة قد تكون من موسم آخر بنفس الرقم)"
   },
   {
     "id": "BAR-N-022",
@@ -525,21 +501,6 @@
     "isPlayer": false
   },
   {
-    "id": "BAR-N-023",
-    "points": 400,
-    "kind": "number",
-    "question": "شو كان رقم قميص أليكسيس سانشيز مع برشلونة بموسم 2013-14؟",
-    "answer": "9",
-    "acceptableAnswers": [
-      "٩",
-      "رقم 9",
-      "رقم ٩"
-    ],
-    "explanation": "ارتدى أليكسيس سانشيز القميص رقم 9 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
-  },
-  {
     "id": "BAR-N-024",
     "points": 400,
     "kind": "number",
@@ -552,7 +513,10 @@
     ],
     "explanation": "ارتدى كلوديو برافو القميص رقم 13 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://d.ibtimes.co.uk/en/full/1543263/claudio-bravo.jpg",
+    "imageSourceUrl": "https://www.ibtimes.co.uk/barcelona-confirm-agreement-manchester-city-sell-claudio-bravo-1577219",
+    "imageCaption": "كلوديو برافو — رقم 13 ظاهر على ظهر القميص (صورة قد تكون من موسم آخر بنفس الرقم)"
   },
   {
     "id": "BAR-P-001",
@@ -688,7 +652,10 @@
     ],
     "explanation": "ارتدى سيدو كيتا القميص رقم 15 في ذلك الموسم.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false
+    "isPlayer": false,
+    "imageUrl": "https://www.lavanguardia.com/files/article_main_microformat/uploads/2011/03/05/5f9afe88a243f.jpeg",
+    "imageSourceUrl": "https://www.lavanguardia.com/deportes/futbol/20110305/54123773909/keita-le-da-el-triunfo-a-un-barca-sobrado-ante-el-zaragoza.html",
+    "imageCaption": "سيدو كيتا — رقم 15 ظاهر على ظهر القميص"
   },
   {
     "id": "BAR-N-029",

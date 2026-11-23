@@ -4,8 +4,8 @@ import { REAL_MADRID_QUESTIONS } from './imageQuestionBanks';
 import { REAL_MADRID_CATEGORY, SERVER_CURATED_CATEGORIES } from '../src/game/curatedBanks';
 import rows from './realMadridQuestions.json';
 
-test('Madrid preserves the original questions and adds shirt numbers and historical photos', () => {
-  assert.equal(rows.length, 146);
+test('Madrid includes historical photos and illustrated shirt number questions', () => {
+  assert.equal(rows.length, 142);
   assert.equal(SERVER_CURATED_CATEGORIES.find(x=>x.category.id===REAL_MADRID_CATEGORY.id)?.questionCount, rows.length);
   assert.equal(new Set(rows.map(q=>q.id)).size, rows.length);
   for (const row of rows) {

@@ -10,12 +10,12 @@ import { SERVER_CURATED_QUESTIONS } from './curatedQuestionBanks';
 test('Barcelona is registered, has unique questions and images on every player answer', () => {
   assert.equal(resolveCategoryMenuGroup(BARCELONA_CATEGORY), 'football');
   assert.ok(PRIVATE_REFERENCE_CATEGORY_IDS.includes(BARCELONA_CATEGORY.id));
-  assert.equal(SERVER_CURATED_CATEGORIES.find(x => x.category.id === BARCELONA_CATEGORY.id)?.questionCount, 50);
-  assert.equal(SERVER_CURATED_QUESTIONS.filter(q => q.categoryId === BARCELONA_CATEGORY.id).length, 50);
-  assert.equal(new Set(rows.map(q => q.id)).size, 50);
-  assert.equal(new Set(rows.map(q => q.question)).size, 50);
-  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [18,20,12]);
-  assert.equal(rows.filter(q => q.kind === 'number').length, 30);
+  assert.equal(SERVER_CURATED_CATEGORIES.find(x => x.category.id === BARCELONA_CATEGORY.id)?.questionCount, 47);
+  assert.equal(SERVER_CURATED_QUESTIONS.filter(q => q.categoryId === BARCELONA_CATEGORY.id).length, 47);
+  assert.equal(new Set(rows.map(q => q.id)).size, 47);
+  assert.equal(new Set(rows.map(q => q.question)).size, 47);
+  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [18,17,12]);
+  assert.equal(rows.filter(q => q.kind === 'number').length, 27);
   assert.equal(rows.filter(q => q.kind === 'photo').length, 10);
   for (const row of rows.filter(q => q.kind === 'number' && q.imageUrl)) {
     const question = BARCELONA_QUESTIONS.find(q => q.id === row.id);
