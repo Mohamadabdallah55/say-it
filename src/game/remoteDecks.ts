@@ -561,6 +561,9 @@ export function hydrateDeckImagesFromCache(
     return {
       ...q,
       imageUrl: nextImageUrl,
+      // Mixed-category matches go through a server sanitizer that accepts HTTPS image URLs,
+      // so retain the original while showing the cached image offline in the lobby.
+      remoteOriginalImageUrl: nextImageUrl !== q.imageUrl ? (q.remoteOriginalImageUrl || q.imageUrl) : q.remoteOriginalImageUrl,
       answerImageUrl: nextAnswerImageUrl,
       afterImageUrl: nextAfterImageUrl,
       memorySecondImageUrl: nextMemorySecond,
