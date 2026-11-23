@@ -77,6 +77,10 @@ export interface DeckCategory {
   description?: string;
   iconKey: CategoryIconKey;
   accentColor: string;
+  /** Optional section in the official category picker (e.g. world or football). */
+  menuGroup?: 'football' | 'islamic' | 'quran' | 'language' | 'science' | 'world' | 'jordan' | 'visual';
+  /** Optional photo shown on the official category card. */
+  coverImageUrl?: string;
   isVip?: boolean;
   isActive?: boolean;
   isCustom?: boolean;
