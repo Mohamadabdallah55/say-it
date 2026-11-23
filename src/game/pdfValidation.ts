@@ -309,7 +309,10 @@ export function validateQuizQuestion(
       return undefined;
     })(),
     previewImageUrl:
-      typeof question.previewImageUrl === 'string' && question.previewImageUrl.trim().startsWith('/api/hashemite-university/photos/')
+      typeof question.previewImageUrl === 'string' && (
+        question.previewImageUrl.trim().startsWith('/api/hashemite-university/photos/') ||
+        /^\/api\/zoomed-image\/photos\/ZOOM-\d{3}\/preview$/.test(question.previewImageUrl.trim())
+      )
         ? question.previewImageUrl.trim()
         : undefined,
     imageBase64:

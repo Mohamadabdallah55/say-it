@@ -54,6 +54,7 @@ import {
 import { SERVER_CURATED_QUESTIONS } from './server/curatedQuestionBanks';
 import { serveClubLogoPreview } from './server/clubLogoPreview';
 import { serveHashemiteUniversityPreview } from './server/hashemiteUniversityPreview';
+import { serveZoomedImagePreview } from './server/zoomedImagePreview';
 import { CURATED_QUESTIONS } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
 import { serveQuranRecitation } from './server/quranRecitation';
@@ -172,6 +173,7 @@ async function startServer() {
   app.get('/api/quran-audio/:id', serveQuranRecitation);
   app.get('/api/club-logos/:id/preview', serveClubLogoPreview);
   app.get('/api/hashemite-university/photos/:id/preview', serveHashemiteUniversityPreview);
+  app.get('/api/zoomed-image/photos/:id/preview', serveZoomedImagePreview);
 
   // --- Decks & USB JSON Export/Import ---
   app.get('/api/decks', (_req, res) => {

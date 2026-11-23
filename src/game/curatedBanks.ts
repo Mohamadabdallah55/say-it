@@ -7,6 +7,7 @@ import { RASHIDUN_CATEGORY, RASHIDUN_COUNT } from './rashidun';
 import { WORLD_CUP_2026_CATEGORY, WORLD_CUP_2026_COUNT } from './worldCup2026';
 import { PROPHET_STORIES_CATEGORY, PROPHET_STORIES_COUNT } from './prophetStories';
 import { GUESS_SOUND_CATEGORY, GUESS_SOUND_COUNT } from './guessSound';
+import { ZOOMED_IMAGE_CATEGORY, ZOOMED_IMAGE_COUNT } from './zoomedImage';
 import type { DeckCategory } from './types';
 
 export const FLAGS_CATEGORY: DeckCategory = {
@@ -292,6 +293,7 @@ export const SILENT_ACTING_CATEGORY: DeckCategory = {
 export const SILENT_ACTING_COUNT = 100;
 
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
+  ZOOMED_IMAGE_CATEGORY.id,
   SILENT_ACTING_CATEGORY.id,
   GUESS_SOUND_CATEGORY.id,
   HASHEMITE_UNIVERSITY_CATEGORY.id,
@@ -361,6 +363,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: FOUR_PICTURES_CATEGORY, questionCount: 38 },
   { category: ARABIC_DIALECTS_CATEGORY, questionCount: ARABIC_DIALECTS_COUNT },
   { category: SILENT_ACTING_CATEGORY, questionCount: SILENT_ACTING_COUNT },
+  { category: ZOOMED_IMAGE_CATEGORY, questionCount: ZOOMED_IMAGE_COUNT },
   { category: GUESS_SOUND_CATEGORY, questionCount: GUESS_SOUND_COUNT },
 ];
 

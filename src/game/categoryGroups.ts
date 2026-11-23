@@ -154,6 +154,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_visual_memory: 'visual',
   cat_silent_acting: 'visual',
   cat_guess_sound: 'visual',
+  cat_zoomed_image: 'visual',
 };
 
 const ICON_TO_GROUP: Partial<Record<CategoryIconKey, CategoryMenuId>> = {
