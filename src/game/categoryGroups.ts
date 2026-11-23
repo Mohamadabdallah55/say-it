@@ -139,6 +139,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_flags: 'world',
   cat_capitals_currencies: 'world',
   cat_world_wars: 'world',
+  world_food: 'world',
   cat_general: 'world',
   cat_history: 'world',
 
