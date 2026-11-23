@@ -290,6 +290,13 @@ function normalizeRemoteCategories(rawCategories: unknown[]): DeckCategory[] {
       description: typeof cat.description === 'string' ? cat.description.trim() : undefined,
       iconKey,
       accentColor,
+      menuGroup: [
+        'football', 'islamic', 'quran', 'language', 'science', 'world', 'jordan', 'visual',
+      ].includes(String(cat.menuGroup)) ? cat.menuGroup as DeckCategory['menuGroup'] : undefined,
+      coverImageUrl:
+        typeof cat.coverImageUrl === 'string' && isSafeRenderableImageUrl(cat.coverImageUrl)
+          ? cat.coverImageUrl.trim()
+          : undefined,
       availableDifficulties: Array.isArray(cat.availableDifficulties)
         ? (cat.availableDifficulties.filter(
             (d) => d === 'easy' || d === 'medium' || d === 'hard',
