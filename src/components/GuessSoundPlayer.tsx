@@ -126,10 +126,12 @@ export function GuessSoundPlayer({
       // Guard if user clicked stop or switched question while loading
       if (tracksRef.current !== tracks) return;
 
-      const resolvedDuration =
-        Number.isFinite(tracks[0]?.duration) && tracks[0].duration > 0
-          ? tracks[0].duration
-          : playbackSeconds;
+      const resolvedDuration = Math.min(
+        playbackSeconds,
+        ...tracks.map(track =>
+          Number.isFinite(track.duration) && track.duration > 0 ? track.duration : playbackSeconds,
+        ),
+      );
       setTotalSec(resolvedDuration);
 
       let endedCount = 0;
@@ -160,8 +162,7 @@ export function GuessSoundPlayer({
       const tick = () => {
         if (tracksRef.current !== tracks) return;
         const lead = tracks[0];
-        const duration =
-          Number.isFinite(lead?.duration) && lead.duration > 0 ? lead.duration : resolvedDuration;
+        const duration = resolvedDuration;
         const current =
           lead && !lead.paused && Number.isFinite(lead.currentTime)
             ? lead.currentTime
@@ -171,6 +172,12 @@ export function GuessSoundPlayer({
         setProgress(Math.min(100, Math.max(0, (clamped / duration) * 100)));
         if (clamped < duration && tracks.some((t) => !t.ended && !t.paused)) {
           rafRef.current = requestAnimationFrame(tick);
+        } else {
+          for (const track of tracks) track.pause();
+          setProgress(100);
+          setElapsedSec(duration);
+          setStatus('ended');
+          rafRef.current = null;
         }
       };
       rafRef.current = requestAnimationFrame(tick);

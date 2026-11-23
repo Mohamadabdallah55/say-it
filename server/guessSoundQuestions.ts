@@ -55,6 +55,7 @@ export const GUESS_SOUND_QUESTIONS: QuizQuestion[] = GUESS_SOUND_ALL_ROWS.map((r
   );
 
   const modeLabel = row.mode === 'mix' ? 'تحدّي صوتين بنفس الوقت' : `التصنيف: ${row.group}`;
+  const datasetLabel = Array.from(new Set(row.audio.map(track => track.dataset))).join(' + ');
 
   return {
     id: row.id,
@@ -70,7 +71,7 @@ export const GUESS_SOUND_QUESTIONS: QuizQuestion[] = GUESS_SOUND_ALL_ROWS.map((r
     audioUrls,
     audioMode: row.mode,
     subtopic: row.group,
-    explanation: `${modeLabel} · مصدر التسجيل: ESC-50 (CC BY-NC 3.0)`,
+    explanation: `${modeLabel} · مصدر التسجيل: ${datasetLabel}`,
     sourceRef: sourceRefs || 'https://github.com/karolpiczak/ESC-50',
     verificationStatus: 'verified',
     status: 'approved',

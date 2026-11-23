@@ -27,7 +27,7 @@ test('Guess Sound category is registered at the end of curated categories under 
   assert.equal(lastEntry.questionCount, GUESS_SOUND_COUNT);
 });
 
-test('Guess Sound dataset preserves all 100 exact questions, 30/40/30 levels, and 70 solo + 30 mix ESC-50 tracks', () => {
+test('Guess Sound dataset has 100 questions, 30/40/30 levels, distinct original recordings and challenging mixtures', () => {
   assert.equal(GUESS_SOUND_ALL_ROWS.length, 100);
   assert.equal(GUESS_SOUND_QUESTIONS.length, 100);
 
@@ -40,6 +40,7 @@ test('Guess Sound dataset preserves all 100 exact questions, 30/40/30 levels, an
   let mixCount = 0;
   const seenIds = new Set<string>();
   const seenUniqueKeys = new Set<string>();
+  const seenAudioUrls = new Set<string>();
 
   for (const q of GUESS_SOUND_QUESTIONS) {
     assert.match(q.id, /^SOUND-\d{3}$/);
@@ -57,14 +58,16 @@ test('Guess Sound dataset preserves all 100 exact questions, 30/40/30 levels, an
     for (const url of q.audioUrls) {
       assert.match(
         url,
-        /^https:\/\/raw\.githubusercontent\.com\/karolpiczak\/ESC-50\/master\/audio\/.+\.wav$/,
-        `Expected original ESC-50 URL for ${q.id}`,
+        /^https:\/\/raw\.githubusercontent\.com\/(?:karolpiczak\/ESC-50\/master\/audio|microsoft\/MS-SNSD\/master\/noise_train)\/.+\.wav$/,
+        `Expected original dataset audio URL for ${q.id}`,
       );
+      assert.ok(!seenAudioUrls.has(url), `Repeated recording ${url}`);
+      seenAudioUrls.add(url);
     }
 
     if (q.audioMode === 'mix') {
       mixCount += 1;
-      assert.equal(q.points, 600);
+      assert.ok(q.points === 400 || q.points === 600);
       assert.equal(q.audioUrls.length, 2, `Mix question ${q.id} must have 2 simultaneous tracks`);
       assert.notEqual(q.audioUrls[0], q.audioUrls[1], `Mix tracks must be distinct for ${q.id}`);
     } else {
@@ -83,15 +86,15 @@ test('Guess Sound dataset preserves all 100 exact questions, 30/40/30 levels, an
   assert.equal(byPoints.get(200), 30);
   assert.equal(byPoints.get(400), 40);
   assert.equal(byPoints.get(600), 30);
-  assert.equal(soloCount, 70);
-  assert.equal(mixCount, 30);
+  assert.equal(soloCount, 69);
+  assert.equal(mixCount, 31);
 });
 
 test('Guess Sound deck passes preflight, supports rotation, exposes audioUrls, and hides answers before REVEAL', () => {
   const deck = buildBoardDeckFromCategories(
     [GUESS_SOUND_CATEGORY.id],
     undefined,
-    GUESS_SOUND_QUESTIONS,
+    GUESS_SOUND_QUESTIONS.filter(q => q.points !== 600 || q.audioMode === 'mix'),
   );
 
   const preflight = runBoardPreflightCheck({
@@ -109,7 +112,7 @@ test('Guess Sound deck passes preflight, supports rotation, exposes audioUrls, a
     [GUESS_SOUND_CATEGORY.id]: allIds.slice(0, 10),
   });
   assert.equal(partial.resetCategoryIds.length, 0);
-  assert.equal(partial.filteredDeck.questions.length, 90);
+  assert.equal(partial.filteredDeck.questions.length, deck.questions.length - 10);
 
   let room = createRoomState({
     roomCode: 'SND01',

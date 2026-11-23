@@ -1,12 +1,12 @@
 {
   "package_name": "خمن الصوت — 100 سؤال",
-  "version": "1.0",
+  "version": "2.0",
   "locale": "ar-JO",
   "question_count": 100,
   "game_type": "guess_the_sound",
   "question_types": {
-    "solo": 70,
-    "two_simultaneous_sounds": 30
+    "solo": 69,
+    "two_simultaneous_sounds": 31
   },
   "levels": {
     "سهل": 30,
@@ -21,19 +21,20 @@
     "skip_broken_audio_urls_with_clear_error": true
   },
   "license": {
-    "dataset": "ESC-50",
-    "license": "CC BY-NC 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-nc/3.0/",
+    "dataset": "ESC-50 + MS-SNSD",
+    "license": "ESC-50: CC BY-NC 3.0; MS-SNSD noise recordings: see original Freesound CC0 and DEMAND CC BY-SA 3.0 terms",
+    "license_url": "https://github.com/microsoft/MS-SNSD#dataset-licenses",
     "dataset_url": "https://github.com/karolpiczak/ESC-50",
-    "warning_ar": "مسموح للاستخدام غير التجاري مع الالتزام بشروط النسب. هذه روابط التسجيلات الأصلية؛ تحتاج الإنترنت ما لم يتم تنزيل حزمة الأصوات."
+    "warning_ar": "ESC-50 للاستخدام غير التجاري مع النسب. راجع شروط التسجيلات الأصلية لمجموعة MS-SNSD. التسجيلات مرتبطة بمصادرها ولا يعاد توزيعها في هذا البنك."
   },
-  "google_ai_studio_instructions_ar": "أضف فئة جديدة باسم «خمن الصوت» إلى لعبتي، واستورد مصفوفة questions كما هي. اعرض زر تشغيل الصوت لكل سؤال ولا تعرض answer أو accepted_answers قبل كشف الإجابة. في mode=mix شغّل مساري audio في نفس اللحظة عبر Promise.all. ادعم المستويات 200/400/600، بدون اختيارات. استخدم audio[].local_path في حال إرفاق الحزمة الصوتية، وإلا audio[].url. لا تولد أصواتاً أو تغيّر الروابط أو تخمّن إجابات جديدة. حافظ على 100 سؤال بالضبط.",
+  "google_ai_studio_instructions_ar": "استورد الأسئلة مع روابط الصوت الأصلية. لا تعرض التصنيف أو الجواب قبل الكشف. شغّل المسارين معًا في الأسئلة المختلطة. اعرض أول خمس ثوان من التسجيل فقط. 30 سهل و40 متوسط و30 صعب؛ بدون اختيارات.",
   "questions": [
     {
       "id": "SOUND-001",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "نباح كلب",
       "accepted_answers": [
+        "نباح كلب",
         "كلب",
         "نباح",
         "صوت كلب"
@@ -44,10 +45,10 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-100032-A-0.wav",
-          "local_path": "sounds/1-100032-A-0.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-203128-A-0.wav",
+          "local_path": "sounds/5-203128-A-0.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100032/",
+          "source_recording": "https://freesound.org/s/203128/",
           "dataset": "ESC-50"
         }
       ],
@@ -58,13 +59,14 @@
     },
     {
       "id": "SOUND-002",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "زقزقة عصافير",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "مواء قطة",
       "accepted_answers": [
-        "عصافير",
-        "زقزقة",
-        "طيور",
-        "تغريد"
+        "مواء قطة",
+        "قط",
+        "قطة",
+        "بسة",
+        "مواء"
       ],
       "level": "سهل",
       "points": 200,
@@ -72,10 +74,10 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-100038-A-14.wav",
-          "local_path": "sounds/1-100038-A-14.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-169983-A-5.wav",
+          "local_path": "sounds/5-169983-A-5.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100038/",
+          "source_recording": "https://freesound.org/s/169983/",
           "dataset": "ESC-50"
         }
       ],
@@ -86,22 +88,23 @@
     },
     {
       "id": "SOUND-003",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "مكنسة كهربائية",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "خوار بقرة",
       "accepted_answers": [
-        "مكنسة",
-        "شفاط غبار"
+        "خوار بقرة",
+        "بقرة",
+        "صوت بقرة"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "أجهزة",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-100210-A-36.wav",
-          "local_path": "sounds/1-100210-A-36.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-194899-A-3.wav",
+          "local_path": "sounds/5-194899-A-3.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100210/",
+          "source_recording": "https://freesound.org/s/194899/",
           "dataset": "ESC-50"
         }
       ],
@@ -112,302 +115,10 @@
     },
     {
       "id": "SOUND-004",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "رعد وعاصفة",
-      "accepted_answers": [
-        "رعد",
-        "برق ورعد",
-        "عاصفة رعدية"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "طبيعة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101296-A-19.wav",
-          "local_path": "sounds/1-101296-A-19.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101296/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-005",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طرق باب خشبي",
-      "accepted_answers": [
-        "دق باب",
-        "طرق باب",
-        "خبط باب"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "منزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101336-A-30.wav",
-          "local_path": "sounds/1-101336-A-30.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101336/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-006",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "فتح علبة معدنية",
-      "accepted_answers": [
-        "فتح علبة",
-        "علبة معدنية",
-        "فتح علبة مشروبات"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "منزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101404-A-34.wav",
-          "local_path": "sounds/1-101404-A-34.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101404/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-007",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نعيق غراب",
-      "accepted_answers": [
-        "غراب",
-        "صوت غراب"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "حيوانات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-103298-A-9.wav",
-          "local_path": "sounds/1-103298-A-9.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/103298/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-008",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تصفيق",
-      "accepted_answers": [
-        "تصفيق يدين",
-        "كفوف",
-        "تسقيف"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-104089-A-22.wav",
-          "local_path": "sounds/1-104089-A-22.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/104089/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-009",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "ألعاب نارية",
-      "accepted_answers": [
-        "مفرقعات",
-        "صوت ألعاب نارية"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "خارج المنزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-115545-A-48.wav",
-          "local_path": "sounds/1-115545-A-48.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/115545/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-010",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "منشار كهربائي للأشجار",
-      "accepted_answers": [
-        "منشار كهربائي",
-        "منشار آلي",
-        "جنزير قطع الأشجار"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-116765-A-41.wav",
-          "local_path": "sounds/1-116765-A-41.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/116765/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-011",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طائرة",
-      "accepted_answers": [
-        "صوت طيارة",
-        "محرك طائرة"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "مواصلات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-11687-A-47.wav",
-          "local_path": "sounds/1-11687-A-47.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/11687/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-012",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نقر فأرة كمبيوتر",
-      "accepted_answers": [
-        "كبسة ماوس",
-        "نقرة ماوس",
-        "ماوس"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-118206-A-31.wav",
-          "local_path": "sounds/1-118206-A-31.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/118206/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-013",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "سكب ماء",
-      "accepted_answers": [
-        "صب مي",
-        "صب ماء",
-        "سكب مي"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "منزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-118559-A-17.wav",
-          "local_path": "sounds/1-118559-A-17.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/118559/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-014",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "قطار",
-      "accepted_answers": [
-        "صوت قطار",
-        "سكة حديد"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "مواصلات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-119125-A-45.wav",
-          "local_path": "sounds/1-119125-A-45.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/119125/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-015",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "ثغاء خروف",
       "accepted_answers": [
+        "ثغاء خروف",
         "خروف",
         "غنم",
         "شاة",
@@ -419,10 +130,10 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-121951-A-8.wav",
-          "local_path": "sounds/1-121951-A-8.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-198891-A-8.wav",
+          "local_path": "sounds/5-198891-A-8.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/121951/",
+          "source_recording": "https://freesound.org/s/198891/",
           "dataset": "ESC-50"
         }
       ],
@@ -432,24 +143,24 @@
       "image": null
     },
     {
-      "id": "SOUND-016",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تنقيط ماء",
+      "id": "SOUND-005",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صياح ديك",
       "accepted_answers": [
-        "قطرات مي",
-        "قطرات ماء",
-        "نقط مي"
+        "صياح ديك",
+        "ديك",
+        "صوت ديك"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "طبيعة",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-12653-A-15.wav",
-          "local_path": "sounds/1-12653-A-15.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-194930-A-1.wav",
+          "local_path": "sounds/5-194930-A-1.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/12653/",
+          "source_recording": "https://freesound.org/s/194930/",
           "dataset": "ESC-50"
         }
       ],
@@ -459,23 +170,24 @@
       "image": null
     },
     {
-      "id": "SOUND-017",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "أجراس كنيسة",
+      "id": "SOUND-006",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "دجاجة",
       "accepted_answers": [
-        "دق أجراس",
-        "أجراس"
+        "دجاجة",
+        "صوت دجاجة",
+        "دجاج"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "خارج المنزل",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-13571-A-46.wav",
-          "local_path": "sounds/1-13571-A-46.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-244315-A-6.wav",
+          "local_path": "sounds/5-244315-A-6.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/13571/",
+          "source_recording": "https://freesound.org/s/244315/",
           "dataset": "ESC-50"
         }
       ],
@@ -485,93 +197,13 @@
       "image": null
     },
     {
-      "id": "SOUND-018",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "منبه ساعة",
+      "id": "SOUND-007",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "بكاء رضيع",
       "accepted_answers": [
-        "جرس منبه",
-        "منبه"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-13613-A-37.wav",
-          "local_path": "sounds/1-13613-A-37.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/13613/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-019",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طباعة على لوحة مفاتيح",
-      "accepted_answers": [
-        "كيبورد",
-        "لوحة مفاتيح",
-        "كتابة على كيبورد"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-137-A-32.wav",
-          "local_path": "sounds/1-137-A-32.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/137/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-020",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "هُبوب رياح",
-      "accepted_answers": [
-        "هواء",
-        "ريح",
-        "رياح"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "طبيعة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-137296-A-16.wav",
-          "local_path": "sounds/1-137296-A-16.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/137296/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-021",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "خطوات مشي",
-      "accepted_answers": [
-        "مشي",
-        "خطى",
-        "أقدام تمشي"
+        "بكاء رضيع",
+        "بكاء طفل",
+        "طفل يبكي"
       ],
       "level": "سهل",
       "points": 200,
@@ -579,10 +211,10 @@
       "group": "أصوات بشرية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-155858-A-25.wav",
-          "local_path": "sounds/1-155858-A-25.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-151085-A-20.wav",
+          "local_path": "sounds/5-151085-A-20.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/155858/",
+          "source_recording": "https://freesound.org/s/151085/",
           "dataset": "ESC-50"
         }
       ],
@@ -592,23 +224,24 @@
       "image": null
     },
     {
-      "id": "SOUND-022",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نقيق ضفدع",
+      "id": "SOUND-008",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "ضحك",
       "accepted_answers": [
-        "ضفدع",
-        "صوت ضفدع"
+        "ضحك",
+        "ضحكة",
+        "ضحك أشخاص"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "حيوانات",
+      "group": "أصوات بشرية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-15689-A-4.wav",
-          "local_path": "sounds/1-15689-A-4.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-171118-A-26.wav",
+          "local_path": "sounds/5-171118-A-26.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/15689/",
+          "source_recording": "https://freesound.org/s/171118/",
           "dataset": "ESC-50"
         }
       ],
@@ -618,23 +251,24 @@
       "image": null
     },
     {
-      "id": "SOUND-023",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "خوار بقرة",
+      "id": "SOUND-009",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "عطسة",
       "accepted_answers": [
-        "بقرة",
-        "صوت بقرة"
+        "عطسة",
+        "عطاس",
+        "عطس"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "حيوانات",
+      "group": "أصوات بشرية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-16568-A-3.wav",
-          "local_path": "sounds/1-16568-A-3.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-187979-A-21.wav",
+          "local_path": "sounds/5-187979-A-21.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/16568/",
+          "source_recording": "https://freesound.org/s/187979/",
           "dataset": "ESC-50"
         }
       ],
@@ -644,23 +278,25 @@
       "image": null
     },
     {
-      "id": "SOUND-024",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تفريش أسنان",
+      "id": "SOUND-010",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "سعال",
       "accepted_answers": [
-        "تنظيف أسنان",
-        "فرشاة أسنان"
+        "سعال",
+        "كحة",
+        "كحّة",
+        "كحة شخص"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "منزل",
+      "group": "أصوات بشرية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17092-A-27.wav",
-          "local_path": "sounds/1-17092-A-27.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-178997-A-24.wav",
+          "local_path": "sounds/5-178997-A-24.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17092/",
+          "source_recording": "https://freesound.org/s/178997/",
           "dataset": "ESC-50"
         }
       ],
@@ -670,10 +306,39 @@
       "image": null
     },
     {
-      "id": "SOUND-025",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-011",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تصفيق",
+      "accepted_answers": [
+        "تصفيق",
+        "تصفيق يدين",
+        "كفوف",
+        "تسقيف"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أصوات بشرية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-209989-A-22.wav",
+          "local_path": "sounds/5-209989-A-22.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/209989/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-012",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "زامور سيارة",
       "accepted_answers": [
+        "زامور سيارة",
         "بوري سيارة",
         "زمور سيارة",
         "بوري"
@@ -684,10 +349,10 @@
       "group": "مواصلات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17124-A-43.wav",
-          "local_path": "sounds/1-17124-A-43.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-179860-A-43.wav",
+          "local_path": "sounds/5-179860-A-43.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17124/",
+          "source_recording": "https://freesound.org/s/179860/",
           "dataset": "ESC-50"
         }
       ],
@@ -697,24 +362,24 @@
       "image": null
     },
     {
-      "id": "SOUND-026",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طقطقة نار",
+      "id": "SOUND-013",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طائرة",
       "accepted_answers": [
-        "حطب يحترق",
-        "نار",
-        "اشتعال خشب"
+        "طائرة",
+        "صوت طيارة",
+        "محرك طائرة"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "طبيعة",
+      "group": "مواصلات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17150-A-12.wav",
-          "local_path": "sounds/1-17150-A-12.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-215445-A-47.wav",
+          "local_path": "sounds/5-215445-A-47.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17150/",
+          "source_recording": "https://freesound.org/s/215445/",
           "dataset": "ESC-50"
         }
       ],
@@ -724,10 +389,38 @@
       "image": null
     },
     {
-      "id": "SOUND-027",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-014",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "قطار",
+      "accepted_answers": [
+        "قطار",
+        "صوت قطار",
+        "سكة حديد"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "مواصلات",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-188796-A-45.wav",
+          "local_path": "sounds/5-188796-A-45.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/188796/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-015",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "مروحية",
       "accepted_answers": [
+        "مروحية",
         "هليكوبتر",
         "طائرة عامودية",
         "طائرة عمودية"
@@ -738,10 +431,10 @@
       "group": "مواصلات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-172649-A-40.wav",
-          "local_path": "sounds/1-172649-A-40.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-177957-A-40.wav",
+          "local_path": "sounds/5-177957-A-40.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/172649/",
+          "source_recording": "https://freesound.org/s/177957/",
           "dataset": "ESC-50"
         }
       ],
@@ -751,37 +444,11 @@
       "image": null
     },
     {
-      "id": "SOUND-028",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "ارتشاف مشروب",
-      "accepted_answers": [
-        "شرب ماء",
-        "رشفة",
-        "شرب عصير"
-      ],
-      "level": "سهل",
-      "points": 200,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17295-A-29.wav",
-          "local_path": "sounds/1-17295-A-29.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17295/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-029",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-016",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "هطول مطر",
       "accepted_answers": [
+        "هطول مطر",
         "مطر",
         "صوت شتا",
         "شتا"
@@ -792,10 +459,368 @@
       "group": "طبيعة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17367-A-10.wav",
-          "local_path": "sounds/1-17367-A-10.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-181766-A-10.wav",
+          "local_path": "sounds/5-181766-A-10.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17367/",
+          "source_recording": "https://freesound.org/s/181766/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-017",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "رعد وعاصفة",
+      "accepted_answers": [
+        "رعد وعاصفة",
+        "رعد",
+        "برق ورعد",
+        "عاصفة رعدية"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "طبيعة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-156999-A-19.wav",
+          "local_path": "sounds/5-156999-A-19.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/156999/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-018",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "أمواج بحر",
+      "accepted_answers": [
+        "أمواج بحر",
+        "موج البحر",
+        "أمواج",
+        "بحر"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "طبيعة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-200461-A-11.wav",
+          "local_path": "sounds/5-200461-A-11.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/200461/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-019",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "هُبوب رياح",
+      "accepted_answers": [
+        "هُبوب رياح",
+        "هواء",
+        "ريح",
+        "رياح"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "طبيعة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-117773-A-16.wav",
+          "local_path": "sounds/5-117773-A-16.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/117773/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-020",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تكسر زجاج",
+      "accepted_answers": [
+        "تكسر زجاج",
+        "زجاج ينكسر",
+        "كسر كاسة",
+        "تحطم زجاج"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "منزل",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-221528-A-39.wav",
+          "local_path": "sounds/5-221528-A-39.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/221528/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-021",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "منبه ساعة",
+      "accepted_answers": [
+        "منبه ساعة",
+        "جرس منبه",
+        "منبه"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-210612-A-37.wav",
+          "local_path": "sounds/5-210612-A-37.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/210612/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-022",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "أجراس كنيسة",
+      "accepted_answers": [
+        "أجراس كنيسة",
+        "دق أجراس",
+        "أجراس"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "خارج المنزل",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-179294-A-46.wav",
+          "local_path": "sounds/5-179294-A-46.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/179294/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-023",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طرق باب خشبي",
+      "accepted_answers": [
+        "طرق باب خشبي",
+        "دق باب",
+        "طرق باب",
+        "خبط باب"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "منزل",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-218980-A-30.wav",
+          "local_path": "sounds/5-218980-A-30.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/218980/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-024",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "مكنسة كهربائية",
+      "accepted_answers": [
+        "مكنسة كهربائية",
+        "مكنسة",
+        "شفاط غبار"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-182007-A-36.wav",
+          "local_path": "sounds/5-182007-A-36.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/182007/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-025",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طباعة على لوحة مفاتيح",
+      "accepted_answers": [
+        "طباعة على لوحة مفاتيح",
+        "كيبورد",
+        "لوحة مفاتيح",
+        "كتابة على كيبورد"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-205090-A-32.wav",
+          "local_path": "sounds/5-205090-A-32.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/205090/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-026",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "سكب ماء",
+      "accepted_answers": [
+        "سكب ماء",
+        "صب مي",
+        "صب ماء",
+        "سكب مي"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "منزل",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-205589-A-17.wav",
+          "local_path": "sounds/5-205589-A-17.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/205589/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-027",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "خطوات مشي",
+      "accepted_answers": [
+        "خطوات مشي",
+        "مشي",
+        "خطى",
+        "أقدام تمشي"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أصوات بشرية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-234263-A-25.wav",
+          "local_path": "sounds/5-234263-A-25.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/234263/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-028",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نقيق ضفدع",
+      "accepted_answers": [
+        "نقيق ضفدع",
+        "ضفدع",
+        "صوت ضفدع"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "حيوانات",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-156026-A-4.wav",
+          "local_path": "sounds/5-156026-A-4.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/156026/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-029",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "شخير",
+      "accepted_answers": [
+        "شخير",
+        "صوت شخير"
+      ],
+      "level": "سهل",
+      "points": 200,
+      "mode": "solo",
+      "group": "أصوات بشرية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-216368-A-28.wav",
+          "local_path": "sounds/5-216368-A-28.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/216368/",
           "dataset": "ESC-50"
         }
       ],
@@ -806,23 +831,24 @@
     },
     {
       "id": "SOUND-030",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طنين حشرات",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صفارة إنذار",
       "accepted_answers": [
-        "حشرات طائرة",
-        "طنين ذباب",
-        "طنين"
+        "صفارة إنذار",
+        "إنذار",
+        "سرينة",
+        "صافرة إنذار"
       ],
       "level": "سهل",
       "points": 200,
       "mode": "solo",
-      "group": "حيوانات",
+      "group": "خارج المنزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17585-A-7.wav",
-          "local_path": "sounds/1-17585-A-7.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-117118-A-42.wav",
+          "local_path": "sounds/5-117118-A-42.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17585/",
+          "source_recording": "https://freesound.org/s/117118/",
           "dataset": "ESC-50"
         }
       ],
@@ -833,22 +859,24 @@
     },
     {
       "id": "SOUND-031",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "ضحك",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نقر فأرة كمبيوتر",
       "accepted_answers": [
-        "ضحكة",
-        "ضحك أشخاص"
+        "نقر فأرة كمبيوتر",
+        "كبسة ماوس",
+        "نقرة ماوس",
+        "ماوس"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "أصوات بشرية",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-1791-A-26.wav",
-          "local_path": "sounds/1-1791-A-26.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-219318-A-31.wav",
+          "local_path": "sounds/5-219318-A-31.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/1791/",
+          "source_recording": "https://freesound.org/s/219318/",
           "dataset": "ESC-50"
         }
       ],
@@ -859,22 +887,23 @@
     },
     {
       "id": "SOUND-032",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "دجاجة",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تفريش أسنان",
       "accepted_answers": [
-        "صوت دجاجة",
-        "دجاج"
+        "تفريش أسنان",
+        "تنظيف أسنان",
+        "فرشاة أسنان"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "حيوانات",
+      "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18074-A-6.wav",
-          "local_path": "sounds/1-18074-A-6.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-147297-A-27.wav",
+          "local_path": "sounds/5-147297-A-27.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18074/",
+          "source_recording": "https://freesound.org/s/147297/",
           "dataset": "ESC-50"
         }
       ],
@@ -885,23 +914,24 @@
     },
     {
       "id": "SOUND-033",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "محرك",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "فتح علبة معدنية",
       "accepted_answers": [
-        "صوت موتور",
-        "محرك سيارة",
-        "موتور"
+        "فتح علبة معدنية",
+        "فتح علبة",
+        "علبة معدنية",
+        "فتح علبة مشروبات"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "مواصلات",
+      "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18527-A-44.wav",
-          "local_path": "sounds/1-18527-A-44.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-221878-A-34.wav",
+          "local_path": "sounds/5-221878-A-34.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18527/",
+          "source_recording": "https://freesound.org/s/221878/",
           "dataset": "ESC-50"
         }
       ],
@@ -912,22 +942,24 @@
     },
     {
       "id": "SOUND-034",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تنفس",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تنقيط ماء",
       "accepted_answers": [
-        "شهيق وزفير",
-        "نفس"
+        "تنقيط ماء",
+        "قطرات مي",
+        "قطرات ماء",
+        "نقط مي"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "أصوات بشرية",
+      "group": "طبيعة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18631-A-23.wav",
-          "local_path": "sounds/1-18631-A-23.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-241846-A-15.wav",
+          "local_path": "sounds/5-241846-A-15.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18631/",
+          "source_recording": "https://freesound.org/s/241846/",
           "dataset": "ESC-50"
         }
       ],
@@ -938,35 +970,10 @@
     },
     {
       "id": "SOUND-035",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "بكاء رضيع",
-      "accepted_answers": [
-        "بكاء طفل",
-        "طفل يبكي"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-187207-A-20.wav",
-          "local_path": "sounds/1-187207-A-20.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/187207/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-036",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "نشر خشب بمنشار يدوي",
       "accepted_answers": [
+        "نشر خشب بمنشار يدوي",
         "منشار يدوي",
         "قص خشب",
         "نشر خشب"
@@ -977,10 +984,10 @@
       "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18810-A-49.wav",
-          "local_path": "sounds/1-18810-A-49.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-250258-A-49.wav",
+          "local_path": "sounds/5-250258-A-49.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18810/",
+          "source_recording": "https://freesound.org/s/250258/",
           "dataset": "ESC-50"
         }
       ],
@@ -990,328 +997,11 @@
       "image": null
     },
     {
-      "id": "SOUND-037",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "سعال",
-      "accepted_answers": [
-        "كحة",
-        "كحّة",
-        "كحة شخص"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-19111-A-24.wav",
-          "local_path": "sounds/1-19111-A-24.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/19111/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-038",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تكسر زجاج",
-      "accepted_answers": [
-        "زجاج ينكسر",
-        "كسر كاسة",
-        "تحطم زجاج"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "منزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-20133-A-39.wav",
-          "local_path": "sounds/1-20133-A-39.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/20133/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-039",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "شخير",
-      "accepted_answers": [
-        "صوت شخير"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-20545-A-28.wav",
-          "local_path": "sounds/1-20545-A-28.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/20545/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-040",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "سيفون حمام",
-      "accepted_answers": [
-        "شطاف",
-        "سحب سيفون",
-        "صوت سيفون"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "منزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-20736-A-18.wav",
-          "local_path": "sounds/1-20736-A-18.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/20736/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-041",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "خنزير",
-      "accepted_answers": [
-        "صوت خنزير"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "حيوانات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-208757-A-2.wav",
-          "local_path": "sounds/1-208757-A-2.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/208757/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-042",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "غسالة ملابس",
-      "accepted_answers": [
-        "غسالة",
-        "غسالة اتوماتيك"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-21896-A-35.wav",
-          "local_path": "sounds/1-21896-A-35.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/21896/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-043",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "دقات ساعة",
-      "accepted_answers": [
-        "تك تك الساعة",
-        "عقارب ساعة",
-        "تكتكة ساعة"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-21934-A-38.wav",
-          "local_path": "sounds/1-21934-A-38.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/21934/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-044",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "عطسة",
-      "accepted_answers": [
-        "عطاس",
-        "عطس"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "أصوات بشرية",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-26143-A-21.wav",
-          "local_path": "sounds/1-26143-A-21.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/26143/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-045",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "صياح ديك",
-      "accepted_answers": [
-        "ديك",
-        "صوت ديك"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "حيوانات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-26806-A-1.wav",
-          "local_path": "sounds/1-26806-A-1.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/26806/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-046",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "أمواج بحر",
-      "accepted_answers": [
-        "موج البحر",
-        "أمواج",
-        "بحر"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "طبيعة",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-28135-A-11.wav",
-          "local_path": "sounds/1-28135-A-11.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/28135/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-047",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "صفارة إنذار",
-      "accepted_answers": [
-        "إنذار",
-        "سرينة",
-        "صافرة إنذار"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "خارج المنزل",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-31482-A-42.wav",
-          "local_path": "sounds/1-31482-A-42.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/31482/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-048",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "مواء قطة",
-      "accepted_answers": [
-        "قط",
-        "قطة",
-        "بسة",
-        "مواء"
-      ],
-      "level": "متوسط",
-      "points": 400,
-      "mode": "solo",
-      "group": "حيوانات",
-      "audio": [
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-34094-A-5.wav",
-          "local_path": "sounds/1-34094-A-5.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/34094/",
-          "dataset": "ESC-50"
-        }
-      ],
-      "playback_seconds": 5,
-      "max_replays": null,
-      "is_multiple_choice": false,
-      "image": null
-    },
-    {
-      "id": "SOUND-049",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-036",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "صرير باب خشبي",
       "accepted_answers": [
+        "صرير باب خشبي",
         "باب يصرصر",
         "صوت باب يفتح",
         "صرير باب"
@@ -1322,10 +1012,10 @@
       "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-51805-A-33.wav",
-          "local_path": "sounds/1-51805-A-33.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-161270-A-33.wav",
+          "local_path": "sounds/5-161270-A-33.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/51805/",
+          "source_recording": "https://freesound.org/s/161270/",
           "dataset": "ESC-50"
         }
       ],
@@ -1335,10 +1025,149 @@
       "image": null
     },
     {
-      "id": "SOUND-050",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-037",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "ارتشاف مشروب",
+      "accepted_answers": [
+        "ارتشاف مشروب",
+        "شرب ماء",
+        "رشفة",
+        "شرب عصير"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أصوات بشرية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-204114-A-29.wav",
+          "local_path": "sounds/5-204114-A-29.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/204114/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-038",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "دقات ساعة",
+      "accepted_answers": [
+        "دقات ساعة",
+        "تك تك الساعة",
+        "عقارب ساعة",
+        "تكتكة ساعة"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-201194-A-38.wav",
+          "local_path": "sounds/5-201194-A-38.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/201194/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-039",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "غسالة ملابس",
+      "accepted_answers": [
+        "غسالة ملابس",
+        "غسالة",
+        "غسالة اتوماتيك"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-141683-A-35.wav",
+          "local_path": "sounds/5-141683-A-35.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/141683/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-040",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "سيفون حمام",
+      "accepted_answers": [
+        "سيفون حمام",
+        "شطاف",
+        "سحب سيفون",
+        "صوت سيفون"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "منزل",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-156698-A-18.wav",
+          "local_path": "sounds/5-156698-A-18.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/156698/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-041",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نعيق غراب",
+      "accepted_answers": [
+        "نعيق غراب",
+        "غراب",
+        "صوت غراب"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "حيوانات",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-213836-A-9.wav",
+          "local_path": "sounds/5-213836-A-9.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/213836/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-042",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "صوت صراصير الليل",
       "accepted_answers": [
+        "صوت صراصير الليل",
         "صرصور الليل",
         "صراصير",
         "حشرات الليل"
@@ -1349,10 +1178,10 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-57316-A-13.wav",
-          "local_path": "sounds/1-57316-A-13.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-204352-A-13.wav",
+          "local_path": "sounds/5-204352-A-13.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/57316/",
+          "source_recording": "https://freesound.org/s/204352/",
           "dataset": "ESC-50"
         }
       ],
@@ -1362,13 +1191,14 @@
       "image": null
     },
     {
-      "id": "SOUND-051",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نباح كلب",
+      "id": "SOUND-043",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طنين حشرات",
       "accepted_answers": [
-        "كلب",
-        "نباح",
-        "صوت كلب"
+        "طنين حشرات",
+        "حشرات طائرة",
+        "طنين ذباب",
+        "طنين"
       ],
       "level": "متوسط",
       "points": 400,
@@ -1376,10 +1206,10 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-114280-A-0.wav",
-          "local_path": "sounds/2-114280-A-0.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-194932-A-7.wav",
+          "local_path": "sounds/5-194932-A-7.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/114280/",
+          "source_recording": "https://freesound.org/s/194932/",
           "dataset": "ESC-50"
         }
       ],
@@ -1389,10 +1219,11 @@
       "image": null
     },
     {
-      "id": "SOUND-052",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
+      "id": "SOUND-044",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
       "answer": "زقزقة عصافير",
       "accepted_answers": [
+        "زقزقة عصافير",
         "عصافير",
         "زقزقة",
         "طيور",
@@ -1404,11 +1235,235 @@
       "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-108760-A-14.wav",
-          "local_path": "sounds/2-108760-A-14.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-242490-A-14.wav",
+          "local_path": "sounds/5-242490-A-14.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/108760/",
+          "source_recording": "https://freesound.org/s/242490/",
           "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-045",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "محرك",
+      "accepted_answers": [
+        "محرك",
+        "صوت موتور",
+        "محرك سيارة",
+        "موتور"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "مواصلات",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-209992-A-44.wav",
+          "local_path": "sounds/5-209992-A-44.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/209992/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-046",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "خنزير",
+      "accepted_answers": [
+        "خنزير",
+        "صوت خنزير"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "حيوانات",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-103415-A-2.wav",
+          "local_path": "sounds/5-103415-A-2.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/103415/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-047",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تنفس",
+      "accepted_answers": [
+        "تنفس",
+        "شهيق وزفير",
+        "نفس"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أصوات بشرية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-213293-A-23.wav",
+          "local_path": "sounds/5-213293-A-23.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/213293/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-048",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طقطقة نار",
+      "accepted_answers": [
+        "طقطقة نار",
+        "حطب يحترق",
+        "نار",
+        "اشتعال خشب"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "طبيعة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-186924-A-12.wav",
+          "local_path": "sounds/5-186924-A-12.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/186924/",
+          "dataset": "ESC-50"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-049",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "إغلاق باب",
+      "accepted_answers": [
+        "إغلاق باب",
+        "تسكير الباب",
+        "غلق باب",
+        "صوت باب يسكر"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أصوات يومية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/ShuttingDoor_9.wav",
+          "local_path": "sounds/ms-ShuttingDoor_9.wav",
+          "duration_seconds": 21,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/ShuttingDoor_9.wav",
+          "dataset": "MS-SNSD"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-050",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "مضغ الطعام",
+      "accepted_answers": [
+        "مضغ الطعام",
+        "مضغ",
+        "قرمشة أكل",
+        "مضغ الأكل",
+        "صوت الأكل"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أصوات يومية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/Munching_4.wav",
+          "local_path": "sounds/ms-Munching_4.wav",
+          "duration_seconds": 20,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/Munching_4.wav",
+          "dataset": "MS-SNSD"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-051",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صوت تشغيل المكيف",
+      "accepted_answers": [
+        "صوت تشغيل المكيف",
+        "مكيف",
+        "مكيف هواء",
+        "صوت المكيف",
+        "تكييف"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أجهزة",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/AirConditioner_6.wav",
+          "local_path": "sounds/ms-AirConditioner_6.wav",
+          "duration_seconds": 20,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/AirConditioner_6.wav",
+          "dataset": "MS-SNSD"
+        }
+      ],
+      "playback_seconds": 5,
+      "max_replays": null,
+      "is_multiple_choice": false,
+      "image": null
+    },
+    {
+      "id": "SOUND-052",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "آلة تصوير المستندات",
+      "accepted_answers": [
+        "آلة تصوير المستندات",
+        "ماكينة تصوير",
+        "فوتوكوبي",
+        "آلة تصوير الورق",
+        "ناسخة"
+      ],
+      "level": "متوسط",
+      "points": 400,
+      "mode": "solo",
+      "group": "أجهزة مكتبية",
+      "audio": [
+        {
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/CopyMachine_3.wav",
+          "local_path": "sounds/ms-CopyMachine_3.wav",
+          "duration_seconds": 20,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/CopyMachine_3.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -1418,23 +1473,25 @@
     },
     {
       "id": "SOUND-053",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "مكنسة كهربائية",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صرير كرسي",
       "accepted_answers": [
-        "مكنسة",
-        "شفاط غبار"
+        "صرير كرسي",
+        "كرسي بيزيق",
+        "صرير الكرسي",
+        "صوت احتكاك كرسي"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "أجهزة",
+      "group": "أصوات يومية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-106072-A-36.wav",
-          "local_path": "sounds/2-106072-A-36.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/106072/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/SqueakyChair_5.wav",
+          "local_path": "sounds/ms-SqueakyChair_5.wav",
+          "duration_seconds": 21,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/SqueakyChair_5.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -1444,24 +1501,26 @@
     },
     {
       "id": "SOUND-054",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "رعد وعاصفة",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "جهاز غسل وتجفيف الملابس",
       "accepted_answers": [
-        "رعد",
-        "برق ورعد",
-        "عاصفة رعدية"
+        "جهاز غسل وتجفيف الملابس",
+        "غسالة نشافة",
+        "غسالة",
+        "نشافة",
+        "مجفف ملابس"
       ],
       "level": "متوسط",
       "points": 400,
       "mode": "solo",
-      "group": "طبيعة",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-104105-A-19.wav",
-          "local_path": "sounds/2-104105-A-19.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/104105/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/WasherDryer_5.wav",
+          "local_path": "sounds/ms-WasherDryer_5.wav",
+          "duration_seconds": 22,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/WasherDryer_5.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -1471,23 +1530,61 @@
     },
     {
       "id": "SOUND-055",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طرق باب خشبي",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "هطول مطر + طرق باب خشبي",
       "accepted_answers": [
-        "دق باب",
-        "طرق باب",
-        "خبط باب"
+        "هطول مطر + طرق باب خشبي",
+        "طرق باب خشبي + هطول مطر",
+        "هطول مطر و طرق باب خشبي",
+        "طرق باب خشبي و هطول مطر",
+        "هطول مطر + دق باب",
+        "دق باب + هطول مطر",
+        "هطول مطر + طرق باب",
+        "طرق باب + هطول مطر",
+        "هطول مطر + خبط باب",
+        "خبط باب + هطول مطر",
+        "مطر + طرق باب خشبي",
+        "طرق باب خشبي + مطر",
+        "مطر + دق باب",
+        "دق باب + مطر",
+        "مطر + طرق باب",
+        "طرق باب + مطر",
+        "مطر + خبط باب",
+        "خبط باب + مطر",
+        "صوت شتا + طرق باب خشبي",
+        "طرق باب خشبي + صوت شتا",
+        "صوت شتا + دق باب",
+        "دق باب + صوت شتا",
+        "صوت شتا + طرق باب",
+        "طرق باب + صوت شتا",
+        "صوت شتا + خبط باب",
+        "خبط باب + صوت شتا",
+        "شتا + طرق باب خشبي",
+        "طرق باب خشبي + شتا",
+        "شتا + دق باب",
+        "دق باب + شتا",
+        "شتا + طرق باب",
+        "طرق باب + شتا",
+        "شتا + خبط باب",
+        "خبط باب + شتا"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "منزل",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-114254-A-30.wav",
-          "local_path": "sounds/2-114254-A-30.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-188655-A-10.wav",
+          "local_path": "sounds/5-188655-A-10.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/114254/",
+          "source_recording": "https://freesound.org/s/188655/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-218981-A-30.wav",
+          "local_path": "sounds/5-218981-A-30.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/218981/",
           "dataset": "ESC-50"
         }
       ],
@@ -1498,23 +1595,47 @@
     },
     {
       "id": "SOUND-056",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "فتح علبة معدنية",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "منبه ساعة + صياح ديك",
       "accepted_answers": [
-        "فتح علبة",
-        "علبة معدنية",
-        "فتح علبة مشروبات"
+        "منبه ساعة + صياح ديك",
+        "صياح ديك + منبه ساعة",
+        "منبه ساعة و صياح ديك",
+        "صياح ديك و منبه ساعة",
+        "منبه ساعة + ديك",
+        "ديك + منبه ساعة",
+        "منبه ساعة + صوت ديك",
+        "صوت ديك + منبه ساعة",
+        "جرس منبه + صياح ديك",
+        "صياح ديك + جرس منبه",
+        "جرس منبه + ديك",
+        "ديك + جرس منبه",
+        "جرس منبه + صوت ديك",
+        "صوت ديك + جرس منبه",
+        "منبه + صياح ديك",
+        "صياح ديك + منبه",
+        "منبه + ديك",
+        "ديك + منبه",
+        "منبه + صوت ديك",
+        "صوت ديك + منبه"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "منزل",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-130245-A-34.wav",
-          "local_path": "sounds/2-130245-A-34.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-211408-A-37.wav",
+          "local_path": "sounds/5-211408-A-37.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/130245/",
+          "source_recording": "https://freesound.org/s/211408/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-200334-A-1.wav",
+          "local_path": "sounds/5-200334-A-1.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/200334/",
           "dataset": "ESC-50"
         }
       ],
@@ -1525,22 +1646,53 @@
     },
     {
       "id": "SOUND-057",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نعيق غراب",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "مواء قطة + بكاء رضيع",
       "accepted_answers": [
-        "غراب",
-        "صوت غراب"
+        "مواء قطة + بكاء رضيع",
+        "بكاء رضيع + مواء قطة",
+        "مواء قطة و بكاء رضيع",
+        "بكاء رضيع و مواء قطة",
+        "مواء قطة + بكاء طفل",
+        "بكاء طفل + مواء قطة",
+        "مواء قطة + طفل يبكي",
+        "طفل يبكي + مواء قطة",
+        "قط + بكاء رضيع",
+        "بكاء رضيع + قط",
+        "قط + بكاء طفل",
+        "بكاء طفل + قط",
+        "قط + طفل يبكي",
+        "طفل يبكي + قط",
+        "قطة + بكاء رضيع",
+        "بكاء رضيع + قطة",
+        "قطة + بكاء طفل",
+        "بكاء طفل + قطة",
+        "قطة + طفل يبكي",
+        "طفل يبكي + قطة",
+        "بسة + بكاء رضيع",
+        "بكاء رضيع + بسة",
+        "بسة + بكاء طفل",
+        "بكاء طفل + بسة",
+        "بسة + طفل يبكي",
+        "طفل يبكي + بسة"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "حيوانات",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-108763-A-9.wav",
-          "local_path": "sounds/2-108763-A-9.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-172299-A-5.wav",
+          "local_path": "sounds/5-172299-A-5.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/108763/",
+          "source_recording": "https://freesound.org/s/172299/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-198411-A-20.wav",
+          "local_path": "sounds/5-198411-A-20.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/198411/",
           "dataset": "ESC-50"
         }
       ],
@@ -1551,23 +1703,61 @@
     },
     {
       "id": "SOUND-058",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تصفيق",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "خطوات مشي + زقزقة عصافير",
       "accepted_answers": [
-        "تصفيق يدين",
-        "كفوف",
-        "تسقيف"
+        "خطوات مشي + زقزقة عصافير",
+        "زقزقة عصافير + خطوات مشي",
+        "خطوات مشي و زقزقة عصافير",
+        "زقزقة عصافير و خطوات مشي",
+        "خطوات مشي + عصافير",
+        "عصافير + خطوات مشي",
+        "خطوات مشي + زقزقة",
+        "زقزقة + خطوات مشي",
+        "خطوات مشي + طيور",
+        "طيور + خطوات مشي",
+        "مشي + زقزقة عصافير",
+        "زقزقة عصافير + مشي",
+        "مشي + عصافير",
+        "عصافير + مشي",
+        "مشي + زقزقة",
+        "زقزقة + مشي",
+        "مشي + طيور",
+        "طيور + مشي",
+        "خطى + زقزقة عصافير",
+        "زقزقة عصافير + خطى",
+        "خطى + عصافير",
+        "عصافير + خطى",
+        "خطى + زقزقة",
+        "زقزقة + خطى",
+        "خطى + طيور",
+        "طيور + خطى",
+        "أقدام تمشي + زقزقة عصافير",
+        "زقزقة عصافير + أقدام تمشي",
+        "أقدام تمشي + عصافير",
+        "عصافير + أقدام تمشي",
+        "أقدام تمشي + زقزقة",
+        "زقزقة + أقدام تمشي",
+        "أقدام تمشي + طيور",
+        "طيور + أقدام تمشي"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "أصوات بشرية",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-25292-A-22.wav",
-          "local_path": "sounds/2-25292-A-22.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-234855-A-25.wav",
+          "local_path": "sounds/5-234855-A-25.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/25292/",
+          "source_recording": "https://freesound.org/s/234855/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-242491-A-14.wav",
+          "local_path": "sounds/5-242491-A-14.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/242491/",
           "dataset": "ESC-50"
         }
       ],
@@ -1578,22 +1768,61 @@
     },
     {
       "id": "SOUND-059",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "ألعاب نارية",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "زامور سيارة + تصفيق",
       "accepted_answers": [
-        "مفرقعات",
-        "صوت ألعاب نارية"
+        "زامور سيارة + تصفيق",
+        "تصفيق + زامور سيارة",
+        "زامور سيارة و تصفيق",
+        "تصفيق و زامور سيارة",
+        "زامور سيارة + تصفيق يدين",
+        "تصفيق يدين + زامور سيارة",
+        "زامور سيارة + كفوف",
+        "كفوف + زامور سيارة",
+        "زامور سيارة + تسقيف",
+        "تسقيف + زامور سيارة",
+        "بوري سيارة + تصفيق",
+        "تصفيق + بوري سيارة",
+        "بوري سيارة + تصفيق يدين",
+        "تصفيق يدين + بوري سيارة",
+        "بوري سيارة + كفوف",
+        "كفوف + بوري سيارة",
+        "بوري سيارة + تسقيف",
+        "تسقيف + بوري سيارة",
+        "زمور سيارة + تصفيق",
+        "تصفيق + زمور سيارة",
+        "زمور سيارة + تصفيق يدين",
+        "تصفيق يدين + زمور سيارة",
+        "زمور سيارة + كفوف",
+        "كفوف + زمور سيارة",
+        "زمور سيارة + تسقيف",
+        "تسقيف + زمور سيارة",
+        "بوري + تصفيق",
+        "تصفيق + بوري",
+        "بوري + تصفيق يدين",
+        "تصفيق يدين + بوري",
+        "بوري + كفوف",
+        "كفوف + بوري",
+        "بوري + تسقيف",
+        "تسقيف + بوري"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "خارج المنزل",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-117615-A-48.wav",
-          "local_path": "sounds/2-117615-A-48.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-179863-A-43.wav",
+          "local_path": "sounds/5-179863-A-43.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/117615/",
+          "source_recording": "https://freesound.org/s/179863/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-218494-A-22.wav",
+          "local_path": "sounds/5-218494-A-22.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/218494/",
           "dataset": "ESC-50"
         }
       ],
@@ -1604,23 +1833,61 @@
     },
     {
       "id": "SOUND-060",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "منشار كهربائي للأشجار",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "أمواج بحر + هُبوب رياح",
       "accepted_answers": [
-        "منشار كهربائي",
-        "منشار آلي",
-        "جنزير قطع الأشجار"
+        "أمواج بحر + هُبوب رياح",
+        "هُبوب رياح + أمواج بحر",
+        "أمواج بحر و هُبوب رياح",
+        "هُبوب رياح و أمواج بحر",
+        "أمواج بحر + هواء",
+        "هواء + أمواج بحر",
+        "أمواج بحر + ريح",
+        "ريح + أمواج بحر",
+        "أمواج بحر + رياح",
+        "رياح + أمواج بحر",
+        "موج البحر + هُبوب رياح",
+        "هُبوب رياح + موج البحر",
+        "موج البحر + هواء",
+        "هواء + موج البحر",
+        "موج البحر + ريح",
+        "ريح + موج البحر",
+        "موج البحر + رياح",
+        "رياح + موج البحر",
+        "أمواج + هُبوب رياح",
+        "هُبوب رياح + أمواج",
+        "أمواج + هواء",
+        "هواء + أمواج",
+        "أمواج + ريح",
+        "ريح + أمواج",
+        "أمواج + رياح",
+        "رياح + أمواج",
+        "بحر + هُبوب رياح",
+        "هُبوب رياح + بحر",
+        "بحر + هواء",
+        "هواء + بحر",
+        "بحر + ريح",
+        "ريح + بحر",
+        "بحر + رياح",
+        "رياح + بحر"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-50667-A-41.wav",
-          "local_path": "sounds/2-50667-A-41.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-208810-A-11.wav",
+          "local_path": "sounds/5-208810-A-11.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/50667/",
+          "source_recording": "https://freesound.org/s/208810/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-157204-A-16.wav",
+          "local_path": "sounds/5-157204-A-16.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/157204/",
           "dataset": "ESC-50"
         }
       ],
@@ -1631,22 +1898,53 @@
     },
     {
       "id": "SOUND-061",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طائرة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "سعال + ضحك",
       "accepted_answers": [
-        "صوت طيارة",
-        "محرك طائرة"
+        "سعال + ضحك",
+        "ضحك + سعال",
+        "سعال و ضحك",
+        "ضحك و سعال",
+        "سعال + ضحكة",
+        "ضحكة + سعال",
+        "سعال + ضحك أشخاص",
+        "ضحك أشخاص + سعال",
+        "كحة + ضحك",
+        "ضحك + كحة",
+        "كحة + ضحكة",
+        "ضحكة + كحة",
+        "كحة + ضحك أشخاص",
+        "ضحك أشخاص + كحة",
+        "كحّة + ضحك",
+        "ضحك + كحّة",
+        "كحّة + ضحكة",
+        "ضحكة + كحّة",
+        "كحّة + ضحك أشخاص",
+        "ضحك أشخاص + كحّة",
+        "كحة شخص + ضحك",
+        "ضحك + كحة شخص",
+        "كحة شخص + ضحكة",
+        "ضحكة + كحة شخص",
+        "كحة شخص + ضحك أشخاص",
+        "ضحك أشخاص + كحة شخص"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "مواصلات",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-105270-A-47.wav",
-          "local_path": "sounds/2-105270-A-47.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-184871-A-24.wav",
+          "local_path": "sounds/5-184871-A-24.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/105270/",
+          "source_recording": "https://freesound.org/s/184871/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-242932-A-26.wav",
+          "local_path": "sounds/5-242932-A-26.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/242932/",
           "dataset": "ESC-50"
         }
       ],
@@ -1657,23 +1955,47 @@
     },
     {
       "id": "SOUND-062",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "نقر فأرة كمبيوتر",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "نقيق ضفدع + خوار بقرة",
       "accepted_answers": [
-        "كبسة ماوس",
-        "نقرة ماوس",
-        "ماوس"
+        "نقيق ضفدع + خوار بقرة",
+        "خوار بقرة + نقيق ضفدع",
+        "نقيق ضفدع و خوار بقرة",
+        "خوار بقرة و نقيق ضفدع",
+        "نقيق ضفدع + بقرة",
+        "بقرة + نقيق ضفدع",
+        "نقيق ضفدع + صوت بقرة",
+        "صوت بقرة + نقيق ضفدع",
+        "ضفدع + خوار بقرة",
+        "خوار بقرة + ضفدع",
+        "ضفدع + بقرة",
+        "بقرة + ضفدع",
+        "ضفدع + صوت بقرة",
+        "صوت بقرة + ضفدع",
+        "صوت ضفدع + خوار بقرة",
+        "خوار بقرة + صوت ضفدع",
+        "صوت ضفدع + بقرة",
+        "بقرة + صوت ضفدع",
+        "صوت ضفدع + صوت بقرة",
+        "صوت بقرة + صوت ضفدع"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-119139-A-31.wav",
-          "local_path": "sounds/2-119139-A-31.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-187201-A-4.wav",
+          "local_path": "sounds/5-187201-A-4.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/119139/",
+          "source_recording": "https://freesound.org/s/187201/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-202795-A-3.wav",
+          "local_path": "sounds/5-202795-A-3.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/202795/",
           "dataset": "ESC-50"
         }
       ],
@@ -1684,23 +2006,53 @@
     },
     {
       "id": "SOUND-063",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "سكب ماء",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "صفارة إنذار + دجاجة",
       "accepted_answers": [
-        "صب مي",
-        "صب ماء",
-        "سكب مي"
+        "صفارة إنذار + دجاجة",
+        "دجاجة + صفارة إنذار",
+        "صفارة إنذار و دجاجة",
+        "دجاجة و صفارة إنذار",
+        "صفارة إنذار + صوت دجاجة",
+        "صوت دجاجة + صفارة إنذار",
+        "صفارة إنذار + دجاج",
+        "دجاج + صفارة إنذار",
+        "إنذار + دجاجة",
+        "دجاجة + إنذار",
+        "إنذار + صوت دجاجة",
+        "صوت دجاجة + إنذار",
+        "إنذار + دجاج",
+        "دجاج + إنذار",
+        "سرينة + دجاجة",
+        "دجاجة + سرينة",
+        "سرينة + صوت دجاجة",
+        "صوت دجاجة + سرينة",
+        "سرينة + دجاج",
+        "دجاج + سرينة",
+        "صافرة إنذار + دجاجة",
+        "دجاجة + صافرة إنذار",
+        "صافرة إنذار + صوت دجاجة",
+        "صوت دجاجة + صافرة إنذار",
+        "صافرة إنذار + دجاج",
+        "دجاج + صافرة إنذار"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "منزل",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-102414-A-17.wav",
-          "local_path": "sounds/2-102414-A-17.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-117120-A-42.wav",
+          "local_path": "sounds/5-117120-A-42.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/102414/",
+          "source_recording": "https://freesound.org/s/117120/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-248341-A-6.wav",
+          "local_path": "sounds/5-248341-A-6.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/248341/",
           "dataset": "ESC-50"
         }
       ],
@@ -1711,22 +2063,61 @@
     },
     {
       "id": "SOUND-064",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "قطار",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "نباح كلب + تكسر زجاج",
       "accepted_answers": [
-        "صوت قطار",
-        "سكة حديد"
+        "نباح كلب + تكسر زجاج",
+        "تكسر زجاج + نباح كلب",
+        "نباح كلب و تكسر زجاج",
+        "تكسر زجاج و نباح كلب",
+        "نباح كلب + زجاج ينكسر",
+        "زجاج ينكسر + نباح كلب",
+        "نباح كلب + كسر كاسة",
+        "كسر كاسة + نباح كلب",
+        "نباح كلب + تحطم زجاج",
+        "تحطم زجاج + نباح كلب",
+        "كلب + تكسر زجاج",
+        "تكسر زجاج + كلب",
+        "كلب + زجاج ينكسر",
+        "زجاج ينكسر + كلب",
+        "كلب + كسر كاسة",
+        "كسر كاسة + كلب",
+        "كلب + تحطم زجاج",
+        "تحطم زجاج + كلب",
+        "نباح + تكسر زجاج",
+        "تكسر زجاج + نباح",
+        "نباح + زجاج ينكسر",
+        "زجاج ينكسر + نباح",
+        "نباح + كسر كاسة",
+        "كسر كاسة + نباح",
+        "نباح + تحطم زجاج",
+        "تحطم زجاج + نباح",
+        "صوت كلب + تكسر زجاج",
+        "تكسر زجاج + صوت كلب",
+        "صوت كلب + زجاج ينكسر",
+        "زجاج ينكسر + صوت كلب",
+        "صوت كلب + كسر كاسة",
+        "كسر كاسة + صوت كلب",
+        "صوت كلب + تحطم زجاج",
+        "تحطم زجاج + صوت كلب"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "مواصلات",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-122066-A-45.wav",
-          "local_path": "sounds/2-122066-A-45.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-208030-A-0.wav",
+          "local_path": "sounds/5-208030-A-0.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/122066/",
+          "source_recording": "https://freesound.org/s/208030/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-221529-A-39.wav",
+          "local_path": "sounds/5-221529-A-39.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/221529/",
           "dataset": "ESC-50"
         }
       ],
@@ -1737,24 +2128,61 @@
     },
     {
       "id": "SOUND-065",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "ثغاء خروف",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "طباعة على لوحة مفاتيح + هطول مطر",
       "accepted_answers": [
-        "خروف",
-        "غنم",
-        "شاة",
-        "ماعز"
+        "طباعة على لوحة مفاتيح + هطول مطر",
+        "هطول مطر + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح و هطول مطر",
+        "هطول مطر و طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + مطر",
+        "مطر + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + صوت شتا",
+        "صوت شتا + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + شتا",
+        "شتا + طباعة على لوحة مفاتيح",
+        "كيبورد + هطول مطر",
+        "هطول مطر + كيبورد",
+        "كيبورد + مطر",
+        "مطر + كيبورد",
+        "كيبورد + صوت شتا",
+        "صوت شتا + كيبورد",
+        "كيبورد + شتا",
+        "شتا + كيبورد",
+        "لوحة مفاتيح + هطول مطر",
+        "هطول مطر + لوحة مفاتيح",
+        "لوحة مفاتيح + مطر",
+        "مطر + لوحة مفاتيح",
+        "لوحة مفاتيح + صوت شتا",
+        "صوت شتا + لوحة مفاتيح",
+        "لوحة مفاتيح + شتا",
+        "شتا + لوحة مفاتيح",
+        "كتابة على كيبورد + هطول مطر",
+        "هطول مطر + كتابة على كيبورد",
+        "كتابة على كيبورد + مطر",
+        "مطر + كتابة على كيبورد",
+        "كتابة على كيبورد + صوت شتا",
+        "صوت شتا + كتابة على كيبورد",
+        "كتابة على كيبورد + شتا",
+        "شتا + كتابة على كيبورد"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "حيوانات",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-110614-A-8.wav",
-          "local_path": "sounds/2-110614-A-8.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-215005-A-32.wav",
+          "local_path": "sounds/5-215005-A-32.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/110614/",
+          "source_recording": "https://freesound.org/s/215005/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-193339-A-10.wav",
+          "local_path": "sounds/5-193339-A-10.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/193339/",
           "dataset": "ESC-50"
         }
       ],
@@ -1765,23 +2193,53 @@
     },
     {
       "id": "SOUND-066",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "تنقيط ماء",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "أجراس كنيسة + ثغاء خروف",
       "accepted_answers": [
-        "قطرات مي",
-        "قطرات ماء",
-        "نقط مي"
+        "أجراس كنيسة + ثغاء خروف",
+        "ثغاء خروف + أجراس كنيسة",
+        "أجراس كنيسة و ثغاء خروف",
+        "ثغاء خروف و أجراس كنيسة",
+        "أجراس كنيسة + خروف",
+        "خروف + أجراس كنيسة",
+        "أجراس كنيسة + غنم",
+        "غنم + أجراس كنيسة",
+        "أجراس كنيسة + شاة",
+        "شاة + أجراس كنيسة",
+        "دق أجراس + ثغاء خروف",
+        "ثغاء خروف + دق أجراس",
+        "دق أجراس + خروف",
+        "خروف + دق أجراس",
+        "دق أجراس + غنم",
+        "غنم + دق أجراس",
+        "دق أجراس + شاة",
+        "شاة + دق أجراس",
+        "أجراس + ثغاء خروف",
+        "ثغاء خروف + أجراس",
+        "أجراس + خروف",
+        "خروف + أجراس",
+        "أجراس + غنم",
+        "غنم + أجراس",
+        "أجراس + شاة",
+        "شاة + أجراس"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "طبيعة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-124564-A-15.wav",
-          "local_path": "sounds/2-124564-A-15.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-188716-A-46.wav",
+          "local_path": "sounds/5-188716-A-46.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/124564/",
+          "source_recording": "https://freesound.org/s/188716/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-200329-A-8.wav",
+          "local_path": "sounds/5-200329-A-8.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/200329/",
           "dataset": "ESC-50"
         }
       ],
@@ -1792,22 +2250,45 @@
     },
     {
       "id": "SOUND-067",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "أجراس كنيسة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "شخير + تنقيط ماء",
       "accepted_answers": [
-        "دق أجراس",
-        "أجراس"
+        "شخير + تنقيط ماء",
+        "تنقيط ماء + شخير",
+        "شخير و تنقيط ماء",
+        "تنقيط ماء و شخير",
+        "شخير + قطرات مي",
+        "قطرات مي + شخير",
+        "شخير + قطرات ماء",
+        "قطرات ماء + شخير",
+        "شخير + نقط مي",
+        "نقط مي + شخير",
+        "صوت شخير + تنقيط ماء",
+        "تنقيط ماء + صوت شخير",
+        "صوت شخير + قطرات مي",
+        "قطرات مي + صوت شخير",
+        "صوت شخير + قطرات ماء",
+        "قطرات ماء + صوت شخير",
+        "صوت شخير + نقط مي",
+        "نقط مي + صوت شخير"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "خارج المنزل",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-56926-A-46.wav",
-          "local_path": "sounds/2-56926-A-46.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-233312-A-28.wav",
+          "local_path": "sounds/5-233312-A-28.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/56926/",
+          "source_recording": "https://freesound.org/s/233312/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-254832-A-15.wav",
+          "local_path": "sounds/5-254832-A-15.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/254832/",
           "dataset": "ESC-50"
         }
       ],
@@ -1818,22 +2299,53 @@
     },
     {
       "id": "SOUND-068",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "منبه ساعة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "مروحية + قطار",
       "accepted_answers": [
-        "جرس منبه",
-        "منبه"
+        "مروحية + قطار",
+        "قطار + مروحية",
+        "مروحية و قطار",
+        "قطار و مروحية",
+        "مروحية + صوت قطار",
+        "صوت قطار + مروحية",
+        "مروحية + سكة حديد",
+        "سكة حديد + مروحية",
+        "هليكوبتر + قطار",
+        "قطار + هليكوبتر",
+        "هليكوبتر + صوت قطار",
+        "صوت قطار + هليكوبتر",
+        "هليكوبتر + سكة حديد",
+        "سكة حديد + هليكوبتر",
+        "طائرة عامودية + قطار",
+        "قطار + طائرة عامودية",
+        "طائرة عامودية + صوت قطار",
+        "صوت قطار + طائرة عامودية",
+        "طائرة عامودية + سكة حديد",
+        "سكة حديد + طائرة عامودية",
+        "طائرة عمودية + قطار",
+        "قطار + طائرة عمودية",
+        "طائرة عمودية + صوت قطار",
+        "صوت قطار + طائرة عمودية",
+        "طائرة عمودية + سكة حديد",
+        "سكة حديد + طائرة عمودية"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-102435-A-37.wav",
-          "local_path": "sounds/2-102435-A-37.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-191131-A-40.wav",
+          "local_path": "sounds/5-191131-A-40.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/102435/",
+          "source_recording": "https://freesound.org/s/191131/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-188945-A-45.wav",
+          "local_path": "sounds/5-188945-A-45.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/188945/",
           "dataset": "ESC-50"
         }
       ],
@@ -1844,23 +2356,61 @@
     },
     {
       "id": "SOUND-069",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "طباعة على لوحة مفاتيح",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "رعد وعاصفة + سكب ماء",
       "accepted_answers": [
-        "كيبورد",
-        "لوحة مفاتيح",
-        "كتابة على كيبورد"
+        "رعد وعاصفة + سكب ماء",
+        "سكب ماء + رعد وعاصفة",
+        "رعد وعاصفة و سكب ماء",
+        "سكب ماء و رعد وعاصفة",
+        "رعد وعاصفة + صب مي",
+        "صب مي + رعد وعاصفة",
+        "رعد وعاصفة + صب ماء",
+        "صب ماء + رعد وعاصفة",
+        "رعد وعاصفة + سكب مي",
+        "سكب مي + رعد وعاصفة",
+        "رعد + سكب ماء",
+        "سكب ماء + رعد",
+        "رعد + صب مي",
+        "صب مي + رعد",
+        "رعد + صب ماء",
+        "صب ماء + رعد",
+        "رعد + سكب مي",
+        "سكب مي + رعد",
+        "برق ورعد + سكب ماء",
+        "سكب ماء + برق ورعد",
+        "برق ورعد + صب مي",
+        "صب مي + برق ورعد",
+        "برق ورعد + صب ماء",
+        "صب ماء + برق ورعد",
+        "برق ورعد + سكب مي",
+        "سكب مي + برق ورعد",
+        "عاصفة رعدية + سكب ماء",
+        "سكب ماء + عاصفة رعدية",
+        "عاصفة رعدية + صب مي",
+        "صب مي + عاصفة رعدية",
+        "عاصفة رعدية + صب ماء",
+        "صب ماء + عاصفة رعدية",
+        "عاصفة رعدية + سكب مي",
+        "سكب مي + عاصفة رعدية"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "أجهزة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-104168-A-32.wav",
-          "local_path": "sounds/2-104168-A-32.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-188495-A-19.wav",
+          "local_path": "sounds/5-188495-A-19.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/104168/",
+          "source_recording": "https://freesound.org/s/188495/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-207781-A-17.wav",
+          "local_path": "sounds/5-207781-A-17.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/207781/",
           "dataset": "ESC-50"
         }
       ],
@@ -1871,23 +2421,53 @@
     },
     {
       "id": "SOUND-070",
-      "question": "اسمع الخمس ثواني وحدّد الصوت.",
-      "answer": "هُبوب رياح",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "طرق باب خشبي + عطسة",
       "accepted_answers": [
-        "هواء",
-        "ريح",
-        "رياح"
+        "طرق باب خشبي + عطسة",
+        "عطسة + طرق باب خشبي",
+        "طرق باب خشبي و عطسة",
+        "عطسة و طرق باب خشبي",
+        "طرق باب خشبي + عطاس",
+        "عطاس + طرق باب خشبي",
+        "طرق باب خشبي + عطس",
+        "عطس + طرق باب خشبي",
+        "دق باب + عطسة",
+        "عطسة + دق باب",
+        "دق باب + عطاس",
+        "عطاس + دق باب",
+        "دق باب + عطس",
+        "عطس + دق باب",
+        "طرق باب + عطسة",
+        "عطسة + طرق باب",
+        "طرق باب + عطاس",
+        "عطاس + طرق باب",
+        "طرق باب + عطس",
+        "عطس + طرق باب",
+        "خبط باب + عطسة",
+        "عطسة + خبط باب",
+        "خبط باب + عطاس",
+        "عطاس + خبط باب",
+        "خبط باب + عطس",
+        "عطس + خبط باب"
       ],
       "level": "متوسط",
       "points": 400,
-      "mode": "solo",
-      "group": "طبيعة",
+      "mode": "mix",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-104952-A-16.wav",
-          "local_path": "sounds/2-104952-A-16.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-235644-A-30.wav",
+          "local_path": "sounds/5-235644-A-30.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/104952/",
+          "source_recording": "https://freesound.org/s/235644/",
+          "dataset": "ESC-50"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-194533-A-21.wav",
+          "local_path": "sounds/5-194533-A-21.wav",
+          "duration_seconds": 5,
+          "source_recording": "https://freesound.org/s/194533/",
           "dataset": "ESC-50"
         }
       ],
@@ -1898,28 +2478,24 @@
     },
     {
       "id": "SOUND-071",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "خطوات مشي + صوت صراصير الليل",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صوت صراصير الليل",
       "accepted_answers": [
-        "صوت صراصير الليل + خطوات مشي"
+        "صوت صراصير الليل",
+        "صرصور الليل",
+        "صراصير",
+        "حشرات الليل"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-209471-A-25.wav",
-          "local_path": "sounds/2-209471-A-25.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-210540-A-13.wav",
+          "local_path": "sounds/5-210540-A-13.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/209471/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-57316-A-13.wav",
-          "local_path": "sounds/1-57316-A-13.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/57316/",
+          "source_recording": "https://freesound.org/s/210540/",
           "dataset": "ESC-50"
         }
       ],
@@ -1930,28 +2506,24 @@
     },
     {
       "id": "SOUND-072",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "نقيق ضفدع + نعيق غراب",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "طنين حشرات",
       "accepted_answers": [
-        "نعيق غراب + نقيق ضفدع"
+        "طنين حشرات",
+        "حشرات طائرة",
+        "طنين ذباب",
+        "طنين"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-32515-A-4.wav",
-          "local_path": "sounds/2-32515-A-4.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-195517-A-7.wav",
+          "local_path": "sounds/5-195517-A-7.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/32515/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-103298-A-9.wav",
-          "local_path": "sounds/1-103298-A-9.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/103298/",
+          "source_recording": "https://freesound.org/s/195517/",
           "dataset": "ESC-50"
         }
       ],
@@ -1962,28 +2534,23 @@
     },
     {
       "id": "SOUND-073",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "خوار بقرة + قطار",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نعيق غراب",
       "accepted_answers": [
-        "قطار + خوار بقرة"
+        "نعيق غراب",
+        "غراب",
+        "صوت غراب"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "حيوانات",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-103423-A-3.wav",
-          "local_path": "sounds/2-103423-A-3.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-214869-A-9.wav",
+          "local_path": "sounds/5-214869-A-9.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/103423/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-119125-A-45.wav",
-          "local_path": "sounds/1-119125-A-45.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/119125/",
+          "source_recording": "https://freesound.org/s/214869/",
           "dataset": "ESC-50"
         }
       ],
@@ -1994,28 +2561,24 @@
     },
     {
       "id": "SOUND-074",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "تفريش أسنان + خطوات مشي",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نقر فأرة كمبيوتر",
       "accepted_answers": [
-        "خطوات مشي + تفريش أسنان"
+        "نقر فأرة كمبيوتر",
+        "كبسة ماوس",
+        "نقرة ماوس",
+        "ماوس"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-73544-A-27.wav",
-          "local_path": "sounds/2-73544-A-27.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-223103-A-31.wav",
+          "local_path": "sounds/5-223103-A-31.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/73544/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-155858-A-25.wav",
-          "local_path": "sounds/1-155858-A-25.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/155858/",
+          "source_recording": "https://freesound.org/s/223103/",
           "dataset": "ESC-50"
         }
       ],
@@ -2026,28 +2589,24 @@
     },
     {
       "id": "SOUND-075",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "زامور سيارة + ارتشاف مشروب",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "دقات ساعة",
       "accepted_answers": [
-        "ارتشاف مشروب + زامور سيارة"
+        "دقات ساعة",
+        "تك تك الساعة",
+        "عقارب ساعة",
+        "تكتكة ساعة"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-100648-A-43.wav",
-          "local_path": "sounds/2-100648-A-43.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-208624-A-38.wav",
+          "local_path": "sounds/5-208624-A-38.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100648/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17295-A-29.wav",
-          "local_path": "sounds/1-17295-A-29.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17295/",
+          "source_recording": "https://freesound.org/s/208624/",
           "dataset": "ESC-50"
         }
       ],
@@ -2058,28 +2617,24 @@
     },
     {
       "id": "SOUND-076",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "طقطقة نار + بكاء رضيع",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "فتح علبة معدنية",
       "accepted_answers": [
-        "بكاء رضيع + طقطقة نار"
+        "فتح علبة معدنية",
+        "فتح علبة",
+        "علبة معدنية",
+        "فتح علبة مشروبات"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-18766-A-12.wav",
-          "local_path": "sounds/2-18766-A-12.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-236299-A-34.wav",
+          "local_path": "sounds/5-236299-A-34.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18766/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-187207-A-20.wav",
-          "local_path": "sounds/1-187207-A-20.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/187207/",
+          "source_recording": "https://freesound.org/s/236299/",
           "dataset": "ESC-50"
         }
       ],
@@ -2090,28 +2645,24 @@
     },
     {
       "id": "SOUND-077",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "مروحية + غسالة ملابس",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صرير باب خشبي",
       "accepted_answers": [
-        "غسالة ملابس + مروحية"
+        "صرير باب خشبي",
+        "باب يصرصر",
+        "صوت باب يفتح",
+        "صرير باب"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-188822-A-40.wav",
-          "local_path": "sounds/2-188822-A-40.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-173568-A-33.wav",
+          "local_path": "sounds/5-173568-A-33.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/188822/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-21896-A-35.wav",
-          "local_path": "sounds/1-21896-A-35.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/21896/",
+          "source_recording": "https://freesound.org/s/173568/",
           "dataset": "ESC-50"
         }
       ],
@@ -2122,28 +2673,24 @@
     },
     {
       "id": "SOUND-078",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "ارتشاف مشروب + صرير باب خشبي",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "ارتشاف مشروب",
       "accepted_answers": [
-        "صرير باب خشبي + ارتشاف مشروب"
+        "ارتشاف مشروب",
+        "شرب ماء",
+        "رشفة",
+        "شرب عصير"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أصوات بشرية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-102581-A-29.wav",
-          "local_path": "sounds/2-102581-A-29.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-207836-A-29.wav",
+          "local_path": "sounds/5-207836-A-29.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/102581/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-51805-A-33.wav",
-          "local_path": "sounds/1-51805-A-33.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/51805/",
+          "source_recording": "https://freesound.org/s/207836/",
           "dataset": "ESC-50"
         }
       ],
@@ -2154,28 +2701,24 @@
     },
     {
       "id": "SOUND-079",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "هطول مطر + فتح علبة معدنية",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "نشر خشب بمنشار يدوي",
       "accepted_answers": [
-        "فتح علبة معدنية + هطول مطر"
+        "نشر خشب بمنشار يدوي",
+        "منشار يدوي",
+        "قص خشب",
+        "نشر خشب"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "منزل",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-101676-A-10.wav",
-          "local_path": "sounds/2-101676-A-10.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-253094-A-49.wav",
+          "local_path": "sounds/5-253094-A-49.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101676/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101404-A-34.wav",
-          "local_path": "sounds/1-101404-A-34.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101404/",
+          "source_recording": "https://freesound.org/s/253094/",
           "dataset": "ESC-50"
         }
       ],
@@ -2186,28 +2729,24 @@
     },
     {
       "id": "SOUND-080",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "طنين حشرات + سكب ماء",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "تنقيط ماء",
       "accepted_answers": [
-        "سكب ماء + طنين حشرات"
+        "تنقيط ماء",
+        "قطرات مي",
+        "قطرات ماء",
+        "نقط مي"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "طبيعة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-160128-A-7.wav",
-          "local_path": "sounds/2-160128-A-7.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-257349-A-15.wav",
+          "local_path": "sounds/5-257349-A-15.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/160128/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-118559-A-17.wav",
-          "local_path": "sounds/1-118559-A-17.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/118559/",
+          "source_recording": "https://freesound.org/s/257349/",
           "dataset": "ESC-50"
         }
       ],
@@ -2218,29 +2757,26 @@
     },
     {
       "id": "SOUND-081",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "ضحك + هُبوب رياح",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صوت تشغيل المكيف",
       "accepted_answers": [
-        "هُبوب رياح + ضحك"
+        "صوت تشغيل المكيف",
+        "مكيف",
+        "مكيف هواء",
+        "صوت المكيف",
+        "تكييف"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-109759-A-26.wav",
-          "local_path": "sounds/2-109759-A-26.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/109759/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-137296-A-16.wav",
-          "local_path": "sounds/1-137296-A-16.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/137296/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/AirConditioner_1.wav",
+          "local_path": "sounds/ms-AirConditioner_1.wav",
+          "duration_seconds": 20,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/AirConditioner_1.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2250,29 +2786,26 @@
     },
     {
       "id": "SOUND-082",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "دجاجة + مروحية",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "آلة تصوير المستندات",
       "accepted_answers": [
-        "مروحية + دجاجة"
+        "آلة تصوير المستندات",
+        "ماكينة تصوير",
+        "فوتوكوبي",
+        "آلة تصوير الورق",
+        "ناسخة"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أجهزة مكتبية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-120586-A-6.wav",
-          "local_path": "sounds/2-120586-A-6.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/120586/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-172649-A-40.wav",
-          "local_path": "sounds/1-172649-A-40.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/172649/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/CopyMachine_5.wav",
+          "local_path": "sounds/ms-CopyMachine_5.wav",
+          "duration_seconds": 21,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/CopyMachine_5.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2282,29 +2815,25 @@
     },
     {
       "id": "SOUND-083",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "محرك + تنفس",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "صرير كرسي",
       "accepted_answers": [
-        "تنفس + محرك"
+        "صرير كرسي",
+        "كرسي بيزيق",
+        "صرير الكرسي",
+        "صوت احتكاك كرسي"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أصوات يومية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-106014-A-44.wav",
-          "local_path": "sounds/2-106014-A-44.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/106014/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18631-A-23.wav",
-          "local_path": "sounds/1-18631-A-23.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18631/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/SqueakyChair_7.wav",
+          "local_path": "sounds/ms-SqueakyChair_7.wav",
+          "duration_seconds": 23,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/SqueakyChair_7.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2314,29 +2843,26 @@
     },
     {
       "id": "SOUND-084",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "تنفس + خنزير",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "مضغ الطعام",
       "accepted_answers": [
-        "خنزير + تنفس"
+        "مضغ الطعام",
+        "مضغ",
+        "قرمشة أكل",
+        "مضغ الأكل",
+        "صوت الأكل"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أصوات يومية",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-50774-A-23.wav",
-          "local_path": "sounds/2-50774-A-23.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/50774/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-208757-A-2.wav",
-          "local_path": "sounds/1-208757-A-2.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/208757/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/Munching_2.wav",
+          "local_path": "sounds/ms-Munching_2.wav",
+          "duration_seconds": 28,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/Munching_2.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2346,29 +2872,26 @@
     },
     {
       "id": "SOUND-085",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "بكاء رضيع + مواء قطة",
+      "question": "اسمع التسجيل، شو الصوت اللي بتسمعه؟",
+      "answer": "جهاز غسل وتجفيف الملابس",
       "accepted_answers": [
-        "مواء قطة + بكاء رضيع"
+        "جهاز غسل وتجفيف الملابس",
+        "غسالة نشافة",
+        "غسالة",
+        "نشافة",
+        "مجفف ملابس"
       ],
       "level": "صعب",
       "points": 600,
-      "mode": "mix",
-      "group": "تحدي الصوتين",
+      "mode": "solo",
+      "group": "أجهزة",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-107351-A-20.wav",
-          "local_path": "sounds/2-107351-A-20.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/107351/",
-          "dataset": "ESC-50"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-34094-A-5.wav",
-          "local_path": "sounds/1-34094-A-5.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/34094/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/WasherDryer_1.wav",
+          "local_path": "sounds/ms-WasherDryer_1.wav",
+          "duration_seconds": 28,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/WasherDryer_1.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2378,28 +2901,61 @@
     },
     {
       "id": "SOUND-086",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "نشر خشب بمنشار يدوي + طرق باب خشبي",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "دقات ساعة + نقر فأرة كمبيوتر",
       "accepted_answers": [
-        "طرق باب خشبي + نشر خشب بمنشار يدوي"
+        "دقات ساعة + نقر فأرة كمبيوتر",
+        "نقر فأرة كمبيوتر + دقات ساعة",
+        "دقات ساعة و نقر فأرة كمبيوتر",
+        "نقر فأرة كمبيوتر و دقات ساعة",
+        "دقات ساعة + كبسة ماوس",
+        "كبسة ماوس + دقات ساعة",
+        "دقات ساعة + نقرة ماوس",
+        "نقرة ماوس + دقات ساعة",
+        "دقات ساعة + ماوس",
+        "ماوس + دقات ساعة",
+        "تك تك الساعة + نقر فأرة كمبيوتر",
+        "نقر فأرة كمبيوتر + تك تك الساعة",
+        "تك تك الساعة + كبسة ماوس",
+        "كبسة ماوس + تك تك الساعة",
+        "تك تك الساعة + نقرة ماوس",
+        "نقرة ماوس + تك تك الساعة",
+        "تك تك الساعة + ماوس",
+        "ماوس + تك تك الساعة",
+        "عقارب ساعة + نقر فأرة كمبيوتر",
+        "نقر فأرة كمبيوتر + عقارب ساعة",
+        "عقارب ساعة + كبسة ماوس",
+        "كبسة ماوس + عقارب ساعة",
+        "عقارب ساعة + نقرة ماوس",
+        "نقرة ماوس + عقارب ساعة",
+        "عقارب ساعة + ماوس",
+        "ماوس + عقارب ساعة",
+        "تكتكة ساعة + نقر فأرة كمبيوتر",
+        "نقر فأرة كمبيوتر + تكتكة ساعة",
+        "تكتكة ساعة + كبسة ماوس",
+        "كبسة ماوس + تكتكة ساعة",
+        "تكتكة ساعة + نقرة ماوس",
+        "نقرة ماوس + تكتكة ساعة",
+        "تكتكة ساعة + ماوس",
+        "ماوس + تكتكة ساعة"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-135860-A-49.wav",
-          "local_path": "sounds/2-135860-A-49.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-209698-A-38.wav",
+          "local_path": "sounds/5-209698-A-38.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/135860/",
+          "source_recording": "https://freesound.org/s/209698/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101336-A-30.wav",
-          "local_path": "sounds/1-101336-A-30.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-223317-A-31.wav",
+          "local_path": "sounds/5-223317-A-31.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101336/",
+          "source_recording": "https://freesound.org/s/223317/",
           "dataset": "ESC-50"
         }
       ],
@@ -2410,28 +2966,53 @@
     },
     {
       "id": "SOUND-087",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "سعال + نقر فأرة كمبيوتر",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "نشر خشب بمنشار يدوي + تفريش أسنان",
       "accepted_answers": [
-        "نقر فأرة كمبيوتر + سعال"
+        "نشر خشب بمنشار يدوي + تفريش أسنان",
+        "تفريش أسنان + نشر خشب بمنشار يدوي",
+        "نشر خشب بمنشار يدوي و تفريش أسنان",
+        "تفريش أسنان و نشر خشب بمنشار يدوي",
+        "نشر خشب بمنشار يدوي + تنظيف أسنان",
+        "تنظيف أسنان + نشر خشب بمنشار يدوي",
+        "نشر خشب بمنشار يدوي + فرشاة أسنان",
+        "فرشاة أسنان + نشر خشب بمنشار يدوي",
+        "منشار يدوي + تفريش أسنان",
+        "تفريش أسنان + منشار يدوي",
+        "منشار يدوي + تنظيف أسنان",
+        "تنظيف أسنان + منشار يدوي",
+        "منشار يدوي + فرشاة أسنان",
+        "فرشاة أسنان + منشار يدوي",
+        "قص خشب + تفريش أسنان",
+        "تفريش أسنان + قص خشب",
+        "قص خشب + تنظيف أسنان",
+        "تنظيف أسنان + قص خشب",
+        "قص خشب + فرشاة أسنان",
+        "فرشاة أسنان + قص خشب",
+        "نشر خشب + تفريش أسنان",
+        "تفريش أسنان + نشر خشب",
+        "نشر خشب + تنظيف أسنان",
+        "تنظيف أسنان + نشر خشب",
+        "نشر خشب + فرشاة أسنان",
+        "فرشاة أسنان + نشر خشب"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-108017-A-24.wav",
-          "local_path": "sounds/2-108017-A-24.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-253101-A-49.wav",
+          "local_path": "sounds/5-253101-A-49.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/108017/",
+          "source_recording": "https://freesound.org/s/253101/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-118206-A-31.wav",
-          "local_path": "sounds/1-118206-A-31.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-180229-A-27.wav",
+          "local_path": "sounds/5-180229-A-27.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/118206/",
+          "source_recording": "https://freesound.org/s/180229/",
           "dataset": "ESC-50"
         }
       ],
@@ -2442,28 +3023,61 @@
     },
     {
       "id": "SOUND-088",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "تكسر زجاج + طباعة على لوحة مفاتيح",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "صوت صراصير الليل + طنين حشرات",
       "accepted_answers": [
-        "طباعة على لوحة مفاتيح + تكسر زجاج"
+        "صوت صراصير الليل + طنين حشرات",
+        "طنين حشرات + صوت صراصير الليل",
+        "صوت صراصير الليل و طنين حشرات",
+        "طنين حشرات و صوت صراصير الليل",
+        "صوت صراصير الليل + حشرات طائرة",
+        "حشرات طائرة + صوت صراصير الليل",
+        "صوت صراصير الليل + طنين ذباب",
+        "طنين ذباب + صوت صراصير الليل",
+        "صوت صراصير الليل + طنين",
+        "طنين + صوت صراصير الليل",
+        "صرصور الليل + طنين حشرات",
+        "طنين حشرات + صرصور الليل",
+        "صرصور الليل + حشرات طائرة",
+        "حشرات طائرة + صرصور الليل",
+        "صرصور الليل + طنين ذباب",
+        "طنين ذباب + صرصور الليل",
+        "صرصور الليل + طنين",
+        "طنين + صرصور الليل",
+        "صراصير + طنين حشرات",
+        "طنين حشرات + صراصير",
+        "صراصير + حشرات طائرة",
+        "حشرات طائرة + صراصير",
+        "صراصير + طنين ذباب",
+        "طنين ذباب + صراصير",
+        "صراصير + طنين",
+        "طنين + صراصير",
+        "حشرات الليل + طنين حشرات",
+        "طنين حشرات + حشرات الليل",
+        "حشرات الليل + حشرات طائرة",
+        "حشرات طائرة + حشرات الليل",
+        "حشرات الليل + طنين ذباب",
+        "طنين ذباب + حشرات الليل",
+        "حشرات الليل + طنين",
+        "طنين + حشرات الليل"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-106881-A-39.wav",
-          "local_path": "sounds/2-106881-A-39.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-215172-A-13.wav",
+          "local_path": "sounds/5-215172-A-13.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/106881/",
+          "source_recording": "https://freesound.org/s/215172/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-137-A-32.wav",
-          "local_path": "sounds/1-137-A-32.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-195518-A-7.wav",
+          "local_path": "sounds/5-195518-A-7.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/137/",
+          "source_recording": "https://freesound.org/s/195518/",
           "dataset": "ESC-50"
         }
       ],
@@ -2474,29 +3088,62 @@
     },
     {
       "id": "SOUND-089",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "شخير + طقطقة نار",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "صرير باب خشبي + صرير كرسي",
       "accepted_answers": [
-        "طقطقة نار + شخير"
+        "صرير باب خشبي + صرير كرسي",
+        "صرير كرسي + صرير باب خشبي",
+        "صرير باب خشبي و صرير كرسي",
+        "صرير كرسي و صرير باب خشبي",
+        "صرير باب خشبي + كرسي بيزيق",
+        "كرسي بيزيق + صرير باب خشبي",
+        "صرير باب خشبي + صرير الكرسي",
+        "صرير الكرسي + صرير باب خشبي",
+        "صرير باب خشبي + صوت احتكاك كرسي",
+        "صوت احتكاك كرسي + صرير باب خشبي",
+        "باب يصرصر + صرير كرسي",
+        "صرير كرسي + باب يصرصر",
+        "باب يصرصر + كرسي بيزيق",
+        "كرسي بيزيق + باب يصرصر",
+        "باب يصرصر + صرير الكرسي",
+        "صرير الكرسي + باب يصرصر",
+        "باب يصرصر + صوت احتكاك كرسي",
+        "صوت احتكاك كرسي + باب يصرصر",
+        "صوت باب يفتح + صرير كرسي",
+        "صرير كرسي + صوت باب يفتح",
+        "صوت باب يفتح + كرسي بيزيق",
+        "كرسي بيزيق + صوت باب يفتح",
+        "صوت باب يفتح + صرير الكرسي",
+        "صرير الكرسي + صوت باب يفتح",
+        "صوت باب يفتح + صوت احتكاك كرسي",
+        "صوت احتكاك كرسي + صوت باب يفتح",
+        "صرير باب + صرير كرسي",
+        "صرير كرسي + صرير باب",
+        "صرير باب + كرسي بيزيق",
+        "كرسي بيزيق + صرير باب",
+        "صرير باب + صرير الكرسي",
+        "صرير الكرسي + صرير باب",
+        "صرير باب + صوت احتكاك كرسي",
+        "صوت احتكاك كرسي + صرير باب"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-110417-A-28.wav",
-          "local_path": "sounds/2-110417-A-28.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-177779-A-33.wav",
+          "local_path": "sounds/5-177779-A-33.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/110417/",
+          "source_recording": "https://freesound.org/s/177779/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17150-A-12.wav",
-          "local_path": "sounds/1-17150-A-12.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17150/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/SqueakyChair_10.wav",
+          "local_path": "sounds/ms-SqueakyChair_10.wav",
+          "duration_seconds": 24,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/SqueakyChair_10.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2506,29 +3153,54 @@
     },
     {
       "id": "SOUND-090",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "سيفون حمام + محرك",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "مكنسة كهربائية + صوت تشغيل المكيف",
       "accepted_answers": [
-        "محرك + سيفون حمام"
+        "مكنسة كهربائية + صوت تشغيل المكيف",
+        "صوت تشغيل المكيف + مكنسة كهربائية",
+        "مكنسة كهربائية و صوت تشغيل المكيف",
+        "صوت تشغيل المكيف و مكنسة كهربائية",
+        "مكنسة كهربائية + مكيف",
+        "مكيف + مكنسة كهربائية",
+        "مكنسة كهربائية + مكيف هواء",
+        "مكيف هواء + مكنسة كهربائية",
+        "مكنسة كهربائية + صوت المكيف",
+        "صوت المكيف + مكنسة كهربائية",
+        "مكنسة + صوت تشغيل المكيف",
+        "صوت تشغيل المكيف + مكنسة",
+        "مكنسة + مكيف",
+        "مكيف + مكنسة",
+        "مكنسة + مكيف هواء",
+        "مكيف هواء + مكنسة",
+        "مكنسة + صوت المكيف",
+        "صوت المكيف + مكنسة",
+        "شفاط غبار + صوت تشغيل المكيف",
+        "صوت تشغيل المكيف + شفاط غبار",
+        "شفاط غبار + مكيف",
+        "مكيف + شفاط غبار",
+        "شفاط غبار + مكيف هواء",
+        "مكيف هواء + شفاط غبار",
+        "شفاط غبار + صوت المكيف",
+        "صوت المكيف + شفاط غبار"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-64332-A-18.wav",
-          "local_path": "sounds/2-64332-A-18.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-182010-A-36.wav",
+          "local_path": "sounds/5-182010-A-36.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/64332/",
+          "source_recording": "https://freesound.org/s/182010/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18527-A-44.wav",
-          "local_path": "sounds/1-18527-A-44.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18527/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/AirConditioner_4.wav",
+          "local_path": "sounds/ms-AirConditioner_4.wav",
+          "duration_seconds": 27,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/AirConditioner_4.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2538,29 +3210,53 @@
     },
     {
       "id": "SOUND-091",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "خنزير + سيفون حمام",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "غسالة ملابس + جهاز غسل وتجفيف الملابس",
       "accepted_answers": [
-        "سيفون حمام + خنزير"
+        "غسالة ملابس + جهاز غسل وتجفيف الملابس",
+        "جهاز غسل وتجفيف الملابس + غسالة ملابس",
+        "غسالة ملابس و جهاز غسل وتجفيف الملابس",
+        "جهاز غسل وتجفيف الملابس و غسالة ملابس",
+        "غسالة ملابس + غسالة نشافة",
+        "غسالة نشافة + غسالة ملابس",
+        "غسالة ملابس + غسالة",
+        "غسالة + غسالة ملابس",
+        "غسالة ملابس + نشافة",
+        "نشافة + غسالة ملابس",
+        "غسالة + جهاز غسل وتجفيف الملابس",
+        "جهاز غسل وتجفيف الملابس + غسالة",
+        "غسالة + غسالة نشافة",
+        "غسالة نشافة + غسالة",
+        "غسالة + غسالة",
+        "غسالة + نشافة",
+        "نشافة + غسالة",
+        "غسالة اتوماتيك + جهاز غسل وتجفيف الملابس",
+        "جهاز غسل وتجفيف الملابس + غسالة اتوماتيك",
+        "غسالة اتوماتيك + غسالة نشافة",
+        "غسالة نشافة + غسالة اتوماتيك",
+        "غسالة اتوماتيك + غسالة",
+        "غسالة + غسالة اتوماتيك",
+        "غسالة اتوماتيك + نشافة",
+        "نشافة + غسالة اتوماتيك"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-158746-A-2.wav",
-          "local_path": "sounds/2-158746-A-2.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-181977-A-35.wav",
+          "local_path": "sounds/5-181977-A-35.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/158746/",
+          "source_recording": "https://freesound.org/s/181977/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-20736-A-18.wav",
-          "local_path": "sounds/1-20736-A-18.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/20736/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/WasherDryer_7.wav",
+          "local_path": "sounds/ms-WasherDryer_7.wav",
+          "duration_seconds": 66,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/WasherDryer_7.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2570,28 +3266,61 @@
     },
     {
       "id": "SOUND-092",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "غسالة ملابس + صفارة إنذار",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "سكب ماء + تنقيط ماء",
       "accepted_answers": [
-        "صفارة إنذار + غسالة ملابس"
+        "سكب ماء + تنقيط ماء",
+        "تنقيط ماء + سكب ماء",
+        "سكب ماء و تنقيط ماء",
+        "تنقيط ماء و سكب ماء",
+        "سكب ماء + قطرات مي",
+        "قطرات مي + سكب ماء",
+        "سكب ماء + قطرات ماء",
+        "قطرات ماء + سكب ماء",
+        "سكب ماء + نقط مي",
+        "نقط مي + سكب ماء",
+        "صب مي + تنقيط ماء",
+        "تنقيط ماء + صب مي",
+        "صب مي + قطرات مي",
+        "قطرات مي + صب مي",
+        "صب مي + قطرات ماء",
+        "قطرات ماء + صب مي",
+        "صب مي + نقط مي",
+        "نقط مي + صب مي",
+        "صب ماء + تنقيط ماء",
+        "تنقيط ماء + صب ماء",
+        "صب ماء + قطرات مي",
+        "قطرات مي + صب ماء",
+        "صب ماء + قطرات ماء",
+        "قطرات ماء + صب ماء",
+        "صب ماء + نقط مي",
+        "نقط مي + صب ماء",
+        "سكب مي + تنقيط ماء",
+        "تنقيط ماء + سكب مي",
+        "سكب مي + قطرات مي",
+        "قطرات مي + سكب مي",
+        "سكب مي + قطرات ماء",
+        "قطرات ماء + سكب مي",
+        "سكب مي + نقط مي",
+        "نقط مي + سكب مي"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-102567-A-35.wav",
-          "local_path": "sounds/2-102567-A-35.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-212730-A-17.wav",
+          "local_path": "sounds/5-212730-A-17.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/102567/",
+          "source_recording": "https://freesound.org/s/212730/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-31482-A-42.wav",
-          "local_path": "sounds/1-31482-A-42.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-259180-A-15.wav",
+          "local_path": "sounds/5-259180-A-15.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/31482/",
+          "source_recording": "https://freesound.org/s/259180/",
           "dataset": "ESC-50"
         }
       ],
@@ -2602,29 +3331,62 @@
     },
     {
       "id": "SOUND-093",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "دقات ساعة + رعد وعاصفة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "طباعة على لوحة مفاتيح + آلة تصوير المستندات",
       "accepted_answers": [
-        "رعد وعاصفة + دقات ساعة"
+        "طباعة على لوحة مفاتيح + آلة تصوير المستندات",
+        "آلة تصوير المستندات + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح و آلة تصوير المستندات",
+        "آلة تصوير المستندات و طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + ماكينة تصوير",
+        "ماكينة تصوير + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + فوتوكوبي",
+        "فوتوكوبي + طباعة على لوحة مفاتيح",
+        "طباعة على لوحة مفاتيح + آلة تصوير الورق",
+        "آلة تصوير الورق + طباعة على لوحة مفاتيح",
+        "كيبورد + آلة تصوير المستندات",
+        "آلة تصوير المستندات + كيبورد",
+        "كيبورد + ماكينة تصوير",
+        "ماكينة تصوير + كيبورد",
+        "كيبورد + فوتوكوبي",
+        "فوتوكوبي + كيبورد",
+        "كيبورد + آلة تصوير الورق",
+        "آلة تصوير الورق + كيبورد",
+        "لوحة مفاتيح + آلة تصوير المستندات",
+        "آلة تصوير المستندات + لوحة مفاتيح",
+        "لوحة مفاتيح + ماكينة تصوير",
+        "ماكينة تصوير + لوحة مفاتيح",
+        "لوحة مفاتيح + فوتوكوبي",
+        "فوتوكوبي + لوحة مفاتيح",
+        "لوحة مفاتيح + آلة تصوير الورق",
+        "آلة تصوير الورق + لوحة مفاتيح",
+        "كتابة على كيبورد + آلة تصوير المستندات",
+        "آلة تصوير المستندات + كتابة على كيبورد",
+        "كتابة على كيبورد + ماكينة تصوير",
+        "ماكينة تصوير + كتابة على كيبورد",
+        "كتابة على كيبورد + فوتوكوبي",
+        "فوتوكوبي + كتابة على كيبورد",
+        "كتابة على كيبورد + آلة تصوير الورق",
+        "آلة تصوير الورق + كتابة على كيبورد"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-119748-A-38.wav",
-          "local_path": "sounds/2-119748-A-38.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-216131-A-32.wav",
+          "local_path": "sounds/5-216131-A-32.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/119748/",
+          "source_recording": "https://freesound.org/s/216131/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-101296-A-19.wav",
-          "local_path": "sounds/1-101296-A-19.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/101296/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/CopyMachine_2.wav",
+          "local_path": "sounds/ms-CopyMachine_2.wav",
+          "duration_seconds": 24,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/CopyMachine_2.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2634,29 +3396,62 @@
     },
     {
       "id": "SOUND-094",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "عطسة + طائرة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "فتح علبة معدنية + إغلاق باب",
       "accepted_answers": [
-        "طائرة + عطسة"
+        "فتح علبة معدنية + إغلاق باب",
+        "إغلاق باب + فتح علبة معدنية",
+        "فتح علبة معدنية و إغلاق باب",
+        "إغلاق باب و فتح علبة معدنية",
+        "فتح علبة معدنية + تسكير الباب",
+        "تسكير الباب + فتح علبة معدنية",
+        "فتح علبة معدنية + غلق باب",
+        "غلق باب + فتح علبة معدنية",
+        "فتح علبة معدنية + صوت باب يسكر",
+        "صوت باب يسكر + فتح علبة معدنية",
+        "فتح علبة + إغلاق باب",
+        "إغلاق باب + فتح علبة",
+        "فتح علبة + تسكير الباب",
+        "تسكير الباب + فتح علبة",
+        "فتح علبة + غلق باب",
+        "غلق باب + فتح علبة",
+        "فتح علبة + صوت باب يسكر",
+        "صوت باب يسكر + فتح علبة",
+        "علبة معدنية + إغلاق باب",
+        "إغلاق باب + علبة معدنية",
+        "علبة معدنية + تسكير الباب",
+        "تسكير الباب + علبة معدنية",
+        "علبة معدنية + غلق باب",
+        "غلق باب + علبة معدنية",
+        "علبة معدنية + صوت باب يسكر",
+        "صوت باب يسكر + علبة معدنية",
+        "فتح علبة مشروبات + إغلاق باب",
+        "إغلاق باب + فتح علبة مشروبات",
+        "فتح علبة مشروبات + تسكير الباب",
+        "تسكير الباب + فتح علبة مشروبات",
+        "فتح علبة مشروبات + غلق باب",
+        "غلق باب + فتح علبة مشروبات",
+        "فتح علبة مشروبات + صوت باب يسكر",
+        "صوت باب يسكر + فتح علبة مشروبات"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-109505-A-21.wav",
-          "local_path": "sounds/2-109505-A-21.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-237795-A-34.wav",
+          "local_path": "sounds/5-237795-A-34.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/109505/",
+          "source_recording": "https://freesound.org/s/237795/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-11687-A-47.wav",
-          "local_path": "sounds/1-11687-A-47.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/11687/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/ShuttingDoor_5.wav",
+          "local_path": "sounds/ms-ShuttingDoor_5.wav",
+          "duration_seconds": 21,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/ShuttingDoor_5.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2666,29 +3461,62 @@
     },
     {
       "id": "SOUND-095",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "صياح ديك + منبه ساعة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "ارتشاف مشروب + مضغ الطعام",
       "accepted_answers": [
-        "منبه ساعة + صياح ديك"
+        "ارتشاف مشروب + مضغ الطعام",
+        "مضغ الطعام + ارتشاف مشروب",
+        "ارتشاف مشروب و مضغ الطعام",
+        "مضغ الطعام و ارتشاف مشروب",
+        "ارتشاف مشروب + مضغ",
+        "مضغ + ارتشاف مشروب",
+        "ارتشاف مشروب + قرمشة أكل",
+        "قرمشة أكل + ارتشاف مشروب",
+        "ارتشاف مشروب + مضغ الأكل",
+        "مضغ الأكل + ارتشاف مشروب",
+        "شرب ماء + مضغ الطعام",
+        "مضغ الطعام + شرب ماء",
+        "شرب ماء + مضغ",
+        "مضغ + شرب ماء",
+        "شرب ماء + قرمشة أكل",
+        "قرمشة أكل + شرب ماء",
+        "شرب ماء + مضغ الأكل",
+        "مضغ الأكل + شرب ماء",
+        "رشفة + مضغ الطعام",
+        "مضغ الطعام + رشفة",
+        "رشفة + مضغ",
+        "مضغ + رشفة",
+        "رشفة + قرمشة أكل",
+        "قرمشة أكل + رشفة",
+        "رشفة + مضغ الأكل",
+        "مضغ الأكل + رشفة",
+        "شرب عصير + مضغ الطعام",
+        "مضغ الطعام + شرب عصير",
+        "شرب عصير + مضغ",
+        "مضغ + شرب عصير",
+        "شرب عصير + قرمشة أكل",
+        "قرمشة أكل + شرب عصير",
+        "شرب عصير + مضغ الأكل",
+        "مضغ الأكل + شرب عصير"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-100786-A-1.wav",
-          "local_path": "sounds/2-100786-A-1.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-243036-A-29.wav",
+          "local_path": "sounds/5-243036-A-29.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100786/",
+          "source_recording": "https://freesound.org/s/243036/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-13613-A-37.wav",
-          "local_path": "sounds/1-13613-A-37.wav",
-          "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/13613/",
-          "dataset": "ESC-50"
+          "url": "https://raw.githubusercontent.com/microsoft/MS-SNSD/master/noise_train/Munching_10.wav",
+          "local_path": "sounds/ms-Munching_10.wav",
+          "duration_seconds": 28,
+          "source_recording": "https://github.com/microsoft/MS-SNSD/blob/master/noise_train/Munching_10.wav",
+          "dataset": "MS-SNSD"
         }
       ],
       "playback_seconds": 5,
@@ -2698,28 +3526,53 @@
     },
     {
       "id": "SOUND-096",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "أمواج بحر + زامور سيارة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "هُبوب رياح + تنفس",
       "accepted_answers": [
-        "زامور سيارة + أمواج بحر"
+        "هُبوب رياح + تنفس",
+        "تنفس + هُبوب رياح",
+        "هُبوب رياح و تنفس",
+        "تنفس و هُبوب رياح",
+        "هُبوب رياح + شهيق وزفير",
+        "شهيق وزفير + هُبوب رياح",
+        "هُبوب رياح + نفس",
+        "نفس + هُبوب رياح",
+        "هواء + تنفس",
+        "تنفس + هواء",
+        "هواء + شهيق وزفير",
+        "شهيق وزفير + هواء",
+        "هواء + نفس",
+        "نفس + هواء",
+        "ريح + تنفس",
+        "تنفس + ريح",
+        "ريح + شهيق وزفير",
+        "شهيق وزفير + ريح",
+        "ريح + نفس",
+        "نفس + ريح",
+        "رياح + تنفس",
+        "تنفس + رياح",
+        "رياح + شهيق وزفير",
+        "شهيق وزفير + رياح",
+        "رياح + نفس",
+        "نفس + رياح"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-102852-A-11.wav",
-          "local_path": "sounds/2-102852-A-11.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-179496-A-16.wav",
+          "local_path": "sounds/5-179496-A-16.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/102852/",
+          "source_recording": "https://freesound.org/s/179496/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-17124-A-43.wav",
-          "local_path": "sounds/1-17124-A-43.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-232816-A-23.wav",
+          "local_path": "sounds/5-232816-A-23.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/17124/",
+          "source_recording": "https://freesound.org/s/232816/",
           "dataset": "ESC-50"
         }
       ],
@@ -2730,28 +3583,61 @@
     },
     {
       "id": "SOUND-097",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "صفارة إنذار + دجاجة",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "طقطقة نار + هطول مطر",
       "accepted_answers": [
-        "دجاجة + صفارة إنذار"
+        "طقطقة نار + هطول مطر",
+        "هطول مطر + طقطقة نار",
+        "طقطقة نار و هطول مطر",
+        "هطول مطر و طقطقة نار",
+        "طقطقة نار + مطر",
+        "مطر + طقطقة نار",
+        "طقطقة نار + صوت شتا",
+        "صوت شتا + طقطقة نار",
+        "طقطقة نار + شتا",
+        "شتا + طقطقة نار",
+        "حطب يحترق + هطول مطر",
+        "هطول مطر + حطب يحترق",
+        "حطب يحترق + مطر",
+        "مطر + حطب يحترق",
+        "حطب يحترق + صوت شتا",
+        "صوت شتا + حطب يحترق",
+        "حطب يحترق + شتا",
+        "شتا + حطب يحترق",
+        "نار + هطول مطر",
+        "هطول مطر + نار",
+        "نار + مطر",
+        "مطر + نار",
+        "نار + صوت شتا",
+        "صوت شتا + نار",
+        "نار + شتا",
+        "شتا + نار",
+        "اشتعال خشب + هطول مطر",
+        "هطول مطر + اشتعال خشب",
+        "اشتعال خشب + مطر",
+        "مطر + اشتعال خشب",
+        "اشتعال خشب + صوت شتا",
+        "صوت شتا + اشتعال خشب",
+        "اشتعال خشب + شتا",
+        "شتا + اشتعال خشب"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-43802-A-42.wav",
-          "local_path": "sounds/2-43802-A-42.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-189212-A-12.wav",
+          "local_path": "sounds/5-189212-A-12.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/43802/",
+          "source_recording": "https://freesound.org/s/189212/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-18074-A-6.wav",
-          "local_path": "sounds/1-18074-A-6.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-194892-A-10.wav",
+          "local_path": "sounds/5-194892-A-10.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/18074/",
+          "source_recording": "https://freesound.org/s/194892/",
           "dataset": "ESC-50"
         }
       ],
@@ -2762,28 +3648,61 @@
     },
     {
       "id": "SOUND-098",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "مواء قطة + شخير",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "محرك + مروحية",
       "accepted_answers": [
-        "شخير + مواء قطة"
+        "محرك + مروحية",
+        "مروحية + محرك",
+        "محرك و مروحية",
+        "مروحية و محرك",
+        "محرك + هليكوبتر",
+        "هليكوبتر + محرك",
+        "محرك + طائرة عامودية",
+        "طائرة عامودية + محرك",
+        "محرك + طائرة عمودية",
+        "طائرة عمودية + محرك",
+        "صوت موتور + مروحية",
+        "مروحية + صوت موتور",
+        "صوت موتور + هليكوبتر",
+        "هليكوبتر + صوت موتور",
+        "صوت موتور + طائرة عامودية",
+        "طائرة عامودية + صوت موتور",
+        "صوت موتور + طائرة عمودية",
+        "طائرة عمودية + صوت موتور",
+        "محرك سيارة + مروحية",
+        "مروحية + محرك سيارة",
+        "محرك سيارة + هليكوبتر",
+        "هليكوبتر + محرك سيارة",
+        "محرك سيارة + طائرة عامودية",
+        "طائرة عامودية + محرك سيارة",
+        "محرك سيارة + طائرة عمودية",
+        "طائرة عمودية + محرك سيارة",
+        "موتور + مروحية",
+        "مروحية + موتور",
+        "موتور + هليكوبتر",
+        "هليكوبتر + موتور",
+        "موتور + طائرة عامودية",
+        "طائرة عامودية + موتور",
+        "موتور + طائرة عمودية",
+        "طائرة عمودية + موتور"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-110010-A-5.wav",
-          "local_path": "sounds/2-110010-A-5.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-232272-A-44.wav",
+          "local_path": "sounds/5-232272-A-44.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/110010/",
+          "source_recording": "https://freesound.org/s/232272/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-20545-A-28.wav",
-          "local_path": "sounds/1-20545-A-28.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-205898-A-40.wav",
+          "local_path": "sounds/5-205898-A-40.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/20545/",
+          "source_recording": "https://freesound.org/s/205898/",
           "dataset": "ESC-50"
         }
       ],
@@ -2794,28 +3713,47 @@
     },
     {
       "id": "SOUND-099",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "صرير باب خشبي + أمواج بحر",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "نعيق غراب + دجاجة",
       "accepted_answers": [
-        "أمواج بحر + صرير باب خشبي"
+        "نعيق غراب + دجاجة",
+        "دجاجة + نعيق غراب",
+        "نعيق غراب و دجاجة",
+        "دجاجة و نعيق غراب",
+        "نعيق غراب + صوت دجاجة",
+        "صوت دجاجة + نعيق غراب",
+        "نعيق غراب + دجاج",
+        "دجاج + نعيق غراب",
+        "غراب + دجاجة",
+        "دجاجة + غراب",
+        "غراب + صوت دجاجة",
+        "صوت دجاجة + غراب",
+        "غراب + دجاج",
+        "دجاج + غراب",
+        "صوت غراب + دجاجة",
+        "دجاجة + صوت غراب",
+        "صوت غراب + صوت دجاجة",
+        "صوت دجاجة + صوت غراب",
+        "صوت غراب + دجاج",
+        "دجاج + صوت غراب"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-123712-A-33.wav",
-          "local_path": "sounds/2-123712-A-33.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-222041-A-9.wav",
+          "local_path": "sounds/5-222041-A-9.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/123712/",
+          "source_recording": "https://freesound.org/s/222041/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-28135-A-11.wav",
-          "local_path": "sounds/1-28135-A-11.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-263831-A-6.wav",
+          "local_path": "sounds/5-263831-A-6.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/28135/",
+          "source_recording": "https://freesound.org/s/263831/",
           "dataset": "ESC-50"
         }
       ],
@@ -2826,28 +3764,61 @@
     },
     {
       "id": "SOUND-100",
-      "question": "تحدّي التركيز: في صوتين فوق بعض. سمّي الصوتين.",
-      "answer": "صوت صراصير الليل + مكنسة كهربائية",
+      "question": "في صوتين شغّالين مع بعض، شو مصدر كل صوت؟",
+      "answer": "سيفون حمام + أمواج بحر",
       "accepted_answers": [
-        "مكنسة كهربائية + صوت صراصير الليل"
+        "سيفون حمام + أمواج بحر",
+        "أمواج بحر + سيفون حمام",
+        "سيفون حمام و أمواج بحر",
+        "أمواج بحر و سيفون حمام",
+        "سيفون حمام + موج البحر",
+        "موج البحر + سيفون حمام",
+        "سيفون حمام + أمواج",
+        "أمواج + سيفون حمام",
+        "سيفون حمام + بحر",
+        "بحر + سيفون حمام",
+        "شطاف + أمواج بحر",
+        "أمواج بحر + شطاف",
+        "شطاف + موج البحر",
+        "موج البحر + شطاف",
+        "شطاف + أمواج",
+        "أمواج + شطاف",
+        "شطاف + بحر",
+        "بحر + شطاف",
+        "سحب سيفون + أمواج بحر",
+        "أمواج بحر + سحب سيفون",
+        "سحب سيفون + موج البحر",
+        "موج البحر + سحب سيفون",
+        "سحب سيفون + أمواج",
+        "أمواج + سحب سيفون",
+        "سحب سيفون + بحر",
+        "بحر + سحب سيفون",
+        "صوت سيفون + أمواج بحر",
+        "أمواج بحر + صوت سيفون",
+        "صوت سيفون + موج البحر",
+        "موج البحر + صوت سيفون",
+        "صوت سيفون + أمواج",
+        "أمواج + صوت سيفون",
+        "صوت سيفون + بحر",
+        "بحر + صوت سيفون"
       ],
       "level": "صعب",
       "points": 600,
       "mode": "mix",
-      "group": "تحدي الصوتين",
+      "group": "تمييز صوتين متداخلين",
       "audio": [
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/2-106019-A-13.wav",
-          "local_path": "sounds/2-106019-A-13.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-177034-A-18.wav",
+          "local_path": "sounds/5-177034-A-18.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/106019/",
+          "source_recording": "https://freesound.org/s/177034/",
           "dataset": "ESC-50"
         },
         {
-          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/1-100210-A-36.wav",
-          "local_path": "sounds/1-100210-A-36.wav",
+          "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/master/audio/5-213077-A-11.wav",
+          "local_path": "sounds/5-213077-A-11.wav",
           "duration_seconds": 5,
-          "source_recording": "https://freesound.org/s/100210/",
+          "source_recording": "https://freesound.org/s/213077/",
           "dataset": "ESC-50"
         }
       ],
