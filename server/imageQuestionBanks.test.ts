@@ -226,7 +226,9 @@ test('club badges load before reveal without exposing the club or its source URL
 });
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {
-  assert.equal(new Set(EL_CLASICO_QUESTIONS.map(q => q.imageUrl)).size, 50);
+  assert.equal(EL_CLASICO_QUESTIONS.length, 70);
+  assert.equal(new Set(EL_CLASICO_QUESTIONS.slice(0, 50).map(q => q.imageUrl)).size, 50);
+  assert.ok(EL_CLASICO_QUESTIONS.slice(50).every(q => q.points >= 400));
   assert.ok(EL_CLASICO_QUESTIONS.every(q => q.imageUrl && q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
 
   const previousBank = EL_CLASICO_QUESTIONS.map(q => ({
