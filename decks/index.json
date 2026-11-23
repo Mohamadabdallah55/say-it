@@ -1,3 +1,9 @@
 {
-  "decks": []
+  "decks": [
+    {
+      "id": "world_food_images_v1",
+      "file": "world-food-images/deck.json",
+      "version": 1
+    }
+  ]
 }
