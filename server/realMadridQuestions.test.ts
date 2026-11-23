@@ -5,7 +5,7 @@ import { REAL_MADRID_CATEGORY, SERVER_CURATED_CATEGORIES } from '../src/game/cur
 import rows from './realMadridQuestions.json';
 
 test('Madrid preserves the original questions and adds shirt numbers and historical photos', () => {
-  assert.equal(rows.length, 170);
+  assert.equal(rows.length, 146);
   assert.equal(SERVER_CURATED_CATEGORIES.find(x=>x.category.id===REAL_MADRID_CATEGORY.id)?.questionCount, rows.length);
   assert.equal(new Set(rows.map(q=>q.id)).size, rows.length);
   for (const row of rows) {

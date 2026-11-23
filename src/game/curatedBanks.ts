@@ -352,7 +352,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: WORLD_WARS_CATEGORY, questionCount: 75 },
   { category: HADITH_CATEGORY, questionCount: 50 },
   { category: STORY_LOGIC_CATEGORY, questionCount: 75 },
-  { category: REAL_MADRID_CATEGORY, questionCount: 170 },
+  { category: REAL_MADRID_CATEGORY, questionCount: 146 },
   { category: BARCELONA_CATEGORY, questionCount: 50 },
   { category: REVERSED_WORDS_CATEGORY, questionCount: 60 },
   { category: FOOTBALL_LETTERS_CATEGORY, questionCount: 130 },
