@@ -88,6 +88,7 @@ export const CATEGORY_REAL_ART: Record<string, string> = {
   cat_flags: PHOTO_FLAGS,
   cat_capitals_currencies: PHOTO_CURRENCIES,
   cat_world_wars: PHOTO_WORLD_WARS,
+  world_food: 'https://www.themealdb.com/images/media/meals/vmz7gl1614350221.jpg/large',
 
   // 7. الأردن والذكريات
   cat_jordan_nostalgia: '/assets/jordan_nostalgia/JONOS-115.jpg',
