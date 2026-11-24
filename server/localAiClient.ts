@@ -228,6 +228,7 @@ export interface OllamaChatRequest {
   numCtx?: number;
   timeoutMs?: number;
   fastReply?: boolean;
+  think?: boolean;
 }
 
 function cleanBase64Image(raw: string): string {
@@ -281,6 +282,8 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+  const startedAt = Date.now();
+  console.info(`[ollama] start model=${chosenModel} images=${req.imagesBase64?.length || 0} chars=${req.promptText.length}`);
   try {
     const body: Record<string, unknown> = {
       model: chosenModel,
@@ -292,8 +295,8 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
         ...(req.fastReply ? { num_predict: 512 } : {}),
       },
     };
-    if (req.fastReply && /^qwen3(?::|$)/i.test(chosenModel)) {
-      body.think = false;
+    if (/^qwen3(?::|$)/i.test(chosenModel) && (req.fastReply || req.think !== undefined)) {
+      body.think = req.fastReply ? false : req.think;
     }
     if (req.formatJson) {
       body.format = 'json';
@@ -328,7 +331,11 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
       throw new Error(`أعاد النموذج المحلي (${chosenModel}) استجابة فارغة.`);
     }
 
+    console.info(`[ollama] done model=${chosenModel} elapsedMs=${Date.now() - startedAt}`);
     return { text: content, modelUsed: chosenModel };
+  } catch (err) {
+    console.warn(`[ollama] failed model=${chosenModel} elapsedMs=${Date.now() - startedAt}`);
+    throw err;
   } finally {
     clearTimeout(timer);
   }
@@ -352,6 +359,7 @@ export async function generateStructuredJsonLocal<T>(params: {
     formatJson: true,
     model: params.model,
     numCtx: params.numCtx,
+    think: process.env.OLLAMA_STRUCTURED_THINKING === 'true',
   });
 
   try {
@@ -365,6 +373,7 @@ export async function generateStructuredJsonLocal<T>(params: {
       formatJson: true,
       model: first.modelUsed,
       temperature: 0.1,
+      think: false,
     });
     return safeParseJsonResponse<T>(repaired.text, params.contextLabel);
   }
