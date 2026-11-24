@@ -247,12 +247,15 @@ export function GameArena({
     if (!state?.activeRound) return null;
     if ('question' in state.activeRound) {
       const ar = state.activeRound;
+      const general = ar.question.categoryId === 'cat_general';
+      const revealed = state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL';
+      const showGeneralMedia = !general || revealed;
       return {
         roundId: ar.roundId,
         questionId: ar.question.id,
         categoryId: ar.question.categoryId,
         categoryName: ar.question.categoryName,
-        subtopic: ar.question.imageDisplay === 'after_reveal' && state.phase !== 'REVEAL'
+        subtopic: (general || ar.question.imageDisplay === 'after_reveal') && !revealed
           ? undefined
           : ar.question.subtopic || (ar.question.startingLetter ? undefined : ar.question.sourceRef),
         difficulty: ar.question.difficulty,
@@ -261,20 +264,20 @@ export function GameArena({
         questionType: ar.question.questionType,
         prompt: ar.question.prompt,
         startingLetter: ar.question.startingLetter,
-        imageUrl: clubLogoRoundImageUrl(ar.question.imageUrl, ar.question.previewImageUrl, state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL'),
-        imageBase64: ar.question.imageBase64,
-        imageCaption: ar.question.imageCaption,
-        memorySecondImageUrl: ar.question.memorySecondImageUrl,
-        beforeImageUrls: ar.question.beforeImageUrls,
-        afterImageUrl: ar.question.afterImageUrl,
-        imageDisplay: ar.question.imageDisplay,
-        imageSourceUrl: ar.question.imageSourceUrl,
-        answerImageUrl: ar.question.answerImageUrl,
+        imageUrl: showGeneralMedia ? clubLogoRoundImageUrl(ar.question.imageUrl, ar.question.previewImageUrl, revealed) : undefined,
+        imageBase64: showGeneralMedia ? ar.question.imageBase64 : undefined,
+        imageCaption: showGeneralMedia ? ar.question.imageCaption : undefined,
+        memorySecondImageUrl: general ? undefined : ar.question.memorySecondImageUrl,
+        beforeImageUrls: general ? undefined : ar.question.beforeImageUrls,
+        afterImageUrl: showGeneralMedia ? ar.question.afterImageUrl : undefined,
+        imageDisplay: general ? 'after_reveal' as const : ar.question.imageDisplay,
+        imageSourceUrl: showGeneralMedia ? ar.question.imageSourceUrl : undefined,
+        answerImageUrl: showGeneralMedia ? ar.question.answerImageUrl : undefined,
         audioUrl: ar.question.audioUrl,
         audioUrls: ar.question.audioUrls,
         audioMode: ar.question.audioMode,
         answerAudioUrl: ar.question.answerAudioUrl,
-        videoUrl: ar.question.videoUrl,
+        videoUrl: showGeneralMedia ? ar.question.videoUrl : undefined,
         options: ar.question.options,
         correctOptionIndex: ar.question.correctOptionIndex,
         orderItems: ar.question.orderItems,
@@ -303,9 +306,12 @@ export function GameArena({
       };
     }
     const sr = state.activeRound as SanitizedActiveRound;
+    const general = sr.categoryId === 'cat_general';
+    const revealed = state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL';
     return {
       ...sr,
-      subtopic: sr.subtopic || (sr.startingLetter ? undefined : sr.sourceRef),
+      ...(general ? { imageDisplay: 'after_reveal' as const, beforeImageUrls: undefined, memorySecondImageUrl: undefined, ...(!revealed ? { imageUrl: undefined, imageBase64: undefined, imageCaption: undefined, imageSourceUrl: undefined, answerImageUrl: undefined, afterImageUrl: undefined, videoUrl: undefined } : {}) } : {}),
+      subtopic: general && !revealed ? undefined : sr.subtopic || (sr.startingLetter ? undefined : sr.sourceRef),
       correctOptionIndex: undefined as number | undefined,
     };
   }, [state]);
@@ -895,12 +901,14 @@ export function GameArena({
                   ) : (() => {
                     const primaryImageSrc =
                       !isMemoryRound &&
+                      roundMeta.categoryId !== 'cat_general' &&
                       roundMeta.imageDisplay !== 'after_reveal' &&
                       !(isFirstNameRound && state.phase === 'REVEAL')
                         ? getQuestionImageSrc(roundMeta)
                         : undefined;
                     const singleBeforeImage =
                       !primaryImageSrc &&
+                      roundMeta.categoryId !== 'cat_general' &&
                       roundMeta.beforeImageUrls &&
                       roundMeta.beforeImageUrls.length === 1
                         ? roundMeta.beforeImageUrls[0]
@@ -959,7 +967,7 @@ export function GameArena({
                             </div>
                           )}
 
-                          {roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 2 && (
+                          {roundMeta.categoryId !== 'cat_general' && roundMeta.beforeImageUrls && roundMeta.beforeImageUrls.length === 2 && (
                             <div
                               data-testid="wc26-matchup-flags"
                               className={`flex items-center justify-center gap-3 md:gap-5 ${
@@ -1283,10 +1291,10 @@ export function GameArena({
                           aria-label="النطق الأصلي"
                         />
                       )}
-                      {(roundMeta.imageDisplay === 'after_reveal' || isFirstNameRound) && (
+                      {(roundMeta.categoryId === 'cat_general' || roundMeta.imageDisplay === 'after_reveal' || isFirstNameRound) && (
                         <QuestionMedia
                           key={roundMeta.questionId}
-                          imageSrc={getQuestionImageSrc(roundMeta)}
+                          imageSrc={getQuestionImageSrc(roundMeta) || (roundMeta.categoryId === 'cat_general' && !roundMeta.afterImageUrl ? roundMeta.answerImageUrl : undefined)}
                           caption={roundMeta.imageCaption}
                           sourceUrl={roundMeta.imageSourceUrl}
                           variant="answer"

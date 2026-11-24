@@ -1366,7 +1366,8 @@ export function sanitizeStateForRole(
     };
   }
 
-  const canShowImage = canRevealAnswer || state.activeRound?.question.imageDisplay !== 'after_reveal';
+  const isGeneralKnowledge = state.activeRound?.question.categoryId === 'cat_general';
+  const canShowImage = canRevealAnswer || (!isGeneralKnowledge && state.activeRound?.question.imageDisplay !== 'after_reveal');
 
   return {
     schemaVersion: 2,
@@ -1422,7 +1423,7 @@ export function sanitizeStateForRole(
             : undefined,
           imageBase64: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.imageBase64 : undefined,
           imageCaption: canShowImage && !isMemorizing && !isMemoryQuestionOnly ? state.activeRound.question.imageCaption : undefined,
-          imageDisplay: state.activeRound.question.imageDisplay,
+          imageDisplay: isGeneralKnowledge ? 'after_reveal' : state.activeRound.question.imageDisplay,
           imageSourceUrl: canRevealAnswer ? state.activeRound.question.imageSourceUrl : undefined,
           answerImageUrl: canRevealAnswer ? state.activeRound.question.answerImageUrl : undefined,
           audioUrl: canRevealAnswer || isMemorizing ? undefined : state.activeRound.question.audioUrl,
@@ -1430,7 +1431,7 @@ export function sanitizeStateForRole(
           audioMode: isMemorizing ? undefined : state.activeRound.question.audioMode,
           answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
           videoUrl: canShowImage && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
-          beforeImageUrls: canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
+          beforeImageUrls: !isGeneralKnowledge && canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,

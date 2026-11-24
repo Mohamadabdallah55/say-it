@@ -353,3 +353,23 @@ test('football badges mix current clubs, national teams and historic crests', ()
     assert.equal(clubLogoRoundImageUrl(original, undefined, true), `/api/club-logos/${id}/preview?crossOnly=1`);
   }
 });
+
+
+test('general knowledge pictures remain hidden until reveal even for legacy image settings', () => {
+  const picture = 'https://example.com/answer.png';
+  const generalDeck = buildBoardDeckFromCategories(['cat_general', FLAGS_CATEGORY.id, CLUB_LOGOS_CATEGORY.id], undefined, [...FLAGS_QUESTIONS, ...CLUB_LOGOS_QUESTIONS]);
+  const question = generalDeck.questions.find(q => q.categoryId === 'cat_general')!;
+  question.imageUrl = picture;
+  question.imageDisplay = 'before_reveal';
+  question.beforeImageUrls = [picture];
+  const room = createRoomState({ roomCode: 'GENIMG', hostToken: 'host', buzzerToken: 'buzzer', deck: generalDeck, teams, settings });
+  const opened = selectBoardTile(room, question.id, 'open-general-image');
+  assert.ok(opened.ok, opened.error);
+  const hidden = sanitizeStateForRole(opened.state, 'projector').activeRound;
+  assert.equal(hidden?.imageUrl, undefined);
+  assert.equal(hidden?.beforeImageUrls, undefined);
+  assert.equal(hidden?.imageDisplay, 'after_reveal');
+  const revealed = sanitizeStateForRole(revealAnswer(opened.state, 'reveal-general-image').state, 'projector').activeRound;
+  assert.equal(revealed?.imageUrl, picture);
+  assert.equal(revealed?.beforeImageUrls, undefined);
+});
