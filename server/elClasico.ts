@@ -5,7 +5,7 @@ import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import rows from './elClasico.json';
 import { existsSync } from 'node:fs';
 
-type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean };
+type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean; videoTrialEnabled?: boolean };
 export function approvedClasicoVideo(row: VideoRow): string | undefined {
   const src = row.videoUrl;
   if (!src) return;
@@ -13,7 +13,9 @@ export function approvedClasicoVideo(row: VideoRow): string | undefined {
     return existsSync(new URL('../public' + src, import.meta.url)) ? src : undefined;
   }
   // External sources are opt-in only after permission and actual embed/playback verification.
-  if (row.videoPlaybackVerified !== true || !row.videoRightsNote?.trim()) return;
+  // Explicit trial for official, chapter-indexed sources; do not claim playback has been verified.
+  const officialTrial = row.videoTrialEnabled === true && /^https:\/\/www\.youtube-nocookie\.com\/embed\/(?:iOIR4TDo-qM|U_ECD9roYXk)\?/.test(src) && !!row.fallbackQuestion?.trim();
+  if ((!officialTrial && row.videoPlaybackVerified !== true) || !row.videoRightsNote?.trim()) return;
   try {
     const url = new URL(src);
     if (url.protocol !== 'https:' || url.username || url.password) return;

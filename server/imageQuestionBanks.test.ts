@@ -443,3 +443,10 @@ test('Clasico revised clips avoid repeated famous scorer and obvious team questi
     assert.ok(q?.videoUrl);
   }
 });
+
+test('chapter-indexed archive clips are enabled only as explicit official-source trials', () => {
+  const row = {id:'ELC-test',videoUrl:'https://www.youtube-nocookie.com/embed/iOIR4TDo-qM?start=1189',videoRightsNote:'official public source',fallbackQuestion:'سؤال مستقل',videoTrialEnabled:true,videoPlaybackVerified:false};
+  assert.equal(approvedClasicoVideo(row), 'https://www.youtube-nocookie.com/embed/iOIR4TDo-qM?start=1189&end=1206');
+  assert.equal(approvedClasicoVideo({...row,videoTrialEnabled:false}),undefined);
+  assert.equal(approvedClasicoVideo({...row,videoUrl:'https://www.youtube-nocookie.com/embed/abcdefghijk?start=0'}),undefined);
+});
