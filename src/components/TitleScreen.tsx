@@ -60,7 +60,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
         onOpenPdfStudio={onOpenPdfStudio} onOpenLibrary={onOpenLibrary} onOpenSavedMatches={onOpenSavedMatches} />
       <main className="platform-wrap">
         <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><a className="platform-challenge-jump" href="#challenge-arena" onClick={()=>soundFX.playNavigate()}><Zap size={16}/> ساحة التحدي</a></div>
-        <section className="platform-grid platform-grid-compact" aria-label="الألعاب المتاحة">
+        <section className="platform-grid" aria-label="الألعاب المتاحة">
           <article className="platform-feature">
             <div className="platform-feature-copy">
               <GameLogo size="md" variant="badge" className="platform-yh-logo" />

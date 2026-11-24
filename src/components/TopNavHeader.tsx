@@ -93,9 +93,9 @@ export function TopNavHeader({
 
   return (
     <header className="game-top-nav w-full bg-[#1C0A2B] border-b-[3px] border-[#12061D] py-2.5 sticky top-0 z-40">
-      <div className="lobby-shell flex flex-wrap items-center justify-between gap-3">
+      <div className="lobby-shell top-nav-wide flex flex-wrap items-center justify-between gap-3">
         {/* Group 1 (RTL Right): التنقل — Brand Logo & Primary Navigation */}
-        <nav aria-label="التنقل الرئيسي" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+        <div className="top-nav-brand flex items-center gap-2 sm:gap-2.5">
           <button
             type="button"
             onClick={() => {
@@ -122,8 +122,9 @@ export function TopNavHeader({
             <span>ابدأ مسابقة</span>
           </button>
 
-          <span aria-hidden="true" className="hidden md:block h-7 w-px bg-white/20 mx-0.5" />
+        </div>
 
+        <nav aria-label="التنقل الرئيسي" className="top-nav-center flex items-center justify-center gap-1.5">
           <div className="flex items-center gap-1.5">
             {onBack && activePage !== 'title' && (
               <button
