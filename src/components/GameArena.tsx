@@ -1,7 +1,6 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { SCORE_INTRO_MS, SCORE_CARD_MS, scoreDuration } from '../game/scorePresentation';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
@@ -197,8 +196,6 @@ export function GameArena({
     return () => query.removeEventListener('change', update);
   }, []);
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
-  const [scorePlaybackAt,setScorePlaybackAt]=useState<number|null>(null);
-  const presentationSeen=useRef<{room:string;award?:number}|null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
 
   const [localAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
@@ -269,7 +266,6 @@ export function GameArena({
       const round = state.activeRound;
       const hasSpokenAnswer = round && ('question' in round ? round.question.answerAudioUrl : round.answerAudioUrl);
       if (state.phase === 'LIFELINE_PICK') soundFX.playCardDeal();
-      if (state.phase === 'BOARD' && !state.lastAward) soundFX.playNavigate();
       if (state.phase === 'REVEAL' && !hasSpokenAnswer) soundFX.playReveal();
       if (state.phase === 'TIME_UP') soundFX.playTimeUp();
       if (state.phase === 'FINAL') soundFX.playVictory();
@@ -282,7 +278,8 @@ export function GameArena({
         Date.now() - state.lastAward.at < 1600) {
       const changes = Object.values(state.lastAward.changes);
       if (state.lastAward.corrected) soundFX.playScoreCorrection();
-      else if (changes.some(change=>change!==0)) soundFX.playAwardSequence(changes, state.settings.reducedMotion || prefersReducedMotion || smallScreen);
+      else if (changes.some(change => change > 0)) soundFX.playCorrect();
+      else if (changes.some(change => change < 0)) soundFX.playFoul();
       else soundFX.playTurnPass();
     }
     lastSceneRef.current = scene;
@@ -390,18 +387,6 @@ export function GameArena({
     state?.phase !== 'REVEAL' && state?.phase !== 'AWARD' && state?.phase !== 'FINAL'
     ? roundMeta.memorizeEndsAtMs ?? undefined : undefined;
   const awardAt = state?.lastAward?.at;
-  const awardCount=Object.values(state?.lastAward?.changes??{}).filter(n=>n!==0).length;
-  const scoreMotion=Boolean(state&&!state.settings.reducedMotion&&!prefersReducedMotion&&!smallScreen);
-  const awardPhase=state?.phase;
-  useLayoutEffect(()=>{
-    if(!awardPhase)return;
-    const previous=presentationSeen.current;
-    presentationSeen.current={room:roomCode,award:awardAt};
-    if(!scoreMotion||awardPhase!=='BOARD'||!previous||previous.room!==roomCode||awardAt===undefined||previous.award===awardAt||!awardCount||Math.abs(Date.now()-awardAt)>2000){setScorePlaybackAt(null);return;}
-    setScorePlaybackAt(awardAt);
-    const timer=window.setTimeout(()=>setScorePlaybackAt(null),scoreDuration(awardCount));
-    return()=>window.clearTimeout(timer);
-  },[roomCode,awardAt,awardCount,awardPhase,scoreMotion]);
   const commentaryAt = state?.settings.commentaryMode !== 'off' && state?.phase !== 'FINAL' && state?.commentary
     ? Date.parse(state.commentary.timestamp) : undefined;
   useEffect(() => {
@@ -582,9 +567,6 @@ export function GameArena({
   const correctionOptions = previousAnswer?.lifeline === 'silence'
     ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
     : state.teams;
-  const scoreScenes = state.lastAward ? state.teams.map(team=>({team,change:state.lastAward!.changes[team.id]??0})).filter(x=>x.change!==0).sort((a,b)=>Number(b.change>0)-Number(a.change>0)).slice(0,4) : [];
-  const scoreMomentMs = scoreDuration(scoreScenes.length);
-  const showScoreMoment = state.phase==='BOARD' && scorePlaybackAt!==null && scorePlaybackAt===state.lastAward?.at && scoreScenes.length>0 && !correction && animateRound;
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
@@ -642,17 +624,6 @@ export function GameArena({
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
-          {showScoreMoment && (
-            <div className="yh-score-show" key={scorePlaybackAt} role="status" aria-label={scoreScenes.map(({team,change})=>team.name+' '+(change>0?'+':'')+change+' نقطة').join('، ')} style={{'--score-duration':scoreMomentMs+'ms'} as CSSProperties}>
-              <div className="yh-score-veil" aria-hidden="true"/>
-              {scoreScenes.map(({team,change},index)=><div className="yh-score-card" key={team.id} data-result={change<0?'loss':'gain'} style={{'--team-color':team.color,animationDelay:(SCORE_INTRO_MS+index*SCORE_CARD_MS)+'ms'} as CSSProperties} aria-hidden="true">
-                <span className="yh-score-stars"><i/><i/><i/></span>
-                <h2><i/>{team.name}</h2>
-                <div className="yh-score-amount"><b dir="ltr">{change>0?'+':''}{change}</b><span>نقطة</span></div>
-                <div className="yh-score-dots">{scoreScenes.map((_,dot)=><i key={dot} data-active={dot===index}/>)}</div>
-              </div>)}
-            </div>
-          )}
           {state.phase !== 'BOARD' && (
             <div className="round-edges" aria-label="متابعة الجولة">
               <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
@@ -688,8 +659,8 @@ export function GameArena({
           )}
 
           {/* PHASE: BOARD */}
-          {state.phase === 'BOARD' && !showScoreMoment && (
-            <section className="board-stage" data-score-return={Boolean(state.lastAward)} data-first-entry={state.questionCounter===0&&!state.lastAward} aria-labelledby="board-title">
+          {state.phase === 'BOARD' && (
+            <section className="board-stage" aria-labelledby="board-title">
               <div className="board-heading">
                 <div className="board-heading-title">
                   <h1 id="board-title">لوحة الفئات</h1>

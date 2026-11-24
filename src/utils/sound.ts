@@ -1,5 +1,4 @@
 // Original, synthesized game cues. No recorded or third-party audio assets.
-import { SCORE_INTRO_MS, SCORE_CARD_MS } from '../game/scorePresentation';
 class SoundManager {
   private ctx: AudioContext | null = null;
   private bus: GainNode | null = null;
@@ -68,7 +67,6 @@ class SoundManager {
   playReveal(){this.sweep(.41,400,3300,.085);this.glide(415,575,.18,'triangle',.17);this.glide(740,980,.27,'sine',.13,.14);}
   playFoul(delay=0){this.glide(290,110,.40,'triangle',.2,delay);this.glide(165,88,.26,'sine',.11,delay+.11);this.sweep(.23,1500,240,.04,delay);}
   playCorrect(delay=0){this.glide(465,620,.13,'triangle',.15,delay);this.glide(740,920,.16,'sine',.16,delay+.09);this.glide(1140,1320,.20,'sine',.12,delay+.20);this.sweep(.22,800,3300,.04,delay+.04);}
-  playAwardSequence(changes:number[],reduced=false){const ordered=changes.filter(x=>x!==0).sort((a,b)=>Number(b>0)-Number(a>0)).slice(0,reduced?1:4);ordered.forEach((x,i)=>{const delay=reduced?0:(SCORE_INTRO_MS+i*SCORE_CARD_MS)/1000;x>0?this.playCorrect(delay):this.playFoul(delay);});}
   playVictory(){this.playCorrect();this.glide(600,840,.20,'triangle',.15,.39);this.glide(970,1450,.39,'sine',.14,.55);}
 }
 export const soundFX = new SoundManager();
