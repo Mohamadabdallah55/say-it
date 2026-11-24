@@ -230,13 +230,15 @@ test('club badges load before reveal without exposing the club or its source URL
 });
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {
-  assert.equal(EL_CLASICO_QUESTIONS.length, 100);
-  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
-  assert.equal(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).length, 34);
-  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points && q.videoUrl).length), [11, 11, 12]);
-  assert.equal(new Set(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).map(q => q.videoUrl)).size, 34);
+  const clips = EL_CLASICO_QUESTIONS.filter(q => q.videoUrl);
+  assert.equal(EL_CLASICO_QUESTIONS.length, 66 + clips.length);
+  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points && !q.videoUrl).length), [14, 24, 28]);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
-  assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).every(q => q.videoUrl?.startsWith('https://www.youtube-nocookie.com/embed/')));
+  assert.equal(new Set(clips.map(q => q.videoUrl)).size, clips.length);
+  for (const q of clips) {
+    assert.equal(q.videoUrl, `/assets/questions/el-clasico/${q.id}.mp4`);
+    assert.ok(readFileSync(new URL(`../public${q.videoUrl}`, import.meta.url)).length > 0);
+  }
 
   const previousBank = EL_CLASICO_QUESTIONS.map(q => ({
     ...q, imageUrl: undefined, imageSourceUrl: undefined, imageDisplay: undefined,

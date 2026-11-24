@@ -3,8 +3,14 @@ import { difficultyForPoints, pointsForDifficulty } from '../src/game/pdfValidat
 import type { QuizQuestion, RoomState } from '../src/game/types';
 import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import rows from './elClasico.json';
+import { existsSync } from 'node:fs';
 
-export const EL_CLASICO_QUESTIONS = rows.map((row): QuizQuestion => {
+function hasPlayableLocalClip(row: (typeof rows)[number]): boolean {
+  if (!('videoUrl' in row) || !row.videoUrl) return true;
+  return row.videoUrl === `/assets/questions/el-clasico/${row.id}.mp4` && existsSync(new URL('../public' + row.videoUrl, import.meta.url));
+}
+
+export const EL_CLASICO_QUESTIONS = rows.filter(hasPlayableLocalClip).map((row): QuizQuestion => {
   const difficulty = difficultyForPoints(row.level);
   return {
     id: row.id,
