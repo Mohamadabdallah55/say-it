@@ -224,13 +224,16 @@ async function analyzeImageWithVisionModel(params: {
   fileName: string;
   pageNumber: number;
   contextHint?: string;
+  captionOnly?: boolean;
 }): Promise<{
   extractedText: string;
   visualCaption: string;
   visualType: string;
   hasEducationalContent: boolean;
 }> {
-  const promptText = `حلّل هذه الصورة التعليمية بدقة تامة (الملف: "${params.fileName}"، موضع/صفحة ${params.pageNumber})${
+  const promptText = params.captionOnly
+    ? `صف الشكل التعليمي الظاهر في الصورة باختصار ودقة. لا تنسخ النصوص كاملة؛ المطلوب وصف العناصر المهمة وتحديد نوع الشكل وهل له محتوى تعليمي. أعد JSON فقط: {"extractedText":"","visualCaption":"وصف مختصر","visualType":"diagram","hasEducationalContent":true}. استخدم false فقط للزخارف أو الصور الفارغة. لا تخترع أي تفاصيل.`
+    : `حلّل هذه الصورة التعليمية بدقة تامة (الملف: "${params.fileName}"، موضع/صفحة ${params.pageNumber})${
     params.contextHint ? ` ضمن موضوع: ${params.contextHint}` : ''
   }.
 المطلوب استخراج كل المحتوى التعليمي الحقيقي دون اختلاق أي معلومة:
@@ -259,7 +262,7 @@ async function analyzeImageWithVisionModel(params: {
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
       systemInstruction:
-        'أنت محرك رؤية وقراءة تعليمية عربي فائق الدقة. استخرج كل النصوص والجداول والبيانات الظاهرة في الصورة بدقة حرفية دون اختلاق.',
+        params.captionOnly ? 'صف الشكل باختصار وبلا اختلاق.' : 'أنت محرك رؤية وقراءة تعليمية عربي فائق الدقة. استخرج كل النصوص والجداول والبيانات الظاهرة في الصورة بدقة حرفية دون اختلاق.',
       responseMimeType: 'application/json',
     },
   });
@@ -649,6 +652,7 @@ export async function extractAndAnalyzeBatch(params: {
                 imageDataUrl: emb.imageBase64,
                 fileName: file.fileName,
                 pageNumber: emb.pageNumber,
+                captionOnly: true,
               });
               if (!vis.hasEducationalContent) continue;
               caption = vis.visualCaption;
@@ -761,13 +765,16 @@ export async function extractAndAnalyzeBatch(params: {
 
   // STAGE B: Full comprehension across ALL units/pages before designing board categories
   const chunks = splitUnitsIntoChunks(allUnits, 11500);
+  const needsChunkAnalysis = fullText.length > 18000 && chunks.length > 1;
+  console.info(`[pdf-analysis] pages=${totalUnitsCount} readable=${allUnits.length} chars=${fullText.length} chunkPasses=${needsChunkAnalysis ? chunks.length : 0}`);
   let comprehensionDigest = '';
   let aggregatedHypothetical: string[] = [];
   let aggregatedReligious = false;
 
-  if (chunks.length > 1) {
+  if (needsChunkAnalysis) {
     const chunkAnalyses = [];
     for (let i = 0; i < chunks.length; i++) {
+      console.info(`[pdf-analysis] comprehension chunk ${i + 1}/${chunks.length}`);
       const ca = await analyzeComprehensionChunk({
         chunkText: chunks[i],
         chunkIndex: i + 1,
@@ -794,7 +801,7 @@ export async function extractAndAnalyzeBatch(params: {
       .join('\n\n');
   }
 
-  const representativeText = buildRepresentativeExcerpt(
+  const representativeText = fullText.length <= 18000 ? fullText : buildRepresentativeExcerpt(
     allUnits.map((u) => ({ num: u.num, text: u.text })),
     fullText,
     18000,
@@ -828,6 +835,7 @@ ${filesHeader}
 ${comprehensionDigest ? `ملخص الفهم التراكمي لكامل الأجزاء:\n${comprehensionDigest}\n\n` : ''}النص المرجعي الموثق:
 ${representativeText}`;
 
+  console.info('[pdf-analysis] final synthesis');
   const parsed = await generateStructuredJsonWithFallback<GeminiPdfExtractionPayload>({
     contents: synthesisPrompt,
     contextLabel: 'التحليل التربوي الشامل لكامل الملفات المرفوعة',
