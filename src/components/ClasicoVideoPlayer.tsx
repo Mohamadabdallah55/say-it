@@ -31,6 +31,8 @@ export function ClasicoVideoPlayer({ src, soundEnabled }: { src: string; soundEn
   const [needsPlay, setNeedsPlay] = useState(false);
   const [ended, setEnded] = useState(false);
   const sound = useRef(soundEnabled);
+  const clipFinished = useRef(false);
+  const replayPending = useRef(false);
   const parsed = (() => { try { return new URL(src, window.location.origin); } catch { return null; } })();
   const isYoutube = parsed?.hostname === 'www.youtube-nocookie.com' && /^\/embed\/[A-Za-z0-9_-]{11}$/.test(parsed.pathname);
   const start = isYoutube ? Math.max(0, Number(parsed?.searchParams.get('start')) || 0) : 0;
@@ -80,17 +82,20 @@ export function ClasicoVideoPlayer({ src, soundEnabled }: { src: string; soundEn
             window.clearTimeout(timeout);
             setReady(true);
             if (sound.current) target.unMute(); else target.mute();
+            target.seekTo(start, true);
             target.playVideo();
             timeout = window.setTimeout(() => { if (!disposed) setNeedsPlay(true); }, 3500);
             interval = window.setInterval(() => {
               if (disposed) return;
-              if (target.getCurrentTime() >= start + 17) { target.pauseVideo(); setEnded(true); }
+              const current = target.getCurrentTime();
+              if (replayPending.current) { if (current < start + 1) replayPending.current = false; else return; }
+              if (!clipFinished.current && current >= start + 17) { clipFinished.current = true; target.pauseVideo(); setEnded(true); }
             }, 200);
           },
           onStateChange: ({ data }) => {
             if (disposed) return;
             if (data === 1) { window.clearTimeout(timeout); setNeedsPlay(false); }
-            if (data === 0) setEnded(true);
+            if (data === 0) { clipFinished.current = true; setEnded(true); }
             if (data === 3) { window.clearTimeout(timeout); timeout = window.setTimeout(fail, 12000); }
           },
           onError: fail,
@@ -106,14 +111,15 @@ export function ClasicoVideoPlayer({ src, soundEnabled }: { src: string; soundEn
   const play = () => {
     setEnded(false);
     setNeedsPlay(false);
-    if (yt.current) { if (ended) yt.current.seekTo(start, true); if (soundEnabled) yt.current.unMute(); yt.current.playVideo(); }
+    clipFinished.current = false;
+    if (yt.current) { if (ended) { replayPending.current = true; yt.current.seekTo(start, true); } if (soundEnabled) yt.current.unMute(); yt.current.playVideo(); }
     else if (video.current) { if (ended) video.current.currentTime = 0; video.current.muted = !soundEnabled; video.current.play().catch(() => setNeedsPlay(true)); }
   };
   if (failed) return <p role="status" className="mx-auto mt-3 rounded-xl bg-amber-100 p-3 text-center text-sm font-bold text-[#1F112E]">المقطع غير متاح الآن — أكمل السؤال النصي بنفس النقاط.</p>;
   return <div className="mx-auto mt-4 w-full max-w-2xl space-y-2">
     {!ready && <p role="status" className="text-center text-sm font-bold">جارٍ تهيئة المقطع، ويمكنك الإجابة من نص السؤال.</p>}
     {isYoutube ? <div ref={mount} className="aspect-video overflow-hidden rounded-xl bg-black [&_iframe]:h-full [&_iframe]:w-full" /> :
-      <video ref={video} src={src} controls playsInline preload="auto" muted={!soundEnabled} className="mx-auto max-h-[42vh] w-full rounded-xl bg-black" onTimeUpdate={e=>{ if (e.currentTarget.currentTime >= 17) { e.currentTarget.pause(); setEnded(true); } }} onEnded={()=>setEnded(true)} />}
+      <video ref={video} src={src} controls playsInline preload="auto" muted={!soundEnabled} className="mx-auto max-h-[42vh] w-full rounded-xl bg-black" onTimeUpdate={e=>{ if (e.currentTarget.currentTime >= 17) { e.currentTarget.pause(); e.currentTarget.currentTime = 17; setEnded(true); } }} onEnded={()=>setEnded(true)} />}
     {(needsPlay || ended) && <button type="button" onClick={play} className="mx-auto block rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-4 py-2 font-bold">{ended ? 'إعادة المقطع' : 'تشغيل المقطع'}</button>}
   </div>;
 }

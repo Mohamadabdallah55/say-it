@@ -4,45 +4,65 @@
     "question": "شاهد الهدف من الأرشيف. في أي موسم من الدوري الإسباني كانت هذه اللقطة؟",
     "answer": "2001/2002",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 72,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 89,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=72s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-08",
     "question": "في أي موسم كان هذا الكلاسيكو الذي ظهر فيه مايكل أوين بقميص ريال مدريد؟",
     "answer": "2004/2005",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 104,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 121,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=104s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-15",
     "question": "شاهد لقطة جيوفاني سيلفا القديمة. في أي موسم من الدوري الإسباني أقيمت؟",
     "answer": "1997/1998",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 40,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 57,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=40s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-13",
     "question": "شاهد لقطة المباراة. في أي موسم لعب ميسي ورونالدو هذا الكلاسيكو الذي انتهى بالتعادل؟",
     "answer": "2012/2013",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 1509,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 1526,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=x_4ftPlE5RI&t=1509s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-09",
     "question": "من اللاعب الذي يظهر في لقطة التسجيل هذه بقميص برشلونة؟",
     "answer": "صامويل إيتو",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 438,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 455,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=438s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-14",
@@ -51,258 +71,374 @@
     "sourceFile": "",
     "startSeconds": 0,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 17,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=0s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-05",
     "question": "من لاعب برشلونة الذي يظهر في هذه اللقطة القديمة من الكلاسيكو؟",
     "answer": "رونالدينيو",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 799,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 816,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=799s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-04",
     "question": "شاهد اللقطات. ما الفريق الذي خرج بشباك نظيفة في هذه المواجهة؟",
     "answer": "برشلونة",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=BYnDwLytoY0",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V4-CLIP-06",
     "question": "شاهد الهدف من الأرشيف. أي فريق كان يلعب له رونالدو البرازيلي في هذه اللقطة؟",
     "answer": "ريال مدريد",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 695,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 712,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=695s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-01",
     "question": "شاهد هذه المواجهة التي انتهت بفوز برشلونة على أرض ريال مدريد. في أي موسم كانت؟",
     "answer": "2015/2016",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=Ri5JspusO1M",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V4-CLIP-16",
     "question": "شاهد هذا الهدف لفيرناندو مورينتس. ما الموسم الذي ينتمي إليه؟",
     "answer": "1999/2000",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 401,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 418,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=401s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-10",
     "question": "في أي موسم سجّل تشافي هذا الهدف في ملعب ريال مدريد؟",
     "answer": "2003/2004",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 550,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 567,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=550s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-17",
     "question": "شاهد هدف ريفالدو هذا. أي ملعب احتضن المباراة؟",
     "answer": "كامب نو",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 586,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 603,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=586s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-18",
     "question": "في أي موسم جاء هذا الهدف لريفالدو خارج أرض برشلونة؟",
     "answer": "2000/2001",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 659,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 676,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=659s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V3-VIDEO-01",
     "question": "شاهد الملخص بالصوت. في أي موسم أقيمت هذه المواجهة التي شهدت ثلاثة أهداف لفينيسيوس؟",
     "answer": "2023/2024",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=w_SkU3ktIes",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-02",
     "question": "شاهد الملخص بالصوت. في أي موسم أقيم هذا النهائي الذي انتهى بفوز برشلونة رغم تأخره مبكرًا؟",
     "answer": "2024/2025",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=85r4BmSp4Qg",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-03",
     "question": "شاهد المقطع. في أي موسم من الدوري جرت هذه المواجهة التي شهدت هدفًا حاسمًا في الوقت بدل الضائع؟",
     "answer": "2016/2017",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=fVufY4SCoOk",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-04",
     "question": "شاهد الملخص. ما نتيجة الشوط الأول من هذه المباراة قبل أن يسجل برشلونة رباعيته؟",
     "answer": "0-0",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=Hf9pXbnWIK8",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-05",
     "question": "شاهد المقطع. كم هدفًا سجّل ريال مدريد بعد الاستراحة في هذه المواجهة؟",
     "answer": "2",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=s5fPCcm-h9s",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-06",
     "question": "شاهد الملخص بالصوت. في أي مدينة أُقيم هذا النهائي الذي امتد إلى شوطين إضافيين؟",
     "answer": "إشبيلية",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=29qV7l2vULk",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-07",
     "question": "شاهد المقطع. في أي موسم جرت هذه الخماسية التي شهدت ثلاثية لمهاجم برشلونة؟",
     "answer": "2018/2019",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=o8jMLaLNAPE",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-08",
     "question": "شاهد المقطع. ما الملعب الذي استضاف هذه المواجهة، وليس كامب نو؟",
     "answer": "لويس كومبانيس الأولمبي",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=iS6dII37CwM",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-09",
     "question": "شاهد الملخص. كم مرة تقدم برشلونة في النتيجة قبل أن ينتزع ريال مدريد الفوز في النهاية؟",
     "answer": "مرتين",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=MmhxO0MFhVM",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-10",
     "question": "شاهد أرشيف الكلاسيكو القديم. كم هدفًا سجّل برشلونة بعد انتهاء الشوط الأول في هذه المواجهة؟",
     "answer": "4",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=S0bgxnX97Vk",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-11",
     "question": "شاهد الملخص التاريخي. ما نتيجة الشوط الأول قبل أن تكتمل خماسية برشلونة؟",
     "answer": "2-0",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=3KCnVa_Os7A",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-12",
     "question": "شاهد المقطع. في أي موسم لعبت هذه الرباعية خارج أرض برشلونة، وظهر فيها أوباميانغ بقميص الفريق؟",
     "answer": "2021/2022",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=Bb7pphWltLI",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-13",
     "question": "شاهد الملخص. ما نتيجة الشوط الأول بعد عودة برشلونة من تأخره بهدفين؟",
     "answer": "4-2 لبرشلونة",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=0c8RD3fd9hc",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V3-VIDEO-14",
     "question": "شاهد اللقطات. في أي موسم من الدوري الإسباني جرت هذه المباراة؟",
     "answer": "2025/2026",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 31,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 48,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=LFzrA492gdw&t=31s",
+    "timingStatus": "published_chapter"
   },
   {
     "id": "ELC-V4-CLIP-03",
     "question": "في أي موسم من الدوري جرت هذه المواجهة التي حسمها برشلونة بهدف وحيد؟",
     "answer": "2009/2010",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=nHSyKTA0Wak",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V4-CLIP-02",
     "question": "شاهد ملخص الكلاسيكو واحتفال رونالدو الشهير. في أي موسم أقيمت المباراة؟",
     "answer": "2011/2012",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": null,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": null,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=hY1IpOJpbO0",
+    "timingStatus": "needs_scene_review"
   },
   {
     "id": "ELC-V4-CLIP-11",
     "question": "شاهد اللقطة. أي ملعب استضاف هدف فيغو هذا بعد انتقاله إلى ريال مدريد؟",
     "answer": "سانتياغو برنابيو",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 216,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 233,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=216s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-12",
     "question": "في أي موسم ظهر هذا الهدف لرونالدو البرازيلي أمام برشلونة في ملعب ريال مدريد؟",
     "answer": "2002/2003",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 330,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 347,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=330s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-19",
     "question": "شاهد احتفال راؤول في ملعب الخصم. في أي موسم حدثت هذه اللقطة؟",
     "answer": "1999/2000",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 761,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 778,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=761s",
+    "timingStatus": "existing_timestamp_unverified"
   },
   {
     "id": "ELC-V4-CLIP-20",
     "question": "في أي موسم ظهر هدف جيوفاني فان برونكهورست هذا في الكلاسيكو؟",
     "answer": "2004/2005",
     "sourceFile": "",
-    "startSeconds": 0,
+    "startSeconds": 188,
     "reusePermitted": false,
-    "rightsNote": ""
+    "rightsNote": "",
+    "endSeconds": 205,
+    "durationSeconds": 17,
+    "referenceUrl": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=188s",
+    "timingStatus": "existing_timestamp_unverified"
   }
 ]
