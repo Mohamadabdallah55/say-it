@@ -58,7 +58,10 @@
       "prompt": "في نهائي السوبر الإسباني 2025 (5-2)، من حارس برشلونة الذي طُرد بعد خروجه على مبابي؟",
       "explanation": "تؤكد تغطية RFEF — Super Cup 5-2 هذه المعلومة.",
       "source": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5"
-    }
+    },
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2022/11/02/b6748d23-c5f6-47d2-8cc2-9fcebff5e0a1/mini_08-PEDRI.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/futbol/primer-equipo/jugadores/70486/pedri",
+    "imageCaption": "بيدري بقميص برشلونة"
   },
   {
     "id": "ELC-006",
@@ -162,7 +165,10 @@
       "prompt": "من كان مدرب برشلونة عندما سحق ريال مدريد 5-0 في البرنابيو سنة 1974؟",
       "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
       "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu"
-    }
+    },
+    "imageUrl": "https://www.cihefe.es/cuadernosdefutbol/wp-content/upLoads/2019/11/CategoriaOlimpica04.jpg",
+    "imageSourceUrl": "https://www.cuadernosdefutbol.com/category/interactivity-type/active/page/26/?print=print-search",
+    "imageCaption": "خوان مانويل أسينسي بقميص برشلونة"
   },
   {
     "id": "ELC-V2-015",
@@ -462,7 +468,10 @@
     "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:25:09، مدة 5959ث) تم التحقق من التضمين بدون حظر.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://derivates.kicker.de/image/fetch/w_800%2Ch_600%2Cc_fill%2Cg_auto%2Cq_auto%3Abest/http%3A/mediadb.kicker.de/news/1000/1020/1100/8000/8401/spielbericht/775961/messi_cr7-1349639117_zoom18_crop_800x600_800x600%2B57%2B16.jpg",
+    "imageSourceUrl": "https://www.kicker.de/barcelona-gegen-real-madrid-2012-la-liga-1452092/spielbericht",
+    "imageCaption": "صورتا احتفال ميسي ورونالدو من كلاسيكو 7 أكتوبر 2012 (2–2)"
   },
   {
     "id": "ELC-V2-034",
@@ -567,7 +576,10 @@
       "prompt": "من قائد ريال مدريد الذي احتفل بإشارة إسكات جمهور كامب نو بعد تسجيل هدف التعادل 2-2 في موسم 1999/2000؟",
       "explanation": "هدف القائد راؤول غونزاليس لريال مدريد في مرمى برشلونة (فصل 03:43 Raúl من قناة ريال مدريد).",
       "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=223s"
-    }
+    },
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2019/09/12/fa912693-a8c2-4f34-90d8-609bd84b5c4b/Lenglet-600x708.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.cat/ca/futbol/primer-equip/jugadors/21647/clement-lenglet",
+    "imageCaption": "كليمان لينغليه بقميص برشلونة"
   },
   {
     "id": "ELC-V4-CLIP-05",
@@ -915,7 +927,10 @@
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://media0.faz.net/image/486c2dbc85e3/w2016h1512x395y252/201208/1.1872964/supercup-sieger-2012-pepe.webp",
+    "imageSourceUrl": "https://www.faz.net/aktuell/sport/fussball/2-1-gegen-barcelona-real-madrid-gewinnt-spanischen-supercup-11872967.html",
+    "imageCaption": "احتفال ريال مدريد بلقب السوبر الإسباني 2012"
   },
   {
     "id": "ELC-V4-CLIP-10",
@@ -1050,7 +1065,10 @@
         "explanation": "دخل بويان مكان توريه في الدقيقة 85.",
         "source": "https://www.fcbarcelona.com/en/football/first-team/noticies/1205417/dese-aniversari-del-2-6-al-bernabeu"
       }
-    ]
+    ],
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2019/09/12/68b8a679-3362-4dde-8b5b-1e065c21d807/Rafinha-600x708.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/football/first-team/players/4967/rafael-alcantara-do-nascimento",
+    "imageCaption": "رافينيا ألكانتارا بقميص برشلونة"
   },
   {
     "id": "ELC-V2-068",
@@ -1134,7 +1152,10 @@
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1574ث) تم التحقق من إتاحة التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2022/07/01/5e7ec920-d018-41e8-b783-9990cd53fc78/araujo.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/players/66133",
+    "imageCaption": "رونالد أراوخو بقميص برشلونة"
   },
   {
     "id": "ELC-V3-VIDEO-02",
@@ -1153,7 +1174,10 @@
     "videoRightsNote": "قناة SSC الرياضية بتعليق فارس عوض على يوتيوب (مدة 544ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2022/07/01/5e7ec920-d018-41e8-b783-9990cd53fc78/araujo.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/players/66133",
+    "imageCaption": "رونالد أراوخو بقميص برشلونة"
   },
   {
     "id": "ELC-V3-VIDEO-03",
@@ -1172,7 +1196,10 @@
     "videoRightsNote": "مقطع هدف بتعليق عربي (عصام الشوالي، مدة 93ث) على يوتيوب تم التحقق من إتاحة التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://cadenaser.com/resizer/v2/RNMHQCJJNNO4DA5HFRGPCNAMBM.jpg?auth=0e3f9b921c4f43c14f2a4c371121eafde6f5292eb20d95eb4318ba7fa89b08fd&height=770&quality=70&smart=true&width=770",
+    "imageSourceUrl": "https://cadenaser.com/ser/2010/10/21/deportes/1287617289_850215.html",
+    "imageCaption": "خوسيه مانويل بينتو بقميص برشلونة"
   },
   {
     "id": "ELC-V3-VIDEO-04",
@@ -1191,7 +1218,10 @@
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1077ث) تم التحقق من إتاحة التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2022/11/02/ffeb9318-5479-4648-9fd5-a7486db80937/mini_30-GAVI.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/football/first-team/players/116719/pablo-martin-paez-gavira",
+    "imageCaption": "غافي بقميص برشلونة"
   },
   {
     "id": "ELC-V3-VIDEO-05",
@@ -1211,7 +1241,10 @@
     "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2025/07/09/4d4fd940-4e60-4524-93a6-dff6b73c52a4/16-Fermin.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/football/first-team/jugadores/118929/fermin-lopez",
+    "imageCaption": "فيرمين لوبيز بقميص برشلونة"
   },
   {
     "id": "ELC-V3-VIDEO-06",
@@ -1230,7 +1263,10 @@
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1301ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/TCHOUAMENI_EQUIPO_CARITA_550X650%20%E2%80%93%201_v2?%24Mobile%24=&fit=wrap&wid=420",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/football/first-team/players/aurelien-tchouameni",
+    "imageCaption": "أوريلين تشواميني بقميص ريال مدريد"
   },
   {
     "id": "ELC-V3-VIDEO-07",
@@ -1388,7 +1424,10 @@
     "videoRightsNote": "مقطع هاتريك بنزيما بتعليق عربي عبر يوتيوب (مدة 53ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/TCHOUAMENI_EQUIPO_CARITA_550X650%20%E2%80%93%201_v2?%24Mobile%24=&fit=wrap&wid=420",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/football/first-team/players/aurelien-tchouameni",
+    "imageCaption": "أوريلين تشواميني بقميص ريال مدريد"
   },
   {
     "id": "ELC-V3-VIDEO-14",
@@ -1407,7 +1446,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 00:31 Goal Mbappé، مدة 143ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2022/11/02/b6748d23-c5f6-47d2-8cc2-9fcebff5e0a1/mini_08-PEDRI.png?height=790&width=670",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/futbol/primer-equipo/jugadores/70486/pedri",
+    "imageCaption": "بيدري بقميص برشلونة"
   },
   {
     "id": "ELC-V3-HIST-01",
@@ -1468,7 +1510,10 @@
     "videoRightsNote": "ملخص مباراة بتعليق عربي (فهد العتيبي، مدة 563ث) عبر يوتيوب تم التحقق من التضمين بدون حظر.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://s2-ge.glbimg.com/wgvzDMiyb5yNP5cCh9izJtUkjzc%3D/0x0%3A3222x2409/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2023/K/G/P9xVAfSjKdqMrWNKBJ4w/2023-01-15t215521z-1136719660-up1ej1f1ow8u4-rtrmadp-3-soccer-spain-mad-fcb-report.jpg",
+    "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/futebol-espanhol/noticia/2023/01/15/busquets-festeja-titulo-do-barcelona-na-supercopa-da-espanha-vai-nos-fortalecer.ghtml",
+    "imageCaption": "تتويج برشلونة بعد نهائي السوبر 15 يناير 2023"
   },
   {
     "id": "ELC-V4-CLIP-02",
