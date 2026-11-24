@@ -720,6 +720,7 @@ export function GameArena({
                       className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
                       <CategoryArtwork categoryId={cat.id} iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
+                      <span className="board-category-tab" aria-hidden="true" style={{ backgroundColor: cat.accentColor }} />
 
                       <div className="category-caption">
                         <div className="text-center">
@@ -1773,7 +1774,7 @@ export function GameArena({
         <aside className="score-rail rounded-3xl border-[2.5px] border-[#1F112E] p-3.5 md:p-4 shadow-[0_5px_0_#1F112E] gap-3">
           <div className="rail-top space-y-3">
             {/* Mobile Compact Action Row + Question Badge + Timer (matches Screenshot 4) */}
-            <div className="flex items-center justify-between gap-2">
+            <div className="rail-question-header flex items-center justify-between gap-2">
               <div className="bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-display font-black text-sm text-[#1F112E] tabular-nums shadow-[0_2px_0_#1F112E]">
                 السؤال {isClassicBoard && state.phase === 'BOARD' ? Math.min(state.totalQuestions, state.questionCounter + 1) : state.questionCounter}
               </div>
