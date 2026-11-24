@@ -272,7 +272,7 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   assert.equal(revealed?.imageUrl, question.imageUrl);
   assert.equal(revealed?.imageSourceUrl, question.imageSourceUrl);
 
-  const videoClipQuestion = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V3-VIDEO-03')!;
+  const videoClipQuestion = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V4-CLIP-15')!;
   assert.ok(videoClipQuestion.videoUrl && videoClipQuestion.imageUrl);
   const videoFirstBank = [videoClipQuestion, ...EL_CLASICO_QUESTIONS.filter(q => q.id !== videoClipQuestion.id)];
   const videoDeck = buildBoardDeckFromCategories(
@@ -289,7 +289,7 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   assert.equal(clipHidden?.answer, undefined);
   assert.equal(clipHidden?.imageUrl, undefined);
   const clipRevealed = sanitizeStateForRole(revealAnswer(clipTile.state, 'reveal-video').state, 'projector').activeRound;
-  assert.equal(clipRevealed?.answer, 'غاريث بيل');
+  assert.equal(clipRevealed?.answer, videoClipQuestion.answer);
   assert.equal(clipRevealed?.imageUrl, videoClipQuestion.imageUrl);
   assert.equal(clipRevealed?.imageSourceUrl, videoClipQuestion.imageSourceUrl);
 });
@@ -449,4 +449,14 @@ test('chapter-indexed archive clips are enabled only as explicit official-source
   assert.equal(approvedClasicoVideo(row), 'https://www.youtube-nocookie.com/embed/iOIR4TDo-qM?start=1189&end=1206');
   assert.equal(approvedClasicoVideo({...row,videoTrialEnabled:false}),undefined);
   assert.equal(approvedClasicoVideo({...row,videoUrl:'https://www.youtube-nocookie.com/embed/abcdefghijk?start=0'}),undefined);
+});
+
+test('Clasico spoiler-risk revisions retain video and ask a separate match-context question', () => {
+  const expected = {"ELC-007":"صامويل إيتو","ELC-V2-019":"100 نقطة","ELC-V2-034":"كريم بنزيما","ELC-V2-035":"جيرارد بيكيه","ELC-V4-CLIP-01":"تشافي هيرنانديز","ELC-V4-CLIP-02":"سيسك فابريغاس","ELC-V4-CLIP-04":"جيرارد بيكيه","ELC-V4-CLIP-10":"سيرخيو راموس","ELC-V2-060":"9","ELC-V2-064":"جيرارد بيكيه","ELC-V3-VIDEO-01":"رونالد أراوخو","ELC-V3-VIDEO-02":"رونالد أراوخو","ELC-V3-VIDEO-03":"خوسيه مانويل بينتو","ELC-V3-VIDEO-04":"غافي","ELC-V3-VIDEO-06":"أوريلين تشواميني","ELC-V3-VIDEO-07":"رودريغو","ELC-V3-VIDEO-08":"كيبا أريزابالاغا","ELC-V3-VIDEO-12":"كريم بنزيما","ELC-V3-VIDEO-13":"أوريلين تشواميني","ELC-V3-VIDEO-14":"بيدري","ELC-V3-HIST-12":"آرثر ميلو","ELC-V4-CLIP-19":"أنخيل دي ماريا","ELC-V4-CLIP-20":"تيتو فيلانوفا","ELC-V3-VIDEO-11":"أندريس إنييستا"};
+  for (const [id, answer] of Object.entries(expected)) {
+    const q = EL_CLASICO_QUESTIONS.find(q => q.id === id);
+    assert.equal(q?.answer, answer);
+    assert.ok(q?.videoUrl);
+    assert.match(q?.prompt ?? '', /^شاهد اللقطة، ثم أجب:/);
+  }
 });

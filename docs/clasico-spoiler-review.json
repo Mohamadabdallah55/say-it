@@ -1,0 +1,176 @@
+{
+  "reviewedVideoQuestions": 54,
+  "edited": 24,
+  "fullClipAudioVisualReview": false,
+  "notes": "Editorial screening of question/answer pairs and cited match reports, not a frame-by-frame or audio inspection. Remaining clips require manual spoiler review.",
+  "revisions": [
+    {
+      "id": "ELC-007",
+      "oldAnswer": "رونالدينيو",
+      "newAnswer": "صامويل إيتو",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو 19 نوفمبر 2005، من افتتح التسجيل لبرشلونة قبل ثنائية رونالدينيو؟",
+      "source": "https://www.skysports.com/football/real-madrid-vs-barcelona/teams/66027"
+    },
+    {
+      "id": "ELC-V2-019",
+      "oldAnswer": "2012",
+      "newAnswer": "100 نقطة",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2012، كم نقطة جمع ريال مدريد في الدوري بنهاية ذلك الموسم التاريخي؟",
+      "source": "https://www.laliga.com/en-GB/news/remembering-the-clasico-of-2011-12"
+    },
+    {
+      "id": "ELC-V2-034",
+      "oldAnswer": "نيمار",
+      "newAnswer": "كريم بنزيما",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أكتوبر 2014 الذي افتتح فيه نيمار التسجيل، من لاعب ريال مدريد الذي سجل هدف فريقه الثالث؟",
+      "source": "https://www.fcbarcelona.com/en/matches/34713/real-madrid-fc-barcelona-la-liga-2014-2015"
+    },
+    {
+      "id": "ELC-V2-035",
+      "oldAnswer": "ماركو أسينسيو",
+      "newAnswer": "جيرارد بيكيه",
+      "question": "شاهد اللقطة، ثم أجب: في ذهاب السوبر الإسباني 2017، من مدافع برشلونة الذي سجل هدفًا بالخطأ في مرمى فريقه؟",
+      "source": "https://www.bbc.co.uk/sport/football/40918640"
+    },
+    {
+      "id": "ELC-V4-CLIP-01",
+      "oldAnswer": "أليكسيس سانشيز",
+      "newAnswer": "تشافي هيرنانديز",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2012، من لاعب برشلونة الذي خرج من الملعب ليشارك أليكسيس سانشيز بدلًا منه؟",
+      "source": "https://www.bbc.co.uk/sport/football/17801506"
+    },
+    {
+      "id": "ELC-V4-CLIP-02",
+      "oldAnswer": "سامي خضيرة",
+      "newAnswer": "سيسك فابريغاس",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2012، من لاعب برشلونة الذي شارك بدل كريستيان تيلو في الدقائق الأخيرة؟",
+      "source": "https://as.com/futbol/2012/04/21/mas_futbol/1334959262_850215.html"
+    },
+    {
+      "id": "ELC-V4-CLIP-04",
+      "oldAnswer": "كيلور نافاس",
+      "newAnswer": "جيرارد بيكيه",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2016 الذي شهد تصدي نافاس لميسي، من مدافع برشلونة الذي سجل هدف فريقه الوحيد؟",
+      "source": "https://www.worldfootball.net/match-report/co97/spain-primera-division/ma2440641/fc-barcelona_real-madrid/live-commentary/"
+    },
+    {
+      "id": "ELC-V4-CLIP-10",
+      "oldAnswer": "تشافي هيرنانديز",
+      "newAnswer": "سيرخيو راموس",
+      "question": "شاهد اللقطة، ثم أجب: في ذهاب السوبر الإسباني 2012، من مدافع ريال مدريد الذي تسبب بركلة الجزاء التي سجل منها ميسي؟",
+      "source": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/"
+    },
+    {
+      "id": "ELC-V2-060",
+      "oldAnswer": "2012",
+      "newAnswer": "9",
+      "question": "شاهد اللقطة، ثم أجب: في إياب السوبر الإسباني 2012 الذي سجل فيه ميسي من ركلة حرة، ما رقم لقب السوبر الذي أحرزه ريال مدريد؟",
+      "source": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/se-cumplen-12-anos-de-la-novena-supercopa-de-espana-29-08-2024"
+    },
+    {
+      "id": "ELC-V2-064",
+      "oldAnswer": "4-3 لبرشلونة",
+      "newAnswer": "جيرارد بيكيه",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو مارس 2014 الذي سجل فيه بنزيما ثنائية، من مدافع برشلونة الذي أبعد محاولة أخرى لبنزيما من على خط المرمى؟",
+      "source": "https://www.bbc.co.uk/sport/football/26690210"
+    },
+    {
+      "id": "ELC-V3-VIDEO-01",
+      "oldAnswer": "2023/2024",
+      "newAnswer": "رونالد أراوخو",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي السوبر الإسباني 2024، من مدافع برشلونة الذي تعرض للطرد في الشوط الثاني؟",
+      "source": "https://www.fcbarcelona.com/en/matches/110961/r-madrid-fc-barcelona-spanish-super-cup-2023-2024"
+    },
+    {
+      "id": "ELC-V3-VIDEO-02",
+      "oldAnswer": "2024/2025",
+      "newAnswer": "رونالد أراوخو",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي السوبر الإسباني 2025، من لاعب برشلونة الذي شارك بدل إينيغو مارتينيز المصاب في الشوط الأول؟",
+      "source": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5"
+    },
+    {
+      "id": "ELC-V3-VIDEO-03",
+      "oldAnswer": "غاريث بيل",
+      "newAnswer": "خوسيه مانويل بينتو",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي كأس الملك 2014 الذي حسمه بيل، من حارس برشلونة الأساسي في تلك المباراة؟",
+      "source": "https://rfef.es/en/noticias/clasico-cup-final-history"
+    },
+    {
+      "id": "ELC-V3-VIDEO-04",
+      "oldAnswer": "جدة",
+      "newAnswer": "غافي",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي السوبر الإسباني 2025، من لاعب برشلونة الذي غادر الملعب ليشارك الحارس إيناكي بينيا بعد طرد تشيزني؟",
+      "source": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5"
+    },
+    {
+      "id": "ELC-V3-VIDEO-06",
+      "oldAnswer": "إشبيلية",
+      "newAnswer": "أوريلين تشواميني",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي كأس الملك 2025، من لاعب ريال مدريد الذي سجل هدف التقدم 2-1 بعد تعادل مبابي؟",
+      "source": "https://rfef.es/en/noticias/match-report-fc-barcelona-crowned-cup-kings-in-classic-encounter"
+    },
+    {
+      "id": "ELC-V3-VIDEO-07",
+      "oldAnswer": "كيليان مبابي",
+      "newAnswer": "رودريغو",
+      "question": "شاهد اللقطة، ثم أجب: في نهائي السوبر الإسباني 2025 الذي افتتح فيه مبابي التسجيل، من لاعب ريال مدريد الذي سدد كرة ارتطمت بالعارضة بعد الاستراحة؟",
+      "source": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-final-supercopa-de-espana-12-01-2025"
+    },
+    {
+      "id": "ELC-V3-VIDEO-08",
+      "oldAnswer": "لويس كومبانيس الأولمبي",
+      "newAnswer": "كيبا أريزابالاغا",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أكتوبر 2023 الذي شهد ثنائية بيلينغهام، من حارس ريال مدريد الأساسي في المباراة؟",
+      "source": "https://www.realmadrid.com/en-US/news/football/first-team/reports/bellingham-scores-brace-in-clasico-comeback-28-10-2023"
+    },
+    {
+      "id": "ELC-V3-VIDEO-12",
+      "oldAnswer": "بعد الإنذار الثاني",
+      "newAnswer": "كريم بنزيما",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2016 الذي طُرد فيه راموس، من لاعب ريال مدريد الذي سجل هدف التعادل قبل الطرد؟",
+      "source": "https://www.worldfootball.net/match-report/co97/spain-primera-division/ma2440641/fc-barcelona_real-madrid/live-commentary/"
+    },
+    {
+      "id": "ELC-V3-VIDEO-13",
+      "oldAnswer": "2022/2023",
+      "newAnswer": "أوريلين تشواميني",
+      "question": "شاهد اللقطة، ثم أجب: في إياب نصف نهائي كأس الملك 2023 الذي شهد ثلاثية بنزيما، من لاعب ريال مدريد الذي دخل بدل لوكا مودريتش؟",
+      "source": "https://www.laliga.com/en-GB/match/temporada-2022-2023-copa-del-rey-fc-barcelona-real-madrid-7"
+    },
+    {
+      "id": "ELC-V3-VIDEO-14",
+      "oldAnswer": "2025/2026",
+      "newAnswer": "بيدري",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو 26 أكتوبر 2025 الذي شهد هدف مبابي، من لاعب برشلونة الذي طُرد في الوقت بدل الضائع؟",
+      "source": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-barcelona-jornada-10-liga-26-10-2025"
+    },
+    {
+      "id": "ELC-V3-HIST-12",
+      "oldAnswer": "أرتورو فيدال",
+      "newAnswer": "آرثر ميلو",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أكتوبر 2018 الذي شهد الهدف الخامس لفيدال، من لاعب برشلونة الذي خرج ليشارك فيدال بدلًا منه؟",
+      "source": "https://www.rtve.es/deportes/20181028/clasico-barca-arrolla-madrid-deja-sentenciado-a-lopetegui/1828300.shtml"
+    },
+    {
+      "id": "ELC-V4-CLIP-19",
+      "oldAnswer": "2013/2014",
+      "newAnswer": "أنخيل دي ماريا",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو مارس 2014 الذي افتتح فيه إنييستا التسجيل، من اللاعب الذي صنع هدفي بنزيما في الشوط الأول؟",
+      "source": "https://www.bbc.co.uk/sport/football/26690210"
+    },
+    {
+      "id": "ELC-V4-CLIP-20",
+      "oldAnswer": "2012/2013",
+      "newAnswer": "تيتو فيلانوفا",
+      "question": "شاهد اللقطة، ثم أجب: في السوبر الإسباني 2012، من كان مدرب برشلونة في مواجهة ريال مدريد بعد رحيل غوارديولا؟",
+      "source": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/"
+    },
+    {
+      "id": "ELC-V3-VIDEO-11",
+      "oldAnswer": "2005/2006",
+      "newAnswer": "أندريس إنييستا",
+      "question": "شاهد اللقطة، ثم أجب: في كلاسيكو نوفمبر 2005 الذي نال فيه رونالدينيو تصفيق الجمهور، من لاعب برشلونة الذي شارك بدل ليونيل ميسي؟",
+      "source": "https://www.skysports.com/football/real-madrid-vs-barcelona/teams/66027"
+    }
+  ]
+}
