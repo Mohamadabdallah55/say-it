@@ -13,7 +13,7 @@ import type { DeckCategory } from './types';
 export const APPS_CATEGORY: DeckCategory = {
   id: 'cat_apps',
   name: 'التطبيقات',
-  description: 'خمّن التطبيقات من شعاراتها ووظائفها، من التطبيقات اليومية إلى البرامج المتخصصة',
+  description: 'ما اسم التطبيق الموجود في الصورة؟ شعارات التطبيقات اليومية والمتخصصة',
   iconKey: 'visual_memory',
   menuGroup: 'visual',
   accentColor: '#6155A6',

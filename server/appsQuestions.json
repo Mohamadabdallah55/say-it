@@ -3,7 +3,7 @@
     "id": "APP-001",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "واتساب",
     "acceptableAnswers": [
       "WhatsApp",
@@ -19,7 +19,7 @@
     "id": "APP-002",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إنستغرام",
     "acceptableAnswers": [
       "Instagram",
@@ -36,7 +36,7 @@
     "id": "APP-003",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "يوتيوب",
     "acceptableAnswers": [
       "YouTube"
@@ -50,7 +50,7 @@
     "id": "APP-004",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تيليغرام",
     "acceptableAnswers": [
       "Telegram",
@@ -66,7 +66,7 @@
     "id": "APP-005",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سناب شات",
     "acceptableAnswers": [
       "Snapchat"
@@ -80,7 +80,7 @@
     "id": "APP-006",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تيك توك",
     "acceptableAnswers": [
       "TikTok"
@@ -94,7 +94,7 @@
     "id": "APP-007",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سبوتيفاي",
     "acceptableAnswers": [
       "Spotify"
@@ -108,7 +108,7 @@
     "id": "APP-008",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ديسكورد",
     "acceptableAnswers": [
       "Discord"
@@ -122,7 +122,7 @@
     "id": "APP-009",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ريديت",
     "acceptableAnswers": [
       "Reddit"
@@ -136,7 +136,7 @@
     "id": "APP-010",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بنترست",
     "acceptableAnswers": [
       "Pinterest",
@@ -151,7 +151,7 @@
     "id": "APP-011",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "نتفليكس",
     "acceptableAnswers": [
       "Netflix"
@@ -165,7 +165,7 @@
     "id": "APP-012",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "زوم",
     "acceptableAnswers": [
       "Zoom"
@@ -179,7 +179,7 @@
     "id": "APP-013",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "نوشن",
     "acceptableAnswers": [
       "Notion"
@@ -193,7 +193,7 @@
     "id": "APP-014",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "دولينغو",
     "acceptableAnswers": [
       "Duolingo",
@@ -209,7 +209,7 @@
     "id": "APP-015",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فيغما",
     "acceptableAnswers": [
       "Figma",
@@ -224,7 +224,7 @@
     "id": "APP-016",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "دروب بوكس",
     "acceptableAnswers": [
       "Dropbox"
@@ -238,7 +238,7 @@
     "id": "APP-017",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تريلو",
     "acceptableAnswers": [
       "Trello"
@@ -252,7 +252,7 @@
     "id": "APP-018",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جيميل",
     "acceptableAnswers": [
       "Gmail"
@@ -266,7 +266,7 @@
     "id": "APP-019",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "خرائط جوجل",
     "acceptableAnswers": [
       "Google Maps"
@@ -280,7 +280,7 @@
     "id": "APP-020",
     "points": 200,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "صور جوجل",
     "acceptableAnswers": [
       "Google Photos"
@@ -293,72 +293,82 @@
   {
     "id": "APP-061",
     "points": 200,
-    "kind": "function",
-    "question": "شو اسم التطبيق اللي بتشغّله عشان يتعرّف على اسم الأغنية اللي شغّالة حوليك؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "شازام",
     "acceptableAnswers": [
       "Shazam"
     ],
-    "explanation": "التعرّف على الموسيقى من الصوت.",
-    "sourceUrl": "https://www.shazam.com/"
+    "explanation": "اسم التطبيق: Shazam.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/shazam.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/shazam.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/shazam.svg"
   },
   {
     "id": "APP-062",
     "points": 200,
-    "kind": "function",
-    "question": "ما خدمة جوجل اللي بتخزن ملفاتك أونلاين وبتشاركها مع غيرك من خلال رابط؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جوجل درايف",
     "acceptableAnswers": [
       "Google Drive",
       "قوقل درايف",
       "غوغل درايف"
     ],
-    "explanation": "تخزين ومشاركة الملفات سحابيًا.",
-    "sourceUrl": "https://drive.google.com/"
+    "explanation": "اسم التطبيق: Google Drive.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googledrive.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/googledrive.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googledrive.svg"
   },
   {
     "id": "APP-063",
     "points": 200,
-    "kind": "function",
-    "question": "شو اسم تطبيق جوجل اللي بترجم النصوص والكلام والصور بين اللغات؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ترجمة جوجل",
     "acceptableAnswers": [
       "Google Translate",
       "مترجم جوجل",
       "Google Translator"
     ],
-    "explanation": "الترجمة النصية والصوتية والبصرية.",
-    "sourceUrl": "https://translate.google.com/"
+    "explanation": "اسم التطبيق: Google Translate.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googletranslate.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/googletranslate.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googletranslate.svg"
   },
   {
     "id": "APP-064",
     "points": 200,
-    "kind": "function",
-    "question": "أي تطبيق ملاحة يعتمد على بلاغات السائقين عن الازدحام والحوادث أثناء الطريق؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ويز",
     "acceptableAnswers": [
       "Waze"
     ],
-    "explanation": "الملاحة اعتمادًا على معلومات الطريق ومساهمات المستخدمين.",
-    "sourceUrl": "https://www.waze.com/"
+    "explanation": "اسم التطبيق: Waze.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/waze.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/waze.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/waze.svg"
   },
   {
     "id": "APP-065",
     "points": 200,
-    "kind": "function",
-    "question": "شو اسم تطبيق جوجل للاجتماعات بالفيديو اللي بقدر المعلم يرسل رابط صف من خلاله؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جوجل ميت",
     "acceptableAnswers": [
       "Google Meet"
     ],
-    "explanation": "اجتماعات ومكالمات فيديو.",
-    "sourceUrl": "https://meet.google.com/"
+    "explanation": "اسم التطبيق: Google Meet.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googlemeet.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/googlemeet.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googlemeet.svg"
   },
   {
     "id": "APP-021",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سيغنال",
     "acceptableAnswers": [
       "Signal",
@@ -373,7 +383,7 @@
     "id": "APP-022",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ثريدز",
     "acceptableAnswers": [
       "Threads"
@@ -387,7 +397,7 @@
     "id": "APP-023",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تويتش",
     "acceptableAnswers": [
       "Twitch"
@@ -401,7 +411,7 @@
     "id": "APP-024",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ساوند كلاود",
     "acceptableAnswers": [
       "SoundCloud"
@@ -415,7 +425,7 @@
     "id": "APP-025",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أبل ميوزك",
     "acceptableAnswers": [
       "Apple Music"
@@ -429,7 +439,7 @@
     "id": "APP-026",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كاهوت",
     "acceptableAnswers": [
       "Kahoot!"
@@ -443,7 +453,7 @@
     "id": "APP-027",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كورسيرا",
     "acceptableAnswers": [
       "Coursera"
@@ -457,7 +467,7 @@
     "id": "APP-028",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "يوديمي",
     "acceptableAnswers": [
       "Udemy"
@@ -471,7 +481,7 @@
     "id": "APP-029",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سترافا",
     "acceptableAnswers": [
       "Strava"
@@ -485,7 +495,7 @@
     "id": "APP-030",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أول تريلز",
     "acceptableAnswers": [
       "AllTrails"
@@ -499,7 +509,7 @@
     "id": "APP-031",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ديب إل",
     "acceptableAnswers": [
       "DeepL"
@@ -513,7 +523,7 @@
     "id": "APP-032",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أنسبلاش",
     "acceptableAnswers": [
       "Unsplash"
@@ -527,7 +537,7 @@
     "id": "APP-033",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فيميو",
     "acceptableAnswers": [
       "Vimeo"
@@ -541,7 +551,7 @@
     "id": "APP-034",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بوكت كاستس",
     "acceptableAnswers": [
       "Pocket Casts"
@@ -555,7 +565,7 @@
     "id": "APP-035",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تودويست",
     "acceptableAnswers": [
       "Todoist"
@@ -569,7 +579,7 @@
     "id": "APP-036",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "تيك تيك",
     "acceptableAnswers": [
       "TickTick"
@@ -583,7 +593,7 @@
     "id": "APP-037",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بروتون ميل",
     "acceptableAnswers": [
       "Proton Mail"
@@ -597,7 +607,7 @@
     "id": "APP-038",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فايرفوكس",
     "acceptableAnswers": [
       "Firefox"
@@ -611,7 +621,7 @@
     "id": "APP-039",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بريف",
     "acceptableAnswers": [
       "Brave"
@@ -625,7 +635,7 @@
     "id": "APP-040",
     "points": 400,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أوبرا",
     "acceptableAnswers": [
       "Opera"
@@ -638,193 +648,223 @@
   {
     "id": "APP-066",
     "points": 400,
-    "kind": "function",
-    "question": "أي تطبيق تصميم تأسس في أستراليا واشتهر بقوالب البوسترات والعروض والسير الذاتية الجاهزة؟",
-    "answer": "كانفا",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "جوجل كيب",
     "acceptableAnswers": [
-      "Canva"
+      "Google Keep"
     ],
-    "explanation": "تصميم مرئي بقوالب جاهزة.",
-    "sourceUrl": "https://www.canva.com/"
+    "explanation": "اسم التطبيق: Google Keep.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googlekeep.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/googlekeep.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googlekeep.svg"
   },
   {
     "id": "APP-067",
     "points": 400,
-    "kind": "function",
-    "question": "شو اسم محرر الفيديو التابع لشركة ByteDance والمشهور بالقوالب والترجمة التلقائية للمقاطع؟",
-    "answer": "كاب كت",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "فايبر",
     "acceptableAnswers": [
-      "CapCut"
+      "Viber"
     ],
-    "explanation": "تحرير الفيديو والقوالب والترجمة التلقائية.",
-    "sourceUrl": "https://www.capcut.com/"
+    "explanation": "اسم التطبيق: Viber.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/viber.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/viber.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/viber.svg"
   },
   {
     "id": "APP-068",
     "points": 400,
-    "kind": "function",
-    "question": "برنامج تشغيل وسائط من مشروع VideoLAN، شعاره مخروط مروري برتقالي وأبيض؛ شو اسمه؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "في إل سي",
     "acceptableAnswers": [
       "VLC",
       "VLC Media Player"
     ],
-    "explanation": "مشغل وسائط متعدد الصيغ.",
-    "sourceUrl": "https://www.videolan.org/vlc/"
+    "explanation": "اسم التطبيق: VLC.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/vlcmediaplayer.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/vlcmediaplayer.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/vlcmediaplayer.svg"
   },
   {
     "id": "APP-069",
     "points": 400,
-    "kind": "function",
-    "question": "أي تطبيق من مايكروسوفت يضم قنوات Teams وميزة الاجتماعات والصفوف الدراسية؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "مايكروسوفت تيمز",
     "acceptableAnswers": [
       "Microsoft Teams"
     ],
-    "explanation": "منصة للتواصل والتعاون والاجتماعات.",
-    "sourceUrl": "https://www.microsoft.com/microsoft-teams/"
+    "explanation": "اسم التطبيق: Microsoft Teams.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/microsoftteams.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/microsoftteams.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/microsoftteams.svg"
   },
   {
     "id": "APP-070",
     "points": 400,
-    "kind": "function",
-    "question": "ما منصة العمل التي تُنظم المحادثات داخل Channels وتتيح التكامل مع أدوات العمل المختلفة، واستحوذت عليها Salesforce؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سلاك",
     "acceptableAnswers": [
       "Slack"
     ],
-    "explanation": "المحادثات المنظمة والتعاون المهني.",
-    "sourceUrl": "https://slack.com/"
+    "explanation": "اسم التطبيق: Slack.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/slack.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/slack.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/slack.svg"
   },
   {
     "id": "APP-071",
     "points": 400,
-    "kind": "function",
-    "question": "ما اسم التطبيق الحكومي الأردني الذي يتيح تفعيل الهوية الرقمية والوصول إلى الوثائق والخدمات الحكومية؟",
-    "answer": "سند",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "ليتربوكسد",
     "acceptableAnswers": [
-      "Sanad"
+      "Letterboxd"
     ],
-    "explanation": "تطبيق الهوية والخدمات الحكومية الرقمية في الأردن.",
-    "sourceUrl": "https://sanad.gov.jo/"
+    "explanation": "اسم التطبيق: Letterboxd.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/letterboxd.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/letterboxd.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/letterboxd.svg"
   },
   {
     "id": "APP-072",
     "points": 400,
-    "kind": "function",
-    "question": "ما اسم منصة الطقس العربية التي انطلقت من الأردن وتشتهر بتوقعات الطقس بالعربية؟",
-    "answer": "طقس العرب",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "جوجل إيرث",
     "acceptableAnswers": [
-      "ArabiaWeather"
+      "Google Earth"
     ],
-    "explanation": "منصة متخصصة في توقعات الطقس.",
-    "sourceUrl": "https://www.arabiaweather.com/"
+    "explanation": "اسم التطبيق: Google Earth.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googleearth.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/googleearth.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/googleearth.svg"
   },
   {
     "id": "APP-073",
     "points": 400,
-    "kind": "function",
-    "question": "أي تطبيق بدأ بخدمات حجز السيارات في المنطقة، ثم توسّع ليضم خدمات التوصيل، واشترته Uber عام 2020؟",
-    "answer": "كريم",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "إير بي إن بي",
     "acceptableAnswers": [
-      "Careem"
+      "Airbnb"
     ],
-    "explanation": "منصة خدمات وتنقل إقليمية.",
-    "sourceUrl": "https://www.careem.com/"
+    "explanation": "اسم التطبيق: Airbnb.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/airbnb.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/airbnb.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/airbnb.svg"
   },
   {
     "id": "APP-074",
     "points": 400,
-    "kind": "function",
-    "question": "ما برنامج أدوبي المخصص لقراءة ملفات PDF وإضافة التعليقات عليها؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أدوبي أكروبات ريدر",
     "acceptableAnswers": [
       "Adobe Acrobat Reader",
       "Acrobat Reader",
       "Adobe Reader"
     ],
-    "explanation": "قارئ ملفات PDF.",
-    "sourceUrl": "https://www.adobe.com/acrobat/pdf-reader.html"
+    "explanation": "اسم التطبيق: Adobe Acrobat Reader.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/adobeacrobatreader.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/adobeacrobatreader.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/adobeacrobatreader.svg"
   },
   {
     "id": "APP-075",
     "points": 400,
-    "kind": "function",
-    "question": "أي محرر صور يعمل في المتصفح ويدعم فتح ملفات PSD وتعديل الطبقات دون تثبيت فوتوشوب؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فوتوبيا",
     "acceptableAnswers": [
       "Photopea"
     ],
-    "explanation": "محرر صور يدعم ملفات PSD داخل المتصفح.",
-    "sourceUrl": "https://www.photopea.com/"
+    "explanation": "اسم التطبيق: Photopea.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/photopea.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/photopea.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/photopea.svg"
   },
   {
     "id": "APP-076",
     "points": 400,
-    "kind": "function",
-    "question": "برنامج مجاني مفتوح المصدر يُستخدم للنمذجة والتحريك ثلاثي الأبعاد، ويحتوي على محركي Cycles وEevee؛ ما اسمه؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بلندر",
     "acceptableAnswers": [
       "Blender",
       "بليندر"
     ],
-    "explanation": "حزمة إنشاء محتوى ثلاثي الأبعاد.",
-    "sourceUrl": "https://www.blender.org/"
+    "explanation": "اسم التطبيق: Blender.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/blender.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/blender.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/blender.svg"
   },
   {
     "id": "APP-077",
     "points": 400,
-    "kind": "function",
-    "question": "ما محرر الصوت المجاني المعروف بتسجيل الصوت وتعديل الموجات الصوتية وتصدير ملفات WAV وMP3؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أوداسيتي",
     "acceptableAnswers": [
       "Audacity"
     ],
-    "explanation": "محرر ومُسجل صوت مفتوح المصدر.",
-    "sourceUrl": "https://www.audacityteam.org/"
+    "explanation": "اسم التطبيق: Audacity.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/audacity.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/audacity.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/audacity.svg"
   },
   {
     "id": "APP-078",
     "points": 400,
-    "kind": "function",
-    "question": "أي نظام إدارة تعلم مفتوح المصدر تستخدمه جامعات ومدارس لبناء مقررات واختبارات وواجبات؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "مودل",
     "acceptableAnswers": [
       "Moodle"
     ],
-    "explanation": "منصة لإدارة التعلم.",
-    "sourceUrl": "https://moodle.org/"
+    "explanation": "اسم التطبيق: Moodle.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/moodle.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/moodle.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/moodle.svg"
   },
   {
     "id": "APP-079",
     "points": 400,
-    "kind": "function",
-    "question": "تطبيق بطاقات تعليمية يعتمد التكرار المتباعد، واسمُه الياباني يعني الحفظ عن ظهر قلب؛ ما اسمه؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أنكي",
     "acceptableAnswers": [
       "Anki",
       "انكي"
     ],
-    "explanation": "مراجعة البطاقات بالتكرار المتباعد.",
-    "sourceUrl": "https://apps.ankiweb.net/"
+    "explanation": "اسم التطبيق: Anki.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/anki.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/anki.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/anki.svg"
   },
   {
     "id": "APP-080",
     "points": 400,
-    "kind": "function",
-    "question": "أي تطبيق لتجميع الأخبار ومتابعة مصادر RSS اشتهر كبديل بعد إغلاق Google Reader؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فيدلي",
     "acceptableAnswers": [
       "Feedly"
     ],
-    "explanation": "تجميع ومتابعة مصادر الأخبار.",
-    "sourceUrl": "https://feedly.com/"
+    "explanation": "اسم التطبيق: Feedly.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/feedly.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/feedly.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/feedly.svg"
   },
   {
     "id": "APP-041",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أوبسيديان",
     "acceptableAnswers": [
       "Obsidian",
@@ -840,7 +880,7 @@
     "id": "APP-042",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جوبلين",
     "acceptableAnswers": [
       "Joplin"
@@ -854,7 +894,7 @@
     "id": "APP-043",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "لوغ سيك",
     "acceptableAnswers": [
       "Logseq"
@@ -868,7 +908,7 @@
     "id": "APP-044",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "زوتيرو",
     "acceptableAnswers": [
       "Zotero"
@@ -882,7 +922,7 @@
     "id": "APP-045",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كيويكس",
     "acceptableAnswers": [
       "Kiwix",
@@ -898,7 +938,7 @@
     "id": "APP-046",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أورغانيك مابس",
     "acceptableAnswers": [
       "Organic Maps"
@@ -912,7 +952,7 @@
     "id": "APP-047",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أوزماند",
     "acceptableAnswers": [
       "OsmAnd",
@@ -927,7 +967,7 @@
     "id": "APP-048",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "سينك ثينغ",
     "acceptableAnswers": [
       "Syncthing"
@@ -941,7 +981,7 @@
     "id": "APP-049",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كريتا",
     "acceptableAnswers": [
       "Krita"
@@ -955,7 +995,7 @@
     "id": "APP-050",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إنكسكيب",
     "acceptableAnswers": [
       "Inkscape",
@@ -970,7 +1010,7 @@
     "id": "APP-051",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فري كاد",
     "acceptableAnswers": [
       "FreeCAD"
@@ -984,7 +1024,7 @@
     "id": "APP-052",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كي كاد",
     "acceptableAnswers": [
       "KiCad"
@@ -998,7 +1038,7 @@
     "id": "APP-053",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كيو جي آي إس",
     "acceptableAnswers": [
       "QGIS"
@@ -1012,7 +1052,7 @@
     "id": "APP-054",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جيمب",
     "acceptableAnswers": [
       "GIMP",
@@ -1027,7 +1067,7 @@
     "id": "APP-055",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "كيدن لايف",
     "acceptableAnswers": [
       "Kdenlive"
@@ -1041,7 +1081,7 @@
     "id": "APP-056",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إل إم إم إس",
     "acceptableAnswers": [
       "LMMS"
@@ -1055,7 +1095,7 @@
     "id": "APP-057",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فونت فورج",
     "acceptableAnswers": [
       "FontForge"
@@ -1069,7 +1109,7 @@
     "id": "APP-058",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "غودوت",
     "acceptableAnswers": [
       "Godot Engine",
@@ -1085,7 +1125,7 @@
     "id": "APP-059",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أسيبرايت",
     "acceptableAnswers": [
       "Aseprite"
@@ -1099,7 +1139,7 @@
     "id": "APP-060",
     "points": 600,
     "kind": "logo",
-    "question": "شو اسم التطبيق اللي شعاره ظاهر بالصورة؟",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إم بي في",
     "acceptableAnswers": [
       "mpv",
@@ -1113,248 +1153,287 @@
   {
     "id": "APP-081",
     "points": 600,
-    "kind": "function",
-    "question": "شو اسم خادم الوسائط المفتوح المصدر الذي تفرّع من Emby عام 2018، ويسمح بترتيب مكتبة فيديو وموسيقى شخصية؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "جيلي فين",
     "acceptableAnswers": [
       "Jellyfin"
     ],
-    "explanation": "خادم وسائط شخصي مفتوح المصدر.",
-    "sourceUrl": "https://jellyfin.org/"
+    "explanation": "اسم التطبيق: Jellyfin.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/jellyfin.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/jellyfin.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/jellyfin.svg"
   },
   {
     "id": "APP-082",
     "points": 600,
-    "kind": "function",
-    "question": "أي تطبيق ذاتي الاستضافة لإدارة الصور يدعم رفع صور الهاتف تلقائيًا والبحث في مكتبة الصور، ويُقدّم بديلًا لخدمات الصور السحابية؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إيميتش",
     "acceptableAnswers": [
       "Immich",
       "اميش",
       "ايميتش"
     ],
-    "explanation": "إدارة مكتبة الصور والفيديو ذاتية الاستضافة.",
-    "sourceUrl": "https://immich.app/"
+    "explanation": "اسم التطبيق: Immich.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/immich.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/immich.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/immich.svg"
   },
   {
     "id": "APP-083",
     "points": 600,
-    "kind": "function",
-    "question": "ما المنصة مفتوحة المصدر التي تفرعت من ownCloud عام 2016 وتجمع مزامنة الملفات والتقويم والتعاون؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "نكست كلاود",
     "acceptableAnswers": [
       "Nextcloud"
     ],
-    "explanation": "منصة ملفات وتعاون ذاتية الاستضافة.",
-    "sourceUrl": "https://nextcloud.com/"
+    "explanation": "اسم التطبيق: Nextcloud.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/nextcloud.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/nextcloud.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/nextcloud.svg"
   },
   {
     "id": "APP-084",
     "points": 600,
-    "kind": "function",
-    "question": "ما مجمّع خلاصات RSS مفتوح المصدر والمكتوب بـPHP، والذي يمكن تشغيله على خادمك ويتيح قراءة المقالات في واجهة ويب؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "فريش آر إس إس",
     "acceptableAnswers": [
       "FreshRSS"
     ],
-    "explanation": "قارئ خلاصات RSS ذاتي الاستضافة.",
-    "sourceUrl": "https://freshrss.org/"
+    "explanation": "اسم التطبيق: FreshRSS.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/freshrss.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/freshrss.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/freshrss.svg"
   },
   {
     "id": "APP-085",
     "points": 600,
-    "kind": "function",
-    "question": "أي تطبيق حفظ مقالات للقراءة لاحقًا مفتوح المصدر كان يُعرف سابقًا باسم poche؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "والاباغ",
     "acceptableAnswers": [
       "wallabag"
     ],
-    "explanation": "حفظ المقالات واستخراج نصها للقراءة لاحقًا.",
-    "sourceUrl": "https://wallabag.org/"
+    "explanation": "اسم التطبيق: wallabag.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/wallabag.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/wallabag.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/wallabag.svg"
   },
   {
     "id": "APP-086",
     "points": 600,
-    "kind": "function",
-    "question": "أي قارئ RSS من شركة Innologica يضم قواعد وفلاتر لأتمتة تنظيم المقالات ومتابعة مصادر الأخبار؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إنوريدر",
     "acceptableAnswers": [
       "Inoreader"
     ],
-    "explanation": "قارئ ومجمع محتوى مع أدوات تنظيم.",
-    "sourceUrl": "https://www.inoreader.com/"
+    "explanation": "اسم التطبيق: Inoreader.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/inoreader.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/inoreader.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/inoreader.svg"
   },
   {
     "id": "APP-087",
     "points": 600,
-    "kind": "function",
-    "question": "أي شبكة تدوين مصغّر أطلقها Eugen Rochko سنة 2016، وتعمل ضمن الشبكات الاتحادية باستخدام ActivityPub؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ماستودون",
     "acceptableAnswers": [
       "Mastodon"
     ],
-    "explanation": "شبكة تدوين مصغّر اتحادية.",
-    "sourceUrl": "https://joinmastodon.org/"
+    "explanation": "اسم التطبيق: Mastodon.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/mastodon.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/mastodon.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/mastodon.svg"
   },
   {
     "id": "APP-088",
     "points": 600,
-    "kind": "function",
-    "question": "أي منصة اتحادية لمشاركة الصور أنشأها Daniel Supernault وتستعمل بروتوكول ActivityPub؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "بيكسلفيد",
     "acceptableAnswers": [
       "Pixelfed"
     ],
-    "explanation": "منصة مشاركة صور اتحادية.",
-    "sourceUrl": "https://pixelfed.org/"
+    "explanation": "اسم التطبيق: Pixelfed.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/pixelfed.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/pixelfed.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/pixelfed.svg"
   },
   {
     "id": "APP-089",
     "points": 600,
-    "kind": "function",
-    "question": "ما المنصة الاتحادية مفتوحة المصدر التي تنظم المنشورات داخل مجتمعات ونظام تصويت وتشبه Reddit؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ليمي",
     "acceptableAnswers": [
       "Lemmy"
     ],
-    "explanation": "منصة نقاش ومجتمعات اتحادية.",
-    "sourceUrl": "https://join-lemmy.org/"
+    "explanation": "اسم التطبيق: Lemmy.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/lemmy.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/lemmy.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/lemmy.svg"
   },
   {
     "id": "APP-090",
     "points": 600,
-    "kind": "function",
-    "question": "أي تطبيق محادثة مبني على بروتوكول Matrix كان اسمه Riot.im قبل تغيير علامته سنة 2020؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إليمنت",
     "acceptableAnswers": [
       "Element"
     ],
-    "explanation": "عميل محادثات Matrix.",
-    "sourceUrl": "https://element.io/"
+    "explanation": "اسم التطبيق: Element.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/element.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/element.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/element.svg"
   },
   {
     "id": "APP-091",
     "points": 600,
-    "kind": "function",
-    "question": "ما تطبيق تنظيم المعرفة الذي يعتمد على Objects وTypes وRelations، ويضع العمل المحلي أولًا بدل تنظيم المحتوى كصفحات تقليدية فقط؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إني تايب",
     "acceptableAnswers": [
       "Anytype"
     ],
-    "explanation": "تنظيم المعرفة باستخدام كائنات وعلاقات.",
-    "sourceUrl": "https://anytype.io/"
+    "explanation": "اسم التطبيق: Anytype.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/anytype.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/anytype.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/anytype.svg"
   },
   {
     "id": "APP-092",
     "points": 600,
-    "kind": "function",
-    "question": "ما أداة الرسم التعاوني التي تتميز بمظهر الخطوط المرسومة يدويًا وتستخدم امتداد ملفات .excalidraw؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "إكسكاليدرو",
     "acceptableAnswers": [
       "Excalidraw",
       "اكسكاليدرو"
     ],
-    "explanation": "لوحة رسم ومخططات بأسلوب يدوي.",
-    "sourceUrl": "https://excalidraw.com/"
+    "explanation": "اسم التطبيق: Excalidraw.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/excalidraw.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/excalidraw.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/excalidraw.svg"
   },
   {
     "id": "APP-093",
     "points": 600,
-    "kind": "function",
-    "question": "أي محرر LaTeX تعاوني عبر المتصفح يسمح بتجميع ملف .tex وإظهار معاينة PDF بجانب الشيفرة؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "أوفرليف",
     "acceptableAnswers": [
       "Overleaf"
     ],
-    "explanation": "تحرير مستندات LaTeX تعاونيًا.",
-    "sourceUrl": "https://www.overleaf.com/"
+    "explanation": "اسم التطبيق: Overleaf.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/overleaf.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/overleaf.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/overleaf.svg"
   },
   {
     "id": "APP-094",
     "points": 600,
-    "kind": "function",
-    "question": "أي مشغّل أوامر لتطبيقات ماك يتيح إضافة Extensions ويدعم البحث السريع والحافظة وإدارة النوافذ، واسمه يوحي بإطلاق شعاع؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "رايكاست",
     "acceptableAnswers": [
       "Raycast"
     ],
-    "explanation": "مشغل أوامر وتطبيقات مع إضافات.",
-    "sourceUrl": "https://www.raycast.com/"
+    "explanation": "اسم التطبيق: Raycast.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/raycast.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/raycast.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/raycast.svg"
   },
   {
     "id": "APP-095",
     "points": 600,
-    "kind": "function",
-    "question": "أي تطبيق لماك من Running with Crayons يتيح إنشاء Workflows، واشتهر كبديل قابل للتخصيص لبحث Spotlight؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ألفريد",
     "acceptableAnswers": [
       "Alfred"
     ],
-    "explanation": "مشغّل بحث وأتمتة لماك.",
-    "sourceUrl": "https://www.alfredapp.com/"
+    "explanation": "اسم التطبيق: Alfred.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/alfred.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/alfred.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/alfred.svg"
   },
   {
     "id": "APP-096",
     "points": 600,
-    "kind": "function",
-    "question": "ما عميل البريد الإلكتروني مفتوح المصدر الذي بدأ ضمن عائلة مشاريع Mozilla ويضم إدارة البريد والتقويم؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "ثندربيرد",
     "acceptableAnswers": [
       "Thunderbird"
     ],
-    "explanation": "عميل بريد وتقويم.",
-    "sourceUrl": "https://www.thunderbird.net/"
+    "explanation": "اسم التطبيق: Thunderbird.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/thunderbird.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/thunderbird.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/thunderbird.svg"
   },
   {
     "id": "APP-097",
     "points": 600,
-    "kind": "function",
-    "question": "أي تطبيق مفتوح المصدر ينقل الملفات بين أجهزة مختلفة على الشبكة المحلية دون حساب أو خادم خارجي، ويستعمل شعارًا أزرق وأبيض؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "لوكال سند",
     "acceptableAnswers": [
       "LocalSend",
       "لوكال سيند"
     ],
-    "explanation": "نقل ملفات عبر الشبكة المحلية.",
-    "sourceUrl": "https://localsend.org/"
+    "explanation": "اسم التطبيق: LocalSend.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/localsend.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/localsend.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/localsend.svg"
   },
   {
     "id": "APP-098",
     "points": 600,
-    "kind": "function",
-    "question": "ما منصة أتمتة المنزل التي تعتمد على Integrations وEntities وتتيح لوحات تحكم ومشاهد، وتدعم الاستضافة المحلية؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "هوم أسيستنت",
     "acceptableAnswers": [
       "Home Assistant",
       "هوم اسيستنت"
     ],
-    "explanation": "منصة أتمتة المنزل الذكي.",
-    "sourceUrl": "https://www.home-assistant.io/"
+    "explanation": "اسم التطبيق: Home Assistant.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/homeassistant.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/homeassistant.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/homeassistant.svg"
   },
   {
     "id": "APP-099",
     "points": 600,
-    "kind": "function",
-    "question": "أي برنامج من Blackmagic Design يجمع صفحات Color وFusion وFairlight وEdit في حزمة واحدة؟",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
     "answer": "دافنشي ريزولف",
     "acceptableAnswers": [
       "DaVinci Resolve",
       "دافينشي ريزولف"
     ],
-    "explanation": "تحرير الفيديو وتصحيح الألوان والمؤثرات والصوت.",
-    "sourceUrl": "https://www.blackmagicdesign.com/products/davinciresolve"
+    "explanation": "اسم التطبيق: DaVinci Resolve.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/davinciresolve.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/davinciresolve.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/davinciresolve.svg"
   },
   {
     "id": "APP-100",
     "points": 600,
-    "kind": "function",
-    "question": "ما برنامج معالجة صور RAW مفتوح المصدر الذي يسمي مساحتي العمل الأساسيتين lighttable وdarkroom؟",
-    "answer": "دارك تيبل",
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "أفاين",
     "acceptableAnswers": [
-      "darktable",
-      "داركتابل"
+      "AFFiNE"
     ],
-    "explanation": "إدارة ومعالجة الصور الرقمية وملفات RAW.",
-    "sourceUrl": "https://www.darktable.org/"
+    "explanation": "اسم التطبيق: AFFiNE.",
+    "sourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/affine.svg",
+    "imageUrl": "https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/affine.svg",
+    "imageSourceUrl": "https://github.com/simple-icons/simple-icons/blob/16.0.0/icons/affine.svg"
   }
 ]

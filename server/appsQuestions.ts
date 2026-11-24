@@ -3,7 +3,7 @@ import { difficultyForPoints, pointsForDifficulty } from '../src/game/pdfValidat
 import type { QuizQuestion } from '../src/game/types';
 import rows from './appsQuestions.json';
 
-type AppRow = { id: string; points: number; kind: 'logo' | 'function'; question: string; answer: string; acceptableAnswers: string[]; explanation: string; sourceUrl: string; imageUrl?: string; imageSourceUrl?: string };
+type AppRow = { id: string; points: number; kind: 'logo'; question: string; answer: string; acceptableAnswers: string[]; explanation: string; sourceUrl: string; imageUrl?: string; imageSourceUrl?: string };
 
 export const APPS_QUESTIONS: QuizQuestion[] = (rows as AppRow[]).map(row => {
   const difficulty = difficultyForPoints(row.points);
@@ -21,7 +21,7 @@ export const APPS_QUESTIONS: QuizQuestion[] = (rows as AppRow[]).map(row => {
     sourceRef: row.sourceUrl,
     imageUrl: row.imageUrl,
     imageSourceUrl: row.imageSourceUrl,
-    imageDisplay: row.kind === 'logo' ? 'before_reveal' : undefined,
+    imageDisplay: 'before_reveal',
     status: 'approved',
   };
 });

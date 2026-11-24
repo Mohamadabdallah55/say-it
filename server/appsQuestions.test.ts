@@ -14,16 +14,15 @@ test('applications category is registered with all three levels and unique answe
   assert.equal(new Set(rows.map(q => q.id)).size, 100);
   assert.equal(new Set(rows.map(q => q.answer)).size, 100);
   assert.deepEqual([200,400,600].map(p => rows.filter(q => q.points === p).length), [25,35,40]);
-  assert.equal(rows.filter(q => q.kind === 'logo').length, 60);
+  assert.equal(rows.filter(q => q.kind === 'logo').length, 100);
+  assert.equal(new Set(rows.map(q => q.imageUrl)).size, 100);
   for (const row of rows) {
     const q = APPS_QUESTIONS.find(x => x.id === row.id);
     assert.ok(q);
     assert.ok(q.acceptableAnswers?.length);
-    if (row.kind === 'logo') {
-      assert.ok(q.imageUrl?.startsWith('https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/'));
-      assert.equal(q.imageDisplay, 'before_reveal');
-    } else {
-      assert.equal(q.imageUrl, undefined);
-    }
+    assert.equal(q.prompt, 'ما اسم التطبيق الموجود في الصورة؟');
+    assert.match(q.imageUrl ?? '', /^https:\/\/cdn\.jsdelivr\.net\/npm\/simple-icons@(16\.0\.0|11\.15\.0)\/icons\/[a-z0-9]+\.svg$/);
+    assert.ok(q.imageSourceUrl);
+    assert.equal(q.imageDisplay, 'before_reveal');
   }
 });
