@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useAccount } from '../context/AccountContext';
+import { getUploadedCategoryArt, getCategoryCardArt } from '../utils/gameAssets';
 import { BookOpen, DoorOpen, FileText, FolderArchive, Play, X, Zap, Timer, Bell, Brain, ArrowLeft, Users, MessageCircle, Eye } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 import { GameLogo } from './GameLogo';
@@ -28,14 +30,31 @@ function getHoroufUrl(): string | null {
   try {const url=new URL(import.meta.env.VITE_HOROUF_URL||'https://horouf-1.onrender.com/');return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;} catch{return null;}
 }
 const HOROUF_URL=getHoroufUrl();
-const preview = [
-  { name: 'كرة القدم', image: '/assets/category-generated/cat_world_football.webp', color: '#4788c5' },
-  { name: 'معلومات عامة', image: '/assets/category-generated/cat_general.webp', color: '#ed9e50' },
-  { name: 'تاريخ', image: '/assets/category-generated/cat_history.webp', color: '#ad80de' },
-  { name: 'علوم', image: '/assets/category-generated/cat_science.webp', color: '#56bca7' },
-];
+const previewCategoryIds = ['cat_world_football', 'cat_general', 'cat_history', 'cat_science_quiz', 'cat_science'];
 
 export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLibrary, onOpenSavedMatches, soundEnabled, onToggleSound }: TitleScreenProps) {
+  const { allCategoriesForLobby } = useAccount();
+  const preview = useMemo(() => {
+    const available = new Map(allCategoriesForLobby.filter(category => category.isActive !== false).map(category => [category.id, category]));
+    for (const deck of challenge.decks) {
+      if (!challenge.recoveredMetaById[deck.id] || (deck.boardMode && deck.boardMode !== 'categories')) continue;
+      for (const category of deck.categories) {
+        if (category.isActive === false || available.has(category.id)) continue;
+        if (deck.questions.some(question => question.categoryId === category.id && question.status === 'approved')) available.set(category.id, category);
+      }
+    }
+    const preferred = previewCategoryIds.flatMap(id => {
+      const category = available.get(id);
+      return category ? [category] : [];
+    });
+    const selected = [...new Map([...preferred, ...available.values()].map(category => [category.id, category])).values()].slice(0, 4);
+    return selected.map(category => ({
+      id: category.id,
+      name: category.name,
+      color: category.accentColor,
+      image: getUploadedCategoryArt(category.id) || category.coverImageUrl || getCategoryCardArt(category.id, category.iconKey),
+    }));
+  }, [allCategoriesForLobby, challenge.decks, challenge.recoveredMetaById]);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showThirtyRules, setShowThirtyRules] = useState(false);
   const [showKhalfRules, setShowKhalfRules] = useState(false);
@@ -71,7 +90,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
               </div>
             </div>
             <div className="platform-board" aria-hidden="true">
-              {preview.map((category) => <div className="platform-board-col" key={category.name}>
+              {preview.map((category) => <div className="platform-board-col" key={category.id}>
                 <div className="platform-board-category" style={{backgroundColor:category.color}}><img src={category.image} alt="" width={128} height={128} decoding="async"/><span>{category.name}</span></div>
                 {[200,400,600].map(points => <div className="platform-board-points" key={points}>{points}<small>{points===200?'سهل':points===400?'متوسط':'صعب'}</small></div>)}
               </div>)}
