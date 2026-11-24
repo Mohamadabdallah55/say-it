@@ -1,3 +1,4 @@
+import { DailymotionClipPlayer } from './DailymotionClipPlayer';
 import { useEffect, useRef, useState } from 'react';
 
 type YoutubePlayer = { playVideo(): void; pauseVideo(): void; seekTo(time: number, allowSeekAhead: boolean): void; getCurrentTime(): number; mute(): void; unMute(): void; destroy(): void };
@@ -22,7 +23,12 @@ function loadYoutube(): Promise<YoutubeAPI> {
   return youtubeLoading;
 }
 
-export function ClasicoVideoPlayer({ src, soundEnabled }: { src: string; soundEnabled: boolean }) {
+export function ClasicoVideoPlayer(props: { src: string; soundEnabled: boolean }) {
+  if (/^https:\/\/www\.dailymotion\.com\/video\/x[a-z0-9]+\?/.test(props.src)) return <DailymotionClipPlayer key={props.src} {...props} />;
+  return <ExistingClipPlayer key={props.src} {...props} />;
+}
+
+function ExistingClipPlayer({ src, soundEnabled }: { src: string; soundEnabled: boolean }) {
   const video = useRef<HTMLVideoElement>(null);
   const mount = useRef<HTMLDivElement>(null);
   const yt = useRef<YoutubePlayer | null>(null);

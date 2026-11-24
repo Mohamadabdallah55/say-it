@@ -390,3 +390,10 @@ test('general knowledge pictures remain hidden until reveal even for legacy imag
   const permitted = approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=999', videoPlaybackVerified: true, videoRightsNote: 'test fixture' });
   assert.equal(permitted, 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=27');
 });
+
+test('Clasico Dailymotion source requires explicit approval and normalizes its 17-second window', () => {
+  const url = 'https://www.dailymotion.com/video/x3ez67v?start=35&end=90';
+  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: url }), undefined);
+  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: url, videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), 'https://www.dailymotion.com/video/x3ez67v?start=35&end=52');
+  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.dailymotion.com/video/x3ez67v', videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), undefined);
+});

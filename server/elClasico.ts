@@ -26,6 +26,14 @@ export function approvedClasicoVideo(row: VideoRow): string | undefined {
       safe.searchParams.set('end', String(start + 17));
       return safe.href;
     }
+    if (url.hostname === 'www.dailymotion.com' && /^\/video\/x[a-z0-9]+$/.test(url.pathname)) {
+      const start = Number(url.searchParams.get('start'));
+      if (!url.searchParams.has('start') || !Number.isInteger(start) || start < 0) return;
+      const safe = new URL(url.origin + url.pathname);
+      safe.searchParams.set('start', String(start));
+      safe.searchParams.set('end', String(start + 17));
+      return safe.href;
+    }
     if (/\.(mp4|webm|m3u8)$/i.test(url.pathname)) return url.href;
   } catch { return; }
 }
