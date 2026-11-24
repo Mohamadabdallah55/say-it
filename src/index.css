@@ -1670,3 +1670,38 @@
 @media(max-width:850px){.ca-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"spot spot" "cats cats" "modes profile";}.ca-spotlight{min-height:300px;}.ca-stage{min-height:190px;}.ca-daily-art{width:145px;}.ca-spotlight-copy{padding-top:0;}.ca-stage-shadow{bottom:8%;}.ca-game-focus{min-height:245px;}.ca-game-emblem{width:110px;}}
 @media(max-width:540px){.ca-arena{padding:20px 10px;}.ca-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"spot" "cats" "modes" "profile";}.ca-header{align-items:flex-start;}.ca-header p{font-size:.75rem;}.ca-motion-toggle{font-size:.66rem;padding:6px;}.ca-room{flex-wrap:wrap;}.ca-tab{min-width:92px;padding:7px 9px;font-size:.72rem;}.ca-game-focus{grid-template-columns:1fr;}.ca-other-stage{min-height:175px;}.ca-other-copy{padding:16px;}.ca-cat{width:84px;flex-basis:84px;}.platform-challenge-jump{font-size:.72rem;padding:6px 8px;}}
 @media(prefers-reduced-motion:reduce){.ca-track,.ca-float,.ca-stage-shadow{animation:none!important;transform:none!important;}.ca-track-group[aria-hidden=true]{display:none;}.ca-rail{overflow-x:auto;mask-image:none;}.ca-tab,.ca-small-btn,.ca-cat,.ca-mode-grid button>span{transition:none;}}
+
+/* Original lightweight broadcast motion. Transform/opacity only; never animate video frames or layout. */
+@keyframes yh-panel-pop{0%{opacity:0;transform:translateY(11px) scale(.965)}65%{opacity:1;transform:translateY(-2px) scale(1.008)}100%{opacity:1;transform:none}}
+@keyframes yh-card-deal{0%{opacity:0;transform:translateY(13px) rotate(-2deg) scale(.94)}100%{opacity:1;transform:none}}
+@keyframes yh-page-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes yh-score-veil{0%,100%{opacity:0}14%,80%{opacity:1}}
+@keyframes yh-score-pop{0%{opacity:0;transform:scale(.82) translateY(12px)}20%{opacity:1;transform:scale(1.05)}33%,80%{opacity:1;transform:none}100%{opacity:0;transform:scale(.97) translateY(-7px)}}
+@media(prefers-reduced-motion:no-preference){
+ .platform-home .platform-feature,.platform-home .platform-join,.platform-home .platform-thirty,.platform-home .platform-khalf,.platform-home .platform-codenames,.platform-home .platform-horouf{animation:yh-panel-pop .36s cubic-bezier(.18,.78,.28,1) backwards;}
+ .platform-home .platform-thirty{animation-delay:45ms}.platform-home .platform-khalf{animation-delay:75ms}.platform-home .platform-codenames{animation-delay:105ms}.platform-home .platform-horouf{animation-delay:135ms}
+ .platform-modal{animation:yh-page-in .16s ease-out both}.platform-modal>div,.platform-modal>form{animation:yh-panel-pop .23s ease-out both}
+ .platform-home :is(.platform-btn,.platform-challenge-jump,.ca-small-btn,.ca-tab),.game-lobby .game-btn-3d{transition:transform .13s ease,box-shadow .13s ease}
+ .platform-home :is(.platform-btn,.ca-small-btn,.ca-tab):hover{transform:translateY(-1px)}
+ .game-lobby .lobby-panel{animation:yh-page-in .27s ease-out backwards!important}
+ .game-lobby .lobby-panel:nth-child(2){animation-delay:55ms!important}
+ .arena-stage:not(.reduced-motion)[data-question-scene=true] .round-scene{animation:yh-panel-pop .28s ease-out both!important}
+ .arena-stage:not(.reduced-motion)[data-question-scene=true] .answer-face{animation:yh-panel-pop .25s ease-out both}
+ .arena-stage:not(.reduced-motion)[data-question-scene=true] .award-panel{animation:yh-page-in .24s .04s ease-out both!important}
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .lifeline-stage{animation:yh-panel-pop .26s ease-out both!important}
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .round-card-picker>button{animation:yh-card-deal .25s ease-out backwards!important}
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .round-card-picker>button:nth-child(2){animation-delay:40ms!important}
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .round-card-picker>button:nth-child(3){animation-delay:80ms!important}
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .round-card-picker>button:nth-child(n+4){animation-delay:120ms!important}
+ .arena-stage:not(.reduced-motion) .score-moment{background:#26182a77;z-index:40;animation:yh-score-veil 1.45s ease both}
+ .arena-stage:not(.reduced-motion) .score-moment-card{animation:yh-score-pop 1.45s cubic-bezier(.2,.75,.25,1) both}
+}
+.score-moment-card{width:min(90%,300px);padding:14px 18px;background:#fff8e6;color:#2e1a3c;border:2px solid #39234b;box-shadow:0 5px #38224b;gap:10px;border-radius:15px;}
+.score-moment-card[data-result=loss]{border-color:#b63b42;box-shadow:0 5px #7d2731}
+.score-moment-card h2{font-size:1rem;font-weight:950;}
+.score-moment-card .score-moment-row{display:grid;justify-items:center;gap:5px;width:100%;padding:0;background:none}
+.score-moment-card .score-moment-row>span{color:#38224b;font-size:.85rem;font-weight:900;}
+.score-moment-card .score-moment-row strong{display:flex;align-items:center;justify-content:center;gap:6px;min-width:145px;background:#16754f;color:#fff!important;border:1px solid #104e37;border-radius:9px;padding:8px 12px;font-size:1.15rem;box-shadow:0 3px #104e37;}
+.score-moment-card .score-moment-row[data-loss=true] strong{background:#c23d45;border-color:#8d2933;box-shadow:0 3px #8d2933;}
+.score-moment-card .score-moment-row strong b{font-size:1.45rem;font-variant-numeric:tabular-nums;}
+@media(prefers-reduced-motion:reduce){.platform-home .platform-grid>*,.platform-modal,.platform-modal>div,.platform-modal>form,.arena-stage .answer-face,.arena-stage .score-moment,.arena-stage .score-moment-card{animation:none!important;}}

@@ -249,6 +249,8 @@ function AppContent() {
     });
   };
 
+  useEffect(()=>{if(screen.name!=='arena'&&screen.name!=='buzzer'&&screen.name!=='act')soundFX.enabled=soundEnabled;},[screen.name,soundEnabled]);
+
   const exitToHome = () => {
     const url = new URL(window.location.href);
     url.search = '';

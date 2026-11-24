@@ -9,7 +9,7 @@ const allowedPhotoHosts = new Set(['elcom-team.com', 'www.elcom-team.com']);
 // Follow only redirects within the trusted original campus-image host. WordPress
 // may redirect a photo to its canonical URL; rejecting every redirect makes the
 // masked preview fail even when the original photo remains accessible.
-async function fetchCampusPhoto(rawUrl: string): Promise<Response> {
+async function fetchCampusPhoto(rawUrl: string): Promise<Awaited<ReturnType<typeof fetch>>> {
   let url = new URL(rawUrl);
   const signal = AbortSignal.timeout(12000);
   for (let hop = 0; hop <= 3; hop++) {

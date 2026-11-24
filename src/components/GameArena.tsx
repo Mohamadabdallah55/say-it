@@ -266,6 +266,7 @@ export function GameArena({
       const round = state.activeRound;
       const hasSpokenAnswer = round && ('question' in round ? round.question.answerAudioUrl : round.answerAudioUrl);
       if (state.phase === 'LIFELINE_PICK') soundFX.playCardDeal();
+      if (state.phase === 'BOARD' && !state.lastAward) soundFX.playNavigate();
       if (state.phase === 'REVEAL' && !hasSpokenAnswer) soundFX.playReveal();
       if (state.phase === 'TIME_UP') soundFX.playTimeUp();
       if (state.phase === 'FINAL') soundFX.playVictory();
@@ -284,6 +285,8 @@ export function GameArena({
     }
     lastSceneRef.current = scene;
   }, [state, isHost, localAudio]);
+
+  // Reapply the home sound preference when leaving the room in App; don't play a new cue for timer-only updates.
 
   const remainingMs = useMemo(() => {
     if (!state) return 0;
@@ -565,8 +568,8 @@ export function GameArena({
   const correctionOptions = previousAnswer?.lifeline === 'silence'
     ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
     : state.teams;
-  const showScoreMoment = isClassicBoard && recentAward && awardChanges.length > 0 &&
-    nowMs - recentAward.at < 1750 && !correction && animateRound;
+  const showScoreMoment = recentAward && awardChanges.length > 0 &&
+    nowMs - recentAward.at < 1450 && !correction && animateRound;
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
@@ -629,13 +632,12 @@ export function GameArena({
         <div className="arena-main space-y-3">
           {showScoreMoment && (
             <div className="score-moment" key={recentAward.at} aria-hidden="true">
-              <div className="score-moment-card">
-                <Award size={28} />
+              <div className="score-moment-card" data-result={awardChanges.every(({change})=>change<0)?'loss':'gain'}>
                 <h2>{recentAward.corrected ? 'تصحيح الرصيد' : 'حصيلة السؤال'}</h2>
                 {awardChanges.map(({ team, change }) => (
                   <div className="score-moment-row" key={team.id} data-loss={change < 0}>
                     <span><i style={{ background: team.color }} />{team.name}</span>
-                    <strong dir="ltr">{change > 0 ? '+' : ''}{change}</strong>
+                    <strong><b dir="ltr">{change > 0 ? '+' : ''}{change}</b> نقطة</strong>
                   </div>
                 ))}
               </div>

@@ -44,7 +44,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
   const [showJoin, setShowJoin] = useState(false);
   const [roomCode, setRoomCode] = useState('');
   const [joinError, setJoinError] = useState('');
-  const click = (action: () => void) => { soundFX.playClick(); action(); };
+  const click = (action: () => void) => { soundFX.playSelect(); action(); };
   const join = () => {
     const code = roomCode.trim().toUpperCase();
     if (!/^[A-Z0-9]{4,12}$/.test(code)) { setJoinError('تأكد من رمز الغرفة.'); return; }
@@ -59,7 +59,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
         onHome={() => window.scrollTo({top:0,behavior:'auto'})} onStartQuick={onStartQuick}
         onOpenPdfStudio={onOpenPdfStudio} onOpenLibrary={onOpenLibrary} onOpenSavedMatches={onOpenSavedMatches} />
       <main className="platform-wrap">
-        <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><a className="platform-challenge-jump" href="#challenge-arena"><Zap size={16}/> ساحة التحدي</a></div>
+        <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><a className="platform-challenge-jump" href="#challenge-arena" onClick={()=>soundFX.playNavigate()}><Zap size={16}/> ساحة التحدي</a></div>
         <section className="platform-grid" aria-label="الألعاب المتاحة">
           <article className="platform-feature">
             <div className="platform-feature-copy">

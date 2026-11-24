@@ -1,6 +1,7 @@
 import { LIFELINE_META, PRE_QUESTION_LIFELINES } from '../game/pdfValidation';
 import type { LifelineType } from '../game/types';
 import { PowerCardIcon } from './PowerCardIcon';
+import { soundFX } from '../utils/sound';
 
 const PRE_QUESTION_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
   { key: 'double_points', title: 'نقاط مضاعفة', rule: 'ضاعف نقاط هذا السؤال' },
@@ -78,7 +79,7 @@ export function SpecialCards({
                 type="button"
                 key={card.key}
                 disabled={!host || spent}
-                onClick={() => choose(card.key)}
+                onClick={() => { soundFX.playSurprise(); choose(card.key); }}
                 className={`rounded-2xl border-2 border-[#1F112E] bg-white p-4 md:p-5 flex flex-col items-center justify-center text-center gap-2 transition ${
                   spent
                     ? 'opacity-45 cursor-not-allowed'
@@ -103,7 +104,7 @@ export function SpecialCards({
           <button
             type="button"
             aria-label="تخطِّ البطاقة ومتابعة السؤال"
-            onClick={skip}
+            onClick={() => { soundFX.playClick(); skip(); }}
             className="game-btn-3d w-full rounded-2xl border-[2.5px] border-[#1F112E] bg-[#2C1844] hover:bg-[#3B215A] py-3.5 text-white font-display font-black text-lg md:text-xl shadow-[0_4px_0_#140A20] cursor-pointer"
           >
             تخطِّ
