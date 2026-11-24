@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/optimize-images.yml'
       - 'scripts/optimize-images.py'
+      - 'scripts/optimize-images-stage2.py'
 permissions:
   contents: write
 concurrency:
@@ -23,7 +24,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install 'Pillow==11.3.0'
-      - run: python scripts/optimize-images.py --apply
+      - run: python scripts/optimize-images-stage2.py --apply
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -33,12 +34,12 @@ jobs:
           npm install --no-audit --no-fund --package-lock=false
           git restore -- package.json
       - run: npm run build
-      - run: npx tsx --test server/imageQuestionBanks.test.ts
+      - run: npx tsx --test server/imageQuestionBanks.test.ts server/legacyArtworkWebp.test.ts src/game/worldCup2026.test.ts
       - name: Commit only after build and checks pass
         run: |
           git add -A
           if git diff --cached --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Optimize tracked image assets and preserve legacy URLs"
+          git commit -m "Optimize additional artwork and World Cup player photos"
           git push origin HEAD:main
