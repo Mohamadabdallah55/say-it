@@ -72,6 +72,55 @@ interface ShareBundle {
 
 type ArenaState = HostViewState | PublicProjectorState;
 
+/** Play the original audio when permitted, while respecting the shared game sound switch.
+ * Browsers may deny audible autoplay; the clip then plays muted until the viewer enables sound.
+ */
+function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [silent, setSilent] = useState(!soundEnabled || !preferAudio);
+  const [needsPlay, setNeedsPlay] = useState(false);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    let active = true;
+    video.muted = !soundEnabled || !preferAudio;
+    setSilent(video.muted);
+    setNeedsPlay(false);
+    video.play().catch(() => {
+      if (!active) return;
+      video.muted = true;
+      setSilent(true);
+      video.play().catch(() => { if (active) setNeedsPlay(true); });
+    });
+    return () => { active = false; video.pause(); };
+  }, [src, soundEnabled, preferAudio]);
+  const playWithSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !soundEnabled;
+    setSilent(video.muted);
+    video.play().then(() => setNeedsPlay(false)).catch(() => {
+      video.muted = true;
+      setSilent(true);
+      setNeedsPlay(true);
+    });
+  };
+  return (
+    <div className="relative">
+      <video ref={videoRef} data-testid="visual-memory-video" src={src}
+        playsInline disablePictureInPicture disableRemotePlayback preload="auto"
+        className="block max-w-full max-h-[54vh] w-auto h-auto select-none" />
+      {(needsPlay || (silent && soundEnabled)) && (
+        <button type="button" onClick={playWithSound}
+          className="absolute bottom-3 right-3 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#1F112E] shadow">
+          {soundEnabled ? 'تشغيل صوت المقطع' : 'تشغيل المقطع'}
+        </button>
+      )}
+    </div>
+  );
+}
+
+
 const QURAN_CATEGORY_IDS = new Set([
   'cat_juz_amma',
   'cat_juz_tabarak',
@@ -868,18 +917,9 @@ export function GameArena({
                             data-testid="visual-memory-video-box"
                             className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
                           >
-                            <video
-                              key={roundMeta.questionId}
-                              data-testid="visual-memory-video"
-                              src={roundMeta.videoUrl}
-                              autoPlay
-                              muted
-                              playsInline
-                              disablePictureInPicture
-                              disableRemotePlayback
-                              preload="auto"
-                              className="block max-w-full max-h-[54vh] w-auto h-auto select-none"
-                            />
+                            <FocusClip key={roundMeta.roundId} src={roundMeta.videoUrl}
+                              soundEnabled={state.settings.soundEnabled}
+                              preferAudio={isHost || localAudio} />
                           </div>
                         </div>
                       ) : visibleMemoryImage ? (
