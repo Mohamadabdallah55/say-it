@@ -1226,3 +1226,81 @@
 @media(max-width:900px) {
   .arena-stage[data-phase="BOARD"] .board-category-tab {inset-inline-start:10px;}
 }
+
+
+/* Square, large illustrated category picker; keep live controls above art. */
+.game-lobby .lobby-category-grid:has(> .lobby-flat-card),
+.game-lobby .lobby-category-grid[data-compact="true"]:has(> .lobby-flat-card) {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(10px,1.2vw,18px);
+  padding:5px 2px;
+}
+.game-lobby .lobby-flat-card {
+  border-radius:15px;
+  min-width:0;
+  overflow:hidden;
+  border:2px solid #282031;
+  box-shadow:0 3px #b4a78d;
+}
+.game-lobby .lobby-flat-card:has(button[aria-pressed="true"]) {
+  border-color:#6d38a3;
+  box-shadow:0 0 0 2px #6d38a3,0 4px #291b40;
+}
+.game-lobby .lobby-flat-card > button[aria-pressed] {
+  aspect-ratio:1/1;
+  position:relative;
+  display:block;
+  overflow:hidden;
+  border-radius:12px;
+}
+.game-lobby .lobby-flat-card .lobby-flat-media {
+  position:absolute;
+  inset:0;
+  height:100%;
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:0;
+  overflow:hidden;
+}
+.game-lobby .lobby-flat-card .lobby-flat-media img {
+  object-fit:cover;
+  height:100%;width:100%;
+}
+.game-lobby .lobby-flat-title {
+  position:absolute;
+  inset:auto 0 0;
+  z-index:2;
+  justify-content:flex-start;
+  text-align:start;
+  padding:24px 11px 10px;
+  min-height:0;
+  background:linear-gradient(transparent,#142326a6 50%,#101d22eb);
+  border:0;
+  border-radius:0;
+  color:white;
+  font-size:clamp(.82rem,1.05vw,1.1rem);
+  text-shadow:0 1px 2px #0008;
+}
+.game-lobby .lobby-flat-controls {inset:7px 7px auto;}
+.game-lobby .lobby-flat-info {
+  background:#fff8e6;color:#282031;border:1.5px solid #282031;
+  box-shadow:0 2px #282031;
+  width:30px;height:30px;
+}
+.game-lobby .lobby-flat-count {
+  background:linear-gradient(#79c9a5,#319c73);
+  color:white;border:1.5px solid #263b35;
+  border-radius:10px;
+  box-shadow:0 2px #263b35;
+}
+.game-lobby .lobby-flat-count-exhausted {background:#e8b34d;color:#21152e;}
+@media(max-width:640px) {
+  .game-lobby .lobby-category-grid:has(> .lobby-flat-card),
+  .game-lobby .lobby-category-grid[data-compact="true"]:has(> .lobby-flat-card) {
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;
+  }
+  .game-lobby .lobby-flat-title {font-size:.8rem;padding:20px 6px 7px;}
+  .game-lobby .lobby-flat-controls {inset:4px 4px auto;}
+  .game-lobby .lobby-flat-info {width:28px;height:28px;}
+  .game-lobby .lobby-flat-count {white-space:normal;font-size:9px;padding:3px 5px;}
+}
