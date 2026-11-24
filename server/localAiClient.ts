@@ -229,6 +229,7 @@ export interface OllamaChatRequest {
   timeoutMs?: number;
   fastReply?: boolean;
   think?: boolean;
+  jsonSchema?: Record<string, unknown>;
 }
 
 function cleanBase64Image(raw: string): string {
@@ -299,7 +300,7 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
       body.think = req.fastReply ? false : req.think;
     }
     if (req.formatJson) {
-      body.format = 'json';
+      body.format = req.jsonSchema ?? 'json';
     }
 
     const res = await fetch(`${discovery.baseUrl}/api/chat`, {
@@ -349,6 +350,7 @@ export async function generateStructuredJsonLocal<T>(params: {
   contextLabel: string;
   model?: string;
   numCtx?: number;
+  jsonSchema?: Record<string, unknown>;
 }): Promise<T> {
   const jsonReminder = `${params.promptText}\n\nتعليمات التنسيق الصارمة: أعد كائن JSON صالحًا ومكتملًا فقط دون أي شرح خارجي أو علامات إضافية.`;
   const first = await callOllamaChat({
@@ -360,6 +362,7 @@ export async function generateStructuredJsonLocal<T>(params: {
     model: params.model,
     numCtx: params.numCtx,
     think: process.env.OLLAMA_STRUCTURED_THINKING === 'true',
+    jsonSchema: params.jsonSchema,
   });
 
   try {
@@ -374,6 +377,7 @@ export async function generateStructuredJsonLocal<T>(params: {
       model: first.modelUsed,
       temperature: 0.1,
       think: false,
+      jsonSchema: params.jsonSchema,
     });
     return safeParseJsonResponse<T>(repaired.text, params.contextLabel);
   }
