@@ -21,7 +21,7 @@ test('applications category is registered with all three levels and unique answe
     assert.ok(q);
     assert.ok(q.acceptableAnswers?.length);
     assert.equal(q.prompt, 'ما اسم التطبيق الموجود في الصورة؟');
-    assert.match(q.imageUrl ?? '', /^https:\/\/cdn\.jsdelivr\.net\/npm\/simple-icons@(16\.0\.0|11\.15\.0)\/icons\/[a-z0-9]+\.svg$/);
+    assert.match(q.imageUrl ?? '', /^https:\/\/raw\.githubusercontent\.com\/homarr-labs\/dashboard-icons\/[a-f0-9]{40}\/png\/[a-z0-9-]+\.png$/);
     assert.ok(q.imageSourceUrl);
     assert.equal(q.imageDisplay, 'before_reveal');
   }

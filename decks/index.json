@@ -9,6 +9,11 @@
       "id": "country_highlight_maps_v1",
       "file": "world-country-maps/deck.json",
       "version": 2
+    },
+    {
+      "id": "apps_color_icons_v1",
+      "file": "apps-color-icons/deck.json",
+      "version": 1
     }
   ]
 }
