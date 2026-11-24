@@ -5,7 +5,7 @@ import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import rows from './elClasico.json';
 import { existsSync } from 'node:fs';
 
-type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean; videoTrialEnabled?: boolean; videoContentReviewed?: boolean; legacyQuestion?: { answer: string; prompt: string; explanation?: string; source?: string } };
+type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean; videoTrialEnabled?: boolean; videoContentReviewed?: boolean; legacyQuestion?: { answer: string; prompt: string; explanation?: string; source?: string }; legacyQuestions?: { answer: string; prompt: string; explanation?: string; source?: string }[] };
 export function approvedClasicoVideo(row: VideoRow): string | undefined {
   const src = row.videoUrl;
   if (!src || row.videoContentReviewed !== true) return;
@@ -73,7 +73,8 @@ export function refreshElClasicoPhotos(room: RoomState): RoomState {
     // Keep answer and score from the saved match. Only change prompt if the answer has not changed.
     const sameAnswer = question.answer === updated.answer;
     if (!sameAnswer) {
-      const legacy = rowsById.get(question.id)?.legacyQuestion;
+      const row = rowsById.get(question.id);
+      const legacy = [row?.legacyQuestion, ...(row?.legacyQuestions ?? [])].find(entry => entry?.answer === question.answer);
       return { ...question, videoUrl: undefined, ...(legacy?.answer === question.answer ? { prompt: legacy.prompt, explanation: legacy.explanation, sourceRef: legacy.source } : {}) };
     }
     return {

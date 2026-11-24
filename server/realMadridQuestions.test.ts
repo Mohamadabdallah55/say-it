@@ -24,7 +24,20 @@ test('Madrid includes historical photos and illustrated shirt number questions',
         assert.equal(q.imageUrl, undefined);
       }
     } else {
-      assert.equal(q.imageDisplay, 'after_reveal');
+      assert.equal(q.imageDisplay, q.imageUrl ? 'after_reveal' : undefined);
+      if (q.imageUrl) assert.ok(q.imageSourceUrl);
     }
+  }
+});
+
+
+test('Madrid hard tier retains 50 questions and adds varied sourced history', () => {
+  assert.equal(REAL_MADRID_QUESTIONS.filter(q => q.points === 600).length, 50);
+  const expected = {"RM-003":"ميغيل مونيوز","RM-005":"ماركيتوس","RM-010":"أندرلخت","RM-018":"سانتيانا","RM-020":"ميشيل","RM-031":"خوانيتو","RM-034":"لويس مولوني","RM-039":"خورخي فالدانو","RM-043":"إغناسيو زوكو","RM-047":"سانتياغو سولاري","RM-049":"فلافيو كونسيساو","RM-051":"لويس فيغو","RM-052":"بوروسيا دورتموند","RM-053":"خيسوس فاييخو","RM-055":"لوكاس فاسكيز","RM-062":"أمانسيو أمارو","RM-063":"ميغيل بارديزا","RM-068":"لويس كارنيغليا"};
+  for (const [id, answer] of Object.entries(expected)) {
+    const q = REAL_MADRID_QUESTIONS.find(x => x.id === id);
+    assert.equal(q?.points, 600);
+    assert.equal(q?.answer, answer);
+    assert.ok(q?.sourceRef?.startsWith('https://'));
   }
 });

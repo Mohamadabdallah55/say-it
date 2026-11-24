@@ -419,7 +419,7 @@ test('Clasico Dailymotion requires content review and normalizes the 17-second w
 });
 
 test('Clasico harder questions have independent text prompts and retain their tier', () => {
-  const expected = {"ELC-003":"أندريه غوميش","ELC-009":"إيفان هيلغيرا","ELC-V2-058":"ماتيو كوفاتشيتش","ELC-V2-067":"بويان كركيتش","ELC-V3-VIDEO-10":"إيفان إغليسياس"};
+  const expected = {"ELC-003":"أندريه غوميش","ELC-009":"إيفان هيلغيرا","ELC-V2-058":"لوكاس فاسكيز","ELC-V2-067":"رافينيا ألكانتارا","ELC-V3-VIDEO-10":"إيفان إغليسياس"};
   for (const [id, answer] of Object.entries(expected)) {
     const q = EL_CLASICO_QUESTIONS.find(q => q.id === id);
     assert.equal(q?.answer, answer);

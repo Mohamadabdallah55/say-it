@@ -182,16 +182,24 @@
   {
     "id": "ELC-018",
     "level": 600,
-    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من الحارس الذي حافظ على نظافة شباك برشلونة؟",
-    "answer": "سلفادور مورا",
-    "explanation": "كان مورا حارس برشلونة الأساسي بحسب تشكيلة المباراة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
+    "question": "في رباعية برشلونة بالبرنابيو في نوفمبر 2015، من اخترق وسط ريال مدريد وصنع الهدف الأول للويس سواريز؟",
+    "answer": "سيرجي روبيرتو",
+    "explanation": "صنع روبيرتو الهدف الأول لسواريز بعد انطلاقته من الوسط.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/1076615/real-madrid-v-fc-barcelona-barca-run-to-el-clasico-rout-at-the-bernabeu",
     "legacyQuestion": {
       "answer": "هانزي فليك",
       "prompt": "من كان مدرب برشلونة في ليلة فوزه 0-4 بالبرنابيو في أكتوبر 2024، وأربك ريال مدريد بخط دفاع متقدم؟",
       "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
       "source": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "سلفادور مورا",
+        "prompt": "في خماسية برشلونة بالبرنابيو عام 1974، من الحارس الذي حافظ على نظافة شباك برشلونة؟",
+        "explanation": "كان مورا حارس برشلونة الأساسي بحسب تشكيلة المباراة.",
+        "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp"
+      }
+    ]
   },
   {
     "id": "ELC-V2-019",
@@ -346,11 +354,11 @@
   {
     "id": "ELC-V2-029",
     "level": 600,
-    "question": "في إياب نصف نهائي دوري الأبطال 2011، أي لاعب من برشلونة كان يراقب مارسيلو عندما سجل هدف التعادل لريال مدريد؟",
-    "answer": "خافيير ماسكيرانو",
-    "explanation": "سبق مارسيلو ماسكيرانو إلى الكرة وسجل التعادل.",
+    "question": "في إياب نصف نهائي دوري الأبطال 2011، من سدد كرة ارتدت من القائم ثم استعادها ومررها لمارسيلو ليسجل التعادل؟",
+    "answer": "أنخيل دي ماريا",
+    "explanation": "استعاد دي ماريا الكرة المرتدة وصنع هدف مارسيلو.",
     "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f1-0e783cc358be-4c3b95d9094c-1000--barcelona-keep-madrid-at-bay-to-reach-final/",
-    "fallbackQuestion": "في إياب نصف نهائي دوري الأبطال 2011، أي لاعب من برشلونة كان يراقب مارسيلو عندما سجل هدف التعادل لريال مدريد؟",
+    "fallbackQuestion": "في إياب نصف نهائي دوري الأبطال 2011، من سدد كرة ارتدت من القائم ثم استعادها ومررها لمارسيلو ليسجل التعادل؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/yeMWts7-ITs?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
@@ -365,7 +373,15 @@
       "prompt": "من جناح برشلونة الذي افتتح التسجيل أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا 2011 في كامب نو؟",
       "explanation": "سجّل بيدرو رودريغيز هدف التقدم لبرشلونة أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا مايو 2011.",
       "source": "https://en.wikipedia.org/wiki/Pedro_(footballer%2C_born_1987)"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "خافيير ماسكيرانو",
+        "prompt": "في إياب نصف نهائي دوري الأبطال 2011، أي لاعب من برشلونة كان يراقب مارسيلو عندما سجل هدف التعادل لريال مدريد؟",
+        "explanation": "سبق مارسيلو ماسكيرانو إلى الكرة وسجل التعادل.",
+        "source": "https://www.uefa.com/uefachampionsleague/news/01f1-0e783cc358be-4c3b95d9094c-1000--barcelona-keep-madrid-at-bay-to-reach-final/"
+      }
+    ]
   },
   {
     "id": "ELC-V2-030",
@@ -505,24 +521,35 @@
   {
     "id": "ELC-V4-CLIP-14",
     "level": 600,
-    "question": "شاهد هذا الهدف من أرشيف ريال مدريد. من أسطورة النادي الذي سجل هذا الهدف في مرمى برشلونة؟",
-    "answer": "راؤول غونزاليس",
-    "explanation": "هدف القائد راؤول غونزاليس لريال مدريد في مرمى برشلونة (فصل 03:43 Raúl من قناة ريال مدريد).",
-    "fact_source_url": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=223s",
+    "question": "في كلاسيكو 2018 الذي انتهى بخماسية برشلونة، من قلب الدفاع الفرنسي الذي بدأ بجانب بيكيه؟",
+    "answer": "كليمان لينغليه",
+    "explanation": "بدأ لينغليه بجانب بيكيه.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3751303/can-you-recall-the-only-el-clasico-played-on-28-octoberx/amp",
     "videoUrl": "https://www.youtube-nocookie.com/embed/AoQCLdkY_44?start=223&end=240",
-    "fallbackQuestion": "من قائد ريال مدريد الذي احتفل بإشارة إسكات جمهور كامب نو بعد تسجيل هدف التعادل 2-2 في موسم 1999/2000؟",
+    "fallbackQuestion": "في كلاسيكو 2018 الذي انتهى بخماسية برشلونة، من قلب الدفاع الفرنسي الذي بدأ بجانب بيكيه؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 223,
     "videoClipEndSeconds": 240,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 03:43 Raúl، مدة 385ث) تم التحقق من التضمين بدون حظر.",
-    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261754?%24Mobile%24=&fit=wrap&wid=312",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
-    "imageCaption": "راؤول غونزاليس",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestions": [
+      {
+        "answer": "راؤول غونزاليس",
+        "prompt": "من قائد ريال مدريد الذي احتفل بإشارة إسكات جمهور كامب نو بعد تسجيل هدف التعادل 2-2 في موسم 1999/2000؟",
+        "explanation": "هدف القائد راؤول غونزاليس لريال مدريد في مرمى برشلونة (فصل 03:43 Raúl من قناة ريال مدريد).",
+        "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=223s"
+      }
+    ],
+    "legacyQuestion": {
+      "answer": "راؤول غونزاليس",
+      "prompt": "من قائد ريال مدريد الذي احتفل بإشارة إسكات جمهور كامب نو بعد تسجيل هدف التعادل 2-2 في موسم 1999/2000؟",
+      "explanation": "هدف القائد راؤول غونزاليس لريال مدريد في مرمى برشلونة (فصل 03:43 Raúl من قناة ريال مدريد).",
+      "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=223s"
+    }
   },
   {
     "id": "ELC-V4-CLIP-05",
@@ -783,38 +810,57 @@
   {
     "id": "ELC-V4-CLIP-16",
     "level": 600,
-    "question": "شاهد هذا الهدف الصاروخي من أرشيف ريال مدريد. من البرازيلي الذي سجّل هدف الفوز الوحيد في كامب نو 2007؟",
-    "answer": "جوليو بابتيستا",
-    "explanation": "هدف جوليو بابتيستا في فوز ريال مدريد 1-0 على برشلونة في كامب نو موسم 2007/2008 (فصل 06:03).",
-    "fact_source_url": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=363s",
+    "question": "في ذهاب نصف نهائي دوري الأبطال 2002، من صنع هدف زيدان الأول بتمريرة وضعته منفردًا بالحارس؟",
+    "answer": "راؤول غونزاليس",
+    "explanation": "مرر راؤول إلى زيدان قبل تسديدته الساقطة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0eab04c6c056-32b10810996d-1000--one-foot-in-the-final/",
     "videoUrl": "https://www.youtube-nocookie.com/embed/AoQCLdkY_44?start=363&end=380",
-    "fallbackQuestion": "من المهاجم البرازيلي الذي سجّل هدف الفوز الوحيد لريال مدريد 1-0 في كامب نو في ديسمبر 2007؟",
+    "fallbackQuestion": "في ذهاب نصف نهائي دوري الأبطال 2002، من صنع هدف زيدان الأول بتمريرة وضعته منفردًا بالحارس؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 363,
     "videoClipEndSeconds": 380,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 06:03 Baptista، مدة 385ث) تم التحقق من التضمين بدون حظر.",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Julio_Baptista.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Julio_Baptista.jpg",
-    "imageCaption": "جوليو بابتيستا",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestions": [
+      {
+        "answer": "جوليو بابتيستا",
+        "prompt": "من المهاجم البرازيلي الذي سجّل هدف الفوز الوحيد لريال مدريد 1-0 في كامب نو في ديسمبر 2007؟",
+        "explanation": "هدف جوليو بابتيستا في فوز ريال مدريد 1-0 على برشلونة في كامب نو موسم 2007/2008 (فصل 06:03).",
+        "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=363s"
+      }
+    ],
+    "legacyQuestion": {
+      "answer": "جوليو بابتيستا",
+      "prompt": "من المهاجم البرازيلي الذي سجّل هدف الفوز الوحيد لريال مدريد 1-0 في كامب نو في ديسمبر 2007؟",
+      "explanation": "هدف جوليو بابتيستا في فوز ريال مدريد 1-0 على برشلونة في كامب نو موسم 2007/2008 (فصل 06:03).",
+      "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=363s"
+    }
   },
   {
     "id": "ELC-V2-058",
     "level": 600,
-    "question": "في ذهاب السوبر الإسباني 2017، من لاعب ريال مدريد الذي خرج ليشارك ماركو أسينسيو قبل تسجيل الهدف الثالث؟",
-    "answer": "ماتيو كوفاتشيتش",
-    "explanation": "دخل أسينسيو بدلاً من كوفاتشيتش في الدقيقة 67.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025",
+    "question": "في إياب السوبر الإسباني 2017، من اللاعب الذي بدأ ضمن ثلاثي هجوم ريال مدريد إلى جانب بنزيما وأسينسيو في غياب كريستيانو؟",
+    "answer": "لوكاس فاسكيز",
+    "explanation": "بدأ فاسكيز مع بنزيما وأسينسيو.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/septimo-aniversario-de-la-10-supercopa-de-espana-16-08-2024",
     "legacyQuestion": {
       "answer": "26",
       "prompt": "كم هدفًا سجل ميسي في الكلاسيكو الرسمي خلال فترته في برشلونة؟",
       "explanation": "سجل 26 في جميع المسابقات الرسمية.",
       "source": "https://www.laliga.com/en-GB/news/fc-barcelona-vs-real-madrid-statistics"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "ماتيو كوفاتشيتش",
+        "prompt": "في ذهاب السوبر الإسباني 2017، من لاعب ريال مدريد الذي خرج ليشارك ماركو أسينسيو قبل تسجيل الهدف الثالث؟",
+        "explanation": "دخل أسينسيو بدلاً من كوفاتشيتش في الدقيقة 67.",
+        "source": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025"
+      }
+    ]
   },
   {
     "id": "ELC-059",
@@ -950,11 +996,11 @@
   {
     "id": "ELC-V2-067",
     "level": 600,
-    "question": "في سداسية برشلونة بالبرنابيو عام 2009، من البديل الذي دخل مكان يحيى توريه قرب نهاية المباراة؟",
-    "answer": "بويان كركيتش",
-    "explanation": "دخل بويان مكان توريه في الدقيقة 85.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/noticies/1205417/dese-aniversari-del-2-6-al-bernabeu",
-    "fallbackQuestion": "في سداسية برشلونة بالبرنابيو عام 2009، من البديل الذي دخل مكان يحيى توريه قرب نهاية المباراة؟",
+    "question": "في كلاسيكو أكتوبر 2018 الذي شهد ثلاثية سواريز، من البرازيلي الثالث الذي بدأ مع آرثر وكوتينيو في تشكيلة برشلونة؟",
+    "answer": "رافينيا ألكانتارا",
+    "explanation": "بدأ رافينيا مع آرثر وكوتينيو.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3751303/can-you-recall-the-only-el-clasico-played-on-28-octoberx/amp",
+    "fallbackQuestion": "في كلاسيكو أكتوبر 2018 الذي شهد ثلاثية سواريز، من البرازيلي الثالث الذي بدأ مع آرثر وكوتينيو في تشكيلة برشلونة؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/sJ84UmbJTAw?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
@@ -969,7 +1015,15 @@
       "prompt": "من مدرب برشلونة الذي قاد الفريق للفوز التاريخي 6-2 في سانتياغو برنابيو في مايو 2009؟",
       "explanation": "قاد المدرب بيب غوارديولا فريق برشلونة في ذلك الانتصار التاريخي 6-2 بالبرنابيو وتُوج بالسداسية عام 2009.",
       "source": "https://www.fcbarcelona.com/en/news"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "بويان كركيتش",
+        "prompt": "في سداسية برشلونة بالبرنابيو عام 2009، من البديل الذي دخل مكان يحيى توريه قرب نهاية المباراة؟",
+        "explanation": "دخل بويان مكان توريه في الدقيقة 85.",
+        "source": "https://www.fcbarcelona.com/en/football/first-team/noticies/1205417/dese-aniversari-del-2-6-al-bernabeu"
+      }
+    ]
   },
   {
     "id": "ELC-V2-068",
@@ -982,12 +1036,12 @@
   {
     "id": "ELC-V4-CLIP-18",
     "level": 600,
-    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب البيروفي الذي اختتم التسجيل؟",
-    "answer": "هوغو سوتيل",
-    "explanation": "كان سوتيل صاحب الهدف الخامس.",
+    "question": "في خماسية برشلونة عام 1974 بالبرنابيو، من اللاعب الوحيد الذي دخل بديلًا لبرشلونة؟",
+    "answer": "تومي",
+    "explanation": "حل تومي مكان مارسيال في الشوط الثاني.",
     "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
     "videoUrl": "https://www.youtube-nocookie.com/embed/vqzUHCl1DZ8?start=41&end=58",
-    "fallbackQuestion": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب البيروفي الذي اختتم التسجيل؟",
+    "fallbackQuestion": "في خماسية برشلونة عام 1974 بالبرنابيو، من اللاعب الوحيد الذي دخل بديلًا لبرشلونة؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 41,
     "videoClipEndSeconds": 58,
@@ -1002,7 +1056,15 @@
       "prompt": "من مدافع برشلونة الذي أكمل سداسية فريقه بالهدف السادس في الفوز 6-2 على ريال مدريد بالبرنابيو؟",
       "explanation": "هدف جيرارد بيكيه السادس لبرشلونة في الفوز التاريخي 6-2 بالبرنابيو (فصل 0:41 Gerard Piqué).",
       "source": "https://www.youtube.com/watch?v=vqzUHCl1DZ8&t=41s"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "هوغو سوتيل",
+        "prompt": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب البيروفي الذي اختتم التسجيل؟",
+        "explanation": "كان سوتيل صاحب الهدف الخامس.",
+        "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp"
+      }
+    ]
   },
   {
     "id": "ELC-V2-070",
@@ -1587,12 +1649,12 @@
   {
     "id": "ELC-V4-CLIP-20",
     "level": 600,
-    "question": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي خرج ليشارك نيلسون سيميدو بدلاً منه؟",
-    "answer": "جيرارد بيكيه",
-    "explanation": "شارك سيميدو بدل بيكيه في الدقيقة 50.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025",
+    "question": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي دخل بديلًا لأندريه غوميش؟",
+    "answer": "جيرارد ديولوفيو",
+    "explanation": "دخل ديولوفيو بدل غوميش في الشوط الثاني.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/septimo-aniversario-de-la-10-supercopa-de-espana-16-08-2024",
     "videoUrl": "https://www.youtube-nocookie.com/embed/gOS8EskGuFQ?start=15&end=32",
-    "fallbackQuestion": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي خرج ليشارك نيلسون سيميدو بدلاً منه؟",
+    "fallbackQuestion": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي دخل بديلًا لأندريه غوميش؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
@@ -1607,20 +1669,36 @@
       "prompt": "في السوبر الإسباني 2012، من كان مدرب برشلونة في مواجهة ريال مدريد بعد رحيل غوارديولا؟",
       "explanation": "قاد فيلانوفا برشلونة في السوبر الإسباني 2012.",
       "source": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "جيرارد بيكيه",
+        "prompt": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي خرج ليشارك نيلسون سيميدو بدلاً منه؟",
+        "explanation": "شارك سيميدو بدل بيكيه في الدقيقة 50.",
+        "source": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025"
+      }
+    ]
   },
   {
     "id": "ELC-V3-HIST-20",
     "level": 600,
-    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من سجّل الهدف الرابع بين هدفي أسينسي وسوتيل في الشوط الثاني؟",
-    "answer": "خوان كارلوس",
-    "explanation": "سجل خوان كارلوس رابع أهداف برشلونة في تلك المباراة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
+    "question": "في ذهاب نصف نهائي دوري الأبطال 2002، من حارس برشلونة الذي استقبل هدفي زيدان وماكمانامان في كامب نو؟",
+    "answer": "روبرتو بونانو",
+    "explanation": "كان بونانو حارس برشلونة في المباراة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/",
     "legacyQuestion": {
       "answer": "المهاجم الوهمي (رقم 9 وهمي)",
       "prompt": "ما اسم الدور الذي لعب فيه ميسي عندما غيّر غوارديولا تمركزه في كلاسيكو مايو 2009؟",
       "explanation": "انتقل إلى العمق في مباراة 6-2.",
       "source": "https://www.fcbarcelona.es/es/barca-play/videos/835916/real-madrid-2-fc-barcelona-6-2008-2009"
-    }
+    },
+    "legacyQuestions": [
+      {
+        "answer": "خوان كارلوس",
+        "prompt": "في خماسية برشلونة بالبرنابيو عام 1974، من سجّل الهدف الرابع بين هدفي أسينسي وسوتيل في الشوط الثاني؟",
+        "explanation": "سجل خوان كارلوس رابع أهداف برشلونة في تلك المباراة.",
+        "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp"
+      }
+    ]
   }
 ]
