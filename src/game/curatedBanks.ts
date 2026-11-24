@@ -61,14 +61,14 @@ export const EL_CLASICO_CATEGORY: DeckCategory = {
 
 export const CLUB_LOGOS_CATEGORY: DeckCategory = {
   id: 'cat_club_logos',
-  name: 'شعارات أندية',
-  description: 'تعرّف على أندية كرة القدم من شعاراتها',
+  name: 'شعارات كروية',
+  description: 'خمن الأندية والمنتخبات من شعاراتها الحالية والتاريخية',
   iconKey: 'sports',
   accentColor: '#1C7468',
 };
 
 export function clubLogoPreviewUrl(imageUrl?: string, crossOnly = false): string | undefined {
-  if (crossOnly) return imageUrl?.replace(/^\/assets\/questions\/club-logos\/(CLUB-1\d{2})\.png$/, '/api/club-logos/$1/preview?crossOnly=1');
+  if (crossOnly) return imageUrl?.replace(/^\/assets\/questions\/club-logos\/(CLUB-[123]\d{2})\.png$/, '/api/club-logos/$1/preview?crossOnly=1');
   return imageUrl?.replace(
     /^\/assets\/questions\/club-logos\/(CLUB-\d{3})\.png$/,
     '/api/club-logos/$1/preview',
@@ -77,8 +77,8 @@ export function clubLogoPreviewUrl(imageUrl?: string, crossOnly = false): string
 
 /** Keep the cross mask on revealed club badges for every screen, including the host. */
 export function clubLogoRoundImageUrl(imageUrl?: string, previewImageUrl?: string, revealed = false): string | undefined {
-  const clubId = imageUrl?.match(/^\/assets\/questions\/club-logos\/(CLUB-1\d{2})\.png$/)?.[1]
-    ?? imageUrl?.match(/^\/api\/club-logos\/(CLUB-1\d{2})\/preview(?:\?.*)?$/)?.[1];
+  const clubId = imageUrl?.match(/^\/assets\/questions\/club-logos\/(CLUB-[123]\d{2})\.png$/)?.[1]
+    ?? imageUrl?.match(/^\/api\/club-logos\/(CLUB-[123]\d{2})\/preview(?:\?.*)?$/)?.[1];
   if (clubId) return `/api/club-logos/${clubId}/preview${revealed ? '?crossOnly=1' : ''}`;
   return revealed ? imageUrl : previewImageUrl ?? clubLogoPreviewUrl(imageUrl);
 }
@@ -364,7 +364,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },
   { category: JUZ_TABARAK_CATEGORY, questionCount: 150 },
   { category: EL_CLASICO_CATEGORY, questionCount: 70 },
-  { category: CLUB_LOGOS_CATEGORY, questionCount: 75 },
+  { category: CLUB_LOGOS_CATEGORY, questionCount: 102 },
   { category: QURAN_MEDIA_CATEGORY, questionCount: 150 },
   { category: CAPITALS_CURRENCIES_CATEGORY, questionCount: 75 },
   { category: PROPHETIC_BIOGRAPHY_CATEGORY, questionCount: 150 },

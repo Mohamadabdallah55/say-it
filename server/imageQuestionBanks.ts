@@ -50,10 +50,10 @@ export const CLUB_LOGOS_QUESTIONS = clubLogoRows.map((row): QuizQuestion => ({
   ...createQuestion(CLUB_LOGOS_CATEGORY, row),
   acceptableAnswers: [row.answer_en],
   hint: row.hint,
-  explanation: row.country_ar,
+  explanation: row.era ? `${row.country_ar} · الشعار المستخدم في ${row.era}` : row.country_ar,
   imageUrl: `/assets/questions/club-logos/${row.id}.png`,
   imageDisplay: 'before_reveal',
-  imageCaption: 'شعار النادي',
+  imageCaption: 'شعار كروي',
   sourceRef: row.image_source,
 }));
 

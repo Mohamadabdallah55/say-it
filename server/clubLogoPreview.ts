@@ -97,7 +97,7 @@ export async function serveClubLogoPreview(req: Request<{ id: string }>, res: Re
       return;
     }
 
-    res.type('image/svg+xml').send(renderBlurredImagePreview(original, 'image/png', 139, 181, regions, crosses));
+    res.type('image/svg+xml').send(renderBlurredImagePreview(original, 'image/png', original.readUInt32BE(16), original.readUInt32BE(20), regions, crosses));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       res.sendStatus(404);

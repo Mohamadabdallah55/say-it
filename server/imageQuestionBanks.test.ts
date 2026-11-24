@@ -196,10 +196,10 @@ test('opening a flag excludes it from subsequent matches without consuming unope
 });
 
 test('club badges load before reveal without exposing the club or its source URL', () => {
-  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [25, 25, 25]);
+  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [33,35,34]);
   const hashes = CLUB_LOGOS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
-  assert.equal(new Set(hashes).size, 75);
+  assert.equal(new Set(hashes).size, 102);
 
   const badges = buildBoardDeckFromCategories(
     ['cat_general', FLAGS_CATEGORY.id, CLUB_LOGOS_CATEGORY.id],
@@ -341,4 +341,15 @@ test('club logo cross mask remains active on host and projector reveal', () => {
   assert.equal(clubLogoRoundImageUrl(before, undefined, true), after);
   assert.equal(clubLogoRoundImageUrl(after, undefined, true), after);
   assert.equal(clubLogoRoundImageUrl('/assets/questions/other.png', '/preview', true), '/assets/questions/other.png');
+});
+
+
+test('football badges mix current clubs, national teams and historic crests', () => {
+  assert.equal(CLUB_LOGOS_CATEGORY.name, 'شعارات كروية');
+  assert.equal(CLUB_LOGOS_QUESTIONS.filter(q => q.prompt.includes('المنتخب')).length, 19);
+  assert.equal(CLUB_LOGOS_QUESTIONS.filter(q => q.prompt.includes('القديم')).length, 8);
+  for (const id of ['CLUB-202', 'CLUB-306']) {
+    const original = `/assets/questions/club-logos/${id}.png`;
+    assert.equal(clubLogoRoundImageUrl(original, undefined, true), `/api/club-logos/${id}/preview?crossOnly=1`);
+  }
 });
