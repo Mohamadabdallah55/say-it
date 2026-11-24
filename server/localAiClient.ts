@@ -227,6 +227,7 @@ export interface OllamaChatRequest {
   temperature?: number;
   numCtx?: number;
   timeoutMs?: number;
+  fastReply?: boolean;
 }
 
 function cleanBase64Image(raw: string): string {
@@ -287,9 +288,13 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
       stream: false,
       options: {
         temperature: req.temperature ?? (req.formatJson ? 0.2 : 0.45),
-        num_ctx: req.numCtx ?? Number(process.env.OLLAMA_NUM_CTX || 16384),
+        num_ctx: req.numCtx ?? Number(process.env.OLLAMA_NUM_CTX || (req.fastReply ? 8192 : 16384)),
+        ...(req.fastReply ? { num_predict: 512 } : {}),
       },
     };
+    if (req.fastReply && /^qwen3(?::|$)/i.test(chosenModel)) {
+      body.think = false;
+    }
     if (req.formatJson) {
       body.format = 'json';
     }
