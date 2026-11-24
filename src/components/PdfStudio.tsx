@@ -790,7 +790,7 @@ export function PdfStudio({
           <div className="shannes-panel p-6 md:p-8 max-w-4xl mx-auto space-y-6">
             <div className="text-center space-y-2">
               <img
-                src="/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png"
+                src="/assets/aistudio/Vibrant_3D_Quiz_Learning_Icon_ef31ae67.png.webp"
                 alt="رفع وتحليل ملفات الدرس"
                 referrerPolicy="no-referrer"
                 className="w-24 h-24 object-contain mx-auto drop-shadow-[0_4px_0_rgba(31,17,46,0.2)] select-none"

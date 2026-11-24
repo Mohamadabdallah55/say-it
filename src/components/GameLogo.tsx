@@ -7,7 +7,7 @@ interface GameLogoProps {
   className?: string;
 }
 
-const LOGO_ASSET_PATH = '/assets/aistudio/Yomken_Hai_Quiz_Mascot_Logo_caf57bc2.png';
+const LOGO_ASSET_PATH = '/assets/aistudio/Yomken_Hai_Quiz_Mascot_Logo_caf57bc2.png.webp';
 
 export function GameLogo({
   size = 'md',

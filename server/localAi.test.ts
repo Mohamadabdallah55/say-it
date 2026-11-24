@@ -11,7 +11,7 @@ const REAL_ARABIC_PDF_PATH = path.resolve(
 );
 const REAL_PNG_PATH = path.resolve(
   process.cwd(),
-  'public/assets/aistudio/Yomken_Hai_Quiz_Mascot_Logo_caf57bc2.png',
+  'public/assets/aistudio/Yomken_Hai_Quiz_Mascot_Logo_caf57bc2.png.webp',
 );
 
 async function startMockOllamaServer(
