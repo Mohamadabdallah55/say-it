@@ -89,6 +89,7 @@ export async function serveClubLogoPreview(req: Request<{ id: string }>, res: Re
     const original = await readFile(file);
     const updated = newRegions.get(id);
     const crossOnly = req.query.crossOnly === '1';
+    res.setHeader('Cache-Control', 'no-store');
     const regions = crossOnly ? [] : (updated?.names ?? nameRegions[id.slice(5)] ?? []);
     const crosses = updated?.crosses ?? [];
     if (regions.length === 0 && crosses.length === 0) {

@@ -75,6 +75,14 @@ export function clubLogoPreviewUrl(imageUrl?: string, crossOnly = false): string
   );
 }
 
+/** Keep the cross mask on revealed club badges for every screen, including the host. */
+export function clubLogoRoundImageUrl(imageUrl?: string, previewImageUrl?: string, revealed = false): string | undefined {
+  const clubId = imageUrl?.match(/^\/assets\/questions\/club-logos\/(CLUB-1\d{2})\.png$/)?.[1]
+    ?? imageUrl?.match(/^\/api\/club-logos\/(CLUB-1\d{2})\/preview(?:\?.*)?$/)?.[1];
+  if (clubId) return `/api/club-logos/${clubId}/preview${revealed ? '?crossOnly=1' : ''}`;
+  return revealed ? imageUrl : previewImageUrl ?? clubLogoPreviewUrl(imageUrl);
+}
+
 export const QURAN_MEDIA_CATEGORY: DeckCategory = {
   id: 'cat_quran_media',
   name: 'قرآن كريم',

@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
-import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoPreviewUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY, SILENT_ACTING_CATEGORY } from '../game/curatedBanks';
+import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoRoundImageUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY, SILENT_ACTING_CATEGORY } from '../game/curatedBanks';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -261,9 +261,7 @@ export function GameArena({
         questionType: ar.question.questionType,
         prompt: ar.question.prompt,
         startingLetter: ar.question.startingLetter,
-        imageUrl: state.phase === 'REVEAL'
-          ? ar.question.imageUrl
-          : ar.question.previewImageUrl ?? clubLogoPreviewUrl(ar.question.imageUrl),
+        imageUrl: clubLogoRoundImageUrl(ar.question.imageUrl, ar.question.previewImageUrl, state.phase === 'REVEAL' || state.phase === 'AWARD' || state.phase === 'FINAL'),
         imageBase64: ar.question.imageBase64,
         imageCaption: ar.question.imageCaption,
         memorySecondImageUrl: ar.question.memorySecondImageUrl,

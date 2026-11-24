@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { CHAMPIONS_LEAGUE_CATEGORY, CLUB_LOGOS_CATEGORY, EL_CLASICO_CATEGORY, FLAGS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, QURAN_MEDIA_CATEGORY, RECITER_CATEGORY, REVERSED_WORDS_CATEGORY, SERVER_CURATED_CATEGORY_IDS, WORLD_FOOTBALL_CATEGORY } from '../src/game/curatedBanks';
+import { clubLogoRoundImageUrl, CHAMPIONS_LEAGUE_CATEGORY, CLUB_LOGOS_CATEGORY, EL_CLASICO_CATEGORY, FLAGS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, QURAN_MEDIA_CATEGORY, RECITER_CATEGORY, REVERSED_WORDS_CATEGORY, SERVER_CURATED_CATEGORY_IDS, WORLD_FOOTBALL_CATEGORY } from '../src/game/curatedBanks';
 import { createRoomState, revealAnswer, sanitizeStateForRole, selectBoardTile } from '../src/game/engine';
 import { runBoardPreflightCheck, validateQuizQuestion } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories } from '../src/game/starterDecks';
@@ -329,4 +329,16 @@ test('reversed words use distinct local audio clues and expose the original pron
   assert.equal(after?.answer, question.answer);
   assert.equal(after?.audioUrl, undefined);
   assert.equal(after?.answerAudioUrl, question.answerAudioUrl);
+});
+
+
+test('club logo cross mask remains active on host and projector reveal', () => {
+  const original = '/assets/questions/club-logos/CLUB-102.png';
+  const before = '/api/club-logos/CLUB-102/preview';
+  const after = before + '?crossOnly=1';
+  assert.equal(clubLogoRoundImageUrl(original, undefined, false), before);
+  assert.equal(clubLogoRoundImageUrl(original, original, true), after);
+  assert.equal(clubLogoRoundImageUrl(before, undefined, true), after);
+  assert.equal(clubLogoRoundImageUrl(after, undefined, true), after);
+  assert.equal(clubLogoRoundImageUrl('/assets/questions/other.png', '/preview', true), '/assets/questions/other.png');
 });
