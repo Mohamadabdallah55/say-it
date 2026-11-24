@@ -1791,3 +1791,8 @@
 @media(max-width:360px){
   .arena-stage[data-phase="BOARD"] .category-grid[data-count="8"] {grid-template-columns:minmax(0,1fr);}
 }
+
+/* Thirty Seconds mascot, matching the original game's hero artwork. */
+.ca-brand-thirty-mascot{background:transparent;border:0;box-shadow:none;padding:0;}
+.ca-brand-thirty-mascot img{display:block;width:clamp(135px,20vw,250px);height:auto;max-width:100%;object-fit:contain;}
+@media(max-width:540px){.ca-brand-thirty-mascot img{width:145px;}}
