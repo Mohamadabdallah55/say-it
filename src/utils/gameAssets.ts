@@ -167,7 +167,31 @@ const GENERATED_CATEGORY_ART: Record<string,string> = {
   "cat_juz_amma": "/assets/category-generated/cat_juz_amma.webp",
   "cat_juz_tabarak": "/assets/category-generated/cat_juz_tabarak.webp",
   "cat_reversed_words": "/assets/category-generated/cat_reversed_words.webp",
-  "cat_arabic_grammar": "/assets/category-generated/cat_arabic_grammar.webp"
+  "cat_arabic_grammar": "/assets/category-generated/cat_arabic_grammar.webp",
+  "cat_sports": "/assets/category-generated/cat_sports.webp",
+  "cat_arabic_roots": "/assets/category-generated/cat_arabic_roots.webp",
+  "cat_arabic_plurals": "/assets/category-generated/cat_arabic_plurals.webp",
+  "cat_english_letters": "/assets/category-generated/cat_english_letters.webp",
+  "cat_palestinian_proverbs": "/assets/category-generated/cat_palestinian_proverbs.webp",
+  "cat_arabic_dialects": "/assets/category-generated/cat_arabic_dialects.webp",
+  "cat_arabic": "/assets/category-generated/cat_arabic.webp",
+  "cat_science_quiz": "/assets/category-generated/cat_science_quiz.webp",
+  "cat_medical": "/assets/category-generated/cat_medical.webp",
+  "cat_brain_teasers": "/assets/category-generated/cat_brain_teasers.webp",
+  "cat_geometry": "/assets/category-generated/cat_geometry.webp",
+  "cat_science": "/assets/category-generated/cat_science.webp",
+  "cat_puzzles": "/assets/category-generated/cat_puzzles.webp",
+  "cat_capitals_currencies": "/assets/category-generated/cat_capitals_currencies.webp",
+  "cat_world_wars": "/assets/category-generated/cat_world_wars.webp",
+  "cat_history": "/assets/category-generated/cat_history.webp",
+  "cat_general": "/assets/category-generated/cat_general.webp",
+  "world_food": "/assets/category-generated/world_food.webp",
+  "jordan_brands_nostalgia": "/assets/category-generated/jordan_brands_nostalgia.webp",
+  "cat_hashemite_university": "/assets/category-generated/cat_hashemite_university.webp",
+  "cat_guess_price": "/assets/category-generated/cat_guess_price.webp",
+  "cat_silent_acting": "/assets/category-generated/cat_silent_acting.webp",
+  "cat_zoomed_image": "/assets/category-generated/cat_zoomed_image.webp",
+  "cat_animal": "/assets/category-generated/cat_animal.webp"
 };
 
 export function getCategoryCardArt(categoryId: string, iconKey: CategoryIconKey): string {
