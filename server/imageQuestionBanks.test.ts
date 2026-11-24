@@ -434,3 +434,12 @@ test('Zidane video asks about the stadium rather than the season displayed in it
   assert.match(question.prompt, /الملعب/);
   assert.equal(question.points, 400);
 });
+
+test('Clasico revised clips avoid repeated famous scorer and obvious team questions', () => {
+  const expected = {"ELC-V4-CLIP-05":"فاندرلي لوكسمبورغو","ELC-V4-CLIP-06":"فرانك ريكارد","ELC-V2-044":"غونزالو هيغواين","ELC-V3-VIDEO-05":"فيرمين لوبيز","ELC-V3-VIDEO-09":"لوكاس فاسكيز"};
+  for (const [id, answer] of Object.entries(expected)) {
+    const q=EL_CLASICO_QUESTIONS.find(q=>q.id===id);
+    assert.equal(q?.answer, answer);
+    assert.ok(q?.videoUrl);
+  }
+});

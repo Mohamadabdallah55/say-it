@@ -69,6 +69,7 @@ export function refreshElClasicoPhotos(room: RoomState): RoomState {
     if (!updated) return question;
     // Keep answer and score from the saved match. Only change prompt if the answer has not changed.
     const sameAnswer = question.answer === updated.answer;
+    if (!sameAnswer) return { ...question, videoUrl: undefined };
     return {
       ...question,
       ...(sameAnswer ? { prompt: updated.prompt, videoUrl: updated.videoUrl, sourceRef: updated.sourceRef } : question.id === 'ELC-V4-CLIP-07' ? { videoUrl: undefined } : {}),
