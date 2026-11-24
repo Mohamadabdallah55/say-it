@@ -30,6 +30,23 @@ export function getOllamaBaseUrl(): string {
   return (process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434').replace(/\/+$/, '');
 }
 
+// Credentials stay on the server; never include them in client status or URLs.
+function ollamaHeaders(baseUrl: string): Record<string, string> {
+  const username = process.env.OLLAMA_USERNAME;
+  const password = process.env.OLLAMA_PASSWORD;
+  if (!username && !password) return {};
+  if (!username || !password) throw new Error('Incomplete Ollama authentication configuration.');
+  const url = new URL(baseUrl);
+  if (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) {
+    throw new Error('Ollama authentication requires HTTPS for remote hosts.');
+  }
+  return { Authorization: 'Basic ' + Buffer.from(username + ':' + password, 'utf8').toString('base64') };
+}
+
+function getTextModelOverride(): string | undefined {
+  return process.env.OLLAMA_TEXT_MODEL?.trim() || process.env.OLLAMA_MODEL?.trim();
+}
+
 function parseParamBillions(model: OllamaModelTag): number {
   const src = `${model.details?.parameter_size || ''} ${model.name}`;
   const m = /(\d+(?:\.\d+)?)\s*[bB]\b/.exec(src);
@@ -125,6 +142,8 @@ export async function discoverOllamaModels(timeoutMs = 2500): Promise<{
   try {
     const res = await fetch(`${baseUrl}/api/tags`, {
       method: 'GET',
+      headers: ollamaHeaders(baseUrl),
+      redirect: 'error',
       signal: controller.signal,
     });
     if (!res.ok) {
@@ -154,7 +173,7 @@ export async function getLocalAiStatus(): Promise<LocalAiStatus> {
   const [ollama, pymupdf] = await Promise.all([discoverOllamaModels(2000), probePyMuPdf()]);
   const selectedTextModel = pickBestTextModel(
     ollama.models,
-    process.env.OLLAMA_TEXT_MODEL,
+    getTextModelOverride(),
   );
   const selectedVisionModel = pickBestVisionModel(
     ollama.models,
@@ -226,7 +245,7 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
   const discovery = await discoverOllamaModels(3000);
   if (!discovery.reachable) {
     throw new Error(
-      `تعذّر الاتصال بمحرك Ollama المحلي على ${discovery.baseUrl}. شغّل Ollama على جهازك مع نموذج Qwen دون الحاجة إلى API Key أو تسجيل دخول.`,
+      `تعذّر الاتصال بمحرك Ollama المحلي على ${discovery.baseUrl}. تحقق من تشغيل Ollama وإعدادات الاتصال والمصادقة على الخادم (${discovery.error || 'unknown error'}).`,
     );
   }
 
@@ -235,8 +254,8 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
     req.model?.trim() ||
     (hasImages || req.requireVision
       ? pickBestVisionModel(discovery.models, process.env.OLLAMA_VISION_MODEL) ??
-        pickBestTextModel(discovery.models, process.env.OLLAMA_TEXT_MODEL)
-      : pickBestTextModel(discovery.models, process.env.OLLAMA_TEXT_MODEL));
+        pickBestTextModel(discovery.models, getTextModelOverride())
+      : pickBestTextModel(discovery.models, getTextModelOverride()));
 
   if (!chosenModel) {
     throw new Error(
@@ -277,7 +296,8 @@ export async function callOllamaChat(req: OllamaChatRequest): Promise<{
 
     const res = await fetch(`${discovery.baseUrl}/api/chat`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...ollamaHeaders(discovery.baseUrl) },
+      redirect: 'error',
       body: JSON.stringify(body),
       signal: controller.signal,
     });
