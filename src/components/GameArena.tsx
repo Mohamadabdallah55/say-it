@@ -1,6 +1,7 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { SCORE_INTRO_MS, SCORE_CARD_MS, scoreDuration } from '../game/scorePresentation';
 import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
@@ -196,6 +197,8 @@ export function GameArena({
     return () => query.removeEventListener('change', update);
   }, []);
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
+  const [scorePlaybackAt,setScorePlaybackAt]=useState<number|null>(null);
+  const presentationSeen=useRef<{room:string;award?:number}|null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
 
   const [localAudio] = useState(() => sessionStorage.getItem('yemken-projector-audio') === 'on');
@@ -387,6 +390,18 @@ export function GameArena({
     state?.phase !== 'REVEAL' && state?.phase !== 'AWARD' && state?.phase !== 'FINAL'
     ? roundMeta.memorizeEndsAtMs ?? undefined : undefined;
   const awardAt = state?.lastAward?.at;
+  const awardCount=Object.values(state?.lastAward?.changes??{}).filter(n=>n!==0).length;
+  const scoreMotion=Boolean(state&&!state.settings.reducedMotion&&!prefersReducedMotion&&!smallScreen);
+  const awardPhase=state?.phase;
+  useLayoutEffect(()=>{
+    if(!awardPhase)return;
+    const previous=presentationSeen.current;
+    presentationSeen.current={room:roomCode,award:awardAt};
+    if(!scoreMotion||awardPhase!=='BOARD'||!previous||previous.room!==roomCode||awardAt===undefined||previous.award===awardAt||!awardCount||Math.abs(Date.now()-awardAt)>2000){setScorePlaybackAt(null);return;}
+    setScorePlaybackAt(awardAt);
+    const timer=window.setTimeout(()=>setScorePlaybackAt(null),scoreDuration(awardCount));
+    return()=>window.clearTimeout(timer);
+  },[roomCode,awardAt,awardCount,awardPhase,scoreMotion]);
   const commentaryAt = state?.settings.commentaryMode !== 'off' && state?.phase !== 'FINAL' && state?.commentary
     ? Date.parse(state.commentary.timestamp) : undefined;
   useEffect(() => {
@@ -554,7 +569,7 @@ export function GameArena({
         state.categories.every((c) => /^team_\d+$/.test(c.id))));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
-  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 6400
+  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
     ? state.lastAward : null;
   const awardChanges = recentAward
     ? state.teams.map(team => ({ team, change: recentAward.changes[team.id] ?? 0 })).filter(({ change }) => change !== 0)
@@ -567,10 +582,9 @@ export function GameArena({
   const correctionOptions = previousAnswer?.lifeline === 'silence'
     ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
     : state.teams;
-  const scoreScenes = [...awardChanges].sort((a,b)=>Number(b.change>0)-Number(a.change>0)).slice(0,4);
-  const scoreMomentMs = scoreScenes.length * 1500 + 180;
-  const showScoreMoment = state.phase==='BOARD' && recentAward && scoreScenes.length > 0 &&
-    nowMs - recentAward.at < scoreMomentMs && !correction && animateRound;
+  const scoreScenes = state.lastAward ? state.teams.map(team=>({team,change:state.lastAward!.changes[team.id]??0})).filter(x=>x.change!==0).sort((a,b)=>Number(b.change>0)-Number(a.change>0)).slice(0,4) : [];
+  const scoreMomentMs = scoreDuration(scoreScenes.length);
+  const showScoreMoment = state.phase==='BOARD' && scorePlaybackAt!==null && scorePlaybackAt===state.lastAward?.at && scoreScenes.length>0 && !correction && animateRound;
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
@@ -632,11 +646,13 @@ export function GameArena({
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
           {showScoreMoment && (
-            <div className="score-moment" key={recentAward.at} aria-hidden="true" style={{animationDuration:scoreMomentMs+'ms'}}>
-              {scoreScenes.map(({team,change},index)=><div className="score-moment-card yh-score-sequence" key={team.id} data-result={change<0?'loss':'gain'} style={{animationDelay:(180+index*1500)+'ms'}}>
-                <h2>{team.name}</h2>
-                <div className="score-moment-row" data-loss={change<0}><strong><b dir="ltr">{change>0?'+':''}{change}</b> نقطة</strong></div>
-                <small>{recentAward.corrected?'تصحيح الرصيد':change<0?'خصم نقاط':'إضافة نقاط'}</small>
+            <div className="yh-score-show" key={scorePlaybackAt} role="status" aria-label={scoreScenes.map(({team,change})=>team.name+' '+(change>0?'+':'')+change+' نقطة').join('، ')} style={{'--score-duration':scoreMomentMs+'ms'} as CSSProperties}>
+              <div className="yh-score-veil" aria-hidden="true"/>
+              {scoreScenes.map(({team,change},index)=><div className="yh-score-card" key={team.id} data-result={change<0?'loss':'gain'} style={{'--team-color':team.color,animationDelay:(SCORE_INTRO_MS+index*SCORE_CARD_MS)+'ms'} as CSSProperties} aria-hidden="true">
+                <span className="yh-score-stars"><i/><i/><i/></span>
+                <h2><i/>{team.name}</h2>
+                <div className="yh-score-amount"><b dir="ltr">{change>0?'+':''}{change}</b><span>نقطة</span></div>
+                <div className="yh-score-dots">{scoreScenes.map((_,dot)=><i key={dot} data-active={dot===index}/>)}</div>
               </div>)}
             </div>
           )}
@@ -675,8 +691,8 @@ export function GameArena({
           )}
 
           {/* PHASE: BOARD */}
-          {state.phase === 'BOARD' && (
-            <section className="board-stage" aria-labelledby="board-title">
+          {state.phase === 'BOARD' && !showScoreMoment && (
+            <section className="board-stage" data-score-return={Boolean(state.lastAward)} aria-labelledby="board-title">
               <div className="board-heading">
                 <div className="board-heading-title">
                   <h1 id="board-title">لوحة الفئات</h1>
