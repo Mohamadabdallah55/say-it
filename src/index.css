@@ -1056,3 +1056,173 @@
   .arena-stage > [aria-hidden="true"].fixed { display:none; }
 }
 @media (hover:none) { .game-lobby .lobby-flat-card:hover, .game-lobby .lobby-flat-card:hover img { transform:none; } }
+
+
+/* Yemken Hay — centered game-show board. Scoped to BOARD so live questions,
+   answer reveal, scoring commands and lobby styling remain untouched. */
+.arena-stage[data-phase="BOARD"] {
+  background-color:#ffda43;
+  background-image:
+    radial-gradient(ellipse at 48% 3%,#fff1b0 0%,transparent 62%),
+    radial-gradient(ellipse at 0% 95%,#edb92755,transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23b18b21' stroke-width='2' opacity='.14'%3E%3Ccircle cx='57' cy='34' r='15'/%3E%3Ccircle cx='57' cy='34' r='6'/%3E%3Cpath d='M166 23q-12-15-21-3q-6 8 5 15l3 5m0 7v2' stroke-width='6' stroke-linecap='round'/%3E%3Crect x='27' y='119' width='45' height='29' rx='8'/%3E%3Cpath d='M169 113l5 14 15 5-15 5-5 15-5-15-15-5 15-5z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(#d8ae262f 1px,transparent 1.3px);
+  background-size:auto,auto,220px 220px,7px 7px;
+}
+.board-category-tab {
+  position:absolute;
+  z-index:3;
+  inset-inline-start:17px;
+  top:0;
+  width:14px;
+  height:24px;
+  border:1.5px solid #1f112e;
+  border-radius:4px 4px 0 0;
+  box-shadow:0 3px #1f112e;
+  pointer-events:none;
+}
+.arena-stage[data-phase="BOARD"] .category-caption > div:first-child {text-align:start;}
+.arena-stage[data-phase="BOARD"] .category-caption h2 {overflow-wrap:anywhere;}
+.arena-stage[data-phase="BOARD"] .category-card {
+  background:linear-gradient(180deg,#fff9e9,#f5ead2);
+  box-shadow:0 4px #cbbb99,0 7px #21152e;
+}
+.arena-stage[data-phase="BOARD"] .point-strip button:first-child:not([data-used="true"]) {
+  background:linear-gradient(180deg,#a37ad5 0%,#7950ad 45%,#55317e 100%);
+  box-shadow:inset 0 1px #d7b9f2,0 4px #38214c;
+  color:#fff;
+}
+.arena-stage[data-phase="BOARD"] .point-strip button:first-child:hover:not(:disabled) {
+  filter:brightness(1.09);
+}
+.arena-stage[data-phase="BOARD"] .point-strip button:first-child:active:not(:disabled) {
+  transform:translateY(3px);box-shadow:inset 0 1px #d7b9f2,0 1px #38214c;
+}
+.arena-stage[data-phase="BOARD"] .point-strip button[data-used="true"] {color:#5c5760;}
+@media(min-width:901px) {
+  .arena-stage[data-phase="BOARD"] {
+    padding:clamp(12px,1.1vw,20px);
+  }
+  .arena-stage[data-phase="BOARD"] .arena-layout,
+  .arena-stage[data-phase="BOARD"][data-role="projector"] .arena-layout {
+    direction:rtl;display:grid;max-width:none;width:100%;
+    grid-template-columns:clamp(225px,17vw,320px) minmax(0,1fr);
+    gap:clamp(16px,2vw,32px);
+    min-height:calc(100svh - clamp(24px,2.2vw,40px) - 8px);
+    align-items:stretch;
+  }
+  .arena-stage[data-phase="BOARD"] .arena-main {
+    grid-column:2;grid-row:1;min-width:0;
+    justify-content:center;
+    padding-inline:clamp(12px,3vw,64px);
+  }
+  .arena-stage[data-phase="BOARD"] .board-stage {
+    flex:1;justify-content:center;min-width:0;
+    padding-block:16px;
+  }
+  .arena-stage[data-phase="BOARD"] .board-heading {
+    position:absolute;inset-inline:0;top:0;
+    justify-content:center;pointer-events:none;margin:0;z-index:5;
+  }
+  .arena-stage[data-phase="BOARD"] .board-heading-title,
+  .arena-stage[data-phase="BOARD"] .turn-ticket {
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;
+    padding:0;margin:0;border:0;
+  }
+  .arena-stage[data-phase="BOARD"] .category-grid {
+    flex:0 0 auto;align-content:center;align-items:stretch;
+    gap:clamp(14px,1.5vw,28px);
+    width:100%;padding:0 0 8px;
+  }
+  .arena-stage[data-phase="BOARD"] .category-card {
+    border-width:2px;border-radius:19px;overflow:visible;
+    min-width:0;isolation:isolate;
+  }
+  .arena-stage[data-phase="BOARD"] .category-card > :first-child {
+    height:clamp(100px,15vh,165px);max-height:none;
+    aspect-ratio:auto;flex-shrink:0;border-radius:17px 17px 0 0;
+    border-bottom-width:2px;overflow:hidden;
+  }
+  .arena-stage[data-phase="BOARD"] .category-grid:is([data-count="1"],[data-count="2"],[data-count="3"]) .category-card > :first-child {
+    height:clamp(140px,27vh,310px);
+  }
+  .arena-stage[data-phase="BOARD"] .category-grid:is([data-count="7"],[data-count="8"]) .category-card > :first-child {
+    height:clamp(90px,14vh,150px);
+  }
+  .arena-stage[data-phase="BOARD"] .board-category-tab {
+    top:-10px;width:19px;height:34px;inset-inline-start:20px;
+  }
+  .arena-stage[data-phase="BOARD"] .category-caption {
+    padding:clamp(10px,1.1vw,18px);gap:clamp(8px,1.2vh,14px);
+  }
+  .arena-stage[data-phase="BOARD"] .category-caption h2 {
+    font-size:clamp(17px,1.45vw,27px);line-height:1.35;
+  }
+  .arena-stage[data-phase="BOARD"] .point-strip {gap:clamp(5px,.65vw,12px);}
+  .arena-stage[data-phase="BOARD"] .point-strip button:first-child {
+    min-height:clamp(42px,6.1vh,61px);
+    padding:7px 2px;border-radius:10px;
+  }
+  .arena-stage[data-phase="BOARD"] .point-strip button:first-child > span:first-child {
+    font-size:clamp(17px,1.5vw,26px);
+  }
+  .arena-stage[data-phase="BOARD"] .point-strip button:first-child > span:nth-child(2) {
+    font-size:clamp(10px,.85vw,14px);
+  }
+  .arena-stage[data-phase="BOARD"] .category-grid:is([data-count="1"],[data-count="2"],[data-count="3"]) .point-strip button:first-child {
+    min-height:clamp(52px,7.2vh,76px);
+  }
+  .arena-stage[data-phase="BOARD"] .last-answer-action {padding-block:18px 0;}
+  .arena-stage[data-phase="BOARD"] .score-rail,
+  .arena-stage[data-phase="BOARD"][data-role="projector"] .score-rail {
+    grid-column:1;grid-row:1;order:-1;position:sticky;
+    top:12px;align-self:start;width:100%;
+    min-height:calc(100svh - clamp(24px,2.2vw,40px) - 8px);
+    display:flex;flex-direction:column;align-items:stretch;
+    background:linear-gradient(160deg,#fffcf1,#f2e8d0);
+    border-width:2px;border-radius:22px;
+    box-shadow:0 5px #c7b89b,0 8px #21152e;
+    padding:clamp(12px,1.15vw,20px);gap:8px;
+  }
+  .arena-stage[data-phase="BOARD"] .rail-question-header {justify-content:center;}
+  .arena-stage[data-phase="BOARD"] .rail-question-header > div {
+    font-size:clamp(14px,1vw,18px);
+    padding:9px 15px;box-shadow:0 4px #9f7d25,0 6px #21152e;
+    background:linear-gradient(#fff0a0,#ffdb43);
+  }
+  .arena-stage[data-phase="BOARD"] .rail-question-header > button {display:none;}
+  .arena-stage[data-phase="BOARD"] .score-rail .score-teams {
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .arena-stage[data-phase="BOARD"] .score-teams > div {
+    background:linear-gradient(#fffcf2,#f5ebd3);padding:12px 8px;
+    border:1.8px solid #655b6a;
+    box-shadow:0 3px #d1c3a8,0 5px #655b6a;
+    border-radius:15px;margin:0;
+  }
+  .arena-stage[data-phase="BOARD"] .score-teams > div[data-turn="true"] {
+    border-color:#21152e!important;
+    box-shadow:0 0 0 2px #fff9e9,0 0 0 5px #e83f4c!important;
+  }
+  .arena-stage[data-phase="BOARD"] .score-teams > div > div:first-child {
+    font-size:clamp(16px,1.2vw,22px);margin-bottom:8px;
+  }
+  .arena-stage[data-phase="BOARD"] .score-number {font-size:clamp(26px,2vw,36px);}
+  .arena-stage[data-phase="BOARD"] .rail-score-controls {gap:12px;}
+  .arena-stage[data-phase="BOARD"] .rail-score-controls > button {
+    width:32px;height:32px;background:#fff9e8;
+  }
+  .arena-stage[data-phase="BOARD"] .rail-actions {padding-top:6px;}
+  .arena-stage[data-phase="BOARD"] .rail-actions button {min-width:36px;min-height:36px;}
+}
+@media(min-width:901px) and (max-height:600px) {
+  .arena-stage[data-phase="BOARD"] .arena-main {padding-inline:12px;}
+  .arena-stage[data-phase="BOARD"] .category-grid {gap:12px;}
+  .arena-stage[data-phase="BOARD"] .category-card > :first-child {height:100px;}
+  .arena-stage[data-phase="BOARD"] .category-caption {padding:8px;gap:6px;}
+  .arena-stage[data-phase="BOARD"] .score-rail {min-height:calc(100svh - 30px);}
+}
+@media(max-width:900px) {
+  .arena-stage[data-phase="BOARD"] .board-category-tab {inset-inline-start:10px;}
+}
