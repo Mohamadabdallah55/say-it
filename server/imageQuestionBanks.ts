@@ -58,7 +58,7 @@ export const CLUB_LOGOS_QUESTIONS = clubLogoRows.map((row): QuizQuestion => ({
 }));
 
 type ChampionsLeagueRow = { id:string; points:number; question:string; answer:string; explanation:string; theme:string; source_url:string; imageUrl?:string; imageSourceUrl?:string; imageCaption?:string; videoUrl?:string; videoTrialEnabled?:boolean; fallbackQuestion?:string };
-const UCL_PUBLIC_TRIAL_IDS = new Set(["1vywtpBlXdA","YdcPlD74Hus","wbouulIi740","l52QHKWPvxM","MhePGbg1XJI","_Y5cboBkl7w","imGy71tsgtQ","buoMlAshKXQ"]);
+const UCL_PUBLIC_TRIAL_IDS = new Set(["Uf-6aRJk8q0","buoMlAshKXQ","yRzZW0VXeUI","_Y5cboBkl7w","imGy71tsgtQ","HB3JnHb_IG4","xwKKLADGNQM","1vywtpBlXdA","YdcPlD74Hus","wbouulIi740","KfsmTUvVT0I","jhgNSBzzvzQ","MhePGbg1XJI","l52QHKWPvxM"]);
 export function championsLeagueClip(row: ChampionsLeagueRow): string | undefined {
   if (!row.videoTrialEnabled || !row.videoUrl || !row.fallbackQuestion) return;
   try {

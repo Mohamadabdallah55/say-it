@@ -270,5 +270,107 @@
     "startSeconds": null,
     "durationSeconds": 17,
     "commentary": "unknown"
+  },
+  {
+    "questionId": "UCL-018",
+    "year": 2006,
+    "source": "https://www.youtube-nocookie.com/embed/Uf-6aRJk8q0?start=0&end=17",
+    "publisher": "UEFA",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "not_confirmed",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-064",
+    "year": 2007,
+    "source": "https://www.youtube-nocookie.com/embed/HB3JnHb_IG4?start=0&end=17",
+    "publisher": "UEFA",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "not_confirmed",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-047",
+    "year": 2024,
+    "source": "https://www.youtube-nocookie.com/embed/yRzZW0VXeUI?start=0&end=17",
+    "publisher": "beIN SPORTS",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "arabic_channel_audio_not_listened",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-071",
+    "year": 2025,
+    "source": "https://www.youtube-nocookie.com/embed/xwKKLADGNQM?start=0&end=17",
+    "publisher": "beIN SPORTS",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "arabic_channel_audio_not_listened",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-079",
+    "year": 2025,
+    "source": "https://www.youtube-nocookie.com/embed/KfsmTUvVT0I?start=0&end=17",
+    "publisher": "beIN SPORTS",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "arabic_channel_audio_not_listened",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-081",
+    "year": 2025,
+    "source": "https://www.youtube-nocookie.com/embed/jhgNSBzzvzQ?start=0&end=17",
+    "publisher": "beIN SPORTS",
+    "stage": "trial_not_playback_verified",
+    "startSeconds": 0,
+    "durationSeconds": 17,
+    "commentary": "arabic_channel_audio_not_listened",
+    "metadataReviewStatus": "public_page_identity_confirmed"
+  },
+  {
+    "questionId": "UCL-035",
+    "source": "https://www.manutd.com/en/mutv/videos/detail/highlights-man-united-2-bayern-munich-1-champions-league-final-26-may-1999",
+    "publisher": "official club or UEFA archive",
+    "stage": "public_page_found_no_embed_verification",
+    "startSeconds": null,
+    "durationSeconds": 17,
+    "commentary": "unknown"
+  },
+  {
+    "questionId": "UCL-038",
+    "source": "https://www.uefa.com/uefachampionsleague/video/027d-171da117c21f-a8a061e520dc-1000--2005-istanbul-champions-league-final-highlights-milan-3-/",
+    "publisher": "official club or UEFA archive",
+    "stage": "public_page_found_no_embed_verification",
+    "startSeconds": null,
+    "durationSeconds": 17,
+    "commentary": "unknown"
+  },
+  {
+    "questionId": "UCL-052",
+    "source": "https://www.uefa.com/uefachampionsleague/history/video/0232-0e679786598e-87b13a5ec444-1000--1997-final-dortmund-3-1-juventus/",
+    "publisher": "official club or UEFA archive",
+    "stage": "public_page_found_no_embed_verification",
+    "startSeconds": null,
+    "durationSeconds": 17,
+    "commentary": "unknown"
+  },
+  {
+    "questionId": "UCL-057",
+    "source": "https://www.uefa.com/uefachampionsleague/history/video/0257-0de5db943ecc-c466f73be41f-1000--1995-final-highlights-ajax-1-0-milan/",
+    "publisher": "official club or UEFA archive",
+    "stage": "public_page_found_no_embed_verification",
+    "startSeconds": null,
+    "durationSeconds": 17,
+    "commentary": "unknown"
   }
 ]

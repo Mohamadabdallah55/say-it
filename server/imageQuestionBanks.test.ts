@@ -461,10 +461,10 @@ test('Clasico spoiler-risk revisions retain video and ask a separate match-conte
   }
 });
 
-test('Champions League archive has 100 questions and eight explicit 17-second public-source trials', () => {
+test('Champions League archive has 100 questions and fourteen explicit 17-second public-source trials', () => {
  assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.length,100);
  const clips=CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.videoUrl);
- assert.equal(clips.length,8);
+ assert.equal(clips.length,14);
  for(const q of clips){const u=new URL(q.videoUrl!);assert.equal(Number(u.searchParams.get('end'))-Number(u.searchParams.get('start')),17);}
  assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.imageUrl).every(q=>q.imageDisplay==='after_reveal'&&q.imageSourceUrl));
 });
