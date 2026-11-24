@@ -17,13 +17,13 @@ export const VISUAL_MEMORY_QUESTIONS: QuizQuestion[] = dataset.questions.map((ro
   prompt: row.question,
   answer: row.answer,
   explanation: row.explanation,
-  imageUrl: sceneAsset(row.image),
+  imageUrl: row.image ? sceneAsset(row.image) : undefined,
   memorySecondImageUrl: row.image_sequence?.[1] ? sceneAsset(row.image_sequence[1]) : undefined,
   videoUrl: 'video_url' in row && typeof (row as { video_url?: string }).video_url === 'string'
     ? (row as { video_url?: string }).video_url
     : undefined,
   showSeconds: row.show_seconds,
   memorySceneId: row.scene_id,
-  verificationStatus: 'verified',
+  verificationStatus: 'video_url' in row && row.video_url ? undefined : 'verified',
   status: 'approved',
 }));

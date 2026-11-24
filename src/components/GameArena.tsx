@@ -875,7 +875,8 @@ export function GameArena({
                               autoPlay
                               muted
                               playsInline
-                              controls
+                              disablePictureInPicture
+                              disableRemotePlayback
                               preload="auto"
                               className="block max-w-full max-h-[54vh] w-auto h-auto select-none"
                             />

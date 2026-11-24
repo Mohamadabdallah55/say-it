@@ -25,7 +25,7 @@ import {
 test('Visual Memory category is registered alongside the existing categories', () => {
   const cat = ALL_CURATED_CATEGORIES.find((c) => c.id === VISUAL_MEMORY_CATEGORY.id);
   assert.ok(cat, 'cat_visual_memory should exist in ALL_CURATED_CATEGORIES');
-  assert.equal(cat.name, 'ذاكرة بصرية');
+  assert.equal(cat.name, 'ركّز');
   assert.equal(cat.iconKey, 'visual_memory');
 
   const expectedIds = [
@@ -53,13 +53,13 @@ test('Visual Memory category is registered alongside the existing categories', (
   }
 });
 
-test('Visual Memory exposes all 100 questions and the ten timed image sequences', () => {
+test('Visual Memory exposes all questions and the ten timed image sequences', () => {
   assert.equal(VISUAL_MEMORY_QUESTIONS.length, VISUAL_MEMORY_PLAYABLE_COUNT);
   assert.equal(VISUAL_MEMORY_QUESTIONS.filter(q => q.memorySecondImageUrl).length, 10);
 
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
-  const expectedShowSeconds = { 200: 6, 400: 5, 600: 4 } as const;
+  const expectedShowSeconds = { 200: 10, 400: 8, 600: 6 } as const;
 
   for (let i = 0; i < VISUAL_MEMORY_QUESTIONS.length; i += 1) {
     const q = VISUAL_MEMORY_QUESTIONS[i];
@@ -71,7 +71,8 @@ test('Visual Memory exposes all 100 questions and the ten timed image sequences'
     assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
     ids.add(q.id);
     assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
-    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 6 : expectedShowSeconds[q.points]);
+    if (q.videoUrl) { assert.ok(q.showSeconds === 15 || q.showSeconds === 17); assert.match(q.memorySceneId ?? '', /^V\d{2}$/); tierCounts[q.points] += 1; continue; }
+    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 8 : expectedShowSeconds[q.points]);
     const firstScene = path.basename(q.imageUrl ?? '', '.jpg');
     const expectedScene = q.memorySecondImageUrl
       ? `PAIR-${firstScene}-${path.basename(q.memorySecondImageUrl, '.jpg')}`
@@ -85,7 +86,7 @@ test('Visual Memory exposes all 100 questions and the ten timed image sequences'
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 30, 400: 30, 600: 40 });
+  assert.deepEqual(tierCounts, { 200: 33, 400: 35, 600: 45 });
 });
 
 test('All 36 Visual Memory image assets are local JPEGs', () => {
@@ -93,6 +94,7 @@ test('All 36 Visual Memory image assets are local JPEGs', () => {
   const images = new Set<string>();
   const scenes = new Set<string>();
   for (const question of VISUAL_MEMORY_QUESTIONS) {
+    if (question.videoUrl) continue;
     assert.ok(question.imageUrl);
     assert.ok(question.memorySceneId);
     scenes.add(question.memorySceneId);
@@ -397,4 +399,12 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
   const projReveal = sanitizeStateForRole(revealed.state, 'projector', now + 8_000).activeRound;
   assert.equal(projReveal?.videoUrl, videoQuestion.videoUrl);
   assert.equal(projReveal?.answer, videoQuestion.answer);
+});
+
+
+test('Focus includes real short video sources with distinct scene identifiers', () => {
+  const videos = VISUAL_MEMORY_QUESTIONS.filter(q => q.videoUrl);
+  assert.equal(videos.length, 13);
+  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 5);
+  assert.ok(videos.every(q => !q.imageUrl && (q.showSeconds === 17 || q.showSeconds === 15)));
 });
