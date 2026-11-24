@@ -151,7 +151,23 @@ const GENERATED_CATEGORY_ART: Record<string,string> = {
   "cat_world_cup": "/assets/category-generated/cat_world_cup_2026.webp",
   "cat_world_country_maps": "/assets/category-generated/world_country_maps.webp",
   "cat_maps": "/assets/category-generated/world_country_maps.webp",
-  "cat_islamic": "/assets/category-generated/cat_prophetic_biography.webp"
+  "cat_islamic": "/assets/category-generated/cat_prophetic_biography.webp",
+  "cat_real_madrid": "/assets/category-generated/cat_real_madrid.webp",
+  "cat_barcelona": "/assets/category-generated/cat_barcelona.webp",
+  "cat_world_football": "/assets/category-generated/cat_world_football.webp",
+  "cat_football_ordering": "/assets/category-generated/cat_football_ordering.webp",
+  "cat_football_letters": "/assets/category-generated/cat_football_letters.webp",
+  "cat_prophet_stories": "/assets/category-generated/cat_prophet_stories.webp",
+  "cat_hadith": "/assets/category-generated/cat_hadith.webp",
+  "cat_rashidun": "/assets/category-generated/cat_rashidun.webp",
+  "cat_islamic_ordering": "/assets/category-generated/cat_islamic_ordering.webp",
+  "cat_islamic_letters": "/assets/category-generated/cat_islamic_letters.webp",
+  "cat_quran_media": "/assets/category-generated/cat_quran_media.webp",
+  "cat_quran_verse_meanings": "/assets/category-generated/cat_quran_verse_meanings.webp",
+  "cat_juz_amma": "/assets/category-generated/cat_juz_amma.webp",
+  "cat_juz_tabarak": "/assets/category-generated/cat_juz_tabarak.webp",
+  "cat_reversed_words": "/assets/category-generated/cat_reversed_words.webp",
+  "cat_arabic_grammar": "/assets/category-generated/cat_arabic_grammar.webp"
 };
 
 export function getCategoryCardArt(categoryId: string, iconKey: CategoryIconKey): string {
