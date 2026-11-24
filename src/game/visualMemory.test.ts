@@ -53,9 +53,10 @@ test('Visual Memory category is registered alongside the existing categories', (
   }
 });
 
-test('Visual Memory exposes all questions and the ten timed image sequences', () => {
+test('Visual Memory exposes one image or one video per question', () => {
   assert.equal(VISUAL_MEMORY_QUESTIONS.length, VISUAL_MEMORY_PLAYABLE_COUNT);
-  assert.equal(VISUAL_MEMORY_QUESTIONS.filter(q => q.memorySecondImageUrl).length, 10);
+  assert.equal(VISUAL_MEMORY_QUESTIONS.filter(q => q.memorySecondImageUrl).length, 0);
+  assert.ok(VISUAL_MEMORY_QUESTIONS.every(q => Boolean(q.imageUrl) !== Boolean(q.videoUrl)));
 
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
@@ -105,7 +106,7 @@ test('All 36 Visual Memory image assets are local JPEGs', () => {
     }
   }
   assert.equal(images.size, 36);
-  assert.equal(scenes.size, 41);
+  assert.equal(scenes.size, 36);
 
   for (const url of images) {
     assert.match(url, /^\/assets\/questions\/visual-memory\/[EHJM]\d{2}\.jpg$/);
@@ -325,7 +326,7 @@ test('Consecutive rounds reject the same memorySceneId when an alternative tile 
 });
 
 test('A paired scene exposes both images for preview and review while hiding them during the question', () => {
-  const question = VISUAL_MEMORY_QUESTIONS.find(q => q.memorySecondImageUrl)!;
+  const question = { ...VISUAL_MEMORY_QUESTIONS[0], id: 'MEM-PAIR-LEGACY', showSeconds: 6, memorySecondImageUrl: '/assets/questions/visual-memory/E02.jpg' };
   const deck = buildBoardDeckFromCategories([VISUAL_MEMORY_CATEGORY.id], undefined, [question]);
   const now = 1_700_000_000_000;
   const room = createRoomState({

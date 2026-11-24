@@ -619,7 +619,19 @@ export function selectActiveBoardForDeck(
       const distinctScenePrimary = allPrimary.filter(
         (q) => !q.memorySceneId || !usedSceneIds.has(q.memorySceneId),
       );
-      const available = distinctScenePrimary.length > 0 ? distinctScenePrimary : allPrimary;
+      let available = distinctScenePrimary.length > 0 ? distinctScenePrimary : allPrimary;
+      // Alternate preferred media across teams and tiers for Focus without repeating scenes.
+      if (cat.id === 'cat_visual_memory') {
+        const videos = available.filter(q => q.videoUrl);
+        const images = available.filter(q => !q.videoUrl);
+        const mixed: QuizQuestion[] = [];
+        const videoFirst = points === 400;
+        for (let i = 0; i < Math.max(videos.length, images.length); i++) {
+          const pair = videoFirst ? [videos[i], images[i]] : [images[i], videos[i]];
+          for (const q of pair) if (q) mixed.push(q);
+        }
+        available = mixed;
+      }
       const fallback =
         poolToUse.find(
           (q) =>

@@ -18,7 +18,6 @@ export const VISUAL_MEMORY_QUESTIONS: QuizQuestion[] = dataset.questions.map((ro
   answer: row.answer,
   explanation: row.explanation,
   imageUrl: row.image ? sceneAsset(row.image) : undefined,
-  memorySecondImageUrl: row.image_sequence?.[1] ? sceneAsset(row.image_sequence[1]) : undefined,
   videoUrl: 'video_url' in row && typeof (row as { video_url?: string }).video_url === 'string'
     ? (row as { video_url?: string }).video_url
     : undefined,
