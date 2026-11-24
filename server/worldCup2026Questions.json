@@ -45,7 +45,7 @@
       "/assets/world_cup_2026/flags/at.png",
       "/assets/world_cup_2026/flags/jo.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/ali_olwan.png"
+    "afterImageUrl": "/assets/world_cup_2026/players/ali_olwan.png.webp"
   },
   {
     "id": "WC26-200-03",
@@ -77,7 +77,7 @@
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/dz.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/nizar_al_rashdan.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/nizar_al_rashdan.jpg.webp"
   },
   {
     "id": "WC26-200-04",
@@ -109,7 +109,7 @@
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/ar.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/mousa_al_tamari.png"
+    "afterImageUrl": "/assets/world_cup_2026/players/mousa_al_tamari.png.webp"
   },
   {
     "id": "WC26-200-06",
@@ -537,7 +537,7 @@
       "/assets/world_cup_2026/flags/cz.png",
       "/assets/world_cup_2026/flags/mx.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/julian_quinones.png"
+    "afterImageUrl": "/assets/world_cup_2026/players/julian_quinones.png.webp"
   },
   {
     "id": "WC26-200-44",
@@ -802,7 +802,7 @@
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/ismael_saibari.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/ismael_saibari.jpg.webp"
   },
   {
     "id": "WC26-400-01",
@@ -834,7 +834,7 @@
       "/assets/world_cup_2026/flags/gb-sct.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/ismael_saibari.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/ismael_saibari.jpg.webp"
   },
   {
     "id": "WC26-400-02",
@@ -962,7 +962,7 @@
       "/assets/world_cup_2026/flags/dz.png",
       "/assets/world_cup_2026/flags/at.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/riyad_mahrez.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/riyad_mahrez.jpg.webp"
   },
   {
     "id": "WC26-400-04",
@@ -1470,7 +1470,7 @@
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/pau_cubarsi.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/pau_cubarsi.jpg.webp"
   },
   {
     "id": "WC26-400-24",
@@ -1563,7 +1563,7 @@
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/unai_simon.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/unai_simon.jpg.webp"
   },
   {
     "id": "WC26-400-25",
@@ -1723,7 +1723,7 @@
       "/assets/world_cup_2026/flags/nl.png",
       "/assets/world_cup_2026/flags/jp.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/virgil_van_dijk.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/virgil_van_dijk.jpg.webp"
   },
   {
     "id": "WC26-600-04",
@@ -1787,7 +1787,7 @@
       "/assets/world_cup_2026/flags/tn.png",
       "/assets/world_cup_2026/flags/jp.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/daichi_kamada.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/daichi_kamada.jpg.webp"
   },
   {
     "id": "WC26-600-07",
@@ -1819,7 +1819,7 @@
       "/assets/world_cup_2026/flags/sn.png",
       "/assets/world_cup_2026/flags/iq.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/ismaila_sarr.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/ismaila_sarr.jpg.webp"
   },
   {
     "id": "WC26-600-08",
@@ -1979,7 +1979,7 @@
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/no.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/neymar.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/neymar.jpg.webp"
   },
   {
     "id": "WC26-600-15",
