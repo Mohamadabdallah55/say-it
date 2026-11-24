@@ -10,6 +10,15 @@ import { GUESS_SOUND_CATEGORY, GUESS_SOUND_COUNT } from './guessSound';
 import { ZOOMED_IMAGE_CATEGORY, ZOOMED_IMAGE_COUNT } from './zoomedImage';
 import type { DeckCategory } from './types';
 
+export const APPS_CATEGORY: DeckCategory = {
+  id: 'cat_apps',
+  name: 'التطبيقات',
+  description: 'خمّن التطبيقات من شعاراتها ووظائفها، من التطبيقات اليومية إلى البرامج المتخصصة',
+  iconKey: 'visual_memory',
+  menuGroup: 'visual',
+  accentColor: '#6155A6',
+};
+
 export const FLAGS_CATEGORY: DeckCategory = {
   id: 'cat_flags',
   name: 'الأعلام',
@@ -302,6 +311,7 @@ export const SILENT_ACTING_CATEGORY: DeckCategory = {
 export const SILENT_ACTING_COUNT = 100;
 
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
+  APPS_CATEGORY.id,
   ZOOMED_IMAGE_CATEGORY.id,
   SILENT_ACTING_CATEGORY.id,
   GUESS_SOUND_CATEGORY.id,
@@ -331,6 +341,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
 ];
 
 export const SERVER_CURATED_CATEGORIES = [
+  { category: APPS_CATEGORY, questionCount: 100 },
   { category: PROPHET_STORIES_CATEGORY, questionCount: PROPHET_STORIES_COUNT },
   { category: GUESS_PRICE_CATEGORY, questionCount: GUESS_PRICE_COUNT },
   { category: RASHIDUN_CATEGORY, questionCount: RASHIDUN_COUNT },

@@ -34,9 +34,11 @@ import { ARABIC_DIALECTS_QUESTIONS } from './arabicDialects';
 import { SILENT_ACTING_QUESTIONS } from './silentActing';
 import { GUESS_SOUND_QUESTIONS } from './guessSoundQuestions';
 
+import { APPS_QUESTIONS } from './appsQuestions';
 import { ZOOMED_IMAGE_QUESTIONS } from './zoomedImageQuestions';
 
 export const SERVER_CURATED_QUESTIONS = [
+  ...APPS_QUESTIONS,
   ...ZOOMED_IMAGE_QUESTIONS,
   ...PROPHET_STORIES_QUESTIONS,
   ...GUESS_PRICE_QUESTIONS,

@@ -151,6 +151,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_guess_price: 'jordan',
 
   // 8. التحديات البصرية والأدائية
+  cat_apps: 'visual',
   cat_four_pictures: 'visual',
   cat_visual_memory: 'visual',
   cat_silent_acting: 'visual',
