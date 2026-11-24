@@ -2,6 +2,7 @@ import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { nextArenaClockDelay } from '../game/arenaClock';
 import {
   ArrowRight,
   Award,
@@ -187,6 +188,13 @@ export function GameArena({
   const [mediaOrientation, setMediaOrientation] = useState<MediaOrientation>('landscape');
   const [actingQr, setActingQr] = useState<{ actingPath: string; actingUrl: string; qrDataUrl: string } | null>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [smallScreen, setSmallScreen] = useState(() => window.matchMedia('(max-width: 767px)').matches);
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)');
+    const update = () => setSmallScreen(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
   const lastSceneRef = useRef<{ phase: ArenaState['phase']; award?: number } | null>(null);
   const lastSoundSecondRef = useRef<number | null>(null);
 
@@ -204,7 +212,10 @@ export function GameArena({
         const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
-        if (mounted) setState(current => current ?? data.state);
+        if (mounted) {
+          setNowMs(Date.now());
+          setState(current => current ?? data.state);
+        }
       } catch (err) {
         if (mounted) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
       }
@@ -219,6 +230,7 @@ export function GameArena({
         const msg = JSON.parse(ev.data);
         if (msg.type === 'STATE_SYNC') {
           setError(null);
+          setNowMs(Date.now());
           setState(msg.payload);
         } else if (msg.type === 'COMMAND_ERROR' || msg.type === 'ERROR') {
           setCommandError(msg.error);
@@ -228,10 +240,8 @@ export function GameArena({
       }
     });
 
-    const tick = setInterval(() => setNowMs(Date.now()), 250);
     return () => {
       mounted = false;
-      clearInterval(tick);
       disconnect();
     };
   }, [roomCode, role, token]);
@@ -293,6 +303,7 @@ export function GameArena({
   }, [state, remainingSec]);
 
   // Normalize activeRound between HostViewState (nested question) and PublicProjectorState (flat sanitized)
+  const assistantTeams = useMemo(() => state?.teams.map(t => ({ id: t.id, name: t.name, color: t.color })) ?? [], [state?.teams]);
   const roundMeta = useMemo(() => {
     if (!state?.activeRound) return null;
     if ('question' in state.activeRound) {
@@ -366,6 +377,31 @@ export function GameArena({
     };
   }, [state]);
 
+  // No periodic updates on an idle board. Only schedule a tick for a visible
+  // running clock, memory preview or a short-lived award/commentary effect.
+  const timerRunning = Boolean(state?.timer.running);
+  const memoryDeadline = roundMeta?.memoryStage === 'MEMORIZE' &&
+    state?.phase !== 'REVEAL' && state?.phase !== 'AWARD' && state?.phase !== 'FINAL'
+    ? roundMeta.memorizeEndsAtMs ?? undefined : undefined;
+  const awardAt = state?.lastAward?.at;
+  const commentaryAt = state?.settings.commentaryMode !== 'off' && state?.phase !== 'FINAL' && state?.commentary
+    ? Date.parse(state.commentary.timestamp) : undefined;
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    const clear = () => { if (timeout !== undefined) clearTimeout(timeout); };
+    const schedule = () => {
+      clear();
+      if (document.hidden) return;
+      const now = Date.now();
+      setNowMs(now);
+      const delay = nextArenaClockDelay(now, timerRunning, memoryDeadline, awardAt, commentaryAt);
+      if (delay !== null) timeout = setTimeout(schedule, delay);
+    };
+    schedule();
+    document.addEventListener('visibilitychange', schedule);
+    return () => { clear(); document.removeEventListener('visibilitychange', schedule); };
+  }, [timerRunning, memoryDeadline, awardAt, commentaryAt]);
+
   const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
 
   useEffect(() => {
@@ -396,11 +432,17 @@ export function GameArena({
       roundMeta.memorySecondImageUrl,
       roundMeta.imageUrl,
     ].filter((u): u is string => Boolean(u && u.startsWith('/') || u?.startsWith('http')));
-    candidates.forEach((src) => {
-      const img = new Image();
-      img.decoding = 'async';
-      img.src = src;
-    });
+    const preload = () => {
+      for (const src of new Set(candidates)) {
+        const img = new Image();
+        img.decoding = 'async';
+        img.fetchPriority = 'low';
+        img.src = src;
+      }
+    };
+    // Avoid contending with the question/video's first paint.
+    const timer = window.setTimeout(preload, 350);
+    return () => window.clearTimeout(timer);
   }, [
     roundMeta?.roundId,
     roundMeta?.afterImageUrl,
@@ -501,7 +543,7 @@ export function GameArena({
     );
   }
 
-  const animateRound = !state.settings.reducedMotion && !prefersReducedMotion;
+  const animateRound = !state.settings.reducedMotion && !prefersReducedMotion && !smallScreen;
   const answerTeams = roundMeta?.activeLifeline === 'silence' ? state.teams.filter(t => t.id === roundMeta.ownerTeamId) : [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
@@ -1950,7 +1992,7 @@ export function GameArena({
                   token={token}
                   phase={state.phase}
                   activeQuestionPrompt={roundMeta?.prompt}
-                  teams={state.teams.map((t) => ({ id: t.id, name: t.name, color: t.color }))}
+                  teams={assistantTeams}
                   currentTurnTeamId={currentTeam?.id}
                 />
 

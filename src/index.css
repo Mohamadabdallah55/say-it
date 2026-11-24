@@ -1046,3 +1046,13 @@
 @media(pointer:coarse) {
   .game-top-nav button,.lobby-touch-target,.arena-stage button { touch-action:manipulation; }
 }
+
+/* Reduce costly paint/compositing on phones without changing quiz timing or scoring. */
+@media (max-width:767px) {
+  .game-lobby .lobby-chips-wrap { backdrop-filter:none; -webkit-backdrop-filter:none; background:#fffdf7; }
+  .game-lobby .lobby-panel, .game-lobby .lobby-dock, .game-title .hero-halftone-stage, .game-title .opening-logo, .game-title .opening-preview, .game-title .opening-tagline, .game-title .opening-actions { animation:none!important; }
+  .arena-stage .round-scene, .arena-stage .award-panel, .arena-stage .round-edge-step, .arena-stage .round-edge-commentary { animation:none!important; }
+  .game-lobby .lobby-flat-card, .game-lobby .lobby-flat-card img { transition-property:opacity,border-color; }
+  .arena-stage > [aria-hidden="true"].fixed { display:none; }
+}
+@media (hover:none) { .game-lobby .lobby-flat-card:hover, .game-lobby .lobby-flat-card:hover img { transform:none; } }

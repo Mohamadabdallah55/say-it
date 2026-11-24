@@ -1,10 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { AdminPanel } from './components/AdminPanel';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { BuzzerScreen } from './components/BuzzerScreen';
 import { GameArena } from './components/GameArena';
 import { LobbySetup } from './components/LobbySetup';
-import { PdfStudio } from './components/PdfStudio';
-import { SavedLibrary } from './components/SavedLibrary';
 import { SilentActingScreen } from './components/SilentActingScreen';
 import { TitleScreen } from './components/TitleScreen';
 import {
@@ -24,6 +21,11 @@ import {
   type RemoteSyncSummary,
 } from './utils/remoteDeckSync';
 import { soundFX } from './utils/sound';
+
+// Large tools are fetched only when opened, not when joining or starting a quiz.
+const AdminPanel = lazy(() => import('./components/AdminPanel').then(m => ({ default: m.AdminPanel })));
+const PdfStudio = lazy(() => import('./components/PdfStudio').then(m => ({ default: m.PdfStudio })));
+const SavedLibrary = lazy(() => import('./components/SavedLibrary').then(m => ({ default: m.SavedLibrary })));
 
 type ViewScreen =
   | { name: 'title' }
@@ -46,7 +48,7 @@ interface SavedRoomSummary {
   hostToken: string;
 }
 
-export default function App() {
+function AppContent() {
   const [screen, setScreen] = useState<ViewScreen>({ name: 'title' });
   const [serverDecks, setServerDecks] = useState<QuizDeck[]>([]);
   const [recoveredRecords, setRecoveredRecords] = useState<RecoveredDeckRecord[]>([]);
@@ -404,4 +406,8 @@ export default function App() {
       }}
     />
   );
+}
+
+export default function App() {
+  return <Suspense fallback={<div className="min-h-screen game-pattern-bg flex items-center justify-center p-4" role="status"><div className="game-card-frame rounded-2xl p-4 font-display font-black">جارٍ تحميل الصفحة...</div></div>}><AppContent /></Suspense>;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import type { CategoryIconKey } from '../game/types';
 import { getCategoryCardArt } from '../utils/gameAssets';
 
@@ -10,7 +10,7 @@ interface CategoryArtworkProps {
   coverage?: string[];
 }
 
-export function CategoryArtwork({
+export const CategoryArtwork = memo(function CategoryArtwork({
   categoryId = '',
   iconKey,
   accentColor,
@@ -93,6 +93,8 @@ export function CategoryArtwork({
           )}
           <img
             src={artSrc}
+            loading="lazy"
+            decoding="async"
             alt={topic || 'صورة الفئة'}
             referrerPolicy="no-referrer"
             onLoad={() => setImgLoaded(true)}
@@ -109,4 +111,4 @@ export function CategoryArtwork({
       )}
     </div>
   );
-}
+});

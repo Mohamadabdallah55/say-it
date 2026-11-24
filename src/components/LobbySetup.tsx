@@ -123,6 +123,7 @@ function CategoryCardImage({
           src={src}
           alt={alt}
           loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
@@ -306,6 +307,18 @@ export function LobbySetup({
     () => (user ? getPlayedMapForMatch() : {}),
     [user, getPlayedMapForMatch],
   );
+
+  // Consumption counts depend on bank/progress data, not on search, selection or scroll.
+  const categoryStatsById = useMemo(() => {
+    return new Map(selectableCategories.map(cat => {
+      const recoveredIds = recoveredQuestionIdsByCategory[cat.id];
+      const stats = recoveredIds ? computeCategoryConsumption({
+        categoryId: cat.id, allQuestionIds: recoveredIds,
+        playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
+      }) : getCategoryStats(cat.id);
+      return [cat.id, stats] as const;
+    }));
+  }, [selectableCategories, recoveredQuestionIdsByCategory, playedIdsByCategory, getCategoryStats]);
 
   // Avoid sending huge cached base64 photo strings back to the room server.
   // The server uses the original HTTPS URL for recovered photos.
@@ -1474,14 +1487,7 @@ export function LobbySetup({
                             selectedDeckId === 'curated_custom'
                               ? customCategories.includes(cat.id)
                               : activeCategoryIdsForPreflight.includes(cat.id);
-                          const recoveredIds = recoveredQuestionIdsByCategory[cat.id];
-                          const stats = recoveredIds
-                            ? computeCategoryConsumption({
-                                categoryId: cat.id,
-                                allQuestionIds: recoveredIds,
-                                playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
-                              })
-                            : getCategoryStats(cat.id);
+                          const stats = categoryStatsById.get(cat.id) ?? getCategoryStats(cat.id);
                           const artSrc = cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
                           const exhausted = stats.totalCount > 0 && stats.remainingCount === 0;
 
