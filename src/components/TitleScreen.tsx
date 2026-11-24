@@ -15,6 +15,13 @@ interface TitleScreenProps {
 
 const THIRTY_URL = 'https://three0s-guai.onrender.com/';
 const KHALF_URL = 'https://without-us.onrender.com/';
+function getCodenamesUrl(): string | null {
+  try {
+    const url = new URL(import.meta.env.VITE_CODENAMES_URL || '');
+    return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
+  } catch { return null; }
+}
+const CODENAMES_URL = getCodenamesUrl();
 const preview = [
   { name: 'كرة القدم', symbol: '⚽', color: '#4788c5' },
   { name: 'معلومات عامة', symbol: '؟', color: '#ed9e50' },
@@ -26,6 +33,7 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showThirtyRules, setShowThirtyRules] = useState(false);
   const [showKhalfRules, setShowKhalfRules] = useState(false);
+  const [showCodeRules, setShowCodeRules] = useState(false);
   const [showJoin, setShowJoin] = useState(false);
   const [roomCode, setRoomCode] = useState('');
   const [joinError, setJoinError] = useState('');
@@ -94,6 +102,21 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
             </div>
             <img className="platform-suspect" src="/brand/games/khalf-mascot.svg" alt="" width={280} height={260} decoding="async" loading="lazy"/>
           </article>
+          <article className="platform-codenames">
+            <div className="platform-code-art" aria-hidden="true">
+              <img src="/brand/games/codenames-logo.svg" alt="" width={500} height={112} loading="lazy" decoding="async"/>
+              <div className="platform-code-tiles">{['مفتاح','قمر','بحر','قلم','جبل','سر'].map((word,i)=><span key={word} data-color={['red','cream','blue','cream','black','blue'][i]}>{word}</span>)}</div>
+            </div>
+            <div className="platform-thirty-copy">
+              <span className="platform-kicker">كلمات وتلميحات · 6 أطوار</span>
+              <h2>كود نيمز</h2><p>كلمة وحدة… وراها سر!</p>
+              <div className="platform-rounds"><span><Brain size={14}/> تلميحات</span><span><Users size={14}/> فرق</span><span><Eye size={14}/> كشف البطاقات</span></div>
+              <div className="platform-actions">
+                {CODENAMES_URL ? <a href={CODENAMES_URL} className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a> : <button type="button" className="platform-btn platform-btn-yellow" disabled>بانتظار رابط النشر</button>}
+                <button type="button" className="platform-btn platform-btn-cream" onClick={()=>click(()=>setShowCodeRules(true))}>كيف تلعب؟</button>
+              </div>
+            </div>
+          </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
             <button type="button" onClick={() => click(onOpenPdfStudio)}><FileText size={21}/><span>حوّل درس PDF</span><ArrowLeft size={16}/></button>
@@ -112,6 +135,7 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
           <button type="submit" className="platform-btn platform-btn-purple w-full">افتح شاشة العرض</button>
           <a href={THIRTY_URL} className="block text-center text-sm underline text-[#573092]">انضم لتحدي الثلاثين من لعبته</a>
           <a href={KHALF_URL} className="block text-center text-sm underline text-[#573092]">انضم لخلف خلاف من لعبتها</a>
+          {CODENAMES_URL && <a href={CODENAMES_URL} className="block text-center text-sm underline text-[#573092]">انضم لكود نيمز من لعبتها</a>}
         </form>
       </div>}
       {showThirtyRules && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="كيف تلعب تحدي الثلاثين" onClick={() => setShowThirtyRules(false)}>
@@ -127,6 +151,13 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
           <div className="flex justify-between items-center"><h2 className="font-black text-xl">كيف تلعب خلف خلاف؟</h2><button type="button" aria-label="إغلاق" onClick={() => setShowKhalfRules(false)}><X/></button></div>
           <p>اجمع 3–12 لاعبًا، واختار اللعب على جهاز واحد أو غرفة بأجهزة متعددة. كل لاعب يستلم بطاقته بالسر، ثم يتبادل اللاعبون الأسئلة ويصوّتون لاكتشاف المختلف.</p>
           <a href={KHALF_URL} className="platform-btn platform-btn-purple"><Play size={18}/> افتح خلف خلاف</a>
+        </div>
+      </div>}
+      {showCodeRules && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="كيف تلعب كود نيمز" onClick={()=>setShowCodeRules(false)}>
+        <div className="game-card-frame rounded-3xl p-6 w-full max-w-md space-y-4" onClick={e=>e.stopPropagation()}>
+          <div className="flex justify-between items-center"><h2 className="font-black text-xl">كيف تلعب كود نيمز؟</h2><button type="button" aria-label="إغلاق" onClick={()=>setShowCodeRules(false)}><X/></button></div>
+          <p>قسّم اللاعبين إلى فريقين. القائد يعطي تلميحًا من كلمة واحدة وعددًا، والفريق يحاول كشف الكلمات المرتبطة بالتلميح. بالطور الكلاسيكي الفريق الذي يكشف كل بطاقاته أولًا يفوز. انتبهوا من البطاقة السوداء!</p>
+          {CODENAMES_URL && <a href={CODENAMES_URL} className="platform-btn platform-btn-purple"><Play size={18}/> افتح كود نيمز</a>}
         </div>
       </div>}
       {/* How To Play Modal */}
