@@ -29,10 +29,10 @@ function getHoroufUrl(): string | null {
 }
 const HOROUF_URL=getHoroufUrl();
 const preview = [
-  { name: 'كرة القدم', symbol: '⚽', color: '#4788c5' },
-  { name: 'معلومات عامة', symbol: '؟', color: '#ed9e50' },
-  { name: 'تاريخ', symbol: '⌛', color: '#ad80de' },
-  { name: 'علوم', symbol: '⚗', color: '#56bca7' },
+  { name: 'كرة القدم', image: '/assets/category-generated/cat_world_football.webp', color: '#4788c5' },
+  { name: 'معلومات عامة', image: '/assets/category-generated/cat_general.webp', color: '#ed9e50' },
+  { name: 'تاريخ', image: '/assets/category-generated/cat_history.webp', color: '#ad80de' },
+  { name: 'علوم', image: '/assets/category-generated/cat_science.webp', color: '#56bca7' },
 ];
 
 export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLibrary, onOpenSavedMatches, soundEnabled, onToggleSound }: TitleScreenProps) {
@@ -72,7 +72,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
             </div>
             <div className="platform-board" aria-hidden="true">
               {preview.map((category) => <div className="platform-board-col" key={category.name}>
-                <div className="platform-board-category" style={{backgroundColor:category.color}}><b>{category.symbol}</b><span>{category.name}</span></div>
+                <div className="platform-board-category" style={{backgroundColor:category.color}}><img src={category.image} alt="" width={128} height={128} decoding="async"/><span>{category.name}</span></div>
                 {[200,400,600].map(points => <div className="platform-board-points" key={points}>{points}<small>{points===200?'سهل':points===400?'متوسط':'صعب'}</small></div>)}
               </div>)}
             </div>
