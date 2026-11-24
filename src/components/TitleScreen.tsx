@@ -23,7 +23,7 @@ function getCodenamesUrl(): string | null {
 }
 const CODENAMES_URL = getCodenamesUrl();
 function getHoroufUrl(): string | null {
-  try {const url=new URL(import.meta.env.VITE_HOROUF_URL||'');return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;} catch{return null;}
+  try {const url=new URL(import.meta.env.VITE_HOROUF_URL||'https://horouf-1.onrender.com/');return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;} catch{return null;}
 }
 const HOROUF_URL=getHoroufUrl();
 const preview = [
