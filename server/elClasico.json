@@ -22,12 +22,16 @@
   {
     "id": "ELC-003",
     "level": 600,
-    "question": "من انطلق بالكرة من قرب منطقة برشلونة وبدأ هجمة هدف ميسي الأخير في كلاسيكو أبريل 2017؟",
-    "answer": "سيرجي روبيرتو",
-    "explanation": "تؤكد تغطية FC Barcelona — Report 2-3 epic late win هذه المعلومة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/769849",
-    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/GJXXZNVHLZMVHG62GEELGFDWSI.jpg",
-    "imageSourceUrl": "https://cadenaser.com/programa/2017/04/23/el_larguero/1492984350_423243.html"
+    "question": "بعد انطلاقة سيرجي روبيرتو في هجمة هدف ميسي القاتل بكلاسيكو أبريل 2017، من استلم منه الكرة ثم مررها إلى جوردي ألبا؟",
+    "answer": "أندريه غوميش",
+    "explanation": "مرر روبيرتو إلى غوميش، الذي حوّل الكرة إلى ألبا قبل التمريرة الحاسمة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/769849/match-report-real-madrid-2-3-fc-barcelona-epic-late-win-reignites-title-race",
+    "legacyQuestion": {
+      "answer": "سيرجي روبيرتو",
+      "prompt": "من انطلق بالكرة من قرب منطقة برشلونة وبدأ هجمة هدف ميسي الأخير في كلاسيكو أبريل 2017؟",
+      "explanation": "تؤكد تغطية FC Barcelona — Report 2-3 epic late win هذه المعلومة.",
+      "source": "https://www.fcbarcelona.com/en/football/first-team/news/769849"
+    }
   },
   {
     "id": "ELC-004",
@@ -42,12 +46,16 @@
   {
     "id": "ELC-005",
     "level": 600,
-    "question": "في نهائي السوبر الإسباني 2025 (5-2)، من حارس برشلونة الذي طُرد بعد خروجه على مبابي؟",
-    "answer": "فويتشيك تشيزني",
-    "explanation": "تؤكد تغطية RFEF — Super Cup 5-2 هذه المعلومة.",
+    "question": "في نهائي السوبر 2025، من لاعب وسط برشلونة الذي غادر الملعب لصالح داني أولمو قبل دخول إيناكي بينيا؟",
+    "answer": "بيدري",
+    "explanation": "شارك أولمو بدل بيدري قبل دخول الحارس البديل.",
     "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5",
-    "imageUrl": "https://imagenes.elpais.com/resizer/v2/U3E346ZC5BHRPJLXHRJV75KQ3Q.jpg?auth=397a33d67fa589478daa0b869e26ccd0d1ed1bdbfef5555db9d333c1f4002b87&focal=3750%2C2350&height=1470&width=1960",
-    "imageSourceUrl": "https://elpais.com/deportes/futbol/2025-01-13/szczesny-y-su-encuentro-con-mbappe-entierran-el-debate-sobre-la-porteria-en-el-barca.html"
+    "legacyQuestion": {
+      "answer": "فويتشيك تشيزني",
+      "prompt": "في نهائي السوبر الإسباني 2025 (5-2)، من حارس برشلونة الذي طُرد بعد خروجه على مبابي؟",
+      "explanation": "تؤكد تغطية RFEF — Super Cup 5-2 هذه المعلومة.",
+      "source": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5"
+    }
   },
   {
     "id": "ELC-006",
@@ -74,11 +82,12 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://img.allfootballapp.com/www/M00/46/0D/720x-/-/-/rB8CLF0p4i2AXaVSAAEEoz1oCqg102.jpg.webp",
     "imageSourceUrl": "https://m.allfootballapp.com/news/epl/Messi-and-his-partners-in-attack-at-Barcelona%E2%80%A6-with-Griezmann-up-next/1564484",
-    "imageCaption": "صامويل إيتو"
+    "imageCaption": "صامويل إيتو",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-008",
@@ -93,13 +102,16 @@
   {
     "id": "ELC-009",
     "level": 600,
-    "question": "في إياب نصف نهائي دوري الأبطال 2002، من كان مدرب ريال مدريد الذي أقصى برشلونة؟",
-    "answer": "فيسنتي ديل بوسكي",
-    "explanation": "تؤكد تغطية UEFA — Madrid magic beats Barcelona هذه المعلومة.",
-    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/",
-    "imageUrl": "https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2018/03/bosque.jpg?fit=1200%2C827&ssl=1",
-    "imageSourceUrl": "https://thesefootballtimes.co/2018/03/29/nine-trophies-in-342-games-the-colossal-legacy-of-vicente-del-bosque/",
-    "imageCaption": "فيسنتي ديل بوسكي خلال فترته مع ريال مدريد"
+    "question": "في إياب نصف نهائي دوري الأبطال 2002، من مدافع ريال مدريد الذي حوّل كرة خافيير سافيولا إلى مرماه؟",
+    "answer": "إيفان هيلغيرا",
+    "explanation": "حوّل هيلغيرا الكرة إلى مرماه بعد لمسة سافيولا من عرضية كوكو.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0eab04365477-75663a20cb17-1000--madrid-hold-off-brave-barcelona/",
+    "legacyQuestion": {
+      "answer": "فيسنتي ديل بوسكي",
+      "prompt": "في إياب نصف نهائي دوري الأبطال 2002، من كان مدرب ريال مدريد الذي أقصى برشلونة؟",
+      "explanation": "تؤكد تغطية UEFA — Madrid magic beats Barcelona هذه المعلومة.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/"
+    }
   },
   {
     "id": "ELC-010",
@@ -135,13 +147,16 @@
   {
     "id": "ELC-014",
     "level": 600,
-    "question": "من كان مدرب برشلونة عندما سحق ريال مدريد 5-0 في البرنابيو سنة 1974؟",
-    "answer": "رينوس ميخيلس",
-    "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu",
-    "imageUrl": "https://estaticos-cdn.prensaiberica.es/clip/6993146a-52ed-4226-956e-b8d37b94d75c_alta-libre-aspect-ratio_default_0.jpg",
-    "imageSourceUrl": "https://www.sport.es/es/noticias/barca/diez-anos-sin-michels-tecnico-del-historico-0-5-3985031",
-    "imageCaption": "رينوس ميخيلس خلال فترته مع برشلونة"
+    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب الذي سجل الهدفين الأول والثالث؟",
+    "answer": "خوان مانويل أسينسي",
+    "explanation": "سجل أسينسي هدفين، وبينهما سجل كرويف الهدف الثاني.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
+    "legacyQuestion": {
+      "answer": "رينوس ميخيلس",
+      "prompt": "من كان مدرب برشلونة عندما سحق ريال مدريد 5-0 في البرنابيو سنة 1974؟",
+      "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
+      "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu"
+    }
   },
   {
     "id": "ELC-V2-015",
@@ -159,17 +174,24 @@
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-018",
     "level": 600,
-    "question": "من كان مدرب برشلونة في ليلة فوزه 0-4 بالبرنابيو في أكتوبر 2024، وأربك ريال مدريد بخط دفاع متقدم؟",
-    "answer": "هانزي فليك",
-    "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books",
-    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2024/10/26/8fb2bb32-2d14-4839-b271-acb47522b319/671d47db0422d646960472.jpg?height=500&width=800",
-    "imageSourceUrl": "https://www.fcbarcelona.es/es/noticias/4156886/hansi-flick-todo-el-mundo-ha-dado-el-100"
+    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من الحارس الذي حافظ على نظافة شباك برشلونة؟",
+    "answer": "سلفادور مورا",
+    "explanation": "كان مورا حارس برشلونة الأساسي بحسب تشكيلة المباراة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
+    "legacyQuestion": {
+      "answer": "هانزي فليك",
+      "prompt": "من كان مدرب برشلونة في ليلة فوزه 0-4 بالبرنابيو في أكتوبر 2024، وأربك ريال مدريد بخط دفاع متقدم؟",
+      "explanation": "تؤكد تغطية FC Barcelona — Four Clásico wins هذه المعلومة.",
+      "source": "https://www.fcbarcelona.com/en/news/4263446/four-clasico-wins-for-the-history-books"
+    }
   },
   {
     "id": "ELC-V2-019",
@@ -185,8 +207,9 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V2-020",
@@ -223,15 +246,24 @@
     "videoClipEndSeconds": 20,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V2-023",
     "level": 600,
-    "question": "في أي موسم من الدوري الإسباني تألق رونالدينيو ونال تصفيق البرنابيو بعد فوز برشلونة 3-0؟",
-    "answer": "2005/2006",
-    "explanation": "المواجهة في نوفمبر 2005.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
+    "question": "في سداسية برشلونة بالبرنابيو عام 2009، من اللاعب الذي حلّ مكان تييري هنري في الدقيقة 60؟",
+    "answer": "سيدو كيتا",
+    "explanation": "دخل كيتا بدل هنري بحسب تشكيلة المباراة الرسمية.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/noticies/1205417/dese-aniversari-del-2-6-al-bernabeu",
+    "legacyQuestion": {
+      "answer": "2005/2006",
+      "prompt": "في أي موسم من الدوري الإسباني تألق رونالدينيو ونال تصفيق البرنابيو بعد فوز برشلونة 3-0؟",
+      "explanation": "المواجهة في نوفمبر 2005.",
+      "source": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
+    }
   },
   {
     "id": "ELC-V4-CLIP-07",
@@ -249,17 +281,24 @@
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 32ث) تم التحقق من إتاحة التضمين بدون حظر.",
     "videoTitleReviewed": "هدف زيدان ضد برشلونة | دوري الأبطال 2001-2002 (visible title in host screenshot)",
-    "videoSpoilerReview": "Changed the question from the season, which is in the video title, to the stadium, which is not visible in the supplied title."
+    "videoSpoilerReview": "Changed the question from the season, which is in the video title, to the stadium, which is not visible in the supplied title.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-025",
     "level": 600,
-    "question": "في نصف نهائي الأبطال 2011، من لاعب مدريد الذي تلقى البطاقة الحمراء في الذهاب قبل ثنائية ميسي؟",
-    "answer": "بيبي",
-    "explanation": "تؤكد تغطية UEFA — Ten-man Madrid undone by Messi magic هذه المعلومة.",
-    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/",
-    "imageUrl": "https://www.sueddeutsche.de/2022/06/14/69aaec46-d997-4168-bbdd-42db87e61be2.jpeg?fm=jpeg&q=60&rect=0%2C41%2C860%2C484&width=1000",
-    "imageSourceUrl": "https://www.sueddeutsche.de/sport/champions-league-real-barcelona-baeh-wir-machen-nicht-mit-1.1090148"
+    "question": "في إياب نصف نهائي دوري الأبطال 2011، من مدافع برشلونة الذي دخل في الدقائق الأخيرة وسط احتفاء كبير من الجمهور؟",
+    "answer": "إريك أبيدال",
+    "explanation": "عاد أبيدال للمشاركة في ختام المباراة التي تأهل فيها برشلونة.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f1-0e783cc358be-4c3b95d9094c-1000--barcelona-keep-madrid-at-bay-to-reach-final/",
+    "legacyQuestion": {
+      "answer": "بيبي",
+      "prompt": "في نصف نهائي الأبطال 2011، من لاعب مدريد الذي تلقى البطاقة الحمراء في الذهاب قبل ثنائية ميسي؟",
+      "explanation": "تؤكد تغطية UEFA — Ten-man Madrid undone by Messi magic هذه المعلومة.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/"
+    }
   },
   {
     "id": "ELC-V4-CLIP-08",
@@ -275,7 +314,10 @@
     "videoClipEndSeconds": 253,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 03:56 Owen، مدة 385ث) تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 03:56 Owen، مدة 385ث) تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-027",
@@ -290,28 +332,40 @@
   {
     "id": "ELC-V2-028",
     "level": 600,
-    "question": "كم انتهى كلاسيكو ذهاب نصف نهائي دوري أبطال أوروبا 2011 في البرنابيو؟",
-    "answer": "0-2",
-    "explanation": "ريال مدريد 0-2 برشلونة.",
-    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/"
+    "question": "في إياب نصف نهائي دوري الأبطال 2002، من لاعب برشلونة الهولندي الذي أرسل العرضية التي انتهت بهدف إيفان هيلغيرا في مرماه؟",
+    "answer": "فيليب كوكو",
+    "explanation": "أرسل كوكو العرضية التي لمسها سافيولا قبل الهدف العكسي.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0eab04365477-75663a20cb17-1000--madrid-hold-off-brave-barcelona/",
+    "legacyQuestion": {
+      "answer": "0-2",
+      "prompt": "كم انتهى كلاسيكو ذهاب نصف نهائي دوري أبطال أوروبا 2011 في البرنابيو؟",
+      "explanation": "ريال مدريد 0-2 برشلونة.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/"
+    }
   },
   {
     "id": "ELC-V2-029",
     "level": 600,
-    "question": "شاهد هذا الهدف لبرشلونة في نصف نهائي دوري أبطال أوروبا 2011 — من الجناح الإسباني الذي افتتح التسجيل في كامب نو؟",
-    "answer": "بيدرو رودريغيز",
-    "explanation": "سجّل بيدرو رودريغيز هدف التقدم لبرشلونة أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا مايو 2011.",
-    "fact_source_url": "https://en.wikipedia.org/wiki/Pedro_(footballer%2C_born_1987)",
-    "fallbackQuestion": "من جناح برشلونة الذي افتتح التسجيل أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا 2011 في كامب نو؟",
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Bar%C3%A7a_-_Napoli_-_20140806_-_Pedro_Rodriguez_%28cropped%29.jpg/330px-Bar%C3%A7a_-_Napoli_-_20140806_-_Pedro_Rodriguez_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "imageSourceUrl": "https://en.wikipedia.org/wiki/Pedro_(footballer%2C_born_1987)",
-    "imageCaption": "بيدرو رودريغيز — ويكيميديا كومنز",
+    "question": "في إياب نصف نهائي دوري الأبطال 2011، أي لاعب من برشلونة كان يراقب مارسيلو عندما سجل هدف التعادل لريال مدريد؟",
+    "answer": "خافيير ماسكيرانو",
+    "explanation": "سبق مارسيلو ماسكيرانو إلى الكرة وسجل التعادل.",
+    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f1-0e783cc358be-4c3b95d9094c-1000--barcelona-keep-madrid-at-bay-to-reach-final/",
+    "fallbackQuestion": "في إياب نصف نهائي دوري الأبطال 2011، أي لاعب من برشلونة كان يراقب مارسيلو عندما سجل هدف التعادل لريال مدريد؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/yeMWts7-ITs?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "بيدرو رودريغيز",
+      "prompt": "من جناح برشلونة الذي افتتح التسجيل أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا 2011 في كامب نو؟",
+      "explanation": "سجّل بيدرو رودريغيز هدف التقدم لبرشلونة أمام ريال مدريد في إياب نصف نهائي دوري أبطال أوروبا مايو 2011.",
+      "source": "https://en.wikipedia.org/wiki/Pedro_(footballer%2C_born_1987)"
+    }
   },
   {
     "id": "ELC-V2-030",
@@ -352,7 +406,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 01:22 McManaman، مدة 385ث) تم التحقق من التضمين بدون حظر.",
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1395344646079?%24Mobile%24=&fit=wrap&wid=312",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/steven-mcmanaman",
-    "imageCaption": "ستيف ماكمانامان"
+    "imageCaption": "ستيف ماكمانامان",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-13",
@@ -368,7 +425,10 @@
     "videoClipEndSeconds": 1526,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:25:09، مدة 5959ث) تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:25:09، مدة 5959ث) تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V2-034",
@@ -384,10 +444,11 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2023/04/05/000947581W.jpg",
-    "imageSourceUrl": "https://andina.pe/agencia/galeria.aspx?FotoId=947579&GaleriaId=18584"
+    "imageSourceUrl": "https://andina.pe/agencia/galeria.aspx?FotoId=947579&GaleriaId=18584",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V2-035",
@@ -403,10 +464,11 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://a1.eestatic.com/cronicaglobal/2015/02/07/culemania/culemaniacos/culemaniacos_9259318_715762_1706x960.jpg",
-    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html"
+    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-036",
@@ -435,7 +497,10 @@
     "videoClipEndSeconds": 27,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:10 Samuel Eto o، مدة 292ث) تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:10 Samuel Eto o، مدة 292ث) تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-14",
@@ -454,7 +519,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 03:43 Raúl، مدة 385ث) تم التحقق من التضمين بدون حظر.",
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261754?%24Mobile%24=&fit=wrap&wid=312",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
-    "imageCaption": "راؤول غونزاليس"
+    "imageCaption": "راؤول غونزاليس",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-05",
@@ -471,7 +539,10 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع بتعليق عربي عبر يوتيوب (مدة 77ث) تم التحقق من إتاحة تضمينه وتشغيله بدون حظر.",
-    "editorialReview": "Harder match-context question; existing clip retained pending replacement review."
+    "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-040",
@@ -486,17 +557,26 @@
   {
     "id": "ELC-V2-042",
     "level": 600,
-    "question": "شاهد بداية ملخص قمة برشلونة وريال مدريد في يناير 2012 بتعليق رؤوف خليف — في أي بطولة أُقيمت هذه المباراة التي انتهت 2-2؟",
-    "answer": "كأس ملك إسبانيا",
-    "explanation": "انتهى إياب ربع نهائي كأس ملك إسبانيا بتاريخ 25 يناير 2012 بالتعادل 2-2 في كامب نو وتأهل برشلونة بمجموع المباراتين.",
-    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history",
-    "fallbackQuestion": "في أي بطولة تعادل برشلونة وريال مدريد 2-2 في كامب نو بتاريخ 25 يناير 2012 وتأهل برشلونة بمجموع المباراتين؟",
+    "question": "في ذهاب السوبر الإسباني 2012، من سجل هدف ريال مدريد المتأخر الذي قلّص فوز برشلونة إلى 3-2؟",
+    "answer": "أنخيل دي ماريا",
+    "explanation": "سجل دي ماريا هدف ريال مدريد الثاني.",
+    "fact_source_url": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/",
+    "fallbackQuestion": "في ذهاب السوبر الإسباني 2012، من سجل هدف ريال مدريد المتأخر الذي قلّص فوز برشلونة إلى 3-2؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/igV9UcIyEqo?start=0&end=17",
     "videoClipStartSeconds": 0,
     "videoClipEndSeconds": 17,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "كأس ملك إسبانيا",
+      "prompt": "في أي بطولة تعادل برشلونة وريال مدريد 2-2 في كامب نو بتاريخ 25 يناير 2012 وتأهل برشلونة بمجموع المباراتين؟",
+      "explanation": "انتهى إياب ربع نهائي كأس ملك إسبانيا بتاريخ 25 يناير 2012 بالتعادل 2-2 في كامب نو وتأهل برشلونة بمجموع المباراتين.",
+      "source": "https://rfef.es/en/noticias/clasico-cup-final-history"
+    }
   },
   {
     "id": "ELC-043",
@@ -522,7 +602,10 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "editorialReview": "Harder match-context question; existing clip retained pending replacement review."
+    "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-045",
@@ -552,10 +635,11 @@
     "videoTrialEnabled": true,
     "videoTimingEvidence": "1:12:15 Leo Messi chance & Keylor Navas save",
     "editorialReview": "Replace overfamiliar clip with distinct archival moment; official published chapter.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://a1.eestatic.com/cronicaglobal/2015/02/07/culemania/culemaniacos/culemaniacos_9259318_715762_1706x960.jpg",
-    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html"
+    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-047",
@@ -583,7 +667,10 @@
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 00:39 Ronaldo) تم التحقق من إتاحة التضمين والمدة 385ث.",
-    "editorialReview": "Harder match-context question; existing clip retained pending replacement review."
+    "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-049",
@@ -613,11 +700,12 @@
     "videoTrialEnabled": true,
     "videoTimingEvidence": "1:16:16 Alexis Sánchez's goal",
     "editorialReview": "Replace overfamiliar clip with distinct archival moment; official published chapter.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "/assets/questions/football-first-name/cfd218f760f1a71c0c29b023.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi,_Persepolis_vs._Al_Sadd,_20190520_02_(cropped).jpg",
-    "imageCaption": "تشافي هيرنانديز"
+    "imageCaption": "تشافي هيرنانديز",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V2-051",
@@ -630,17 +718,26 @@
   {
     "id": "ELC-V2-052",
     "level": 600,
-    "question": "شاهد هدف ماركو أسينسيو في إياب كأس السوبر الإسباني بتعليق فهد العتيبي — ما النتيجة الإجمالية لمجموع مباراتي الذهاب والإياب التي حسم بها ريال مدريد اللقب؟",
-    "answer": "5-1 لريال مدريد",
-    "explanation": "فاز ريال مدريد 3-1 ذهابًا في كامب نو و2-0 إيابًا في البرنابيو ليتوّج بالسوبر الإسباني 2017 بمجموع 5-1.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news",
-    "fallbackQuestion": "ما النتيجة الإجمالية لمجموع مباراتي الذهاب والإياب في فوز ريال مدريد بكأس السوبر الإسباني 2017 على برشلونة؟",
+    "question": "في إياب السوبر الإسباني 2017، من الظهير الفرنسي الذي شارك بدلاً من ماركو أسينسيو؟",
+    "answer": "ثيو هيرنانديز",
+    "explanation": "شارك ثيو في الدقيقة 75 بدلاً من أسينسيو.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025",
+    "fallbackQuestion": "في إياب السوبر الإسباني 2017، من الظهير الفرنسي الذي شارك بدلاً من ماركو أسينسيو؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/KI48BQF1rwY?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "5-1 لريال مدريد",
+      "prompt": "ما النتيجة الإجمالية لمجموع مباراتي الذهاب والإياب في فوز ريال مدريد بكأس السوبر الإسباني 2017 على برشلونة؟",
+      "explanation": "فاز ريال مدريد 3-1 ذهابًا في كامب نو و2-0 إيابًا في البرنابيو ليتوّج بالسوبر الإسباني 2017 بمجموع 5-1.",
+      "source": "https://www.realmadrid.com/en-US/news"
+    }
   },
   {
     "id": "ELC-V2-053",
@@ -700,15 +797,24 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 06:03 Baptista، مدة 385ث) تم التحقق من التضمين بدون حظر.",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Julio_Baptista.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Julio_Baptista.jpg",
-    "imageCaption": "جوليو بابتيستا"
+    "imageCaption": "جوليو بابتيستا",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V2-058",
     "level": 600,
-    "question": "كم هدفًا سجل ميسي في الكلاسيكو الرسمي خلال فترته في برشلونة؟",
-    "answer": "26",
-    "explanation": "سجل 26 في جميع المسابقات الرسمية.",
-    "fact_source_url": "https://www.laliga.com/en-GB/news/fc-barcelona-vs-real-madrid-statistics"
+    "question": "في ذهاب السوبر الإسباني 2017، من لاعب ريال مدريد الذي خرج ليشارك ماركو أسينسيو قبل تسجيل الهدف الثالث؟",
+    "answer": "ماتيو كوفاتشيتش",
+    "explanation": "دخل أسينسيو بدلاً من كوفاتشيتش في الدقيقة 67.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025",
+    "legacyQuestion": {
+      "answer": "26",
+      "prompt": "كم هدفًا سجل ميسي في الكلاسيكو الرسمي خلال فترته في برشلونة؟",
+      "explanation": "سجل 26 في جميع المسابقات الرسمية.",
+      "source": "https://www.laliga.com/en-GB/news/fc-barcelona-vs-real-madrid-statistics"
+    }
   },
   {
     "id": "ELC-059",
@@ -734,8 +840,9 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V4-CLIP-10",
@@ -752,11 +859,12 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 95ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/sergio-ramos-garcia/assets/1330734572556.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/sergio-ramos-garcia",
-    "imageCaption": "سيرخيو راموس — موقع ريال مدريد الرسمي"
+    "imageCaption": "سيرخيو راموس — موقع ريال مدريد الرسمي",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V2-062",
@@ -771,26 +879,35 @@
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-17",
     "level": 600,
-    "question": "شاهد هذه الركلة الحرة الصاروخية في الكلاسيكو. من الظهير البرازيلي الذي نفّذ التسديدة؟",
-    "answer": "روبيرتو كارلوس",
-    "explanation": "ركلة حرة مباشرة سجلها الظهير الأيسر البرازيلي روبيرتو كارلوس في مرمى برشلونة.",
-    "fact_source_url": "https://www.youtube.com/watch?v=TgFj4lxtvNg&t=3s",
+    "question": "في نهائي كأس الملك 2014، من لاعب ريال مدريد الذي حلّ مكان إيسكو قرب نهاية المباراة؟",
+    "answer": "كاسيميرو",
+    "explanation": "دخل كاسيميرو في الدقيقة 88 بدلاً من إيسكو.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
     "videoUrl": "https://www.youtube-nocookie.com/embed/TgFj4lxtvNg?start=3&end=20",
-    "fallbackQuestion": "من الظهير الأيسر البرازيلي الشهير لريال مدريد الذي عُرف بتسديداته الصاروخية من الركلات الحرة في الكلاسيكو؟",
+    "fallbackQuestion": "في نهائي كأس الملك 2014، من لاعب ريال مدريد الذي حلّ مكان إيسكو قرب نهاية المباراة؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 3,
     "videoClipEndSeconds": 20,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع ركلة حرة لروبيرتو كارلوس عبر يوتيوب (مدة 22ث) تم التحقق من التضمين بدون حظر.",
-    "imageUrl": "https://cdn.mos.cms.futurecdn.net/jCEsmbo49HKLRLqdxTuYpi.jpg",
-    "imageSourceUrl": "https://www.fourfourtwo.com/features/real-madrids-galacticos-remembered-galacticos-zidane-figo-ronaldo-and-roberto-carlos-recall",
-    "imageCaption": "روبيرتو كارلوس"
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "روبيرتو كارلوس",
+      "prompt": "من الظهير الأيسر البرازيلي الشهير لريال مدريد الذي عُرف بتسديداته الصاروخية من الركلات الحرة في الكلاسيكو؟",
+      "explanation": "ركلة حرة مباشرة سجلها الظهير الأيسر البرازيلي روبيرتو كارلوس في مرمى برشلونة.",
+      "source": "https://www.youtube.com/watch?v=TgFj4lxtvNg&t=3s"
+    }
   },
   {
     "id": "ELC-V2-064",
@@ -806,10 +923,11 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "https://a1.eestatic.com/cronicaglobal/2015/02/07/culemania/culemaniacos/culemaniacos_9259318_715762_1706x960.jpg",
-    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html"
+    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-065",
@@ -832,17 +950,26 @@
   {
     "id": "ELC-V2-067",
     "level": 600,
-    "question": "شاهد الهدف السادس لبرشلونة في البرنابيو عام 2009 بتعليق يوسف سيف — من مدرب برشلونة الذي قاد الفريق في تلك السداسية التاريخية؟",
-    "answer": "بيب غوارديولا",
-    "explanation": "قاد المدرب بيب غوارديولا فريق برشلونة في ذلك الانتصار التاريخي 6-2 بالبرنابيو وتُوج بالسداسية عام 2009.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news",
-    "fallbackQuestion": "من مدرب برشلونة الذي قاد الفريق للفوز التاريخي 6-2 في سانتياغو برنابيو في مايو 2009؟",
+    "question": "في سداسية برشلونة بالبرنابيو عام 2009، من البديل الذي دخل مكان يحيى توريه قرب نهاية المباراة؟",
+    "answer": "بويان كركيتش",
+    "explanation": "دخل بويان مكان توريه في الدقيقة 85.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/noticies/1205417/dese-aniversari-del-2-6-al-bernabeu",
+    "fallbackQuestion": "في سداسية برشلونة بالبرنابيو عام 2009، من البديل الذي دخل مكان يحيى توريه قرب نهاية المباراة؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/sJ84UmbJTAw?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "بيب غوارديولا",
+      "prompt": "من مدرب برشلونة الذي قاد الفريق للفوز التاريخي 6-2 في سانتياغو برنابيو في مايو 2009؟",
+      "explanation": "قاد المدرب بيب غوارديولا فريق برشلونة في ذلك الانتصار التاريخي 6-2 بالبرنابيو وتُوج بالسداسية عام 2009.",
+      "source": "https://www.fcbarcelona.com/en/news"
+    }
   },
   {
     "id": "ELC-V2-068",
@@ -855,36 +982,51 @@
   {
     "id": "ELC-V4-CLIP-18",
     "level": 600,
-    "question": "شاهد الهدف السادس لبرشلونة في البرنابيو عام 2009. من المدافع الذي سجل هذا الهدف؟",
-    "answer": "جيرارد بيكيه",
-    "explanation": "هدف جيرارد بيكيه السادس لبرشلونة في الفوز التاريخي 6-2 بالبرنابيو (فصل 0:41 Gerard Piqué).",
-    "fact_source_url": "https://www.youtube.com/watch?v=vqzUHCl1DZ8&t=41s",
+    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب البيروفي الذي اختتم التسجيل؟",
+    "answer": "هوغو سوتيل",
+    "explanation": "كان سوتيل صاحب الهدف الخامس.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
     "videoUrl": "https://www.youtube-nocookie.com/embed/vqzUHCl1DZ8?start=41&end=58",
-    "fallbackQuestion": "من مدافع برشلونة الذي أكمل سداسية فريقه بالهدف السادس في الفوز 6-2 على ريال مدريد بالبرنابيو؟",
+    "fallbackQuestion": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب البيروفي الذي اختتم التسجيل؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 41,
     "videoClipEndSeconds": 58,
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "أرشيف @Replay الرسمي (فصل 0:41 Gerard Piqué، مدة 292ث) تم التحقق من التضمين بدون حظر.",
-    "imageUrl": "https://a1.eestatic.com/cronicaglobal/2015/02/07/culemania/culemaniacos/culemaniacos_9259318_715762_1706x960.jpg",
-    "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html",
-    "imageCaption": "جيرارد بيكيه"
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "جيرارد بيكيه",
+      "prompt": "من مدافع برشلونة الذي أكمل سداسية فريقه بالهدف السادس في الفوز 6-2 على ريال مدريد بالبرنابيو؟",
+      "explanation": "هدف جيرارد بيكيه السادس لبرشلونة في الفوز التاريخي 6-2 بالبرنابيو (فصل 0:41 Gerard Piqué).",
+      "source": "https://www.youtube.com/watch?v=vqzUHCl1DZ8&t=41s"
+    }
   },
   {
     "id": "ELC-V2-070",
     "level": 600,
-    "question": "شاهد بداية ملخص نهائي كأس ملك إسبانيا 2025 بتعليق فارس عوض — ما اسم الملعب الذي استضاف هذا النهائي المثير بين برشلونة وريال مدريد؟",
-    "answer": "لا كارتوخا",
-    "explanation": "استضاف ملعب لا كارتوخا في إشبيلية نهائي كأس ملك إسبانيا 2025 الذي فاز به برشلونة 3-2 بعد وقت إضافي.",
-    "fact_source_url": "https://rfef.es/en/noticias",
-    "fallbackQuestion": "ما اسم الملعب في مدينة إشبيلية الذي استضاف نهائي كأس ملك إسبانيا 2025 بين برشلونة وريال مدريد؟",
+    "question": "من حكم نهائي كأس ملك إسبانيا 2025 الذي حسمه برشلونة في الوقت الإضافي أمام ريال مدريد؟",
+    "answer": "ريكاردو دي بورغوس بينغويتشيا",
+    "explanation": "أدار دي بورغوس بينغويتشيا المباراة بحسب تقرير الاتحاد الإسباني.",
+    "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-crowned-cup-kings-in-classic-encounter",
+    "fallbackQuestion": "من حكم نهائي كأس ملك إسبانيا 2025 الذي حسمه برشلونة في الوقت الإضافي أمام ريال مدريد؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/Pz7Zj1Wfocw?start=0&end=17",
     "videoClipStartSeconds": 0,
     "videoClipEndSeconds": 17,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "لا كارتوخا",
+      "prompt": "ما اسم الملعب في مدينة إشبيلية الذي استضاف نهائي كأس ملك إسبانيا 2025 بين برشلونة وريال مدريد؟",
+      "explanation": "استضاف ملعب لا كارتوخا في إشبيلية نهائي كأس ملك إسبانيا 2025 الذي فاز به برشلونة 3-2 بعد وقت إضافي.",
+      "source": "https://rfef.es/en/noticias"
+    }
   },
   {
     "id": "ELC-V3-VIDEO-01",
@@ -901,8 +1043,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1574ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-02",
@@ -919,8 +1062,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة SSC الرياضية بتعليق فارس عوض على يوتيوب (مدة 544ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-03",
@@ -937,8 +1081,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي (عصام الشوالي، مدة 93ث) على يوتيوب تم التحقق من إتاحة التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-04",
@@ -955,8 +1100,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1077ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-05",
@@ -973,7 +1119,10 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي على يوتيوب (مدة 124ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "editorialReview": "Harder match-context question; existing clip retained pending replacement review."
+    "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-VIDEO-06",
@@ -990,8 +1139,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة SSC الرياضية على يوتيوب (تعليق عربي، مدة 1301ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-07",
@@ -1008,8 +1158,9 @@
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 00:58 0-1 Mbappé، مدة 190ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-08",
@@ -1026,8 +1177,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (مدة 180ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-09",
@@ -1044,23 +1196,35 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (مدة 183ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "editorialReview": "Harder match-context question; existing clip retained pending replacement review."
+    "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-VIDEO-10",
     "level": 600,
-    "question": "شاهد أرشيف الكلاسيكو القديم. كم هدفًا سجّل برشلونة بعد انتهاء الشوط الأول في هذه المواجهة (1994)؟",
-    "answer": "4",
-    "explanation": "8 يناير 1994: انتهى الشوط الأول 1-0 ثم سجل برشلونة أربعة أهداف أخرى ليفوز 5-0.",
-    "fact_source_url": "https://www.youtube.com/watch?v=S0bgxnX97Vk&t=0s",
+    "question": "في خماسية برشلونة أمام ريال مدريد في يناير 1994، من سجل الهدف الخامس بعد ثلاثية روماريو وهدف كومان؟",
+    "answer": "إيفان إغليسياس",
+    "explanation": "أكمل إغليسياس الخماسية بعد الأهداف الأربعة الأولى.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/club/news/969544/25-aos-del-50-al-real-madrid-en-el-camp-nou",
     "videoUrl": "https://www.youtube-nocookie.com/embed/S0bgxnX97Vk?start=0&end=17",
-    "fallbackQuestion": "في خماسية برشلونة أمام ريال مدريد بقيادة كرويف في يناير 1994، سجّل روماريو هدف التقدم قبل الاستراحة. كم هدفًا سجّل برشلونة في الشوط الثاني؟",
+    "fallbackQuestion": "في خماسية برشلونة أمام ريال مدريد في يناير 1994، من سجل الهدف الخامس بعد ثلاثية روماريو وهدف كومان؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 0,
     "videoClipEndSeconds": 17,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "قناة برشلونة الرسمية (ملخص 1993/94، مدة 215ث) تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "قناة برشلونة الرسمية (ملخص 1993/94، مدة 215ث) تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "4",
+      "prompt": "في خماسية برشلونة أمام ريال مدريد بقيادة كرويف في يناير 1994، سجّل روماريو هدف التقدم قبل الاستراحة. كم هدفًا سجّل برشلونة في الشوط الثاني؟",
+      "explanation": "8 يناير 1994: انتهى الشوط الأول 1-0 ثم سجل برشلونة أربعة أهداف أخرى ليفوز 5-0.",
+      "source": "https://www.youtube.com/watch?v=S0bgxnX97Vk&t=0s"
+    }
   },
   {
     "id": "ELC-V3-VIDEO-11",
@@ -1077,21 +1241,22 @@
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "ملخص مباراة 0-3 الكلاسيكو على يوتيوب (فصل 06:45، مدة 613ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
     "imageUrl": "/assets/questions/football-first-name/3ba31c4c7434a929d4be072d.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg",
-    "imageCaption": "أندريس إنييستا — ويكيميديا كومنز"
+    "imageCaption": "أندريس إنييستا — ويكيميديا كومنز",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-12",
     "level": 600,
-    "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أبريل 2016 الذي طُرد فيه راموس، من لاعب ريال مدريد الذي سجل هدف التعادل قبل الطرد؟",
-    "answer": "كريم بنزيما",
-    "explanation": "بنزيما سجل التعادل قبل طرد راموس ثم هدف فوز رونالدو.",
-    "fact_source_url": "https://www.worldfootball.net/match-report/co97/spain-primera-division/ma2440641/fc-barcelona_real-madrid/live-commentary/",
+    "question": "في إياب السوبر الإسباني 2012، من دخل مكان أنخيل دي ماريا قبل مشاركة مودريتش بدقائق؟",
+    "answer": "خوسيه كاييخون",
+    "explanation": "شارك كاييخون بدلاً من دي ماريا في الدقيقة 79.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/se-cumplen-12-anos-de-la-novena-supercopa-de-espana-29-08-2024",
     "videoUrl": "https://www.youtube-nocookie.com/embed/U_ECD9roYXk?start=6065&end=6082",
-    "fallbackQuestion": "في كلاسيكو أبريل 2016 الذي طُرد فيه راموس، من لاعب ريال مدريد الذي سجل هدف التعادل قبل الطرد؟",
+    "fallbackQuestion": "في إياب السوبر الإسباني 2012، من دخل مكان أنخيل دي ماريا قبل مشاركة مودريتش بدقائق؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 6065,
     "videoClipEndSeconds": 6082,
@@ -1101,10 +1266,15 @@
     "videoTrialEnabled": true,
     "videoTimingEvidence": "1:41:05 Sergio Ramos red card (second yellow)",
     "editorialReview": "Replace overfamiliar clip with distinct archival moment; official published chapter.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected.",
-    "imageUrl": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2023/04/05/000947581W.jpg",
-    "imageSourceUrl": "https://andina.pe/agencia/galeria.aspx?FotoId=947579&GaleriaId=18584"
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false,
+    "legacyQuestion": {
+      "answer": "كريم بنزيما",
+      "prompt": "في كلاسيكو أبريل 2016 الذي طُرد فيه راموس، من لاعب ريال مدريد الذي سجل هدف التعادل قبل الطرد؟",
+      "explanation": "بنزيما سجل التعادل قبل طرد راموس ثم هدف فوز رونالدو.",
+      "source": "https://www.worldfootball.net/match-report/co97/spain-primera-division/ma2440641/fc-barcelona_real-madrid/live-commentary/"
+    }
   },
   {
     "id": "ELC-V3-VIDEO-13",
@@ -1121,8 +1291,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هاتريك بنزيما بتعليق عربي عبر يوتيوب (مدة 53ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-VIDEO-14",
@@ -1139,8 +1310,9 @@
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 00:31 Goal Mbappé، مدة 143ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-HIST-01",
@@ -1158,7 +1330,10 @@
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-HIST-02",
@@ -1176,7 +1351,10 @@
     "videoClipEndSeconds": 29,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-03",
@@ -1192,7 +1370,10 @@
     "videoClipEndSeconds": 17,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "ملخص مباراة بتعليق عربي (فهد العتيبي، مدة 563ث) عبر يوتيوب تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "ملخص مباراة بتعليق عربي (فهد العتيبي، مدة 563ث) عبر يوتيوب تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V4-CLIP-02",
@@ -1212,8 +1393,9 @@
     "videoTrialEnabled": true,
     "videoTimingEvidence": "19:49 Khedira's goal",
     "editorialReview": "Replace overfamiliar clip with distinct archival moment; official published chapter.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-HIST-05",
@@ -1237,7 +1419,10 @@
     "videoClipEndSeconds": 32,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "مقطع هدف بتعليق عربي (فهد العتيبي، مدة 84ث) عبر يوتيوب تم التحقق من التضمين بدون حظر."
+    "videoRightsNote": "مقطع هدف بتعليق عربي (فهد العتيبي، مدة 84ث) عبر يوتيوب تم التحقق من التضمين بدون حظر.",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-HIST-07",
@@ -1264,7 +1449,10 @@
     "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 98ث) تم التحقق من إتاحة التضمين بدون حظر.",
     "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_(cropped).jpg",
-    "imageCaption": "أندريس إنييستا"
+    "imageCaption": "أندريس إنييستا",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-HIST-09",
@@ -1304,8 +1492,9 @@
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V3-HIST-13",
@@ -1331,7 +1520,10 @@
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
   },
   {
     "id": "ELC-V3-HIST-15",
@@ -1352,17 +1544,26 @@
   {
     "id": "ELC-V3-HIST-17",
     "level": 600,
-    "question": "شاهد هذا الهدف لليونيل ميسي بصوت عصام الشوالي — كم هاتريك رسميًا سجّله ميسي في مواجهات الكلاسيكو بمسيرته مع برشلونة؟",
-    "answer": "2",
-    "explanation": "سجّل ليونيل ميسي هاتريك مرتين في الكلاسيكو: أولهما في التعادل 3-3 عام 2007 والثاني في الفوز 4-3 عام 2014.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news",
-    "fallbackQuestion": "كم هاتريك رسميًا سجّل ليونيل ميسي في مواجهات الكلاسيكو خلال مسيرته مع برشلونة؟",
+    "question": "في نهائي كأس الملك 2014، من لاعب وسط ريال مدريد الذي شارك بدلاً من دي ماريا في الدقائق الأخيرة؟",
+    "answer": "آسيير إيارامندي",
+    "explanation": "دخل إيارامندي بدلاً من دي ماريا في الدقيقة 86.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
+    "fallbackQuestion": "في نهائي كأس الملك 2014، من لاعب وسط ريال مدريد الذي شارك بدلاً من دي ماريا في الدقائق الأخيرة؟",
     "videoUrl": "https://www.youtube-nocookie.com/embed/XhRxsKxeYeE?start=15&end=32",
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
     "videoClipDurationSeconds": 17,
     "videoPlaybackVerified": true,
-    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window)."
+    "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
+    "videoContentReviewed": false,
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "legacyQuestion": {
+      "answer": "2",
+      "prompt": "كم هاتريك رسميًا سجّل ليونيل ميسي في مواجهات الكلاسيكو خلال مسيرته مع برشلونة؟",
+      "explanation": "سجّل ليونيل ميسي هاتريك مرتين في الكلاسيكو: أولهما في التعادل 3-3 عام 2007 والثاني في الفوز 4-3 عام 2014.",
+      "source": "https://www.fcbarcelona.com/en/news"
+    }
   },
   {
     "id": "ELC-V4-CLIP-19",
@@ -1379,33 +1580,47 @@
     "videoTimingStatus": "published_chapter",
     "videoPlaybackVerified": true,
     "videoRightsNote": "أرشيف @Replay الرسمي (فصل 02:34 Andrés Iniesta 2013/14، مدة 292ث) تم التحقق من التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false
   },
   {
     "id": "ELC-V4-CLIP-20",
     "level": 600,
-    "question": "شاهد اللقطة، ثم أجب: في السوبر الإسباني 2012، من كان مدرب برشلونة في مواجهة ريال مدريد بعد رحيل غوارديولا؟",
-    "answer": "تيتو فيلانوفا",
-    "explanation": "قاد فيلانوفا برشلونة في السوبر الإسباني 2012.",
-    "fact_source_url": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/",
+    "question": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي خرج ليشارك نيلسون سيميدو بدلاً منه؟",
+    "answer": "جيرارد بيكيه",
+    "explanation": "شارك سيميدو بدل بيكيه في الدقيقة 50.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025",
     "videoUrl": "https://www.youtube-nocookie.com/embed/gOS8EskGuFQ?start=15&end=32",
-    "fallbackQuestion": "في السوبر الإسباني 2012، من كان مدرب برشلونة في مواجهة ريال مدريد بعد رحيل غوارديولا؟",
+    "fallbackQuestion": "في إياب السوبر الإسباني 2017، من لاعب برشلونة الذي خرج ليشارك نيلسون سيميدو بدلاً منه؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 15,
     "videoClipEndSeconds": 32,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 85ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "spoilerReviewStatus": "context_question_edited_visual_audio_review_pending",
-    "spoilerReviewNote": "Changed from a directly visible or announced fact to another event in the same match; clip retained. Full footage not inspected."
+    "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "videoContentReviewed": false,
+    "legacyQuestion": {
+      "answer": "تيتو فيلانوفا",
+      "prompt": "في السوبر الإسباني 2012، من كان مدرب برشلونة في مواجهة ريال مدريد بعد رحيل غوارديولا؟",
+      "explanation": "قاد فيلانوفا برشلونة في السوبر الإسباني 2012.",
+      "source": "https://www.uefa.com/news-media/news/0200-0f8815018db6-89f2da3655f0-1000--barcelona-earn-slender-spanish-super-cup-lead/"
+    }
   },
   {
     "id": "ELC-V3-HIST-20",
     "level": 600,
-    "question": "ما اسم الدور الذي لعب فيه ميسي عندما غيّر غوارديولا تمركزه في كلاسيكو مايو 2009؟",
-    "answer": "المهاجم الوهمي (رقم 9 وهمي)",
-    "explanation": "انتقل إلى العمق في مباراة 6-2.",
-    "fact_source_url": "https://www.fcbarcelona.es/es/barca-play/videos/835916/real-madrid-2-fc-barcelona-6-2008-2009"
+    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من سجّل الهدف الرابع بين هدفي أسينسي وسوتيل في الشوط الثاني؟",
+    "answer": "خوان كارلوس",
+    "explanation": "سجل خوان كارلوس رابع أهداف برشلونة في تلك المباراة.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
+    "legacyQuestion": {
+      "answer": "المهاجم الوهمي (رقم 9 وهمي)",
+      "prompt": "ما اسم الدور الذي لعب فيه ميسي عندما غيّر غوارديولا تمركزه في كلاسيكو مايو 2009؟",
+      "explanation": "انتقل إلى العمق في مباراة 6-2.",
+      "source": "https://www.fcbarcelona.es/es/barca-play/videos/835916/real-madrid-2-fc-barcelona-6-2008-2009"
+    }
   }
 ]

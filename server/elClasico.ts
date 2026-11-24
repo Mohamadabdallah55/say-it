@@ -5,10 +5,10 @@ import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import rows from './elClasico.json';
 import { existsSync } from 'node:fs';
 
-type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean; videoTrialEnabled?: boolean };
+type VideoRow = { id: string; videoUrl?: string; fallbackQuestion?: string; videoRightsNote?: string; videoPlaybackVerified?: boolean; videoTrialEnabled?: boolean; videoContentReviewed?: boolean; legacyQuestion?: { answer: string; prompt: string; explanation?: string; source?: string } };
 export function approvedClasicoVideo(row: VideoRow): string | undefined {
   const src = row.videoUrl;
-  if (!src) return;
+  if (!src || row.videoContentReviewed !== true) return;
   if (src === `/assets/questions/el-clasico/${row.id}.mp4`) {
     return existsSync(new URL('../public' + src, import.meta.url)) ? src : undefined;
   }
@@ -55,7 +55,7 @@ export const EL_CLASICO_QUESTIONS = rows.map((row): QuizQuestion => {
     prompt: videoUrl ? row.question : (media.fallbackQuestion || row.question),
     answer: row.answer,
     explanation: row.explanation,
-    sourceRef: media.videoUrl ? undefined : row.fact_source_url,
+    sourceRef: videoUrl ? undefined : row.fact_source_url,
     videoUrl,
     imageUrl: row.imageUrl,
     imageSourceUrl: row.imageSourceUrl,
@@ -65,13 +65,17 @@ export const EL_CLASICO_QUESTIONS = rows.map((row): QuizQuestion => {
   };
 });
 const questionsById = new Map(EL_CLASICO_QUESTIONS.map(question => [question.id, question]));
+const rowsById = new Map(rows.map(row => [row.id, row as typeof row & VideoRow]));
 export function refreshElClasicoPhotos(room: RoomState): RoomState {
   return refreshSavedCuratedQuestions(room, EL_CLASICO_CATEGORY.id, question => {
     const updated = question.categoryId === EL_CLASICO_CATEGORY.id && questionsById.get(question.id);
     if (!updated) return question;
     // Keep answer and score from the saved match. Only change prompt if the answer has not changed.
     const sameAnswer = question.answer === updated.answer;
-    if (!sameAnswer) return { ...question, videoUrl: undefined };
+    if (!sameAnswer) {
+      const legacy = rowsById.get(question.id)?.legacyQuestion;
+      return { ...question, videoUrl: undefined, ...(legacy?.answer === question.answer ? { prompt: legacy.prompt, explanation: legacy.explanation, sourceRef: legacy.source } : {}) };
+    }
     return {
       ...question,
       ...(sameAnswer ? { prompt: updated.prompt, videoUrl: updated.videoUrl, sourceRef: updated.sourceRef } : question.id === 'ELC-V4-CLIP-07' ? { videoUrl: undefined } : {}),

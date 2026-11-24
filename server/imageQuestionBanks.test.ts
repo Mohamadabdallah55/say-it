@@ -234,21 +234,8 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   assert.equal(EL_CLASICO_QUESTIONS.length, 100);
   assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
-  assert.equal(clips.length, 54);
-  assert.deepEqual([200, 400, 600].map(points => clips.filter(q => q.points === points).length), [18, 18, 18]);
-  assert.equal(new Set(clips.map(q => q.videoUrl)).size, 54);
-  for (const q of clips) {
-    assert.ok(q.videoUrl?.startsWith('https://www.youtube-nocookie.com/embed/') || q.videoUrl === `/assets/questions/el-clasico/${q.id}.mp4`);
-    if (q.videoUrl?.startsWith('https://')) {
-      const parsed = new URL(q.videoUrl);
-      const start = Number(parsed.searchParams.get('start'));
-      const end = Number(parsed.searchParams.get('end'));
-      assert.ok(Number.isInteger(start) && start >= 0);
-      assert.equal(end - start, 17);
-    }
-    if (q.videoUrl?.startsWith('/')) assert.ok(readFileSync(new URL(`../public${q.videoUrl}`, import.meta.url)).length > 0);
-  }
-  assert.ok(clips.every(q => /^شاهد/.test(q.prompt)));
+  assert.equal(clips.length, 0, 'Unreviewed clips must not play');
+  assert.ok(EL_CLASICO_QUESTIONS.every(q => !/^شاهد/.test(q.prompt)));
 
   const previousBank = EL_CLASICO_QUESTIONS.map(q => ({
     ...q, imageUrl: undefined, imageSourceUrl: undefined, imageDisplay: undefined,
@@ -273,7 +260,8 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   assert.equal(revealed?.imageSourceUrl, question.imageSourceUrl);
 
   const videoClipQuestion = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V4-CLIP-15')!;
-  assert.ok(videoClipQuestion.videoUrl && videoClipQuestion.imageUrl);
+  assert.equal(videoClipQuestion.videoUrl, undefined);
+  assert.ok(videoClipQuestion.imageUrl);
   const videoFirstBank = [videoClipQuestion, ...EL_CLASICO_QUESTIONS.filter(q => q.id !== videoClipQuestion.id)];
   const videoDeck = buildBoardDeckFromCategories(
     ['cat_general', 'cat_science', EL_CLASICO_CATEGORY.id], undefined, videoFirstBank,
@@ -414,50 +402,31 @@ test('general knowledge pictures remain hidden until reveal even for legacy imag
   assert.equal(revealed?.beforeImageUrls, undefined);
 });
 
- test('Clasico rejects unapproved external streams and missing local files', () => {
-  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?start=0' }), undefined);
-  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: '/assets/questions/el-clasico/ELC-test.mp4' }), undefined);
-  const permitted = approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=999', videoPlaybackVerified: true, videoRightsNote: 'test fixture' });
-  assert.equal(permitted, 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=27');
+test('Clasico requires exact footage/audio review in addition to playback approval', () => {
+  const url = 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=999';
+  const row = { id: 'ELC-test', videoUrl: url, videoPlaybackVerified: true, videoRightsNote: 'test fixture' };
+  assert.equal(approvedClasicoVideo(row), undefined);
+  assert.equal(approvedClasicoVideo({...row, videoContentReviewed:true}), 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=27');
+  assert.equal(approvedClasicoVideo({...row, videoContentReviewed:true, videoPlaybackVerified:false}), undefined);
+  assert.equal(approvedClasicoVideo({id:'ELC-test',videoUrl:'/assets/questions/el-clasico/ELC-test.mp4',videoContentReviewed:true}), undefined);
 });
 
-test('Clasico Dailymotion source requires explicit approval and normalizes its 17-second window', () => {
-  const url = 'https://www.dailymotion.com/video/x3ez67v?start=35&end=90';
-  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: url }), undefined);
-  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: url, videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), 'https://www.dailymotion.com/video/x3ez67v?start=35&end=52');
-  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.dailymotion.com/video/x3ez67v', videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), undefined);
+test('Clasico Dailymotion requires content review and normalizes the 17-second window', () => {
+  const row = { id:'ELC-test', videoUrl:'https://www.dailymotion.com/video/x3ez67v?start=35&end=90', videoPlaybackVerified:true, videoRightsNote:'test fixture' };
+  assert.equal(approvedClasicoVideo(row),undefined);
+  assert.equal(approvedClasicoVideo({...row,videoContentReviewed:true}), 'https://www.dailymotion.com/video/x3ez67v?start=35&end=52');
+  assert.equal(approvedClasicoVideo({...row,videoContentReviewed:true,videoUrl:'https://www.dailymotion.com/video/x3ez67v'}),undefined);
 });
 
-test('Zidane video asks about the stadium rather than the season displayed in its title', () => {
-  const question = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V4-CLIP-07')!;
-  assert.equal(question.answer, 'كامب نو');
-  assert.match(question.prompt, /الملعب/);
-  assert.equal(question.points, 400);
-});
-
-test('Clasico revised clips avoid repeated famous scorer and obvious team questions', () => {
-  const expected = {"ELC-V4-CLIP-05":"فاندرلي لوكسمبورغو","ELC-V4-CLIP-06":"فرانك ريكارد","ELC-V2-044":"غونزالو هيغواين","ELC-V3-VIDEO-05":"فيرمين لوبيز","ELC-V3-VIDEO-09":"لوكاس فاسكيز"};
-  for (const [id, answer] of Object.entries(expected)) {
-    const q=EL_CLASICO_QUESTIONS.find(q=>q.id===id);
-    assert.equal(q?.answer, answer);
-    assert.ok(q?.videoUrl);
-  }
-});
-
-test('chapter-indexed archive clips are enabled only as explicit official-source trials', () => {
-  const row = {id:'ELC-test',videoUrl:'https://www.youtube-nocookie.com/embed/iOIR4TDo-qM?start=1189',videoRightsNote:'official public source',fallbackQuestion:'سؤال مستقل',videoTrialEnabled:true,videoPlaybackVerified:false};
-  assert.equal(approvedClasicoVideo(row), 'https://www.youtube-nocookie.com/embed/iOIR4TDo-qM?start=1189&end=1206');
-  assert.equal(approvedClasicoVideo({...row,videoTrialEnabled:false}),undefined);
-  assert.equal(approvedClasicoVideo({...row,videoUrl:'https://www.youtube-nocookie.com/embed/abcdefghijk?start=0'}),undefined);
-});
-
-test('Clasico spoiler-risk revisions retain video and ask a separate match-context question', () => {
-  const expected = {"ELC-007":"صامويل إيتو","ELC-V2-019":"100 نقطة","ELC-V2-034":"كريم بنزيما","ELC-V2-035":"جيرارد بيكيه","ELC-V4-CLIP-01":"تشافي هيرنانديز","ELC-V4-CLIP-02":"سيسك فابريغاس","ELC-V4-CLIP-04":"جيرارد بيكيه","ELC-V4-CLIP-10":"سيرخيو راموس","ELC-V2-060":"9","ELC-V2-064":"جيرارد بيكيه","ELC-V3-VIDEO-01":"رونالد أراوخو","ELC-V3-VIDEO-02":"رونالد أراوخو","ELC-V3-VIDEO-03":"خوسيه مانويل بينتو","ELC-V3-VIDEO-04":"غافي","ELC-V3-VIDEO-06":"أوريلين تشواميني","ELC-V3-VIDEO-07":"رودريغو","ELC-V3-VIDEO-08":"كيبا أريزابالاغا","ELC-V3-VIDEO-12":"كريم بنزيما","ELC-V3-VIDEO-13":"أوريلين تشواميني","ELC-V3-VIDEO-14":"بيدري","ELC-V3-HIST-12":"آرثر ميلو","ELC-V4-CLIP-19":"أنخيل دي ماريا","ELC-V4-CLIP-20":"تيتو فيلانوفا","ELC-V3-VIDEO-11":"أندريس إنييستا"};
+test('Clasico harder questions have independent text prompts and retain their tier', () => {
+  const expected = {"ELC-003":"أندريه غوميش","ELC-009":"إيفان هيلغيرا","ELC-V2-058":"ماتيو كوفاتشيتش","ELC-V2-067":"بويان كركيتش","ELC-V3-VIDEO-10":"إيفان إغليسياس"};
   for (const [id, answer] of Object.entries(expected)) {
     const q = EL_CLASICO_QUESTIONS.find(q => q.id === id);
     assert.equal(q?.answer, answer);
-    assert.ok(q?.videoUrl);
-    assert.match(q?.prompt ?? '', /^شاهد اللقطة، ثم أجب:/);
+    assert.equal(q?.points, 600);
+    assert.ok(q?.sourceRef);
+    assert.equal(q?.videoUrl, undefined);
+    assert.doesNotMatch(q?.prompt ?? '', /^شاهد/);
   }
 });
 
