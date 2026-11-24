@@ -1002,6 +1002,7 @@ ${excerpt}`;
     questions?: RawGeminiQuestion[];
   }>({
     contents: buildMultimodalContents(prompt, categoryVisuals),
+    constrainLocalSchema: true,
     contextLabel: `توليد أسئلة الفئة ${params.categoryNumber} من ${params.totalCategories} (${params.categoryPlan.name})`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
@@ -1190,6 +1191,7 @@ ${excerpt}`;
     slots?: Array<RawGeminiQuestion & { categoryId?: string }>;
   }>({
     contents: buildMultimodalContents(prompt, batchVisuals),
+    constrainLocalSchema: true,
     contextLabel: `التحقق الذاتي واستكمال ${params.missingSlots.length} خانة ناقصة`,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
