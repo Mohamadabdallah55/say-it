@@ -669,7 +669,11 @@ async function startServer() {
     }
   });
 
-  // --- AI Game Assistant & Referee ("نبيه — مساعد وحكم يمكن هاي") ---
+  // --- Nashmi assistant (separate from PDF/local AI) ---
+  app.get('/api/assistant/status', (_req, res) => {
+    res.set('Cache-Control', 'no-store');
+    res.json({ configured: Buffer.byteLength(process.env.NASHMI_SHARED_SECRET || '') >= 32, provider: 'nashmi_gemini', ollamaFallback: false });
+  });
   app.post('/api/assistant/chat', async (req, res) => {
     try {
       const { message, history, roomContext } = req.body as {

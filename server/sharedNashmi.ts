@@ -21,7 +21,10 @@ export async function askSharedNashmi(params: {
     body: JSON.stringify({ game: 'yemken_hay', kind: params.kind, message: params.message, systemInstruction: params.systemInstruction }),
     signal: AbortSignal.timeout(params.timeoutMs),
   });
-  if (!response.ok) throw new Error('Shared assistant temporarily unavailable.');
+  if (!response.ok) {
+    console.warn('[Nashmi bridge] upstream HTTP', response.status);
+    throw new Error('Shared assistant temporarily unavailable.');
+  }
   const data = await response.json() as { reply?: unknown };
   if (typeof data.reply !== 'string' || !data.reply.trim()) throw new Error('Empty shared assistant reply.');
   return data.reply;
