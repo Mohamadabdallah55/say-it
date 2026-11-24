@@ -1,14 +1,5 @@
 import { useState } from 'react';
-import {
-  BookOpen,
-  Crown,
-  FileText,
-  FolderArchive,
-  Play,
-  RefreshCw,
-  Sparkles,
-  X,
-} from 'lucide-react';
+import { BookOpen, DoorOpen, FileText, FolderArchive, Play, X, Zap, Timer, Bell, Brain, ArrowLeft } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 import { GameLogo } from './GameLogo';
 import { TopNavHeader } from './TopNavHeader';
@@ -22,275 +13,99 @@ interface TitleScreenProps {
   onToggleSound: () => void;
 }
 
-const SHOWCASE_SAMPLES = [
-  {
-    category: 'رياضة',
-    prompt: 'كم عدد لاعبي الفريق الواحد داخل ملعب كرة القدم؟',
-    answer: '11 لاعبًا',
-  },
-  {
-    category: 'التاريخ الإسلامي',
-    prompt: 'في أي سنة هجرية وقع صلح الحديبية بين المسلمين وقريش؟',
-    answer: 'السنة السادسة للهجرة',
-  },
-  {
-    category: 'علوم',
-    prompt: 'ما الغاز الذي تمتصه النباتات للقيام بعملية البناء الضوئي؟',
-    answer: 'ثاني أكسيد الكربون',
-  },
+const THIRTY_URL = 'https://three0s-guai.onrender.com/';
+const preview = [
+  { name: 'كرة القدم', symbol: '⚽', color: '#4788c5' },
+  { name: 'معلومات عامة', symbol: '؟', color: '#ed9e50' },
+  { name: 'تاريخ', symbol: '⌛', color: '#ad80de' },
+  { name: 'علوم', symbol: '⚗', color: '#56bca7' },
 ];
 
-export function TitleScreen({
-  onStartQuick,
-  onOpenPdfStudio,
-  onOpenLibrary,
-  onOpenSavedMatches,
-  soundEnabled,
-  onToggleSound,
-}: TitleScreenProps) {
-  const [sampleIdx, setSampleIdx] = useState(0);
-  const [answerRevealed, setAnswerRevealed] = useState(true);
+export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOpenSavedMatches, soundEnabled, onToggleSound }: TitleScreenProps) {
   const [showHowToPlay, setShowHowToPlay] = useState(false);
-
-  const currentSample = SHOWCASE_SAMPLES[sampleIdx];
-
-  const handleToggleSampleAnswer = () => {
-    soundFX.playReveal();
-    setAnswerRevealed((prev) => !prev);
+  const [showThirtyRules, setShowThirtyRules] = useState(false);
+  const [showJoin, setShowJoin] = useState(false);
+  const [roomCode, setRoomCode] = useState('');
+  const [joinError, setJoinError] = useState('');
+  const click = (action: () => void) => { soundFX.playClick(); action(); };
+  const join = () => {
+    const code = roomCode.trim().toUpperCase();
+    if (!/^[A-Z0-9]{4,12}$/.test(code)) { setJoinError('تأكد من رمز الغرفة.'); return; }
+    const target = new URL(window.location.origin);
+    target.searchParams.set('room', code);
+    target.searchParams.set('role', 'projector');
+    window.location.assign(target.toString());
   };
-
-  const handleNextSample = () => {
-    soundFX.playClick();
-    setSampleIdx((prev) => (prev + 1) % SHOWCASE_SAMPLES.length);
-    setAnswerRevealed(false);
-  };
-
   return (
-    <div className="game-title min-h-screen w-full bg-[#240E35] flex flex-col justify-between">
-      {/* Unified Dark Plum Top Navbar */}
-      <TopNavHeader
-        activePage="title"
-        soundEnabled={soundEnabled}
-        onToggleSound={onToggleSound}
-        onHome={() => {}}
-        onStartQuick={onStartQuick}
-        onOpenPdfStudio={onOpenPdfStudio}
-        onOpenLibrary={onOpenLibrary}
-        onOpenSavedMatches={onOpenSavedMatches}
-      />
-
-      {/* Expanded Golden Halftone Banner + Bottom Mode Switcher */}
-      <div className="flex-1 flex flex-col items-center justify-between px-2.5 sm:px-4 lg:px-6 py-2.5 sm:py-4 gap-3.5">
-        <div className="w-full max-w-[1520px] flex-1 flex flex-col justify-between hero-halftone-stage border-[3px] border-[#1F112E] rounded-[28px] shadow-[0_8px_0_#12061D] p-5 sm:p-8 lg:px-12 lg:py-9">
-          <div className="opening-glints" aria-hidden="true">
-            <Sparkles />
-            <Sparkles />
-            <Sparkles />
-          </div>
-          {/* Clean Top Corner Control inside Banner (matching reference screenshot) */}
-          <div className="flex items-center justify-start mb-3">
-            <button
-              type="button"
-              onClick={() => {
-                soundFX.playClick();
-                onOpenLibrary();
-              }}
-              className="game-btn-3d bg-[#FFFDF7] text-[#1F112E] px-4 py-1.5 rounded-xl font-display font-black text-xs sm:text-sm whitespace-nowrap cursor-pointer"
-            >
-              أسئلة وفرق
-            </button>
-          </div>
-
-          {/* 2-Column Hero Split */}
-          <main className="opening-main my-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 py-2 sm:py-4">
-            {/* RTL Right Column: Mascot Logo + Tagline + Exact Two Buttons */}
-            <div className="lg:col-span-6 flex flex-col items-center text-center space-y-6">
-              <div className="opening-logo w-full flex justify-center">
-                <GameLogo size="lg" variant="hero" className="lg:!w-[min(90vw,520px)]" />
-              </div>
-
-              <h1 className="opening-tagline font-display font-black text-xl sm:text-2xl md:text-[30px] text-[#1F112E] leading-snug">
-                فرق، وفئات، ومنافسة على شاشة واحدة.
-              </h1>
-
-              <div className="opening-actions flex flex-wrap items-center justify-center gap-3.5 w-full max-w-md pt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    soundFX.playClick();
-                    onStartQuick();
-                  }}
-                  className="opening-start game-btn-purple flex-1 min-w-[175px] font-display font-black text-lg sm:text-xl py-3.5 px-7 rounded-2xl flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer"
-                >
-                  <span>ابدأ اللعب</span>
-                  <Play className="w-4 h-4 fill-current rotate-180" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    soundFX.playClick();
-                    setShowHowToPlay(true);
-                  }}
-                  className="game-btn-3d bg-[#FFFDF7] text-[#1F112E] font-display font-black text-base sm:text-lg py-3.5 px-6 rounded-2xl whitespace-nowrap cursor-pointer"
-                >
-                  كيف تلعب؟
-                </button>
+    <div className="platform-home" dir="rtl">
+      <TopNavHeader activePage="title" soundEnabled={soundEnabled} onToggleSound={onToggleSound}
+        onHome={() => window.scrollTo({top:0,behavior:'auto'})} onStartQuick={onStartQuick}
+        onOpenPdfStudio={onOpenPdfStudio} onOpenLibrary={onOpenLibrary} onOpenSavedMatches={onOpenSavedMatches} />
+      <main className="platform-wrap">
+        <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><span>ألعاب جماعية</span></div>
+        <section className="platform-grid" aria-label="الألعاب المتاحة">
+          <article className="platform-feature">
+            <div className="platform-feature-copy">
+              <GameLogo size="md" variant="badge" className="platform-yh-logo" />
+              <p>فرق، وفئات، ومنافسة على شاشة واحدة.</p>
+              <div className="platform-actions">
+                <button type="button" className="platform-btn platform-btn-purple" onClick={() => click(onStartQuick)}><Play size={17} fill="currentColor"/> ابدأ اللعب</button>
+                <button type="button" className="platform-btn platform-btn-cream" onClick={() => click(() => setShowHowToPlay(true))}>كيف تلعب؟</button>
               </div>
             </div>
-
-            {/* RTL Left Column: Scoreboard Strip + Tilted Question Showcase Card */}
-            <div className="lg:col-span-6 flex flex-col items-center justify-center gap-6">
-              {/* Sample Team Score Pills */}
-              <div className="opening-scores flex flex-wrap items-center justify-center gap-3.5 w-full">
-                <div className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-xl px-4 py-2 shadow-[0_4px_0_#1F112E] flex items-center gap-3 text-sm sm:text-base font-black text-[#1F112E]">
-                  <span className="flex items-center gap-1.5">
-                    <Crown className="w-4 h-4 text-[#63349B]" />
-                    <span>ملك التشخيص</span>
-                  </span>
-                  <span className="font-display text-base sm:text-lg tabular-nums text-[#63349B]">300</span>
-                </div>
-
-                <div className="relative bg-[#FFFDF7] border-2 border-[#1F112E] rounded-xl px-4 py-2 shadow-[0_4px_0_#1F112E] flex items-center gap-3 text-sm sm:text-base font-black text-[#1F112E]">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-[#F05B63] border border-[#1F112E] inline-block" />
-                    <span>خليها ع الله</span>
-                  </span>
-                  <span className="font-display text-base sm:text-lg tabular-nums text-[#1F112E]">250</span>
-                  <span
-                    aria-hidden="true"
-                    className="hidden sm:grid place-items-center w-7 h-7 rounded-full bg-[#63349B] text-white border-2 border-[#1F112E] font-display font-black text-sm shadow-[0_2px_0_#1F112E] -mt-6 -ml-5"
-                  >
-                    ؟
-                  </span>
-                </div>
-              </div>
-
-              {/* Clean Tilted Cream Card with Purple Stack Shadow */}
-              <div className="opening-preview relative w-full max-w-[490px] pt-3 pb-4">
-                <div className="relative bg-[#FFFDF7] border-[2.5px] border-[#1F112E] rounded-[24px] px-6 pt-8 pb-6 sm:px-8 shadow-[6px_7px_0_#6A3BA4] lg:-rotate-1 hover:rotate-0 transition-transform duration-200 text-center space-y-5">
-                  {/* Overlapping Category Pill Tab (top right) */}
-                  <span key={currentSample.category} className="sample-change absolute -top-4 right-5 bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-4 py-1 font-display font-black text-xs sm:text-sm text-[#1F112E] shadow-[0_3px_0_#1F112E]">
-                    {currentSample.category}
-                  </span>
-
-                  {/* Subtle corner sample switcher */}
-                  <button
-                    type="button"
-                    onClick={handleNextSample}
-                    aria-label="معاينة سؤال آخر"
-                    title="معاينة سؤال آخر"
-                    className="absolute top-3 left-3 w-7 h-7 rounded-lg border border-[#1F112E]/25 bg-[#F2ECE0] hover:bg-[#FFE047] flex items-center justify-center text-[#1F112E] transition-colors cursor-pointer"
-                  >
-                    <RefreshCw className="w-3.5 h-3.5" />
-                  </button>
-
-                  <p key={currentSample.prompt} className="sample-change font-display font-black text-xl sm:text-[26px] text-[#1F112E] leading-relaxed min-h-[4rem] flex items-center justify-center pt-1">
-                    {currentSample.prompt}
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={handleToggleSampleAnswer}
-                    className="game-btn-purple w-full rounded-xl px-5 py-3 flex items-center justify-between gap-3 cursor-pointer"
-                  >
-                    <span className="font-display font-bold text-xs sm:text-sm text-white/90 px-1.5 shrink-0">
-                      الإجابة
-                    </span>
-                    <span className="h-5 w-[1.5px] bg-white/30 shrink-0" aria-hidden="true" />
-                    <span key={String(answerRevealed)} className="sample-change flex-1 font-display font-black text-base sm:text-xl leading-tight text-[#FFE047] text-center">
-                      {answerRevealed ? currentSample.answer : 'اضغط لكشف الإجابة'}
-                    </span>
-                  </button>
-                </div>
-
-                {/* Peeking mini deck accents under the showcase card (matching reference style) */}
-                <div
-                  aria-hidden="true"
-                  className="hidden sm:flex items-center justify-between px-4 -mt-3 relative z-10 pointer-events-none"
-                >
-                  <span className="inline-flex items-center gap-1.5 bg-[#FFFDF7] border-2 border-[#1F112E] rounded-xl px-3 py-1 shadow-[0_3px_0_#1F112E] -rotate-6 text-xs sm:text-sm font-black text-[#63349B]">
-                    <span className="w-5 h-5 rounded-full bg-[#63349B] text-white grid place-items-center text-[10px]">
-                      15
-                    </span>
-                    <span>سؤال</span>
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 bg-[#FFFDF7] border-2 border-[#1F112E] rounded-xl px-3 py-1 shadow-[0_3px_0_#1F112E] rotate-6 text-xs sm:text-sm font-black text-[#00A86B]">
-                    <span>PDF</span>
-                    <Sparkles className="w-3.5 h-3.5" />
-                  </span>
-                </div>
+            <div className="platform-board" aria-hidden="true">
+              {preview.map((category) => <div className="platform-board-col" key={category.name}>
+                <div className="platform-board-category" style={{backgroundColor:category.color}}><b>{category.symbol}</b><span>{category.name}</span></div>
+                {[200,400,600].map(points => <div className="platform-board-points" key={points}>{points}<small>{points===200?'سهل':points===400?'متوسط':'صعب'}</small></div>)}
+              </div>)}
+            </div>
+          </article>
+          <aside className="platform-join">
+            <div className="platform-join-icon"><DoorOpen size={30}/></div>
+            <h2>لديك رمز غرفة؟</h2><p>انضم لشاشة عرض «يمكن هاي» برمز الغرفة.</p>
+            <button type="button" className="platform-btn platform-btn-yellow" onClick={() => click(() => {setJoinError('');setShowJoin(true);})}>انضم للغرفة</button>
+            <button type="button" className="platform-text-link" onClick={() => click(onOpenSavedMatches)}>مبارياتك المحفوظة <ArrowLeft size={14}/></button>
+          </aside>
+          <article className="platform-thirty">
+            <div className="platform-thirty-copy">
+              <span className="platform-kicker">تحديات جماعية</span>
+              <h2>تحدّي الـ <b dir="ltr">30</b> ثانية</h2>
+              <p>يا بتبدع… يا بتتلبّك!</p>
+              <div className="platform-rounds"><span><Zap size={14}/> الرشّاش</span><span><Bell size={14}/> الجرس</span><span><Brain size={14}/> الذاكرة</span></div>
+              <div className="platform-actions">
+                <a href={THIRTY_URL} className="platform-btn platform-btn-yellow" onClick={() => soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a>
+                <button type="button" className="platform-btn platform-btn-cream" onClick={() => click(() => setShowThirtyRules(true))}>كيف تلعب؟</button>
               </div>
             </div>
-          </main>
-          <div className="hidden lg:block h-2" aria-hidden="true" />
+            <img className="platform-clock" src="/brand/games/30s-stopwatch.svg" alt="" width={520} height={500} decoding="async"/>
+          </article>
+          <section className="platform-tools" aria-label="أدوات يمكن هاي">
+            <h2>أدوات يمكن هاي</h2>
+            <button type="button" onClick={() => click(onOpenPdfStudio)}><FileText size={21}/><span>حوّل درس PDF</span><ArrowLeft size={16}/></button>
+            <button type="button" onClick={() => click(onOpenLibrary)}><BookOpen size={21}/><span>بنك الأسئلة</span><ArrowLeft size={16}/></button>
+            <button type="button" onClick={() => click(onOpenSavedMatches)}><FolderArchive size={21}/><span>المباريات المحفوظة</span><ArrowLeft size={16}/></button>
+          </section>
+        </section>
+        <footer className="platform-footer">يمكن هاي · ألعاب وتحديات جماعية</footer>
+      </main>
+      {showJoin && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="الانضمام لغرفة" onClick={() => setShowJoin(false)}>
+        <form className="game-card-frame rounded-3xl p-6 w-full max-w-sm space-y-4" onClick={e => e.stopPropagation()} onSubmit={e => {e.preventDefault();join();}}>
+          <div className="flex justify-between items-center"><h2 className="font-black text-xl">انضم للغرفة</h2><button type="button" aria-label="إغلاق" onClick={() => setShowJoin(false)}><X/></button></div>
+          <label htmlFor="platform-room" className="block font-bold">رمز غرفة يمكن هاي</label>
+          <input id="platform-room" value={roomCode} onChange={e => {setRoomCode(e.target.value);setJoinError('');}} autoComplete="off" maxLength={12} dir="ltr" className="w-full rounded-xl border-2 border-[#291638] bg-white p-3 text-center font-black uppercase"/>
+          {joinError && <p role="alert" className="text-red-700 text-sm">{joinError}</p>}
+          <button type="submit" className="platform-btn platform-btn-purple w-full">افتح شاشة العرض</button>
+          <a href={THIRTY_URL} className="block text-center text-sm underline text-[#573092]">للانضمام لتحدي الثلاثين، افتح لعبته</a>
+        </form>
+      </div>}
+      {showThirtyRules && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="كيف تلعب تحدي الثلاثين" onClick={() => setShowThirtyRules(false)}>
+        <div className="game-card-frame rounded-3xl p-6 w-full max-w-md space-y-4" onClick={e => e.stopPropagation()}>
+          <div className="flex justify-between items-center"><h2 className="font-black text-xl">كيف تلعب تحدي الثلاثين؟</h2><button type="button" aria-label="إغلاق" onClick={() => setShowThirtyRules(false)}><X/></button></div>
+          <p>اختار نوع الجولة وأسماء الفرق، ونافس على الإجابات ضمن الوقت حسب قواعد كل جولة. فيك تبدأ تحديًا سريعًا أو تختار إعداد المباراة.</p>
+          <p className="text-sm">الجولات تشمل الرشاش، مين يزوّد؟، من أنا؟، الجرس، الذاكرة والذهبية.</p>
+          <a href={THIRTY_URL} className="platform-btn platform-btn-purple"><Timer size={18}/> افتح تحدي الثلاثين</a>
         </div>
-
-        {/* Bottom Dark-Plum Mode Switcher Dock (matching reference bottom bar) */}
-        <nav
-          aria-label="أوضاع المسابقة والأدوات"
-          className="opening-dock w-full max-w-[1520px] flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pb-1"
-        >
-          <button
-            type="button"
-            onClick={() => {
-              soundFX.playClick();
-              onStartQuick();
-            }}
-            className="game-btn-3d bg-[#5B2D91] text-[#FFE047] !border-[#FFE047] px-5 py-2.5 rounded-xl font-display font-black text-sm cursor-pointer"
-          >
-            يمكن هاي
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              soundFX.playClick();
-              onOpenPdfStudio();
-            }}
-            className="game-btn-3d bg-[#1D7D5B] text-white px-5 py-2.5 rounded-xl font-display font-black text-sm flex items-center gap-2 cursor-pointer"
-          >
-            <FileText className="w-4 h-4" />
-            <span>حوّل درس PDF</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              soundFX.playClick();
-              onOpenLibrary();
-            }}
-            className="game-btn-3d bg-[#1B5194] text-white px-5 py-2.5 rounded-xl font-display font-black text-sm flex items-center gap-2 cursor-pointer"
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>بنك الأسئلة</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              soundFX.playClick();
-              onOpenSavedMatches();
-            }}
-            className="game-btn-3d bg-[#95202B] text-white px-5 py-2.5 rounded-xl font-display font-black text-sm flex items-center gap-2 cursor-pointer"
-          >
-            <FolderArchive className="w-4 h-4" />
-            <span>المباريات وبنوك USB</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              soundFX.playClick();
-              setShowHowToPlay(true);
-            }}
-            className="game-btn-3d bg-[#ECE4D4] text-[#1F112E] px-5 py-2.5 rounded-xl font-display font-black text-sm cursor-pointer"
-          >
-            كيف تلعب؟
-          </button>
-        </nav>
-      </div>
-
+      </div>}
       {/* How To Play Modal */}
       {showHowToPlay && (
         <div
