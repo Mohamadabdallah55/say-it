@@ -222,6 +222,7 @@ async function callGeminiRemoteOnly(params: {
 export async function callGeminiContentWithFallback(params: {
   contents: GenerateContentParameters['contents'];
   config: GenerateContentConfig;
+  fastLocalReply?: boolean;
 }): Promise<string | undefined> {
   const sysText =
     typeof params.config.systemInstruction === 'string'
@@ -236,6 +237,7 @@ export async function callGeminiContentWithFallback(params: {
       imagesBase64: extracted.imagesBase64,
       requireVision: extracted.imagesBase64.length > 0,
       formatJson: params.config.responseMimeType === 'application/json',
+      fastReply: params.fastLocalReply,
     });
     return res.text;
   }
@@ -251,6 +253,7 @@ export async function callGeminiContentWithFallback(params: {
     imagesBase64: extracted.imagesBase64,
     requireVision: extracted.imagesBase64.length > 0,
     formatJson: params.config.responseMimeType === 'application/json',
+      fastReply: params.fastLocalReply,
   });
   return res.text;
 }
