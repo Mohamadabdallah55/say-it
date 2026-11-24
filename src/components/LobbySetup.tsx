@@ -28,7 +28,7 @@ import {
 } from '../game/starterDecks';
 import type { DeckCategory, LifelineType, MatchSettings, QuizDeck, QuizQuestion } from '../game/types';
 import { computeCategoryConsumption } from '../game/categoryProgress';
-import { CATEGORY_3D_ART, getCategoryCardArt } from '../utils/gameAssets';
+import { CATEGORY_3D_ART, getCategoryCardArt, getUploadedCategoryArt } from '../utils/gameAssets';
 import {
   getAvailableMenuTabs,
   groupCategoriesForLobby,
@@ -1488,7 +1488,7 @@ export function LobbySetup({
                               ? customCategories.includes(cat.id)
                               : activeCategoryIdsForPreflight.includes(cat.id);
                           const stats = categoryStatsById.get(cat.id) ?? getCategoryStats(cat.id);
-                          const artSrc = cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
+                          const artSrc = getUploadedCategoryArt(cat.id) || cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
                           const exhausted = stats.totalCount > 0 && stats.remainingCount === 0;
 
                           return (
