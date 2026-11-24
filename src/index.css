@@ -942,3 +942,6 @@
 @media (min-width:1250px) { .lobby-category-grid:has(> .lobby-flat-card) { grid-template-columns:repeat(5,minmax(0,1fr)); } }
 @media (max-width:480px) { .lobby-category-grid:has(> .lobby-flat-card),.lobby-category-grid[data-compact="true"]:has(> .lobby-flat-card) {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;} .lobby-flat-info{width:29px;height:29px;} .lobby-flat-count{padding:3px 5px;font-size:9px;} }
 @media(prefers-reduced-motion:reduce){.lobby-flat-card,.lobby-flat-card img{transition:none!important;transform:none!important;}}
+
+/* Generated artwork uses square crops, without static titles or counters. */
+.lobby-flat-media img[src*="/assets/category-generated/"] { object-fit:cover; object-position:center; }
