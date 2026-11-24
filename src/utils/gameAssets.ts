@@ -128,6 +128,17 @@ export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
   ...CATEGORY_3D_ART,
 };
 
+// Uploaded square covers use stable category IDs as filenames. Vite includes
+// only files actually present, so the previous art remains a safe fallback.
+const uploadedCategoryCovers = import.meta.glob<string>(
+  '../assets/category-covers/*.webp',
+  { eager: true, query: '?url', import: 'default' },
+);
+
+export function getUploadedCategoryArt(categoryId: string): string | undefined {
+  return uploadedCategoryCovers[`../assets/category-covers/${categoryId}.webp`];
+}
+
 export function getCategoryCardArt(categoryId: string, iconKey: CategoryIconKey): string {
-  return CATEGORY_REAL_ART[categoryId] || CATEGORY_3D_ART[iconKey] || PHOTO_BOOKS;
+  return getUploadedCategoryArt(categoryId) || CATEGORY_REAL_ART[categoryId] || CATEGORY_3D_ART[iconKey] || PHOTO_BOOKS;
 }
