@@ -49,8 +49,8 @@ export const EL_CLASICO_QUESTIONS = rows.map((row): QuizQuestion => {
     difficulty,
     points: pointsForDifficulty(difficulty),
     questionType: 'direct_qa',
-    // The text remains independently answerable even when different screens have different media availability.
-    prompt: media.fallbackQuestion || row.question,
+    // Show the video prompt when a verified clip is active; otherwise stay independently answerable via fallbackQuestion.
+    prompt: videoUrl ? row.question : (media.fallbackQuestion || row.question),
     answer: row.answer,
     explanation: row.explanation,
     sourceRef: media.videoUrl ? undefined : row.fact_source_url,

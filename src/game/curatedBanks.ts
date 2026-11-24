@@ -363,7 +363,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 50 },
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },
   { category: JUZ_TABARAK_CATEGORY, questionCount: 150 },
-  { category: EL_CLASICO_CATEGORY, questionCount: 70 },
+  { category: EL_CLASICO_CATEGORY, questionCount: 100 },
   { category: CLUB_LOGOS_CATEGORY, questionCount: 102 },
   { category: QURAN_MEDIA_CATEGORY, questionCount: 150 },
   { category: CAPITALS_CURRENCIES_CATEGORY, questionCount: 75 },

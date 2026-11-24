@@ -234,12 +234,21 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   assert.equal(EL_CLASICO_QUESTIONS.length, 100);
   assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
-  assert.equal(new Set(clips.map(q => q.videoUrl)).size, clips.length);
+  assert.equal(clips.length, 54);
+  assert.deepEqual([200, 400, 600].map(points => clips.filter(q => q.points === points).length), [18, 18, 18]);
+  assert.equal(new Set(clips.map(q => q.videoUrl)).size, 54);
   for (const q of clips) {
-    assert.ok(q.videoUrl?.startsWith('https://') || q.videoUrl === `/assets/questions/el-clasico/${q.id}.mp4`);
+    assert.ok(q.videoUrl?.startsWith('https://www.youtube-nocookie.com/embed/') || q.videoUrl === `/assets/questions/el-clasico/${q.id}.mp4`);
+    if (q.videoUrl?.startsWith('https://')) {
+      const parsed = new URL(q.videoUrl);
+      const start = Number(parsed.searchParams.get('start'));
+      const end = Number(parsed.searchParams.get('end'));
+      assert.ok(Number.isInteger(start) && start >= 0);
+      assert.equal(end - start, 17);
+    }
     if (q.videoUrl?.startsWith('/')) assert.ok(readFileSync(new URL(`../public${q.videoUrl}`, import.meta.url)).length > 0);
   }
-  assert.ok(EL_CLASICO_QUESTIONS.filter(q => /^ELC-V[34]-(VIDEO|CLIP)-/.test(q.id)).every(q => !/^شاهد/.test(q.prompt)));
+  assert.ok(clips.every(q => /^شاهد/.test(q.prompt)));
 
   const previousBank = EL_CLASICO_QUESTIONS.map(q => ({
     ...q, imageUrl: undefined, imageSourceUrl: undefined, imageDisplay: undefined,
@@ -262,6 +271,27 @@ test('El Clásico photos are available to saved matches and hidden from the proj
   const revealed = sanitizeStateForRole(revealAnswer(refreshed, 'reveal').state, 'projector').activeRound;
   assert.equal(revealed?.imageUrl, question.imageUrl);
   assert.equal(revealed?.imageSourceUrl, question.imageSourceUrl);
+
+  const videoClipQuestion = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V3-VIDEO-03')!;
+  assert.ok(videoClipQuestion.videoUrl && videoClipQuestion.imageUrl);
+  const videoFirstBank = [videoClipQuestion, ...EL_CLASICO_QUESTIONS.filter(q => q.id !== videoClipQuestion.id)];
+  const videoDeck = buildBoardDeckFromCategories(
+    ['cat_general', 'cat_science', EL_CLASICO_CATEGORY.id], undefined, videoFirstBank,
+  );
+  const videoRoom = createRoomState({
+    roomCode: 'VCLSC', hostToken: 'host', buzzerToken: 'buzzer', deck: videoDeck, teams, settings,
+  });
+  const clipTile = selectBoardTile(videoRoom, videoClipQuestion.id, 'open-video');
+  assert.ok(clipTile.ok, clipTile.error);
+  const clipHidden = sanitizeStateForRole(clipTile.state, 'projector').activeRound;
+  assert.equal(clipHidden?.videoUrl, videoClipQuestion.videoUrl);
+  assert.equal(clipHidden?.prompt, videoClipQuestion.prompt);
+  assert.equal(clipHidden?.answer, undefined);
+  assert.equal(clipHidden?.imageUrl, undefined);
+  const clipRevealed = sanitizeStateForRole(revealAnswer(clipTile.state, 'reveal-video').state, 'projector').activeRound;
+  assert.equal(clipRevealed?.answer, 'غاريث بيل');
+  assert.equal(clipRevealed?.imageUrl, videoClipQuestion.imageUrl);
+  assert.equal(clipRevealed?.imageSourceUrl, videoClipQuestion.imageSourceUrl);
 });
 
 test('Quran recordings and verse images are visible for the question while the answer stays hidden', () => {

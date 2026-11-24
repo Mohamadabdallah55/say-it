@@ -34,12 +34,19 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
   const p = useRef<Player|null>(null);
   const sound = useRef(soundEnabled);
   const done = useRef(false);
+  const hasSdkConfig = (() => { const cfg = config(); return Boolean(cfg && /^x[a-z0-9]+$/i.test(cfg)); })();
   const [status,setStatus] = useState<'loading'|'playing'|'manual'|'ended'|'failed'>('loading');
+  const [replayCount, setReplayCount] = useState(0);
   const url = new URL(src);
   const videoId = url.pathname.split('/').pop()!;
-  const start = Number(url.searchParams.get('start'));
+  const start = Math.max(0, Number(url.searchParams.get('start')) || 0);
   useEffect(()=>{sound.current=soundEnabled; if(p.current) void p.current.setVolume(soundEnabled?1:0).catch(()=>{});},[soundEnabled]);
   useEffect(()=>{
+    if(!hasSdkConfig){
+      setStatus('playing');
+      const stopTimer=window.setTimeout(()=>{setStatus('ended');},17500);
+      return()=>{window.clearTimeout(stopTimer);};
+    }
     let disposed=false, poll=0, watchdog=0;
     const fail=()=>{if(disposed)return; done.current=true;setStatus('failed'); const instance=p.current;p.current=null;if(instance)void Promise.resolve(instance.destroy()).catch(()=>{});window.clearInterval(poll);window.clearTimeout(watchdog);};
     const arm=(ms:number)=>{window.clearTimeout(watchdog);watchdog=window.setTimeout(fail,ms);};
@@ -69,8 +76,9 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
       catch {if(!disposed&&!done.current){setStatus('manual');window.clearTimeout(watchdog);}}
     }).catch(fail);
     return()=>{disposed=true;window.clearInterval(poll);window.clearTimeout(watchdog);const instance=p.current;p.current=null;if(instance)void Promise.resolve(instance.destroy()).catch(()=>{});};
-  },[id,videoId,start]);
+  },[hasSdkConfig,id,videoId,start,replayCount]);
   const play=async()=>{
+    if(!hasSdkConfig){setStatus('playing');setReplayCount(c=>c+1);return;}
     const instance=p.current;if(!instance)return;
     const replay=status==='ended';
     done.current=false;setStatus('loading');
@@ -78,9 +86,31 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
     catch{setStatus('manual');}
   };
   if(status==='failed')return <p role="status" className="mx-auto mt-3 rounded-xl bg-amber-100 p-3 text-center font-bold text-[#1F112E]">تعذّر تشغيل المقطع. أكمل السؤال النصي بنفس النقاط.</p>;
+  if(!hasSdkConfig){
+    const embedSrc=`https://www.dailymotion.com/embed/video/${videoId}?autoplay=1&mute=${soundEnabled?0:1}&start=${start}`;
+    return <div className="mx-auto mt-4 w-full max-w-2xl space-y-2">
+      {status==='ended' ? (
+        <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-xl bg-black/90 p-4 text-white">
+          <p className="text-sm font-bold">انتهى المقطع (17 ثانية)</p>
+          <button type="button" onClick={()=>void play()} className="rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-4 py-2 font-bold text-[#1F112E]">إعادة المقطع</button>
+        </div>
+      ) : (
+        <iframe key={`${embedSrc}-${replayCount}`} src={embedSrc} title="مقطع فيديو الكلاسيكو" allow="autoplay; fullscreen; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" className="aspect-video w-full overflow-hidden rounded-xl bg-black" />
+      )}
+    </div>;
+  }
+  if(status==='ended'){
+    return <div className="mx-auto mt-4 w-full max-w-2xl">
+      <div data-testid="clasico-video-ended" className="flex aspect-video flex-col items-center justify-center gap-3 rounded-2xl border-[2.5px] border-[#1F112E] bg-[#1F112E] p-5 text-center text-white shadow-[0_4px_0_#1F112E]">
+        <p className="font-display text-base font-black md:text-lg">انتهى المقطع (17 ثانية) — تم إخفاء الفيديو</p>
+        <p className="text-xs font-bold text-white/80">اختفى المقطع تلقائيًا كما في «ركّز» لمنع كشف النتيجة</p>
+        <button type="button" onClick={()=>{ done.current=false; setReplayCount(c=>c+1); setStatus('loading'); }} className="rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-5 py-2.5 text-sm font-black text-[#1F112E] shadow-[0_2px_0_#1F112E]">إعادة المقطع</button>
+      </div>
+    </div>;
+  }
   return <div className="mx-auto mt-4 w-full max-w-2xl space-y-2">
-    <div id={id} className="aspect-video overflow-hidden rounded-xl bg-black [&_iframe]:h-full [&_iframe]:w-full"/>
+    <div id={id} data-testid="clasico-video-frame" className="aspect-video overflow-hidden rounded-xl bg-black [&_iframe]:h-full [&_iframe]:w-full"/>
     {status==='loading'&&<p role="status" className="text-center text-sm">جارٍ تهيئة المقطع…</p>}
-    {(status==='manual'||status==='ended')&&<button type="button" onClick={()=>void play()} className="mx-auto block rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-4 py-2 font-bold">{status==='ended'?'إعادة المقطع':'تشغيل المقطع'}</button>}
+    {status==='manual'&&<button type="button" onClick={()=>void play()} className="mx-auto block rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-4 py-2 font-bold">تشغيل المقطع</button>}
   </div>;
 }
