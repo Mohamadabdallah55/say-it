@@ -1103,7 +1103,7 @@ export function GameArena({
                         />
                       ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
-                        roundMeta.categoryId === 'cat_el_clasico' ? (
+                        ['cat_el_clasico', 'cat_champions_league'].includes(roundMeta.categoryId) ? (
                           <ClasicoVideoPlayer key={roundMeta.roundId + roundMeta.videoUrl} src={roundMeta.videoUrl} soundEnabled={state.settings.soundEnabled && (isHost || localAudio)} />
                         ) : (
                           <video key={`q-video-${roundMeta.questionId}`} className="mx-auto mt-4 max-h-[42vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black" src={roundMeta.videoUrl} controls playsInline preload="metadata" />

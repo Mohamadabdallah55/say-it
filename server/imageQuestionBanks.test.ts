@@ -148,8 +148,8 @@ test('both packs are selectable, have all tiers, and do not count distinct flags
   const tierCounts = (questions: typeof FLAGS_QUESTIONS) =>
     [200, 400, 600].map(points => questions.filter(q => q.points === points).length);
   assert.deepEqual(tierCounts(FLAGS_QUESTIONS), [25, 35, 40]);
-  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [17, 17, 16]);
-  assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.filter(q => q.imageDisplay === 'after_reveal').length, 25);
+  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [25, 35, 40]);
+  assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q => q.imageDisplay === 'after_reveal').length >= 25);
   const flagHashes = FLAGS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
   assert.equal(new Set(flagHashes).size, 100);
@@ -459,4 +459,12 @@ test('Clasico spoiler-risk revisions retain video and ask a separate match-conte
     assert.ok(q?.videoUrl);
     assert.match(q?.prompt ?? '', /^شاهد اللقطة، ثم أجب:/);
   }
+});
+
+test('Champions League archive has 100 questions and eight explicit 17-second public-source trials', () => {
+ assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.length,100);
+ const clips=CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.videoUrl);
+ assert.equal(clips.length,8);
+ for(const q of clips){const u=new URL(q.videoUrl!);assert.equal(Number(u.searchParams.get('end'))-Number(u.searchParams.get('start')),17);}
+ assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.imageUrl).every(q=>q.imageDisplay==='after_reveal'&&q.imageSourceUrl));
 });

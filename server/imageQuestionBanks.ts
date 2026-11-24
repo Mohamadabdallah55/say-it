@@ -57,13 +57,27 @@ export const CLUB_LOGOS_QUESTIONS = clubLogoRows.map((row): QuizQuestion => ({
   sourceRef: row.image_source,
 }));
 
-export const CHAMPIONS_LEAGUE_QUESTIONS = championsLeagueRows.map((row): QuizQuestion => ({
+type ChampionsLeagueRow = { id:string; points:number; question:string; answer:string; explanation:string; theme:string; source_url:string; imageUrl?:string; imageSourceUrl?:string; imageCaption?:string; videoUrl?:string; videoTrialEnabled?:boolean; fallbackQuestion?:string };
+const UCL_PUBLIC_TRIAL_IDS = new Set(["1vywtpBlXdA","YdcPlD74Hus","wbouulIi740","l52QHKWPvxM","MhePGbg1XJI","_Y5cboBkl7w","imGy71tsgtQ","buoMlAshKXQ"]);
+export function championsLeagueClip(row: ChampionsLeagueRow): string | undefined {
+  if (!row.videoTrialEnabled || !row.videoUrl || !row.fallbackQuestion) return;
+  try {
+    const u = new URL(row.videoUrl);
+    const id = u.pathname.match(/^\/embed\/([A-Za-z0-9_-]{11})$/)?.[1];
+    const start = Number(u.searchParams.get('start'));
+    if (u.origin !== 'https://www.youtube-nocookie.com' || !id || !UCL_PUBLIC_TRIAL_IDS.has(id) || !u.searchParams.has('start') || !Number.isInteger(start) || start < 0) return;
+    return `https://www.youtube-nocookie.com/embed/${id}?start=${start}&end=${start+17}`;
+  } catch { return; }
+}
+export const CHAMPIONS_LEAGUE_QUESTIONS = (championsLeagueRows as ChampionsLeagueRow[]).map((row): QuizQuestion => ({
   ...createQuestion(CHAMPIONS_LEAGUE_CATEGORY, row),
   explanation: row.explanation,
   subtopic: row.theme,
   sourceRef: row.source_url,
+  videoUrl: championsLeagueClip(row),
   imageUrl: row.imageUrl,
   imageSourceUrl: row.imageSourceUrl,
+  imageCaption: row.imageCaption,
   imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
 }));
 

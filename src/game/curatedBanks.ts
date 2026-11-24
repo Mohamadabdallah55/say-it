@@ -360,7 +360,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: PALESTINIAN_PROVERBS_CATEGORY, questionCount: PALESTINIAN_PROVERBS_COUNT },
   { category: VISUAL_MEMORY_CATEGORY, questionCount: VISUAL_MEMORY_PLAYABLE_COUNT },
   { category: FLAGS_CATEGORY, questionCount: 100 },
-  { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 50 },
+  { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 100 },
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },
   { category: JUZ_TABARAK_CATEGORY, questionCount: 150 },
   { category: EL_CLASICO_CATEGORY, questionCount: 100 },
