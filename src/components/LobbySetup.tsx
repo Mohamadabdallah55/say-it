@@ -97,15 +97,17 @@ const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: st
 function CategoryCardImage({
   src,
   alt,
+  flat = false,
 }: {
   src: string;
   alt: string;
+  flat?: boolean;
 }) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="lobby-category-media bg-[#240E35]/15">
+    <div className={`lobby-category-media ${flat ? "lobby-flat-media bg-[#e5f0fc]" : "bg-[#240E35]/15"}`}>
       {!loaded && !failed && (
         <div
           aria-hidden="true"
@@ -124,15 +126,12 @@ function CategoryCardImage({
           referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
-          className={`w-full h-full object-cover group-hover:scale-[1.04] transition-all duration-300 ${
+          className={`w-full h-full ${flat ? "object-contain" : "object-cover"} group-hover:scale-[1.04] transition-all duration-300 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
       )}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F112E]/75 via-[#1F112E]/10 to-black/25"
-      />
+      {!flat && <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F112E]/75 via-[#1F112E]/10 to-black/25" />}
     </div>
   );
 }
@@ -1482,7 +1481,7 @@ export function LobbySetup({
                                 playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
                               })
                             : getCategoryStats(cat.id);
-                          const artSrc = cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
+                          const artSrc = cat.isCustom && cat.coverImageUrl ? cat.coverImageUrl : getCategoryCardArt(cat.id, cat.iconKey);
                           const pctToneClass =
                             stats.percent >= 100
                               ? 'from-[#FB7185] to-[#E11D48] text-white'
@@ -1493,25 +1492,25 @@ export function LobbySetup({
                           return (
                             <div
                               key={cat.id}
-                              className={`group relative rounded-[22px] overflow-hidden border-[2.5px] transition-all select-none ${
+                              className={`group lobby-flat-card relative rounded-2xl border-2 transition-all select-none ${
                                 isSelected
-                                  ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_6px_0_#63349B]'
-                                  : 'border-[#1F112E] shadow-[0_4px_0_#1F112E] hover:-translate-y-0.5'
+                                  ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_4px_0_#63349B]'
+                                  : 'border-[#302044]/20 hover:border-[#63349B] hover:-translate-y-0.5 shadow-sm'
                               }`}
-                              style={{ backgroundColor: cat.accentColor }}
+                              style={{ backgroundColor: '#e5f0fc' }}
                             >
                               {/* Top Overlay Controls: (i) + Tactile 3D VIP & Percentage Badges */}
-                              <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
+                              <div className="absolute top-2 inset-x-2 z-20 flex items-center justify-between gap-2 pointer-events-none">
                                 <div className="flex items-center gap-1.5 pointer-events-auto">
                                   <button
                                     type="button"
                                     onClick={() =>
                                       setInfoTip(
-                                        `${cat.name}: ${cat.description || 'أسئلة متنوعة'} · المستهلك: ${stats.playedCount} من ${stats.totalCount} سؤال (${stats.percent}%)${stats.cycleCount > 0 ? ` · الدورة ${stats.cycleCount + 1}` : ''}`,
+                                        `${cat.name}: ${cat.description || 'أسئلة متنوعة'} · المستهلك: ${stats.playedCount} من ${stats.totalCount} سؤال (${stats.totalCount > 0 ? `باقي ${stats.remainingCount} سؤال` : 'فئة جديدة'})${stats.cycleCount > 0 ? ` · الدورة ${stats.cycleCount + 1}` : ''}`,
                                       )
                                     }
                                     aria-label={`تفاصيل ${cat.name}`}
-                                    className="w-9 h-9 rounded-full bg-[#FFFDF7]/95 border-2 border-[#1F112E] text-[#1F112E] flex items-center justify-center cursor-pointer shadow-[0_2px_0_#1F112E]"
+                                    className="w-8 h-8 rounded-full bg-[#286eac] border-2 border-white text-white flex items-center justify-center cursor-pointer shadow-sm"
                                   >
                                     <Info className="w-4 h-4" />
                                   </button>
@@ -1536,7 +1535,7 @@ export function LobbySetup({
                                         ? `اكتملت الفئة (${stats.playedCount}/${stats.totalCount}) — ستُصفَّر تلقائيًا لبدء دورة جديدة`
                                         : `تم استهلاك ${stats.playedCount} من ${stats.totalCount} سؤال`
                                     }
-                                    className={`inline-flex items-center justify-center min-w-[50px] h-8 px-2.5 rounded-full bg-gradient-to-b ${pctToneClass} border-[2.5px] border-[#3F3A47] shadow-[0_3.5px_0_#3F3A47] font-display font-black text-xs tabular-nums`}
+                                    className={`inline-flex items-center justify-center h-7 px-2 rounded-lg bg-gradient-to-b ${pctToneClass} border border-white/80 shadow-sm font-display font-black text-[10px] tabular-nums`}
                                   >
                                     {stats.percent}%
                                   </span>
@@ -1550,16 +1549,9 @@ export function LobbySetup({
                                 aria-label={`${isSelected ? 'إلغاء اختيار' : 'اختيار'} فئة ${cat.name}`}
                                 className="w-full text-right block cursor-pointer relative"
                               >
-                                <CategoryCardImage key={artSrc} src={artSrc} alt={cat.name} />
-
-                                {/* Cream Pill Title Strip Overlaid at Bottom */}
-                                <div className="absolute inset-x-0 bottom-0 p-3 pt-6">
-                                  <div className="bg-[#FFF4D6] border-2 border-[#1F112E] rounded-full py-1.5 px-4 text-center font-display font-black text-[clamp(0.88rem,1.02vw,1.05rem)] text-[#1F112E] shadow-[0_2px_0_#1F112E] flex items-center justify-between gap-2">
-                                    <span className="truncate flex-1 text-center">{cat.name}</span>
-                                    <span className="text-[11px] font-bold text-[#1F112E]/65 tabular-nums shrink-0">
-                                      {stats.playedCount}/{stats.totalCount}
-                                    </span>
-                                  </div>
+                                <CategoryCardImage key={artSrc} src={artSrc} alt={cat.name} flat />
+                                <div className="lobby-flat-title bg-[#63349B] text-white text-center font-display font-black">
+                                  {cat.name}
                                 </div>
                               </button>
                             </div>

@@ -128,6 +128,10 @@ export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
   ...CATEGORY_3D_ART,
 };
 
+const ILLUSTRATED_CATEGORY_IDS = new Set(["cat_world_football","cat_sports","cat_champions_league","cat_world_cup_2026","cat_world_cup","cat_el_clasico","cat_real_madrid","cat_barcelona","cat_football_career","cat_football_first_name","cat_football_letters","cat_football_ordering","cat_club_logos","cat_prophet_stories","cat_prophetic_biography","cat_rashidun","cat_hadith","cat_islamic","cat_islamic_ordering","cat_islamic_letters","cat_quran_reciter","cat_quran_media","cat_quran_verse_meanings","cat_juz_amma","cat_juz_tabarak","cat_reversed_words","cat_arabic_grammar","cat_arabic_roots","cat_arabic_plurals","cat_english_letters","cat_palestinian_proverbs","cat_arabic_dialects","cat_arabic","cat_science_quiz","cat_medical","cat_brain_teasers","cat_geometry","cat_science","cat_puzzles","cat_flags","cat_capitals_currencies","cat_world_wars","cat_history","cat_general","world_food","cat_jordan_nostalgia","jordan_brands_nostalgia","cat_hashemite_university","cat_guess_price","cat_apps","cat_four_pictures","cat_visual_memory","cat_silent_acting","cat_guess_sound","cat_zoomed_image","world_country_maps","cat_world_country_maps","cat_maps","cat_animal"]);
+const ILLUSTRATED_ICON_KEYS = new Set<string>(["general","science","history","arabic","puzzles","sports","islamic","pdf","skills","geography","tech","price_tag","rashidun","jordan_logos","world_cup_2026","palestinian_proverbs","visual_memory","silent_acting"]);
+
 export function getCategoryCardArt(categoryId: string, iconKey: CategoryIconKey): string {
-  return CATEGORY_REAL_ART[categoryId] || CATEGORY_3D_ART[iconKey] || PHOTO_BOOKS;
+  if (ILLUSTRATED_CATEGORY_IDS.has(categoryId)) return `/assets/category-illustrations/${categoryId}.svg`;
+  return `/assets/category-illustrations/icon-${ILLUSTRATED_ICON_KEYS.has(iconKey) ? iconKey : 'general'}.svg`;
 }
