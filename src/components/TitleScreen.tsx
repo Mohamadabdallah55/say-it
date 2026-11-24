@@ -22,6 +22,10 @@ function getCodenamesUrl(): string | null {
   } catch { return null; }
 }
 const CODENAMES_URL = getCodenamesUrl();
+function getHoroufUrl(): string | null {
+  try {const url=new URL(import.meta.env.VITE_HOROUF_URL||'');return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;} catch{return null;}
+}
+const HOROUF_URL=getHoroufUrl();
 const preview = [
   { name: 'كرة القدم', symbol: '⚽', color: '#4788c5' },
   { name: 'معلومات عامة', symbol: '؟', color: '#ed9e50' },
@@ -34,6 +38,7 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
   const [showThirtyRules, setShowThirtyRules] = useState(false);
   const [showKhalfRules, setShowKhalfRules] = useState(false);
   const [showCodeRules, setShowCodeRules] = useState(false);
+  const [showHoroufRules, setShowHoroufRules] = useState(false);
   const [showJoin, setShowJoin] = useState(false);
   const [roomCode, setRoomCode] = useState('');
   const [joinError, setJoinError] = useState('');
@@ -117,6 +122,17 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
               </div>
             </div>
           </article>
+          <article className="platform-horouf">
+            <div className="platform-horouf-art" aria-hidden="true"><svg viewBox="0 0 220 155" width="220" height="155">
+              {['ح','ر','و','ف','ن','خ','ب','ة','س','م','ع','ك','ل','ق','ت'].map((letter,i)=>{
+                const x=22+(i%5)*39+(Math.floor(i/5)%2)*19.5,y=29+Math.floor(i/5)*45;
+                const fill=i%5===1?'#62d18a':i===8||i===9?'#ff9749':'#fff1d5';
+                return <g key={i} transform={`translate(${x} ${y})`}><path d="M0 -23L20 -11.5L20 11.5L0 23L-20 11.5L-20 -11.5Z" fill={fill} stroke="#321d48" strokeWidth="3"/><text y="7" textAnchor="middle" fontWeight="900" fontSize="21" fill="#291638">{letter}</text></g>;
+              })}
+            </svg></div>
+            <div className="platform-thirty-copy"><span className="platform-kicker">حروف · سرعة · ذكاء</span><h2>حروف النخبة</h2><p>حرف بيفرق… ومسار بيفوز!</p><div className="platform-rounds"><span><Users size={14}/> فريقان</span><span><Brain size={14}/> 25 خلية</span><span><Bell size={14}/> 3 أوضاع</span></div>
+            <div className="platform-actions">{HOROUF_URL?<a href={HOROUF_URL} className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a>:<button type="button" className="platform-btn platform-btn-yellow" disabled>بانتظار رابط النشر</button>}<button type="button" className="platform-btn platform-btn-cream" onClick={()=>click(()=>setShowHoroufRules(true))}>كيف تلعب؟</button></div></div>
+          </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
             <button type="button" onClick={() => click(onOpenPdfStudio)}><FileText size={21}/><span>حوّل درس PDF</span><ArrowLeft size={16}/></button>
@@ -160,6 +176,7 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
           {CODENAMES_URL && <a href={CODENAMES_URL} className="platform-btn platform-btn-purple"><Play size={18}/> افتح كود نيمز</a>}
         </div>
       </div>}
+      {showHoroufRules && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="كيف تلعب حروف النخبة" onClick={()=>setShowHoroufRules(false)}><div className="game-card-frame rounded-3xl p-6 w-full max-w-md space-y-4" onClick={e=>e.stopPropagation()}><div className="flex justify-between items-center"><h2 className="font-black text-xl">كيف تلعب حروف النخبة؟</h2><button type="button" aria-label="إغلاق" onClick={()=>setShowHoroufRules(false)}><X/></button></div><p>فريقان يتنافسان على 25 حرفًا. اختر حرفًا وأجب عن سؤال يبدأ جوابه به. الإجابة الصحيحة تمنحك الخلية وحق اختيار الحرف التالي. وصل طرفي اللوحة المخصصين لفريقك قبل الخصم.</p><p className="text-sm">ثلاثة أنظمة للإجابة: بدون جرس، جرس إلكتروني، وتناوب الأدوار.</p>{HOROUF_URL&&<a href={HOROUF_URL} className="platform-btn platform-btn-purple"><Play size={18}/> افتح حروف النخبة</a>}</div></div>}
       {/* How To Play Modal */}
       {showHowToPlay && (
         <div
