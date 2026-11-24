@@ -102,7 +102,7 @@ export function TitleScreen({
           </div>
 
           {/* 2-Column Hero Split */}
-          <main className="my-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 py-2 sm:py-4">
+          <main className="opening-main my-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 py-2 sm:py-4">
             {/* RTL Right Column: Mascot Logo + Tagline + Exact Two Buttons */}
             <div className="lg:col-span-6 flex flex-col items-center text-center space-y-6">
               <div className="opening-logo w-full flex justify-center">

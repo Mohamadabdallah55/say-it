@@ -92,7 +92,7 @@ export function TopNavHeader({
   const userInitial = (user?.displayName || user?.email || 'ل').trim().charAt(0).toUpperCase();
 
   return (
-    <header className="w-full bg-[#1C0A2B] border-b-[3px] border-[#12061D] py-2.5 sticky top-0 z-40">
+    <header className="game-top-nav w-full bg-[#1C0A2B] border-b-[3px] border-[#12061D] py-2.5 sticky top-0 z-40">
       <div className="lobby-shell flex flex-wrap items-center justify-between gap-3">
         {/* Group 1 (RTL Right): التنقل — Brand Logo & Primary Navigation */}
         <nav aria-label="التنقل الرئيسي" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
@@ -200,9 +200,9 @@ export function TopNavHeader({
         </nav>
 
         {/* Group 2 & 3 (RTL Left): الأدوات + الحساب */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="game-top-tools flex flex-wrap items-center gap-2 sm:gap-2.5 shrink-0">
           {/* Group 2: الأدوات */}
-          <div role="group" aria-label="أدوات المسابقة" className="flex items-center gap-1.5 sm:gap-2">
+          <div role="group" aria-label="أدوات المسابقة" className="game-top-tool-buttons flex flex-wrap items-center gap-1.5 sm:gap-2">
             <GameAssistantBot triggerVariant="icon" />
 
             {onToggleSound && (
@@ -326,7 +326,7 @@ export function TopNavHeader({
                 {menuOpen && (
                   <div
                     role="menu"
-                    className="absolute left-0 mt-2 w-64 rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_6px_0_#1F112E] p-3.5 space-y-3 z-50 text-right"
+                    className="game-account-menu absolute left-0 mt-2 w-64 rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_6px_0_#1F112E] p-3.5 space-y-3 z-50 text-right"
                   >
                     <div className="space-y-1 border-b border-[#1F112E]/10 pb-2.5">
                       <p className="font-display font-black text-sm text-[#1F112E] truncate">

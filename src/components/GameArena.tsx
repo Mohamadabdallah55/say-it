@@ -1534,7 +1534,7 @@ export function GameArena({
                             soundFX.playClick();
                             sendCommand('REVEAL_ANSWER');
                           }}
-                          className="game-btn-3d bg-gradient-to-b from-[#6F3FB5] to-[#4F2689] text-white border-[2.5px] border-[#1F112E] px-10 py-3.5 rounded-2xl font-display font-black text-xl shadow-[0_5px_0_#1F112E] flex items-center justify-center gap-2 cursor-pointer min-w-[220px]"
+                          className="round-reveal-button game-btn-3d bg-gradient-to-b from-[#6F3FB5] to-[#4F2689] text-white border-[2.5px] border-[#1F112E] px-10 py-3.5 rounded-2xl font-display font-black text-xl shadow-[0_5px_0_#1F112E] flex items-center justify-center gap-2 cursor-pointer min-w-[220px]"
                         >
                           <span>كشف الإجابة</span>
                         </button>
@@ -1729,7 +1729,7 @@ export function GameArena({
 
         {/* SIDEBAR SCOREBOARD (Right side in RTL desktop, compact top card on mobile) */}
         <aside className="score-rail rounded-3xl border-[2.5px] border-[#1F112E] p-3.5 md:p-4 shadow-[0_5px_0_#1F112E] gap-3">
-          <div className="space-y-3">
+          <div className="rail-top space-y-3">
             {/* Mobile Compact Action Row + Question Badge + Timer (matches Screenshot 4) */}
             <div className="flex items-center justify-between gap-2">
               <div className="bg-[#FFE047] border-2 border-[#1F112E] rounded-xl px-3.5 py-1.5 font-display font-black text-sm text-[#1F112E] tabular-nums shadow-[0_2px_0_#1F112E]">
@@ -1757,7 +1757,7 @@ export function GameArena({
             </div>
 
             {isHost && roundMeta && ['QUESTION_READY','PLAYING','TIME_UP'].includes(state.phase) && (
-<div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+<div className="rail-round-actions flex flex-wrap items-center justify-center gap-2 pt-1">
                         {!isMemorizeStage && (
                           state.timer.running ? (
                             <button
@@ -1840,7 +1840,7 @@ export function GameArena({
                         {team.name}
                       </div>
 
-                      <div className="flex items-center justify-center gap-3">
+                      <div className="rail-score-controls flex items-center justify-center gap-3">
                         {isHost ? (
                           <button
                             type="button"
@@ -2034,8 +2034,8 @@ export function GameArena({
 
       {/* QR Share Modal (Projector + Optional Team Buzzer) */}
       {shareOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="game-card-frame rounded-3xl p-6 max-w-2xl w-full space-y-4">
+        <div className="share-room-overlay fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="share-room-panel game-card-frame rounded-3xl p-6 max-w-2xl w-full space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="font-display font-black text-xl">مشاركة شاشات الغرفة ({roomCode})</h3>
               <button

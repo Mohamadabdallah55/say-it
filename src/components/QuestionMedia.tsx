@@ -109,7 +109,7 @@ export function QuestionMedia({
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full rounded-3xl border-[3px] border-[#1F112E] bg-[#FFFDF7] p-4 md:p-6 shadow-[0_8px_0_#1F112E] space-y-3"
+              className="question-zoom-panel relative max-w-5xl w-full rounded-3xl border-[3px] border-[#1F112E] bg-[#FFFDF7] p-4 md:p-6 shadow-[0_8px_0_#1F112E] space-y-3"
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-xs font-black text-[#63349B]">

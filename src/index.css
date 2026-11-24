@@ -945,3 +945,104 @@
 
 /* Original photographic category artwork fills the existing card frame. */
 .lobby-flat-media img { object-fit:cover; object-position:center; }
+
+/* Phone-first comfort pass. Large-screen projector and desktop rules remain intact. */
+@media (max-width: 767px) {
+  .game-top-nav { position:relative; top:auto; padding-block:6px; }
+  .game-top-nav > .lobby-shell { gap:6px; padding-inline:10px; }
+  .game-top-nav nav, .game-top-nav .game-top-tools { width:100%; min-width:0; justify-content:center; gap:6px; }
+  .game-top-nav .game-top-tool-buttons { min-width:0; justify-content:center; }
+  .game-top-nav nav > div { flex-wrap:wrap; justify-content:center; }
+  .game-top-nav button { max-width:100%; }
+  .game-top-nav .game-account-menu { position:fixed; top:8px; left:10px; right:10px; width:auto; max-width:320px; margin-inline:auto; max-height:calc(100dvh - 20px); overflow-y:auto; }
+  .game-lobby { padding-bottom:calc(112px + env(safe-area-inset-bottom, 0px)); }
+  .lobby-shell { padding-inline:10px; min-width:0; }
+  .game-lobby > .lobby-shell { padding-top:12px; }
+  .lobby-setup-grid { gap:18px; }
+  .game-lobby .lobby-panel { padding:12px; min-width:0; }
+  .game-lobby .lobby-panel h1, .game-lobby .lobby-panel h2 { font-size:1.18rem; line-height:1.4; }
+  .lobby-chips-wrap { margin-inline:0; padding:5px 6px; }
+  .lobby-chips-scroller { gap:5px; padding-inline:2px; -webkit-mask-image:none; mask-image:none; }
+  .lobby-chips-scroller > button { min-height:44px; padding-inline:10px; font-size:.79rem; }
+  .lobby-category-grid, .lobby-category-grid[data-compact="true"],
+  .lobby-category-grid:has(> .lobby-flat-card), .lobby-category-grid[data-compact="true"]:has(> .lobby-flat-card) {
+    grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:3px 0;
+  }
+  .lobby-category-grid > * { min-width:0; }
+  .lobby-flat-card .lobby-flat-media { aspect-ratio: 4/3; }
+  .lobby-flat-title { min-height:42px; padding:5px 6px; font-size:.83rem; }
+  .lobby-flat-controls { top:3px; left:3px; right:3px; gap:2px; }
+  .lobby-flat-controls > div { min-width:0; flex-wrap:wrap; gap:3px; }
+  .lobby-flat-controls > div:last-child { justify-content:flex-end; }
+  .lobby-flat-info { width:44px; height:44px; }
+  .lobby-flat-count { white-space:normal; text-align:center; padding:3px 4px; font-size:10px; }
+  .lobby-bottom-shell { padding-bottom:max(5px,env(safe-area-inset-bottom)); }
+  .lobby-dock { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; padding:7px; gap:6px; }
+  .lobby-dock > div { min-width:0; gap:6px; }
+  .lobby-dock > div > button { padding-inline:7px; gap:4px; font-size:.78rem; min-height:44px; }
+  .lobby-dock > button { min-width:0; padding-inline:10px; font-size:.88rem; min-height:44px; }
+  .lobby-selected-drawer { max-height:min(55dvh,360px); overflow-y:auto; width:min(calc(100vw - 42px),360px); }
+  .arena-stage { padding:8px; }
+  .arena-stage .arena-layout { gap:10px; }
+  .arena-stage .arena-main { width:100%; min-width:0; }
+  .arena-stage .round-scene { width:100%; max-width:100%; }
+  .arena-stage .score-rail { min-height:0; width:100%; padding:9px; gap:6px; border-radius:16px; }
+  .arena-stage .rail-top { display:grid; gap:6px; }
+  .arena-stage .rail-top > * { margin-block:0; }
+  .arena-stage .rail-top > div:first-child button { min-height:44px; }
+  .arena-stage .score-teams { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+  .arena-stage .score-teams > div { min-width:0!important; margin:0; padding:5px 4px; border-radius:12px; }
+  .arena-stage .score-teams > div > div:first-child { margin-bottom:2px; font-size:.85rem; }
+  .arena-stage .rail-score-controls { gap:3px; }
+  .arena-stage .rail-score-controls button { width:44px; height:44px; flex-shrink:0; }
+  .arena-stage .rail-score-controls > span { min-width:0; }
+  .arena-stage .score-number { font-size:clamp(18px,5vw,25px); }
+  .arena-stage .rail-round-actions { gap:5px; padding:0; }
+  .arena-stage .rail-round-actions button { min-height:44px; padding:5px 8px; }
+  .arena-stage .score-rail .mascot-track { display:none; }
+  .arena-stage .rail-actions { padding-top:0; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px; }
+  .arena-stage .rail-actions > div { margin:0; padding:0; border:0; flex-wrap:wrap; justify-content:center; gap:4px; }
+  .arena-stage .rail-actions button { min-width:44px; min-height:44px; }
+  .arena-stage .scene-timer { display:none; }
+  .arena-stage .category-grid .category-card > :first-child { height:clamp(64px,18vw,100px); }
+  .arena-stage .category-caption { padding:6px 5px 9px; gap:6px; }
+  .arena-stage .category-caption h2 { font-size:.92rem; line-height:1.35; overflow-wrap:anywhere; }
+  .arena-stage .matrix-point-btn { min-height:44px; }
+  .arena-stage .point-strip button { min-height:44px; padding-inline:2px; }
+  .arena-stage .question-frame, .arena-stage .award-panel { padding:11px; border-radius:15px; }
+  .arena-stage[data-question-scene=true] .question-face { padding:5px 2px; }
+  .arena-stage .question-face > p, .arena-stage .question-stage-copy > p { font-size:clamp(1.12rem,4.5vw,1.42rem); line-height:1.65; overflow-wrap:anywhere; }
+  .arena-stage .round-scene[data-revealed="true"] .question-face > p,
+  .arena-stage .round-scene[data-revealed="true"] .question-stage-copy > p { font-size:1.08rem; line-height:1.6; }
+  .arena-stage .answer-face { padding:12px 7px; }
+  .arena-stage .answer-face > p:first-of-type { font-size:clamp(1.25rem,5.7vw,1.75rem); line-height:1.65; overflow-wrap:anywhere; }
+  .arena-stage .answer-face > p.ayah:first-of-type, .arena-stage .answer-face > p[data-multiline], .arena-stage .answer-face > p[data-grammar] { font-size:1.3rem; line-height:1.95; }
+  .arena-stage .question-stage-split { gap:8px; min-width:0; }
+  .arena-stage .question-frame img, .arena-stage .question-frame video { max-width:100%; max-height:36dvh; object-fit:contain; }
+  .arena-stage .question-media-stage { min-height:0; }
+  .arena-stage [data-testid="wc26-matchup-flags"] { width:100%; gap:4px; }
+  .arena-stage [data-testid="wc26-matchup-flags"] > div { flex:1; min-width:0; padding:3px; }
+  .arena-stage [data-testid="wc26-matchup-flags"] img { width:100%; height:auto; max-height:90px; }
+  .arena-stage .question-frame button, .arena-stage .award-panel button { min-height:44px; max-width:100%; }
+  .arena-stage .round-reveal-button { min-width:0; width:min(100%,280px); font-size:1rem; padding:9px 12px; }
+  .arena-stage .award-panel h3 { font-size:1.02rem; }
+  .arena-stage .award-teams { gap:6px; }
+  .arena-stage .award-teams > button { min-height:44px; padding:8px 10px; font-size:.95rem; overflow-wrap:anywhere; }
+  .arena-stage .round-edges { min-height:0; gap:5px; flex-wrap:wrap; }
+  .arena-stage .round-edge-commentary, .arena-stage .round-edge-step { font-size:.75rem; min-width:0; }
+  .share-room-overlay { padding:8px; }
+  .share-room-panel, .question-zoom-panel { max-height:calc(100dvh - 24px); overflow-y:auto; padding:12px; }
+  .question-zoom-panel img { max-height:65dvh; }
+  .game-title .hero-halftone-stage { padding:12px; }
+  .game-title .opening-main { gap:16px; }
+  .game-title .opening-logo img { max-height:135px; width:auto; max-width:75%; object-fit:contain; }
+  .game-title .opening-start { min-width:0; padding:10px 12px; font-size:1rem; }
+  .game-title .opening-preview { max-width:100%; }
+}
+@media(max-width:767px) and (max-height:500px) and (orientation:landscape) {
+  .arena-stage .question-frame img,.arena-stage .question-frame video { max-height:42dvh; }
+  .lobby-selected-drawer { max-height:45dvh; }
+}
+@media(pointer:coarse) {
+  .game-top-nav button,.lobby-touch-target,.arena-stage button { touch-action:manipulation; }
+}

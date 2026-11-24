@@ -198,7 +198,8 @@ export function LobbySetup({
     const updateHeaderHeight = () => {
       const headerEl = document.querySelector('header');
       if (headerEl) {
-        setHeaderStickyTop(Math.ceil(headerEl.getBoundingClientRect().height) + 6);
+        const position = window.getComputedStyle(headerEl).position;
+        setHeaderStickyTop(position === 'sticky' || position === 'fixed' ? Math.ceil(headerEl.getBoundingClientRect().height) + 6 : 6);
       }
     };
     updateHeaderHeight();
@@ -1665,7 +1666,7 @@ export function LobbySetup({
                 <div
                   role="dialog"
                   aria-label="الفئات المختارة"
-                  className="absolute bottom-full right-0 mb-3 z-40 w-[min(90vw,360px)] rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_6px_0_#1F112E] p-3.5 space-y-2.5"
+                  className="lobby-selected-drawer absolute bottom-full right-0 mb-3 z-40 w-[min(90vw,360px)] rounded-2xl bg-[#FFFDF7] border-[2.5px] border-[#1F112E] shadow-[0_6px_0_#1F112E] p-3.5 space-y-2.5"
                 >
                   <div className="flex items-center justify-between gap-2 pb-1 border-b border-[#1F112E]/10">
                     <span className="font-display font-black text-sm text-[#1F112E]">
