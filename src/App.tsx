@@ -29,7 +29,7 @@ const SavedLibrary = lazy(() => import('./components/SavedLibrary').then(m => ({
 
 type ViewScreen =
   | { name: 'title' }
-  | { name: 'lobby'; preselectDeckId?: string; approvedLesson?: QuizDeck }
+  | { name: 'lobby'; preselectDeckId?: string; approvedLesson?: QuizDeck; initialCategoryId?: string; initialClassic?: boolean }
   | { name: 'pdf_studio'; editDeck?: QuizDeck | null }
   | { name: 'library'; mode: 'decks' | 'matches' }
   | { name: 'admin' }
@@ -309,6 +309,8 @@ function AppContent() {
         recoveredMetaById={recoveredMetaById}
         onMarkDeckSeen={handleMarkDeckSeen}
         initialDeckId={screen.preselectDeckId}
+        initialCategoryId={screen.initialCategoryId}
+        initialClassic={screen.initialClassic}
         approvedLesson={screen.approvedLesson}
         soundEnabled={soundEnabled}
         onToggleSound={toggleSound}
@@ -392,6 +394,7 @@ function AppContent() {
 
   return (
     <TitleScreen
+      challenge={{decks,recoveredMetaById,savedMatchCount:rooms.length,onPickCategory:(id)=>setScreen({name:'lobby',initialCategoryId:id}),onStartClassic:()=>setScreen({name:'lobby',initialClassic:true})}}
       soundEnabled={soundEnabled}
       onToggleSound={toggleSound}
       onStartQuick={() => setScreen({ name: 'lobby' })}

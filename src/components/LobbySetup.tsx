@@ -53,6 +53,8 @@ interface LobbySetupProps {
   recoveredMetaById?: Record<string, RecoveredDeckRecord>;
   onMarkDeckSeen?: (deckId: string) => void;
   initialDeckId?: string;
+  initialCategoryId?: string;
+  initialClassic?: boolean;
   approvedLesson?: QuizDeck;
   soundEnabled?: boolean;
   onToggleSound?: () => void;
@@ -142,6 +144,8 @@ export function LobbySetup({
   recoveredMetaById = {},
   onMarkDeckSeen,
   initialDeckId,
+  initialCategoryId,
+  initialClassic,
   approvedLesson,
   soundEnabled = true,
   onToggleSound,
@@ -154,7 +158,7 @@ export function LobbySetup({
   const [selectedDeckId, setSelectedDeckId] = useState<string>(() =>
     initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? initialDeckId : 'curated_custom',
   );
-  const [customCategories, setCustomCategories] = useState<string[]>([]);
+  const [customCategories, setCustomCategories] = useState<string[]>(()=>initialClassic?[...CLASSIC_CATEGORY_IDS]:initialCategoryId?[initialCategoryId]:[]);
   const [teams, setTeams] = useState<Array<{ name: string; color: string; participantsCount: number }>>([
     { name: 'الفريق الأول', color: '#F05B63', participantsCount: 5 },
     { name: 'الفريق الثاني', color: '#279ED6', participantsCount: 5 },

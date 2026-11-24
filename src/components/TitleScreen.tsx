@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { BookOpen, DoorOpen, FileText, FolderArchive, Play, X, Zap, Timer, Bell, Brain, ArrowLeft, Users, MessageCircle, Eye } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 import { GameLogo } from './GameLogo';
+import { ChallengeArena, type ChallengeArenaProps } from './ChallengeArena';
 import { TopNavHeader } from './TopNavHeader';
 
 interface TitleScreenProps {
   onStartQuick: () => void;
+  challenge: Pick<ChallengeArenaProps, 'decks' | 'recoveredMetaById' | 'savedMatchCount' | 'onPickCategory' | 'onStartClassic'>;
   onOpenPdfStudio: () => void;
   onOpenLibrary: () => void;
   onOpenSavedMatches: () => void;
@@ -33,7 +35,7 @@ const preview = [
   { name: 'علوم', symbol: '⚗', color: '#56bca7' },
 ];
 
-export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOpenSavedMatches, soundEnabled, onToggleSound }: TitleScreenProps) {
+export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLibrary, onOpenSavedMatches, soundEnabled, onToggleSound }: TitleScreenProps) {
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showThirtyRules, setShowThirtyRules] = useState(false);
   const [showKhalfRules, setShowKhalfRules] = useState(false);
@@ -57,7 +59,7 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
         onHome={() => window.scrollTo({top:0,behavior:'auto'})} onStartQuick={onStartQuick}
         onOpenPdfStudio={onOpenPdfStudio} onOpenLibrary={onOpenLibrary} onOpenSavedMatches={onOpenSavedMatches} />
       <main className="platform-wrap">
-        <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><span>ألعاب جماعية</span></div>
+        <div className="platform-heading"><div><h1>ساحة الألعاب</h1><p>اختار لعبتك، جمّع فريقك، وابدأ التحدي.</p></div><a className="platform-challenge-jump" href="#challenge-arena"><Zap size={16}/> ساحة التحدي</a></div>
         <section className="platform-grid" aria-label="الألعاب المتاحة">
           <article className="platform-feature">
             <div className="platform-feature-copy">
@@ -140,8 +142,9 @@ export function TitleScreen({ onStartQuick, onOpenPdfStudio, onOpenLibrary, onOp
             <button type="button" onClick={() => click(onOpenSavedMatches)}><FolderArchive size={21}/><span>المباريات المحفوظة</span><ArrowLeft size={16}/></button>
           </section>
         </section>
-        <footer className="platform-footer">يمكن هاي · ألعاب وتحديات جماعية</footer>
       </main>
+      <ChallengeArena {...challenge} onStartQuick={()=>click(onStartQuick)} onOpenPdfStudio={()=>click(onOpenPdfStudio)} onOpenSavedMatches={()=>click(onOpenSavedMatches)} onJoin={()=>click(()=>{setJoinError('');setShowJoin(true);})} gameUrls={{thirty:THIRTY_URL,khalf:KHALF_URL,codenames:CODENAMES_URL,horouf:HOROUF_URL}}/>
+      <footer className="platform-footer">يمكن هاي · ألعاب وتحديات جماعية</footer>
       {showJoin && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="الانضمام لغرفة" onClick={() => setShowJoin(false)}>
         <form className="game-card-frame rounded-3xl p-6 w-full max-w-sm space-y-4" onClick={e => e.stopPropagation()} onSubmit={e => {e.preventDefault();join();}}>
           <div className="flex justify-between items-center"><h2 className="font-black text-xl">انضم للغرفة</h2><button type="button" aria-label="إغلاق" onClick={() => setShowJoin(false)}><X/></button></div>
