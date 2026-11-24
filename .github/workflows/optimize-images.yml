@@ -27,7 +27,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: npm install --no-audit --no-fund --package-lock=false
+      - name: Install build dependencies with Vite-compatible esbuild in CI
+        run: |
+          npm pkg set 'devDependencies.esbuild=^0.28.0'
+          npm install --no-audit --no-fund --package-lock=false
+          git restore -- package.json
       - run: npm run build
       - run: npx tsx --test server/imageQuestionBanks.test.ts
       - name: Commit only after build and checks pass
