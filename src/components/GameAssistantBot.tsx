@@ -28,21 +28,17 @@ interface GameAssistantBotProps {
   triggerVariant?: 'pill' | 'icon';
 }
 
-function NabeehMascotSvg({ className = 'w-6 h-6' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <circle cx="32" cy="34" r="24" fill="#FFD95A" stroke="#291B40" strokeWidth="3.5" />
-      <path d="M18 17 L24 23 L14 25 Z" fill="#7042A1" stroke="#291B40" strokeWidth="2.5" />
-      <path d="M46 17 L40 23 L50 25 Z" fill="#7042A1" stroke="#291B40" strokeWidth="2.5" />
-      <circle cx="24" cy="32" r="5.5" fill="#FFF9E9" stroke="#291B40" strokeWidth="2.5" />
-      <circle cx="40" cy="32" r="5.5" fill="#FFF9E9" stroke="#291B40" strokeWidth="2.5" />
-      <circle cx="24" cy="32" r="2.2" fill="#291B40" />
-      <circle cx="40" cy="32" r="2.2" fill="#291B40" />
-      <path d="M25 43 Q32 49 39 43" fill="none" stroke="#291B40" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="32" cy="9" r="4" fill="#00B978" stroke="#291B40" strokeWidth="2.5" />
-      <line x1="32" y1="13" x2="32" y2="17" stroke="#291B40" strokeWidth="2.5" />
-    </svg>
-  );
+function NashmiMascotSvg({ className = 'w-6 h-6' }: { className?: string }) {
+  return <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+    <path d="M32 5C16.5 5 6 15.8 6 29.8c0 7.1 3 13.4 8 17.8L10 57l11.2-4.6c3.3 1.2 7 1.8 10.8 1.8 15.5 0 26-10.8 26-24.4C58 15.8 47.5 5 32 5Z" fill="#874CF5" stroke="#29183E" strokeWidth="3.5" strokeLinejoin="round"/>
+    <path d="m32 13 4.8 9.2 10.2 1.6-7.3 7.3 1.7 10.2L32 36.6l-9.4 4.7 1.7-10.2-7.3-7.3 10.2-1.6Z" fill="#FFE45A" stroke="#29183E" strokeWidth="2.8" strokeLinejoin="round"/>
+    <path d="M22.5 19.5c3-2.8 16-2.8 19 0" fill="none" stroke="#DC2626" strokeWidth="3.6" strokeLinecap="round"/>
+    <path d="M23.5 17.6c2.7-2.2 14.3-2.2 17 0" fill="none" stroke="#29183E" strokeWidth="2.8" strokeLinecap="round"/>
+    <circle cx="26" cy="27" r="4.2" fill="#fff9e9" stroke="#29183e" strokeWidth="2"/><circle cx="38" cy="27" r="4.2" fill="#fff9e9" stroke="#29183e" strokeWidth="2"/>
+    <path d="M30.2 27h3.6" stroke="#29183e" strokeWidth="2"/>
+    <circle cx="26" cy="27" r="1.9" fill="#29183e"/><circle cx="38" cy="27" r="1.9" fill="#29183e"/>
+    <path d="M28 33q4 4 8 0" fill="none" stroke="#29183e" strokeWidth="2" strokeLinecap="round"/>
+  </svg>;
 }
 
 const DEFAULT_TEAMS: AssistantTeamSummary[] = [
@@ -53,7 +49,7 @@ const DEFAULT_TEAMS: AssistantTeamSummary[] = [
 const INITIAL_GREETING: ChatMessage = {
   id: 'welcome',
   role: 'assistant',
-  text: 'أهلًا أهلًا! أنا نبيه ⭐ مساعد يمكن هاي وبعرف كل شي عن اللعبة. اسألوني عن طريقة اللعب، البطاقات، أو نظام الفئات — وإذا اختلفتوا على إجابة، أنا الحكم!',
+  text: 'هلا بالنشامى! أنا نشمي، مساعد ألعاب يمكن هاي. اسألوني عن القوانين والبطاقات، وإذا اختلفتوا على إجابة بساعدكم بتحكيمها!',
 };
 
 export function GameAssistantBot({
@@ -228,8 +224,8 @@ export function GameAssistantBot({
           soundFX.playClick();
           setOpen(true);
         }}
-        title="نبيه — مساعد وحكم يمكن هاي"
-        aria-label="فتح نبيه المساعد والحكم الذكي"
+        title="نشمي — مساعد وحكم يمكن هاي"
+        aria-label="فتح نشمي المساعد والحكم الذكي"
         className={
           triggerVariant === 'icon'
             ? 'game-btn-3d bg-[#FFE047] text-[#1F112E] w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center shrink-0 cursor-pointer'
@@ -238,8 +234,8 @@ export function GameAssistantBot({
               }`
         }
       >
-        <NabeehMascotSvg className={triggerVariant === 'icon' ? 'w-5 h-5' : compact ? 'w-5 h-5' : 'w-6 h-6'} />
-        {triggerVariant !== 'icon' && <span>نبيه الحكم</span>}
+        <NashmiMascotSvg className={triggerVariant === 'icon' ? 'w-5 h-5' : compact ? 'w-5 h-5' : 'w-6 h-6'} />
+        {triggerVariant !== 'icon' && <span>نشمي الحكم</span>}
       </button>
 
       {open &&
@@ -261,13 +257,13 @@ export function GameAssistantBot({
               {/* Clean Header Matching Reference */}
               <div className="flex items-center justify-between gap-3 px-6 pt-5 pb-3 bg-[#FFF8EA]">
                 <div className="flex items-center gap-3 min-w-0">
-                  <NabeehMascotSvg className="w-8 h-8 shrink-0" />
+                  <NashmiMascotSvg className="w-8 h-8 shrink-0" />
                   <div className="flex flex-wrap items-baseline gap-2.5 min-w-0">
                     <h2
                       id="nabeeh-modal-title"
                       className="font-display font-black text-xl text-[#1F112E] leading-tight"
                     >
-                      {viewMode === 'judge' ? 'حكّم الإجابة' : 'نبيه'}
+                      {viewMode === 'judge' ? 'حكّم الإجابة' : 'نشمي'}
                     </h2>
                     {viewMode === 'judge' ? (
                       <button
@@ -314,7 +310,7 @@ export function GameAssistantBot({
                         }`}
                       >
                         {msg.role === 'assistant' && (
-                          <NabeehMascotSvg className="w-6 h-6 shrink-0 mb-0.5 hidden sm:block" />
+                          <NashmiMascotSvg className="w-6 h-6 shrink-0 mb-0.5 hidden sm:block" />
                         )}
                         {msg.role === 'assistant' ? (
                           <div className="max-w-[90%] bg-white border-2 border-[#1F112E] rounded-2xl rounded-br-sm px-4 py-3 text-sm sm:text-[15px] font-bold leading-relaxed text-[#1F112E] whitespace-pre-wrap shadow-[0_2px_0_rgba(31,17,46,0.12)]">
@@ -332,7 +328,7 @@ export function GameAssistantBot({
                       <div className="flex items-center gap-2">
                         <div className="bg-white border-2 border-[#1F112E] rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs font-black text-[#63349B]">
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>نبيه يراجع القواعد والدرس...</span>
+                          <span>نشمي يراجع القواعد والدرس...</span>
                         </div>
                       </div>
                     )}
