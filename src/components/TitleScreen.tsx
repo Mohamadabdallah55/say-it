@@ -17,7 +17,7 @@ const THIRTY_URL = 'https://three0s-guai.onrender.com/';
 const KHALF_URL = 'https://without-us.onrender.com/';
 function getCodenamesUrl(): string | null {
   try {
-    const url = new URL(import.meta.env.VITE_CODENAMES_URL || '');
+    const url = new URL(import.meta.env.VITE_CODENAMES_URL || 'https://codenames-cpjc.onrender.com/');
     return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
   } catch { return null; }
 }
