@@ -51,22 +51,23 @@ class SoundManager {
     if(!this.active)return;
     const now=typeof performance!=='undefined'?performance.now():Date.now();
     if(now-this.lastClick<65)return;this.lastClick=now;
-    this.glide(980,690,.105,'triangle',.115);this.glide(230,115,.075,'sine',.07);
+    this.glide(910,610,.19,'triangle',.125);this.glide(245,120,.095,'sine',.10);this.sweep(.07,1800,700,.035);
   }
-  playSelect(){this.glide(435,650,.13,'triangle',.11);this.glide(820,940,.09,'sine',.06,.055);}
-  playNavigate(){this.sweep(.26,650,2900,.085);this.glide(250,185,.21,'sine',.11);}
+  playSelect(){this.glide(430,670,.20,'triangle',.13);this.glide(810,960,.115,'sine',.07,.07);}
+  playNavigate(){this.sweep(.33,650,2900,.10);this.glide(250,185,.29,'sine',.12);}
   playDialog(){this.glide(590,430,.15,'triangle',.10);this.sweep(.16,2100,500,.045);}
   playSurprise(){this.sweep(.27,500,3200,.075);this.glide(420,550,.13,'triangle',.12);this.glide(810,1150,.22,'sine',.12,.12);}
-  playCardDeal(){this.sweep(.23,2300,450,.075);this.glide(320,210,.16,'triangle',.11,.06);this.glide(710,490,.11,'sine',.07,.13);}
-  playQuestionOpen(){this.sweep(.32,250,2600,.095);this.glide(270,420,.22,'triangle',.16);this.glide(565,815,.22,'sine',.12,.105);}
+  playCardDeal(){this.sweep(.40,2300,450,.09);this.glide(320,210,.22,'triangle',.13,.06);this.glide(710,490,.16,'sine',.07,.18);}
+  playQuestionOpen(){this.sweep(.44,250,2600,.10);this.glide(270,420,.26,'triangle',.17);this.glide(565,815,.26,'sine',.13,.16);}
   playScoreCorrection(){this.glide(400,550,.13,'triangle',.12);this.glide(750,950,.21,'sine',.12,.11);}
   playTurnPass(){this.glide(375,240,.24,'triangle',.12);this.sweep(.16,1500,330,.045);}
   playStartRound(){this.sweep(.33,350,3400,.08);this.glide(360,490,.14,'triangle',.13);this.glide(620,860,.23,'sine',.13,.1);}
   playTick(urgent=false){this.glide(urgent?1050:690,urgent?900:590,.065,'triangle',urgent?.10:.045);}
   playTimeUp(){this.glide(360,190,.22,'triangle',.15);this.glide(245,130,.28,'triangle',.13,.16);}
-  playReveal(){this.sweep(.29,400,3300,.07);this.glide(415,575,.15,'triangle',.16);this.glide(740,980,.23,'sine',.13,.13);}
-  playFoul(){this.glide(290,110,.34,'triangle',.2);this.glide(165,88,.22,'sine',.11,.085);this.sweep(.21,1500,240,.04);}
-  playCorrect(){this.glide(465,620,.14,'triangle',.15);this.glide(740,920,.18,'sine',.16,.11);this.glide(1140,1320,.27,'sine',.12,.22);this.sweep(.22,800,3300,.04,.04);}
+  playReveal(){this.sweep(.41,400,3300,.085);this.glide(415,575,.18,'triangle',.17);this.glide(740,980,.27,'sine',.13,.14);}
+  playFoul(delay=0){this.glide(290,110,.40,'triangle',.2,delay);this.glide(165,88,.26,'sine',.11,delay+.11);this.sweep(.23,1500,240,.04,delay);}
+  playCorrect(delay=0){this.glide(465,620,.13,'triangle',.15,delay);this.glide(740,920,.16,'sine',.16,delay+.09);this.glide(1140,1320,.20,'sine',.12,delay+.20);this.sweep(.22,800,3300,.04,delay+.04);}
+  playAwardSequence(changes:number[],reduced=false){const ordered=changes.filter(x=>x!==0).sort((a,b)=>Number(b>0)-Number(a>0)).slice(0,reduced?1:4);ordered.forEach((x,i)=>x>0?this.playCorrect(.18+i*1.5):this.playFoul(.18+i*1.5));}
   playVictory(){this.playCorrect();this.glide(600,840,.20,'triangle',.15,.39);this.glide(970,1450,.39,'sine',.14,.55);}
 }
 export const soundFX = new SoundManager();

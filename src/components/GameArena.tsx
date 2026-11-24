@@ -279,8 +279,7 @@ export function GameArena({
         Date.now() - state.lastAward.at < 1600) {
       const changes = Object.values(state.lastAward.changes);
       if (state.lastAward.corrected) soundFX.playScoreCorrection();
-      else if (changes.some(change => change > 0)) soundFX.playCorrect();
-      else if (changes.some(change => change < 0)) soundFX.playFoul();
+      else if (changes.some(change=>change!==0)) soundFX.playAwardSequence(changes, state.settings.reducedMotion || prefersReducedMotion || smallScreen);
       else soundFX.playTurnPass();
     }
     lastSceneRef.current = scene;
@@ -555,7 +554,7 @@ export function GameArena({
         state.categories.every((c) => /^team_\d+$/.test(c.id))));
   const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
 
-  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
+  const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 6400
     ? state.lastAward : null;
   const awardChanges = recentAward
     ? state.teams.map(team => ({ team, change: recentAward.changes[team.id] ?? 0 })).filter(({ change }) => change !== 0)
@@ -568,8 +567,10 @@ export function GameArena({
   const correctionOptions = previousAnswer?.lifeline === 'silence'
     ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
     : state.teams;
-  const showScoreMoment = recentAward && awardChanges.length > 0 &&
-    nowMs - recentAward.at < 1450 && !correction && animateRound;
+  const scoreScenes = [...awardChanges].sort((a,b)=>Number(b.change>0)-Number(a.change>0)).slice(0,4);
+  const scoreMomentMs = scoreScenes.length * 1500 + 180;
+  const showScoreMoment = state.phase==='BOARD' && recentAward && scoreScenes.length > 0 &&
+    nowMs - recentAward.at < scoreMomentMs && !correction && animateRound;
   const edgeCommentary = state.settings.commentaryMode !== 'off' && state.commentary &&
     (state.phase === 'FINAL' || nowMs - Date.parse(state.commentary.timestamp) < 5000)
     ? state.commentary : null;
@@ -631,16 +632,12 @@ export function GameArena({
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
           {showScoreMoment && (
-            <div className="score-moment" key={recentAward.at} aria-hidden="true">
-              <div className="score-moment-card" data-result={awardChanges.every(({change})=>change<0)?'loss':'gain'}>
-                <h2>{recentAward.corrected ? 'تصحيح الرصيد' : 'حصيلة السؤال'}</h2>
-                {awardChanges.map(({ team, change }) => (
-                  <div className="score-moment-row" key={team.id} data-loss={change < 0}>
-                    <span><i style={{ background: team.color }} />{team.name}</span>
-                    <strong><b dir="ltr">{change > 0 ? '+' : ''}{change}</b> نقطة</strong>
-                  </div>
-                ))}
-              </div>
+            <div className="score-moment" key={recentAward.at} aria-hidden="true" style={{animationDuration:scoreMomentMs+'ms'}}>
+              {scoreScenes.map(({team,change},index)=><div className="score-moment-card yh-score-sequence" key={team.id} data-result={change<0?'loss':'gain'} style={{animationDelay:(180+index*1500)+'ms'}}>
+                <h2>{team.name}</h2>
+                <div className="score-moment-row" data-loss={change<0}><strong><b dir="ltr">{change>0?'+':''}{change}</b> نقطة</strong></div>
+                <small>{recentAward.corrected?'تصحيح الرصيد':change<0?'خصم نقاط':'إضافة نقاط'}</small>
+              </div>)}
             </div>
           )}
           {state.phase !== 'BOARD' && (

@@ -1705,3 +1705,21 @@
 .score-moment-card .score-moment-row[data-loss=true] strong{background:#c23d45;border-color:#8d2933;box-shadow:0 3px #8d2933;}
 .score-moment-card .score-moment-row strong b{font-size:1.45rem;font-variant-numeric:tabular-nums;}
 @media(prefers-reduced-motion:reduce){.platform-home .platform-grid>*,.platform-modal,.platform-modal>div,.platform-modal>form,.arena-stage .answer-face,.arena-stage .score-moment,.arena-stage .score-moment-card{animation:none!important;}}
+
+/* Reference timing study: independent score cards and fast stage transitions. */
+@keyframes yh-reference-scene{0%{opacity:0;transform:scale(.975)}45%{opacity:.25;transform:scale(.985)}100%{opacity:1;transform:none}}
+@keyframes yh-reference-score{0%{opacity:0;transform:scale(.72) rotate(-5deg)}13%{opacity:1;transform:scale(1.04)}23%,77%{opacity:1;transform:none}100%{opacity:0;transform:scale(.82) rotate(6deg)}}
+@keyframes yh-reference-veil{0%{opacity:0}5%,93%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:no-preference){
+ .arena-stage:not(.reduced-motion)[data-question-scene=true] .round-scene,
+ .arena-stage:not(.reduced-motion)[data-phase=LIFELINE_PICK] .lifeline-stage{animation:yh-reference-scene .43s cubic-bezier(.2,.7,.3,1) both!important}
+ .arena-stage:not(.reduced-motion)[data-question-scene=true] .answer-face{animation:yh-reference-scene .42s ease-out both}
+ .arena-stage:not(.reduced-motion) .score-moment{display:grid;grid-template-columns:minmax(0,1fr);background:#20182a80;animation-name:yh-reference-veil;animation-timing-function:linear;animation-fill-mode:both}
+ .arena-stage:not(.reduced-motion) .score-moment .yh-score-sequence{grid-area:1/1;opacity:0;animation:yh-reference-score 1.5s cubic-bezier(.22,.75,.27,1) both;pointer-events:none}
+}
+.score-moment .yh-score-sequence{width:clamp(124px,16vw,220px);padding:10px 12px;gap:6px;border-radius:13px;box-shadow:0 4px #38224b;}
+.score-moment .yh-score-sequence h2{font-size:clamp(.75rem,1.1vw,1rem);text-align:center;overflow-wrap:anywhere}
+.score-moment .yh-score-sequence small{font-size:.64rem;font-weight:800;color:#6b557b}
+.score-moment .yh-score-sequence strong{min-width:0;width:100%;font-size:.9rem;padding:6px 8px}
+.score-moment .yh-score-sequence strong b{font-size:1.2rem}
+@media(min-width:900px){.arena-stage .score-moment{padding-inline-start:clamp(160px,19vw,300px)}}
