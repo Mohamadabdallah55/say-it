@@ -941,11 +941,10 @@ async function generateCategoryMatrixBatch(params: {
   const endP = params.categoryPlan.pageRange?.endPage ?? params.totalPages;
   const rangeSpan = Math.max(1, endP - startP + 1);
   const tiersOrder = normalizeSelectedDifficulties(params.selectedDifficulties);
-  const categoryVisuals = selectVisualsForRange(
-    params.visuals ?? [],
-    params.categoryPlan.pageRange,
-    4,
-  );
+  // Avoid switching to the vision model for unrelated images.
+  const categoryVisuals = (params.visuals ?? [])
+    .filter((v) => v.pageNumber >= startP && v.pageNumber <= endP)
+    .slice(0, 1);
 
   const expectedSlotsText = Array.from({ length: params.teamCount }, (_, teamIdx) => {
     const slotAssignments = tiersOrder
@@ -1159,7 +1158,7 @@ async function generateMissingMatrixSlotsBatch(params: {
     keywords,
     24000,
   );
-  const batchVisuals = (params.visuals ?? []).slice(0, 4);
+  const batchVisuals = (params.visuals ?? []).slice(0, 1);
 
   const slotsDesc = params.missingSlots
     .map(
@@ -1476,6 +1475,7 @@ export async function generateBoardFromPlan(params: {
     }
 
     rejectedCount += 1;
+    console.info('[pdf-generation] rejected', { categoryId: catPlan.id, teamIdx, difficulty: diff, reason: quality.reason || 'validation' });
     deck.rejectedLog = [
       ...(deck.rejectedLog ?? []),
       {
@@ -1517,6 +1517,8 @@ export async function generateBoardFromPlan(params: {
         message: `جاري توليد أسئلة الفئة ${catIdx + 1} من ${categoryPlans.length}: ${catPlan.name}...`,
       });
 
+      const countBeforeBatch = addedCount;
+      const rejectedBeforeBatch = rejectedCount;
       const batch = await generateCategoryMatrixBatch({
         categoryPlan: catPlan,
         categoryNumber: catIdx + 1,
@@ -1582,6 +1584,15 @@ export async function generateBoardFromPlan(params: {
         }
       }
 
+      console.info('[pdf-generation] category result', { categoryId: catPlan.id, returned: batch.length, accepted: addedCount - countBeforeBatch, rejected: rejectedCount - rejectedBeforeBatch, occupied: occupied.size });
+      params.onProgress?.({
+        jobId, stage: 'category', categoryIndex: catIdx + 1, totalCategories: categoryPlans.length,
+        categoryName: catPlan.name,
+        generatedCount: deck.questions.filter((q) => q.status !== 'rejected' && !q.isBackup).length,
+        targetCount: targetTotalQuestions,
+        message: `الفئة ${catIdx + 1}: قُبل ${addedCount - countBeforeBatch} سؤال، واستُبعد ${rejectedCount - rejectedBeforeBatch} من ${batch.length} مرشحًا.`,
+      });
+
       // Persist deck + checkpoint right after every completed category batch
       completedCategoryIds.add(catPlan.id);
       if (deck.questions.length > 0) {
@@ -1612,8 +1623,17 @@ export async function generateBoardFromPlan(params: {
         message: `التحقق الذاتي (${healPass}/${MAX_HEAL_PASSES}): استكمال ${missingSlots.length} خانة لضمان اكتمال ${targetTotalQuestions} سؤالًا...`,
       });
 
+      // Small repair requests avoid oversized JSON responses on local models.
+      for (let offset = 0; offset < missingSlots.length; offset += 6) {
+      const repairSlots = missingSlots.slice(offset, offset + 6);
+      params.onProgress?.({
+        jobId, stage: 'healing', categoryIndex: categoryPlans.length, totalCategories: categoryPlans.length,
+        generatedCount: deck.questions.filter((q) => q.status !== 'rejected' && !q.isBackup).length,
+        targetCount: targetTotalQuestions,
+        message: `استكمال الخانات ${offset + 1}–${offset + repairSlots.length} من ${missingSlots.length} (محاولة ${healPass})...`,
+      });
       const healedBatch = await generateMissingMatrixSlotsBatch({
-        missingSlots,
+        missingSlots: repairSlots,
         sourceText: resolvedText.fullText,
         pages,
         sourceUnits: resolvedText.sourceUnits,
@@ -1626,16 +1646,16 @@ export async function generateBoardFromPlan(params: {
       });
 
       const remainingAfterHeal = new Set(
-        missingSlots.map((s) => `${s.categoryId}:${s.teamIndex}:${s.difficulty}`),
+        repairSlots.map((s) => `${s.categoryId}:${s.teamIndex}:${s.difficulty}`),
       );
 
       for (let i = 0; i < healedBatch.length; i++) {
         const item = healedBatch[i];
         const diff: Difficulty = selectedDifficulties.includes(item.difficulty)
           ? item.difficulty
-          : missingSlots[i]?.difficulty ?? selectedDifficulties[0];
+          : repairSlots[i]?.difficulty ?? selectedDifficulties[0];
 
-        let matchedSlot = missingSlots.find(
+        let matchedSlot = repairSlots.find(
           (s) =>
             remainingAfterHeal.has(`${s.categoryId}:${s.teamIndex}:${s.difficulty}`) &&
             s.categoryId === item.categoryId &&
@@ -1643,21 +1663,21 @@ export async function generateBoardFromPlan(params: {
             s.difficulty === diff,
         );
         if (!matchedSlot) {
-          matchedSlot = missingSlots.find(
+          matchedSlot = repairSlots.find(
             (s) =>
               remainingAfterHeal.has(`${s.categoryId}:${s.teamIndex}:${s.difficulty}`) &&
               s.categoryId === item.categoryId &&
               s.difficulty === diff,
           );
         }
-        if (!matchedSlot && missingSlots[i]) {
-          const candidateSlot = missingSlots[i];
+        if (!matchedSlot && repairSlots[i]) {
+          const candidateSlot = repairSlots[i];
           if (remainingAfterHeal.has(`${candidateSlot.categoryId}:${candidateSlot.teamIndex}:${candidateSlot.difficulty}`)) {
             matchedSlot = candidateSlot;
           }
         }
         if (!matchedSlot) {
-          matchedSlot = missingSlots.find((s) =>
+          matchedSlot = repairSlots.find((s) =>
             remainingAfterHeal.has(`${s.categoryId}:${s.teamIndex}:${s.difficulty}`),
           );
         }
@@ -1683,13 +1703,15 @@ export async function generateBoardFromPlan(params: {
         saveDeck(deck);
       }
       persistCheckpoint('in_progress', false);
+      }
     }
 
     if (addedCount > 0 || existingDeck || resumedJob) {
       deck.updatedAt = new Date().toISOString();
       saveDeck(deck);
     }
-    persistCheckpoint('completed', true);
+    const unfilled = findMissingMatrixSlots(deck, categoryPlans, teamCount, selectedDifficulties);
+    persistCheckpoint(unfilled.length ? 'paused' : 'completed', unfilled.length === 0, unfilled.length ? 'بقيت خانات لم تجتز التحقق؛ يمكن استكمالها.' : undefined);
   } catch (err) {
     errorDetail = formatGeminiError(err);
     if (deck.questions.length > 0 || existingDeck) {
