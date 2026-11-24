@@ -16,11 +16,12 @@ export const EL_CLASICO_QUESTIONS = rows.map((row): QuizQuestion => {
     prompt: row.question,
     answer: row.answer,
     explanation: row.explanation,
-    sourceRef: row.fact_source_url,
+    sourceRef: 'videoUrl' in row && row.videoUrl ? undefined : row.fact_source_url,
+    videoUrl: 'videoUrl' in row ? row.videoUrl : undefined,
     imageUrl: row.imageUrl,
     imageSourceUrl: row.imageSourceUrl,
     imageCaption: row.imageCaption,
-    imageDisplay: 'after_reveal',
+    imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
     status: 'approved',
   };
 });
