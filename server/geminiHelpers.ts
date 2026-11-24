@@ -206,17 +206,11 @@ export function formatGeminiError(err: unknown): string {
   const msg = getErrorText(err);
   const lower = msg.toLowerCase();
 
-  if (msg.includes('Ollama') || lower.includes('11434') || lower.includes('econnrefused')) {
-    if (msg.startsWith('تعذّر') || msg.startsWith('تعذر') || msg.startsWith('لم ') || msg.startsWith('خطأ ')) {
-      return msg;
-    }
-    return 'تعذّر الاتصال بمحرك Ollama المحلي. تأكد من تشغيل Ollama ووجود نموذج Qwen على جهازك (دون الحاجة لمفتاح API أو اشتراك).';
-  }
   if (msg.includes('GEMINI_API_KEY')) {
-    return 'مفتاح Gemini API غير مهيأ على الخادم (GEMINI_API_KEY). يمكنك تشغيل Ollama محليًا دون أي مفتاح API.';
+    return 'مفتاح Gemini API غير مهيأ على الخادم. أضف GEMINI_API_KEY في Environment على Render لخادم يمكن هاي.';
   }
   if (isAuthOrKeyError(err)) {
-    return 'مفتاح Gemini API غير صالح أو لا يملك الصلاحية المطلوبة. تحقق من المفتاح في لوحة Settings > Secrets.';
+    return 'مفتاح Gemini API غير صالح أو لا يملك الصلاحية المطلوبة. تحقق من المفتاح في Environment على Render.';
   }
   if (isQuotaError(err)) {
     return 'تم بلوغ حد الحصة المؤقت لنموذج Gemini (429). انتظر قليلًا ثم أعد المحاولة أو استخدم مفتاحًا بفئة مدفوعة من Settings > Secrets.';

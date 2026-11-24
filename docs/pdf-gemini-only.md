@@ -1,0 +1,7 @@
+# PDF studio: Gemini only
+
+The live PDF pipeline now uses Gemini directly for vision, extraction analysis, planning, structured question generation, and regeneration. No Ollama model discovery or request occurs in these paths. The original Nashmi chat bridge is unchanged. Direct calls keep document-sized payloads away from the Thirty Seconds game server.
+
+Render: copy the existing server-side GEMINI_API_KEY from Thirty Seconds into the GEMINI_API_KEY variable on say-it; optionally set GEMINI_MODEL=gemini-4-hydrogen (the model identifier used in the current Nashmi source). Do not copy it into any VITE_ variable or commit it. Remove old OLLAMA_* and AI_ENGINE variables from say-it once deployment succeeds. Preserve NASHMI_SHARED_SECRET for the assistant. PyMuPDF/PDF parsing, saved decks, job checkpoints and validation remain in place.
+
+Status: /api/pdf/ai-status is configuration-only, not proof of successful Gemini inference. /api/health no longer contacts an AI engine. The legacy localAiClient and historical Ollama tests are retained as source history/rollback material, not imported by the active PDF runtime. Old cached extraction-method labels remain readable. The existing old Ollama integration tests are not valid verification of the new production path; validate with a real PDF and image, then regenerate a question. Gemini usage is subject to provider quotas and model availability; identical API keys share quota. No performance or deployment guarantee without live testing.

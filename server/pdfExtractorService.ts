@@ -10,7 +10,7 @@ import type {
   SuggestedCategoryOutline,
 } from '../src/game/types';
 import { normalizeBoundingBox } from '../src/utils/pdfImageCropMath';
-import { generateStructuredJsonWithFallback } from './geminiClient';
+import { generateStructuredJsonWithFallback, pdfGeminiConfigured } from './geminiClient';
 import {
   buildRepresentativeExcerpt,
   coerceStringArray,
@@ -18,10 +18,6 @@ import {
   normalizePdfAnalysisReport,
   partitionPagesIntoRanges,
 } from './geminiHelpers';
-import {
-  discoverOllamaModels,
-  generateStructuredJsonLocal,
-} from './localAiClient';
 import { inspectPdfWithPyMuPdf } from './pymupdfBridge';
 import {
   getCachedPdfText,
@@ -213,10 +209,7 @@ export async function extractAndValidatePdf(
 }
 
 function shouldUseLegacyFixtureGeminiPath(): boolean {
-  return (
-    process.env.AI_ENGINE === 'gemini' ||
-    (process.env.GEMINI_API_KEY === 'fixture-only' && !process.env.OLLAMA_BASE_URL)
-  );
+  return process.env.GEMINI_API_KEY === 'fixture-only';
 }
 
 async function analyzeImageWithVisionModel(params: {
@@ -525,10 +518,8 @@ export async function extractAndAnalyzeBatch(params: {
     };
   }
 
-  const ollamaStatus = await discoverOllamaModels(2000);
-  const hasVisionEngine =
-    (ollamaStatus.reachable && ollamaStatus.models.length > 0) ||
-    Boolean(process.env.GEMINI_API_KEY);
+  if (!pdfGeminiConfigured()) throw new Error('GEMINI_API_KEY غير مهيأ على خادم يمكن هاي.');
+  const hasVisionEngine = true;
 
   const clientRenderedByKey = new Map<string, string>();
   for (const cr of params.clientRenderedPages ?? []) {
@@ -575,7 +566,7 @@ export async function extractAndAnalyzeBatch(params: {
         }
       } else {
         throw new Error(
-          `تعذّر الاتصال بمحرك Ollama البصري المحلي لتحليل الصورة «${file.fileName}». تأكد من تشغيل Ollama مع نموذج الرؤية المحلي.`,
+          `تعذّر الاتصال بمحرك Gemini لتحليل الصورة «${file.fileName}». تحقق من إعداد Gemini على الخادم.`,
         );
       }
 
@@ -759,7 +750,7 @@ export async function extractAndAnalyzeBatch(params: {
   const cleanChars = fullText.replace(/\[[^\]]+\]/g, '').replace(/\s+/g, '').length;
   if (cleanChars < 40) {
     throw new Error(
-      'تعذّر استخراج نص كافٍ من الملفات المرفوعة. تأكد من أن الملفات تحتوي محتوى مقروءًا أو فعّل النموذج البصري في Ollama.',
+      'تعذّر استخراج نص كافٍ من الملفات المرفوعة. تأكد من أن الملفات تحتوي محتوى مقروءًا ومن توفر Gemini لقراءة الصفحات المصوّرة.',
     );
   }
 
@@ -880,13 +871,7 @@ ${representativeText}`;
   });
 
   const extractionMethod: PdfAnalysisReport['extractionMethod'] =
-    usedPyMuPdfAnywhere && ollamaStatus.reachable
-      ? 'ollama_pymupdf'
-      : usedVisionAnywhere && ollamaStatus.reachable
-        ? 'ollama_vision'
-        : ollamaStatus.reachable
-          ? 'local_hybrid'
-          : 'pdf_parse';
+    usedPyMuPdfAnywhere ? 'gemini_pymupdf' : usedVisionAnywhere ? 'gemini_vision' : 'pdf_parse';
 
   const report: PdfAnalysisReport = {
     fileName:
@@ -1324,6 +1309,5 @@ export async function detectVisualRegionsFromPageImages(params: {
 }
 
 export async function generateRawLocalVisionTestHook(): Promise<boolean> {
-  const status = await discoverOllamaModels(500);
-  return status.reachable;
+  return pdfGeminiConfigured();
 }

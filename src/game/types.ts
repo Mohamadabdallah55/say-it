@@ -226,7 +226,7 @@ export interface PdfAnalysisReport {
   hypotheticalSections?: string[];
   suggestedCategories?: SuggestedCategoryOutline[];
   extractedVisuals?: ExtractedPdfVisual[];
-  extractionMethod?: 'gemini_pdf' | 'pdf_parse' | 'ollama_pymupdf' | 'ollama_vision' | 'local_hybrid';
+  extractionMethod?: 'gemini_pdf' | 'pdf_parse' | 'gemini_pymupdf' | 'gemini_vision' | 'ollama_pymupdf' | 'ollama_vision' | 'local_hybrid';
 }
 
 export interface BoardPlanCategory {

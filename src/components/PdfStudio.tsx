@@ -47,15 +47,12 @@ import { QuestionMedia } from './QuestionMedia';
 import { TopNavHeader } from './TopNavHeader';
 
 interface LocalAiStatusSummary {
-  engine: 'ollama' | 'gemini_fallback' | 'unavailable';
-  ollamaReachable: boolean;
-  baseUrl: string;
-  installedModels: string[];
+  engine: 'gemini' | 'unavailable';
+  configured: boolean;
   selectedTextModel: string | null;
   selectedVisionModel: string | null;
   pymupdfAvailable: boolean;
   pymupdfVersion?: string;
-  geminiFallbackConfigured?: boolean;
   message: string;
 }
 
@@ -199,7 +196,7 @@ export function PdfStudio({
   const refreshLocalAndJobs = async () => {
     try {
       const [statusRes, jobsRes] = await Promise.all([
-        fetch('/api/local-ai/status'),
+        fetch('/api/pdf/ai-status'),
         fetch('/api/pdf/jobs'),
       ]);
       if (statusRes.ok) {
@@ -240,7 +237,7 @@ export function PdfStudio({
     };
   }, [deck]);
 
-  // STAGE 1: Upload & Extract/Analyze Multiple PDFs + Images via Local PyMuPDF + Ollama Vision/Qwen
+  // STAGE 1: Upload & Extract/Analyze Multiple PDFs + Images via PyMuPDF + Gemini Vision
   const handleAnalyzePdf = async (filesInput = selectedFiles) => {
     if (inFlightRef.current) return;
     if (!filesInput.length) {
@@ -289,7 +286,7 @@ export function PdfStudio({
       }
 
       setBusyMessage(
-        'المرحلة 1/4: جارٍ استخراج المحتوى وفهم الأفكار والصور عبر المحرك المحلي...',
+        'المرحلة 1/4: جارٍ استخراج المحتوى وفهم الأفكار والصور عبر Gemini...',
       );
       const res = await fetch('/api/pdf/extract', { method: 'POST', body: formData });
       const data = await parseApiJson<{
@@ -799,29 +796,27 @@ export function PdfStudio({
                 ارفع ملفات الدرس والصور (PDF / PNG / JPG)
               </h2>
               <p className="text-sm font-medium text-[#1F112E]/80">
-                يدعم رفع عدة ملفات PDF وصور دفعة واحدة؛ يقرأ المحرك المحلي النصوص والجداول والصور والصفحات
+                يدعم رفع عدة ملفات PDF وصور دفعة واحدة؛ يقرأ Gemini النصوص والجداول والصور والصفحات
                 المصوّرة بعمق ويقسمها إلى{' '}
                 <strong className="text-[#63349B]">{categoryCount} فئات رئيسية متخصصة</strong> بمستويات
-                الصعوبة المختارة دون قيود تسجيل دخول أو مفاتيح مدفوعة.
+                الصعوبة المختارة حسب حصة Gemini المتاحة.
               </p>
             </div>
 
-            {/* Local AI Engine Status Bar (No login / No API Key / No Quota) */}
+            {/* Gemini PDF provider status (configuration, not a live API check) */}
             {localStatus && (
               <div
                 className={`rounded-2xl border-2 px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs font-bold ${
-                  localStatus.engine === 'ollama'
+                  localStatus.engine === 'gemini'
                     ? 'bg-[#E8F8F2] border-[#00A86B] text-[#1F112E]'
                     : 'bg-[#FFF9E9] border-[#E59A00] text-[#1F112E]'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Cpu className={`w-4 h-4 shrink-0 ${localStatus.engine === 'ollama' ? 'text-[#00A86B]' : 'text-[#E59A00]'}`} />
+                  <Cpu className={`w-4 h-4 shrink-0 ${localStatus.engine === 'gemini' ? 'text-[#00A86B]' : 'text-[#E59A00]'}`} />
                   <span>
-                    {localStatus.ollamaReachable
-                      ? `المحرك المحلي متصل (Ollama): ${localStatus.selectedTextModel || 'Qwen'}${
-                          localStatus.selectedVisionModel ? ` + الرؤية البصرية (${localStatus.selectedVisionModel})` : ''
-                        }`
+                    {localStatus.configured
+                      ? `Gemini · ${localStatus.selectedTextModel || 'نشمي'} (مُعدّ على الخادم)`
                       : localStatus.message}
                   </span>
                 </div>
@@ -830,7 +825,7 @@ export function PdfStudio({
                     PyMuPDF: {localStatus.pymupdfAvailable ? `مفعّل (${localStatus.pymupdfVersion || 'fitz'})` : 'احتياطي المتصفح'}
                   </span>
                   <span className="bg-white border border-[#291B40]/25 px-2 py-0.5 rounded-lg">
-                    توليد محلي بدون قيود
+                    التحليل والتوليد عبر Gemini
                   </span>
                 </div>
               </div>

@@ -19,13 +19,13 @@ const PAID_ONLY_MODELS = new Set([
   'lyria-3-pro-preview',
 ]);
 
-test('default Gemini primary and fallback models are always free-tier and Flash Lite first', () => {
-  assert.equal(PRIMARY_GEMINI_MODEL, 'gemini-3.1-flash-lite');
+test('default PDF Gemini model matches Nashmi, with Flash alternatives', () => {
+  assert.equal(PRIMARY_GEMINI_MODEL, process.env.GEMINI_MODEL?.trim() || 'gemini-4-hydrogen');
   assert.equal(PAID_ONLY_MODELS.has(PRIMARY_GEMINI_MODEL), false);
   for (const model of FALLBACK_GEMINI_MODELS) {
     assert.equal(PAID_ONLY_MODELS.has(model), false);
   }
-  assert.equal(FALLBACK_GEMINI_MODELS[0], 'gemini-4-hydrogen');
+  assert.equal(FALLBACK_GEMINI_MODELS[0], 'gemini-3.1-flash-lite');
 });
 
 test('adaptConfigForModel keeps MINIMAL for 3.1 Flash Lite, promotes to LOW for Gemini 4, and strips for 2.5', () => {

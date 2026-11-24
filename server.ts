@@ -42,11 +42,10 @@ import {
 import {
   detectVisualRegionsFromPageImages,
   extractAndAnalyzeBatch,
-  extractAndParsePdfWithGemini,
   type ClientRenderedPageRef,
 } from './server/pdfExtractorService';
-import { getLocalAiStatus } from './server/localAiClient';
-import { PRIMARY_GEMINI_MODEL } from './server/geminiClient';
+import { probePyMuPdf } from './server/pymupdfBridge';
+import { PRIMARY_GEMINI_MODEL, pdfGeminiConfigured } from './server/geminiClient';
 import {
   formatGeminiError,
   isQuotaError,
@@ -140,22 +139,27 @@ async function startServer() {
     }
   });
 
-  app.get('/api/health', async (_req, res) => {
-    const localAi = await getLocalAiStatus().catch(() => null);
-    res.json({
-      ok: true,
-      service: 'yemken-hay',
-      version: 2,
-      aiConfigured: Boolean(localAi?.engine === 'ollama' || process.env.GEMINI_API_KEY),
-      aiModel: localAi?.selectedTextModel || PRIMARY_GEMINI_MODEL,
-      localAi,
-    });
+  // Health checks must not spawn Python or contact any AI model.
+  app.get('/api/health', (_req, res) => {
+    res.json({ok:true,service:'yemken-hay',version:2,aiConfigured:pdfGeminiConfigured(),aiModel:PRIMARY_GEMINI_MODEL,aiProvider:'gemini'});
   });
 
-  app.get('/api/local-ai/status', async (_req, res) => {
-    const status = await getLocalAiStatus();
-    res.json(status);
-  });
+  const pdfAiStatus = async (_req: express.Request, res: express.Response) => {
+    res.set('Cache-Control','no-store');
+    const extraction = await probePyMuPdf().catch(() => null);
+    const configured = pdfGeminiConfigured();
+    res.json({
+      engine: configured ? 'gemini' : 'unavailable',
+      configured,
+      selectedTextModel: configured ? PRIMARY_GEMINI_MODEL : null,
+      selectedVisionModel: configured ? PRIMARY_GEMINI_MODEL : null,
+      pymupdfAvailable: Boolean(extraction?.available),
+      pymupdfVersion: extraction?.pymupdfVersion,
+      message: configured ? 'استوديو PDF يستخدم Gemini مباشرة' : 'أضف GEMINI_API_KEY إلى إعدادات Render لخادم يمكن هاي.',
+    });
+  };
+  app.get('/api/pdf/ai-status', pdfAiStatus);
+  app.get('/api/local-ai/status', pdfAiStatus); // Older cached clients can still read status.
 
   app.get('/api/catalog/builtin-ids', (_req, res) => {
     const questionIdsByCategory: Record<string, string[]> = {};
@@ -374,24 +378,11 @@ async function startServer() {
           }
         }
 
-        const { cachedText, report } =
-          filesList.length === 1 &&
-          filesList[0].originalname.toLowerCase().endsWith('.pdf') &&
-          process.env.AI_ENGINE === 'gemini'
-            ? await extractAndParsePdfWithGemini(
-                filesList[0].buffer,
-                filesList[0].originalname || 'lesson.pdf',
-                ageGroup,
-              )
-            : await extractAndAnalyzeBatch({
-                files: filesList.map((f) => ({
-                  buffer: f.buffer,
-                  fileName: f.originalname || 'lesson.pdf',
-                  mimeType: f.mimetype,
-                })),
-                ageGroup,
-                clientRenderedPages,
-              });
+        const { cachedText, report } = await extractAndAnalyzeBatch({
+          files: filesList.map(f=>({buffer:f.buffer,fileName:f.originalname || 'lesson.pdf',mimeType:f.mimetype})),
+          ageGroup,
+          clientRenderedPages,
+        });
 
         const cachedPlan = getCachedPdfPlan(report.fileHash);
         const validCachedPlan =
