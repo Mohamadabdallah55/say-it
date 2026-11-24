@@ -136,7 +136,11 @@ const uploadedCategoryCovers = import.meta.glob<string>(
 );
 
 export function getUploadedCategoryArt(categoryId: string): string | undefined {
-  return uploadedCategoryCovers[`../assets/category-covers/${categoryId}.webp`];
+  const direct = uploadedCategoryCovers[`../assets/category-covers/${categoryId}.webp`];
+  if (direct) return direct;
+  // Historical artwork in the supplied cover pack uses the shorter filename.
+  if (categoryId === 'cat_history') return uploadedCategoryCovers['../assets/category-covers/history.webp'];
+  return undefined;
 }
 
 export function getCategoryCardArt(categoryId: string, iconKey: CategoryIconKey): string {

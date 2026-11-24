@@ -1304,3 +1304,72 @@
   .game-lobby .lobby-flat-info {width:28px;height:28px;}
   .game-lobby .lobby-flat-count {white-space:normal;font-size:9px;padding:3px 5px;}
 }
+
+/* Square category board, consistent with the category picker. Only BOARD is
+   affected; question scenes and scoring handlers are unchanged. */
+.arena-stage[data-phase="BOARD"] .category-grid[data-count] {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  align-content:start;
+}
+.arena-stage[data-phase="BOARD"] .category-grid[data-count] > .category-card:nth-child(n) {
+  grid-column:span 1;
+  width:100%;
+  max-width:none;
+  margin:0;
+  aspect-ratio:1/1;
+  min-height:min-content;
+  justify-content:flex-end;
+  overflow:hidden;
+}
+.arena-stage[data-phase="BOARD"] .category-grid[data-count] > .category-card:nth-child(n) > :first-child {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-height:none;
+  aspect-ratio:1/1;
+  border:0;
+  border-radius:inherit;
+}
+.arena-stage[data-phase="BOARD"] .category-card > .category-caption {
+  position:relative;
+  z-index:2;
+  flex:0 0 auto;
+  margin-top:auto;
+  background:linear-gradient(180deg,#fff9e900,#fff9e9 25%,#f5ead2);
+  padding-top:clamp(22px,2.4vw,42px);
+}
+.arena-stage[data-phase="BOARD"] .category-card > .board-category-tab {
+  top:0;
+}
+.arena-stage[data-phase="BOARD"] .point-strip > div {
+  min-width:0;
+}
+.arena-stage[data-phase="BOARD"] .point-strip button {
+  overflow-wrap:anywhere;
+}
+@media (max-width:640px) {
+  .arena-stage[data-phase="BOARD"] .category-grid[data-count] {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  /* Keep all score and correction buttons reachable on narrow screens. */
+  .arena-stage[data-phase="BOARD"] .category-grid[data-count] > .category-card:nth-child(n) {
+    aspect-ratio:auto;
+  }
+  .arena-stage[data-phase="BOARD"] .category-grid[data-count] > .category-card:nth-child(n) > :first-child {
+    position:relative;
+    height:auto;
+    aspect-ratio:1/1;
+    border-radius:0;
+  }
+  .arena-stage[data-phase="BOARD"] .category-card > .category-caption {
+    background:#fff9e9;
+    padding-top:8px;
+  }
+}
+@media (max-width:360px) {
+  .arena-stage[data-phase="BOARD"] .category-grid[data-count] {
+    grid-template-columns:minmax(0,1fr);
+  }
+}

@@ -719,7 +719,7 @@ export function GameArena({
                       key={cat.id}
                       className={`category-card game-card-frame rounded-2xl overflow-hidden flex flex-col justify-between transition`}
                     >
-                      <CategoryArtwork categoryId={cat.id} iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
+                      <CategoryArtwork key={cat.coverImageUrl || cat.id} categoryId={cat.id} coverImageUrl={cat.coverImageUrl} iconKey={cat.iconKey} accentColor={cat.accentColor} topic={cat.name} coverage={cat.topicCoverage} />
                       <span className="board-category-tab" aria-hidden="true" style={{ backgroundColor: cat.accentColor }} />
 
                       <div className="category-caption">

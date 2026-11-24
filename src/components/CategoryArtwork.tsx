@@ -1,9 +1,10 @@
 import { memo, useState } from 'react';
 import type { CategoryIconKey } from '../game/types';
-import { getCategoryCardArt } from '../utils/gameAssets';
+import { getCategoryCardArt, getUploadedCategoryArt } from '../utils/gameAssets';
 
 interface CategoryArtworkProps {
   categoryId?: string;
+  coverImageUrl?: string;
   iconKey: CategoryIconKey;
   accentColor: string;
   topic?: string;
@@ -12,6 +13,7 @@ interface CategoryArtworkProps {
 
 export const CategoryArtwork = memo(function CategoryArtwork({
   categoryId = '',
+  coverImageUrl,
   iconKey,
   accentColor,
   topic = '',
@@ -21,9 +23,10 @@ export const CategoryArtwork = memo(function CategoryArtwork({
   const [imgLoaded, setImgLoaded] = useState(false);
   const subject = topic.replace(/[\u064B-\u065F]/g, '');
   const waterMotif = ['تبخر', 'تكاثف', 'هطول', 'جريان', 'تسرب'].find((word) => subject.includes(word));
-  const artSrc = getCategoryCardArt(categoryId, iconKey);
+  const uploadedArt = getUploadedCategoryArt(categoryId);
+  const artSrc = uploadedArt || coverImageUrl || getCategoryCardArt(categoryId, iconKey);
 
-  if (waterMotif) {
+  if (waterMotif && !uploadedArt && !coverImageUrl) {
     return (
       <div className="lesson-illustration" style={{ backgroundColor: accentColor }} aria-hidden="true">
         <svg viewBox="0 0 260 110" fill="none" stroke="#342545" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
