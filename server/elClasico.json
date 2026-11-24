@@ -231,18 +231,20 @@
   {
     "id": "ELC-V4-CLIP-07",
     "level": 400,
-    "question": "شاهد هدف زين الدين زيدان بالتعليق العربي. في أي موسم من دوري أبطال أوروبا جاء هذا الهدف؟",
-    "answer": "2001/2002",
+    "question": "شاهد هدف زين الدين زيدان في ذهاب نصف نهائي دوري أبطال أوروبا 2002. ما اسم الملعب الذي أُقيمت فيه المباراة؟",
+    "answer": "كامب نو",
     "explanation": "ذهاب نصف نهائي دوري أبطال أوروبا 2001/2002 في كامب نو (برشلونة 0-2 ريال مدريد).",
     "fact_source_url": "https://www.youtube.com/watch?v=_bKyWpRF6tI&t=8s",
     "videoUrl": "https://www.youtube-nocookie.com/embed/_bKyWpRF6tI?start=8&end=25",
-    "fallbackQuestion": "في أي موسم من دوري أبطال أوروبا سجّل زيدان في كامب نو أمام برشلونة بنصف النهائي؟",
+    "fallbackQuestion": "في أي ملعب فاز ريال مدريد 2-0 على برشلونة في ذهاب نصف نهائي دوري أبطال أوروبا عام 2002؟",
     "videoClipDurationSeconds": 17,
     "videoClipStartSeconds": 8,
     "videoClipEndSeconds": 25,
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
-    "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 32ث) تم التحقق من إتاحة التضمين بدون حظر."
+    "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 32ث) تم التحقق من إتاحة التضمين بدون حظر.",
+    "videoTitleReviewed": "هدف زيدان ضد برشلونة | دوري الأبطال 2001-2002 (visible title in host screenshot)",
+    "videoSpoilerReview": "Changed the question from the season, which is in the video title, to the stadium, which is not visible in the supplied title."
   },
   {
     "id": "ELC-025",

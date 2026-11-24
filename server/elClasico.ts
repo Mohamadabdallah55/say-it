@@ -71,7 +71,7 @@ export function refreshElClasicoPhotos(room: RoomState): RoomState {
     const sameAnswer = question.answer === updated.answer;
     return {
       ...question,
-      ...(sameAnswer ? { prompt: updated.prompt, videoUrl: updated.videoUrl, sourceRef: updated.sourceRef } : {}),
+      ...(sameAnswer ? { prompt: updated.prompt, videoUrl: updated.videoUrl, sourceRef: updated.sourceRef } : question.id === 'ELC-V4-CLIP-07' ? { videoUrl: undefined } : {}),
       imageUrl: updated.imageUrl,
       imageSourceUrl: updated.imageSourceUrl,
       imageCaption: updated.imageCaption,

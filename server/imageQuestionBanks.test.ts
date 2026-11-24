@@ -427,3 +427,10 @@ test('Clasico Dailymotion source requires explicit approval and normalizes its 1
   assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: url, videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), 'https://www.dailymotion.com/video/x3ez67v?start=35&end=52');
   assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.dailymotion.com/video/x3ez67v', videoPlaybackVerified: true, videoRightsNote: 'test fixture' }), undefined);
 });
+
+test('Zidane video asks about the stadium rather than the season displayed in its title', () => {
+  const question = EL_CLASICO_QUESTIONS.find(q => q.id === 'ELC-V4-CLIP-07')!;
+  assert.equal(question.answer, 'كامب نو');
+  assert.match(question.prompt, /الملعب/);
+  assert.equal(question.points, 400);
+});

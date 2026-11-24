@@ -120,7 +120,8 @@ function ExistingClipPlayer({ src, soundEnabled }: { src: string; soundEnabled: 
           start,
           end: start + 17,
           rel: 0,
-          controls: 1,
+          controls: 0,
+          disablekb: 1,
           autoplay: 1,
           mute: sound.current ? 0 : 1,
         },
@@ -155,6 +156,10 @@ function ExistingClipPlayer({ src, soundEnabled }: { src: string; soundEnabled: 
             if (disposed) return;
             if (data === 1) { window.clearTimeout(timeout); setNeedsPlay(false); }
             if (data === 0) { finishClip(); }
+            // Some embedded players pause just before the requested end boundary.
+            // Treat a near-end pause as completion rather than leaving the title visible.
+            if (data === 2 && !clipFinished.current && (yt.current?.getCurrentTime() ?? 0) >= start + 16) { finishClip(); }
+            else if (data === 2 && !clipFinished.current) { window.clearTimeout(timeout); setNeedsPlay(true); }
             if (data === 3) { window.clearTimeout(timeout); timeout = window.setTimeout(fail, 12000); }
           },
           onError: (e) => {
@@ -239,7 +244,7 @@ function ExistingClipPlayer({ src, soundEnabled }: { src: string; soundEnabled: 
           انتهى المقطع (17 ثانية) — تم إخفاء الفيديو
         </p>
         <p className="text-xs font-bold text-white/80">
-          اختفى المقطع تلقائيًا كما في «ركّز» لمنع كشف السنة أو النتيجة في آخر اللقطة
+          يمكنك الآن الإجابة أو إعادة مشاهدة المقطع.
         </p>
         <button
           type="button"
