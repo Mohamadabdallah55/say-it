@@ -7,7 +7,7 @@ import { createRoomState, revealAnswer, sanitizeStateForRole, selectBoardTile } 
 import { runBoardPreflightCheck, validateQuizQuestion } from '../src/game/pdfValidation';
 import { buildBoardDeckFromCategories } from '../src/game/starterDecks';
 import { filterPlayedCuratedQuestions, recordPlayedCuratedQuestion, reserveCuratedQuestions } from './curatedQuestionRotation';
-import { EL_CLASICO_QUESTIONS, refreshElClasicoPhotos } from './elClasico';
+import { approvedClasicoVideo, EL_CLASICO_QUESTIONS, refreshElClasicoPhotos } from './elClasico';
 import { CHAMPIONS_LEAGUE_QUESTIONS, CLUB_LOGOS_QUESTIONS, FLAGS_QUESTIONS, FOOTBALL_CAREER_QUESTIONS, FOOTBALL_FIRST_NAME_QUESTIONS, WORLD_FOOTBALL_QUESTIONS } from './imageQuestionBanks';
 import { getQuranRecitationSource, QURAN_MEDIA_QUESTIONS, RECITER_QUESTIONS } from './quranMediaQuestions';
 import { REVERSED_WORDS_QUESTIONS } from './reversedWords';
@@ -231,14 +231,15 @@ test('club badges load before reveal without exposing the club or its source URL
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {
   const clips = EL_CLASICO_QUESTIONS.filter(q => q.videoUrl);
-  assert.equal(EL_CLASICO_QUESTIONS.length, 66 + clips.length);
-  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points && !q.videoUrl).length), [14, 24, 28]);
+  assert.equal(EL_CLASICO_QUESTIONS.length, 100);
+  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
   assert.equal(new Set(clips.map(q => q.videoUrl)).size, clips.length);
   for (const q of clips) {
-    assert.equal(q.videoUrl, `/assets/questions/el-clasico/${q.id}.mp4`);
-    assert.ok(readFileSync(new URL(`../public${q.videoUrl}`, import.meta.url)).length > 0);
+    assert.ok(q.videoUrl?.startsWith('https://') || q.videoUrl === `/assets/questions/el-clasico/${q.id}.mp4`);
+    if (q.videoUrl?.startsWith('/')) assert.ok(readFileSync(new URL(`../public${q.videoUrl}`, import.meta.url)).length > 0);
   }
+  assert.ok(EL_CLASICO_QUESTIONS.filter(q => /^ELC-V[34]-(VIDEO|CLIP)-/.test(q.id)).every(q => !/^شاهد/.test(q.prompt)));
 
   const previousBank = EL_CLASICO_QUESTIONS.map(q => ({
     ...q, imageUrl: undefined, imageSourceUrl: undefined, imageDisplay: undefined,
@@ -381,4 +382,11 @@ test('general knowledge pictures remain hidden until reveal even for legacy imag
   const revealed = sanitizeStateForRole(revealAnswer(opened.state, 'reveal-general-image').state, 'projector').activeRound;
   assert.equal(revealed?.imageUrl, picture);
   assert.equal(revealed?.beforeImageUrls, undefined);
+});
+
+ test('Clasico rejects unapproved external streams and missing local files', () => {
+  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?start=0' }), undefined);
+  assert.equal(approvedClasicoVideo({ id: 'ELC-test', videoUrl: '/assets/questions/el-clasico/ELC-test.mp4' }), undefined);
+  const permitted = approvedClasicoVideo({ id: 'ELC-test', videoUrl: 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=999', videoPlaybackVerified: true, videoRightsNote: 'test fixture' });
+  assert.equal(permitted, 'https://www.youtube-nocookie.com/embed/abcdefghijk?start=10&end=27');
 });

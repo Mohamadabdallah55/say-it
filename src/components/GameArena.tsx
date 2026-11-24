@@ -1,3 +1,4 @@
+import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
@@ -1102,28 +1103,10 @@ export function GameArena({
                         />
                       ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
-                        /^https:\/\/www\.youtube-nocookie\.com\/embed\/[A-Za-z0-9_-]{11}\?rel=0&playsinline=1(?:&start=\d{1,5}&end=\d{1,5})?$/.test(roundMeta.videoUrl) ? (
-                          <div className="mx-auto w-full max-w-2xl space-y-2">
-                            <iframe
-                            key={`q-video-${roundMeta.questionId}`}
-                            className="mx-auto mt-4 aspect-video w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
-                            src={roundMeta.videoUrl}
-                            title="مقطع الكلاسيكو"
-                            allow="encrypted-media; picture-in-picture; fullscreen"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                          />
-                            {isHost && <a className="inline-block text-xs font-bold underline" href={roundMeta.videoUrl.replace('https://www.youtube-nocookie.com/embed/', 'https://www.youtube.com/watch?v=').split('?rel=')[0] + (new URL(roundMeta.videoUrl).searchParams.has('start') ? '&t=' + new URL(roundMeta.videoUrl).searchParams.get('start') + 's' : '')} target="_blank" rel="noreferrer">فتح المقطع في يوتيوب إذا تعذر تشغيله</a>}
-                          </div>
+                        roundMeta.categoryId === 'cat_el_clasico' ? (
+                          <ClasicoVideoPlayer key={roundMeta.roundId + roundMeta.videoUrl} src={roundMeta.videoUrl} soundEnabled={state.settings.soundEnabled && (isHost || localAudio)} />
                         ) : (
-                          <video
-                            key={`q-video-${roundMeta.questionId}`}
-                            className="mx-auto mt-4 max-h-[42vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
-                            src={roundMeta.videoUrl}
-                            controls
-                            playsInline
-                            preload="metadata"
-                          />
+                          <video key={`q-video-${roundMeta.questionId}`} className="mx-auto mt-4 max-h-[42vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black" src={roundMeta.videoUrl} controls playsInline preload="metadata" />
                         )
                       )}
 

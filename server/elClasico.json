@@ -201,7 +201,8 @@
     "answer": "2001/2002",
     "explanation": "هدف زين الدين زيدان في الجولة 30.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=72s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=72&end=94"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=72&end=94",
+    "fallbackQuestion": "في أي موسم من الليغا شارك زيدان لأول مرة في الكلاسيكو بقميص ريال مدريد، وكان فيسنتي ديل بوسكي مدرب الفريق؟"
   },
   {
     "id": "ELC-025",
@@ -220,7 +221,8 @@
     "answer": "2004/2005",
     "explanation": "الجولة 31 من موسم 2004/2005.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=104s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=104&end=124"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=104&end=124",
+    "fallbackQuestion": "في أي موسم من الليغا سجّل مايكل أوين هدفًا لريال مدريد في انتصاره 4-2 على برشلونة بالبرنابيو؟"
   },
   {
     "id": "ELC-027",
@@ -277,7 +279,8 @@
     "answer": "1997/1998",
     "explanation": "الجولة التاسعة من موسم 1997/1998.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=40s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=40&end=63"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=40&end=63",
+    "fallbackQuestion": "في أي موسم من التسعينيات فاز برشلونة بالكلاسيكو في البرنابيو 3-2، وسجّل جيوفاني هدف الفوز؟"
   },
   {
     "id": "ELC-V4-CLIP-13",
@@ -286,7 +289,8 @@
     "answer": "2012/2013",
     "explanation": "كلاسيكو 7 أكتوبر 2012، انتهى 2-2؛ المقطع يبدأ من فصل هدف رونالدو.",
     "fact_source_url": "https://www.youtube.com/watch?v=x_4ftPlE5RI&t=1509s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/x_4ftPlE5RI?rel=0&playsinline=1&start=1509&end=1534"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/x_4ftPlE5RI?rel=0&playsinline=1&start=1509&end=1534",
+    "fallbackQuestion": "في أي موسم تعادل الفريقان 2-2 في كامب نو حين سجّل كل من ميسي وكريستيانو ثنائية في المباراة نفسها؟"
   },
   {
     "id": "ELC-V2-034",
@@ -324,7 +328,8 @@
     "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=438&end=458",
     "imageUrl": "https://img.allfootballapp.com/www/M00/46/0D/720x-/-/-/rB8CLF0p4i2AXaVSAAEEoz1oCqg102.jpg.webp",
     "imageSourceUrl": "https://m.allfootballapp.com/news/epl/Messi-and-his-partners-in-attack-at-Barcelona%E2%80%A6-with-Griezmann-up-next/1564484",
-    "imageCaption": "صامويل إيتو"
+    "imageCaption": "صامويل إيتو",
+    "fallbackQuestion": "من المهاجم الكاميروني الذي افتتح التسجيل في فوز برشلونة 3-0 بالبرنابيو في موسم 2005/2006؟"
   },
   {
     "id": "ELC-V4-CLIP-14",
@@ -333,7 +338,8 @@
     "answer": "1998/1999",
     "explanation": "الجولة الثالثة من موسم 1998/1999.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=0s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=0&end=23"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=0&end=23",
+    "fallbackQuestion": "في أي موسم من التسعينيات تعادل الفريقان 2-2 في كلاسيكو الجولة الثالثة من الدوري بالبرنابيو، وكان لويس فان خال مدرب برشلونة وغوس هيدينك مدرب مدريد؟"
   },
   {
     "id": "ELC-V4-CLIP-05",
@@ -345,7 +351,8 @@
     "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=799&end=822",
     "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2020/11/18/cc74146c-45e7-43c6-9c0b-4b03378e469e/mini_ReialMadrid-FCBarcelona0-3J12Lliga1aDivisi20052006_pic_19-11-05ronaldinho2gol02.jpg",
     "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
-    "imageCaption": "رونالدينيو"
+    "imageCaption": "رونالدينيو",
+    "fallbackQuestion": "أي لاعب برازيلي من برشلونة سجّل هدفين في انتصار 3-0 على البرنابيو ونال تصفيق جمهور الخصم؟"
   },
   {
     "id": "ELC-040",
@@ -400,7 +407,8 @@
     "answer": "برشلونة",
     "explanation": "10 أبريل 2010، ريال مدريد 0-2 برشلونة.",
     "fact_source_url": "https://www.youtube.com/watch?v=BYnDwLytoY0",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/BYnDwLytoY0?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/BYnDwLytoY0?rel=0&playsinline=1",
+    "fallbackQuestion": "في كلاسيكو الإياب من موسم 2009/2010، سجّل ميسي وبيدرو هدفي المباراة في البرنابيو. أي فريق خرج بشباك نظيفة؟"
   },
   {
     "id": "ELC-047",
@@ -420,7 +428,8 @@
     "answer": "ريال مدريد",
     "explanation": "الجولة 31 من موسم 2005/2006، على أرض برشلونة.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=695s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=695&end=717"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=695&end=717",
+    "fallbackQuestion": "في تعادل الكلاسيكو 1-1 بكامب نو في موسم 2005/2006، لأي فريق سجّل رونالدو البرازيلي؟"
   },
   {
     "id": "ELC-049",
@@ -439,7 +448,8 @@
     "answer": "2015/2016",
     "explanation": "21 نوفمبر 2015، فاز برشلونة 4-0 في البرنابيو.",
     "fact_source_url": "https://www.youtube.com/watch?v=Ri5JspusO1M",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/Ri5JspusO1M?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Ri5JspusO1M?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم من الدوري فاز برشلونة 4-0 في البرنابيو بقيادة لويس إنريكي، عندما شارك ميسي بديلًا؟"
   },
   {
     "id": "ELC-V2-051",
@@ -505,7 +515,8 @@
     "answer": "1999/2000",
     "explanation": "الجولة 26 من موسم 1999/2000.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=401s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=401&end=423"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=401&end=423",
+    "fallbackQuestion": "في أي موسم فاز ريال مدريد 3-0 على برشلونة في كلاسيكو الدوري بالبرنابيو وسجل مورينتس هدفًا؟"
   },
   {
     "id": "ELC-V2-058",
@@ -540,7 +551,8 @@
     "answer": "2003/2004",
     "explanation": "الجولة 34 من موسم 2003/2004.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=550s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=550&end=572"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=550&end=572",
+    "fallbackQuestion": "في أي موسم سجّل تشافي هدف الفوز 2-1 لبرشلونة في البرنابيو من تمريرة رونالدينيو؟"
   },
   {
     "id": "ELC-V2-062",
@@ -557,7 +569,8 @@
     "answer": "كامب نو",
     "explanation": "برشلونة كان صاحب الأرض، الجولة 22 من موسم 1998/1999.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=586s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=586&end=608"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=586&end=608",
+    "fallbackQuestion": "في كلاسيكو الإياب من موسم 1998/1999 الذي فاز فيه برشلونة 3-0، في أي ملعب أقيم اللقاء؟"
   },
   {
     "id": "ELC-V2-064",
@@ -608,7 +621,8 @@
     "answer": "2000/2001",
     "explanation": "الجولة 25 من موسم 2000/2001.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=659s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=659&end=682"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=659&end=682",
+    "fallbackQuestion": "في أي موسم تعادل ريال مدريد وبرشلونة 2-2 في البرنابيو بعد ثنائية لريفالدو؟"
   },
   {
     "id": "ELC-V2-070",
@@ -625,7 +639,8 @@
     "answer": "2023/2024",
     "explanation": "نهائي السوبر في يناير 2024. المصدر: SSC.",
     "fact_source_url": "https://www.youtube.com/watch?v=w_SkU3ktIes",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/w_SkU3ktIes?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/w_SkU3ktIes?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم أقيم نهائي السوبر الإسباني في الرياض الذي شهد هاتريك فينيسيوس وانتهى 4-1؟"
   },
   {
     "id": "ELC-V3-VIDEO-02",
@@ -634,7 +649,8 @@
     "answer": "2024/2025",
     "explanation": "نهائي السوبر في يناير 2025. المصدر: SSC.",
     "fact_source_url": "https://www.youtube.com/watch?v=85r4BmSp4Qg",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/85r4BmSp4Qg?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/85r4BmSp4Qg?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم انتهى نهائي السوبر الإسباني في جدة 5-2 لبرشلونة، رغم تقدم مدريد بهدف مبكر لمبابي؟"
   },
   {
     "id": "ELC-V3-VIDEO-03",
@@ -643,7 +659,8 @@
     "answer": "2016/2017",
     "explanation": "23 أبريل 2017، برشلونة يفوز 3-2.",
     "fact_source_url": "https://www.youtube.com/watch?v=fVufY4SCoOk",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/fVufY4SCoOk?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/fVufY4SCoOk?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم حسم ميسي كلاسيكو البرنابيو 3-2 بهدفه رقم 500 مع برشلونة في الوقت بدل الضائع؟"
   },
   {
     "id": "ELC-V3-VIDEO-04",
@@ -652,7 +669,8 @@
     "answer": "0-0",
     "explanation": "كلاسيكو 26 أكتوبر 2024، جميع الأهداف جاءت في الشوط الثاني.",
     "fact_source_url": "https://www.youtube.com/watch?v=Hf9pXbnWIK8",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/Hf9pXbnWIK8?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Hf9pXbnWIK8?rel=0&playsinline=1",
+    "fallbackQuestion": "في كلاسيكو البرنابيو في أكتوبر 2024، سجل برشلونة رباعية كلها بعد الاستراحة. ما نتيجة الشوط الأول؟"
   },
   {
     "id": "ELC-V3-VIDEO-05",
@@ -661,7 +679,8 @@
     "answer": "2",
     "explanation": "في كلاسيكو مارس 2020 سجل فينيسيوس وماريانو هدفي الفوز بعد الاستراحة.",
     "fact_source_url": "https://www.youtube.com/watch?v=s5fPCcm-h9s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/s5fPCcm-h9s?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/s5fPCcm-h9s?rel=0&playsinline=1",
+    "fallbackQuestion": "في كلاسيكو مارس 2020، بعد شوط أول سلبي، سجّل فينيسيوس وماريانو لريال مدريد. كم هدفًا سجل ريال مدريد في الشوط الثاني؟"
   },
   {
     "id": "ELC-V3-VIDEO-06",
@@ -670,7 +689,8 @@
     "answer": "إشبيلية",
     "explanation": "نهائي كأس الملك 26 أبريل 2025 في ملعب لا كارتوخا. المصدر: SSC.",
     "fact_source_url": "https://www.youtube.com/watch?v=29qV7l2vULk",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/29qV7l2vULk?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/29qV7l2vULk?rel=0&playsinline=1",
+    "fallbackQuestion": "ما المدينة التي احتضنت نهائي كأس الملك 2025 بين برشلونة وريال مدريد، على ملعب لا كارتوخا؟"
   },
   {
     "id": "ELC-V3-VIDEO-07",
@@ -679,7 +699,8 @@
     "answer": "2018/2019",
     "explanation": "28 أكتوبر 2018، برشلونة 5-1 ريال مدريد.",
     "fact_source_url": "https://www.youtube.com/watch?v=o8jMLaLNAPE",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/o8jMLaLNAPE?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/o8jMLaLNAPE?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم فاز برشلونة بقيادة فالفيردي 5-1 على ريال مدريد بقيادة لوبيتيغي، وشهد اللقاء ثلاثية سواريز؟"
   },
   {
     "id": "ELC-V3-VIDEO-08",
@@ -688,7 +709,8 @@
     "answer": "لويس كومبانيس الأولمبي",
     "explanation": "كلاسيكو 28 أكتوبر 2023 الذي فاز به ريال مدريد 2-1.",
     "fact_source_url": "https://www.youtube.com/watch?v=iS6dII37CwM",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/iS6dII37CwM?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/iS6dII37CwM?rel=0&playsinline=1",
+    "fallbackQuestion": "في ذهاب كلاسيكو موسم 2023/2024، خاض برشلونة المباراة خارج كامب نو بسبب أعمال التجديد. ما اسم الملعب؟"
   },
   {
     "id": "ELC-V3-VIDEO-09",
@@ -697,7 +719,8 @@
     "answer": "مرتين",
     "explanation": "21 أبريل 2024، ريال مدريد عاد من التأخر 0-1 ثم 1-2.",
     "fact_source_url": "https://www.youtube.com/watch?v=MmhxO0MFhVM",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/MmhxO0MFhVM?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/MmhxO0MFhVM?rel=0&playsinline=1",
+    "fallbackQuestion": "في كلاسيكو البرنابيو 21 أبريل 2024، سجّل كريستنسن وفيرمين لبرشلونة بينما حسم بيلينغهام المباراة. كم مرة تقدم برشلونة قبل خسارته؟"
   },
   {
     "id": "ELC-V3-VIDEO-10",
@@ -706,7 +729,8 @@
     "answer": "4",
     "explanation": "8 يناير 1994: انتهى الشوط الأول 1-0 ثم سجل برشلونة أربعة أهداف أخرى.",
     "fact_source_url": "https://www.youtube.com/watch?v=S0bgxnX97Vk",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/S0bgxnX97Vk?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/S0bgxnX97Vk?rel=0&playsinline=1",
+    "fallbackQuestion": "في خماسية برشلونة أمام ريال مدريد بقيادة كرويف في يناير 1994، سجّل روماريو هدف التقدم قبل الاستراحة. كم هدفًا سجّل برشلونة في الشوط الثاني؟"
   },
   {
     "id": "ELC-V3-VIDEO-11",
@@ -715,7 +739,8 @@
     "answer": "2-0",
     "explanation": "29 نوفمبر 2010: انتهى الشوط الأول بتقدم برشلونة بهدفين.",
     "fact_source_url": "https://www.youtube.com/watch?v=3KCnVa_Os7A",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/3KCnVa_Os7A?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/3KCnVa_Os7A?rel=0&playsinline=1",
+    "fallbackQuestion": "في خماسية برشلونة أمام فريق مورينيو في نوفمبر 2010، ما نتيجة الشوط الأول؟"
   },
   {
     "id": "ELC-V3-VIDEO-12",
@@ -724,7 +749,8 @@
     "answer": "2021/2022",
     "explanation": "20 مارس 2022، الجولة 29 من الدوري.",
     "fact_source_url": "https://www.youtube.com/watch?v=Bb7pphWltLI",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/Bb7pphWltLI?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Bb7pphWltLI?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم من الدوري فاز برشلونة 4-0 في البرنابيو بقيادة تشافي، وسجل أوباميانغ ثنائية؟"
   },
   {
     "id": "ELC-V3-VIDEO-13",
@@ -733,7 +759,8 @@
     "answer": "4-2 لبرشلونة",
     "explanation": "11 مايو 2025: برشلونة تقدم 4-2 قبل نهاية الشوط الأول.",
     "fact_source_url": "https://www.youtube.com/watch?v=0c8RD3fd9hc",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/0c8RD3fd9hc?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/0c8RD3fd9hc?rel=0&playsinline=1",
+    "fallbackQuestion": "في كلاسيكو مايو 2025، تقدّم مدريد 2-0 بثنائية مبابي ثم قلب برشلونة النتيجة بأهداف إريك غارسيا ولامين يامال وثنائية رافينيا قبل الاستراحة. ما نتيجة الشوط الأول؟"
   },
   {
     "id": "ELC-V3-VIDEO-14",
@@ -742,7 +769,8 @@
     "answer": "2025/2026",
     "explanation": "26 أكتوبر 2025، فاز ريال مدريد 2-1.",
     "fact_source_url": "https://www.youtube.com/watch?v=k2hXVxvZP7E",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم من الليغا فاز ريال مدريد 2-1 على برشلونة في البرنابيو، في أول كلاسيكو لتشابي ألونسو مدربًا لريال مدريد؟"
   },
   {
     "id": "ELC-V3-HIST-01",
@@ -767,7 +795,8 @@
     "answer": "2009/2010",
     "explanation": "29 نوفمبر 2009، برشلونة 1-0 ريال مدريد.",
     "fact_source_url": "https://www.youtube.com/watch?v=nHSyKTA0Wak",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/nHSyKTA0Wak?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/nHSyKTA0Wak?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم من الدوري حسم زلاتان إبراهيموفيتش الكلاسيكو في كامب نو بهدف المباراة الوحيد؟"
   },
   {
     "id": "ELC-V4-CLIP-02",
@@ -776,7 +805,8 @@
     "answer": "2011/2012",
     "explanation": "21 أبريل 2012، ريال مدريد فاز 2-1 في كامب نو.",
     "fact_source_url": "https://www.youtube.com/watch?v=hY1IpOJpbO0",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/hY1IpOJpbO0?rel=0&playsinline=1"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/hY1IpOJpbO0?rel=0&playsinline=1",
+    "fallbackQuestion": "في أي موسم من الليغا سجّل كريستيانو هدف الفوز في كامب نو واحتفل بإشارة الهدوء، في مباراة انتهت 2-1؟"
   },
   {
     "id": "ELC-V3-HIST-05",
@@ -793,7 +823,8 @@
     "answer": "سانتياغو برنابيو",
     "explanation": "ريال مدريد كان صاحب الأرض في الجولة 11 من موسم 2001/2002.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=216s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=216&end=238"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=216&end=238",
+    "fallbackQuestion": "في ذهاب كلاسيكو الدوري 2001/2002 الذي فاز فيه ريال مدريد 2-0، في أي ملعب أقيمت المباراة؟"
   },
   {
     "id": "ELC-V3-HIST-07",
@@ -810,7 +841,8 @@
     "answer": "2002/2003",
     "explanation": "الجولة 30 من موسم 2002/2003.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=330s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=330&end=353"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=330&end=353",
+    "fallbackQuestion": "في أي موسم سجّل رونالدو البرازيلي لريال مدريد في تعادل 1-1 مع برشلونة بالبرنابيو خلال أول موسم له مع مدريد؟"
   },
   {
     "id": "ELC-V3-HIST-09",
@@ -891,7 +923,8 @@
     "answer": "1999/2000",
     "explanation": "الجولة السابعة من موسم 1999/2000.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=761s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=761&end=784"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=761&end=784",
+    "fallbackQuestion": "في أي موسم احتفل راؤول بإشارة إسكات جمهور كامب نو بعد تسجيل هدف التعادل 2-2؟"
   },
   {
     "id": "ELC-V4-CLIP-20",
@@ -900,7 +933,8 @@
     "answer": "2004/2005",
     "explanation": "الجولة 12 من موسم 2004/2005.",
     "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=188s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=188&end=211"
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=188&end=211",
+    "fallbackQuestion": "في أي موسم من الدوري سجل فان برونكهورست في كلاسيكو كامب نو 3-0، خلال أول موسم لصامويل إيتو مع برشلونة؟"
   },
   {
     "id": "ELC-V3-HIST-20",
