@@ -1796,3 +1796,30 @@
 .ca-brand-thirty-mascot{background:transparent;border:0;box-shadow:none;padding:0;}
 .ca-brand-thirty-mascot img{display:block;width:clamp(135px,20vw,250px);height:auto;max-width:100%;object-fit:contain;}
 @media(max-width:540px){.ca-brand-thirty-mascot img{width:145px;}}
+
+/* Clean match-end layout, with no scene entrance animation. */
+.arena-stage[data-phase="FINAL"] .arena-layout {display:flex;max-width:680px;width:100%;min-height:calc(100svh - 40px);align-items:center;justify-content:center;}
+.arena-stage[data-phase="FINAL"] .arena-main {width:100%;min-width:0;padding:0;justify-content:center;}
+.final-results {display:grid;width:100%;max-width:620px;margin:auto;gap:22px;padding:20px 12px;text-align:center;direction:rtl;color:#21152e;}
+.final-results-header {display:grid;justify-items:center;gap:10px;margin-bottom:10px;}
+.final-cup {display:grid;place-items:center;width:clamp(76px,12vh,112px);aspect-ratio:1;border:2px solid #24172f;border-radius:50%;background:linear-gradient(160deg,#fff2a1,#f5c834);box-shadow:0 5px #a97c21,0 7px #24172f;font-size:clamp(36px,6vh,57px);line-height:1;}
+.final-results-header h1 {font-family:var(--font-display);font-size:clamp(32px,4.2vw,53px);font-weight:950;line-height:1.25;margin:0;}
+.final-champion {display:grid;justify-items:center;align-content:center;gap:9px;min-height:clamp(145px,21vh,190px);padding:20px 16px;border:2px solid #24172f;border-radius:25px;outline:4px solid;outline-offset:4px;background:linear-gradient(#fffdf2,#f3ead2);box-shadow:0 4px #b8a98b;}
+.final-winner-badge {display:inline-block;background:linear-gradient(#a17ace,#66408f);color:#fff8e9;border:1.5px solid #24172f;border-radius:9px;padding:5px 14px;font-size:.85rem;font-weight:900;box-shadow:0 3px #24172f;}
+.final-champion h2 {display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;font-size:clamp(23px,2.6vw,36px);font-weight:950;line-height:1.35;overflow-wrap:anywhere;max-width:100%;}
+.final-champion h2 i,.final-team-name i {display:inline-block;flex:none;width:14px;height:14px;border:1.5px solid #24172f;border-radius:50%;}
+.final-winner-score {display:flex;align-items:baseline;gap:8px;justify-content:center;font-weight:900;}
+.final-winner-score b {font-size:clamp(28px,3vw,38px);font-weight:950;font-variant-numeric:tabular-nums;}
+.final-winner-score span {font-size:1rem;color:#5b4b68;}
+.final-other-teams {list-style:none;display:grid;gap:11px;margin:4px 0 0;padding:0;}
+.final-other-teams li {display:grid;grid-template-columns:38px minmax(0,1fr) auto;align-items:center;gap:12px;padding:11px 18px;border:1.7px solid #24172f;border-radius:14px;background:linear-gradient(#fffdf1,#f2e8d0);box-shadow:0 4px #c7b99d,0 6px #24172f;text-align:start;font-size:1rem;font-weight:900;}
+.final-rank {display:grid;place-items:center;width:35px;height:35px;border:1.5px solid #24172f;border-radius:50%;background:linear-gradient(#594063,#2b1b3a);box-shadow:0 3px #21152e;color:#fff5e7;font-size:.85rem;}
+.final-team-name {display:flex;align-items:center;gap:8px;min-width:0;overflow-wrap:anywhere;}
+.final-other-teams li>b {font-size:1.15rem;font-variant-numeric:tabular-nums;}
+.final-actions {display:grid;gap:10px;}
+.final-home-btn {background:linear-gradient(#53385f,#2d1c3e);color:#fff5e8;border:2px solid #24172f;border-radius:15px;padding:13px 16px;box-shadow:0 5px #24172f;font-size:clamp(17px,1.6vw,23px);font-weight:950;cursor:pointer;}
+.final-home-btn:active {transform:translateY(3px);box-shadow:0 2px #24172f;}
+.final-replay-btn {justify-self:center;display:flex;align-items:center;gap:6px;color:#38234c;font-size:.8rem;font-weight:850;padding:7px 10px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.final-results,.final-results * {animation:none!important;}
+.final-actions button:focus-visible {outline:3px solid #7046a1;outline-offset:4px;}
+@media(max-width:600px){.arena-stage[data-phase="FINAL"] .arena-layout{min-height:calc(100svh - 16px);}.final-results{gap:17px;padding:15px 8px;}.final-champion{min-height:135px;}.final-other-teams li{padding:9px 12px;gap:8px;}.final-results-header{margin-bottom:3px;}}

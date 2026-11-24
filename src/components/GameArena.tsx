@@ -624,7 +624,7 @@ export function GameArena({
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
-          {state.phase !== 'BOARD' && (
+          {state.phase !== 'BOARD' && state.phase !== 'FINAL' && (
             <div className="round-edges" aria-label="متابعة الجولة">
               <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
                 <RoundCueIcon aria-hidden="true" size={17} />
@@ -1703,40 +1703,34 @@ export function GameArena({
 
           {/* PHASE: FINAL */}
           {state.phase === 'FINAL' && (
-            <div className="podium-stage game-card-frame rounded-3xl p-6 md:p-8 text-center space-y-6">
-              <div className="victory-cup">
-                <div className="victory-sparks" aria-hidden="true">
-                  <i /><i /><i /><i /><i /><i />
-                </div>
-                <Trophy aria-hidden="true" />
-              </div>
-              <div className="winner-heading"><p>نتائج المباراة</p><h1>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).map(t=>t.name).join(' و ')}</h1>
-                <strong>{sortedStandings.filter(t=>t.score===sortedStandings[0].score).length>1?'تعادل في المركز الأول':'بطل المباراة'} · {sortedStandings[0].score} نقطة</strong></div>
-              <ol className="finish-standings">{sortedStandings.map((team,index)=>{
-                const rank = sortedStandings.findIndex(t=>t.score===team.score)+1;
-                return <li key={team.id} data-rank={rank} style={{borderInlineStartColor:team.color,animationDelay:index*100+'ms'}}>
-                  <b>{rank}</b><span>{team.name}<small>{team.correctCount} إجابات صحيحة</small></span><strong>{team.score}</strong>
-                </li>;
-              })}</ol>
-              {isHost && <div className="flex flex-wrap items-center justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={onNewGame}
-                  className="game-btn-3d bg-[#00B978] text-white px-6 py-3 rounded-2xl font-display font-black text-base flex items-center gap-2 cursor-pointer"
-                >
-                  <RotateCcw className="w-5 h-5" />
-                  <span>مباراة جديدة</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={onExitToHome}
-                  className="game-btn-3d bg-white text-[#291B40] px-6 py-3 rounded-2xl font-display font-black text-base flex items-center gap-2 cursor-pointer"
-                >
-                  <Home className="w-5 h-5" />
-                  <span>الرئيسية</span>
-                </button>
+            <section className="final-results" aria-labelledby="final-title">
+              <header className="final-results-header">
+                <span className="final-cup" aria-hidden="true">🏆</span>
+                <h1 id="final-title">انتهت اللعبة!</h1>
+              </header>
+              {sortedStandings.filter(t=>t.score===sortedStandings[0]?.score).map(team=>(
+                <article className="final-champion" key={team.id} style={{outlineColor:team.color}}>
+                  <span className="final-winner-badge">{sortedStandings.filter(t=>t.score===sortedStandings[0]?.score).length>1?'المركز الأول · تعادل':'الفائز'}</span>
+                  <h2><i style={{backgroundColor:team.color}}/>{team.name}</h2>
+                  <p className="final-winner-score"><b dir="ltr">{team.score}</b><span>نقطة</span></p>
+                </article>
+              ))}
+              {sortedStandings.some(t=>t.score!==sortedStandings[0]?.score)&&(
+                <ol className="final-other-teams" aria-label="باقي النتائج">
+                  {sortedStandings.filter(t=>t.score!==sortedStandings[0]?.score).map(team=>(
+                    <li key={team.id}>
+                      <span className="final-rank">{sortedStandings.findIndex(t=>t.score===team.score)+1}</span>
+                      <span className="final-team-name"><i style={{backgroundColor:team.color}}/>{team.name}</span>
+                      <b dir="ltr">{team.score}</b>
+                    </li>
+                  ))}
+                </ol>
+              )}
+              {isHost && <div className="final-actions">
+                <button type="button" onClick={onExitToHome} className="final-home-btn">العودة إلى الرئيسية</button>
+                <button type="button" onClick={onNewGame} className="final-replay-btn"><RotateCcw size={15}/> مباراة جديدة</button>
               </div>}
-            </div>
+            </section>
           )}
         </div>
 
