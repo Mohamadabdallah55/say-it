@@ -3,21 +3,13 @@ import type { LifelineType } from '../game/types';
 import { PowerCardIcon } from './PowerCardIcon';
 
 const PRE_QUESTION_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
+  { key: 'double_points', title: 'نقاط مضاعفة', rule: 'ضاعف نقاط هذا السؤال' },
+  { key: 'pit', title: 'الحفرة', rule: 'اطرح نقاطك من جميع الخصوم' },
+  { key: 'two_answers', title: 'إجابتان', rule: 'لديك فرصتان للإجابة' },
   { key: 'silence', title: 'صمت', rule: LIFELINE_META.silence.description },
   { key: 'show_cards', title: 'افرد أوراقك', rule: LIFELINE_META.show_cards.description },
-  { key: 'two_answers', title: 'إجابتان', rule: 'لديك فرصتان للإجابة' },
-  { key: 'pit', title: 'الحفرة', rule: 'اطرح نقاطك من جميع الخصوم' },
-  { key: 'double_points', title: 'نقاط مضاعفة', rule: 'ضاعف نقاط هذا السؤال' },
-  {
-    key: 'second_chance',
-    title: 'فرصة ثانية',
-    rule: 'محاولة إضافية مع +15 ثانية',
-  },
-  {
-    key: 'buzzer_challenge',
-    title: 'تحدي الجرس',
-    rule: LIFELINE_META.buzzer_challenge.description,
-  },
+  { key: 'second_chance', title: 'فرصة ثانية', rule: 'محاولة إضافية مع +15 ثانية' },
+  { key: 'buzzer_challenge', title: 'تحدي الجرس', rule: LIFELINE_META.buzzer_challenge.description },
 ];
 
 export function SpecialCards({

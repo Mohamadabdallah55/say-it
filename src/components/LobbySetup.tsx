@@ -85,12 +85,12 @@ const CLASSIC_CATEGORY_IDS = [
 ];
 
 const SELECTABLE_POWER_CARDS: Array<{ key: LifelineType; title: string; rule: string }> = [
-  { key: 'silence', title: 'صمت', rule: LIFELINE_META.silence.description },
-  { key: 'show_cards', title: 'افرد أوراقك', rule: LIFELINE_META.show_cards.description },
-  { key: 'two_answers', title: 'إجابتان', rule: LIFELINE_META.two_answers.description },
-  { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
   { key: 'double_points', title: 'نقاط مضاعفة', rule: LIFELINE_META.double_points.description },
+  { key: 'pit', title: 'الحفرة', rule: LIFELINE_META.pit.description },
+  { key: 'two_answers', title: 'إجابتان', rule: LIFELINE_META.two_answers.description },
+  { key: 'silence', title: 'صمت', rule: LIFELINE_META.silence.description },
   { key: 'hint', title: 'ألو', rule: LIFELINE_META.hint.description },
+  { key: 'show_cards', title: 'افرد أوراقك', rule: LIFELINE_META.show_cards.description },
   { key: 'swap_question', title: 'شنّص', rule: LIFELINE_META.swap_question.description },
 ];
 
@@ -1066,72 +1066,45 @@ export function LobbySetup({
 
             </div>
 
-            {/* Available Power Cards Panel (matching Image 7) */}
-            <div className="space-y-3 pt-1">
-              <div className="flex items-center justify-between">
-                <span
-                  dir="ltr"
-                  className="bg-[#FFFDF7] border-2 border-[#1F112E] rounded-full px-3 py-0.5 font-display font-black text-xs tabular-nums"
-                >
-                  {cards.length} / {SELECTABLE_POWER_CARDS.length}
-                </span>
-                <span className="font-display font-black text-sm text-[#1F112E]">
-                  البطاقات المتاحة
-                </span>
+            {/* Shared power-card selection; real available and selected counts. */}
+            <div className="power-card-settings" dir="rtl">
+              <div className="power-card-heading">
+                <h3>البطاقات المتاحة</h3>
+                <span dir="ltr" className="power-card-counter">{cards.length} / {SELECTABLE_POWER_CARDS.length}</span>
               </div>
-
-              <div className="bg-[#F2ECE0] border-2 border-[#1F112E]/20 rounded-2xl p-3 space-y-3">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2.5">
-                    {SELECTABLE_POWER_CARDS.map((card) => {
-                      const active = cards.includes(card.key);
-                      return (
-                        <div
-                          key={card.key}
-                          className={`relative rounded-2xl bg-[#FDF3EB] p-2.5 flex flex-col items-center text-center transition ${
-                            active
-                              ? 'border-[2.5px] border-[#63349B] shadow-[0_3px_0_#63349B]'
-                              : 'border-2 border-[#1F112E]/25 opacity-85 hover:opacity-100'
-                          }`}
-                        >
-                          <div className="w-full flex items-center justify-between mb-1">
-                            <button
-                              type="button"
-                              onClick={() => setInfoTip(`${card.title}: ${card.rule}`)}
-                              aria-label={`معلومات بطاقة ${card.title}`}
-                              className="w-6 h-6 rounded-full border-[1.5px] border-[#1F112E]/60 bg-[#FFFDF7] text-[#1F112E] flex items-center justify-center cursor-pointer hover:bg-[#FFE047]"
-                            >
-                              <Info className="w-3.5 h-3.5" />
-                            </button>
-
-                            <button
-                              type="button"
-                              aria-pressed={active}
-                              aria-label={`${active ? 'إلغاء' : 'تفعيل'} بطاقة ${card.title}`}
-                              onClick={() => toggleCard(card.key)}
-                              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
-                                active
-                                  ? 'bg-[#63349B] border-[#1F112E] text-white'
-                                  : 'bg-[#FFFDF7] border-[#1F112E]/40 text-transparent'
-                              }`}
-                            >
-                              <Check className="w-3.5 h-3.5 stroke-[3]" />
-                            </button>
-                          </div>
-
-                          <button
-                            type="button"
-                            onClick={() => toggleCard(card.key)}
-                            className="w-full flex flex-col items-center cursor-pointer"
-                          >
-                            <span className="grid h-14 place-items-center"><PowerCardIcon card={card.key} /></span>
-                            <span className="font-display font-black text-xs text-[#1F112E]">
-                              {card.title}
-                            </span>
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
+              <div className="power-card-settings-note">
+                <div>
+                  <strong>البطاقات المشتركة للفرق</strong>
+                  <small>كل فريق يمكنه استخدام {maxLifelinesPerTeam} بطاقات أثناء اللعب</small>
+                </div>
+              </div>
+              <div className="power-card-grid">
+                {SELECTABLE_POWER_CARDS.map((card) => {
+                  const active = cards.includes(card.key);
+                  return (
+                    <div key={card.key} className="power-card-tile" data-active={active} data-card={card.key}>
+                      <button
+                        type="button"
+                        onClick={() => setInfoTip(`${card.title}: ${card.rule}`)}
+                        aria-label={`معلومات بطاقة ${card.title}`}
+                        className="power-card-info"
+                      >
+                        <Info size={13} />
+                      </button>
+                      <button
+                        type="button"
+                        aria-pressed={active}
+                        aria-label={`${active ? 'إلغاء' : 'تفعيل'} بطاقة ${card.title}`}
+                        onClick={() => toggleCard(card.key)}
+                        className="power-card-select"
+                      >
+                        <span className="power-card-check" aria-hidden="true"><Check size={12} strokeWidth={3} /></span>
+                        <span className="power-card-art"><PowerCardIcon card={card.key} /></span>
+                        <span className="power-card-name">{card.title}</span>
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>
