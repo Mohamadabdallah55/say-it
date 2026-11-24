@@ -98,6 +98,10 @@ test('careers and reciters keep the supplied tiers and reveal only the intended 
   assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS), [30, 30, 30]);
   assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [15, 15, 15]);
   assert.deepEqual(tierCounts(RECITER_QUESTIONS), [67, 66, 67]);
+  const reciterCounts = new Map<string, number>();
+  for (const q of RECITER_QUESTIONS) reciterCounts.set(q.answer, (reciterCounts.get(q.answer) ?? 0) + 1);
+  assert.ok(reciterCounts.size >= 40);
+  assert.ok([...reciterCounts.values()].every(count => count <= 5));
 
   const knownClips = new Set<string>();
   for (const question of RECITER_QUESTIONS) {
