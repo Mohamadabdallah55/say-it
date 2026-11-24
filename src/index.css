@@ -1644,3 +1644,15 @@
 .platform-modal{position:fixed;inset:0;z-index:60;background:#140b20a8;display:grid;place-items:center;padding:15px;color:#211329;overflow:auto;}
 @media(max-width:760px){.platform-grid{grid-template-columns:1fr;gap:14px;}.platform-feature,.platform-thirty{grid-column:1;}.platform-feature{min-height:220px;padding:15px;gap:10px;}.platform-thirty{min-height:185px;padding:15px;}.platform-join{grid-row:3;min-height:180px;}.platform-yh-logo{height:84px;}.platform-heading>span{display:none;}.platform-btn{font-size:.78rem;padding:7px 10px;}.platform-board{gap:3px;padding:5px;}.platform-board-category{min-height:46px;}.platform-board-category b{font-size:1.15rem;}.platform-board-points{font-size:.75rem;}.platform-wrap{padding:15px 12px;}}
 @media(max-width:400px){.platform-feature{grid-template-columns:1fr;}.platform-board{width:min(100%,290px);justify-self:center;}.platform-feature-copy{align-items:center;text-align:center;}.platform-yh-logo{object-position:center;}.platform-thirty{grid-template-columns:1fr .7fr;}.platform-rounds{display:none;}}
+
+/* Third standalone game card. Keep the two secondary games side by side on desktop. */
+.platform-thirty,.platform-khalf{grid-column:span 1;grid-template-columns:1fr;min-height:275px;padding:18px;position:relative;display:grid;gap:10px;align-content:start}
+.platform-thirty{grid-column:1;grid-row:2}
+.platform-khalf{grid-column:2;grid-row:2;background:radial-gradient(#155c4735 .8px,transparent 1.5px),linear-gradient(135deg,#a9efbf,#53bf97);background-size:7px 7px,auto;border:2px solid #120d1b;border-radius:19px;box-shadow:0 5px #100919;color:#291638;overflow:hidden}
+.platform-thirty .platform-clock,.platform-khalf .platform-suspect{grid-row:1;width:100%;height:115px;object-fit:contain;justify-self:center}
+.platform-thirty h2,.platform-khalf h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:950;line-height:1.2}
+.platform-khalf h2{text-shadow:2px 2px #ffdf55}
+.platform-tools{grid-column:3;grid-row:2}
+.platform-thirty .platform-rounds,.platform-khalf .platform-rounds{display:flex}
+.platform-thirty .platform-actions,.platform-khalf .platform-actions{flex-wrap:wrap}
+@media(max-width:760px){.platform-thirty,.platform-khalf,.platform-tools{grid-column:1;grid-row:auto}.platform-join{grid-row:auto}.platform-thirty,.platform-khalf{grid-template-columns:1fr .72fr;min-height:180px;align-items:center}.platform-thirty .platform-clock,.platform-khalf .platform-suspect{grid-row:1;grid-column:2;height:auto;max-height:150px}.platform-thirty-copy{grid-row:1;grid-column:1}.platform-tools{grid-row:auto}}
