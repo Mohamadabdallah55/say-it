@@ -254,6 +254,54 @@ test('localAiClient discovers Qwen text/vision models, strips <think> tags, and 
   assert.equal(chatCallCount, 2);
 });
 
+test('remote Ollama sends Basic auth on discovery and chat and accepts Render model alias', async (t) => {
+  const { discoverOllamaModels, callOllamaChat } = await import('./localAiClient');
+  const keys = ['OLLAMA_BASE_URL', 'OLLAMA_USERNAME', 'OLLAMA_PASSWORD', 'OLLAMA_TEXT_MODEL', 'OLLAMA_MODEL'] as const;
+  const old = keys.map((key) => [key, process.env[key]] as const);
+  const requests: Array<{ path: string; auth: string | undefined }> = [];
+  const expectedAuth = 'Basic ' + Buffer.from('test-user:test-password').toString('base64');
+  const server = http.createServer((req, res) => {
+    requests.push({ path: req.url || '/', auth: req.headers.authorization });
+    res.setHeader('Content-Type', 'application/json');
+    if (req.headers.authorization !== expectedAuth) {
+      res.statusCode = 401;
+      res.end(JSON.stringify({ error: 'unauthorized' }));
+      return;
+    }
+    if (req.url === '/api/tags') {
+      res.end(JSON.stringify({ models: [{ name: 'qwen3:8b' }, { name: 'qwen3:14b' }] }));
+      return;
+    }
+    const chunks: Buffer[] = [];
+    req.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
+    req.on('end', () => {
+      const body = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+      res.end(JSON.stringify({ message: { content: body.model } }));
+    });
+  });
+  await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(async () => {
+    for (const [key, value] of old) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+    await new Promise<void>((resolve, reject) => server.close((err) => err ? reject(err) : resolve()));
+  });
+  const addr = server.address();
+  assert.ok(addr && typeof addr === 'object');
+  process.env.OLLAMA_BASE_URL = 'http://127.0.0.1:' + addr.port;
+  process.env.OLLAMA_USERNAME = 'test-user';
+  process.env.OLLAMA_PASSWORD = 'test-password';
+  delete process.env.OLLAMA_TEXT_MODEL;
+  process.env.OLLAMA_MODEL = 'qwen3:8b';
+  assert.equal((await discoverOllamaModels()).reachable, true);
+  const response = await callOllamaChat({ promptText: 'test' });
+  assert.equal(response.modelUsed, 'qwen3:8b');
+  assert.equal(response.text, 'qwen3:8b');
+  assert.deepEqual(requests.map((r) => r.path), ['/api/tags', '/api/tags', '/api/chat']);
+  assert.ok(requests.every((r) => r.auth === expectedAuth));
+});
+
 test('pymupdfBridge probes cleanly and degrades gracefully when fitz is unavailable', async () => {
   const { probePyMuPdf, inspectPdfWithPyMuPdf, resetPyMuPdfProbeCache } = await import(
     './pymupdfBridge'
