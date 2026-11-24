@@ -1,0 +1,1810 @@
+{
+  "schemaVersion": 2,
+  "exportedAt": "2026-11-24T00:15:00Z",
+  "app": "yemken-hay",
+  "deck": {
+    "schemaVersion": 2,
+    "id": "general_knowledge_mix_v1",
+    "title": "معلومات عامة — من كل بحر قطرة",
+    "description": "من كل بحر قطرة: الحياة اليومية، الثقافة، الاختراعات، الطبيعة ومعلومات غير متوقعة",
+    "sourceType": "curated",
+    "boardMode": "categories",
+    "ageGroup": "mixed",
+    "createdAt": "2026-11-24T00:15:00Z",
+    "updatedAt": "2026-11-24T00:15:00Z",
+    "categories": [
+      {
+        "id": "cat_general",
+        "name": "معلومات عامة",
+        "description": "من كل بحر قطرة: الحياة اليومية، الثقافة، الاختراعات، الطبيعة ومعلومات غير متوقعة",
+        "iconKey": "general",
+        "accentColor": "#279ED6",
+        "menuGroup": "world",
+        "availableDifficulties": [
+          "easy",
+          "medium",
+          "hard"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gen_mix_001",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان يُلقب بسفينة الصحراء؟",
+        "answer": "الجمل",
+        "acceptableAnswers": [
+          "الجمل",
+          "الإبل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02437312_Arabian_camel.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02437312_Arabian_camel.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الجمل"
+      },
+      {
+        "id": "gen_mix_002",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي تشير إبرتها إلى الشمال المغناطيسي؟",
+        "answer": "البوصلة",
+        "acceptableAnswers": [
+          "البوصلة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_003",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الفاكهة التي تحمل حبوبها الصغيرة على سطحها الخارجي؟",
+        "answer": "الفراولة",
+        "acceptableAnswers": [
+          "الفراولة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07745940_strawberry.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07745940_strawberry.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الفراولة"
+      },
+      {
+        "id": "gen_mix_004",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الحيوان الذي يعيش أساسًا على الخيزران في الصين؟",
+        "answer": "الباندا العملاقة",
+        "acceptableAnswers": [
+          "الباندا العملاقة",
+          "الباندا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02510455_giant_panda.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02510455_giant_panda.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الباندا العملاقة"
+      },
+      {
+        "id": "gen_mix_005",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أي دولة تشتهر بلباس الكيمونو التقليدي؟",
+        "answer": "اليابان",
+        "acceptableAnswers": [
+          "اليابان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-200-07.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-200-07.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "اليابان"
+      },
+      {
+        "id": "gen_mix_006",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الجهاز الذي يحوّل المستندات الرقمية إلى ورق؟",
+        "answer": "الطابعة",
+        "acceptableAnswers": [
+          "الطابعة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04004767_printer.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04004767_printer.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الطابعة"
+      },
+      {
+        "id": "gen_mix_007",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الطائر الذي يضع أكبر بيضة بين الطيور الحية؟",
+        "answer": "النعامة",
+        "acceptableAnswers": [
+          "النعامة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01518878_ostrich.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01518878_ostrich.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "النعامة"
+      },
+      {
+        "id": "gen_mix_008",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الأكلة الإيطالية التي من أنواعها مارغريتا؟",
+        "answer": "البيتزا",
+        "acceptableAnswers": [
+          "البيتزا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07873807_pizza.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07873807_pizza.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البيتزا"
+      },
+      {
+        "id": "gen_mix_009",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الشيء الذي يثبت الراكب في مقعد السيارة؟",
+        "answer": "حزام الأمان",
+        "acceptableAnswers": [
+          "حزام الأمان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04162706_seat_belt.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04162706_seat_belt.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "حزام الأمان"
+      },
+      {
+        "id": "gen_mix_010",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الحشرة التي تنتج العسل؟",
+        "answer": "النحلة",
+        "acceptableAnswers": [
+          "النحلة",
+          "النحل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02206856_bee.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02206856_bee.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "النحلة"
+      },
+      {
+        "id": "gen_mix_011",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أي جهاز يستخدم موجات كهرومغناطيسية لتسخين الطعام؟",
+        "answer": "الميكروويف",
+        "acceptableAnswers": [
+          "الميكروويف"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03761084_microwave.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03761084_microwave.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الميكروويف"
+      },
+      {
+        "id": "gen_mix_012",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "في أي دولة تقع أهرامات الجيزة؟",
+        "answer": "مصر",
+        "acceptableAnswers": [
+          "مصر"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-200-04.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-200-04.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "مصر"
+      },
+      {
+        "id": "gen_mix_013",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الآلة التي لها مفاتيح بيضاء وسوداء وأوتار داخلية؟",
+        "answer": "البيانو",
+        "acceptableAnswers": [
+          "البيانو"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03452741_grand_piano.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03452741_grand_piano.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البيانو"
+      },
+      {
+        "id": "gen_mix_014",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "من حبوب أي نبات نصنع الفشار؟",
+        "answer": "الذرة",
+        "acceptableAnswers": [
+          "الذرة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n12144580_corn.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n12144580_corn.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الذرة"
+      },
+      {
+        "id": "gen_mix_015",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما المسطح المائي شديد الملوحة الواقع غرب الأردن؟",
+        "answer": "البحر الميت",
+        "acceptableAnswers": [
+          "البحر الميت"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_016",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أي ساعة تقيس الزمن بسقوط الرمل بين حجرتين؟",
+        "answer": "الساعة الرملية",
+        "acceptableAnswers": [
+          "الساعة الرملية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03544143_hourglass.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03544143_hourglass.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الساعة الرملية"
+      },
+      {
+        "id": "gen_mix_017",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الفاكهة الأساسية في طبق الغواكامولي؟",
+        "answer": "الأفوكادو",
+        "acceptableAnswers": [
+          "الأفوكادو"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_018",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الطائر المعروف بذيل الذكر المروحي الملون؟",
+        "answer": "الطاووس",
+        "acceptableAnswers": [
+          "الطاووس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01806143_peacock.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01806143_peacock.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الطاووس"
+      },
+      {
+        "id": "gen_mix_019",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي تتيح رؤية جسم بعيد بكلتا العينين؟",
+        "answer": "المنظار الثنائي",
+        "acceptableAnswers": [
+          "المنظار الثنائي",
+          "الدربيل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02841315_binoculars.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02841315_binoculars.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المنظار الثنائي"
+      },
+      {
+        "id": "gen_mix_020",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما المركبة القادرة على السفر تحت سطح البحر؟",
+        "answer": "الغواصة",
+        "acceptableAnswers": [
+          "الغواصة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04347754_submarine.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04347754_submarine.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الغواصة"
+      },
+      {
+        "id": "gen_mix_021",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "في أي رياضة يكون تسلسل النقاط 15 ثم 30 ثم 40؟",
+        "answer": "التنس",
+        "acceptableAnswers": [
+          "التنس",
+          "كرة المضرب"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04409515_tennis_ball.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04409515_tennis_ball.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "التنس"
+      },
+      {
+        "id": "gen_mix_022",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أي بلد أوروبي يشتهر بمدينة روما؟",
+        "answer": "إيطاليا",
+        "acceptableAnswers": [
+          "إيطاليا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-200-13.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-200-13.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "إيطاليا"
+      },
+      {
+        "id": "gen_mix_023",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم المكان الذي تُزرع فيه النباتات تحت غطاء شفاف للتحكم ببيئتها؟",
+        "answer": "الدفيئة الزراعية",
+        "acceptableAnswers": [
+          "الدفيئة الزراعية",
+          "البيت البلاستيكي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03457902_greenhouse.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03457902_greenhouse.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الدفيئة الزراعية"
+      },
+      {
+        "id": "gen_mix_024",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الحيوان المعروف بلونه الوردي الناتج جزئيًا عن غذائه؟",
+        "answer": "الفلامنغو",
+        "acceptableAnswers": [
+          "الفلامنغو",
+          "النحام الوردي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02007558_flamingo.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02007558_flamingo.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الفلامنغو"
+      },
+      {
+        "id": "gen_mix_025",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي تُصدر صوتًا عند نفخ الهواء عبرها وتستخدم في التحكيم الرياضي؟",
+        "answer": "الصفارة",
+        "acceptableAnswers": [
+          "الصفارة",
+          "صافرة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04579432_whistle.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04579432_whistle.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الصفارة"
+      },
+      {
+        "id": "gen_mix_026",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان ثديي يبيض وله منقار يشبه منقار البط؟",
+        "answer": "خلد الماء",
+        "acceptableAnswers": [
+          "خلد الماء",
+          "البلاتيبوس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01873310_platypus.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01873310_platypus.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "خلد الماء"
+      },
+      {
+        "id": "gen_mix_027",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الجهاز الذي يقيس الضغط الجوي؟",
+        "answer": "البارومتر",
+        "acceptableAnswers": [
+          "البارومتر"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02794156_barometer.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02794156_barometer.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البارومتر"
+      },
+      {
+        "id": "gen_mix_028",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الشكل الذي تتخذه خلايا أقراص العسل؟",
+        "answer": "سداسي الأضلاع",
+        "acceptableAnswers": [
+          "سداسي الأضلاع",
+          "السداسي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03530642_honeycomb.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03530642_honeycomb.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "سداسي الأضلاع"
+      },
+      {
+        "id": "gen_mix_029",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الدولة التي تُلقب بأرض الألف بحيرة؟",
+        "answer": "فنلندا",
+        "acceptableAnswers": [
+          "فنلندا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-400-21.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-400-21.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "فنلندا"
+      },
+      {
+        "id": "gen_mix_030",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما أداة الحساب القديمة التي تستخدم خرزًا على قضبان؟",
+        "answer": "المعداد",
+        "acceptableAnswers": [
+          "المعداد",
+          "الأباكوس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02666196_abacus.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02666196_abacus.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المعداد"
+      },
+      {
+        "id": "gen_mix_031",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان بحري يُعرف باسم الأوركا؟",
+        "answer": "الحوت القاتل",
+        "acceptableAnswers": [
+          "الحوت القاتل",
+          "الأوركا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02071294_killer_whale.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02071294_killer_whale.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الحوت القاتل"
+      },
+      {
+        "id": "gen_mix_032",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم شبكة القطارات اليابانية فائقة السرعة؟",
+        "answer": "شينكانسن",
+        "acceptableAnswers": [
+          "شينكانسن",
+          "القطار الرصاصة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02917067_bullet_train.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02917067_bullet_train.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "شينكانسن"
+      },
+      {
+        "id": "gen_mix_033",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي يستمع بها الطبيب لأصوات القلب؟",
+        "answer": "السماعة الطبية",
+        "acceptableAnswers": [
+          "السماعة الطبية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04317175_stethoscope.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04317175_stethoscope.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "السماعة الطبية"
+      },
+      {
+        "id": "gen_mix_034",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي جهاز يطهو عجين الوافل بين لوحين منقوشين؟",
+        "answer": "آلة الوافل",
+        "acceptableAnswers": [
+          "آلة الوافل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04542943_waffle_iron.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04542943_waffle_iron.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "آلة الوافل"
+      },
+      {
+        "id": "gen_mix_035",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي يستخدمها الصائغ لتكبير تفاصيل الأحجار الصغيرة؟",
+        "answer": "العدسة المكبرة",
+        "acceptableAnswers": [
+          "العدسة المكبرة",
+          "اللوب"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03692522_loupe.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03692522_loupe.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "العدسة المكبرة"
+      },
+      {
+        "id": "gen_mix_036",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي طائر بحري له كيس مميز تحت منقاره؟",
+        "answer": "البجع",
+        "acceptableAnswers": [
+          "البجع"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02051845_pelican.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02051845_pelican.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البجع"
+      },
+      {
+        "id": "gen_mix_037",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما وسيلة النقل المائية التقليدية في مدينة البندقية؟",
+        "answer": "الجندول",
+        "acceptableAnswers": [
+          "الجندول",
+          "الغوندولا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03447447_gondola.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03447447_gondola.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الجندول"
+      },
+      {
+        "id": "gen_mix_038",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي ثمرة تحتوي على حبوب حمراء أو وردية كثيرة داخل قشرة سميكة؟",
+        "answer": "الرمان",
+        "acceptableAnswers": [
+          "الرمان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07768694_pomegranate.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07768694_pomegranate.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الرمان"
+      },
+      {
+        "id": "gen_mix_039",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "في أي بلد تقع مدينة جنيف؟",
+        "answer": "سويسرا",
+        "acceptableAnswers": [
+          "سويسرا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-200-22.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-200-22.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "سويسرا"
+      },
+      {
+        "id": "gen_mix_040",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الوسيط الذي يخزن الصوت على شريط مغناطيسي داخل علبة صغيرة؟",
+        "answer": "الكاسيت",
+        "acceptableAnswers": [
+          "الكاسيت",
+          "شريط الكاسيت"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02978881_cassette.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02978881_cassette.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الكاسيت"
+      },
+      {
+        "id": "gen_mix_041",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان يتغذى أساسًا على أوراق الأوكالبتوس؟",
+        "answer": "الكوالا",
+        "acceptableAnswers": [
+          "الكوالا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01882714_koala.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01882714_koala.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الكوالا"
+      },
+      {
+        "id": "gen_mix_042",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الساعة التي تحدد الوقت باستخدام ظل الشمس؟",
+        "answer": "المزولة",
+        "acceptableAnswers": [
+          "المزولة",
+          "الساعة الشمسية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04355338_sundial.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04355338_sundial.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المزولة"
+      },
+      {
+        "id": "gen_mix_043",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي كاميرا تنتج صورة ورقية بعد التقاطها مباشرة وترتبط باسم بولارويد؟",
+        "answer": "الكاميرا الفورية",
+        "acceptableAnswers": [
+          "الكاميرا الفورية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03976467_Polaroid_camera.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03976467_Polaroid_camera.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الكاميرا الفورية"
+      },
+      {
+        "id": "gen_mix_044",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي زاحف من جزر إندونيسيا يُعد أكبر سحلية حية؟",
+        "answer": "تنين كومودو",
+        "acceptableAnswers": [
+          "تنين كومودو",
+          "ورل كومودو"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01695060_Komodo_dragon.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01695060_Komodo_dragon.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "تنين كومودو"
+      },
+      {
+        "id": "gen_mix_045",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الطبق المكسيكي الذي يلف فيه الحشو داخل خبز تورتيلا؟",
+        "answer": "البوريتو",
+        "acceptableAnswers": [
+          "البوريتو"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07880968_burrito.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07880968_burrito.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البوريتو"
+      },
+      {
+        "id": "gen_mix_046",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الآلة الموسيقية ذات المنفاخ والمفاتيح التي تُفتح وتُغلق أثناء العزف؟",
+        "answer": "الأكورديون",
+        "acceptableAnswers": [
+          "الأكورديون"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02672831_accordion.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02672831_accordion.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأكورديون"
+      },
+      {
+        "id": "gen_mix_047",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ماذا نسمي الجبل أو الفتحة التي تخرج منها الصهارة إلى سطح الأرض؟",
+        "answer": "البركان",
+        "acceptableAnswers": [
+          "البركان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n09472597_volcano.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n09472597_volcano.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البركان"
+      },
+      {
+        "id": "gen_mix_048",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما المركبة الفضائية الأمريكية التي كانت تطلق عموديًا وتهبط كالطائرة؟",
+        "answer": "مكوك الفضاء",
+        "acceptableAnswers": [
+          "مكوك الفضاء"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04266014_space_shuttle.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04266014_space_shuttle.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "مكوك الفضاء"
+      },
+      {
+        "id": "gen_mix_049",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الخضار الذي يشبه القرنبيط ويُؤكل منه عادة الجزء الأخضر المزهر غير المتفتح؟",
+        "answer": "البروكلي",
+        "acceptableAnswers": [
+          "البروكلي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07714990_broccoli.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07714990_broccoli.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "البروكلي"
+      },
+      {
+        "id": "gen_mix_050",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "في أي دولة نشأت شركة ليغو؟",
+        "answer": "الدنمارك",
+        "acceptableAnswers": [
+          "الدنمارك"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_051",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الخط الوهمي الذي يقسم الأرض إلى نصفين شمالي وجنوبي؟",
+        "answer": "خط الاستواء",
+        "acceptableAnswers": [
+          "خط الاستواء"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_052",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الجهاز الفلكي الذي يستقبل موجات الراديو القادمة من الفضاء؟",
+        "answer": "التلسكوب الراديوي",
+        "acceptableAnswers": [
+          "التلسكوب الراديوي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04044716_radio_telescope.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04044716_radio_telescope.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "التلسكوب الراديوي"
+      },
+      {
+        "id": "gen_mix_053",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الطائر الذي يستطيع التحليق في مكانه والطيران إلى الخلف؟",
+        "answer": "الطائر الطنان",
+        "acceptableAnswers": [
+          "الطائر الطنان",
+          "طنان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01833805_hummingbird.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01833805_hummingbird.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الطائر الطنان"
+      },
+      {
+        "id": "gen_mix_054",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي تعتمد على مقارنة الكتل أو قياس الوزن؟",
+        "answer": "الميزان",
+        "acceptableAnswers": [
+          "الميزان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04141975_scale.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04141975_scale.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الميزان"
+      },
+      {
+        "id": "gen_mix_055",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الفاكهة الاستوائية ذات التاج الورقي والقشرة الخشنة؟",
+        "answer": "الأناناس",
+        "acceptableAnswers": [
+          "الأناناس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07753275_pineapple.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07753275_pineapple.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأناناس"
+      },
+      {
+        "id": "gen_mix_056",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الدولة التي تقع فيها العاصمة أمستردام؟",
+        "answer": "هولندا",
+        "acceptableAnswers": [
+          "هولندا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/Mohamadabdallah55/say-it/main/public/assets/questions/flags/FLAG-400-17.png",
+        "imageSourceUrl": "https://github.com/Mohamadabdallah55/say-it/blob/main/public/assets/questions/flags/FLAG-400-17.png",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "هولندا"
+      },
+      {
+        "id": "gen_mix_057",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الجهاز الذي يعرض الصور الرقمية على شاشة كبيرة؟",
+        "answer": "جهاز العرض",
+        "acceptableAnswers": [
+          "جهاز العرض",
+          "البروجكتر"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04009552_projector.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04009552_projector.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "جهاز العرض"
+      },
+      {
+        "id": "gen_mix_058",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما البناء الذي يحجز المياه خلفه ويمكن استخدامه لتوليد الكهرباء؟",
+        "answer": "السد",
+        "acceptableAnswers": [
+          "السد"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03160309_dam.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03160309_dam.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "السد"
+      },
+      {
+        "id": "gen_mix_059",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما العداد الذي يسجل المسافة الإجمالية التي قطعتها السيارة؟",
+        "answer": "عداد المسافة",
+        "acceptableAnswers": [
+          "عداد المسافة",
+          "الأودوميتر"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03841143_odometer.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03841143_odometer.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "عداد المسافة"
+      },
+      {
+        "id": "gen_mix_060",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي طائر أمريكي استوائي له منقار ضخم ملون؟",
+        "answer": "الطوقان",
+        "acceptableAnswers": [
+          "الطوقان",
+          "التوكان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01843383_toucan.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01843383_toucan.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الطوقان"
+      },
+      {
+        "id": "gen_mix_061",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان أسترالي يحفر جحورًا ويشتهر بفضلاته المكعبة؟",
+        "answer": "الومبت",
+        "acceptableAnswers": [
+          "الومبت",
+          "الومبات"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01883070_wombat.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01883070_wombat.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الومبت"
+      },
+      {
+        "id": "gen_mix_062",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الجهاز الذي يعرض شكل الإشارة الكهربائية مع الزمن؟",
+        "answer": "راسم الذبذبات",
+        "acceptableAnswers": [
+          "راسم الذبذبات",
+          "الأوسيلوسكوب"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03857828_oscilloscope.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03857828_oscilloscope.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "راسم الذبذبات"
+      },
+      {
+        "id": "gen_mix_063",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الكائن البحري ذو الصدفة الحلزونية المقسمة إلى حجرات تساعده على الطفو؟",
+        "answer": "النوتيلوس",
+        "acceptableAnswers": [
+          "النوتيلوس",
+          "النوتلس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01968897_chambered_nautilus.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01968897_chambered_nautilus.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "النوتيلوس"
+      },
+      {
+        "id": "gen_mix_064",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة الحسابية التي تعتمد على تدريجات لوغاريتمية واستُخدمت قبل الحاسبات الإلكترونية؟",
+        "answer": "المسطرة الحاسبة",
+        "acceptableAnswers": [
+          "المسطرة الحاسبة",
+          "المسطرة المنزلقة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04238763_slide_rule.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04238763_slide_rule.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المسطرة الحاسبة"
+      },
+      {
+        "id": "gen_mix_065",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان ثديي له درع طبيعي من الصفائح العظمية؟",
+        "answer": "الأرماديلو",
+        "acceptableAnswers": [
+          "الأرماديلو",
+          "المدرع"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02454379_armadillo.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02454379_armadillo.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأرماديلو"
+      },
+      {
+        "id": "gen_mix_066",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المشروب الإيطالي المركز الناتج عن تمرير الماء الساخن تحت ضغط عبر البن؟",
+        "answer": "الإسبريسو",
+        "acceptableAnswers": [
+          "الإسبريسو"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07920052_espresso.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07920052_espresso.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الإسبريسو"
+      },
+      {
+        "id": "gen_mix_067",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الوعاء المختبري الضحل ذو الغطاء الذي يُستخدم لتنمية المستعمرات البكتيرية؟",
+        "answer": "طبق بتري",
+        "acceptableAnswers": [
+          "طبق بتري",
+          "صحن بتري"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03920288_Petri_dish.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03920288_Petri_dish.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "طبق بتري"
+      },
+      {
+        "id": "gen_mix_068",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الآلة الوترية التي تُعزف بالقوس وتُمسك بين الركبتين؟",
+        "answer": "التشيلو",
+        "acceptableAnswers": [
+          "التشيلو"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02992211_cello.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02992211_cello.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "التشيلو"
+      },
+      {
+        "id": "gen_mix_069",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حيوان بحري يعيش في صدفة فارغة ويستبدلها عندما يكبر؟",
+        "answer": "السرطان الناسك",
+        "acceptableAnswers": [
+          "السرطان الناسك",
+          "سلطعون ناسك"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01986214_hermit_crab.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01986214_hermit_crab.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "السرطان الناسك"
+      },
+      {
+        "id": "gen_mix_070",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما القارب الذي يتكون من هيكلين متوازيين؟",
+        "answer": "الكاتاماران",
+        "acceptableAnswers": [
+          "الكاتاماران",
+          "القطمران"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02981792_catamaran.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02981792_catamaran.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الكاتاماران"
+      },
+      {
+        "id": "gen_mix_071",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم الحجر الذي ساعد العلماء على فك رموز الهيروغليفية؟",
+        "answer": "حجر رشيد",
+        "acceptableAnswers": [
+          "حجر رشيد"
+        ],
+        "status": "approved",
+        "imageUrl": "https://smarthistory.org/wp-content/uploads/2020/10/rosetta-sm.jpg",
+        "imageSourceUrl": "https://smarthistory.org/the-rosetta-stone/",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "حجر رشيد"
+      },
+      {
+        "id": "gen_mix_072",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي طائر بحري معروف بقطع المسافات الطويلة مستفيدًا من الرياح فوق المحيطات؟",
+        "answer": "القطرس",
+        "acceptableAnswers": [
+          "القطرس",
+          "الألباتروس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02058221_albatross.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02058221_albatross.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "القطرس"
+      },
+      {
+        "id": "gen_mix_073",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الثمرة التي تُعد من أكبر الثمار التي تنمو على الأشجار وقد تزن عشرات الكيلوغرامات؟",
+        "answer": "الجاك فروت",
+        "acceptableAnswers": [
+          "الجاك فروت",
+          "الكاكايا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07754684_jackfruit.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n07754684_jackfruit.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الجاك فروت"
+      },
+      {
+        "id": "gen_mix_074",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المركبة الجوية التي تعتمد على غاز أخف من الهواء ويمكن توجيهها بمحرك؟",
+        "answer": "المنطاد الموجه",
+        "acceptableAnswers": [
+          "المنطاد الموجه",
+          "السفينة الهوائية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02692877_airship.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02692877_airship.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المنطاد الموجه"
+      },
+      {
+        "id": "gen_mix_075",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي زاحف يمد طوقًا جلديًا حول رقبته عند الشعور بالخطر؟",
+        "answer": "السحلية المطوقة",
+        "acceptableAnswers": [
+          "السحلية المطوقة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01688243_frilled_lizard.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01688243_frilled_lizard.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "السحلية المطوقة"
+      },
+      {
+        "id": "gen_mix_076",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة القديمة التي تقيس الزمن بتدفق الماء؟",
+        "answer": "الساعة المائية",
+        "acceptableAnswers": [
+          "الساعة المائية"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_077",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي يستخدمها الخزاف لتدوير الطين أثناء تشكيله؟",
+        "answer": "دولاب الخزاف",
+        "acceptableAnswers": [
+          "دولاب الخزاف",
+          "عجلة الفخار"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03992509_potter's_wheel.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03992509_potter's_wheel.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "دولاب الخزاف"
+      },
+      {
+        "id": "gen_mix_078",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الفن الياباني الذي يصلح الخزف المكسور ويبرز الشقوق بالذهب؟",
+        "answer": "كينتسوغي",
+        "acceptableAnswers": [
+          "كينتسوغي"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_079",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما العمود الحجري الضيق الذي ينتهي بقمة هرمية واشتهر في مصر القديمة؟",
+        "answer": "المسلة",
+        "acceptableAnswers": [
+          "المسلة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03837869_obelisk.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03837869_obelisk.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المسلة"
+      },
+      {
+        "id": "gen_mix_080",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما السمكة التي تستطيع تضخيم جسمها عند الشعور بالخطر؟",
+        "answer": "السمكة المنتفخة",
+        "acceptableAnswers": [
+          "السمكة المنتفخة",
+          "سمكة الينفوخ"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02655020_puffer.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02655020_puffer.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "السمكة المنتفخة"
+      },
+      {
+        "id": "gen_mix_081",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي كوكب يدور على جانبه تقريبًا؟",
+        "answer": "أورانوس",
+        "acceptableAnswers": [
+          "أورانوس"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_082",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المكان ذو القبة التي تُعرض عليها محاكاة للنجوم والكواكب؟",
+        "answer": "القبة السماوية",
+        "acceptableAnswers": [
+          "القبة السماوية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03956157_planetarium.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03956157_planetarium.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "القبة السماوية"
+      },
+      {
+        "id": "gen_mix_083",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما آلة النفخ الصغيرة ذات الشكل البيضوي والثقوب؟",
+        "answer": "الأوكارينا",
+        "acceptableAnswers": [
+          "الأوكارينا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03840681_ocarina.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03840681_ocarina.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأوكارينا"
+      },
+      {
+        "id": "gen_mix_084",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما القارب الضيق الذي يتحرك عادة بمجداف مزدوج الشفرة؟",
+        "answer": "الكاياك",
+        "acceptableAnswers": [
+          "الكاياك"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_085",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي دولة يُكتب اسمها بلغتها المحلية Magyarország؟",
+        "answer": "المجر",
+        "acceptableAnswers": [
+          "المجر"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_086",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الحيوان الذي يحتفظ بخياشيم خارجية في مرحلة البلوغ ويُعرف بسمندل المكسيك؟",
+        "answer": "الأكسولوتل",
+        "acceptableAnswers": [
+          "الأكسولوتل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01632777_axolotl.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01632777_axolotl.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأكسولوتل"
+      },
+      {
+        "id": "gen_mix_087",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما القطعة الصغيرة التي تحمي طرف الإصبع عند الخياطة بالإبرة؟",
+        "answer": "الكشتبان",
+        "acceptableAnswers": [
+          "الكشتبان"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04423845_thimble.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04423845_thimble.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الكشتبان"
+      },
+      {
+        "id": "gen_mix_088",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما العلم الذي يدرس أسماء الأماكن وأصولها؟",
+        "answer": "علم أسماء الأماكن",
+        "acceptableAnswers": [
+          "علم أسماء الأماكن",
+          "الطوبونيميا"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_089",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الجسر الذي تتدلى أرضيته من كابلات رئيسية معلقة بين أبراج؟",
+        "answer": "الجسر المعلق",
+        "acceptableAnswers": [
+          "الجسر المعلق"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04366367_suspension_bridge.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n04366367_suspension_bridge.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الجسر المعلق"
+      },
+      {
+        "id": "gen_mix_090",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما نوع العدسة التي تجمع الأشعة المتوازية في بؤرة في الهواء؟",
+        "answer": "العدسة المحدبة",
+        "acceptableAnswers": [
+          "العدسة المحدبة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_091",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "من لحاء أي شجرة يُستخرج الفلين التجاري؟",
+        "answer": "بلوط الفلين",
+        "acceptableAnswers": [
+          "بلوط الفلين"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_092",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الثديي البحري من فصيلة الأطومات الذي يتغذى على الأعشاب البحرية؟",
+        "answer": "الأطوم",
+        "acceptableAnswers": [
+          "الأطوم",
+          "الدوجونج"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02074367_dugong.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n02074367_dugong.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الأطوم"
+      },
+      {
+        "id": "gen_mix_093",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما وحدة قياس التردد التي تساوي دورة واحدة في الثانية؟",
+        "answer": "الهرتز",
+        "acceptableAnswers": [
+          "الهرتز"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_094",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الأداة التي تشير لاتجاه الرياح عند دورانها فوق محور؟",
+        "answer": "دوارة الرياح",
+        "acceptableAnswers": [
+          "دوارة الرياح"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_095",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي ديناصور اشتهر بثلاثة قرون على وجهه؟",
+        "answer": "تريسيراتوبس",
+        "acceptableAnswers": [
+          "تريسيراتوبس",
+          "ثلاثي القرون"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01704323_triceratops.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01704323_triceratops.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "تريسيراتوبس"
+      },
+      {
+        "id": "gen_mix_096",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الآلة الزراعية التي تجمع عمليات الحصاد والدرس والفصل؟",
+        "answer": "الحصادة الجامعة",
+        "acceptableAnswers": [
+          "الحصادة الجامعة",
+          "الكومباين"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03496892_harvester.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03496892_harvester.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الحصادة الجامعة"
+      },
+      {
+        "id": "gen_mix_097",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المعدن السائل عند درجة حرارة الغرفة المعتادة ورمزه Hg؟",
+        "answer": "الزئبق",
+        "acceptableAnswers": [
+          "الزئبق"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "gen_mix_098",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المحصول ذو الأزهار الصفراء الذي تُنتج من أصناف منه زيوت الكانولا؟",
+        "answer": "اللفت الزيتي",
+        "acceptableAnswers": [
+          "اللفت الزيتي",
+          "السلجم"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n11879895_rapeseed.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n11879895_rapeseed.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "اللفت الزيتي"
+      },
+      {
+        "id": "gen_mix_099",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما آلة الإيقاع ذات الألواح الخشبية المرتبطة بأصول إفريقية وتُطرق بمطارق صغيرة؟",
+        "answer": "الماريمبا",
+        "acceptableAnswers": [
+          "الماريمبا"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03721384_marimba.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n03721384_marimba.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "الماريمبا"
+      },
+      {
+        "id": "gen_mix_100",
+        "categoryId": "cat_general",
+        "categoryName": "معلومات عامة",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المرجان الذي تشبه أخاديده سطح الدماغ؟",
+        "answer": "المرجان الدماغي",
+        "acceptableAnswers": [
+          "المرجان الدماغي",
+          "مرجان المخ"
+        ],
+        "status": "approved",
+        "imageUrl": "https://raw.githubusercontent.com/EliSchwartz/imagenet-sample-images/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01917289_brain_coral.JPEG",
+        "imageSourceUrl": "https://github.com/EliSchwartz/imagenet-sample-images/blob/bc69043e2862758a1906c6a24a792bb28c6bb2ff/n01917289_brain_coral.JPEG",
+        "imageDisplay": "after_reveal",
+        "imageCaption": "المرجان الدماغي"
+      }
+    ]
+  }
+}

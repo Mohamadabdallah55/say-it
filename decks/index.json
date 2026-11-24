@@ -14,6 +14,11 @@
       "id": "apps_color_icons_v1",
       "file": "apps-color-icons/deck.json",
       "version": 1
+    },
+    {
+      "id": "general_knowledge_mix_v1",
+      "file": "general-knowledge-mix/deck.json",
+      "version": 1
     }
   ]
 }

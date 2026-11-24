@@ -1,3 +1,4 @@
+import generalMixDeck from '../../decks/general-knowledge-mix/deck.json';
 import { SERVER_CURATED_CATEGORIES } from './curatedBanks';
 import type { DeckCategory, QuizDeck, QuizQuestion } from './types';
 
@@ -32,7 +33,7 @@ export const STARTER_CATEGORIES: DeckCategory[] = [
   {
     id: 'cat_general',
     name: 'معلومات عامة',
-    description: 'معارف متنوعة حول العالم والحقائق السريعة',
+    description: 'من كل بحر قطرة: الحياة اليومية، الثقافة، الاختراعات، الطبيعة ومعلومات غير متوقعة',
     iconKey: 'general',
     accentColor: '#279ED6',
   },
@@ -90,6 +91,7 @@ export const ALL_CURATED_CATEGORIES: DeckCategory[] = [
 ];
 
 export const CURATED_QUESTIONS: QuizQuestion[] = [
+  ...(generalMixDeck.deck.questions as QuizQuestion[]),
   // 1. معلومات عامة
   q(
     'gen_200',
