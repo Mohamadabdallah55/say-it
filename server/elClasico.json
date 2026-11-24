@@ -31,7 +31,10 @@
       "prompt": "من انطلق بالكرة من قرب منطقة برشلونة وبدأ هجمة هدف ميسي الأخير في كلاسيكو أبريل 2017؟",
       "explanation": "تؤكد تغطية FC Barcelona — Report 2-3 epic late win هذه المعلومة.",
       "source": "https://www.fcbarcelona.com/en/football/first-team/news/769849"
-    }
+    },
+    "imageUrl": "https://cdn-img.staticzz.com/img/planteis/new/17/77/3541777_andre_gomes_20260123014017.jpg",
+    "imageSourceUrl": "https://www.ogol.com.br/jogador/andre-gomes/204312?epoca_id=146",
+    "imageCaption": "أندريه غوميش بقميص برشلونة"
   },
   {
     "id": "ELC-004",
@@ -111,7 +114,10 @@
       "prompt": "في إياب نصف نهائي دوري الأبطال 2002، من كان مدرب ريال مدريد الذي أقصى برشلونة؟",
       "explanation": "تؤكد تغطية UEFA — Madrid magic beats Barcelona هذه المعلومة.",
       "source": "https://www.uefa.com/uefachampionsleague/news/0184-0eaa4e8fa7a7-bed2421f19f5-1000--madrid-magic-beats-barcelona/"
-    }
+    },
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261162?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ivan-helguera-bujia",
+    "imageCaption": "صورة إيفان هيلغيرا بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-010",
@@ -199,7 +205,10 @@
         "explanation": "كان مورا حارس برشلونة الأساسي بحسب تشكيلة المباراة.",
         "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp"
       }
-    ]
+    ],
+    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/GJXXZNVHLZMVHG62GEELGFDWSI.jpg",
+    "imageSourceUrl": "https://cadenaser.com/programa/2017/04/23/el_larguero/1492984350_423243.html",
+    "imageCaption": "صورة سيرجي روبيرتو بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-V2-019",
@@ -225,7 +234,10 @@
     "question": "ما نتيجة كلاسيكو الدوري الذي شهد ثلاثية لويس سواريز في أكتوبر 2018؟",
     "answer": "5-1",
     "explanation": "فاز برشلونة على ريال مدريد.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/893638/fc----51"
+    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/893638/fc----51",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/fcbarcelona/photo/2018/10/29/ce402813-a742-4028-a500-0e7c07120f36/sSfHSfxE.jpg?height=750&width=1200",
+    "imageSourceUrl": "https://www.fcbarcelona.es/es/noticias/893611/el-fc-barcelona-se-impone-por-5-1-al-real-madrid-64-anos-despues",
+    "imageCaption": "لوحة نتيجة الكلاسيكو 5-1 في كامب نو، أكتوبر 2018"
   },
   {
     "id": "ELC-V2-021",
@@ -306,7 +318,10 @@
       "prompt": "في نصف نهائي الأبطال 2011، من لاعب مدريد الذي تلقى البطاقة الحمراء في الذهاب قبل ثنائية ميسي؟",
       "explanation": "تؤكد تغطية UEFA — Ten-man Madrid undone by Messi magic هذه المعلومة.",
       "source": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/"
-    }
+    },
+    "imageUrl": "https://www.lequipe.fr/_medias/img-photo-jpg/eric-abidal-a-joue-plusieurs-annees-au-barca-photo-s-boue-l-equipe/1500000000988896/139%3A27%2C1864%3A1177-1200-800-75/598b8.jpg",
+    "imageSourceUrl": "https://www.lequipe.fr/Football/Actualites/Greffe-du-foie-d-eric-abidal-le-parquet-espagnol-veut-rouvrir-l-enquete/925094",
+    "imageCaption": "إريك أبيدال بقميص برشلونة"
   },
   {
     "id": "ELC-V4-CLIP-08",
@@ -381,7 +396,10 @@
         "explanation": "سبق مارسيلو ماسكيرانو إلى الكرة وسجل التعادل.",
         "source": "https://www.uefa.com/uefachampionsleague/news/01f1-0e783cc358be-4c3b95d9094c-1000--barcelona-keep-madrid-at-bay-to-reach-final/"
       }
-    ]
+    ],
+    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/angel-di-maria/assets/1330783779915.jpg",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria",
+    "imageCaption": "صورة أنخيل دي ماريا بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-V2-030",
@@ -603,7 +621,10 @@
       "prompt": "في أي بطولة تعادل برشلونة وريال مدريد 2-2 في كامب نو بتاريخ 25 يناير 2012 وتأهل برشلونة بمجموع المباراتين؟",
       "explanation": "انتهى إياب ربع نهائي كأس ملك إسبانيا بتاريخ 25 يناير 2012 بالتعادل 2-2 في كامب نو وتأهل برشلونة بمجموع المباراتين.",
       "source": "https://rfef.es/en/noticias/clasico-cup-final-history"
-    }
+    },
+    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/angel-di-maria/assets/1330783779915.jpg",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria",
+    "imageCaption": "صورة أنخيل دي ماريا بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-043",
@@ -838,7 +859,10 @@
       "prompt": "من المهاجم البرازيلي الذي سجّل هدف الفوز الوحيد لريال مدريد 1-0 في كامب نو في ديسمبر 2007؟",
       "explanation": "هدف جوليو بابتيستا في فوز ريال مدريد 1-0 على برشلونة في كامب نو موسم 2007/2008 (فصل 06:03).",
       "source": "https://www.youtube.com/watch?v=AoQCLdkY_44&t=363s"
-    }
+    },
+    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261754?%24Mobile%24=&fit=wrap&wid=312",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
+    "imageCaption": "صورة راؤول غونزاليس بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-V2-058",
@@ -860,7 +884,10 @@
         "explanation": "دخل أسينسيو بدلاً من كوفاتشيتش في الدقيقة 67.",
         "source": "https://www.realmadrid.com/en-US/news/club/latest-news/octavo-aniversario-de-la-10a-supercopa-de-espana-16-08-2025"
       }
-    ]
+    ],
+    "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
+    "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35",
+    "imageCaption": "صورة لوكاس فاسكيز بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-059",
@@ -1222,7 +1249,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 00:58 0-1 Mbappé، مدة 190ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://assets.laliga.com/squad/2024/t186/p440077/512x556/p440077_t186_2024_0_001_000.png",
+    "imageSourceUrl": "https://www.laliga.com/en-GB/player/rodrygo",
+    "imageCaption": "صورة رودريغو بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-V3-VIDEO-08",
@@ -1261,7 +1291,10 @@
     "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
+    "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35",
+    "imageCaption": "صورة لوكاس فاسكيز بقميص النادي — صورة أرشيفية"
   },
   {
     "id": "ELC-V3-VIDEO-10",
