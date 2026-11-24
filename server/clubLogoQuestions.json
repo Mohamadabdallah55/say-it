@@ -1,752 +1,1066 @@
 [
   {
-    "id": "CLUB-001",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "موريرينسي",
-    "answer_en": "Moreirense",
-    "hint": "ينتمي هذا النادي إلى البرتغال.",
-    "country_ar": "البرتغال",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/portugal/moreirense-fc.png"
-  },
-  {
-    "id": "CLUB-002",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هيراكليس ألميلو",
-    "answer_en": "Heracles Almelo",
-    "hint": "ينتمي هذا النادي إلى هولندا.",
-    "country_ar": "هولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/netherlands/heracles-almelo.png"
-  },
-  {
-    "id": "CLUB-003",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "راكوف تشيستوخوفا",
-    "answer_en": "Rakow Czestochowa",
-    "hint": "ينتمي هذا النادي إلى بولندا.",
-    "country_ar": "بولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/poland/rakow-czestochowa.png"
-  },
-  {
-    "id": "CLUB-004",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "رابيد فيينا",
-    "answer_en": "Rapid Vienna",
-    "hint": "ينتمي هذا النادي إلى النمسا.",
-    "country_ar": "النمسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/austria/rapid-vienna.png"
-  },
-  {
-    "id": "CLUB-005",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بوهيميانز براغ 1905",
-    "answer_en": "Bohemians Prague 1905",
-    "hint": "ينتمي هذا النادي إلى التشيك.",
-    "country_ar": "التشيك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/czech-republic/bohemians-prague-1905.png"
-  },
-  {
-    "id": "CLUB-006",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ياغيلونيا بياويستوك",
-    "answer_en": "Jagiellonia Bialystok",
-    "hint": "ينتمي هذا النادي إلى بولندا.",
-    "country_ar": "بولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/poland/jagiellonia-bialystok.png"
-  },
-  {
-    "id": "CLUB-007",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فولفسبيرغر",
-    "answer_en": "Wolfsberger AC",
-    "hint": "ينتمي هذا النادي إلى النمسا.",
-    "country_ar": "النمسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/austria/wolfsberger-ac.png"
-  },
-  {
-    "id": "CLUB-008",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فرايبورغ",
-    "answer_en": "SC Freiburg",
-    "hint": "ينتمي هذا النادي إلى ألمانيا.",
-    "country_ar": "ألمانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/germany/sc-freiburg.png"
-  },
-  {
-    "id": "CLUB-009",
+    "id": "CLUB-101",
     "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أوساسونا",
-    "answer_en": "CA Osasuna",
+    "answer": "ريال مدريد",
+    "answer_en": "Real Madrid",
     "hint": "ينتمي هذا النادي إلى إسبانيا.",
     "country_ar": "إسبانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/spain/ca-osasuna.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/real-madrid.png",
+    "name_regions": [],
+    "cross_regions": [
+      "41,0 59,0 59,20 41,20"
+    ]
   },
   {
-    "id": "CLUB-010",
-    "points": 600,
+    "id": "CLUB-102",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "غورنيك زابجه",
-    "answer_en": "Gornik Zabrze",
-    "hint": "ينتمي هذا النادي إلى بولندا.",
-    "country_ar": "بولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/poland/gornik-zabrze.png"
+    "answer": "برشلونة",
+    "answer_en": "Barcelona",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/fc-barcelona.png",
+    "name_regions": [
+      "30,42 70,42 70,55 30,55"
+    ],
+    "cross_regions": [
+      "8,14 50,14 50,44 8,44"
+    ]
   },
   {
-    "id": "CLUB-011",
-    "points": 600,
+    "id": "CLUB-103",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "باتشكا توبولا",
-    "answer_en": "TSC Backa Topola",
-    "hint": "ينتمي هذا النادي إلى صربيا.",
-    "country_ar": "صربيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/serbia/fk-tsc-backa-topola.png"
+    "answer": "مانشستر يونايتد",
+    "answer_en": "Manchester United",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-united.png",
+    "name_regions": [
+      "8,12 92,12 92,41 8,41",
+      "8,61 92,61 92,87 8,87"
+    ],
+    "cross_regions": []
   },
   {
-    "id": "CLUB-012",
-    "points": 600,
+    "id": "CLUB-104",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ليتشي",
-    "answer_en": "US Lecce",
-    "hint": "ينتمي هذا النادي إلى إيطاليا.",
-    "country_ar": "إيطاليا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/italy/us-lecce.png"
+    "answer": "مانشستر سيتي",
+    "answer_en": "Manchester City",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-city.png",
+    "name_regions": [
+      "10,14 90,14 90,42 10,42",
+      "23,72 77,72 77,85 23,85"
+    ],
+    "cross_regions": []
   },
   {
-    "id": "CLUB-013",
-    "points": 600,
+    "id": "CLUB-105",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هايدنهايم",
-    "answer_en": "1. FC Heidenheim",
+    "answer": "ليفربول",
+    "answer_en": "Liverpool",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/liverpool-fc.png",
+    "name_regions": [
+      "13,77 84,77 84,96 13,96"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-106",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أرسنال",
+    "answer_en": "Arsenal",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/arsenal-fc.png",
+    "name_regions": [
+      "12,15 90,15 90,36 12,36"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-107",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "تشيلسي",
+    "answer_en": "Chelsea",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/chelsea-fc.png",
+    "name_regions": [
+      "12,12 89,12 89,33 12,33",
+      "10,68 90,68 90,90 10,90"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-108",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بايرن ميونخ",
+    "answer_en": "Bayern Munich",
     "hint": "ينتمي هذا النادي إلى ألمانيا.",
     "country_ar": "ألمانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/germany/1fc-heidenheim-1846.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/bayern-munich.png",
+    "name_regions": [
+      "7,13 93,13 93,45 7,45",
+      "5,57 95,57 95,87 5,87"
+    ],
+    "cross_regions": []
   },
   {
-    "id": "CLUB-014",
-    "points": 600,
+    "id": "CLUB-109",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فاماليكاو",
-    "answer_en": "FC Famalicao",
+    "answer": "بوروسيا دورتموند",
+    "answer_en": "Borussia Dortmund",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/borussia-dortmund.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-110",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "باريس سان جيرمان",
+    "answer_en": "Paris Saint-Germain",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/paris-saint-germain.png",
+    "name_regions": [
+      "17,13 85,13 85,35 17,35",
+      "15,65 88,65 88,83 15,83"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-111",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "يوفنتوس",
+    "answer_en": "Juventus",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/juventus-fc.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-112",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "ميلان",
+    "answer_en": "AC Milan",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ac-milan.png",
+    "name_regions": [
+      "22,5 79,5 79,27 22,27"
+    ],
+    "cross_regions": [
+      "49,24 91,24 91,76 49,76"
+    ]
+  },
+  {
+    "id": "CLUB-113",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "إنتر ميلان",
+    "answer_en": "Inter Milan",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/inter-milan.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-114",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أتلتيكو مدريد",
+    "answer_en": "Atlético Madrid",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/atletico-de-madrid.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-115",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "توتنهام",
+    "answer_en": "Tottenham Hotspur",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/tottenham-hotspur.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-116",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "نابولي",
+    "answer_en": "Napoli",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ssc-napoli.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-117",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "روما",
+    "answer_en": "AS Roma",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/as-roma.png",
+    "name_regions": [
+      "12,54 88,54 88,72 12,72"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-118",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بنفيكا",
+    "answer_en": "Benfica",
     "hint": "ينتمي هذا النادي إلى البرتغال.",
     "country_ar": "البرتغال",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/portugal/fc-famalicao.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sl-benfica.png",
+    "name_regions": [
+      "7,38 94,38 94,50 7,50",
+      "33,53 67,53 67,72 33,72"
+    ],
+    "cross_regions": []
   },
   {
-    "id": "CLUB-015",
-    "points": 400,
+    "id": "CLUB-119",
+    "points": 200,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "جينت",
-    "answer_en": "KAA Gent",
-    "hint": "ينتمي هذا النادي إلى بلجيكا.",
-    "country_ar": "بلجيكا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/belgium/kaa-gent.png"
-  },
-  {
-    "id": "CLUB-016",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ريو آفي",
-    "answer_en": "Rio Ave",
+    "answer": "بورتو",
+    "answer_en": "FC Porto",
     "hint": "ينتمي هذا النادي إلى البرتغال.",
     "country_ar": "البرتغال",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/portugal/rio-ave-fc.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/fc-porto.png",
+    "name_regions": [
+      "12,69 90,69 90,96 12,96"
+    ],
+    "cross_regions": [
+      "35,26 65,26 65,63 35,63"
+    ]
   },
   {
-    "id": "CLUB-017",
+    "id": "CLUB-120",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أياكس",
+    "answer_en": "Ajax",
+    "hint": "ينتمي هذا النادي إلى هولندا.",
+    "country_ar": "هولندا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/ajax-amsterdam.png",
+    "name_regions": [
+      "2,48 11,28 26,17 55,11 81,22 66,33 46,26 25,35 14,55 13,67 1,64"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-121",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "إشبيلية",
+    "answer_en": "Sevilla",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/sevilla-fc.png",
+    "name_regions": [],
+    "cross_regions": [
+      "4,15 49,15 49,44 4,44"
+    ]
+  },
+  {
+    "id": "CLUB-122",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "نيوكاسل يونايتد",
+    "answer_en": "Newcastle United",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/newcastle-united.png",
+    "name_regions": [
+      "8,71 92,71 92,90 8,90"
+    ],
+    "cross_regions": [
+      "40,12 57,12 57,25 40,25"
+    ]
+  },
+  {
+    "id": "CLUB-123",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "باير ليفركوزن",
+    "answer_en": "Bayer Leverkusen",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/bayer-04-leverkusen.png",
+    "name_regions": [
+      "25,34 75,34 75,66 25,66",
+      "12,63 90,63 90,80 12,80"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-124",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "لاتسيو",
+    "answer_en": "Lazio",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ss-lazio.png",
+    "name_regions": [
+      "32,43 67,43 67,53 32,53"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-125",
+    "points": 200,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "مارسيليا",
+    "answer_en": "Marseille",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/olympique-marseille.png",
+    "name_regions": [
+      "0,91 100,91 100,100 0,100"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-126",
     "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هارتس",
-    "answer_en": "Heart of Midlothian",
+    "answer": "أستون فيلا",
+    "answer_en": "Aston Villa",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/aston-villa.png",
+    "name_regions": [
+      "9,73 92,73 92,91 9,91"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-127",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "إيفرتون",
+    "answer_en": "Everton",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/everton-fc.png",
+    "name_regions": [
+      "20,50 81,50 81,65 20,65",
+      "0,66 100,66 100,88 0,88"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-128",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "وست هام يونايتد",
+    "answer_en": "West Ham United",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/west-ham-united.png",
+    "name_regions": [
+      "8,10 92,10 92,30 8,30",
+      "29,74 72,74 72,86 29,86"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-129",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "وولفرهامبتون",
+    "answer_en": "Wolverhampton Wanderers",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/wolverhampton-wanderers.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-130",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "برايتون",
+    "answer_en": "Brighton & Hove Albion",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/brighton-and-hove-albion.png",
+    "name_regions": [
+      "7,13 94,13 94,39 7,39",
+      "23,73 80,73 80,87 23,87"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-131",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "كريستال بالاس",
+    "answer_en": "Crystal Palace",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/crystal-palace.png",
+    "name_regions": [
+      "0,79 100,79 100,98 0,98"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-132",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "نوتنغهام فورست",
+    "answer_en": "Nottingham Forest",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/nottingham-forest.png",
+    "name_regions": [
+      "18,80 81,80 81,98 18,98"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-133",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فولهام",
+    "answer_en": "Fulham",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/fulham-fc.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-134",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فالنسيا",
+    "answer_en": "Valencia",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/valencia-cf.png",
+    "name_regions": [
+      "5,31 95,31 95,43 5,43"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-135",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فياريال",
+    "answer_en": "Villarreal",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/villarreal-cf.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-136",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "ريال سوسيداد",
+    "answer_en": "Real Sociedad",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/real-sociedad.png",
+    "name_regions": [],
+    "cross_regions": [
+      "41,4 57,4 57,20 41,20"
+    ]
+  },
+  {
+    "id": "CLUB-137",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "ريال بيتيس",
+    "answer_en": "Real Betis",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/real-betis-balompie.png",
+    "name_regions": [],
+    "cross_regions": [
+      "40,15 60,15 60,38 40,38"
+    ]
+  },
+  {
+    "id": "CLUB-138",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أتلتيك بلباو",
+    "answer_en": "Athletic Bilbao",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/athletic-bilbao.png",
+    "name_regions": [
+      "12,12 88,12 88,25 12,25",
+      "25,63 76,63 76,88 25,88"
+    ],
+    "cross_regions": [
+      "27,25 43,25 43,45 27,45"
+    ]
+  },
+  {
+    "id": "CLUB-139",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أتالانتا",
+    "answer_en": "Atalanta",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/atalanta-bc.png",
+    "name_regions": [
+      "15,7 85,7 85,30 15,30"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-140",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فيورنتينا",
+    "answer_en": "Fiorentina",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/acf-fiorentina.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-141",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بولونيا",
+    "answer_en": "Bologna",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/bologna-fc-1909.png",
+    "name_regions": [
+      "27,1 73,1 73,25 27,25"
+    ],
+    "cross_regions": [
+      "48,31 92,31 92,94 48,94"
+    ]
+  },
+  {
+    "id": "CLUB-142",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "تورينو",
+    "answer_en": "Torino",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/torino-fc.png",
+    "name_regions": [
+      "6,7 94,7 94,29 6,29",
+      "62,29 92,29 92,47 62,47"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-143",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "آر بي لايبزيغ",
+    "answer_en": "RB Leipzig",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/rb-leipzig.png",
+    "name_regions": [
+      "24,52 77,52 77,72 24,72"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-144",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "آينتراخت فرانكفورت",
+    "answer_en": "Eintracht Frankfurt",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/eintracht-frankfurt.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-145",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "شتوتغارت",
+    "answer_en": "VfB Stuttgart",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/vfb-stuttgart.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-146",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فولفسبورغ",
+    "answer_en": "Wolfsburg",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/vfl-wolfsburg.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-147",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بوروسيا مونشنغلادباخ",
+    "answer_en": "Borussia Mönchengladbach",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/borussia-monchengladbach.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-148",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "ليون",
+    "answer_en": "Olympique Lyonnais",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/olympique-lyon.png",
+    "name_regions": [
+      "5,8 95,8 95,34 5,34"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-149",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "موناكو",
+    "answer_en": "AS Monaco",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/as-monaco.png",
+    "name_regions": [
+      "18,35 83,35 83,49 18,49"
+    ],
+    "cross_regions": [
+      "42,0 58,0 58,14 42,14"
+    ]
+  },
+  {
+    "id": "CLUB-150",
+    "points": 400,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "ليل",
+    "answer_en": "Lille",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/losc-lille.png",
+    "name_regions": [
+      "24,65 77,65 77,82 24,82"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-151",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "نيس",
+    "answer_en": "OGC Nice",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/ogc-nice.png",
+    "name_regions": [
+      "25,28 75,28 75,53 25,53",
+      "24,87 77,87 77,97 24,97"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-152",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "رين",
+    "answer_en": "Stade Rennais",
+    "hint": "ينتمي هذا النادي إلى فرنسا.",
+    "country_ar": "فرنسا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/stade-rennais-fc.png",
+    "name_regions": [
+      "8,55 92,55 92,73 8,73"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-153",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "سبورتينغ لشبونة",
+    "answer_en": "Sporting CP",
+    "hint": "ينتمي هذا النادي إلى البرتغال.",
+    "country_ar": "البرتغال",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sporting-cp.png",
+    "name_regions": [
+      "10,0 91,0 91,20 10,20",
+      "5,20 95,20 95,44 5,44",
+      "10,75 90,75 90,94 10,94"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-154",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "سبورتينغ براغا",
+    "answer_en": "SC Braga",
+    "hint": "ينتمي هذا النادي إلى البرتغال.",
+    "country_ar": "البرتغال",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sc-braga.png",
+    "name_regions": [
+      "19,30 82,30 82,39 19,39",
+      "21,76 81,76 81,94 21,94"
+    ],
+    "cross_regions": [
+      "43,35 58,35 58,82 43,82"
+    ]
+  },
+  {
+    "id": "CLUB-155",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بي إس في آيندهوفن",
+    "answer_en": "PSV Eindhoven",
+    "hint": "ينتمي هذا النادي إلى هولندا.",
+    "country_ar": "هولندا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/psv-eindhoven.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-156",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فينورد",
+    "answer_en": "Feyenoord",
+    "hint": "ينتمي هذا النادي إلى هولندا.",
+    "country_ar": "هولندا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/feyenoord-rotterdam.png",
+    "name_regions": [
+      "5,13 95,13 95,41 5,41",
+      "3,59 97,59 97,87 3,87"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-157",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "سيلتيك",
+    "answer_en": "Celtic",
     "hint": "ينتمي هذا النادي إلى اسكتلندا.",
     "country_ar": "اسكتلندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/scotland/heart-of-midlothian-fc.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/scotland/celtic-fc.png",
+    "name_regions": [
+      "2,51 7,32 22,17 49,12 77,18 93,32 98,52 84,53 77,35 64,29 49,26 33,30 21,38 16,53"
+    ],
+    "cross_regions": []
   },
   {
-    "id": "CLUB-018",
-    "points": 200,
+    "id": "CLUB-158",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "رينجرز",
+    "answer_en": "Rangers",
+    "hint": "ينتمي هذا النادي إلى اسكتلندا.",
+    "country_ar": "اسكتلندا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/scotland/rangers-fc.png",
+    "name_regions": [
+      "6,12 94,12 94,38 6,38",
+      "4,55 96,55 96,85 4,85"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-159",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "كلوب بروج",
+    "answer_en": "Club Brugge",
+    "hint": "ينتمي هذا النادي إلى بلجيكا.",
+    "country_ar": "بلجيكا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/belgium/club-brugge-kv.png",
+    "name_regions": [
+      "8,67 92,67 92,97 8,97"
+    ],
+    "cross_regions": [
+      "43,13 57,13 57,26 43,26"
+    ]
+  },
+  {
+    "id": "CLUB-160",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أندرلخت",
+    "answer_en": "Anderlecht",
+    "hint": "ينتمي هذا النادي إلى بلجيكا.",
+    "country_ar": "بلجيكا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/belgium/rsc-anderlecht.png",
+    "name_regions": [
+      "29,44 73,44 73,60 29,60"
+    ],
+    "cross_regions": [
+      "43,25 58,25 58,35 43,35"
+    ]
+  },
+  {
+    "id": "CLUB-161",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أولمبياكوس",
+    "answer_en": "Olympiacos",
+    "hint": "ينتمي هذا النادي إلى اليونان.",
+    "country_ar": "اليونان",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/olympiacos-piraeus.png",
+    "name_regions": [
+      "0,64 7,40 25,27 50,23 76,29 95,45 100,65 87,67 82,45 65,38 50,36 32,40 19,50 13,67",
+      "0,68 14,68 24,82 48,86 70,82 85,70 100,68 95,83 73,95 48,99 25,94 7,82"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-162",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "باناثينايكوس",
+    "answer_en": "Panathinaikos",
+    "hint": "ينتمي هذا النادي إلى اليونان.",
+    "country_ar": "اليونان",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/panathinaikos-fc.png",
+    "name_regions": [
+      "4,51 8,32 25,18 50,12 75,18 92,32 96,51 82,51 76,35 62,28 48,26 31,32 19,41 17,51"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-163",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "أيك أثينا",
+    "answer_en": "AEK Athens",
+    "hint": "ينتمي هذا النادي إلى اليونان.",
+    "country_ar": "اليونان",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/aek-athens.png",
+    "name_regions": [
+      "8,10 92,10 92,28 8,28",
+      "39,83 61,83 61,94 39,94"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-164",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "باوك",
+    "answer_en": "PAOK",
+    "hint": "ينتمي هذا النادي إلى اليونان.",
+    "country_ar": "اليونان",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/paok-thessaloniki.png",
+    "name_regions": [
+      "17,12 84,12 84,31 17,31"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-165",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "آي زد ألكمار",
+    "answer_en": "AZ Alkmaar",
+    "hint": "ينتمي هذا النادي إلى هولندا.",
+    "country_ar": "هولندا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/az-alkmaar.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-166",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "فيردر بريمن",
+    "answer_en": "Werder Bremen",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/sv-werder-bremen.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-167",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "هامبورغ",
+    "answer_en": "Hamburger SV",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/hamburger-sv.png",
+    "name_regions": [],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-168",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "كولن",
+    "answer_en": "FC Köln",
+    "hint": "ينتمي هذا النادي إلى ألمانيا.",
+    "country_ar": "ألمانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/1fc-koln.png",
+    "name_regions": [
+      "7,61 63,61 63,86 7,86"
+    ],
+    "cross_regions": [
+      "22,43 43,43 43,62 22,62"
+    ]
+  },
+  {
+    "id": "CLUB-169",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بارما",
+    "answer_en": "Parma",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/parma-calcio-1913.png",
+    "name_regions": [
+      "3,3 97,3 97,21 3,21"
+    ],
+    "cross_regions": [
+      "0,19 51,19 51,87 0,87"
+    ]
+  },
+  {
+    "id": "CLUB-170",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "جنوى",
+    "answer_en": "Genoa",
+    "hint": "ينتمي هذا النادي إلى إيطاليا.",
+    "country_ar": "إيطاليا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/genoa-cfc.png",
+    "name_regions": [],
+    "cross_regions": [
+      "1,0 98,0 98,24 1,24"
+    ]
+  },
+  {
+    "id": "CLUB-171",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "إسبانيول",
+    "answer_en": "Espanyol",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/rcd-espanyol-barcelona.png",
+    "name_regions": [
+      "6,60 13,44 31,34 52,32 73,36 90,48 94,60 81,62 75,49 58,44 42,44 27,49 20,62",
+      "6,65 20,65 27,78 46,86 64,84 80,74 84,65 95,65 91,83 72,96 48,100 24,94 9,80"
+    ],
+    "cross_regions": [
+      "43,0 57,0 57,18 43,18"
+    ]
+  },
+  {
+    "id": "CLUB-172",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "بورنموث",
+    "answer_en": "Bournemouth",
+    "hint": "ينتمي هذا النادي إلى إنجلترا.",
+    "country_ar": "إنجلترا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/afc-bournemouth.png",
+    "name_regions": [
+      "3,0 97,0 97,17 3,17"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-173",
+    "points": 600,
+    "question": "ما اسم النادي صاحب هذا الشعار؟",
+    "answer": "جيرونا",
+    "answer_en": "Girona",
+    "hint": "ينتمي هذا النادي إلى إسبانيا.",
+    "country_ar": "إسبانيا",
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/girona-fc.png",
+    "name_regions": [
+      "10,13 90,13 90,36 10,36",
+      "12,65 88,65 88,87 12,87"
+    ],
+    "cross_regions": []
+  },
+  {
+    "id": "CLUB-174",
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "لانس",
     "answer_en": "RC Lens",
     "hint": "ينتمي هذا النادي إلى فرنسا.",
     "country_ar": "فرنسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/france/rc-lens.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/rc-lens.png",
+    "name_regions": [
+      "3,0 97,0 97,19 3,19"
+    ],
+    "cross_regions": [
+      "58,18 84,18 84,33 58,33"
+    ]
   },
   {
-    "id": "CLUB-019",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فيكتوريا بلزن",
-    "answer_en": "Viktoria Plzen",
-    "hint": "ينتمي هذا النادي إلى التشيك.",
-    "country_ar": "التشيك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/czech-republic/fc-viktoria-plzen.png"
-  },
-  {
-    "id": "CLUB-020",
+    "id": "CLUB-175",
     "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "إستوريل برايا",
-    "answer_en": "Estoril Praia",
-    "hint": "ينتمي هذا النادي إلى البرتغال.",
-    "country_ar": "البرتغال",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/portugal/gd-estoril-praia.png"
-  },
-  {
-    "id": "CLUB-021",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هيرنفين",
-    "answer_en": "SC Heerenveen",
-    "hint": "ينتمي هذا النادي إلى هولندا.",
-    "country_ar": "هولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/netherlands/sc-heerenveen.png"
-  },
-  {
-    "id": "CLUB-022",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أوفي كريت",
-    "answer_en": "OFI Crete",
-    "hint": "ينتمي هذا النادي إلى اليونان.",
-    "country_ar": "اليونان",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/greece/ofi-crete-fc.png"
-  },
-  {
-    "id": "CLUB-023",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "غو أهيد إيغلز",
-    "answer_en": "Go Ahead Eagles",
-    "hint": "ينتمي هذا النادي إلى هولندا.",
-    "country_ar": "هولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/netherlands/go-ahead-eagles.png"
-  },
-  {
-    "id": "CLUB-024",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سي إف آر كلوج",
-    "answer_en": "CFR Cluj",
-    "hint": "ينتمي هذا النادي إلى رومانيا.",
-    "country_ar": "رومانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/romania/cfr-cluj.png"
-  },
-  {
-    "id": "CLUB-025",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ترومسو",
-    "answer_en": "Tromso IL",
-    "hint": "ينتمي هذا النادي إلى النرويج.",
-    "country_ar": "النرويج",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/norway/troms-il.png"
-  },
-  {
-    "id": "CLUB-026",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "نوردشيلاند",
-    "answer_en": "FC Nordsjaelland",
-    "hint": "ينتمي هذا النادي إلى الدنمارك.",
-    "country_ar": "الدنمارك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/denmark/fc-nordsjaelland.png"
-  },
-  {
-    "id": "CLUB-027",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سيغما أولوموتس",
-    "answer_en": "Sigma Olomouc",
-    "hint": "ينتمي هذا النادي إلى التشيك.",
-    "country_ar": "التشيك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/czech-republic/sk-sigma-olomouc.png"
-  },
-  {
-    "id": "CLUB-028",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ساسولو",
-    "answer_en": "Sassuolo",
-    "hint": "ينتمي هذا النادي إلى إيطاليا.",
-    "country_ar": "إيطاليا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/italy/us-sassuolo.png"
-  },
-  {
-    "id": "CLUB-029",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سامسون سبور",
-    "answer_en": "Samsunspor",
-    "hint": "ينتمي هذا النادي إلى تركيا.",
-    "country_ar": "تركيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/turkiye/samsunspor.png"
-  },
-  {
-    "id": "CLUB-030",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بانيتوليكوس",
-    "answer_en": "Panetolikos",
-    "hint": "ينتمي هذا النادي إلى اليونان.",
-    "country_ar": "اليونان",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/greece/panetolikos-gfs.png"
-  },
-  {
-    "id": "CLUB-031",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سانت باولي",
-    "answer_en": "FC St. Pauli",
-    "hint": "ينتمي هذا النادي إلى ألمانيا.",
-    "country_ar": "ألمانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/germany/fc-st-pauli.png"
-  },
-  {
-    "id": "CLUB-032",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بي إي سي زفوله",
-    "answer_en": "PEC Zwolle",
-    "hint": "ينتمي هذا النادي إلى هولندا.",
-    "country_ar": "هولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/netherlands/pec-zwolle.png"
-  },
-  {
-    "id": "CLUB-033",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بانيك أوسترافا",
-    "answer_en": "Banik Ostrava",
-    "hint": "ينتمي هذا النادي إلى التشيك.",
-    "country_ar": "التشيك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/czech-republic/fc-banik-ostrava.png"
-  },
-  {
-    "id": "CLUB-034",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ميشيلين",
-    "answer_en": "KV Mechelen",
-    "hint": "ينتمي هذا النادي إلى بلجيكا.",
-    "country_ar": "بلجيكا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/belgium/kv-mechelen.png"
-  },
-  {
-    "id": "CLUB-035",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "تشيرنو موره فارنا",
-    "answer_en": "Cherno More Varna",
-    "hint": "ينتمي هذا النادي إلى بلغاريا.",
-    "country_ar": "بلغاريا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/bulgaria/cherno-more-varna.png"
-  },
-  {
-    "id": "CLUB-036",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "رييكا",
-    "answer_en": "HNK Rijeka",
-    "hint": "ينتمي هذا النادي إلى كرواتيا.",
-    "country_ar": "كرواتيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/croatia/hnk-rijeka.png"
-  },
-  {
-    "id": "CLUB-037",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فويفودينا",
-    "answer_en": "Vojvodina Novi Sad",
-    "hint": "ينتمي هذا النادي إلى صربيا.",
-    "country_ar": "صربيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/serbia/fk-vojvodina-novi-sad.png"
-  },
-  {
-    "id": "CLUB-038",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "لاسك لينتس",
-    "answer_en": "LASK Linz",
-    "hint": "ينتمي هذا النادي إلى النمسا.",
-    "country_ar": "النمسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/austria/lask.png"
-  },
-  {
-    "id": "CLUB-039",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بريست",
-    "answer_en": "Stade Brestois 29",
+    "answer": "نانت",
+    "answer_en": "Nantes",
     "hint": "ينتمي هذا النادي إلى فرنسا.",
     "country_ar": "فرنسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/france/stade-brestois-29.png"
-  },
-  {
-    "id": "CLUB-040",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "آريس سالونيك",
-    "answer_en": "Aris Thessaloniki",
-    "hint": "ينتمي هذا النادي إلى اليونان.",
-    "country_ar": "اليونان",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/greece/aris-thessaloniki.png"
-  },
-  {
-    "id": "CLUB-041",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أوتسيلول غالاتي",
-    "answer_en": "Otelul Galati",
-    "hint": "ينتمي هذا النادي إلى رومانيا.",
-    "country_ar": "رومانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/romania/sc-otelul-galati.png"
-  },
-  {
-    "id": "CLUB-042",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "زورْيا لوهانسك",
-    "answer_en": "Zorya Luhansk",
-    "hint": "ينتمي هذا النادي إلى أوكرانيا.",
-    "country_ar": "أوكرانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/ukraine/zorya-lugansk.png"
-  },
-  {
-    "id": "CLUB-043",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هيبرنيان",
-    "answer_en": "Hibernian FC",
-    "hint": "ينتمي هذا النادي إلى اسكتلندا.",
-    "country_ar": "اسكتلندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/scotland/hibernian-fc.png"
-  },
-  {
-    "id": "CLUB-044",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أوسييك",
-    "answer_en": "NK Osijek",
-    "hint": "ينتمي هذا النادي إلى كرواتيا.",
-    "country_ar": "كرواتيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/croatia/nk-osijek.png"
-  },
-  {
-    "id": "CLUB-045",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هاكن",
-    "answer_en": "BK Hacken",
-    "hint": "ينتمي هذا النادي إلى السويد.",
-    "country_ar": "السويد",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/sweden/bk-hacken.png"
-  },
-  {
-    "id": "CLUB-046",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "إسترا 1961",
-    "answer_en": "NK Istra 1961",
-    "hint": "ينتمي هذا النادي إلى كرواتيا.",
-    "country_ar": "كرواتيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/croatia/nk-istra-1961.png"
-  },
-  {
-    "id": "CLUB-047",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فيدزيف وودج",
-    "answer_en": "Widzew Lodz",
-    "hint": "ينتمي هذا النادي إلى بولندا.",
-    "country_ar": "بولندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/poland/widzew-lodz.png"
-  },
-  {
-    "id": "CLUB-048",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "إلفسبورغ",
-    "answer_en": "IF Elfsborg",
-    "hint": "ينتمي هذا النادي إلى السويد.",
-    "country_ar": "السويد",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/sweden/if-elfsborg.png"
-  },
-  {
-    "id": "CLUB-049",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "رايو فاييكانو",
-    "answer_en": "Rayo Vallecano",
-    "hint": "ينتمي هذا النادي إلى إسبانيا.",
-    "country_ar": "إسبانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/spain/rayo-vallecano.png"
-  },
-  {
-    "id": "CLUB-050",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سيركل بروج",
-    "answer_en": "Cercle Brugge",
-    "hint": "ينتمي هذا النادي إلى بلجيكا.",
-    "country_ar": "بلجيكا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/belgium/cercle-brugge.png"
-  },
-  {
-    "id": "CLUB-051",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ماينتس 05",
-    "answer_en": "Mainz 05",
-    "hint": "ينتمي هذا النادي إلى ألمانيا.",
-    "country_ar": "ألمانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/germany/1fsv-mainz-05.png"
-  },
-  {
-    "id": "CLUB-052",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "يونيون سان جيلواز",
-    "answer_en": "Union Saint-Gilloise",
-    "hint": "ينتمي هذا النادي إلى بلجيكا.",
-    "country_ar": "بلجيكا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/belgium/union-saint-gilloise.png"
-  },
-  {
-    "id": "CLUB-053",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "لوهافر",
-    "answer_en": "Le Havre AC",
-    "hint": "ينتمي هذا النادي إلى فرنسا.",
-    "country_ar": "فرنسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/france/le-havre-ac.png"
-  },
-  {
-    "id": "CLUB-054",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "هايدوك سبليت",
-    "answer_en": "Hajduk Split",
-    "hint": "ينتمي هذا النادي إلى كرواتيا.",
-    "country_ar": "كرواتيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/croatia/hnk-hajduk-split.png"
-  },
-  {
-    "id": "CLUB-055",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "شارلروا",
-    "answer_en": "Sporting Charleroi",
-    "hint": "ينتمي هذا النادي إلى بلجيكا.",
-    "country_ar": "بلجيكا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/belgium/royal-charleroi-sc.png"
-  },
-  {
-    "id": "CLUB-056",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ماذرويل",
-    "answer_en": "Motherwell FC",
-    "hint": "ينتمي هذا النادي إلى اسكتلندا.",
-    "country_ar": "اسكتلندا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/scotland/motherwell-fc.png"
-  },
-  {
-    "id": "CLUB-057",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "فارول كونستانتسا",
-    "answer_en": "Farul Constanta",
-    "hint": "ينتمي هذا النادي إلى رومانيا.",
-    "country_ar": "رومانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/romania/fcv-farul-constanta.png"
-  },
-  {
-    "id": "CLUB-058",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "غوزتبه",
-    "answer_en": "Goztepe",
-    "hint": "ينتمي هذا النادي إلى تركيا.",
-    "country_ar": "تركيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/turkiye/goztepe.png"
-  },
-  {
-    "id": "CLUB-059",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أوكسير",
-    "answer_en": "AJ Auxerre",
-    "hint": "ينتمي هذا النادي إلى فرنسا.",
-    "country_ar": "فرنسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/france/aj-auxerre.png"
-  },
-  {
-    "id": "CLUB-060",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ديبورتيفو ألافيس",
-    "answer_en": "Deportivo Alaves",
-    "hint": "ينتمي هذا النادي إلى إسبانيا.",
-    "country_ar": "إسبانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/spain/deportivo-alaves.png"
-  },
-  {
-    "id": "CLUB-061",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "جنوى",
-    "answer_en": "Genoa CFC",
-    "hint": "ينتمي هذا النادي إلى إيطاليا.",
-    "country_ar": "إيطاليا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/italy/genoa-cfc.png"
-  },
-  {
-    "id": "CLUB-062",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "تشوكاريتشكي",
-    "answer_en": "FK Cukaricki",
-    "hint": "ينتمي هذا النادي إلى صربيا.",
-    "country_ar": "صربيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/serbia/fk-cukaricki.png"
-  },
-  {
-    "id": "CLUB-063",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سيرفيت",
-    "answer_en": "Servette FC",
-    "hint": "ينتمي هذا النادي إلى سويسرا.",
-    "country_ar": "سويسرا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/switzerland/servette-fc.png"
-  },
-  {
-    "id": "CLUB-064",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "غراسهوبرز زيورخ",
-    "answer_en": "Grasshopper Club Zurich",
-    "hint": "ينتمي هذا النادي إلى سويسرا.",
-    "country_ar": "سويسرا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/switzerland/grasshopper-club-zurich.png"
-  },
-  {
-    "id": "CLUB-065",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بران",
-    "answer_en": "SK Brann",
-    "hint": "ينتمي هذا النادي إلى النرويج.",
-    "country_ar": "النرويج",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/norway/sk-brann.png"
-  },
-  {
-    "id": "CLUB-066",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "ميتييلاند",
-    "answer_en": "FC Midtjylland",
-    "hint": "ينتمي هذا النادي إلى الدنمارك.",
-    "country_ar": "الدنمارك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/denmark/fc-midtjylland.png"
-  },
-  {
-    "id": "CLUB-067",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سيلكيبورغ",
-    "answer_en": "Silkeborg IF",
-    "hint": "ينتمي هذا النادي إلى الدنمارك.",
-    "country_ar": "الدنمارك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/denmark/silkeborg-if.png"
-  },
-  {
-    "id": "CLUB-068",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "شتورم غراتس",
-    "answer_en": "Sturm Graz",
-    "hint": "ينتمي هذا النادي إلى النمسا.",
-    "country_ar": "النمسا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/austria/sk-sturm-graz.png"
-  },
-  {
-    "id": "CLUB-069",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "لودوغوريتس رازغراد",
-    "answer_en": "Ludogorets Razgrad",
-    "hint": "ينتمي هذا النادي إلى بلغاريا.",
-    "country_ar": "بلغاريا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/bulgaria/ludogorets-razgrad.png"
-  },
-  {
-    "id": "CLUB-070",
-    "points": 200,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بودو غليمت",
-    "answer_en": "Bodo/Glimt",
-    "hint": "ينتمي هذا النادي إلى النرويج.",
-    "country_ar": "النرويج",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/norway/fk-bodglimt.png"
-  },
-  {
-    "id": "CLUB-071",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بوتيف بلوفديف",
-    "answer_en": "Botev Plovdiv",
-    "hint": "ينتمي هذا النادي إلى بلغاريا.",
-    "country_ar": "بلغاريا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/bulgaria/botev-plovdiv.png"
-  },
-  {
-    "id": "CLUB-072",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "مولده",
-    "answer_en": "Molde FK",
-    "hint": "ينتمي هذا النادي إلى النرويج.",
-    "country_ar": "النرويج",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/norway/molde-fk.png"
-  },
-  {
-    "id": "CLUB-073",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "أودينيزي",
-    "answer_en": "Udinese",
-    "hint": "ينتمي هذا النادي إلى إيطاليا.",
-    "country_ar": "إيطاليا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/italy/udinese-calcio.png"
-  },
-  {
-    "id": "CLUB-074",
-    "points": 400,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "بروندبي",
-    "answer_en": "Brondby IF",
-    "hint": "ينتمي هذا النادي إلى الدنمارك.",
-    "country_ar": "الدنمارك",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/denmark/brondby-if.png"
-  },
-  {
-    "id": "CLUB-075",
-    "points": 600,
-    "question": "ما اسم النادي صاحب هذا الشعار؟",
-    "answer": "سيلتا فيغو",
-    "answer_en": "Celta Vigo",
-    "hint": "ينتمي هذا النادي إلى إسبانيا.",
-    "country_ar": "إسبانيا",
-    "image_source": "https://github.com/leoratzlaff/football-badges/blob/master/logos/spain/celta-de-vigo.png"
+    "image_source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/fc-nantes.png",
+    "name_regions": [
+      "0,0 100,0 100,15 0,15"
+    ],
+    "cross_regions": []
   }
 ]

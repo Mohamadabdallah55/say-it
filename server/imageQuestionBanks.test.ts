@@ -196,7 +196,7 @@ test('opening a flag excludes it from subsequent matches without consuming unope
 });
 
 test('club badges load before reveal without exposing the club or its source URL', () => {
-  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [10, 30, 35]);
+  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [25, 25, 25]);
   const hashes = CLUB_LOGOS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
   assert.equal(new Set(hashes).size, 75);
@@ -222,7 +222,7 @@ test('club badges load before reveal without exposing the club or its source URL
   const revealed = sanitizeStateForRole(revealAnswer(played.state, 'reveal').state, 'projector').activeRound;
   assert.equal(revealed?.answer, question.answer);
   assert.equal(revealed?.sourceRef, question.sourceRef);
-  assert.equal(revealed?.imageUrl, question.imageUrl);
+  assert.equal(revealed?.imageUrl, `/api/club-logos/${question.id}/preview?crossOnly=1`);
 });
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {

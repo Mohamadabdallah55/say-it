@@ -2,6 +2,9 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { NextFunction, Request, Response } from 'express';
 import { renderBlurredImagePreview } from './blurredImagePreview';
+import clubLogoRows from './clubLogoQuestions.json';
+
+const newRegions = new Map(clubLogoRows.map(row => [row.id, { names: row.name_regions, crosses: row.cross_regions }]));
 
 function rect(x: number, y: number, right: number, bottom: number): string {
   return `${x},${y} ${right},${y} ${right},${bottom} ${x},${bottom}`;
@@ -84,13 +87,16 @@ export async function serveClubLogoPreview(req: Request<{ id: string }>, res: Re
   const file = path.resolve('public', 'assets', 'questions', 'club-logos', `${id}.png`);
   try {
     const original = await readFile(file);
-    const regions = nameRegions[id.slice(5)];
-    if (!regions) {
+    const updated = newRegions.get(id);
+    const crossOnly = req.query.crossOnly === '1';
+    const regions = crossOnly ? [] : (updated?.names ?? nameRegions[id.slice(5)] ?? []);
+    const crosses = updated?.crosses ?? [];
+    if (regions.length === 0 && crosses.length === 0) {
       res.type('png').send(original);
       return;
     }
 
-    res.type('image/svg+xml').send(renderBlurredImagePreview(original, 'image/png', 139, 181, regions));
+    res.type('image/svg+xml').send(renderBlurredImagePreview(original, 'image/png', 139, 181, regions, crosses));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       res.sendStatus(404);

@@ -67,7 +67,8 @@ export const CLUB_LOGOS_CATEGORY: DeckCategory = {
   accentColor: '#1C7468',
 };
 
-export function clubLogoPreviewUrl(imageUrl?: string): string | undefined {
+export function clubLogoPreviewUrl(imageUrl?: string, crossOnly = false): string | undefined {
+  if (crossOnly) return imageUrl?.replace(/^\/assets\/questions\/club-logos\/(CLUB-1\d{2})\.png$/, '/api/club-logos/$1/preview?crossOnly=1');
   return imageUrl?.replace(
     /^\/assets\/questions\/club-logos\/(CLUB-\d{3})\.png$/,
     '/api/club-logos/$1/preview',
