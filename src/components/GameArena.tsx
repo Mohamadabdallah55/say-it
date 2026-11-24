@@ -1919,7 +1919,8 @@ export function GameArena({
 
           {/* Bottom Mascot + Compact Utility Bar (matches Screenshots 1, 2, 3) */}
           <div className="mascot-track">
-                <CornerStarMascot celebrating={Boolean(state.lastAward && nowMs - state.lastAward.at < 1500)}
+                <CornerStarMascot celebrating={Boolean(recentAward && Object.values(recentAward.changes).some(n=>n>0) && nowMs-recentAward.at<1500)}
+                  disappointed={Boolean(recentAward && Object.values(recentAward.changes).some(n=>n<0) && !Object.values(recentAward.changes).some(n=>n>0) && nowMs-recentAward.at<1500)}
                   reducedMotion={!animateRound}
                   commentaryText={state.commentary?.text}
                   commentaryId={state.commentary?.id}
