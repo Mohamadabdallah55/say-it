@@ -19,6 +19,11 @@
       "id": "general_knowledge_mix_v1",
       "file": "general-knowledge-mix/deck.json",
       "version": 1
+    },
+    {
+      "id": "riddle_proverb_mix_v1",
+      "file": "riddle-proverb-mix/deck.json",
+      "version": 1
     }
   ]
 }

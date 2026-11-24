@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": 2,
+  "exportedAt": "2026-11-24T01:15:00Z",
+  "app": "yemken-hay",
+  "deck": {
+    "schemaVersion": 2,
+    "id": "riddle_proverb_mix_v1",
+    "title": "لغز ومثل",
+    "description": "ألغاز حروف وكلمات ومدن واستنتاج وأمثال أردنية وفلسطينية وعربية",
+    "sourceType": "curated",
+    "boardMode": "categories",
+    "ageGroup": "mixed",
+    "createdAt": "2026-11-24T01:15:00Z",
+    "updatedAt": "2026-11-24T01:15:00Z",
+    "categories": [
+      {
+        "id": "cat_riddle_proverb_mix",
+        "name": "لغز ومثل",
+        "description": "ألغاز لغوية وذكاء وأمثال شعبية",
+        "iconKey": "general",
+        "accentColor": "#A35BE0",
+        "menuGroup": "language",
+        "availableDifficulties": [
+          "easy",
+          "medium",
+          "hard"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "riddle_proverb_001",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "مدينة سعودية من أربعة أحرف، أول حرفين منها يطابقان آخر حرفين؟",
+        "answer": "عرعر",
+        "acceptableAnswers": [
+          "عرعر"
+        ],
+        "status": "approved",
+        "explanation": "عر + عر"
+      },
+      {
+        "id": "riddle_proverb_002",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "فاكهة من ثلاثة أحرف، إذا قرأت حروفها بالعكس صارت مدينة سورية؟",
+        "answer": "بلح",
+        "acceptableAnswers": [
+          "بلح"
+        ],
+        "status": "approved",
+        "explanation": "بلح ← حلب"
+      },
+      {
+        "id": "riddle_proverb_003",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "فاكهة من ثلاثة أحرف تُقرأ نفسها بالعكس؟",
+        "answer": "توت",
+        "acceptableAnswers": [
+          "توت"
+        ],
+        "status": "approved",
+        "explanation": "ت و ت"
+      },
+      {
+        "id": "riddle_proverb_004",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الشيء الذي كلما أخذت من ترابه كبر؟",
+        "answer": "الحفرة",
+        "acceptableAnswers": [
+          "الحفرة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_005",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "له أسنان كثيرة ويستخدم لتسريح الشعر، ولا يعض؟",
+        "answer": "المشط",
+        "acceptableAnswers": [
+          "المشط"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_006",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "له رقبة ولا رأس، ونحفظ فيه الماء؟",
+        "answer": "الزجاجة",
+        "acceptableAnswers": [
+          "الزجاجة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_007",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "يكتب ولا يقرأ، ويحمله الطالب في مقلمته؟",
+        "answer": "القلم",
+        "acceptableAnswers": [
+          "القلم"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_008",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "شيء تفتحه بالمفتاح، واسمه يقرأ نفسه بالعكس؟",
+        "answer": "باب",
+        "acceptableAnswers": [
+          "باب"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_009",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تملكه أنت ويستخدمه الآخرون عند مناداتك أكثر منك؟",
+        "answer": "اسمك",
+        "acceptableAnswers": [
+          "اسمك"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_010",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "ما الطعام الذي يتماسك بدل أن يذوب عند سلقه؟",
+        "answer": "البيضة",
+        "acceptableAnswers": [
+          "البيضة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_011",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "في كم شهر من السنة يوجد اليوم رقم 28؟",
+        "answer": "12 شهرًا",
+        "acceptableAnswers": [
+          "12 شهرًا"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_012",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "تجاوزت صاحب المركز الثاني في سباق، ما مركزك الآن؟",
+        "answer": "الثاني",
+        "acceptableAnswers": [
+          "الثاني"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_013",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "شيء يرى فيه الشخص وجهه دون التقاط صورة؟",
+        "answer": "المرآة",
+        "acceptableAnswers": [
+          "المرآة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_014",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "يتبعك في الضوء ويختفي في الظلام التام؟",
+        "answer": "الظل",
+        "acceptableAnswers": [
+          "الظل"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_015",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "شيء يجفف جسمك ويزداد بللًا كلما استعملته؟",
+        "answer": "المنشفة",
+        "acceptableAnswers": [
+          "المنشفة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_016",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "له أوراق وغلاف وفيه كلام، وليس نباتًا؟",
+        "answer": "الكتاب",
+        "acceptableAnswers": [
+          "الكتاب"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_017",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "له أربع أرجل وظهر ويجلس الناس عليه، ولا يمشي؟",
+        "answer": "الكرسي",
+        "acceptableAnswers": [
+          "الكرسي"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_018",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: القرد بعين أمه ...",
+        "answer": "غزال",
+        "acceptableAnswers": [
+          "غزال"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_019",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: إيد وحدة ما ...",
+        "answer": "بتصفق",
+        "acceptableAnswers": [
+          "بتصفق"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_020",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: الصبر مفتاح ...",
+        "answer": "الفرج",
+        "acceptableAnswers": [
+          "الفرج"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_021",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: على قد لحافك مد ...",
+        "answer": "رجليك",
+        "acceptableAnswers": [
+          "رجليك"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_022",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: اسأل مجرّب ولا تسأل ...",
+        "answer": "حكيم",
+        "acceptableAnswers": [
+          "حكيم"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_023",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: اللي ما بعرف الصقر ...",
+        "answer": "بشويه",
+        "acceptableAnswers": [
+          "بشويه"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_024",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: من جد وجد ومن زرع ...",
+        "answer": "حصد",
+        "acceptableAnswers": [
+          "حصد"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_025",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "easy",
+        "points": 200,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: خير الكلام ما قل و...",
+        "answer": "دل",
+        "acceptableAnswers": [
+          "دل"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_026",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة واحدة تكمل «كرة ___» و«راحة ___» لتكوين عبارتين معروفتين.",
+        "answer": "اليد",
+        "acceptableAnswers": [
+          "اليد"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_027",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من ثلاثة أحرف تعني جزءًا من الوجه وتدل أيضًا على نبع ماء؟",
+        "answer": "عين",
+        "acceptableAnswers": [
+          "عين"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_028",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة تعني ما تسمعه من الإنسان، وتدل أيضًا على اختيار الناخب في الانتخابات؟",
+        "answer": "صوت",
+        "acceptableAnswers": [
+          "صوت"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_029",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة تدل على أداة للخياطة وعلى الجزء المتحرك في البوصلة؟",
+        "answer": "إبرة",
+        "acceptableAnswers": [
+          "إبرة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_030",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من ثلاثة أحرف تعني مادة الكتابة، وإذا استبدلت آخر حرف باللام صارت شيئًا للربط؟",
+        "answer": "حبر",
+        "acceptableAnswers": [
+          "حبر"
+        ],
+        "status": "approved",
+        "explanation": "حبر ← حبل"
+      },
+      {
+        "id": "riddle_proverb_031",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من أربعة أحرف تعني قطرة ماء، وإذا غيرت أول حرف للفاء صارت طبيعة الإنسان الأصلية؟",
+        "answer": "قطرة",
+        "acceptableAnswers": [
+          "قطرة"
+        ],
+        "status": "approved",
+        "explanation": "قطرة ← فطرة"
+      },
+      {
+        "id": "riddle_proverb_032",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الحرف الذي يظهر مرة في «قرن» ومرتين في «دقيقة» ولا يظهر في «ساعة»؟",
+        "answer": "القاف",
+        "acceptableAnswers": [
+          "القاف"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_033",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "اسم فاكهة من ثلاثة أحرف، تبدأ وتنتهي بالخاء؟",
+        "answer": "خوخ",
+        "acceptableAnswers": [
+          "خوخ"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_034",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من ثلاثة أحرف تعني الليل في مقابل النهار وتُقرأ نفسها بالعكس؟",
+        "answer": "ليل",
+        "acceptableAnswers": [
+          "ليل"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_035",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "حرف واحد إذا أضفته في أول «مل» أعطى كلمة تعني الشغل، وإذا أضفته في أول «لم» أعطى كلمة تعني المعرفة؟",
+        "answer": "ع",
+        "acceptableAnswers": [
+          "ع"
+        ],
+        "status": "approved",
+        "explanation": "عمل وعلم"
+      },
+      {
+        "id": "riddle_proverb_036",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما اسم العاصمة العربية من أربعة أحرف، حرفاها الأوسطان م وش؟",
+        "answer": "دمشق",
+        "acceptableAnswers": [
+          "دمشق"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_037",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "احذف الألف من الاسم «سالم» دون تبديل ترتيب الحروف. ما الأداة التي تحصل عليها؟",
+        "answer": "سلم",
+        "acceptableAnswers": [
+          "سلم"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_038",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أي كلمة تُكتب بالحروف نفسها وتعني الرحيل أو كتابًا كبيرًا باختلاف التشكيل؟",
+        "answer": "سفر",
+        "acceptableAnswers": [
+          "سفر"
+        ],
+        "status": "approved",
+        "explanation": "سَفَر وسِفْر"
+      },
+      {
+        "id": "riddle_proverb_039",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "كلمة واحدة تكمل «___ الماء» و«___ الكهرباء» بمعنى جهاز قياس الاستهلاك؟",
+        "answer": "عداد",
+        "acceptableAnswers": [
+          "عداد"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_040",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أب وأم لهما أربعة أبناء ذكور، ولجميع الأبناء أخت واحدة مشتركة. كم عدد أفراد الأسرة؟",
+        "answer": "7",
+        "acceptableAnswers": [
+          "7"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_041",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ثلاثة أطباء يقولون إن سامر أخوهم، وسامر يقول ليس لي إخوة ذكور. كيف؟",
+        "answer": "الأطباء أخواته",
+        "acceptableAnswers": [
+          "الأطباء أخواته"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_042",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "قال رجل عن صورة رجل: ليس لي إخوة، لكن والد هذا الرجل ابن أبي. من في الصورة؟",
+        "answer": "ابنه",
+        "acceptableAnswers": [
+          "ابنه"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_043",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "في كل زاوية من غرفة مربعة قطة، ولا توجد قطط أخرى. كم قطة ترى كل قطة؟",
+        "answer": "3",
+        "acceptableAnswers": [
+          "3"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_044",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "جد وأب وابن أكلوا ثلاث تفاحات، لكل واحد تفاحة. كم شخصًا؟",
+        "answer": "3",
+        "acceptableAnswers": [
+          "3"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_045",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "خمس آلات تصنع خمس قطع في خمس دقائق. كم دقيقة تحتاج مئة آلة لصنع مئة قطعة بالمعدل نفسه؟",
+        "answer": "5 دقائق",
+        "acceptableAnswers": [
+          "5 دقائق"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_046",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "معك 6 بيضات، كسرت اثنتين وقليت نفس الاثنتين وأكلتهما. كم بيضة بقيت سليمة؟",
+        "answer": "4",
+        "acceptableAnswers": [
+          "4"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_047",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "إذا كان أمس الثلاثاء، فما اليوم الذي يأتي بعد غد؟",
+        "answer": "الجمعة",
+        "acceptableAnswers": [
+          "الجمعة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_048",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "إذا استغرقت الساعة 5 ثوان من أول دقة إلى السادسة، فكم تستغرق من أول دقة إلى الثانية عشرة؟",
+        "answer": "11 ثانية",
+        "acceptableAnswers": [
+          "11 ثانية"
+        ],
+        "status": "approved",
+        "explanation": "بين 12 دقة 11 فاصلًا"
+      },
+      {
+        "id": "riddle_proverb_049",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "ما الذي فيه مدن بلا سكان وطرق بلا سيارات وأنهار بلا ماء حقيقي؟",
+        "answer": "الخريطة",
+        "acceptableAnswers": [
+          "الخريطة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_050",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "في سباق بترتيب لا يتغير إلا بالتجاوز، هل يمكن أن تكون خلف صاحب المركز الأخير؟",
+        "answer": "لا",
+        "acceptableAnswers": [
+          "لا"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_051",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: اللي بيته من قزاز ما يرمي الناس بـ...",
+        "answer": "الحجارة",
+        "acceptableAnswers": [
+          "الحجارة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_052",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: دق الحديد وهو ...",
+        "answer": "حامي",
+        "acceptableAnswers": [
+          "حامي"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_053",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: يا خبر اليوم بفلوس، بكرا بـ...",
+        "answer": "بلاش",
+        "acceptableAnswers": [
+          "بلاش"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_054",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: حبل الكذب ...",
+        "answer": "قصير",
+        "acceptableAnswers": [
+          "قصير"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_055",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: يا جبل ما يهزك ...",
+        "answer": "ريح",
+        "acceptableAnswers": [
+          "ريح"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_056",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: كل تأخيرة فيها ...",
+        "answer": "خيرة",
+        "acceptableAnswers": [
+          "خيرة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_057",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: اللي استحوا ...",
+        "answer": "ماتوا",
+        "acceptableAnswers": [
+          "ماتوا"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_058",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: عصفور بالإيد ولا عشرة عـ...",
+        "answer": "الشجرة",
+        "acceptableAnswers": [
+          "الشجرة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_059",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: الجار قبل ...",
+        "answer": "الدار",
+        "acceptableAnswers": [
+          "الدار"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_060",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "medium",
+        "points": 400,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: من شب على شيء شاب ...",
+        "answer": "عليه",
+        "acceptableAnswers": [
+          "عليه"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_061",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من أربعة أحرف تدل على انعدام الضوء، إذا حذفت الألف بقيت كلمة تدل على الاعتداء على الحقوق؟",
+        "answer": "ظلام",
+        "acceptableAnswers": [
+          "ظلام"
+        ],
+        "status": "approved",
+        "explanation": "ظلام ← ظلم"
+      },
+      {
+        "id": "riddle_proverb_062",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "اسم حيوان من ثلاثة أحرف، إذا حذفت حرف النون من أوله بقيت كلمة «مر»، وإذا حذفت الراء من آخره بقيت كلمة «نم».",
+        "answer": "نمر",
+        "acceptableAnswers": [
+          "نمر"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_063",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الكلمة التي تعني العدد الذي يلي التسعة، وتعني كذلك العلاقة الطويلة بين الناس إذا أضيفت التاء المربوطة؟",
+        "answer": "عشر",
+        "acceptableAnswers": [
+          "عشر"
+        ],
+        "status": "approved",
+        "explanation": "عشر ← عشرة"
+      },
+      {
+        "id": "riddle_proverb_064",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من ثلاثة أحرف تعني نوعًا من الخداع، وإذا أعدت ترتيب حروفها صارت كلمة تعني الجود؟",
+        "answer": "مكر",
+        "acceptableAnswers": [
+          "مكر"
+        ],
+        "status": "approved",
+        "explanation": "مكر ← كرم (تبديل ترتيب الحروف)"
+      },
+      {
+        "id": "riddle_proverb_065",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الحرف الذي يحول «مر» إلى اسم جرم سماوي عند إضافته في الأول، ويحول «لم» إلى كلمة بمعنى أداة كتابة عند إضافته في الأول؟",
+        "answer": "ق",
+        "acceptableAnswers": [
+          "ق"
+        ],
+        "status": "approved",
+        "explanation": "قمر وقلم"
+      },
+      {
+        "id": "riddle_proverb_066",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "كلمة من ثلاثة أحرف تعني سياجًا، وإذا بدلت أول حرف وآخر حرف صارت جمع رأس باللهجة الشامية؟",
+        "answer": "سور",
+        "acceptableAnswers": [
+          "سور"
+        ],
+        "status": "approved",
+        "explanation": "سور ← روس"
+      },
+      {
+        "id": "riddle_proverb_067",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الكلمة التي تكمل «___ الكتاب» و«___ البيت» بمعنى الفصل في الأولى والمدخل في الثانية؟",
+        "answer": "باب",
+        "acceptableAnswers": [
+          "باب"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_068",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "اسم دولة عربية من ثلاثة أحرف، إذا استبدلت أول حرف بالحاء صارت كلمة تدل على فعل تسجيل نتائج العد؟",
+        "answer": "مصر",
+        "acceptableAnswers": [
+          "مصر"
+        ],
+        "status": "approved",
+        "explanation": "مصر ← حصر"
+      },
+      {
+        "id": "riddle_proverb_069",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حرف يظهر مرة في «تاريخ» ومرتين في «اختيارات» ولا يظهر في «أزمنة»؟",
+        "answer": "التاء",
+        "acceptableAnswers": [
+          "التاء"
+        ],
+        "status": "approved",
+        "explanation": "تاريخ: ت، اختيارات: ت مرتان"
+      },
+      {
+        "id": "riddle_proverb_070",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما عدد الحروف المكتوبة في عبارة «ثلاثة حروف» دون المسافة؟",
+        "answer": "9",
+        "acceptableAnswers": [
+          "9"
+        ],
+        "status": "approved",
+        "explanation": "خمسة وأربعة"
+      },
+      {
+        "id": "riddle_proverb_071",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حرف يتوسط اسم «مراكش» تمامًا؟",
+        "answer": "الألف",
+        "acceptableAnswers": [
+          "الألف"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_072",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما الكلمة المشتركة في «___ البحر» و«___ الصفحة» بمعنى الجانب في الأولى والجزء المحيط في الثانية؟",
+        "answer": "طرف",
+        "acceptableAnswers": [
+          "طرف"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_073",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "كلمة واحدة تُكتب بثلاثة أحرف وتدل على جسم سماوي وعلى شخص متألق في مجاله؟",
+        "answer": "نجم",
+        "acceptableAnswers": [
+          "نجم"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_074",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "اسم علم عربي من أربعة أحرف إذا عكست حروفه حصلت على كلمة تعني ما يخرج من الفم من ألفاظ؟",
+        "answer": "مالك",
+        "acceptableAnswers": [
+          "مالك"
+        ],
+        "status": "approved",
+        "explanation": "مالك ← كلام"
+      },
+      {
+        "id": "riddle_proverb_075",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أي حرف يتكرر في كل من الكلمات «زلزال» و«لؤلؤ» و«بلبل»؟",
+        "answer": "اللام",
+        "acceptableAnswers": [
+          "اللام"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_076",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "في جزيرة كل السكان إما صادقون دائمًا أو كاذبون دائمًا. قال شخص: أنا كاذب دائمًا. هل يمكن أن يكون من السكان؟",
+        "answer": "لا",
+        "acceptableAnswers": [
+          "لا"
+        ],
+        "status": "approved",
+        "explanation": "لو صدق ناقض قوله ولو كذب ناقض القاعدة"
+      },
+      {
+        "id": "riddle_proverb_077",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ثلاث علب ملصقاتها تفاح وبرتقال ومخلوط، وكل ملصق خاطئ. من أي علبة تسحب ثمرة واحدة لتعرف محتويات الجميع؟",
+        "answer": "المكتوب عليها مخلوط",
+        "acceptableAnswers": [
+          "المكتوب عليها مخلوط"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_078",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "في درج عشرة جوارب سوداء وعشرة بيضاء. كم جوربًا تسحب في الظلام لتضمن زوجًا من نفس اللون؟",
+        "answer": "3",
+        "acceptableAnswers": [
+          "3"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_079",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "12 كرة واحدة أثقل من الباقي. هل تكفي وزنتان بميزان كفتين لتحديدها دائمًا؟",
+        "answer": "لا",
+        "acceptableAnswers": [
+          "لا"
+        ],
+        "status": "approved",
+        "explanation": "وزنتان تميزان 9 نتائج على الأكثر"
+      },
+      {
+        "id": "riddle_proverb_080",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "في سباق من ثلاثة أشخاص، نور لم تصل أولًا ولا أخيرًا، وسارة سبقت ليان. من وصلت أولًا؟",
+        "answer": "سارة",
+        "acceptableAnswers": [
+          "سارة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_081",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ثلاث قطط تصطاد ثلاث فئران في ثلاث دقائق. كم قطة تحتاج لصيد مئة فأر في ثلاث دقائق بالمعدل نفسه؟",
+        "answer": "100 قطة",
+        "acceptableAnswers": [
+          "100 قطة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_082",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ساعة تتأخر خمس دقائق كل ساعة حقيقية، ضبطتها عند 12 ظهرًا. ماذا تعرض بعد ست ساعات حقيقية؟",
+        "answer": "5:30 مساءً",
+        "acceptableAnswers": [
+          "5:30 مساءً"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_083",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "عدد من رقمين مجموعهما 9، وعند عكسهما يزيد العدد 27. ما هو؟",
+        "answer": "36",
+        "acceptableAnswers": [
+          "36"
+        ],
+        "status": "approved",
+        "explanation": "63 ناقص 36 يساوي 27"
+      },
+      {
+        "id": "riddle_proverb_084",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "معك إناء 5 لترات وإناء 3 لترات ومصدر ماء بلا تدريج. كيف تقيس 4 لترات؟",
+        "answer": "املأ إناء 5 وصب منه 3، أفرغ إناء 3 وانقل إليه اللترين، ثم املأ إناء 5 وصب لترًا ليكتمل إناء 3.",
+        "acceptableAnswers": [
+          "املأ إناء 5 وصب منه 3، أفرغ إناء 3 وانقل إليه اللترين، ثم املأ إناء 5 وصب لترًا ليكتمل إناء 3."
+        ],
+        "status": "approved",
+        "explanation": "يبقى 4 لترات في إناء 5"
+      },
+      {
+        "id": "riddle_proverb_085",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أربع نقاط على خط مستقيم، كم قطعة مستقيمة مختلفة يمكن رسمها بوصل أي نقطتين؟",
+        "answer": "6",
+        "acceptableAnswers": [
+          "6"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_086",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "كم مرة يظهر الرقم 1 في كتابة الأعداد من 1 إلى 30؟",
+        "answer": "13",
+        "acceptableAnswers": [
+          "13"
+        ],
+        "status": "approved",
+        "explanation": "مرة في 1، وإحدى عشرة في 10 إلى 19، ومرة في 21"
+      },
+      {
+        "id": "riddle_proverb_087",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "عمر الأب 40 وعمر ابنه 10. بعد كم سنة يصبح عمر الأب ضعف عمر ابنه؟",
+        "answer": "20 سنة",
+        "acceptableAnswers": [
+          "20 سنة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_088",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "مكعب طليت جميع أوجهه ثم قطع إلى 27 مكعبًا صغيرًا متساويًا. كم مكعبًا له وجه مطلي واحد فقط؟",
+        "answer": "6",
+        "acceptableAnswers": [
+          "6"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_089",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "صافح كل واحد من ثمانية أشخاص جميع الآخرين مرة واحدة. كم مصافحة؟",
+        "answer": "28",
+        "acceptableAnswers": [
+          "28"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_090",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "في صف من 15 شخصًا، أحمد السابع من الأمام. ما ترتيبه من الخلف؟",
+        "answer": "التاسع",
+        "acceptableAnswers": [
+          "التاسع"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_091",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل الشامي الذي يضرب لمن ينتقد عيبًا عند الآخرين ولا يراه في نفسه، وفيه ذكر الجمل؟",
+        "answer": "الجمل ما بشوف عوجة رقبته",
+        "acceptableAnswers": [
+          "الجمل ما بشوف عوجة رقبته"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_092",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل العربي الذي يقال لمن ضيع فرصة ثم طلبها بعدما فات وقتها، وفيه اللبن؟",
+        "answer": "الصيف ضيعت اللبن",
+        "acceptableAnswers": [
+          "الصيف ضيعت اللبن"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_093",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل الذي يقال عندما يستحيل إصلاح ما أفسده الزمن، وفيه ذكر العطار؟",
+        "answer": "وهل يصلح العطار ما أفسد الدهر",
+        "acceptableAnswers": [
+          "وهل يصلح العطار ما أفسد الدهر"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_094",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل الذي يقال عندما يكون أهل المكان أدرى بشؤونه من الغرباء، وفيه ذكر مكة؟",
+        "answer": "أهل مكة أدرى بشعابها",
+        "acceptableAnswers": [
+          "أهل مكة أدرى بشعابها"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_095",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل الذي يقال لمن وقع في المشكلة التي دبرها لغيره، وفيه حفرة؟",
+        "answer": "من حفر حفرة لأخيه وقع فيها",
+        "acceptableAnswers": [
+          "من حفر حفرة لأخيه وقع فيها"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_096",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "ما المثل الذي يحذر من الانخداع بالمظاهر، وفيه الذهب واللمعان؟",
+        "answer": "ليس كل ما يلمع ذهبًا",
+        "acceptableAnswers": [
+          "ليس كل ما يلمع ذهبًا"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_097",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل العربي: رب رمية من غير ...",
+        "answer": "رام",
+        "acceptableAnswers": [
+          "رام"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_098",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل: في التأني السلامة وفي العجلة ...",
+        "answer": "الندامة",
+        "acceptableAnswers": [
+          "الندامة"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_099",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل السائر: تجري الرياح بما لا تشتهي ...",
+        "answer": "السفن",
+        "acceptableAnswers": [
+          "السفن"
+        ],
+        "status": "approved"
+      },
+      {
+        "id": "riddle_proverb_100",
+        "categoryId": "cat_riddle_proverb_mix",
+        "categoryName": "لغز ومثل",
+        "difficulty": "hard",
+        "points": 600,
+        "questionType": "direct_qa",
+        "prompt": "أكمل المثل العربي القديم: وافق شن ...",
+        "answer": "طبقة",
+        "acceptableAnswers": [
+          "طبقة"
+        ],
+        "status": "approved"
+      }
+    ]
+  }
+}
