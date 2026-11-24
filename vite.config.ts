@@ -1,3 +1,4 @@
+import { legacyArtworkWebp } from './server/legacyArtworkWebp';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
@@ -9,6 +10,27 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
+      {
+        name: 'legacy-artwork-webp-compat',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            const file = legacyArtworkWebp(import.meta.dirname, req.url || '');
+            if (!file || (req.method !== 'GET' && req.method !== 'HEAD')) return next();
+            res.setHeader('Content-Type', 'image/webp');
+            if (req.method === 'HEAD') return res.end();
+            fs.createReadStream(file).pipe(res);
+          });
+        },
+        configurePreviewServer(server) {
+          server.middlewares.use((req, res, next) => {
+            const file = legacyArtworkWebp(path.resolve(import.meta.dirname, 'dist'), req.url || '');
+            if (!file || (req.method !== 'GET' && req.method !== 'HEAD')) return next();
+            res.setHeader('Content-Type', 'image/webp');
+            if (req.method === 'HEAD') return res.end();
+            fs.createReadStream(file).pipe(res);
+          });
+        },
+      },
       // Copies src/assets into dist/ so root-relative URLs like
       // "/src/assets/images/..." (e.g. generate_image output) still resolve
       // in production builds. Do not remove.

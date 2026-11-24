@@ -1,3 +1,4 @@
+import { legacyArtworkWebp } from './server/legacyArtworkWebp';
 import 'dotenv/config';
 import http from 'node:http';
 import path from 'node:path';
@@ -839,6 +840,14 @@ async function startServer() {
       return res.status(403).json({ error: result.error });
     }
     res.json(result);
+  });
+
+  app.use((req, res, next) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+    const root = process.env.NODE_ENV === 'production' ? path.resolve(process.cwd(), 'dist') : process.cwd();
+    const replacement = legacyArtworkWebp(root, req.url);
+    if (!replacement) return next();
+    res.type('image/webp').sendFile(replacement);
   });
 
   if (process.env.NODE_ENV === 'production') {

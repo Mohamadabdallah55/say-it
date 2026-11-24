@@ -1,0 +1,40 @@
+name: Optimize checked-in images
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/optimize-images.yml'
+      - 'scripts/optimize-images.py'
+permissions:
+  contents: write
+concurrency:
+  group: optimize-images-main
+  cancel-in-progress: false
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow==11.3.0'
+      - run: python scripts/optimize-images.py --apply
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-audit --no-fund --package-lock=false
+      - run: npm run build
+      - run: npx tsx --test server/imageQuestionBanks.test.ts
+      - name: Commit only after build and checks pass
+        run: |
+          git add -A
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Optimize tracked image assets and preserve legacy URLs"
+          git push origin HEAD:main
