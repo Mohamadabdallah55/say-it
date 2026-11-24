@@ -8,7 +8,7 @@ import { runBoardPreflightCheck, validateQuizQuestion } from '../src/game/pdfVal
 import { buildBoardDeckFromCategories } from '../src/game/starterDecks';
 import { filterPlayedCuratedQuestions, recordPlayedCuratedQuestion, reserveCuratedQuestions } from './curatedQuestionRotation';
 import { approvedClasicoVideo, EL_CLASICO_QUESTIONS, refreshElClasicoPhotos } from './elClasico';
-import { CHAMPIONS_LEAGUE_QUESTIONS, CLUB_LOGOS_QUESTIONS, FLAGS_QUESTIONS, FOOTBALL_CAREER_QUESTIONS, FOOTBALL_FIRST_NAME_QUESTIONS, WORLD_FOOTBALL_QUESTIONS } from './imageQuestionBanks';
+import { refreshChampionsLeagueMedia, CHAMPIONS_LEAGUE_QUESTIONS, CLUB_LOGOS_QUESTIONS, FLAGS_QUESTIONS, FOOTBALL_CAREER_QUESTIONS, FOOTBALL_FIRST_NAME_QUESTIONS, WORLD_FOOTBALL_QUESTIONS } from './imageQuestionBanks';
 import { getQuranRecitationSource, QURAN_MEDIA_QUESTIONS, RECITER_QUESTIONS } from './quranMediaQuestions';
 import { REVERSED_WORDS_QUESTIONS } from './reversedWords';
 
@@ -467,4 +467,28 @@ test('Champions League archive has 100 questions and fourteen explicit 17-second
  assert.equal(clips.length,14);
  for(const q of clips){const u=new URL(q.videoUrl!);assert.equal(Number(u.searchParams.get('end'))-Number(u.searchParams.get('start')),17);}
  assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.imageUrl).every(q=>q.imageDisplay==='after_reveal'&&q.imageSourceUrl));
+});
+
+test('UCL video remains visible to projector while answer photo and text stay private', () => {
+  const clip=CHAMPIONS_LEAGUE_QUESTIONS.find(q=>q.videoUrl && q.imageUrl)!;
+  assert.ok(clip);
+  const bank=[clip,...CHAMPIONS_LEAGUE_QUESTIONS.filter(q=>q.id!==clip.id)];
+  const d=buildBoardDeckFromCategories(['cat_general',FLAGS_CATEGORY.id,CHAMPIONS_LEAGUE_CATEGORY.id],undefined,[...bank,...FLAGS_QUESTIONS]);
+  const room=createRoomState({roomCode:'UCLV',hostToken:'host',buzzerToken:'buzzer',deck:d,teams,settings});
+  const tile=room.boardTiles.find(t=>t.questionId===clip.id);
+  assert.ok(tile);
+  const turn=room.teams.findIndex(t=>t.id===tile.ownerTeamId);
+  const opened=selectBoardTile({...room,currentTurnTeamIndex:Math.max(0,turn)},clip.id,'open-ucl-video');
+  assert.ok(opened.ok,opened.error);
+  const visible=sanitizeStateForRole(opened.state,'projector').activeRound;
+  assert.equal(visible?.videoUrl,clip.videoUrl);
+  assert.equal(visible?.answer,undefined);
+  assert.equal(visible?.imageUrl,undefined);
+  assert.equal(visible?.imageSourceUrl,undefined);
+  const saved={...opened.state,activeRound:{...opened.state.activeRound!,question:{...clip,videoUrl:undefined}}};
+  const refreshed=refreshChampionsLeagueMedia(saved);
+  assert.equal(refreshed.activeRound?.question.videoUrl,clip.videoUrl);
+  const revealed=sanitizeStateForRole(revealAnswer(opened.state,'reveal-ucl-video').state,'projector').activeRound;
+  assert.equal(revealed?.imageUrl,clip.imageUrl);
+  assert.equal(revealed?.answer,clip.answer);
 });

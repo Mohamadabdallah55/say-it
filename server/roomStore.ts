@@ -1,3 +1,4 @@
+import { refreshChampionsLeagueMedia } from './imageQuestionBanks';
 import crypto from 'node:crypto';
 import QRCode from 'qrcode';
 import { WebSocket } from 'ws';
@@ -66,7 +67,7 @@ class RoomManager {
   constructor() {
     this.rooms = loadSavedRooms();
     for (const [code, room] of Object.entries(this.rooms)) {
-      this.rooms[code] = refreshElClasicoPhotos(refreshJuzAmmaAnswers(room));
+      this.rooms[code] = refreshChampionsLeagueMedia(refreshElClasicoPhotos(refreshJuzAmmaAnswers(room)));
     }
   }
 

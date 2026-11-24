@@ -1,6 +1,7 @@
+import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import { CAPITALS_CURRENCIES_CATEGORY, CHAMPIONS_LEAGUE_CATEGORY, CLUB_LOGOS_CATEGORY, FLAGS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, REAL_MADRID_CATEGORY, WORLD_FOOTBALL_CATEGORY } from '../src/game/curatedBanks';
 import { difficultyForPoints, pointsForDifficulty } from '../src/game/pdfValidation';
-import type { DeckCategory, QuizQuestion } from '../src/game/types';
+import type { DeckCategory, QuizQuestion, RoomState } from '../src/game/types';
 import capitalsCurrenciesRows from './capitalsCurrencies.json';
 import championsLeagueRows from './championsLeagueQuestions.json';
 import clubLogoRows from './clubLogoQuestions.json';
@@ -80,6 +81,20 @@ export const CHAMPIONS_LEAGUE_QUESTIONS = (championsLeagueRows as ChampionsLeagu
   imageCaption: row.imageCaption,
   imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
 }));
+
+const championsLeagueById = new Map(CHAMPIONS_LEAGUE_QUESTIONS.map(q => [q.id, q]));
+export function refreshChampionsLeagueMedia(room: RoomState): RoomState {
+  return refreshSavedCuratedQuestions(room, CHAMPIONS_LEAGUE_CATEGORY.id, question => {
+    if (question.categoryId !== CHAMPIONS_LEAGUE_CATEGORY.id) return question;
+    const updated = championsLeagueById.get(question.id);
+    if (!updated) return question;
+    // Never change the answer or scoring of an already-saved match.
+    if (question.answer !== updated.answer) return { ...question, videoUrl: undefined };
+    return { ...question, prompt: updated.prompt, videoUrl: updated.videoUrl, imageUrl: updated.imageUrl,
+      imageSourceUrl: updated.imageSourceUrl, imageCaption: updated.imageCaption, imageDisplay: updated.imageDisplay,
+      explanation: updated.explanation, sourceRef: updated.sourceRef, subtopic: updated.subtopic };
+  });
+}
 
 type RealMadridRow = { id: string; points: number; question: string; answer: string; answer_english: string; explanation: string; source_url: string; kind?: 'number' | 'photo'; acceptableAnswers?: string[]; imageUrl?: string; imageSourceUrl?: string; imageCaption?: string };
 

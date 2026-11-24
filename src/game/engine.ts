@@ -1430,7 +1430,7 @@ export function sanitizeStateForRole(
           audioUrls: isMemorizing ? undefined : state.activeRound.question.audioUrls,
           audioMode: isMemorizing ? undefined : state.activeRound.question.audioMode,
           answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
-          videoUrl: (canShowImage || state.activeRound.question.categoryId === 'cat_el_clasico') && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
+          videoUrl: (canShowImage || ['cat_el_clasico', 'cat_champions_league'].includes(state.activeRound.question.categoryId)) && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
           beforeImageUrls: !isGeneralKnowledge && canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
