@@ -639,9 +639,6 @@ export function GameArena({
         <span className="absolute bottom-[12%] right-[24%] flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#B9921F] bg-[#E8C138]/30 rotate-12 font-black text-[#9C7610]">⚄</span>
       </div>
 
-      {state.phase === 'BOARD' && state.questionCounter === 0 && animateRound && (
-        <div className="match-opening-wipe" aria-hidden="true" />
-      )}
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
@@ -692,7 +689,7 @@ export function GameArena({
 
           {/* PHASE: BOARD */}
           {state.phase === 'BOARD' && !showScoreMoment && (
-            <section className="board-stage" data-score-return={Boolean(state.lastAward)} aria-labelledby="board-title">
+            <section className="board-stage" data-score-return={Boolean(state.lastAward)} data-first-entry={state.questionCounter===0&&!state.lastAward} aria-labelledby="board-title">
               <div className="board-heading">
                 <div className="board-heading-title">
                   <h1 id="board-title">لوحة الفئات</h1>

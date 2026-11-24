@@ -1741,3 +1741,8 @@
 @keyframes yh-board-return{from{opacity:0;transform:translateY(6px) scale(.975)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:no-preference){.arena-stage:not(.reduced-motion) .board-stage[data-score-return=true] .category-card{animation:yh-board-return .27s ease-out backwards!important}.arena-stage:not(.reduced-motion) .board-stage[data-score-return=true] .category-card:nth-child(2n){animation-delay:45ms!important}.arena-stage:not(.reduced-motion) .board-stage[data-score-return=true] .category-card:nth-child(n+5){animation-delay:90ms!important}}
 @media(prefers-reduced-motion:reduce){.yh-score-show{display:none;}}
+
+/* Direct entry to setup and match: no opening wipe or initial card dealing. */
+.game-lobby .lobby-panel,.game-lobby .lobby-dock{animation:none!important;animation-delay:0s!important;}
+.arena-stage .board-stage[data-first-entry=true] .category-grid>.category-card,.arena-stage .board-stage[data-first-entry=true] .turn-ticket{animation:none!important;animation-delay:0s!important;}
+.arena-stage:has(.board-stage[data-first-entry=true]) .score-teams>[data-turn=true]{animation:none!important;}
