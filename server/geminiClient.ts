@@ -258,11 +258,37 @@ export async function callGeminiContentWithFallback(params: {
   return res.text;
 }
 
+// Translate the subset of Gemini response schemas used by question batches to
+// standard JSON Schema, so Ollama constrains its output instead of guessing keys.
+function toLocalJsonSchema(raw: unknown): Record<string, unknown> | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined;
+  const s = raw as Record<string, unknown>;
+  const type = typeof s.type === 'string' ? s.type.toLowerCase() : '';
+  if (!['object', 'array', 'string', 'number', 'integer', 'boolean'].includes(type)) return undefined;
+  const result: Record<string, unknown> = { type };
+  if (Array.isArray(s.enum)) result.enum = s.enum;
+  if (Array.isArray(s.required)) result.required = s.required;
+  if (s.properties && typeof s.properties === 'object') {
+    const entries = Object.entries(s.properties).map(([k,v]) => [k, toLocalJsonSchema(v)] as const);
+    if (entries.some(([,v]) => !v)) return undefined;
+    result.properties = Object.fromEntries(entries);
+    result.additionalProperties = false;
+  }
+  if (s.items) {
+    const items = toLocalJsonSchema(s.items);
+    if (!items) return undefined;
+    result.items = items;
+  }
+  return result;
+}
+
 export async function generateStructuredJsonWithFallback<T>(params: {
   contents: GenerateContentParameters['contents'];
   config: GenerateContentConfig;
   contextLabel: string;
+  constrainLocalSchema?: boolean;
 }): Promise<T> {
+  const jsonSchema = params.constrainLocalSchema ? toLocalJsonSchema(params.config.responseSchema) : undefined;
   try {
     const sysText =
       typeof params.config.systemInstruction === 'string'
@@ -277,6 +303,7 @@ export async function generateStructuredJsonWithFallback<T>(params: {
         imagesBase64: extracted.imagesBase64,
         requireVision: extracted.imagesBase64.length > 0,
         contextLabel: params.contextLabel,
+        jsonSchema,
       });
     }
 
@@ -295,6 +322,7 @@ export async function generateStructuredJsonWithFallback<T>(params: {
       imagesBase64: extracted.imagesBase64,
       requireVision: extracted.imagesBase64.length > 0,
       contextLabel: params.contextLabel,
+        jsonSchema,
     });
   } catch (err) {
     console.error(`[aiClient] ${params.contextLabel} failed:`, err);
