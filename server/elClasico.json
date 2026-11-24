@@ -195,12 +195,13 @@
     "fact_source_url": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
   },
   {
-    "id": "ELC-V2-024",
+    "id": "ELC-V4-CLIP-07",
     "level": 400,
-    "question": "في نهائي السوبر الإسباني يناير 2025، كم كان عدد أهداف المباراة الإجمالي؟",
-    "answer": "7",
-    "explanation": "فاز برشلونة 5-2.",
-    "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-win-the-super-cup-in-a-final-for-the-history-books-2-5"
+    "question": "شاهد الهدف من الأرشيف. في أي موسم من الدوري الإسباني كانت هذه اللقطة؟",
+    "answer": "2001/2002",
+    "explanation": "هدف زين الدين زيدان في الجولة 30.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=72s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=72&end=94"
   },
   {
     "id": "ELC-025",
@@ -213,12 +214,13 @@
     "imageSourceUrl": "https://www.sueddeutsche.de/sport/champions-league-real-barcelona-baeh-wir-machen-nicht-mit-1.1090148"
   },
   {
-    "id": "ELC-V2-026",
+    "id": "ELC-V4-CLIP-08",
     "level": 400,
-    "question": "ما نتيجة نهائي كأس ملك إسبانيا عام 2025 بعد الأشواط الإضافية؟",
-    "answer": "3-2 لبرشلونة",
-    "explanation": "فاز برشلونة في النهائي.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4254744/fc-barcelona-3-2-real-madrid-kings-of-the-cup/featured"
+    "question": "في أي موسم كان هذا الكلاسيكو الذي ظهر فيه مايكل أوين بقميص ريال مدريد؟",
+    "answer": "2004/2005",
+    "explanation": "الجولة 31 من موسم 2004/2005.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=104s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=104&end=124"
   },
   {
     "id": "ELC-027",
@@ -269,20 +271,22 @@
     "imageCaption": "مارك بارترا"
   },
   {
-    "id": "ELC-V2-032",
+    "id": "ELC-V4-CLIP-15",
     "level": 600,
-    "question": "ما نتيجة كلاسيكو الدوري في مارس 2023 الذي شهد هدفًا عكسيًا على برشلونة وهدف فوز متأخرًا من كيسي؟",
-    "answer": "2-1 لبرشلونة",
-    "explanation": "برشلونة 2-1 ريال مدريد.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/futbol/primer-equipo/noticias/3116980/kessie-autor-del-gol-3000-a-lspotify-camp-nou-a-la-lliga"
+    "question": "شاهد لقطة جيوفاني سيلفا القديمة. في أي موسم من الدوري الإسباني أقيمت؟",
+    "answer": "1997/1998",
+    "explanation": "الجولة التاسعة من موسم 1997/1998.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=40s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=40&end=63"
   },
   {
-    "id": "ELC-V2-033",
+    "id": "ELC-V4-CLIP-13",
     "level": 400,
-    "question": "في أي موسم كانت ثلاثية فينيسيوس في نهائي السوبر الإسباني بالرياض؟",
-    "answer": "2023/2024",
-    "explanation": "يناير 2024.",
-    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+    "question": "شاهد لقطة المباراة. في أي موسم لعب ميسي ورونالدو هذا الكلاسيكو الذي انتهى بالتعادل؟",
+    "answer": "2012/2013",
+    "explanation": "كلاسيكو 7 أكتوبر 2012، انتهى 2-2؛ المقطع يبدأ من فصل هدف رونالدو.",
+    "fact_source_url": "https://www.youtube.com/watch?v=x_4ftPlE5RI&t=1509s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/x_4ftPlE5RI?rel=0&playsinline=1&start=1509&end=1534"
   },
   {
     "id": "ELC-V2-034",
@@ -311,30 +315,37 @@
     "imageSourceUrl": "https://www.ad.nl/sport/de-wereldgoal-die-na-het-zien-van-de-herhaling-iets-minder-mooi-bleek~a36fa57c/171207948/"
   },
   {
-    "id": "ELC-V2-037",
+    "id": "ELC-V4-CLIP-09",
     "level": 400,
-    "question": "في أي ملعب جرت مواجهة 21 أبريل 2024 التي انتهت 3-2 لريال مدريد؟",
-    "answer": "سانتياغو برنابيو",
-    "explanation": "المباراة في مدريد.",
-    "fact_source_url": "https://www.youtube.com/watch?v=JZWLH2ha29s"
+    "question": "من اللاعب الذي يظهر في لقطة التسجيل هذه بقميص برشلونة؟",
+    "answer": "صامويل إيتو",
+    "explanation": "هدف إيتو في الجولة 12 من موسم 2005/2006.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=438s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=438&end=458",
+    "imageUrl": "https://img.allfootballapp.com/www/M00/46/0D/720x-/-/-/rB8CLF0p4i2AXaVSAAEEoz1oCqg102.jpg.webp",
+    "imageSourceUrl": "https://m.allfootballapp.com/news/epl/Messi-and-his-partners-in-attack-at-Barcelona%E2%80%A6-with-Griezmann-up-next/1564484",
+    "imageCaption": "صامويل إيتو"
   },
   {
-    "id": "ELC-V2-038",
+    "id": "ELC-V4-CLIP-14",
     "level": 600,
-    "question": "كم كان فارق الأهداف في انتصار برشلونة 4-3 على ريال مدريد في مايو 2025؟",
-    "answer": "هدف واحد",
-    "explanation": "فاز برشلونة بفارق هدف.",
-    "fact_source_url": "https://www.youtube.com/watch?v=0c8RD3fd9hc"
+    "question": "في أي موسم من التسعينيات سجل راؤول هذا الهدف أمام برشلونة على أرض ريال مدريد؟",
+    "answer": "1998/1999",
+    "explanation": "الجولة الثالثة من موسم 1998/1999.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=0s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=0&end=23"
   },
   {
-    "id": "ELC-039",
+    "id": "ELC-V4-CLIP-05",
     "level": 200,
-    "question": "من سجل هدف حسم كلاسيكو 23 أبريل 2017 في الوقت بدل الضائع ورفع قميصه أمام جمهور البرنابيو؟",
-    "answer": "ليونيل ميسي",
-    "explanation": "تؤكد تغطية FC Barcelona — Messi reaches 500 goals هذه المعلومة.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/769527/leo-messi-reaches-500-goals-for-fc-barcelona",
-    "imageUrl": "https://www.aljazeera.net/wp-content/uploads/2017/04/3b03978f-eaf8-42e7-b4cd-356599ff1942.jpeg?quality=80&resize=686%2C513",
-    "imageSourceUrl": "https://www.aljazeera.net/sport/2017/4/24/%D8%B3%D8%B1-%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D9%84-%D9%85%D9%8A%D8%B3%D9%8A-%D9%81%D9%8A-%D9%83%D9%84%D8%A7%D8%B3%D9%8A%D9%83%D9%88-%D8%A7%D9%84%D8%A3%D8%B1%D8%B6"
+    "question": "من لاعب برشلونة الذي يظهر في هذه اللقطة القديمة من الكلاسيكو؟",
+    "answer": "رونالدينيو",
+    "explanation": "لقطة رونالدينيو في كلاسيكو موسم 2005/2006.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=799s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=799&end=822",
+    "imageUrl": "https://www.fcbarcelona.com/fcbarcelona/photo/2020/11/18/cc74146c-45e7-43c6-9c0b-4b03378e469e/mini_ReialMadrid-FCBarcelona0-3J12Lliga1aDivisi20052006_pic_19-11-05ronaldinho2gol02.jpg",
+    "imageSourceUrl": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico",
+    "imageCaption": "رونالدينيو"
   },
   {
     "id": "ELC-040",
@@ -383,12 +394,13 @@
     "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20221104/los-mejores-momentos-gerard-pique-fc-barcelona/715928666_0.html"
   },
   {
-    "id": "ELC-V2-046",
+    "id": "ELC-V4-CLIP-04",
     "level": 200,
-    "question": "في أي موسم انتهت مواجهة البرنابيو بنتيجة 2-6 لصالح برشلونة؟",
-    "answer": "2008/2009",
-    "explanation": "أقيمت في 2 مايو 2009.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/el-clasico"
+    "question": "شاهد اللقطات. ما الفريق الذي خرج بشباك نظيفة في هذه المواجهة؟",
+    "answer": "برشلونة",
+    "explanation": "10 أبريل 2010، ريال مدريد 0-2 برشلونة.",
+    "fact_source_url": "https://www.youtube.com/watch?v=BYnDwLytoY0",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/BYnDwLytoY0?rel=0&playsinline=1"
   },
   {
     "id": "ELC-047",
@@ -402,12 +414,13 @@
     "imageCaption": "صامويل إيتو وليونيل ميسي بقميص برشلونة"
   },
   {
-    "id": "ELC-V2-048",
+    "id": "ELC-V4-CLIP-06",
     "level": 200,
-    "question": "ما اسم المسابقة التي شهدت هدف غاريث بيل بعد انطلاقته الشهيرة أمام مارك بارترا عام 2014؟",
-    "answer": "كأس ملك إسبانيا",
-    "explanation": "كانت في المباراة النهائية.",
-    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history"
+    "question": "شاهد الهدف من الأرشيف. أي فريق كان يلعب له رونالدو البرازيلي في هذه اللقطة؟",
+    "answer": "ريال مدريد",
+    "explanation": "الجولة 31 من موسم 2005/2006، على أرض برشلونة.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=695s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=695&end=717"
   },
   {
     "id": "ELC-049",
@@ -420,12 +433,13 @@
     "imageSourceUrl": "https://www.elespanol.com/elbernabeu/real-madrid/futbol/20170925/radiografia-humillacion-bale-bartra/249476197_0.html"
   },
   {
-    "id": "ELC-V2-050",
+    "id": "ELC-V4-CLIP-01",
     "level": 200,
-    "question": "كم هدفًا سجّل ريال مدريد في نهائي السوبر الإسباني أمام برشلونة في يناير 2024؟",
-    "answer": "4",
-    "explanation": "انتهت المباراة 4-1.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/14-01-2024"
+    "question": "شاهد هذه المواجهة التي انتهت بفوز برشلونة على أرض ريال مدريد. في أي موسم كانت؟",
+    "answer": "2015/2016",
+    "explanation": "21 نوفمبر 2015، فاز برشلونة 4-0 في البرنابيو.",
+    "fact_source_url": "https://www.youtube.com/watch?v=Ri5JspusO1M",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Ri5JspusO1M?rel=0&playsinline=1"
   },
   {
     "id": "ELC-V2-051",
@@ -485,12 +499,13 @@
     "imageCaption": "صورة جوردي ألبا · Bryan Berlin · CC BY-SA 4.0"
   },
   {
-    "id": "ELC-V2-057",
+    "id": "ELC-V4-CLIP-16",
     "level": 600,
-    "question": "كم تمريرة حاسمة تفوق بها ميسي على تشافي في إحصائية الليغا المنشورة عام 2021 عن كلاسيكو الدوري بالقرن 21؟",
-    "answer": "3",
-    "explanation": "تسع مقابل ست.",
-    "fact_source_url": "https://www.laliga.com/en-GB/news/fc-barcelona-vs-real-madrid-statistics"
+    "question": "شاهد هذا الهدف لفيرناندو مورينتس. ما الموسم الذي ينتمي إليه؟",
+    "answer": "1999/2000",
+    "explanation": "الجولة 26 من موسم 1999/2000.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=401s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=401&end=423"
   },
   {
     "id": "ELC-V2-058",
@@ -519,12 +534,13 @@
     "fact_source_url": "https://www.fcbarcelona.com/en/el-clasico"
   },
   {
-    "id": "ELC-V2-061",
+    "id": "ELC-V4-CLIP-10",
     "level": 400,
-    "question": "في أي موسم لعبت مباراة الكلاسيكو التي رفع فيها بيكيه أصابع يده الخمسة بعد الفوز؟",
-    "answer": "2010/2011",
-    "explanation": "المواجهة في نوفمبر 2010.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/football/first-team/news/2889709/the-best-of-gerard-pique-at-fc-barcelona"
+    "question": "في أي موسم سجّل تشافي هذا الهدف في ملعب ريال مدريد؟",
+    "answer": "2003/2004",
+    "explanation": "الجولة 34 من موسم 2003/2004.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=550s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=550&end=572"
   },
   {
     "id": "ELC-V2-062",
@@ -535,12 +551,13 @@
     "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
-    "id": "ELC-V2-063",
+    "id": "ELC-V4-CLIP-17",
     "level": 600,
-    "question": "أي جنسية يحملها فيرينتس بوشكاش، صاحب ثلاثيتين في الكلاسيكو؟",
-    "answer": "المجرية",
-    "explanation": "أسطورة المجر وريال مدريد.",
-    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+    "question": "شاهد هدف ريفالدو هذا. أي ملعب احتضن المباراة؟",
+    "answer": "كامب نو",
+    "explanation": "برشلونة كان صاحب الأرض، الجولة 22 من موسم 1998/1999.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=586s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=586&end=608"
   },
   {
     "id": "ELC-V2-064",
@@ -585,12 +602,13 @@
     "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
-    "id": "ELC-V2-069",
+    "id": "ELC-V4-CLIP-18",
     "level": 600,
-    "question": "في أي دور التقى الفريقان في دوري أبطال أوروبا عام 2011؟",
-    "answer": "نصف النهائي",
-    "explanation": "تأهل برشلونة إلى النهائي.",
-    "fact_source_url": "https://www.uefa.com/uefachampionsleague/news/01f0-0e7810b91a10-94576e9fc2aa-1000--ten-man-madrid-undone-by-messi-magic/"
+    "question": "في أي موسم جاء هذا الهدف لريفالدو خارج أرض برشلونة؟",
+    "answer": "2000/2001",
+    "explanation": "الجولة 25 من موسم 2000/2001.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=659s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=659&end=682"
   },
   {
     "id": "ELC-V2-070",
@@ -743,20 +761,22 @@
     "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
   },
   {
-    "id": "ELC-V3-HIST-03",
+    "id": "ELC-V4-CLIP-03",
     "level": 200,
-    "question": "في أي بطولة أوروبية التقى الفريقان في نصف نهائي 2002 ونصف نهائي 2011؟",
-    "answer": "دوري أبطال أوروبا",
-    "explanation": "واجه أحدهما الآخر في نصف النهائي في الموسمين.",
-    "fact_source_url": "https://www.laliga.com/noticias/mejores-clasicos-historia-laliga-real-madrid-barcelona"
+    "question": "في أي موسم من الدوري جرت هذه المواجهة التي حسمها برشلونة بهدف وحيد؟",
+    "answer": "2009/2010",
+    "explanation": "29 نوفمبر 2009، برشلونة 1-0 ريال مدريد.",
+    "fact_source_url": "https://www.youtube.com/watch?v=nHSyKTA0Wak",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/nHSyKTA0Wak?rel=0&playsinline=1"
   },
   {
-    "id": "ELC-V3-HIST-04",
+    "id": "ELC-V4-CLIP-02",
     "level": 200,
-    "question": "في أي بطولة تُوج برشلونة بعد الفوز على ريال مدريد في يناير 2025 بنتيجة 5-2؟",
-    "answer": "كأس السوبر الإسباني",
-    "explanation": "نهائي السوبر 2025 في جدة.",
-    "fact_source_url": "https://www.aljazeera.net/amp/sport/liveblog/2025/1/12/real-madrid-v-barcelona-ksa"
+    "question": "شاهد ملخص الكلاسيكو واحتفال رونالدو الشهير. في أي موسم أقيمت المباراة؟",
+    "answer": "2011/2012",
+    "explanation": "21 أبريل 2012، ريال مدريد فاز 2-1 في كامب نو.",
+    "fact_source_url": "https://www.youtube.com/watch?v=hY1IpOJpbO0",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/hY1IpOJpbO0?rel=0&playsinline=1"
   },
   {
     "id": "ELC-V3-HIST-05",
@@ -767,12 +787,13 @@
     "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
   },
   {
-    "id": "ELC-V3-HIST-06",
+    "id": "ELC-V4-CLIP-11",
     "level": 400,
-    "question": "في أي يوم من شهر فبراير 1929 لعب أول كلاسيكو بالدوري؟",
-    "answer": "17 فبراير",
-    "explanation": "17 فبراير 1929.",
-    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+    "question": "شاهد اللقطة. أي ملعب استضاف هدف فيغو هذا بعد انتقاله إلى ريال مدريد؟",
+    "answer": "سانتياغو برنابيو",
+    "explanation": "ريال مدريد كان صاحب الأرض في الجولة 11 من موسم 2001/2002.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=216s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=216&end=238"
   },
   {
     "id": "ELC-V3-HIST-07",
@@ -783,12 +804,13 @@
     "fact_source_url": "https://www.laliga.com/en-US/news/the-history-of-elclasico-decade-by-decade"
   },
   {
-    "id": "ELC-V3-HIST-08",
+    "id": "ELC-V4-CLIP-12",
     "level": 400,
-    "question": "من فاز بالكلاسيكو الذي بثه التلفزيون الإسباني لأول مرة عام 1959؟",
-    "answer": "ريال مدريد",
-    "explanation": "فاز ريال مدريد بهدف نظيف.",
-    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+    "question": "في أي موسم ظهر هذا الهدف لرونالدو البرازيلي أمام برشلونة في ملعب ريال مدريد؟",
+    "answer": "2002/2003",
+    "explanation": "الجولة 30 من موسم 2002/2003.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=330s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=330&end=353"
   },
   {
     "id": "ELC-V3-HIST-09",
@@ -863,20 +885,22 @@
     "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
-    "id": "ELC-V3-HIST-18",
+    "id": "ELC-V4-CLIP-19",
     "level": 600,
-    "question": "في كلاسيكو أكتوبر 2025، كم بطاقة صفراء تلقاها بيدري قبل مغادرته المباراة؟",
-    "answer": "بطاقتان",
-    "explanation": "طُرد بعد البطاقة الصفراء الثانية في الوقت بدل الضائع.",
-    "fact_source_url": "https://www.realmadrid.com/ar-AE/news/football/first-team/reports/cronica-real-madrid-barcelona-jornada-10-liga-26-10-2025"
+    "question": "شاهد احتفال راؤول في ملعب الخصم. في أي موسم حدثت هذه اللقطة؟",
+    "answer": "1999/2000",
+    "explanation": "الجولة السابعة من موسم 1999/2000.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=761s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=761&end=784"
   },
   {
-    "id": "ELC-V3-HIST-19",
+    "id": "ELC-V4-CLIP-20",
     "level": 600,
-    "question": "في خماسية يناير 1994، ما عدد أهداف برشلونة التي سجلها روماريو في الشوط الثاني؟",
-    "answer": "2",
-    "explanation": "سجل في الشوط الأول مرة وفي الثاني مرتين.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/club/news/969544/25-years-since-50-drubbing-of-real-madrid"
+    "question": "في أي موسم ظهر هدف جيوفاني فان برونكهورست هذا في الكلاسيكو؟",
+    "answer": "2004/2005",
+    "explanation": "الجولة 12 من موسم 2004/2005.",
+    "fact_source_url": "https://www.youtube.com/watch?v=xCnjyp8ANjE&t=188s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/xCnjyp8ANjE?rel=0&playsinline=1&start=188&end=211"
   },
   {
     "id": "ELC-V3-HIST-20",
