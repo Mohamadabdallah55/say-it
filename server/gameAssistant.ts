@@ -152,6 +152,7 @@ ${contextSummary}`;
   try {
     const reply = await callGeminiContentWithFallback({
       contents: prompt,
+      fastLocalReply: true,
       config: {
         thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
         systemInstruction,
