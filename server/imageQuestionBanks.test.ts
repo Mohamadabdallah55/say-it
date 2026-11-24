@@ -230,9 +230,11 @@ test('club badges load before reveal without exposing the club or its source URL
 });
 
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {
-  assert.equal(EL_CLASICO_QUESTIONS.length, 70);
-  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [17, 22, 31]);
-  assert.equal(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).length, 4);
+  assert.equal(EL_CLASICO_QUESTIONS.length, 100);
+  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
+  assert.equal(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).length, 14);
+  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points && q.videoUrl).length), [5, 4, 5]);
+  assert.equal(new Set(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).map(q => q.videoUrl)).size, 14);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.videoUrl).every(q => !q.imageUrl && q.videoUrl?.startsWith('https://www.youtube-nocookie.com/embed/')));
 

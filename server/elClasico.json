@@ -102,15 +102,6 @@
     "imageSourceUrl": "https://andina.pe/agencia/galeria.aspx?FotoId=947579&GaleriaId=18584"
   },
   {
-    "id": "ELC-V2-011",
-    "level": 400,
-    "question": "شاهد ملخص هذه المواجهة. في أي موسم من الدوري الإسباني أقيمت؟",
-    "answer": "2023/2024",
-    "explanation": "21 أبريل 2024، ريال مدريد 3-2 برشلونة.",
-    "fact_source_url": "https://www.youtube.com/watch?v=JZWLH2ha29s",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/JZWLH2ha29s?rel=0&playsinline=1"
-  },
-  {
     "id": "ELC-V2-012",
     "level": 400,
     "question": "حسب إحصائية الليغا المنشورة في 2021، من تصدّر صناعة الأهداف في كلاسيكو الدوري خلال القرن الحادي والعشرين؟",
@@ -151,24 +142,6 @@
     "fact_source_url": "https://www.fcbarcelona.com/en/videos/1671952/a-historical-manita-at-the-camp-nou-in-the-clasico"
   },
   {
-    "id": "ELC-V2-016",
-    "level": 400,
-    "question": "شاهد اللقطات. في أي موسم من الدوري الإسباني أقيم هذا الكلاسيكو؟",
-    "answer": "2024/2025",
-    "explanation": "11 مايو 2025، برشلونة 4-3 ريال مدريد.",
-    "fact_source_url": "https://www.youtube.com/watch?v=0c8RD3fd9hc",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/0c8RD3fd9hc?rel=0&playsinline=1"
-  },
-  {
-    "id": "ELC-V2-017",
-    "level": 200,
-    "question": "شاهد المقطع. في أي موسم من الدوري الإسباني جرت هذه المواجهة؟",
-    "answer": "2024/2025",
-    "explanation": "26 أكتوبر 2024، ريال مدريد 0-4 برشلونة.",
-    "fact_source_url": "https://www.youtube.com/watch?v=Hf9pXbnWIK8",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/Hf9pXbnWIK8?rel=0&playsinline=1"
-  },
-  {
     "id": "ELC-018",
     "level": 600,
     "question": "من كان مدرب برشلونة في ليلة فوزه 0-4 بالبرنابيو في أكتوبر 2024، وأربك ريال مدريد بخط دفاع متقدم؟",
@@ -184,7 +157,7 @@
     "question": "هل سجل كريستيانو رونالدو هاتريك رسميًا في الكلاسيكو خلال فترته مع ريال مدريد؟",
     "answer": "لا",
     "explanation": "لم يحقق ثلاثية في هذه المواجهات.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-020",
@@ -211,7 +184,7 @@
     "question": "كم هاتريك سجل ليونيل ميسي في مواجهات الكلاسيكو الرسمية؟",
     "answer": "2",
     "explanation": "في مارس 2007 ومارس 2014.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-023",
@@ -276,9 +249,9 @@
   {
     "id": "ELC-V2-030",
     "level": 200,
-    "question": "من صاحب الرقم الأعلى في عدد الهاتريك بكلاسيكو الدوري خلال القرن الحادي والعشرين، وفق تقرير الليغا المنشور في 2022؟",
+    "question": "حسب تقرير الليغا لعام 2022 عن الكلاسيكو منذ عام 2000، من لاعب برشلونة الذي سجل هاتريكين في الدوري؟",
     "answer": "ليونيل ميسي",
-    "explanation": "حقق ثلاثيتين في الدوري.",
+    "explanation": "ميسي سجل هاتريك مرتين في كلاسيكو الدوري منذ عام 2000.",
     "fact_source_url": "https://www.laliga.com/noticias/los-records-de-elclasico-real-madrid-vs-fc-barcelona",
     "imageUrl": "https://s.yimg.com/ny/api/res/1.2/l94_0fSrCHnk47zJgFzFpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTc2NztoPTUwMDtjZj13ZWJw/https%3A/media.zenfs.com/en_sg/News/AFP/5cc96675d340509dc3226b83939a340fd273e486.jpg",
     "imageSourceUrl": "https://sg.news.yahoo.com/messi-becomes-time-top-scorer-el-clasico-205301222--spt.html",
@@ -309,7 +282,7 @@
     "question": "في أي موسم كانت ثلاثية فينيسيوس في نهائي السوبر الإسباني بالرياض؟",
     "answer": "2023/2024",
     "explanation": "يناير 2024.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-034",
@@ -374,15 +347,6 @@
     "imageSourceUrl": "https://cronicaglobal.elespanol.com/culemania/culemaniacos/20181221/asi-forjo-leyenda-messi-como-falso-nueve/362463796_0.html"
   },
   {
-    "id": "ELC-V2-041",
-    "level": 600,
-    "question": "شاهد هذه اللقطات. في أي موسم من الدوري الإسباني أقيمت المباراة؟",
-    "answer": "2025/2026",
-    "explanation": "26 أكتوبر 2025، ريال مدريد 2-1 برشلونة.",
-    "fact_source_url": "https://www.youtube.com/watch?v=k2hXVxvZP7E",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?rel=0&playsinline=1"
-  },
-  {
     "id": "ELC-V2-042",
     "level": 600,
     "question": "في أي موسم حقق برشلونة فوزه 7-2 على ريال مدريد في الدوري؟",
@@ -406,7 +370,7 @@
     "question": "في أي موسم سجل ميسي أول هاتريك له في الكلاسيكو؟",
     "answer": "2006/2007",
     "explanation": "تعادل الفريقان 3-3.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-045",
@@ -469,7 +433,7 @@
     "question": "في أي موسم سجل ميسي هاتريك في فوز برشلونة 4-3 على ريال مدريد بالبرنابيو؟",
     "answer": "2013/2014",
     "explanation": "مارس 2014.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-052",
@@ -504,10 +468,10 @@
   {
     "id": "ELC-V2-055",
     "level": 600,
-    "question": "كم مباراة بشباك نظيفة سجّل فيكتور فالديس وفق تقرير الليغا لعام 2022 عن كلاسيكو القرن 21؟",
-    "answer": "7",
-    "explanation": "كان متصدر هذه الإحصائية.",
-    "fact_source_url": "https://www.laliga.com/noticias/los-records-de-elclasico-real-madrid-vs-fc-barcelona"
+    "question": "في أي ملعب انتهت مباراة برشلونة وريال مدريد 5-5 سنة 1943؟",
+    "answer": "ليس كورتس",
+    "explanation": "أقيمت المباراة في ملعب برشلونة القديم.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
   },
   {
     "id": "ELC-056",
@@ -568,7 +532,7 @@
     "question": "كم مرة سجل خايمي لازكانو هاتريك لريال مدريد في مواجهات الكلاسيكو؟",
     "answer": "2",
     "explanation": "في 1930 و1935.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-063",
@@ -576,7 +540,7 @@
     "question": "أي جنسية يحملها فيرينتس بوشكاش، صاحب ثلاثيتين في الكلاسيكو؟",
     "answer": "المجرية",
     "explanation": "أسطورة المجر وريال مدريد.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-064",
@@ -584,7 +548,7 @@
     "question": "ما نتيجة كلاسيكو يناير 1987 الذي سجل فيه غاري لينيكر ثلاثية؟",
     "answer": "3-2 لبرشلونة",
     "explanation": "فاز برشلونة في كامب نو.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-065",
@@ -610,7 +574,7 @@
     "question": "كم مرة سجل سانتياغو برنابيو هاتريك في الكلاسيكو خلال كأس 1916؟",
     "answer": "2",
     "explanation": "حقق ثلاثيتين في أبريل 1916.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-068",
@@ -618,7 +582,7 @@
     "question": "في أي موسم سجل إيفان زامورانو ثلاثية في خماسية ريال مدريد أمام برشلونة؟",
     "answer": "1994/1995",
     "explanation": "يناير 1995.",
-    "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
   },
   {
     "id": "ELC-V2-069",
@@ -634,6 +598,292 @@
     "question": "كم هدفًا سجل الفريقان مجتمعين في التعادل التاريخي 6-6 بكأس إسبانيا سنة 1916؟",
     "answer": "12",
     "explanation": "ستة أهداف لكل فريق.",
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+  },
+  {
+    "id": "ELC-V3-VIDEO-01",
+    "level": 200,
+    "question": "شاهد الملخص بالصوت. في أي موسم أقيمت هذه المواجهة التي شهدت ثلاثة أهداف لفينيسيوس؟",
+    "answer": "2023/2024",
+    "explanation": "نهائي السوبر في يناير 2024. المصدر: SSC.",
+    "fact_source_url": "https://www.youtube.com/watch?v=w_SkU3ktIes",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/w_SkU3ktIes?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-02",
+    "level": 200,
+    "question": "شاهد الملخص بالصوت. في أي موسم أقيم هذا النهائي الذي انتهى بفوز برشلونة رغم تأخره مبكرًا؟",
+    "answer": "2024/2025",
+    "explanation": "نهائي السوبر في يناير 2025. المصدر: SSC.",
+    "fact_source_url": "https://www.youtube.com/watch?v=85r4BmSp4Qg",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/85r4BmSp4Qg?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-03",
+    "level": 200,
+    "question": "شاهد المقطع. في أي موسم من الدوري جرت هذه المواجهة التي شهدت هدفًا حاسمًا في الوقت بدل الضائع؟",
+    "answer": "2016/2017",
+    "explanation": "23 أبريل 2017، برشلونة يفوز 3-2.",
+    "fact_source_url": "https://www.youtube.com/watch?v=fVufY4SCoOk",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/fVufY4SCoOk?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-04",
+    "level": 200,
+    "question": "شاهد الملخص. ما نتيجة الشوط الأول من هذه المباراة قبل أن يسجل برشلونة رباعيته؟",
+    "answer": "0-0",
+    "explanation": "كلاسيكو 26 أكتوبر 2024، جميع الأهداف جاءت في الشوط الثاني.",
+    "fact_source_url": "https://www.youtube.com/watch?v=Hf9pXbnWIK8",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Hf9pXbnWIK8?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-05",
+    "level": 200,
+    "question": "شاهد المقطع. كم هدفًا سجّل ريال مدريد بعد الاستراحة في هذه المواجهة؟",
+    "answer": "2",
+    "explanation": "في كلاسيكو مارس 2020 سجل فينيسيوس وماريانو هدفي الفوز بعد الاستراحة.",
+    "fact_source_url": "https://www.youtube.com/watch?v=s5fPCcm-h9s",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/s5fPCcm-h9s?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-06",
+    "level": 400,
+    "question": "شاهد الملخص بالصوت. في أي مدينة أُقيم هذا النهائي الذي امتد إلى شوطين إضافيين؟",
+    "answer": "إشبيلية",
+    "explanation": "نهائي كأس الملك 26 أبريل 2025 في ملعب لا كارتوخا. المصدر: SSC.",
+    "fact_source_url": "https://www.youtube.com/watch?v=29qV7l2vULk",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/29qV7l2vULk?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-07",
+    "level": 400,
+    "question": "شاهد المقطع. في أي موسم جرت هذه الخماسية التي شهدت ثلاثية لمهاجم برشلونة؟",
+    "answer": "2018/2019",
+    "explanation": "28 أكتوبر 2018، برشلونة 5-1 ريال مدريد.",
+    "fact_source_url": "https://www.youtube.com/watch?v=o8jMLaLNAPE",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/o8jMLaLNAPE?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-08",
+    "level": 400,
+    "question": "شاهد المقطع. ما الملعب الذي استضاف هذه المواجهة، وليس كامب نو؟",
+    "answer": "لويس كومبانيس الأولمبي",
+    "explanation": "كلاسيكو 28 أكتوبر 2023 الذي فاز به ريال مدريد 2-1.",
+    "fact_source_url": "https://www.youtube.com/watch?v=iS6dII37CwM",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/iS6dII37CwM?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-09",
+    "level": 400,
+    "question": "شاهد الملخص. كم مرة تقدم برشلونة في النتيجة قبل أن ينتزع ريال مدريد الفوز في النهاية؟",
+    "answer": "مرتين",
+    "explanation": "21 أبريل 2024، ريال مدريد عاد من التأخر 0-1 ثم 1-2.",
+    "fact_source_url": "https://www.youtube.com/watch?v=MmhxO0MFhVM",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/MmhxO0MFhVM?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-10",
+    "level": 600,
+    "question": "شاهد أرشيف الكلاسيكو القديم. كم هدفًا سجّل برشلونة بعد انتهاء الشوط الأول في هذه المواجهة؟",
+    "answer": "4",
+    "explanation": "8 يناير 1994: انتهى الشوط الأول 1-0 ثم سجل برشلونة أربعة أهداف أخرى.",
+    "fact_source_url": "https://www.youtube.com/watch?v=S0bgxnX97Vk",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/S0bgxnX97Vk?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-11",
+    "level": 600,
+    "question": "شاهد الملخص التاريخي. ما نتيجة الشوط الأول قبل أن تكتمل خماسية برشلونة؟",
+    "answer": "2-0",
+    "explanation": "29 نوفمبر 2010: انتهى الشوط الأول بتقدم برشلونة بهدفين.",
+    "fact_source_url": "https://www.youtube.com/watch?v=3KCnVa_Os7A",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/3KCnVa_Os7A?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-12",
+    "level": 600,
+    "question": "شاهد المقطع. في أي موسم لعبت هذه الرباعية خارج أرض برشلونة، وظهر فيها أوباميانغ بقميص الفريق؟",
+    "answer": "2021/2022",
+    "explanation": "20 مارس 2022، الجولة 29 من الدوري.",
+    "fact_source_url": "https://www.youtube.com/watch?v=Bb7pphWltLI",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/Bb7pphWltLI?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-13",
+    "level": 600,
+    "question": "شاهد الملخص. ما نتيجة الشوط الأول بعد عودة برشلونة من تأخره بهدفين؟",
+    "answer": "4-2 لبرشلونة",
+    "explanation": "11 مايو 2025: برشلونة تقدم 4-2 قبل نهاية الشوط الأول.",
+    "fact_source_url": "https://www.youtube.com/watch?v=0c8RD3fd9hc",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/0c8RD3fd9hc?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-VIDEO-14",
+    "level": 600,
+    "question": "شاهد اللقطات. في أي موسم من الدوري الإسباني جرت هذه المباراة؟",
+    "answer": "2025/2026",
+    "explanation": "26 أكتوبر 2025، فاز ريال مدريد 2-1.",
+    "fact_source_url": "https://www.youtube.com/watch?v=k2hXVxvZP7E",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/k2hXVxvZP7E?rel=0&playsinline=1"
+  },
+  {
+    "id": "ELC-V3-HIST-01",
+    "level": 200,
+    "question": "في أي عام أقيم أول كلاسيكو في تاريخ الدوري الإسباني؟",
+    "answer": "1929",
+    "explanation": "أقيم في 17 فبراير 1929.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+  },
+  {
+    "id": "ELC-V3-HIST-02",
+    "level": 200,
+    "question": "من كان الفريق الفائز في أول كلاسيكو بالدوري الإسباني؟",
+    "answer": "ريال مدريد",
+    "explanation": "فاز 2-1 خارج أرضه عام 1929.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+  },
+  {
+    "id": "ELC-V3-HIST-03",
+    "level": 200,
+    "question": "في أي بطولة أوروبية التقى الفريقان في نصف نهائي 2002 ونصف نهائي 2011؟",
+    "answer": "دوري أبطال أوروبا",
+    "explanation": "واجه أحدهما الآخر في نصف النهائي في الموسمين.",
+    "fact_source_url": "https://www.laliga.com/noticias/mejores-clasicos-historia-laliga-real-madrid-barcelona"
+  },
+  {
+    "id": "ELC-V3-HIST-04",
+    "level": 200,
+    "question": "في أي بطولة تُوج برشلونة بعد الفوز على ريال مدريد في يناير 2025 بنتيجة 5-2؟",
+    "answer": "كأس السوبر الإسباني",
+    "explanation": "نهائي السوبر 2025 في جدة.",
+    "fact_source_url": "https://www.aljazeera.net/amp/sport/liveblog/2025/1/12/real-madrid-v-barcelona-ksa"
+  },
+  {
+    "id": "ELC-V3-HIST-05",
+    "level": 400,
+    "question": "ما اسم الملعب القديم لبرشلونة الذي استضاف أول كلاسيكو بالدوري في 1929؟",
+    "answer": "ليس كورتس",
+    "explanation": "أقيمت المباراة الأولى بالدوري في ملعب ليس كورتس.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+  },
+  {
+    "id": "ELC-V3-HIST-06",
+    "level": 400,
+    "question": "في أي يوم من شهر فبراير 1929 لعب أول كلاسيكو بالدوري؟",
+    "answer": "17 فبراير",
+    "explanation": "17 فبراير 1929.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+  },
+  {
+    "id": "ELC-V3-HIST-07",
+    "level": 400,
+    "question": "في أي عام كان الكلاسيكو أول مباراة كرة قدم تبث على التلفزيون الإسباني؟",
+    "answer": "1959",
+    "explanation": "15 فبراير 1959.",
+    "fact_source_url": "https://www.laliga.com/en-US/news/the-history-of-elclasico-decade-by-decade"
+  },
+  {
+    "id": "ELC-V3-HIST-08",
+    "level": 400,
+    "question": "من فاز بالكلاسيكو الذي بثه التلفزيون الإسباني لأول مرة عام 1959؟",
+    "answer": "ريال مدريد",
+    "explanation": "فاز ريال مدريد بهدف نظيف.",
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+  },
+  {
+    "id": "ELC-V3-HIST-09",
+    "level": 400,
+    "question": "في أي موسم فاز برشلونة بخماسية نظيفة في البرنابيو مع يوهان كرويف لاعبًا، قبل أن يصبح مدربًا للفريق؟",
+    "answer": "1973/1974",
+    "explanation": "17 فبراير 1974.",
+    "fact_source_url": "https://www.laliga.com/noticias/mejores-clasicos-historia-laliga-real-madrid-barcelona"
+  },
+  {
+    "id": "ELC-V3-HIST-10",
+    "level": 400,
+    "question": "في أي عام انتقل مايكل لاودروب من برشلونة إلى ريال مدريد؟",
+    "answer": "1994",
+    "explanation": "انتقل بين الناديين في عام 1994.",
+    "fact_source_url": "https://www.laliga.com/en-ES/partidazos/el-clasico"
+  },
+  {
+    "id": "ELC-V3-HIST-11",
+    "level": 400,
+    "question": "في أي ملعب لعب نهائي كأس الملك عام 2014 الذي شهد انطلاقة بيل الشهيرة؟",
+    "answer": "ميستايا",
+    "explanation": "المباراة أقيمت في فالنسيا.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025"
+  },
+  {
+    "id": "ELC-V3-HIST-12",
+    "level": 400,
+    "question": "كم مباراة رسمية فاز بها كل فريق في نهائيات كأس الملك الستة السابقة لنهائي 2014؟",
+    "answer": "3 لكل فريق",
+    "explanation": "دخل الفريقان النهائي السابع بتعادل في عدد الانتصارات النهائية.",
+    "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history"
+  },
+  {
+    "id": "ELC-V3-HIST-13",
+    "level": 400,
+    "question": "ما رقم لقب كأس الملك الذي ناله ريال مدريد عندما حسم بيل النهائي عام 2014؟",
+    "answer": "19",
+    "explanation": "كان الكأس التاسع عشر في تاريخ النادي.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025"
+  },
+  {
+    "id": "ELC-V3-HIST-14",
+    "level": 400,
+    "question": "كم كان عدد تمريرات ميسي الحاسمة في كلاسيكو الدوري حسب إحصاء الليغا المنشور في أكتوبر 2021؟",
+    "answer": "9",
+    "explanation": "الإحصائية تخص مواجهات الدوري حتى تاريخ النشر.",
+    "fact_source_url": "https://www.laliga.com/en-GB/news/fc-barcelona-vs-real-madrid-statistics"
+  },
+  {
+    "id": "ELC-V3-HIST-15",
+    "level": 400,
+    "question": "في أي مسابقة كانت مواجهة الكلاسيكو التي انتهت 6-6 في أبريل 1916؟",
+    "answer": "كأس إسبانيا",
+    "explanation": "تعادل الفريقان في كأس 1916.",
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+  },
+  {
+    "id": "ELC-V3-HIST-16",
+    "level": 600,
+    "question": "كم لاعبًا مختلفًا سجل هاتريك في مباراة الكلاسيكو الواحدة التي انتهت 6-6 في أبريل 1916؟",
+    "answer": "3",
+    "explanation": "سانتياغو برنابيو ولويس بيلوندي وباولينو ألكانتارا.",
     "fact_source_url": "https://www.fourfourtwo.com/features/players-who-scored-a-hat-trick-in-el-clasico"
+  },
+  {
+    "id": "ELC-V3-HIST-17",
+    "level": 600,
+    "question": "كم مرة سجل ميسي وبوشكاش وخايمي لازكانو وسانتياغو برنابيو هاتريك لكل واحد في الكلاسيكو حتى تقرير AS في يناير 2024؟",
+    "answer": "مرتين لكل لاعب",
+    "explanation": "الأربعة تشاركوا الرقم وفق ذلك التقرير.",
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+  },
+  {
+    "id": "ELC-V3-HIST-18",
+    "level": 600,
+    "question": "في كلاسيكو أكتوبر 2025، كم بطاقة صفراء تلقاها بيدري قبل مغادرته المباراة؟",
+    "answer": "بطاقتان",
+    "explanation": "طُرد بعد البطاقة الصفراء الثانية في الوقت بدل الضائع.",
+    "fact_source_url": "https://www.realmadrid.com/ar-AE/news/football/first-team/reports/cronica-real-madrid-barcelona-jornada-10-liga-26-10-2025"
+  },
+  {
+    "id": "ELC-V3-HIST-19",
+    "level": 600,
+    "question": "في خماسية يناير 1994، ما عدد أهداف برشلونة التي سجلها روماريو في الشوط الثاني؟",
+    "answer": "2",
+    "explanation": "سجل في الشوط الأول مرة وفي الثاني مرتين.",
+    "fact_source_url": "https://www.fcbarcelona.com/en/club/news/969544/25-years-since-50-drubbing-of-real-madrid"
+  },
+  {
+    "id": "ELC-V3-HIST-20",
+    "level": 600,
+    "question": "ما اسم الدور الذي لعب فيه ميسي عندما غيّر غوارديولا تمركزه في كلاسيكو مايو 2009؟",
+    "answer": "المهاجم الوهمي (رقم 9 وهمي)",
+    "explanation": "انتقل إلى العمق في مباراة 6-2.",
+    "fact_source_url": "https://www.fcbarcelona.es/es/barca-play/videos/835916/real-madrid-2-fc-barcelona-6-2008-2009"
   }
 ]

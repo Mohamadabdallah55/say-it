@@ -1103,7 +1103,8 @@ export function GameArena({
                       ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
                         /^https:\/\/www\.youtube-nocookie\.com\/embed\/[A-Za-z0-9_-]{11}\?rel=0&playsinline=1$/.test(roundMeta.videoUrl) ? (
-                          <iframe
+                          <div className="mx-auto w-full max-w-2xl space-y-2">
+                            <iframe
                             key={`q-video-${roundMeta.questionId}`}
                             className="mx-auto mt-4 aspect-video w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
                             src={roundMeta.videoUrl}
@@ -1112,6 +1113,8 @@ export function GameArena({
                             referrerPolicy="strict-origin-when-cross-origin"
                             allowFullScreen
                           />
+                            {isHost && <a className="inline-block text-xs font-bold underline" href={roundMeta.videoUrl.replace('https://www.youtube-nocookie.com/embed/', 'https://www.youtube.com/watch?v=').split('?rel=')[0]} target="_blank" rel="noreferrer">فتح المقطع في يوتيوب إذا تعذر تشغيله</a>}
+                          </div>
                         ) : (
                           <video
                             key={`q-video-${roundMeta.questionId}`}
