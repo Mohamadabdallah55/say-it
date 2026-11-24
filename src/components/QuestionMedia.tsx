@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { EyeOff, ImageOff, X, ZoomIn } from 'lucide-react';
 
@@ -19,7 +19,7 @@ interface QuestionMediaProps {
   onOrientationDetected?: (orientation: MediaOrientation) => void;
 }
 
-export function QuestionMedia({
+export const QuestionMedia = memo(function QuestionMedia({
   imageSrc,
   srcSet,
   sizes = '(max-width: 1024px) 92vw, 60vw',
@@ -274,4 +274,4 @@ export function QuestionMedia({
       {modalContent}
     </>
   );
-}
+});

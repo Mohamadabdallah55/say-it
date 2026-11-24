@@ -384,5 +384,6 @@ export function loadSavedRooms(): Record<string, RoomState> {
 
 export function persistRoomsMap(rooms: Record<string, RoomState>): void {
   ensureDirs();
-  fs.writeFileSync(ROOMS_V2_FILE, JSON.stringify(rooms, null, 2), 'utf-8');
+  // Compact JSON reduces synchronous serialization and disk traffic while preserving all room data.
+  fs.writeFileSync(ROOMS_V2_FILE, JSON.stringify(rooms), 'utf-8');
 }

@@ -885,3 +885,20 @@ test('curated category picker allows 1 to 8 categories without forcing the 5 sta
   assert.ok(eightRoom.boardTiles.length >= 24);
 });
 
+test('Host snapshots omit the full question pool but retain board and active question', () => {
+  let room = createRoomState({
+    roomCode: 'FAST01', hostToken: 'host_secret', buzzerToken: 'buzz_secret',
+    deck: STARTER_DEMO_DECK, teams: TEAMS, nowMs: 1000,
+  });
+  const selectedId = room.boardTiles[0].questionId;
+  const bankSize = room.questionPool.length;
+  const board = sanitizeStateForRole(room, 'host', 1000);
+  assert.equal('questionPool' in board, false);
+  assert.equal(board.boardTiles[0].questionId, selectedId);
+  room = selectBoardTile(room, selectedId, 'fast-select', 2000).state;
+  const active = sanitizeStateForRole(room, 'host', 2000);
+  assert.equal('questionPool' in active, false);
+  assert.equal(active.activeRound?.question.id, selectedId);
+  assert.equal(room.questionPool.length, bankSize);
+  assert.equal(typeof active.hasBackupQuestionsForActiveCategory, 'boolean');
+});

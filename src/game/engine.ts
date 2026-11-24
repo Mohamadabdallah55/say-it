@@ -1316,7 +1316,9 @@ export function sanitizeStateForRole(
   const liveTimer = snapshotTimer(state.timer, nowMs);
 
   if (role === 'host') {
-    const { hostToken: _ht, buzzerToken: _bt, processedActionIds: _pa, ...rest } = state;
+    // The browser needs the selected round and board tiles, not the full bank.
+    // Keep every question on the server for selection, swaps and correction.
+    const { hostToken: _ht, buzzerToken: _bt, processedActionIds: _pa, questionPool: _pool, ...rest } = state;
     const hasBackup = state.activeRound
       ? Boolean(findAvailableBackupQuestion(state, state.activeRound.question))
       : false;

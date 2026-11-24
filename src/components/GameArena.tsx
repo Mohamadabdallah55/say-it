@@ -1,7 +1,7 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
   ArrowRight,
@@ -231,7 +231,8 @@ export function GameArena({
         if (msg.type === 'STATE_SYNC') {
           setError(null);
           setNowMs(Date.now());
-          setState(msg.payload);
+          const next = msg.payload as ArenaState;
+          setState(current => current && current.updatedAt > next.updatedAt ? current : next);
         } else if (msg.type === 'COMMAND_ERROR' || msg.type === 'ERROR') {
           setCommandError(msg.error);
         }
@@ -423,33 +424,24 @@ export function GameArena({
     };
   }, [roomCode, isSilentActingRound, roundMeta?.actingToken, state?.phase]);
 
-  // Subtle background preloading of reveal & follow-up images for instant transition
+  // Preload at most one upcoming image after the main question has had time
+  // to paint; avoid competing with the active video, audio or visible image.
   useEffect(() => {
-    if (!roundMeta || typeof window === 'undefined') return;
-    const candidates = [
-      roundMeta.afterImageUrl,
-      roundMeta.answerImageUrl,
-      roundMeta.memorySecondImageUrl,
-      roundMeta.imageUrl,
-    ].filter((u): u is string => Boolean(u && u.startsWith('/') || u?.startsWith('http')));
-    const preload = () => {
-      for (const src of new Set(candidates)) {
-        const img = new Image();
-        img.decoding = 'async';
-        img.fetchPriority = 'low';
-        img.src = src;
-      }
-    };
-    // Avoid contending with the question/video's first paint.
-    const timer = window.setTimeout(preload, 350);
+    if (!roundMeta || !['QUESTION_READY', 'PLAYING'].includes(state?.phase ?? '') ||
+        roundMeta.videoUrl || roundMeta.audioUrl || roundMeta.audioUrls?.length ||
+        roundMeta.memoryStage === 'MEMORIZE') return;
+    const src = roundMeta.afterImageUrl || roundMeta.answerImageUrl;
+    if (!src || src === roundMeta.imageUrl || !(/^(\/|https?:\/\/)/.test(src))) return;
+    const timer = window.setTimeout(() => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.fetchPriority = 'low';
+      image.src = src;
+    }, 1200);
     return () => window.clearTimeout(timer);
-  }, [
-    roundMeta?.roundId,
-    roundMeta?.afterImageUrl,
-    roundMeta?.answerImageUrl,
-    roundMeta?.memorySecondImageUrl,
-    roundMeta?.imageUrl,
-  ]);
+  }, [state?.phase, roundMeta?.roundId, roundMeta?.afterImageUrl,
+      roundMeta?.answerImageUrl, roundMeta?.imageUrl, roundMeta?.videoUrl,
+      roundMeta?.audioUrl, roundMeta?.audioUrls, roundMeta?.memoryStage]);
 
   // Automatically track displayed questions in the host's account progress for non-repetition
   useEffect(() => {
@@ -492,7 +484,12 @@ export function GameArena({
         setCommandError(data.error || 'تعذر تنفيذ الأمر.');
         return false;
       }
-      if (data.state) setState(data.state);
+      if (data.state) {
+        const next = data.state as ArenaState;
+        // STATE_SYNC normally arrives first. Do not render the same response
+        // again or let an older HTTP response replace a newer live snapshot.
+        setState(current => current && current.updatedAt >= next.updatedAt ? current : next);
+      }
       return true;
     } catch {
       setCommandError('فشل الاتصال بالخادم لتنفيذ الأمر.');
@@ -861,12 +858,7 @@ export function GameArena({
                   </div>
                 )}
 
-                <motion.div
-                  layout={animateRound && "position"}
-                  layoutDependency={state.phase}
-                  transition={{ layout: { duration: 0.32, ease: "easeOut" } }}
-                  className={`question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5 transition`}
-                >
+                <div className="question-frame rounded-2xl border-[2.5px] border-[#1F112E] p-5 md:p-8 shadow-[0_5px_0_#1F112E] space-y-5">
                   {/* Card Meta Header: [Category Pill] [Difficulty Pill] on right, [Points] on left */}
                   <div className="flex flex-wrap items-center justify-between gap-2.5">
                     <div className="flex flex-wrap items-center gap-2">
@@ -1318,12 +1310,7 @@ export function GameArena({
                     const isAnswerAyah = !isEnglishRound && isAyahText(roundMeta.answer, roundMeta.categoryId);
                     const isExplanationAyah = !isEnglishRound && isAyahText(roundMeta.explanation, roundMeta.categoryId);
                     return (
-                    <motion.div
-                      initial={animateRound ? { y: 14, opacity: 0, scale: 0.97 } : false}
-                      animate={{ y: 0, opacity: 1, scale: 1 }}
-                      transition={animateRound ? { type: "spring", stiffness: 300, damping: 25, opacity: { duration: 0.18 } } : { duration: 0 }}
-                      className="answer-face space-y-2.5"
-                    >
+                    <div className="answer-face space-y-2.5">
                       <span className="text-xs md:text-sm font-display font-bold text-white/90 block">
                         {roundMeta.categoryId === GUESS_PRICE_CATEGORY.id
                           ? 'السعر الحقيقي في الأردن — الأقرب يفوز'
@@ -1416,7 +1403,7 @@ export function GameArena({
                           )}
                         </div>
                       )}
-                    </motion.div>
+                    </div>
                     );
                   })()}
 
@@ -1585,7 +1572,7 @@ export function GameArena({
 
                     </div>
                   )}
-                </motion.div>
+                </div>
 
                 {/* SEPARATE TURN ORDER BAR BELOW QUESTION CARD (matches Screenshots 2 & 4) */}
                 {state.phase !== 'REVEAL' && !roundMeta.orderPlay && (

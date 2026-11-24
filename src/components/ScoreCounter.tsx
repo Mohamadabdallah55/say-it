@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
-export function ScoreCounter({score, reduced}: {score:number; reduced:boolean}) {
+export const ScoreCounter = memo(function ScoreCounter({score, reduced}: {score:number; reduced:boolean}) {
   const shown = useRef(score);
   const previous = useRef(score);
   const [value, setValue] = useState(score);
@@ -33,4 +33,4 @@ export function ScoreCounter({score, reduced}: {score:number; reduced:boolean}) 
     <span className="sr-only" aria-live="polite">{score} نقطة</span>
     {delta!==0 && <b key={score} className="counter-change" data-loss={delta<0} dir="ltr" aria-hidden="true">{delta>0?'+':''}{delta}</b>}
   </span>;
-}
+});

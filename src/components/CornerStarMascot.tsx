@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { useEffect, useId, useRef, useState } from 'react';
+import { memo, useEffect, useId, useRef, useState } from 'react';
 import type { CommentaryMode } from '../game/types';
 
 const JORDANIAN_QUIPS = [
@@ -21,7 +21,7 @@ interface CornerStarMascotProps {
   reducedMotion?: boolean;
 }
 
-export function CornerStarMascot({
+export const CornerStarMascot = memo(function CornerStarMascot({
   commentaryText,
   commentaryId,
   commentaryMode = 'full',
@@ -137,4 +137,4 @@ export function CornerStarMascot({
       </button>
     </div>
   );
-}
+});

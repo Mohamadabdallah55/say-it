@@ -481,16 +481,23 @@ class RoomManager {
     const room = this.rooms[code];
     if (!room) return;
     const now = Date.now();
+    // Multiple screens of the same role receive identical snapshots.
+    // Serialize once per role rather than once per connected device.
+    const messages = new Map<ClientRole, string>();
     for (const client of this.clients) {
-      if (client.roomCode === code && client.ws.readyState === WebSocket.OPEN) {
+      if (client.roomCode !== code || client.ws.readyState !== WebSocket.OPEN) continue;
+      let message = messages.get(client.role);
+      if (message === undefined) {
         const payload =
           client.role === 'host'
             ? sanitizeStateForRole(room, 'host', now)
             : client.role === 'buzzer'
               ? sanitizeStateForRole(room, 'buzzer', now)
               : sanitizeStateForRole(room, 'projector', now);
-        client.ws.send(JSON.stringify({ type: 'STATE_SYNC', payload }));
+        message = JSON.stringify({ type: 'STATE_SYNC', payload });
+        messages.set(client.role, message);
       }
+      client.ws.send(message);
     }
   }
 

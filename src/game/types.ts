@@ -551,7 +551,7 @@ export interface BuzzerViewState {
   timer: TimerState;
 }
 
-export interface HostViewState extends Omit<RoomState, 'hostToken' | 'buzzerToken' | 'processedActionIds'> {
+export interface HostViewState extends Omit<RoomState, 'hostToken' | 'buzzerToken' | 'processedActionIds' | 'questionPool'> {
   role: 'host';
   hasBackupQuestionsForActiveCategory: boolean;
 }

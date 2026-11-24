@@ -1584,3 +1584,15 @@
 .power-card-select:focus-visible,.power-card-info:focus-visible {outline:2px solid #6e42a2;outline-offset:2px;}
 .arena-stage[data-phase="LIFELINE_PICK"] .round-card-picker > button > svg {width:54px;height:54px;}
 @media(max-width:380px){.power-card-settings {padding:8px;}.power-card-grid {gap:7px;}.power-card-name{font-size:.7rem;}}
+
+/* Lightweight round transitions: avoid full-frame scaling, layout measurement
+   and repaint-heavy effects on question/reveal. Preserve the existing layout. */
+.arena-stage:is([data-question-scene="true"],[data-phase="LIFELINE_PICK"]) :is(.round-scene,.award-panel,.award-teams > button,.round-card-picker > button,.round-edge-step,.round-edge-commentary) {
+  animation:none!important;
+}
+.arena-stage[data-question-scene="true"] :is(.question-frame,.question-media-figure > button,.award-panel) {
+  transition:none;
+}
+.arena-stage[data-question-scene="true"] .answer-face::after {animation:none!important;}
+.arena-stage:is([data-question-scene="true"],[data-phase="LIFELINE_PICK"]) .star-float {animation:none!important;}
+.arena-stage[data-question-scene="true"] .question-media-figure > button:hover {transform:none;}
