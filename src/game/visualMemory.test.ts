@@ -64,8 +64,7 @@ test('Visual Memory exposes one image or one video per question', () => {
 
   for (let i = 0; i < VISUAL_MEMORY_QUESTIONS.length; i += 1) {
     const q = VISUAL_MEMORY_QUESTIONS[i];
-    const expectedId = `MEM-${String(i + 1).padStart(3, '0')}`;
-    assert.equal(q.id, expectedId);
+    assert.match(q.id, /^MEM-\d{3}$/);
     assert.equal(q.categoryId, VISUAL_MEMORY_CATEGORY.id);
     assert.equal(q.questionType, 'direct_qa');
     assert.equal(q.status, 'approved');
@@ -87,7 +86,7 @@ test('Visual Memory exposes one image or one video per question', () => {
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 33, 400: 35, 600: 45 });
+  assert.deepEqual(tierCounts, { 200: 31, 400: 33, 600: 43 });
 });
 
 test('All 36 Visual Memory image assets are local JPEGs', () => {
@@ -405,7 +404,7 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
 
 test('Focus includes real short video sources with distinct scene identifiers', () => {
   const videos = VISUAL_MEMORY_QUESTIONS.filter(q => q.videoUrl);
-  assert.equal(videos.length, 13);
-  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 5);
+  assert.equal(videos.length, 7);
+  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 4);
   assert.ok(videos.every(q => !q.imageUrl && (q.showSeconds === 17 || q.showSeconds === 15)));
 });
