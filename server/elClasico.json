@@ -232,7 +232,10 @@
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://2.bp.blogspot.com/-3QbGU4XsjB4/T8PSz-9V7II/AAAAAAAAAhE/qWGBEj_gsc8/s1600/celebracion%2B3.jpg",
+    "imageSourceUrl": "https://melomanacinefilayfutbolera.blogspot.com/2012/05/el-real-madrid-de-los-100-puntos.html",
+    "imageCaption": "احتفال ريال مدريد بلقب الدوري في موسم المئة نقطة 2011–12"
   },
   {
     "id": "ELC-V2-020",
@@ -289,7 +292,10 @@
       "prompt": "في أي موسم من الدوري الإسباني تألق رونالدينيو ونال تصفيق البرنابيو بعد فوز برشلونة 3-0؟",
       "explanation": "المواجهة في نوفمبر 2005.",
       "source": "https://www.fcbarcelona.com/en/news/1899174/15-years-to-the-day-since-a-famous-clasico"
-    }
+    },
+    "imageUrl": "https://www.sofoot.com/convert/aHR0cHM6Ly9zb2Zvb3QuczMuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb20vbGVnYWN5L0lNRy9zb2Zvb3RfYXJ0aWNsZXMvbG9nb18xMTg0MzAucG5n/image/triple-pour-seydou-keita.jpg",
+    "imageSourceUrl": "https://www.sofoot.com/breves/triple-pour-seydou-keita",
+    "imageCaption": "سيدو كيتا بقميص برشلونة — صورة أرشيفية"
   },
   {
     "id": "ELC-V4-CLIP-07",
@@ -310,7 +316,10 @@
     "videoSpoilerReview": "Changed the question from the season, which is in the video title, to the stadium, which is not visible in the supplied title.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://www.stadium-maps.com/images/stadium-full/barcelona-nou-camp.jpg",
+    "imageSourceUrl": "https://www.stadium-maps.com/photos.html",
+    "imageCaption": "ملعب كامب نو — صورة للملعب، وليست من المباراة المذكورة"
   },
   {
     "id": "ELC-025",
@@ -346,7 +355,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (فصل 03:56 Owen، مدة 385ث) تم التحقق من التضمين بدون حظر.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://dve-images.imggaming.com/original/p/2023/08/29/FLEc3KUeoRUb0RWlnl0DrNldZgXwyPSb-1693305831928.jpg",
+    "imageSourceUrl": "https://play.realmadrid.com/interstitial/500248",
+    "imageCaption": "احتفال لاعبي ريال مدريد في مباراة الفوز 4–2 يوم 10 أبريل 2005 — أرشيف ريال مدريد"
   },
   {
     "id": "ELC-027",
@@ -665,7 +677,10 @@
     "editorialReview": "Harder match-context question; existing clip retained pending replacement review.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://img2.rtve.es/i/?crop=yes&i=1241289556374.jpg&w=800",
+    "imageSourceUrl": "https://www.rtve.es/fotogalerias/el-clasico-en-imagenes/28992/asi-madrid-comenzado-marcando-gol-del-argentino-higuain-pase-sergio-ramos/4/",
+    "imageCaption": "هيغواين يحتفل بالهدف الأول في كلاسيكو 2 مايو 2009"
   },
   {
     "id": "ELC-045",
@@ -773,7 +788,10 @@
     "question": "في أي موسم سجل ميسي هاتريك في فوز برشلونة 4-3 على ريال مدريد بالبرنابيو؟",
     "answer": "2013/2014",
     "explanation": "مارس 2014.",
-    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/",
+    "imageUrl": "https://www.neymarjr.net/wp-content/uploads/2014/03/lionel-messi-hat-trick-at-the-santiago-bernabeu-in-real-madrid-3-4-barcelona.jpg",
+    "imageSourceUrl": "https://www.neymarjr.net/2014/03/23/real-madrid-3-4-barcelona-messis-hat-trick-sinks-madrid/lionel-messi-hat-trick-at-the-santiago-bernabeu-in-real-madrid-3-4-barcelona/",
+    "imageCaption": "احتفال ميسي بالهاتريك في مباراة 4–3، مارس 2014"
   },
   {
     "id": "ELC-V2-052",
@@ -797,7 +815,10 @@
       "prompt": "ما النتيجة الإجمالية لمجموع مباراتي الذهاب والإياب في فوز ريال مدريد بكأس السوبر الإسباني 2017 على برشلونة؟",
       "explanation": "فاز ريال مدريد 3-1 ذهابًا في كامب نو و2-0 إيابًا في البرنابيو ليتوّج بالسوبر الإسباني 2017 بمجموع 5-1.",
       "source": "https://www.realmadrid.com/en-US/news"
-    }
+    },
+    "imageUrl": "https://assets.goal.com/images/v3/bltefcddc3602918a65/f99afd72eebe3001dc5448f88a8b0e6a321945c4.jpg?auto=webp&format=pjpg&quality=60&width=3840",
+    "imageSourceUrl": "https://www.goal.com/en-om/news/theo-leaves-real-madrid-to-make-sociedad-loan-switch/bpctrr60hfe51nz8fiyetxbv0",
+    "imageCaption": "ثيو هيرنانديز بقميص ريال مدريد"
   },
   {
     "id": "ELC-V2-053",
@@ -827,7 +848,10 @@
     "question": "في أي ملعب انتهت مباراة برشلونة وريال مدريد 5-5 سنة 1943؟",
     "answer": "ليس كورتس",
     "explanation": "أقيمت المباراة في ملعب برشلونة القديم.",
-    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2019/03/13/1697c102-91bc-4e21-a5be-19d1b812012b/llduqVTF.jpg?height=750&width=1200",
+    "imageSourceUrl": "https://www.fcbarcelona.fr/fr/actualites/2096388/eighteenth-different-clasico-venue",
+    "imageCaption": "ملعب ليس كورتس — صورة أرشيفية من موقع برشلونة"
   },
   {
     "id": "ELC-056",
@@ -970,7 +994,10 @@
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://www.stadium-maps.com/images/stadium-full/barcelona-nou-camp.jpg",
+    "imageSourceUrl": "https://www.stadium-maps.com/photos.html",
+    "imageCaption": "ملعب كامب نو — صورة للملعب، وليست من المباراة المذكورة"
   },
   {
     "id": "ELC-V4-CLIP-17",
@@ -995,7 +1022,10 @@
       "prompt": "من الظهير الأيسر البرازيلي الشهير لريال مدريد الذي عُرف بتسديداته الصاروخية من الركلات الحرة في الكلاسيكو؟",
       "explanation": "ركلة حرة مباشرة سجلها الظهير الأيسر البرازيلي روبيرتو كارلوس في مرمى برشلونة.",
       "source": "https://www.youtube.com/watch?v=TgFj4lxtvNg&t=3s"
-    }
+    },
+    "imageUrl": "https://i.pinimg.com/564x/23/26/19/2326199463970ccf4919ca5662606697.jpg",
+    "imageSourceUrl": "https://au.pinterest.com/pin/463518986653933863/",
+    "imageCaption": "كاسيميرو بقميص ريال مدريد موسم 2016–17 — صورة للاعب وليست من نهائي 2014"
   },
   {
     "id": "ELC-V2-064",
@@ -1076,7 +1106,10 @@
     "question": "في أي موسم سجل إيفان زامورانو ثلاثية في خماسية ريال مدريد أمام برشلونة؟",
     "answer": "1994/1995",
     "explanation": "يناير 1995.",
-    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/"
+    "fact_source_url": "https://en.as.com/soccer/which-players-have-scored-a-hat-trick-in-el-clasico-messi-suarez-benzema-n/",
+    "imageUrl": "https://img.championat.com/i/92/99/15829592991856328726.jpg",
+    "imageSourceUrl": "https://www.championat.com/football/article-3983821-25-let-nazad-real-razgromil-barselonu-v-klasiko---50-kak-eto-bylo.html",
+    "imageCaption": "لقطة من خماسية ريال مدريد في 7 يناير 1995 — ليست لقطة صافرة النهاية"
   },
   {
     "id": "ELC-V4-CLIP-18",
@@ -1133,7 +1166,10 @@
       "prompt": "ما اسم الملعب في مدينة إشبيلية الذي استضاف نهائي كأس ملك إسبانيا 2025 بين برشلونة وريال مدريد؟",
       "explanation": "استضاف ملعب لا كارتوخا في إشبيلية نهائي كأس ملك إسبانيا 2025 الذي فاز به برشلونة 3-2 بعد وقت إضافي.",
       "source": "https://rfef.es/en/noticias"
-    }
+    },
+    "imageUrl": "https://imagenes.eldebate.com/uploads/2025/04/27/680e1581447f9.jpeg",
+    "imageSourceUrl": "https://www.eldebate.com/deportes/futbol/20250427/reaccion-real-madrid-tv-mientras-burgos-bengoetxea-anulaba-penalti-puede-primera-medida_291727.html",
+    "imageCaption": "الحكم ريكاردو دي بورغوس بينغويتشيا في نهائي كأس الملك 2025"
   },
   {
     "id": "ELC-V3-VIDEO-01",
@@ -1307,7 +1343,10 @@
     "videoRightsNote": "قناة ريال مدريد الرسمية (مدة 180ث) تم التحقق من إتاحة التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/y33btGJdVWIocpm21ckFdg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ0MjtjZj13ZWJw/https%3A/media.zenfs.com/en/wealth_of_geeks_188/b7e7e4f532e9be59ac8490669f96e4e5",
+    "imageSourceUrl": "https://uk.sports.yahoo.com/news/final-whistle-hurts-kepa-arrizabalaga-165024760.html",
+    "imageCaption": "كيبا أريزابالاغا بقميص ريال مدريد"
   },
   {
     "id": "ELC-V3-VIDEO-09",
@@ -1355,7 +1394,10 @@
       "prompt": "في خماسية برشلونة أمام ريال مدريد بقيادة كرويف في يناير 1994، سجّل روماريو هدف التقدم قبل الاستراحة. كم هدفًا سجّل برشلونة في الشوط الثاني؟",
       "explanation": "8 يناير 1994: انتهى الشوط الأول 1-0 ثم سجل برشلونة أربعة أهداف أخرى ليفوز 5-0.",
       "source": "https://www.youtube.com/watch?v=S0bgxnX97Vk&t=0s"
-    }
+    },
+    "imageUrl": "https://estaticos-cdn.prensaiberica.es/clip/bae51dd4-7488-4a05-8832-fe88ddee6a88_alta-libre-aspect-ratio_default_0.jpg",
+    "imageSourceUrl": "https://www.sport.es/es/noticias/clasico/heroes-inesperados-clasico-fc-barcelona-barca-real-madrid-giovanni-anelka-iglesias-85020523",
+    "imageCaption": "إيفان إغليسياس — أرشيف أبطال الكلاسيكو"
   },
   {
     "id": "ELC-V3-VIDEO-11",
@@ -1405,7 +1447,10 @@
       "prompt": "في كلاسيكو أبريل 2016 الذي طُرد فيه راموس، من لاعب ريال مدريد الذي سجل هدف التعادل قبل الطرد؟",
       "explanation": "بنزيما سجل التعادل قبل طرد راموس ثم هدف فوز رونالدو.",
       "source": "https://www.worldfootball.net/match-report/co97/spain-primera-division/ma2440641/fc-barcelona_real-madrid/live-commentary/"
-    }
+    },
+    "imageUrl": "https://img.goodfon.com/original/2681x1662/0/2c/real-madrid-jose-callejon.jpg",
+    "imageSourceUrl": "https://www.goodfon.com/sports/wallpaper-real-madrid-jose-callejon.html",
+    "imageCaption": "خوسيه كاييخون بقميص ريال مدريد"
   },
   {
     "id": "ELC-V3-VIDEO-13",
@@ -1535,7 +1580,10 @@
     "editorialReview": "Replace overfamiliar clip with distinct archival moment; official published chapter.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_74%2Cw_2932%2Ch_1954/c_fill%2Cw_720%2Car_3%3A2%2Cf_auto%2Cq_auto%2Cg_auto/images/GettyImages/mmsport/90min_en_international_web/01h4bff8m38a04n7tdkh.jpg",
+    "imageSourceUrl": "https://www.90min.com/posts/cesc-fabregas-best-barcelona-moments-ranked",
+    "imageCaption": "سيسك فابريغاس بقميص برشلونة"
   },
   {
     "id": "ELC-V3-HIST-05",
@@ -1543,7 +1591,10 @@
     "question": "ما اسم الملعب القديم لبرشلونة الذي استضاف أول كلاسيكو بالدوري في 1929؟",
     "answer": "ليس كورتس",
     "explanation": "أقيمت المباراة الأولى بالدوري في ملعب ليس كورتس.",
-    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments"
+    "fact_source_url": "https://arabic.cnn.com/sport/article/2025/10/24/elclascico-real-madrid-barcelona-historical-moments",
+    "imageUrl": "https://www.fcbarcelona.com/photo-resources/2019/03/13/1697c102-91bc-4e21-a5be-19d1b812012b/llduqVTF.jpg?height=750&width=1200",
+    "imageSourceUrl": "https://www.fcbarcelona.fr/fr/actualites/2096388/eighteenth-different-clasico-venue",
+    "imageCaption": "ملعب ليس كورتس — صورة أرشيفية من موقع برشلونة"
   },
   {
     "id": "ELC-V4-CLIP-11",
@@ -1562,7 +1613,10 @@
     "videoRightsNote": "مقطع هدف بتعليق عربي (فهد العتيبي، مدة 84ث) عبر يوتيوب تم التحقق من التضمين بدون حظر.",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
-    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."
+    "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
+    "imageUrl": "https://abilevents.files.wordpress.com/2014/03/real-madrid.jpg",
+    "imageSourceUrl": "https://bravotopdmc.wordpress.com/2014/03/11/santiago-bernabeu-y-camp-nou/",
+    "imageCaption": "ملعب سانتياغو برنابيو قبل التجديد — صورة للملعب"
   },
   {
     "id": "ELC-V3-HIST-07",
@@ -1570,7 +1624,10 @@
     "question": "في أي عام كان الكلاسيكو أول مباراة كرة قدم تبث على التلفزيون الإسباني؟",
     "answer": "1959",
     "explanation": "15 فبراير 1959.",
-    "fact_source_url": "https://www.laliga.com/en-US/news/the-history-of-elclasico-decade-by-decade"
+    "fact_source_url": "https://www.laliga.com/en-US/news/the-history-of-elclasico-decade-by-decade",
+    "imageUrl": "https://fotografias-2.larazon.es/clipping/cmsimages02/2020/10/23/93E4BF04-1499-4ACF-8E24-36405E686682/69.jpg?crop=1200%2C675%2Cx0%2Cy17&format=jpg&height=720&optimize=low&width=1280",
+    "imageSourceUrl": "https://www.larazon.es/deportes/20201023/wqlo3zeorzhs7nv7q6dy6ju3o4.html",
+    "imageCaption": "كاميرا البث التلفزيوني الأول للكلاسيكو في 1959"
   },
   {
     "id": "ELC-V4-CLIP-12",
@@ -1608,7 +1665,10 @@
     "question": "في أي عام انتقل مايكل لاودروب من برشلونة إلى ريال مدريد؟",
     "answer": "1994",
     "explanation": "انتقل بين الناديين في عام 1994.",
-    "fact_source_url": "https://www.laliga.com/en-ES/partidazos/el-clasico"
+    "fact_source_url": "https://www.laliga.com/en-ES/partidazos/el-clasico",
+    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/michael-laudrup/assets/1330192172103.jpg",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/michael-laudrup",
+    "imageCaption": "مايكل لاودروب بقميص ريال مدريد — أرشيف النادي"
   },
   {
     "id": "ELC-V3-HIST-11",
@@ -1616,7 +1676,10 @@
     "question": "في أي ملعب لعب نهائي كأس الملك عام 2014 الذي شهد انطلاقة بيل الشهيرة؟",
     "answer": "ميستايا",
     "explanation": "المباراة أقيمت في فالنسيا.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025"
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
+    "imageUrl": "https://piks.eldesmarque.com/bin/valencia/stories/201415/Valencia_CF/Estadio_instalaciones/principal3.jpg",
+    "imageSourceUrl": "https://www.eldesmarque.com/futbol/valencia-cf/20141127/paseo-fotografico-alrededor-de-mestalla_170000464.html",
+    "imageCaption": "ملعب ميستايا — صورة من 2014"
   },
   {
     "id": "ELC-V3-HIST-12",
@@ -1634,7 +1697,10 @@
     "videoRightsNote": "YouTube embed verified via IFrame Player API in headless Chromium (Arabic commentary, 17s window).",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://cdn-img.staticzz.com/img/planteis/new/40/26/4464026_arthur_melo_20250202195139.png",
+    "imageSourceUrl": "https://www.ogol.com.br/jogador/arthur-melo/434526?epoca_id=148",
+    "imageCaption": "آرثر ميلو بقميص برشلونة موسم 2018–19"
   },
   {
     "id": "ELC-V3-HIST-13",
@@ -1642,7 +1708,10 @@
     "question": "ما رقم لقب كأس الملك الذي ناله ريال مدريد عندما حسم بيل النهائي عام 2014؟",
     "answer": "19",
     "explanation": "كان الكأس التاسع عشر في تاريخ النادي.",
-    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025"
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
+    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/IJO2uDlVbqGKR9tqu6okZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0OTtjZj13ZWJw/https%3A/media.zenfs.com/en_us/News/ap_webfeeds/06d8c695f2168e0e510f6a7067001346.jpg",
+    "imageSourceUrl": "https://uk.news.yahoo.com/copa-del-rey-final-real-madrid-beat-barcelona-in-pictures-slideshow.html",
+    "imageCaption": "تتويج ريال مدريد بكأس الملك في ميستايا يوم 16 أبريل 2014"
   },
   {
     "id": "ELC-V3-HIST-14",
@@ -1703,7 +1772,10 @@
       "prompt": "كم هاتريك رسميًا سجّل ليونيل ميسي في مواجهات الكلاسيكو خلال مسيرته مع برشلونة؟",
       "explanation": "سجّل ليونيل ميسي هاتريك مرتين في الكلاسيكو: أولهما في التعادل 3-3 عام 2007 والثاني في الفوز 4-3 عام 2014.",
       "source": "https://www.fcbarcelona.com/en/news"
-    }
+    },
+    "imageUrl": "https://legacymedia.sportsplatform.io/img/images/photos/003/507/053/hi-res-308aca6b9fd4e8001af77f545a5f92b4_crop_north.jpg?1440575314=&h=2000&w=3800",
+    "imageSourceUrl": "https://bleacherreport.com/articles/2555406-real-madrid-transfer-news-asier-illarramendi-set-to-snub-liverpool-for-sociedad",
+    "imageCaption": "آسيير إيارامندي بقميص ريال مدريد"
   },
   {
     "id": "ELC-V4-CLIP-19",
@@ -1722,7 +1794,10 @@
     "videoRightsNote": "أرشيف @Replay الرسمي (فصل 02:34 Andrés Iniesta 2013/14، مدة 292ث) تم التحقق من التضمين بدون حظر.",
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer.",
-    "videoContentReviewed": false
+    "videoContentReviewed": false,
+    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/angel-di-maria/assets/1330783779915.jpg",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria",
+    "imageCaption": "أنخيل دي ماريا بقميص ريال مدريد"
   },
   {
     "id": "ELC-V4-CLIP-20",
