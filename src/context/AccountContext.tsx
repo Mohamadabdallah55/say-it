@@ -364,8 +364,21 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   // Auth listener + user profile bootstrap + controller verification
   useEffect(() => {
+    let active = true;
+    let generation = 0;
     const unsub = onAuthStateChanged(auth, async (nextUser) => {
+      const current = ++generation;
+      const isCurrent = () => active && generation === current && auth.currentUser?.uid === nextUser?.uid;
       setUser(nextUser);
+      setIsAdmin(false);
+      setIsBootstrapAdmin(false);
+      setControllerRole(null);
+      setAdminSyncWarning(null);
+      setControllerInvites([]);
+      setProgressByCategory({});
+      setProfileTotalPlayed(0);
+      // Authentication is ready independently of Firestore network availability.
+      setAuthReady(true);
       if (!nextUser) {
         setIsAdmin(false);
         setIsBootstrapAdmin(false);
@@ -397,11 +410,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             createdAt: serverTimestamp(),
             updatedAt: serverTimestamp(),
           });
-          setProfileTotalPlayed(0);
+          if (isCurrent()) setProfileTotalPlayed(0);
         } else {
           const data = snap.data();
           const currentTotal =
             typeof data.totalPlayedQuestions === 'number' ? data.totalPlayedQuestions : 0;
+          if (!isCurrent()) return;
           setProfileTotalPlayed(currentTotal);
           await updateDoc(userRef, {
             displayName,
@@ -415,15 +429,36 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         console.error('[AccountContext] User profile sync warning:', err);
       }
 
-      const authRes = await syncControllerAuthorization(nextUser);
-      setIsAdmin(authRes.adminGranted);
-      setIsBootstrapAdmin(authRes.isBootstrap);
-      setControllerRole(authRes.role);
-      setAdminSyncWarning(authRes.warning);
+      if (!isCurrent()) return;
+      try {
+        const authRes = await syncControllerAuthorization(nextUser);
+        if (!isCurrent()) return;
+        setIsAdmin(authRes.adminGranted);
+        setIsBootstrapAdmin(authRes.isBootstrap);
+        setControllerRole(authRes.role);
+        setAdminSyncWarning(authRes.warning);
+      } catch (err) {
+        if (isCurrent()) {
+          console.warn('[AccountContext] Controller sync failed:', err);
+          setAdminSyncWarning('تعذر مزامنة صلاحيات الحساب مع Firestore. حاول مجددًا.');
+        }
+      }
+    }, (err) => {
+      if (!active) return;
       setAuthReady(true);
+      setAuthError(formatFirebaseAuthError(err, window.location.hostname));
     });
 
-    return () => unsub();
+    // A stalled initial auth check should not hide the login button forever.
+    const readyTimeout = window.setTimeout(() => {
+      if (active) setAuthReady(true);
+    }, 5000);
+    return () => {
+      active = false;
+      ++generation;
+      window.clearTimeout(readyTimeout);
+      unsub();
+    };
   }, [syncControllerAuthorization]);
 
   // Real-time listener on own /admins/{uid} & matching invite so controller activation/deactivation updates live
@@ -432,10 +467,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const email = normalizeControllerEmail(user.email || '');
     if (!email) return;
 
+    let active = true;
+    const stillCurrent = () => active && auth.currentUser?.uid === user.uid;
     const unsubAdminDoc = onSnapshot(
       doc(db, 'admins', user.uid),
       () => {
         void syncControllerAuthorization(user).then((res) => {
+          if (!stillCurrent()) return;
           setIsAdmin(res.adminGranted);
           setIsBootstrapAdmin(res.isBootstrap);
           setControllerRole(res.role);
@@ -453,6 +491,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         query(collection(db, 'adminInvites'), where('email', '==', email)),
         () => {
           void syncControllerAuthorization(user).then((res) => {
+            if (!stillCurrent()) return;
             setIsAdmin(res.adminGranted);
             setIsBootstrapAdmin(res.isBootstrap);
             setControllerRole(res.role);
@@ -466,6 +505,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     }
 
     return () => {
+      active = false;
       unsubAdminDoc();
       if (unsubOwnInvite) unsubOwnInvite();
     };
@@ -685,7 +725,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   const signOutUser = useCallback(async () => {
     setAuthError(null);
-    await signOut(auth);
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error('[AccountContext] Sign-out failed:', err);
+      setAuthError('تعذر تسجيل الخروج. حاول مرة أخرى.');
+    }
   }, []);
 
   const clearAuthError = useCallback(() => setAuthError(null), []);
@@ -694,6 +739,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const activeUser = auth.currentUser || user;
     if (!activeUser) return false;
     const res = await syncControllerAuthorization(activeUser);
+    if (auth.currentUser?.uid !== activeUser.uid) return false;
     setIsAdmin(res.adminGranted);
     setIsBootstrapAdmin(res.isBootstrap);
     setControllerRole(res.role);
