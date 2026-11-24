@@ -1481,7 +1481,7 @@ export function LobbySetup({
                                 playedQuestionIds: playedIdsByCategory[cat.id] ?? [],
                               })
                             : getCategoryStats(cat.id);
-                          const artSrc = cat.isCustom && cat.coverImageUrl ? cat.coverImageUrl : getCategoryCardArt(cat.id, cat.iconKey);
+                          const artSrc = cat.coverImageUrl || getCategoryCardArt(cat.id, cat.iconKey);
                           const exhausted = stats.totalCount > 0 && stats.remainingCount === 0;
 
                           return (
