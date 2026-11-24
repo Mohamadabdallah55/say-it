@@ -1,2 +1,2 @@
-# Category gallery
-Original SVG motifs created for Yemken Hay; no third-party game card artwork or screenshots copied. 59 category-specific illustrations and 18 fallback icons. Existing category IDs, question banks, progress and selection logic are unchanged. Built-in and recovered categories use the new art; custom covers are preserved. The remaining-question badge uses the existing progress calculation rather than fabricated game counts.
+# Category illustrations v2
+59 dedicated original illustrations, 18 fallback illustrations. Original hand-authored vector scenes with football figures, books, trophies, landmarks and props; no artwork extracted from other quiz sites. Category IDs, custom covers, game logic and question banks unchanged. Warm title strip, remaining-question badge, accessible info button and responsive grid. Deployment and visual browser checks remain to be performed.

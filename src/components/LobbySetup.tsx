@@ -1482,25 +1482,20 @@ export function LobbySetup({
                               })
                             : getCategoryStats(cat.id);
                           const artSrc = cat.isCustom && cat.coverImageUrl ? cat.coverImageUrl : getCategoryCardArt(cat.id, cat.iconKey);
-                          const pctToneClass =
-                            stats.percent >= 100
-                              ? 'from-[#FB7185] to-[#E11D48] text-white'
-                              : stats.percent >= 80
-                                ? 'from-[#FCD34D] to-[#D97706] text-[#1F112E]'
-                                : 'from-[#9FD7B3] to-[#6DA884] text-white';
+                          const exhausted = stats.totalCount > 0 && stats.remainingCount === 0;
 
                           return (
                             <div
                               key={cat.id}
                               className={`group lobby-flat-card relative rounded-2xl border-2 transition-all select-none ${
                                 isSelected
-                                  ? 'border-[#63349B] ring-4 ring-[#63349B]/25 shadow-[0_4px_0_#63349B]'
-                                  : 'border-[#302044]/20 hover:border-[#63349B] hover:-translate-y-0.5 shadow-sm'
+                                  ? 'border-[#63349B] ring-[3px] ring-[#63349B]/30 shadow-[0_4px_0_#63349B]'
+                                  : 'border-transparent hover:border-[#d48441] hover:-translate-y-1 shadow-sm'
                               }`}
-                              style={{ backgroundColor: '#e5f0fc' }}
+                              style={{ backgroundColor: '#c9e2f0' }}
                             >
-                              {/* Top Overlay Controls: (i) + Tactile 3D VIP & Percentage Badges */}
-                              <div className="absolute top-2 inset-x-2 z-20 flex items-center justify-between gap-2 pointer-events-none">
+                              {/* Category information and remaining question counter */}
+                              <div className="lobby-flat-controls absolute z-20 flex items-start justify-between gap-1 pointer-events-none">
                                 <div className="flex items-center gap-1.5 pointer-events-auto">
                                   <button
                                     type="button"
@@ -1510,7 +1505,7 @@ export function LobbySetup({
                                       )
                                     }
                                     aria-label={`تفاصيل ${cat.name}`}
-                                    className="w-8 h-8 rounded-full bg-[#286eac] border-2 border-white text-white flex items-center justify-center cursor-pointer shadow-sm"
+                                    className="lobby-flat-info rounded-full bg-[#2879b8] border-2 border-white text-white flex items-center justify-center cursor-pointer shadow-sm"
                                   >
                                     <Info className="w-4 h-4" />
                                   </button>
@@ -1535,9 +1530,9 @@ export function LobbySetup({
                                         ? `اكتملت الفئة (${stats.playedCount}/${stats.totalCount}) — ستُصفَّر تلقائيًا لبدء دورة جديدة`
                                         : `تم استهلاك ${stats.playedCount} من ${stats.totalCount} سؤال`
                                     }
-                                    className={`inline-flex items-center justify-center h-7 px-2 rounded-lg bg-gradient-to-b ${pctToneClass} border border-white/80 shadow-sm font-display font-black text-[10px] tabular-nums`}
+                                    className={`lobby-flat-count ${exhausted ? 'lobby-flat-count-exhausted' : ''}`} dir="rtl"
                                   >
-                                    {stats.percent}%
+                                    {stats.totalCount > 0 ? `باقي ${stats.remainingCount} سؤال` : 'فئة جديدة'}
                                   </span>
                                 </div>
                               </div>
@@ -1550,7 +1545,7 @@ export function LobbySetup({
                                 className="w-full text-right block cursor-pointer relative"
                               >
                                 <CategoryCardImage key={artSrc} src={artSrc} alt={cat.name} flat />
-                                <div className="lobby-flat-title bg-[#63349B] text-white text-center font-display font-black">
+                                <div className="lobby-flat-title text-white text-center font-display font-black">
                                   {cat.name}
                                 </div>
                               </button>
