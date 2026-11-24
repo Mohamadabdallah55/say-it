@@ -47,7 +47,7 @@ export function SpecialCards({
   );
 
   return (
-    <section className="round-scene mx-auto w-full max-w-[760px] space-y-4 py-2 text-center">
+    <section className="round-scene lifeline-stage mx-auto w-full max-w-[760px] space-y-4 py-2 text-center">
       {categoryName && (
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-xl border-[2.5px] border-[#1F112E] bg-[#FAF7EE] px-4 py-1.5 font-display font-black text-sm md:text-base text-[#1F112E] shadow-[0_3px_0_#1F112E]">

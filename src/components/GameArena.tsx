@@ -1494,7 +1494,7 @@ export function GameArena({
                   )}
 
                   {isHost && state.phase !== 'REVEAL' && !isMemorizeStage && (
-                    <div className="flex flex-col items-center gap-3 pt-1">
+                    <div className="round-question-actions flex flex-col items-center gap-3 pt-1">
                       {/* In-Question Cards: شنّص (swap_question) & ألو (hint) */}
                       {state.settings.lifelinesEnabled &&
                         currentTeam &&
@@ -1589,7 +1589,7 @@ export function GameArena({
 
                 {/* SEPARATE TURN ORDER BAR BELOW QUESTION CARD (matches Screenshots 2 & 4) */}
                 {state.phase !== 'REVEAL' && !roundMeta.orderPlay && (
-                  <div className="rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FAF7EE] px-5 py-3 shadow-[0_4px_0_#1F112E] flex flex-wrap items-center justify-center gap-2.5 font-display font-black text-sm md:text-base text-[#1F112E]">
+                  <div className="round-turn-order rounded-2xl border-[2.5px] border-[#1F112E] bg-[#FAF7EE] px-5 py-3 shadow-[0_4px_0_#1F112E] flex flex-wrap items-center justify-center gap-2.5 font-display font-black text-sm md:text-base text-[#1F112E]">
                     <span className="text-[#1F112E]/75 font-bold">ترتيب الإجابة:</span>
                     {answerTeams.map((team, i) => {
                       return (

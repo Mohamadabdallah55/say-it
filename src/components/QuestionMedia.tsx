@@ -248,7 +248,7 @@ export function QuestionMedia({
               alt={altText}
               className={imgClasses}
             />
-            <span className="inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-3 py-1 text-xs font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
+            <span className="question-media-zoom inline-flex items-center gap-1.5 rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-3 py-1 text-xs font-black text-[#1F112E] shadow-[0_2px_0_#1F112E] opacity-95 group-hover:opacity-100">
               <ZoomIn className="w-3.5 h-3.5" />
               <span>اضغط للتكبير</span>
             </span>
