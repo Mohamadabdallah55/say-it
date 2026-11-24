@@ -1529,8 +1529,8 @@
   .arena-stage[data-question-scene="true"] .award-panel {padding:12px 16px;}
   .arena-stage[data-question-scene="true"] .award-panel h3 {font-size:1.1rem;}
   .arena-stage[data-question-scene="true"] .award-teams {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(min(100%,155px),1fr));
+    display:flex;
+    flex-direction:column;
     gap:8px;
   }
   .arena-stage[data-question-scene="true"] .award-teams > div {grid-column:1/-1;}
