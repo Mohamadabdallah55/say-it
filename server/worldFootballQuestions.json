@@ -19,7 +19,10 @@
     "subcategory": "كأس العالم",
     "explanation": "انطلق من منتصف الملعب وسجل هدف الفوز.",
     "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/S2UGJMZGRZG3LMB4PSJWMCTXLU.jpg",
+    "imageSourceUrl": "https://www.thenationalnews.com/fifa-world-cup-2022/2022/11/16/the-best-world-cup-goals-of-all-time-part-i-van-persie-careca-rodriguez/",
+    "imageCaption": "لقطة من مباراة السعودية وبلجيكا في مونديال 1994"
   },
   {
     "id": "WF-003",
@@ -278,7 +281,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل أوريغي الهدف الثاني بتسديدة منخفضة.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://editorial.uefa.com/resources/025b-0f05affdaf3a-33d492360749-1000/format/wide1/divock_origi_liverpool_.jpeg?imwidth=988",
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/",
+    "imageCaption": "نهائي ليفربول وتوتنهام 2019"
   },
   {
     "id": "WF-026",
@@ -498,7 +504,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "استغل تمريرة كاريوس الخاطئة ليسجل.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://images.welt.de/67e35d5c4043cc0cc565ef3b/99ca6f0f6ddfb30c47154b8377cf925d/ci102l-w1200/ukraine-soccer-champions-league-final",
+    "imageSourceUrl": "https://www.welt.de/sport/fussball/champions-league/article176706966/Champions-League-FC-Liverpool-Die-folgenschweren-Patzer-des-Loris-Karius.html",
+    "imageCaption": "نهائي ريال مدريد وليفربول 2018"
   },
   {
     "id": "WF-046",
@@ -597,7 +606,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل هدف التعادل والتأهل في الدقائق الأخيرة.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://s2-ge.glbimg.com/Nw2q2j3ghqDuOLEyLuRSJ5lhjbA%3D/0x0%3A1024x682/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/r/6/xBiAozSfiEJQlWzUlkhA/000-34r92qt.jpg",
+    "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/liga-dos-campeoes/noticia/2024/05/08/quem-e-joselu-heroi-da-classificacao-do-real-madrid-sobre-o-bayern-na-champions.ghtml",
+    "imageCaption": "إياب نصف النهائي بين ريال مدريد وبايرن 2024"
   },
   {
     "id": "WF-055",
@@ -629,8 +641,11 @@
     "answer_english": "Rodri",
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجّل رودري الهدف الوحيد في إسطنبول.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "source_url": "https://www.mancity.com/matchday/fixtures/mens/2022/man-city-v-inter-ucl-final-10-june-2023",
+    "photo": null,
+    "imageUrl": "https://www.mancity.com/meta/media/qqblxfdc/hlts-wide_ucl-final.jpg",
+    "imageSourceUrl": "https://www.mancity.com/citytv/mens/short-highlights-manchester-city-inter-63822029",
+    "imageCaption": "صورة من التغطية الرسمية لنهائي دوري الأبطال 2023"
   },
   {
     "id": "WF-058",
@@ -696,7 +711,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "حسم روبن النهائي بهدف متأخر في ويمبلي.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://img.bundesliga.com/tachyon/sites/2/2019/11/imago13745199h.jpg?resize=960,768",
+    "imageSourceUrl": "https://www.bundesliga.com/en/bundesliga/news/klassiker-2013-champions-league-final-bayern-munich-borussia-dortmund-wembley-7875",
+    "imageCaption": "نهائي بايرن ودورتموند 2013"
   },
   {
     "id": "WF-064",
@@ -883,7 +901,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل ثنائية في الفوز التاريخي 4-0.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82dda57-672859abc63f-1000--1993-94-massaro-leads-milan-rout/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://prd-images2-gazzanet.gazzettaobjects.it/7rfoMGjv3DVqINMuiAQyXSJyFgE%3D/712x402/smart/www.pianetamilan.it/assets/uploads/201412/19/08/massaro.jpg",
+    "imageSourceUrl": "https://www.pianetamilan.it/news-milan/interviste/atene-1994-massaro-cruijff-e-il-barca-arroganti-avevamo-rabbia-agonistica/",
+    "imageCaption": "لقطة من نهائي ميلان وبرشلونة 1994"
   },
   {
     "id": "WF-081",
@@ -1026,7 +1047,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجّل هدف النهائي الوحيد في سان دوني.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://s1.staticld.com/2022/05/28/vinicius-galeria.jpg",
+    "imageSourceUrl": "https://www.libertaddigital.com/deportes/champions/2022-05-28/final-champions-league-real-madrid-liverpool-trece-champions-trece-fotos-1936363/",
+    "imageCaption": "نهائي ريال مدريد وليفربول 2022"
   },
   {
     "id": "WF-094",
