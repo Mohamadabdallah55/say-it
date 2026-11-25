@@ -76,7 +76,7 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
     "imageUrl": "https://s2.ppllstatics.com/lagacetadesalamanca/www/multimedia/2025/05/31/psg-U20495425324MrF-U20923592659L1C-1200x840%40Gaceta%20Salamanca.jpg",
     "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html",
-    "imageCaption": "صورة من المباراة موضوع السؤال"
+    "imageCaption": "صورة من تغطية نهائي باريس سان جيرمان وإنتر 2025؛ ليست صورة مقربة لهدفي دويه."
   },
   {
     "id": "UCL-008",
@@ -405,10 +405,7 @@
     "answer": "فلاديمير سميتشر",
     "explanation": "دخل في الشوط الأول وسجل بعد الاستراحة.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f2820ac1-0d73022c807f-1000--liverpool-triumph-in-turkey/",
-    "imageUrl": "/assets/questions/world-football/WF-020.jpg",
-    "imageSourceUrl": "https://www.flickr.com/photos/bensutherland/246414130/",
-    "imageCaption": "صورة من المباراة موضوع السؤال"
+    "source_url": "https://www.liverpoolfc.com/vladimir-smicer"
   },
   {
     "id": "UCL-038",
@@ -417,10 +414,7 @@
     "answer": "سيرجينيو",
     "explanation": "أهدر الركلة الأولى لميلان.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f2820ac1-0d73022c807f-1000--liverpool-triumph-in-turkey/",
-    "imageUrl": "https://editorial.uefa.com/resources/025d-0f707a42f790-20435b4b3e75-1000/format/wide1/uefa_champions_league_final_-_ac_milan_v_liverpool.jpeg?imwidth=988",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d045053cc3e-58573aba544d-1000--2005-liverpool-vs-milan-the-story-of-the-miracle-of-istanbul/",
-    "imageCaption": "صورة من المباراة موضوع السؤال"
+    "source_url": "https://www.uefa.com/news/025d-0f782b45c942-3e20b8c30dfa-1000--miracle-of-istanbul-an-oral-history/"
   },
   {
     "id": "UCL-039",
@@ -450,10 +444,7 @@
     "answer": "إيفيكا أوليتش",
     "explanation": "تصدى بيتر تشيك لركلته.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/",
-    "imageUrl": "https://legacymedia.sportsplatform.io/img/images/photos/003/546/692/hi-res-0749ecc22126cfb774dbefb0e32d71f9_crop_north.jpg?1447872330=&h=2000&w=3800",
-    "imageSourceUrl": "https://bleacherreport.com/articles/2590690-didier-drogba-tells-how-chelsea-distracted-arjen-robben-before-cl-final-penalty",
-    "imageCaption": "صورة من المباراة موضوع السؤال"
+    "source_url": "https://www.chelseafc.com/en/2012-champions-league"
   },
   {
     "id": "UCL-042",
@@ -462,10 +453,10 @@
     "answer": "خوانفران",
     "explanation": "اصطدمت ركلته بالقائم قبل ركلة رونالدو الحاسمة.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "/assets/questions/football-first-name/f36e4e3feeb03e176227e876.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:FRA-ARG_(10)_(cropped).jpg",
-    "imageCaption": "صورة من المباراة موضوع السؤال"
+    "source_url": "https://www.theguardian.com/football/live/2016/may/28/real-madrid-v-atletico-madrid-champions-league-final-live-san-siro",
+    "imageUrl": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/03/12/juanfran.jpg?crop=1200%3A800&height=800&width=1200",
+    "imageSourceUrl": "https://www.independent.co.uk/sport/football/european/juanfran-s-atletico-madrid-shirt-sales-skyrocket-following-champions-league-final-penalty-miss-a7063521.html",
+    "imageCaption": "خوانفران بقميص أتلتيكو في نهائي ميلانو 2016"
   },
   {
     "id": "UCL-043",
