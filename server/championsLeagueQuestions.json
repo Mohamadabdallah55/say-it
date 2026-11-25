@@ -57,13 +57,14 @@
   {
     "id": "UCL-006",
     "points": 200,
-    "question": "في نهائي 2023 الذي حسمه رودري، ما النادي الإيطالي الذي أقصاه مانشستر سيتي؟",
+    "question": "نهائي إسطنبول 2023 حسمه هدف رودري. مين كان خصم مانشستر سيتي؟",
     "answer": "إنتر ميلان",
     "explanation": "أحرز سيتي أول لقب له على حساب إنتر.",
     "theme": "ألقاب أولى",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0282-1839b24603ef-36e94e63621d-1000--man-city-win-champions-league-rodri-goal-secures-victory/",
-    "imageUrl": "https://s2.ppllstatics.com/lagacetadesalamanca/www/multimedia/2025/05/31/psg-U20495425324MrF-U20923592659L1C-1200x840%40Gaceta%20Salamanca.jpg",
-    "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html"
+    "source_url": "https://www.inter.it/en/match_center/4887",
+    "imageUrl": "https://okdiario.com/img/2023/06/10/cronica-latigo-final-champions-interior-1.jpg",
+    "imageSourceUrl": "https://okdiario.com/deportes/manchester-city-inter-rodri-da-champions-guardiola-11072578",
+    "imageCaption": "احتفال مانشستر سيتي ونتيجة نهائي 2023 كما نشرتها الصحيفة"
   },
   {
     "id": "UCL-007",
@@ -177,7 +178,7 @@
   },
   {
     "id": "UCL-017",
-    "points": 200,
+    "points": 400,
     "question": "من افتتح التسجيل لبرشلونة أمام يوفنتوس في نهائي 2015؟",
     "answer": "إيفان راكيتيتش",
     "explanation": "تقدم برشلونة بهدف راكيتيتش المبكر قبل الفوز 3-1.",
@@ -261,7 +262,7 @@
   },
   {
     "id": "UCL-024",
-    "points": 400,
+    "points": 200,
     "question": "من سجّل هدف برشلونة في الوقت بدل الضائع أمام تشيلسي في ستامفورد بريدج بنصف نهائي 2009؟",
     "answer": "أندريس إنييستا",
     "explanation": "هدف إنييستا في الدقيقة 93 ضمن عبور برشلونة إلى النهائي.",
@@ -272,7 +273,7 @@
   },
   {
     "id": "UCL-025",
-    "points": 400,
+    "points": 600,
     "question": "من اختير رجل مباراة نهائي 2024 بعد أداء مؤثر وهدف أمام دورتموند؟",
     "answer": "داني كارفاخال",
     "explanation": "سمّت UEFA كارفاخال رجل مباراة النهائي.",
@@ -292,7 +293,7 @@
   },
   {
     "id": "UCL-027",
-    "points": 400,
+    "points": 600,
     "question": "من كان مدرب مانشستر سيتي عندما جمع الدوري والكأس ودوري الأبطال في موسم 2022-23؟",
     "answer": "بيب غوارديولا",
     "explanation": "قاد غوارديولا سيتي إلى أول لقب أوروبي وإكمال الثلاثية في 2023.",
@@ -308,7 +309,10 @@
     "answer": "موناكو",
     "explanation": "تفوق بورتو على موناكو 3-0 في النهائي.",
     "theme": "مفاجآت المدربين",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f100f076-ecb0d9d85bb1-1000--2003-04-porto-pull-off-biggest-surprise/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f100f076-ecb0d9d85bb1-1000--2003-04-porto-pull-off-biggest-surprise/",
+    "imageUrl": "https://media.trivela.com.br/main/2024/03/Porto-scaled.jpg",
+    "imageSourceUrl": "https://trivela.com.br/europa/porto-champions-league-2004/",
+    "imageCaption": "احتفال بورتو بلقب دوري الأبطال 2004"
   },
   {
     "id": "UCL-029",
@@ -393,7 +397,7 @@
   },
   {
     "id": "UCL-036",
-    "points": 600,
+    "points": 200,
     "question": "في نهائي 1999 الذي سجل فيه ماريو باسلر من ركلة حرة، من الفريق الذي أحرز هدفين بعد الدقيقة 90؟",
     "answer": "مانشستر يونايتد",
     "explanation": "قلب يونايتد النتيجة في الوقت بدل الضائع.",
@@ -402,7 +406,7 @@
   },
   {
     "id": "UCL-037",
-    "points": 600,
+    "points": 200,
     "question": "في نهائي إسطنبول 2005، من افتتح أهداف عودة ليفربول برأسية في الشوط الثاني؟",
     "answer": "ستيفن جيرارد",
     "explanation": "افتتح جيرارد العودة قبل هدفي شميتسر وألونسو.",
@@ -425,12 +429,15 @@
   },
   {
     "id": "UCL-039",
-    "points": 600,
-    "question": "في نهائي 2004، ما النادي الذي خسر أمام بورتو بثلاثية نظيفة؟",
+    "points": 400,
+    "question": "مين كان ضحية بورتو في النهائي الذي أكمل به مورينيو لقبين أوروبيين متتاليين عامي 2003 و2004؟",
     "answer": "موناكو",
     "explanation": "هزم بورتو موناكو في النهائي.",
     "theme": "النهائيات غير المتوقعة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/01a4-0e6b67318e4b-9c086dccae92-1000--alternative-awards-2004/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f100f076-ecb0d9d85bb1-1000--2003-04-porto-pull-off-biggest-surprise/",
+    "imageUrl": "https://media.trivela.com.br/main/2024/03/Porto-scaled.jpg",
+    "imageSourceUrl": "https://trivela.com.br/europa/porto-champions-league-2004/",
+    "imageCaption": "احتفال بورتو بلقب دوري الأبطال 2004"
   },
   {
     "id": "UCL-040",
@@ -517,7 +524,7 @@
   },
   {
     "id": "UCL-047",
-    "points": 600,
+    "points": 200,
     "question": "في إياب نصف نهائي 2024 أمام بايرن، أي فريق واجهه ريال مدريد في النهائي بعد تأهله؟",
     "answer": "بوروسيا دورتموند",
     "explanation": "تأهل ريال مدريد لملاقاة دورتموند في النهائي.",
@@ -536,7 +543,7 @@
   },
   {
     "id": "UCL-048",
-    "points": 600,
+    "points": 200,
     "question": "في نهائي 2025، من اللاعب المغربي الذي افتتح التسجيل لباريس بتمريرة من ديزيريه دويه؟",
     "answer": "أشرف حكيمي",
     "explanation": "سجل حكيمي هدف باريس الأول.",
@@ -559,7 +566,7 @@
   },
   {
     "id": "UCL-050",
-    "points": 600,
+    "points": 400,
     "question": "من سجّل لبورتو من ركلة حرة في الوقت الإضافي أمام يوفنتوس عام 2021 ليمنح فريقه التأهل؟",
     "answer": "سيرجيو أوليفيرا",
     "explanation": "ركلة أوليفيرا الحرة رجحت تأهل بورتو رغم الخسارة 3-2 في تورينو.",
@@ -570,7 +577,7 @@
   },
   {
     "id": "UCL-051",
-    "points": 200,
+    "points": 600,
     "question": "في نهائي 1993 بين مارسيليا وميلان، في أي مدينة ألمانية أقيم النهائي؟",
     "answer": "ميونيخ",
     "explanation": "استضاف الملعب الأولمبي في ميونيخ نهائي 1993.",
@@ -598,7 +605,7 @@
   },
   {
     "id": "UCL-053",
-    "points": 200,
+    "points": 600,
     "question": "أي نادٍ إسباني بلغ النهائي في موسمين متتاليين عامي 2000 و2001 دون إحراز اللقب؟",
     "answer": "فالنسيا",
     "explanation": "خسر أمام ريال مدريد ثم بايرن.",
@@ -607,7 +614,7 @@
   },
   {
     "id": "UCL-054",
-    "points": 200,
+    "points": 600,
     "question": "أي نادٍ إنجليزي حقق كأس أوروبا عامي 1979 و1980 بقيادة برايان كلاف؟",
     "answer": "نوتنغهام فورست",
     "explanation": "قاد كلاف الفريق إلى لقبين متتاليين.",
@@ -649,7 +656,7 @@
   },
   {
     "id": "UCL-058",
-    "points": 200,
+    "points": 600,
     "question": "أي نادٍ إيطالي بلغ ثلاثة نهائيات متتالية بين عامي 1996 و1998؟",
     "answer": "يوفنتوس",
     "explanation": "بلغ يوفنتوس ثلاثة نهائيات متتالية.",
@@ -659,11 +666,14 @@
   {
     "id": "UCL-059",
     "points": 400,
-    "question": "في نهائي 1994، كم هدفًا سجل ميلان في شباك برشلونة؟",
+    "question": "كم هدفًا سجّل ميلان أمام فريق كرويف في نهائي أثينا عام 1994؟",
     "answer": "4",
     "explanation": "فاز ميلان 4-0.",
     "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82dda57-672859abc63f-1000--1993-94-massaro-leads-milan-rout/",
+    "imageUrl": "https://img.allfootballapp.com/www/M00/75/19/720x-/-/-/rB8ApF6hpc2AFCiTAAIbZueKU_4381.jpg.webp",
+    "imageSourceUrl": "https://m.allfootballapp.com/news/EPL/That-night-in-94-When-Milan-overcame-Barcelonas-dream-team-against-all-odds/2321292",
+    "imageCaption": "لوحة نتيجة نهائي ميلان وبرشلونة 1994"
   },
   {
     "id": "UCL-060",
@@ -690,7 +700,10 @@
     "answer": "سامبدوريا",
     "explanation": "فاز برشلونة على سامبدوريا في الوقت الإضافي.",
     "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
+    "imageUrl": "https://cadenaser00.epimg.net/ser/imagenes/2011/05/24/deportes/1306193290_740215_0000000000_noticia_normal.jpg",
+    "imageSourceUrl": "https://cadenaser.com/ser/2011/05/24/deportes/1306193297_850215.html",
+    "imageCaption": "لقطة من نهائي برشلونة وسامبدوريا عام 1992"
   },
   {
     "id": "UCL-063",
@@ -743,7 +756,7 @@
   },
   {
     "id": "UCL-066",
-    "points": 400,
+    "points": 600,
     "question": "في نهائي 2015، من الحارس الإيطالي الذي دافع عن مرمى يوفنتوس؟",
     "answer": "جانلويجي بوفون",
     "explanation": "كان بوفون حارس يوفنتوس في النهائي.",
@@ -785,7 +798,7 @@
   },
   {
     "id": "UCL-070",
-    "points": 400,
+    "points": 600,
     "question": "من اللاعب المصري الذي أدرك التعادل لبازل أمام تشيلسي في ستامفورد بريدج سنة 2013؟",
     "answer": "محمد صلاح",
     "explanation": "سجل صلاح التعادل قبل هدف الفوز لبازل.",
@@ -882,8 +895,9 @@
     "explanation": "تأهل إنتر بمجموع المباراتين.",
     "theme": "أرشيف البطولة",
     "source_url": "https://www.youtube.com/watch?v=l52QHKWPvxM",
-    "imageUrl": "https://s2.ppllstatics.com/lagacetadesalamanca/www/multimedia/2025/05/31/psg-U20495425324MrF-U20923592659L1C-1200x840%40Gaceta%20Salamanca.jpg",
-    "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html"
+    "imageUrl": "https://static.independent.co.uk/2023/05/16/21/2023-05-16T204657Z_962254359_UP1EJ5G1LQ641_RTRMADP_3_SOCCER-CHAMPIONS-INT-MIL-REPORT.JPG?crop=1200%3A800&height=800&width=1200",
+    "imageSourceUrl": "https://www.independent.co.uk/sport/football/inter-milan-ac-milan-live-stream-score-result-b2339824.html",
+    "imageCaption": "احتفال إنتر في إياب نصف النهائي أمام ميلان 2023"
   },
   {
     "id": "UCL-076",
@@ -908,7 +922,7 @@
   },
   {
     "id": "UCL-078",
-    "points": 600,
+    "points": 400,
     "question": "أي نادٍ هولندي واجه ميلان في إياب نصف نهائي 2004/05؟",
     "answer": "آيندهوفن",
     "explanation": "واجه آيندهوفن ميلان في نصف النهائي.",
@@ -967,7 +981,7 @@
   },
   {
     "id": "UCL-082",
-    "points": 600,
+    "points": 400,
     "question": "أي نادٍ إيطالي واجه موناكو في ذهاب نصف نهائي 1997/98؟",
     "answer": "يوفنتوس",
     "explanation": "واجه يوفنتوس موناكو في نصف النهائي.",
@@ -1030,11 +1044,14 @@
   {
     "id": "UCL-088",
     "points": 600,
-    "question": "كم هدفًا شهد نهائي كأس أوروبا 1960 بين ريال مدريد وفرانكفورت؟",
+    "question": "كم بلغ مجموع أهداف نهائي غلاسكو 1960 بين ريال مدريد وفرانكفورت؟",
     "answer": "10",
     "explanation": "انتهى النهائي بنتيجة 7-3.",
     "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b1dc17e3e-c896eaba1732-1000--1959-60-dazzling-madrid-crush-frankfurt/",
+    "imageUrl": "https://media.eintracht.de/image/upload/ar_3%3A2%2Cc_fill%2Cdpr_3.0%2Cf_auto%2Cg_auto%2Cq_60%2Cw_400/imago59954945h-4141.jpg",
+    "imageSourceUrl": "https://profis.eintracht.de/news/die-helden-von-glasgow-125337/",
+    "imageCaption": "لقطة أرشيفية من نهائي 1960 في هامبدن بارك"
   },
   {
     "id": "UCL-089",
