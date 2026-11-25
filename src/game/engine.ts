@@ -174,6 +174,7 @@ export function createRoomState(params: {
   settings?: Partial<MatchSettings>;
   selectedCategoryIds?: string[];
   nowMs?: number;
+  mixFootballTopics?: boolean;
 }): RoomState {
   const nowIso = new Date(params.nowMs ?? Date.now()).toISOString();
   const settings: MatchSettings = {
@@ -188,6 +189,7 @@ export function createRoomState(params: {
     settings.categoryCount,
     params.selectedCategoryIds,
     params.teams.length,
+    params.mixFootballTopics ?? false,
   );
 
   const teams: TeamState[] = params.teams.map((t, idx) => ({

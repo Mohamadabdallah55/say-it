@@ -15,17 +15,19 @@
   },
   {
     "id": "FC-002",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة أنطوان غريزمان؟",
-    "answer": "برشلونة",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "كلارنس سيدورف",
+    "type": "player",
     "clubs": [
-      "ريال سوسييداد",
-      "أتلتيكو مدريد",
-      "برشلونة",
-      "أتلتيكو مدريد"
+      "أياكس",
+      "سامبدوريا",
+      "ريال مدريد",
+      "إنتر ميلان",
+      "ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Antoine_Griezmann"
+    "sourceUrl": "https://www.uefa.com/news/0254-0d7cf3e37912-f305bae6c633-1000--clarence-seedorf/",
+    "clueFile": "FC-002-new.svg"
   },
   {
     "id": "FC-003",
@@ -46,18 +48,19 @@
   },
   {
     "id": "FC-004",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة سيسك فابريغاس؟",
-    "answer": "تشيلسي",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "هيرنان كريسبو",
+    "type": "player",
     "clubs": [
-      "أرسنال",
-      "برشلونة",
+      "بارما",
+      "لاتسيو",
+      "إنتر ميلان",
       "تشيلسي",
-      "موناكو",
-      "كومو"
+      "ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Cesc_Fàbregas"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
+    "clueFile": "FC-004-new.svg"
   },
   {
     "id": "FC-005",
@@ -122,17 +125,17 @@
   },
   {
     "id": "FC-009",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة عثمان ديمبيلي؟",
-    "answer": "برشلونة",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "ديكو",
+    "type": "player",
     "clubs": [
-      "رين",
-      "بوروسيا دورتموند",
+      "بورتو",
       "برشلونة",
-      "باريس سان جيرمان"
+      "تشيلسي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ousmane_Dembélé"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-009-new.svg"
   },
   {
     "id": "FC-010",
@@ -155,33 +158,34 @@
   },
   {
     "id": "FC-011",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة مارسيلو؟",
-    "answer": "ريال مدريد",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "ريكاردو كواريزما",
+    "type": "player",
     "clubs": [
-      "فلومينينسي",
-      "ريال مدريد",
-      "أولمبياكوس",
-      "فلومينينسي"
+      "سبورتينغ لشبونة",
+      "برشلونة",
+      "بورتو",
+      "إنتر ميلان",
+      "بشكتاش"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Marcelo_(footballer,_born_1988)"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-011-new.svg"
   },
   {
     "id": "FC-012",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة جواو فيليكس؟",
-    "answer": "أتلتيكو مدريد",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "دييغو فورلان",
+    "type": "player",
     "clubs": [
-      "بنفيكا",
+      "مانشستر يونايتد",
+      "فياريال",
       "أتلتيكو مدريد",
-      "تشيلسي",
-      "برشلونة",
-      "تشيلسي",
-      "ميلان"
+      "إنتر ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/João_Félix"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/01f4-0ea2a098b10d-8d04252d7dfa-1000--inter-complete-deals-for-forlan-poli-and-zarate/",
+    "clueFile": "FC-012-new.svg"
   },
   {
     "id": "FC-013",
@@ -230,19 +234,18 @@
   },
   {
     "id": "FC-016",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة أندريا بيرلو؟",
-    "answer": "ميلان",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "والتر صامويل",
+    "type": "player",
     "clubs": [
-      "بريشيا",
+      "روما",
+      "ريال مدريد",
       "إنتر ميلان",
-      "ريجينا",
-      "ميلان",
-      "يوفنتوس",
-      "نيويورك سيتي"
+      "بازل"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Andrea_Pirlo"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
+    "clueFile": "FC-016-new.svg"
   },
   {
     "id": "FC-017",
@@ -278,18 +281,17 @@
   },
   {
     "id": "FC-019",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة جوردي ألبا؟",
-    "answer": "برشلونة",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "نيكولاس أوتامندي",
+    "type": "player",
     "clubs": [
-      "فالنسيا",
-      "خيمناستيك تاراغونا",
-      "فالنسيا",
-      "برشلونة",
-      "إنتر ميامي"
+      "بورتو",
+      "مانشستر سيتي",
+      "بنفيكا"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Jordi_Alba"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
+    "clueFile": "FC-019-new.svg"
   },
   {
     "id": "FC-020",
@@ -309,16 +311,17 @@
   },
   {
     "id": "FC-021",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة رودري؟",
-    "answer": "أتلتيكو مدريد",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "إستيبان كامبياسو",
+    "type": "player",
     "clubs": [
-      "فياريال",
-      "أتلتيكو مدريد",
-      "مانشستر سيتي"
+      "ريال مدريد",
+      "إنتر ميلان",
+      "أولمبياكوس"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Rodri_(footballer,_born_1996)"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
+    "clueFile": "FC-021-new.svg"
   },
   {
     "id": "FC-022",
@@ -338,17 +341,20 @@
   },
   {
     "id": "FC-023",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة أشرف حكيمي؟",
-    "answer": "إنتر ميلان",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "خافيير سافيولا",
+    "type": "player",
     "clubs": [
+      "برشلونة",
+      "موناكو",
+      "إشبيلية",
       "ريال مدريد",
-      "بوروسيا دورتموند",
-      "إنتر ميلان",
-      "باريس سان جيرمان"
+      "بنفيكا",
+      "ملقا"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Achraf_Hakimi"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
+    "clueFile": "FC-023-new.svg"
   },
   {
     "id": "FC-024",
@@ -412,55 +418,50 @@
   },
   {
     "id": "FC-027",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة إدينسون كافاني؟",
-    "answer": "نابولي",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "ريكاردو كارفاليو",
+    "type": "player",
     "clubs": [
-      "دانوبيو",
-      "باليرمو",
-      "نابولي",
-      "باريس سان جيرمان",
-      "مانشستر يونايتد",
-      "فالنسيا",
-      "بوكا جونيورز"
+      "بورتو",
+      "تشيلسي",
+      "ريال مدريد",
+      "موناكو"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Edinson_Cavani"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-027-new.svg"
   },
   {
     "id": "FC-028",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة فيكتور أوسيمين؟",
-    "answer": "نابولي",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "جواو موتينيو",
+    "type": "player",
     "clubs": [
-      "فولفسبورغ",
-      "شارلروا",
-      "ليل",
-      "نابولي",
-      "غلطة سراي"
+      "سبورتينغ لشبونة",
+      "بورتو",
+      "موناكو",
+      "وولفرهامبتون",
+      "براغا"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Victor_Osimhen"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-028-new.svg"
   },
   {
     "id": "FC-029",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة صامويل إيتو؟",
-    "answer": "إنتر ميلان",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "سيماؤو سابروسا",
+    "type": "player",
     "clubs": [
-      "ريال مدريد",
-      "مايوركا",
+      "سبورتينغ لشبونة",
       "برشلونة",
-      "إنتر ميلان",
-      "أنجي محج قلعة",
-      "تشيلسي",
-      "إيفرتون",
-      "سامبدوريا",
-      "أنطاليا سبور",
-      "قطر القطري"
+      "بنفيكا",
+      "أتلتيكو مدريد",
+      "بشكتاش"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Samuel_Eto'o"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-029-new.svg"
   },
   {
     "id": "FC-030",
@@ -493,17 +494,18 @@
   },
   {
     "id": "FC-032",
-    "points": 200,
-    "question": "من اللاعب صاحب هذه المسيرة؟",
-    "answer": "إيدين هازارد",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "إدواردو دا سيلفا",
     "type": "player",
     "clubs": [
-      "ليل",
-      "تشيلسي",
-      "ريال مدريد"
+      "دينامو زغرب",
+      "أرسنال",
+      "شاختار دونيتسك",
+      "ليغيا وارسو"
     ],
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
+    "clueFile": "FC-032-new.svg"
   },
   {
     "id": "FC-033",
@@ -538,27 +540,31 @@
   },
   {
     "id": "FC-035",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة مارك أندريه تير شتيغن؟",
-    "answer": "برشلونة",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "جوزيه بوسينغوا",
+    "type": "player",
     "clubs": [
-      "بوروسيا مونشنغلادباخ",
-      "برشلونة"
+      "بوافيشتا",
+      "بورتو",
+      "تشيلسي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Marc-André_ter_Stegen"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-035-new.svg"
   },
   {
     "id": "FC-036",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة جيانلويجي دوناروما؟",
-    "answer": "باريس سان جيرمان",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "روي كوستا",
+    "type": "player",
     "clubs": [
-      "ميلان",
-      "باريس سان جيرمان"
+      "بنفيكا",
+      "فيورنتينا",
+      "ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Donnarumma"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-036-new.svg"
   },
   {
     "id": "FC-037",
@@ -692,18 +698,18 @@
   },
   {
     "id": "FC-045",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة بيبي؟",
-    "answer": "ريال مدريد",
-    "type": "missing",
+    "points": 400,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "ماريو ماندزوكيتش",
+    "type": "player",
     "clubs": [
-      "ماريتيمو",
-      "بورتو",
-      "ريال مدريد",
-      "بشكتاش",
-      "بورتو"
+      "بايرن ميونخ",
+      "أتلتيكو مدريد",
+      "يوفنتوس",
+      "ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Pepe_(footballer,_born_1983)"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
+    "clueFile": "FC-045-new.svg"
   },
   {
     "id": "FC-046",
@@ -743,24 +749,18 @@
   },
   {
     "id": "FC-048",
-    "points": 200,
-    "question": "من اللاعب صاحب هذه المسيرة؟",
-    "answer": "روميلو لوكاكو",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "روي باتريسيو",
     "type": "player",
     "clubs": [
-      "أندرلخت",
-      "تشيلسي",
-      "وست بروميتش",
-      "إيفرتون",
-      "مانشستر يونايتد",
-      "إنتر ميلان",
-      "تشيلسي",
-      "إنتر ميلان",
+      "سبورتينغ لشبونة",
+      "وولفرهامبتون",
       "روما",
-      "نابولي"
+      "أتالانتا"
     ],
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg/500px-Romelu_Lukaku_Belgium_v_USA_6_July_2026-038.jpg"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
+    "clueFile": "FC-048-new.svg"
   },
   {
     "id": "FC-049",
@@ -796,16 +796,18 @@
   },
   {
     "id": "FC-051",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة برناردو سيلفا؟",
-    "answer": "موناكو",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "إيفيكا أوليتش",
+    "type": "player",
     "clubs": [
-      "بنفيكا",
-      "موناكو",
-      "مانشستر سيتي"
+      "سيسكا موسكو",
+      "هامبورغ",
+      "بايرن ميونخ",
+      "فولفسبورغ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Bernardo_Silva"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
+    "clueFile": "FC-051-new.svg"
   },
   {
     "id": "FC-052",
@@ -1279,16 +1281,19 @@
   },
   {
     "id": "FC-081",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة خوليان ألفاريز؟",
-    "answer": "ريفر بليت",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "دوماغوي فيدا",
+    "type": "player",
     "clubs": [
-      "ريفر بليت",
-      "مانشستر سيتي",
-      "أتلتيكو مدريد"
+      "باير ليفركوزن",
+      "دينامو زغرب",
+      "دينامو كييف",
+      "بشكتاش",
+      "أيك أثينا"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Julián_Álvarez_(footballer)"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
+    "clueFile": "FC-081-new.svg"
   },
   {
     "id": "FC-082",
@@ -1424,15 +1429,16 @@
   },
   {
     "id": "FC-090",
-    "points": 200,
-    "question": "ما النادي المفقود من مسيرة كينغسلي كومان؟",
-    "answer": "يوفنتوس",
-    "type": "missing",
+    "points": 600,
+    "question": "مين صاحب هاي المسيرة؟ (محطات مختارة بالترتيب)",
+    "answer": "ديان لوفرين",
+    "type": "player",
     "clubs": [
-      "باريس سان جيرمان",
-      "يوفنتوس",
-      "بايرن ميونخ"
+      "ليون",
+      "ليفربول",
+      "زينيت"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Kingsley_Coman"
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
+    "clueFile": "FC-090-new.svg"
   }
 ]

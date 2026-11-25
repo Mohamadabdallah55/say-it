@@ -68,14 +68,15 @@
   },
   {
     "id": "UCL-007",
-    "points": 200,
-    "question": "من كان خصم باريس سان جيرمان في نهائي 2025 الذي انتهى بفوز باريس 5-0؟",
-    "answer": "إنتر ميلان",
-    "explanation": "فاز باريس سان جيرمان بأول لقب له بنتيجة 5-0 أمام إنتر.",
-    "theme": "مفاجآت نهائية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000--paris-win-champions-league-doue-double-helps-secure-reco/",
+    "points": 400,
+    "question": "كم هدف سجل ديزيريه دويه في نهائي باريس وإنتر عام 2025؟",
+    "answer": "هدفان",
+    "explanation": "سجل دويه ثنائية في النهائي.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
     "imageUrl": "https://s2.ppllstatics.com/lagacetadesalamanca/www/multimedia/2025/05/31/psg-U20495425324MrF-U20923592659L1C-1200x840%40Gaceta%20Salamanca.jpg",
-    "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html"
+    "imageSourceUrl": "https://www.lagacetadesalamanca.es/deportes/psg-historia-conquista-primera-champions-goleada-ensueno-20250531230040-nt.html",
+    "imageCaption": "صورة من تغطية نهائي باريس سان جيرمان وإنتر 2025؛ ليست صورة مقربة لهدفي دويه."
   },
   {
     "id": "UCL-008",
@@ -136,12 +137,12 @@
   },
   {
     "id": "UCL-013",
-    "points": 200,
-    "question": "أي فريق ألماني استقبل هدف زيدان الطائر في نهائي 2002؟",
-    "answer": "باير ليفركوزن",
-    "explanation": "واجه ريال مدريد ليفركوزن في نهائي غلاسكو الذي حسمه زيدان.",
-    "theme": "الأهداف التاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0185-0e6a414977dc-840dff896fae-1000--madrid-win-ninth-european-crown/"
+    "points": 600,
+    "question": "مين اللاعب اللي سجّل أول هاتريك في دوري الأبطال بعد تغيير اسم البطولة سنة 1992، وكان أمام غوتبورغ؟",
+    "answer": "ماركو فان باستن",
+    "explanation": "أحرز أربعة أهداف في مباراة ميلان وغوتبورغ في نوفمبر 1992.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-014",
@@ -273,14 +274,12 @@
   },
   {
     "id": "UCL-025",
-    "points": 200,
-    "question": "من اختير رجل مباراة نهائي 2024 بعد أداء مؤثر وهدف أمام دورتموند؟",
-    "answer": "داني كارفاخال",
-    "explanation": "سمّت UEFA كارفاخال رجل مباراة النهائي.",
-    "theme": "جوائز النهائيات",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07da855edc-f1946904f406-1000/",
-    "imageUrl": "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250024448.png",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/clubs/players/250024448--dani-carvajal/"
+    "points": 400,
+    "question": "كم مرة احتاجت كأس أوروبا إلى إعادة المباراة النهائية بعد التعادل، حتى عام 2026؟",
+    "answer": "مرة واحدة",
+    "explanation": "أُعيد نهائي 1974 بين بايرن وأتلتيكو بعد التعادل.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
   },
   {
     "id": "UCL-026",
@@ -339,26 +338,21 @@
   },
   {
     "id": "UCL-031",
-    "points": 200,
-    "question": "من أحرز هدف ليفربول الثاني أمام توتنهام في نهائي 2019؟",
-    "answer": "ديفوك أوريغي",
-    "explanation": "سجل أوريغي الهدف الثاني قبل النهاية بعد ركلة جزاء صلاح المبكرة.",
-    "theme": "نهائي 2019",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/",
-    "imageUrl": "https://editorial.uefa.com/resources/025b-0f05affdaf3a-33d492360749-1000/format/wide1/divock_origi_liverpool_.jpeg?imwidth=988",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/"
+    "points": 600,
+    "question": "مين اللاعب الهولندي اللي سجّل لبايرن أمام ريال مدريد بعد حوالي عشر ثوانٍ في 2007؟",
+    "answer": "روي ماكاي",
+    "explanation": "أحرز الهدف بعد 10.12 ثانية.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966468be2a-209986d8dffd-1000--ten-years-on-makaay-scores-fastest-champions-league-goal/"
   },
   {
     "id": "UCL-032",
-    "points": 200,
-    "question": "من المدافع الذي سجّل هدفين بالرأس لريال مدريد أمام بايرن في إياب نصف نهائي 2014؟",
-    "answer": "سيرخيو راموس",
-    "explanation": "سجل راموس هدفين مبكرين في فوز ريال مدريد 4-0 في ميونخ.",
-    "theme": "نصف نهائي بايرن 2014",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0ea7afff94fb-bde8be084a86-1000--road-to-the-final-madrid/",
-    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/sergio-ramos-garcia/assets/1330734572556.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/sergio-ramos-garcia",
-    "imageCaption": "سيرخيو راموس — موقع ريال مدريد الرسمي"
+    "points": 400,
+    "question": "من سجل هدف بايرن السريع بعد 26 ثانية أمام يوفنتوس في ربع نهائي 2013؟",
+    "answer": "دافيد ألابا",
+    "explanation": "سجل في الدقيقة الأولى من مباراة الذهاب.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966468be2a-209986d8dffd-1000--ten-years-on-makaay-scores-fastest-champions-league-goal/"
   },
   {
     "id": "UCL-033",
@@ -397,35 +391,30 @@
   },
   {
     "id": "UCL-036",
-    "points": 200,
-    "question": "في نهائي 1999 الذي سجل فيه ماريو باسلر من ركلة حرة، من الفريق الذي أحرز هدفين بعد الدقيقة 90؟",
-    "answer": "مانشستر يونايتد",
-    "explanation": "قلب يونايتد النتيجة في الوقت بدل الضائع.",
-    "theme": "أهداف الكرات الثابتة",
+    "points": 600,
+    "question": "في نهائي 1999، من سجل هدف بايرن ميونخ من ركلة حرة قبل هدفي يونايتد المتأخرين؟",
+    "answer": "ماريو باسلر",
+    "explanation": "افتتح باسلر التسجيل لبايرن في نهائي برشلونة.",
+    "theme": "لحظات وأرقام تاريخية",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/"
   },
   {
     "id": "UCL-037",
-    "points": 200,
-    "question": "في نهائي إسطنبول 2005، من افتتح أهداف عودة ليفربول برأسية في الشوط الثاني؟",
-    "answer": "ستيفن جيرارد",
-    "explanation": "افتتح جيرارد العودة قبل هدفي شميتسر وألونسو.",
-    "theme": "ريمونتادا إسطنبول",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b89fe7b7f-c91716d11bdf-1000--2004-05-liverpool-belief-defies-milan/",
-    "imageUrl": "/assets/questions/world-football/WF-020.jpg",
-    "imageSourceUrl": "https://www.flickr.com/photos/bensutherland/246414130/",
-    "imageCaption": "صورة ستيفن جيرارد · Ben Sutherland · CC BY 2.0"
+    "points": 400,
+    "question": "مين دخل بديلًا لهاري كيويل ثم سجل هدف ليفربول الثاني في نهائي إسطنبول 2005؟",
+    "answer": "فلاديمير سميتشر",
+    "explanation": "دخل في الشوط الأول وسجل بعد الاستراحة.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.liverpoolfc.com/vladimir-smicer"
   },
   {
     "id": "UCL-038",
-    "points": 200,
-    "question": "من حارس ليفربول الذي تصدى لركلة أندريه شيفتشينكو الحاسمة في نهائي 2005؟",
-    "answer": "يرزي دوديك",
-    "explanation": "تصدى دوديك لتسديدة شيفتشينكو ليمنح ليفربول البطولة.",
-    "theme": "حراس ركلات الترجيح",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f2820ac1-0d73022c807f-1000--liverpool-triumph-in-turkey/",
-    "imageUrl": "https://editorial.uefa.com/resources/025d-0f707a42f790-20435b4b3e75-1000/format/wide1/uefa_champions_league_final_-_ac_milan_v_liverpool.jpeg?imwidth=988",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d045053cc3e-58573aba544d-1000--2005-liverpool-vs-milan-the-story-of-the-miracle-of-istanbul/"
+    "points": 600,
+    "question": "مين اللاعب البرازيلي اللي نفّذ أول ركلة ترجيح لميلان في نهائي 2005 وأضاعها فوق العارضة؟",
+    "answer": "سيرجينيو",
+    "explanation": "أهدر الركلة الأولى لميلان.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/news/025d-0f782b45c942-3e20b8c30dfa-1000--miracle-of-istanbul-an-oral-history/"
   },
   {
     "id": "UCL-039",
@@ -450,26 +439,24 @@
   },
   {
     "id": "UCL-041",
-    "points": 200,
-    "question": "من حارس تشيلسي الذي تصدى لركلة جزاء آريين روبن في الوقت الإضافي لنهائي 2012؟",
-    "answer": "بيتر تشيك",
-    "explanation": "أنقذ تشيك ركلة روبن أثناء الوقت الإضافي قبل الترجيح.",
-    "theme": "التصديات الحاسمة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50fb78a384-1434bbcadbcb-1000/",
-    "imageUrl": "https://legacymedia.sportsplatform.io/img/images/photos/003/546/692/hi-res-0749ecc22126cfb774dbefb0e32d71f9_crop_north.jpg?1447872330=&h=2000&w=3800",
-    "imageSourceUrl": "https://bleacherreport.com/articles/2590690-didier-drogba-tells-how-chelsea-distracted-arjen-robben-before-cl-final-penalty"
+    "points": 600,
+    "question": "أي مهاجم كرواتي أضاع ركلته في ترجيح نهائي 2012 مع بايرن؟",
+    "answer": "إيفيكا أوليتش",
+    "explanation": "تصدى بيتر تشيك لركلته.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.chelseafc.com/en/2012-champions-league"
   },
   {
     "id": "UCL-042",
-    "points": 200,
-    "question": "من أهدر ركلة جزاء لأتلتيكو مدريد ارتدت من العارضة خلال نهائي 2016 أمام ريال مدريد؟",
-    "answer": "أنطوان غريزمان",
-    "explanation": "سدد غريزمان ركلة جزاء في العارضة أثناء المباراة.",
-    "theme": "فرص ضائعة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/022d-0e957c5979eb-37493cb53cd0-1000--spot-on-real-madrid-defeat-atletico-in-final-again/",
-    "imageUrl": "/assets/questions/football-first-name/f36e4e3feeb03e176227e876.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:FRA-ARG_(10)_(cropped).jpg",
-    "imageCaption": "صورة أنطوان غريزمان · Антон Зайцев · CC BY-SA 3.0"
+    "points": 400,
+    "question": "مين أهدر ركلة أتلتيكو الوحيدة في ترجيح نهائي دوري الأبطال 2016؟",
+    "answer": "خوانفران",
+    "explanation": "اصطدمت ركلته بالقائم قبل ركلة رونالدو الحاسمة.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.theguardian.com/football/live/2016/may/28/real-madrid-v-atletico-madrid-champions-league-final-live-san-siro",
+    "imageUrl": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/03/12/juanfran.jpg?crop=1200%3A800&height=800&width=1200",
+    "imageSourceUrl": "https://www.independent.co.uk/sport/football/european/juanfran-s-atletico-madrid-shirt-sales-skyrocket-following-champions-league-final-penalty-miss-a7063521.html",
+    "imageCaption": "خوانفران بقميص أتلتيكو في نهائي ميلانو 2016"
   },
   {
     "id": "UCL-043",
@@ -492,26 +479,21 @@
   },
   {
     "id": "UCL-044",
-    "points": 200,
-    "question": "بعد تأهل توتنهام الدرامي أمام أياكس 2019، من الفريق الذي واجهه في النهائي؟",
-    "answer": "ليفربول",
-    "explanation": "واجه توتنهام ليفربول في النهائي.",
-    "theme": "قادة شباب",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e9ce1f530f2-d243cb498094-1000/",
-    "imageUrl": "https://imgk.svenskafans.com/articlemedia/image-original/269.jpg?format=webp&quality=75&width=640",
-    "imageSourceUrl": "https://www.svenskafans.com/fotboll/kronika-under-the-floodlights-on-european-nights-685081"
+    "points": 600,
+    "question": "أي نادٍ سجل له دادو برشو أربعة أهداف في فوز 8–3 على ديبورتيفو في دوري الأبطال 2003؟",
+    "answer": "موناكو",
+    "explanation": "أحرز دادو برشو أربعة أهداف لموناكو.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-045",
-    "points": 200,
-    "question": "في ذهاب ربع نهائي 2017 الذي انتهى بفوز يوفنتوس 3-0 على برشلونة، من صاحب الثنائية قبل رأسية كيليني؟",
-    "answer": "باولو ديبالا",
-    "explanation": "سجل ديبالا الهدفين الأولين.",
-    "theme": "رأسيات المدافعين",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0238-0e96a5394e1f-a5d28df45d70-1000--dybala-and-juve-leave-barcelona-another-mountain-to-climb/",
-    "imageUrl": "/assets/questions/football-first-name/faf960465609b7291afcead2.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_(cropped).jpg",
-    "imageCaption": "صورة باولو ديبالا · Olga Shcherbytska · CC BY-SA 4.0"
+    "points": 600,
+    "question": "مين اللاعب الذي سجل أربعة أهداف لليون في فوزه 7–1 على دينامو زغرب سنة 2011؟",
+    "answer": "بافيتيمبي غوميز",
+    "explanation": "سجل غوميز أربعة أهداف لليون.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-046",
@@ -596,12 +578,12 @@
   },
   {
     "id": "UCL-052",
-    "points": 200,
-    "question": "أي فريق ألماني توج لأول مرة بالبطولة سنة 1997 على حساب يوفنتوس؟",
-    "answer": "بوروسيا دورتموند",
-    "explanation": "توج دورتموند في ميونيخ.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://es.uefa.com/uefachampionsleague/news/0252-0e98d341867a-1f3b773dccf1-1000--todas-las-finales-de-la-champions-league-en-video/"
+    "points": 400,
+    "question": "من اللاعب البرازيلي اللي سجّل خمسة أهداف في مباراة شاختار وباتي بوريسوف في دوري الأبطال 2014؟",
+    "answer": "لويز أدريانو",
+    "explanation": "حقق خمسة أهداف في الفوز 7–0.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-053",
@@ -647,12 +629,12 @@
   },
   {
     "id": "UCL-057",
-    "points": 200,
-    "question": "أي نادٍ هولندي توج بالبطولة في 1995 أمام ميلان؟",
-    "answer": "أياكس",
-    "explanation": "فاز أياكس بهدف دون رد.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://es.uefa.com/uefachampionsleague/news/0252-0e98d341867a-1f3b773dccf1-1000--todas-las-finales-de-la-champions-league-en-video/"
+    "points": 600,
+    "question": "من كان أصغر لاعب يشارك في نهائي كأس أوروبا حين لعب مع بنفيكا ضد ريال مدريد سنة 1962 بعمر 18 سنة؟",
+    "answer": "أنطونيو سيمويش",
+    "explanation": "شارك في نهائي أمستردام بعمر 18 عامًا و139 يومًا.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
   },
   {
     "id": "UCL-058",
@@ -745,38 +727,30 @@
   },
   {
     "id": "UCL-065",
-    "points": 200,
-    "question": "من المدرب البرتغالي الذي أحرز اللقب مع بورتو ثم إنتر؟",
-    "answer": "جوزيه مورينيو",
-    "explanation": "توج مع بورتو 2004 وإنتر 2010.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "https://2.bp.blogspot.com/-FvOiTf3_I4Y/T8rD0Z1cqvI/AAAAAAAAEyA/L-nJF35EVqU/s1600/Mourinho.jpg",
-    "imageSourceUrl": "https://actualidadrealmadrid.blogspot.com/2012/06/plantilla-2011-12.html"
+    "points": 400,
+    "question": "مع أي ثلاثة أندية فاز كلارنس سيدورف بدوري أبطال أوروبا؟",
+    "answer": "أياكس وريال مدريد وميلان",
+    "explanation": "فاز مع أياكس 1995 ومدريد 1998 وميلان 2003 و2007.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
   },
   {
     "id": "UCL-066",
-    "points": 200,
-    "question": "في نهائي 2015، من الحارس الإيطالي الذي دافع عن مرمى يوفنتوس؟",
-    "answer": "جانلويجي بوفون",
-    "explanation": "كان بوفون حارس يوفنتوس في النهائي.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://es.uefa.com/uefachampionsleague/news/0252-0e98d341867a-1f3b773dccf1-1000--todas-las-finales-de-la-champions-league-en-video/",
-    "imageUrl": "/assets/questions/football-first-name/ae9b5c574e9c933b09eff8d2.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_44_(Gianluigi_Buffon).jpg",
-    "imageCaption": "صورة جانلويجي بوفون · MichaelEmilio · CC BY 4.0"
+    "points": 400,
+    "question": "مين سجّل ركلة الجزاء المبكرة لفالنسيا أمام بايرن في نهائي 2001؟",
+    "answer": "غايزكا مندييتا",
+    "explanation": "تقدم فالنسيا بركلة جزاء من مندييتا.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
   },
   {
     "id": "UCL-067",
-    "points": 200,
-    "question": "من اللاعب الذي شارك في ستة نهائيات مع بايرن وريال مدريد وفاز بخمسة منها شارك فيها؟",
-    "answer": "توني كروس",
-    "explanation": "شارك كروس في ستة نهائيات وفاز بخمسة منها على أرض الملعب.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "/assets/questions/football-first-name/77bbde7748359ac5d4c34ec7.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Toni_Kroos_Real_Madrid_2021.jpg",
-    "imageCaption": "صورة توني كروس · https://www.youtube.com/@realmadrid · CC BY 3.0"
+    "points": 600,
+    "question": "مين المدافع الفرنسي الذي سجل هاتريك لباريس سان جيرمان أمام أندرلخت في 2017؟",
+    "answer": "لايفن كورزاوا",
+    "explanation": "سجل ثلاثة أهداف في فوز باريس 5–0.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-068",
@@ -798,15 +772,12 @@
   },
   {
     "id": "UCL-070",
-    "points": 200,
-    "question": "من اللاعب المصري الذي أدرك التعادل لبازل أمام تشيلسي في ستامفورد بريدج سنة 2013؟",
-    "answer": "محمد صلاح",
-    "explanation": "سجل صلاح التعادل قبل هدف الفوز لبازل.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/",
-    "imageUrl": "/assets/questions/football-first-name/478a262231f3c23b469e7f12.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_(cropped).jpg",
-    "imageCaption": "صورة محمد صلاح · Bryan Berlin · CC BY-SA 4.0"
+    "points": 400,
+    "question": "أمام أي نادٍ اسكتلندي سجل محمد صلاح هاتريكه السريع في دوري الأبطال عام 2022؟",
+    "answer": "رينجرز",
+    "explanation": "سجل ثلاثيته في فوز ليفربول 7–1 في غلاسكو.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-071",
@@ -889,27 +860,21 @@
   },
   {
     "id": "UCL-075",
-    "points": 200,
-    "question": "أي نادٍ إيطالي تأهل إلى نهائي 2023 بعدما تجاوز جاره ميلان في نصف النهائي؟",
-    "answer": "إنتر ميلان",
-    "explanation": "تأهل إنتر بمجموع المباراتين.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.youtube.com/watch?v=l52QHKWPvxM",
-    "imageUrl": "https://static.independent.co.uk/2023/05/16/21/2023-05-16T204657Z_962254359_UP1EJ5G1LQ641_RTRMADP_3_SOCCER-CHAMPIONS-INT-MIL-REPORT.JPG?crop=1200%3A800&height=800&width=1200",
-    "imageSourceUrl": "https://www.independent.co.uk/sport/football/inter-milan-ac-milan-live-stream-score-result-b2339824.html",
-    "imageCaption": "احتفال إنتر في إياب نصف النهائي أمام ميلان 2023"
+    "points": 600,
+    "question": "أي لاعب سجل رباعية لأتالانتا أمام فالنسيا في إياب ثمن النهائي 2020؟",
+    "answer": "يوسيب إيليتشيتش",
+    "explanation": "أحرز الأهداف الأربعة لأتالانتا في الفوز 4–3.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-076",
-    "points": 200,
-    "question": "من اللاعب الكرواتي الذي شارك في ستة نهائيات فاز بها ريال مدريد؟",
-    "answer": "لوكا مودريتش",
-    "explanation": "شارك مودريتش في ستة انتصارات نهائية.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "/assets/questions/football-first-name/4170ff456958e5c24762e6a5.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
-    "imageCaption": "صورة لوكا مودريتش · Bryan Berlin · CC BY-SA 4.0"
+    "points": 600,
+    "question": "مين سجل أربعة أهداف لتشيلسي أمام إشبيلية في دوري الأبطال 2020؟",
+    "answer": "أوليفييه جيرو",
+    "explanation": "سجل جميع أهداف تشيلسي في الفوز 4–0.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-077",
@@ -999,27 +964,21 @@
   },
   {
     "id": "UCL-084",
-    "points": 200,
-    "question": "من اللاعب الذي أحرز اللقب مع مانشستر يونايتد وبرشلونة، لكنه لم يشارك في نهائي 2008؟",
-    "answer": "جيرارد بيكيه",
-    "explanation": "كان بيكيه ضمن يونايتد عام 2008 ثم توج مع برشلونة.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "/assets/questions/football-first-name/ebc862eeb49532a9404a5380.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Gerard_Piqu%C3%A9_Euro_2012_vs_France_01.jpg",
-    "imageCaption": "صورة جيرارد بيكيه · Дмитрий Неймырок · CC BY-SA 3.0"
+    "points": 600,
+    "question": "مين المهاجم اللي سجل أربعة أهداف لأول ظهور إله مع أياكس بدوري الأبطال أمام سبورتينغ لشبونة في 2021؟",
+    "answer": "سيباستيان هالر",
+    "explanation": "افتتح مشواره بدوري الأبطال بأربعة أهداف في لشبونة.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
     "id": "UCL-085",
-    "points": 200,
-    "question": "من اللاعب الذي فاز مع برشلونة في 2006 لكنه غاب عن النهائي، ثم شارك في انتصارات 2009 و2011 و2015؟",
-    "answer": "تشافي هيرنانديز",
-    "explanation": "تشافي لم يشارك في نهائي 2006.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
-    "imageUrl": "/assets/questions/football-first-name/cfd218f760f1a71c0c29b023.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi,_Persepolis_vs._Al_Sadd,_20190520_02_(cropped).jpg",
-    "imageCaption": "صورة تشافي هيرنانديز · Meysam Mehabadi · CC BY 4.0"
+    "points": 600,
+    "question": "مين اللاعب اللي سجل أسرع هدف في دور المجموعات قبل النظام الجديد، مع فالنسيا أمام ليفركوزن سنة 2011؟",
+    "answer": "جوناس",
+    "explanation": "سجل بعد 10.96 ثانية.",
+    "theme": "لحظات وأرقام تاريخية",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966468be2a-209986d8dffd-1000--ten-years-on-makaay-scores-fastest-champions-league-goal/"
   },
   {
     "id": "UCL-086",
@@ -1055,11 +1014,11 @@
   },
   {
     "id": "UCL-089",
-    "points": 200,
-    "question": "أي نادٍ إيطالي خسر أكبر عدد من النهائيات في حقبة دوري الأبطال حتى نهاية موسم 2025/26؟",
-    "answer": "يوفنتوس",
-    "explanation": "خسر يوفنتوس خمسة نهائيات في الحقبة الحديثة.",
-    "theme": "أرشيف البطولة",
+    "points": 600,
+    "question": "مين الحارس الإيطالي اللي لعب نهائي كأس أوروبا 1983 أمام هامبورغ بعمر 41 سنة؟",
+    "answer": "دينو زوف",
+    "explanation": "شارك في نهائي 1983 مع يوفنتوس.",
+    "theme": "لحظات وأرقام تاريخية",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
   },
   {

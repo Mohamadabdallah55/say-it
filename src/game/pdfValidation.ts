@@ -1,4 +1,5 @@
 import { PROPHET_STORIES_CATEGORY } from './prophetStories';
+import { isFootballQuestion, pickDiverseFootballQuestion } from './footballQuestionDiversity';
 import type {
   BoardTileState,
   DeckCategory,
@@ -480,6 +481,7 @@ export function selectActiveBoardForDeck(
   requestedCategoryCount = 5,
   selectedCategoryIds?: string[],
   teamCount = 1,
+  mixFootballTopics = false,
 ): {
   categories: DeckCategory[];
   tiles: BoardTileState[];
@@ -610,6 +612,7 @@ export function selectActiveBoardForDeck(
   const tiles: BoardTileState[] = [];
   const usedIds = new Set<string>();
   const usedSceneIds = new Set<string>();
+  const pickedQuestions: QuizQuestion[] = [];
 
   for (const cat of categories) {
     for (const points of categoryPointValues(cat, difficulties)) {
@@ -645,7 +648,16 @@ export function selectActiveBoardForDeck(
         );
       const perTeam = teamCount > 1 && available.length >= teamCount;
       const selected: QuizQuestion[] = [];
-      if (perTeam) {
+      if (mixFootballTopics && deck.sourceType === 'curated' && available.some(isFootballQuestion)) {
+        const remaining = [...available];
+        const limit = perTeam ? teamCount : 1;
+        while (remaining.length && selected.length < limit) {
+          const next = pickDiverseFootballQuestion(remaining, [...pickedQuestions, ...selected]);
+          if (!next) break;
+          selected.push(next);
+          remaining.splice(remaining.indexOf(next), 1);
+        }
+      } else if (perTeam) {
         for (const candidate of available) {
           if (
             candidate.memorySceneId &&
@@ -666,6 +678,7 @@ export function selectActiveBoardForDeck(
       if (!selected.length && fallback) selected.push(fallback);
       selected.forEach((question, index) => {
         usedIds.add(question.id);
+        pickedQuestions.push(question);
         if (question.memorySceneId) usedSceneIds.add(question.memorySceneId);
         tiles.push({
           questionId: question.id,
