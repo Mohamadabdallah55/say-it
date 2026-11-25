@@ -225,7 +225,7 @@ test('World Cup score cards are local factual graphics and sourced fixture photo
     assert.ok(fs.readFileSync(path.join(process.cwd(),'public',row.afterImageUrl.slice(1)),'utf8').includes('بطاقة توضيحية'));
   }
   const photos = WORLD_CUP_2026_QUESTIONS.filter(q=>q.imageUrl);
-  assert.equal(photos.length,10);
+  assert.equal(photos.length,15);
   for(const q of photos) { assert.equal(q.imageDisplay,'after_reveal'); assert.ok(q.imageSourceUrl?.startsWith('https://')); }
 });
 

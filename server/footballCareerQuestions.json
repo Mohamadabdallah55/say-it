@@ -106,7 +106,9 @@
       "يوفنتوس",
       "بارما"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Buffon"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Buffon",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-110.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/paris-saint-germain.png"
   },
   {
     "id": "FC-008",
@@ -154,7 +156,9 @@
       "مونتريال إمباكت",
       "فينيكس رايزينغ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Didier_Drogba"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Didier_Drogba",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-125.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/olympique-marseille.png"
   },
   {
     "id": "FC-011",
@@ -354,7 +358,9 @@
       "ملقا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-023-new.svg"
+    "clueFile": "FC-023-new.svg",
+    "answerImageUrl": "https://img.youm7.com/ArticleImgs/2018/8/9/129662-%D8%AE%D8%A7%D9%81%D9%8A%D9%8A%D8%B1-%D8%B3%D8%A7%D9%81%D9%8A%D9%88%D9%84%D8%A7.jpg",
+    "answerImageSourceUrl": "https://www.youm7.com/story/2018/8/10/3906030"
   },
   {
     "id": "FC-024",
@@ -520,7 +526,9 @@
       "برشلونة",
       "مانشستر سيتي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/İlkay_Gündoğan"
+    "sourceUrl": "https://en.wikipedia.org/wiki/İlkay_Gündoğan",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-102.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/fc-barcelona.png"
   },
   {
     "id": "FC-034",
@@ -536,7 +544,9 @@
       "باريس سان جيرمان",
       "أستون فيلا"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Marco_Asensio"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marco_Asensio",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-171.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/rcd-espanyol-barcelona.png"
   },
   {
     "id": "FC-035",
@@ -726,7 +736,9 @@
       "روما",
       "الاتفاق السعودي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Georginio_Wijnaldum"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Georginio_Wijnaldum",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-105.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/liverpool-fc.png"
   },
   {
     "id": "FC-047",
@@ -745,7 +757,9 @@
       "هايدوك سبليت",
       "آيندهوفن"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Perišić"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Perišić",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-113.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/inter-milan.png"
   },
   {
     "id": "FC-048",
@@ -775,7 +789,9 @@
       "ميلان",
       "إنتر ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Hakan_Çalhanoğlu"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hakan_Çalhanoğlu",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-112.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ac-milan.png"
   },
   {
     "id": "FC-050",
@@ -792,7 +808,9 @@
       "الشباب السعودي",
       "هايدوك سبليت"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Rakitić"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Rakitić",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-102.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/fc-barcelona.png"
   },
   {
     "id": "FC-051",
@@ -866,7 +884,9 @@
       "أرسنال",
       "باير ليفركوزن"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Granit_Xhaka"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Granit_Xhaka",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-106.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/arsenal-fc.png"
   },
   {
     "id": "FC-056",
@@ -898,7 +918,9 @@
       "برينتفورد",
       "مانشستر يونايتد"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Christian_Eriksen"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Christian_Eriksen",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-113.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/inter-milan.png"
   },
   {
     "id": "FC-058",
@@ -913,7 +935,9 @@
       "يوفنتوس",
       "برشلونة"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Wojciech_Szczęsny"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wojciech_Szczęsny",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-111.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/juventus-fc.png"
   },
   {
     "id": "FC-059",
@@ -929,7 +953,9 @@
       "نابولي",
       "باريس سان جيرمان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Khvicha_Kvaratskhelia"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Khvicha_Kvaratskhelia",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-116.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ssc-napoli.png"
   },
   {
     "id": "FC-060",
@@ -949,7 +975,9 @@
       "ساو باولو",
       "رايو فاييكانو"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez"
+    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-149.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/as-monaco.png"
   },
   {
     "id": "FC-061",
@@ -977,7 +1005,9 @@
       "برايتون",
       "أرسنال"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-130.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/brighton-and-hove-albion.png"
   },
   {
     "id": "FC-063",
@@ -1230,7 +1260,9 @@
       "مانشستر سيتي",
       "إشبيلية"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Jesús_Navas"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jesús_Navas",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-104.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-city.png"
   },
   {
     "id": "FC-078",
@@ -1380,7 +1412,9 @@
       "أستون فيلا",
       "الدحيل القطري"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho",
+    "answerImageUrl": "/assets/questions/club-logos/CLUB-171.png",
+    "answerImageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/rcd-espanyol-barcelona.png"
   },
   {
     "id": "FC-087",

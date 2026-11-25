@@ -84,7 +84,10 @@
       "points": 400,
       "letter": "ش",
       "question": "أي نادٍ أوكراني واجه برشلونة في ربع نهائي دوري الأبطال 2011؟",
-      "answer": "شاختار دونيتسك"
+      "answer": "شاختار دونيتسك",
+      "imageUrl": "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/e3/9f/2011-04-06T204304Z_01_SPS41_RTRIDSP_3_SOCCER-CHAMPIONS.jpg",
+      "imageSourceUrl": "https://news.sportbox.ru/Vidy_sporta/Futbol/Liga_Chempionov/spbfoto_SHahtyor-Barselona",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: شاختار دونيتسك"
     },
     {
       "id": "FK-013",
@@ -207,7 +210,10 @@
       "letter": "خ",
       "question": "من حرس مرمى إنتر ميلان في نهائي دوري أبطال أوروبا 2010 أمام بايرن ميونخ؟",
       "answer": "خوليو سيزار",
-      "points": 400
+      "points": 400,
+      "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330785706097?%24Mobile%24=&fit=wrap&wid=312",
+      "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/julio-cesar-santos-correa",
+      "imageCaption": "صورة أرشيفية للاعب خوليو سيزار؛ ليست بالضرورة من المباراة المذكورة"
     },
     {
       "id": "FK-030",
@@ -249,7 +255,10 @@
       "points": 400,
       "letter": "م",
       "question": "أي نادٍ فرنسي خسر نهائي دوري الأبطال 2004 أمام بورتو؟",
-      "answer": "موناكو"
+      "answer": "موناكو",
+      "imageUrl": "https://media.trivela.com.br/main/2024/03/Porto-scaled.jpg",
+      "imageSourceUrl": "https://trivela.com.br/europa/porto-champions-league-2004/",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: موناكو"
     },
     {
       "id": "FK-036",
@@ -270,7 +279,10 @@
       "points": 600,
       "letter": "ف",
       "question": "أي لاعب سجل أربعة أهداف لريال مدريد أمام فرانكفورت في نهائي كأس أوروبا 1960؟",
-      "answer": "فيرينتس بوشكاش"
+      "answer": "فيرينتس بوشكاش",
+      "imageUrl": "https://media0.faz.net/ppmedia/aktuell/748139594/1.8229798/twitter_teaser/ferenc-puskas-erzielt-real.jpg",
+      "imageSourceUrl": "https://www.faz.net/aktuell/sport/rhein-main-sport/eintracht-frankfurt/eintracht-frankfurt-gegen-real-madrid-1960-so-was-das-jahrhundertspiel-18229796.html",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: فيرينتس بوشكاش"
     },
     {
       "id": "FK-039",
@@ -399,7 +411,10 @@
       "letter": "غ",
       "question": "من سجّل مقصية ريال مدريد أمام ليفربول في نهائي دوري الأبطال 2018؟",
       "answer": "غاريث بيل",
-      "points": 200
+      "points": 200,
+      "imageUrl": "https://fotografias.lasexta.com/clipping/cmsimages02/2018/05/26/201E765A-CE82-42C4-814C-57218F07A655/default.jpg",
+      "imageSourceUrl": "https://www.lasexta.com/noticias/deportes/futbol/gareth-bale-hizo-el-2-1-ante-el-liverpool-con-una-espectacular-gol-de-chilena_201805265b09c1220cf2ea770397d61e.html",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: غاريث بيل"
     },
     {
       "id": "FK-057",
@@ -427,7 +442,10 @@
       "letter": "د",
       "question": "من سجّل رأسية التعادل لتشيلسي أمام بايرن في نهائي دوري الأبطال 2012؟",
       "answer": "ديدييه دروغبا",
-      "points": 200
+      "points": 200,
+      "imageUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/deseretnews/BBHR2BMO7SM3CKCKDKNSXIWB2Q.jpg",
+      "imageSourceUrl": "https://www.deseret.com/2012/5/20/20413920/chelsea-beats-bayern-munich-in-penalty-shootout/",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: ديدييه دروغبا"
     },
     {
       "id": "FK-061",
@@ -457,7 +475,10 @@
       "points": 600,
       "letter": "ك",
       "question": "مين سجل أول أهداف بورتو في نهائي دوري الأبطال 2004؟",
-      "answer": "كارلوس ألبرتو"
+      "answer": "كارلوس ألبرتو",
+      "imageUrl": "https://media.trivela.com.br/main/2024/03/Porto-scaled.jpg",
+      "imageSourceUrl": "https://trivela.com.br/europa/porto-champions-league-2004/",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: كارلوس ألبرتو"
     },
     {
       "id": "FK-065",
@@ -677,7 +698,10 @@
       "points": 600,
       "letter": "ل",
       "question": "مين سجل خمسة أهداف لشاختار أمام باتي بوريسوف في 2014؟",
-      "answer": "لويز أدريانو"
+      "answer": "لويز أدريانو",
+      "imageUrl": "https://s2.glbimg.com/WpXsMX4Dj4w09dPqYUQkIC5S6f0%3D/0x0%3A2000x1363/690x470/s.glbimg.com/es/ge/f/original/2014/10/21/shakhtardonetsk-borisov-reu.jpg",
+      "imageSourceUrl": "https://ge.globo.com/futebol/liga-dos-campeoes/noticia/2014/10/luiz-adriano-faz-cinco-bate-recordes-e-e-entra-para-historia-do-shakhtar.html",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: لويز أدريانو"
     },
     {
       "id": "FK-096",
@@ -691,7 +715,10 @@
       "letter": "خ",
       "question": "من سجّل هدفي ريال مدريد المتأخرين أمام بايرن ميونخ بإياب نصف نهائي دوري الأبطال 2024؟",
       "answer": "خوسيلو",
-      "points": 200
+      "points": 200,
+      "imageUrl": "https://s2-ge.glbimg.com/Nw2q2j3ghqDuOLEyLuRSJ5lhjbA%3D/0x0%3A1024x682/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/r/6/xBiAozSfiEJQlWzUlkhA/000-34r92qt.jpg",
+      "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/liga-dos-campeoes/noticia/2024/05/08/quem-e-joselu-heroi-da-classificacao-do-real-madrid-sobre-o-bayern-na-champions.ghtml",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: خوسيلو"
     },
     {
       "id": "FK-098",
@@ -733,14 +760,20 @@
       "points": 600,
       "letter": "ت",
       "question": "من سجل هدف مانشستر يونايتد الأول في الوقت بدل الضائع أمام بايرن في نهائي 1999؟",
-      "answer": "تيدي شيرينغهام"
+      "answer": "تيدي شيرينغهام",
+      "imageUrl": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3nfwcxd527z59.cloudfront.net%2Fcontent%2Fuploads%2F2021%2F06%2F30155441%2FTeddy-Sheringham-Manchester-United-celebrates-1999-Champions-League-final-1-1.jpg",
+      "imageSourceUrl": "https://www.planetfootball.com/nostalgia/following-kings-footsteps-sheringham-achieved-impossible",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: تيدي شيرينغهام"
     },
     {
       "id": "FK-E-004",
       "points": 400,
       "letter": "ث",
       "question": "أي ظهير فرنسي شارك بديلًا في إياب السوبر الإسباني 2017 بدل ماركو أسينسيو؟",
-      "answer": "ثيو هيرنانديز"
+      "answer": "ثيو هيرنانديز",
+      "imageUrl": "https://assets.goal.com/images/v3/bltefcddc3602918a65/f99afd72eebe3001dc5448f88a8b0e6a321945c4.jpg?auto=webp&format=pjpg&quality=60&width=3840",
+      "imageSourceUrl": "https://www.goal.com/en-om/news/theo-leaves-real-madrid-to-make-sociedad-loan-switch/bpctrr60hfe51nz8fiyetxbv0",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: ثيو هيرنانديز"
     },
     {
       "id": "FK-E-005",
@@ -761,7 +794,10 @@
       "points": 400,
       "letter": "خ",
       "question": "أي لاعب من ريال مدريد كان بجوار فاران في قلب الدفاع بإياب ربع نهائي الأبطال 2018 أمام يوفنتوس؟",
-      "answer": "خيسوس فاييخو"
+      "answer": "خيسوس فاييخو",
+      "imageUrl": "https://www.ceroacero.es/img/planteis/new/64/08/3926408_jesus_vallejo_20250401034819.jpg",
+      "imageSourceUrl": "https://www.ceroacero.es/jugador/jesus-vallejo/364215?epoca_id=147",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: خيسوس فاييخو"
     },
     {
       "id": "FK-E-008",
@@ -796,7 +832,10 @@
       "points": 600,
       "letter": "س",
       "question": "مين المهاجم اللي سجل أربعة أهداف لأياكس في أول مشاركة بدوري الأبطال أمام سبورتينغ 2021؟",
-      "answer": "سيباستيان هالر"
+      "answer": "سيباستيان هالر",
+      "imageUrl": "https://media.kickest.it/2021/09/16151833/1006609361-1.jpg",
+      "imageSourceUrl": "https://www.kickest.it/it/serie-a/notizie/12261/i-calciatori-che-hanno-realizzato-un-poker-in-champions-league",
+      "imageCaption": "صورة من تغطية الحدث المرتبط بالإجابة: سيباستيان هالر"
     },
     {
       "id": "FK-E-013",
@@ -859,7 +898,10 @@
       "points": 200,
       "letter": "ك",
       "answer": "كريم بنزيما",
-      "question": "من اللاعب الفرنسي الذي فاز بالكرة الذهبية عام 2022؟"
+      "question": "من اللاعب الفرنسي الذي فاز بالكرة الذهبية عام 2022؟",
+      "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/50/08/3045008_karim_benzema_20240530003408.jpg",
+      "imageSourceUrl": "https://www.playmakerstats.com/player/karim-benzema/12913?epoca_id=145",
+      "imageCaption": "صورة أرشيفية للاعب كريم بنزيما؛ ليست بالضرورة من المباراة المذكورة"
     },
     {
       "id": "FK-E-022",
