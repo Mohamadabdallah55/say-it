@@ -50,7 +50,7 @@ const DEFAULT_TEAMS: AssistantTeamSummary[] = [
 const INITIAL_GREETING: ChatMessage = {
   id: 'welcome',
   role: 'assistant',
-  text: 'هلا بالنشامى! أنا نشمي، مساعد ألعاب يمكن هاي. اسألوني عن القوانين والبطاقات، وإذا اختلفتوا على إجابة بساعدكم بتحكيمها!',
+  text: 'هلا بالنشامى! أنا يزن، مساعد ألعاب يمكن هاي. اسألوني عن القوانين والبطاقات، وإذا اختلفتوا على إجابة بساعدكم بتحكيمها!',
 };
 
 export function GameAssistantBot({
@@ -227,8 +227,8 @@ export function GameAssistantBot({
           soundFX.playClick();
           setOpen(true);
         }}
-        title="نشمي — مساعد وحكم يمكن هاي"
-        aria-label="فتح نشمي المساعد والحكم الذكي"
+        title="يزن — مساعد وحكم يمكن هاي"
+        aria-label="فتح يزن المساعد والحكم الذكي"
         className={
           triggerVariant === 'icon'
             ? 'game-btn-3d bg-[#FFE047] text-[#1F112E] w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center shrink-0 cursor-pointer'
@@ -238,7 +238,7 @@ export function GameAssistantBot({
         }
       >
         <NashmiMascotSvg className={triggerVariant === 'icon' ? 'w-5 h-5' : compact ? 'w-5 h-5' : 'w-6 h-6'} />
-        {triggerVariant !== 'icon' && <span>نشمي الحكم</span>}
+        {triggerVariant !== 'icon' && <span>يزن الحكم</span>}
       </button>
 
       {open &&
@@ -266,7 +266,7 @@ export function GameAssistantBot({
                       id="nabeeh-modal-title"
                       className="font-display font-black text-xl text-[#1F112E] leading-tight"
                     >
-                      {viewMode === 'judge' ? 'حكّم الإجابة' : 'نشمي'}
+                      {viewMode === 'judge' ? 'حكّم الإجابة' : 'يزن'}
                     </h2>
                     {viewMode === 'judge' ? (
                       <button
@@ -298,7 +298,7 @@ export function GameAssistantBot({
                 </button>
               </div>
 
-              {viewMode === 'judge' && judgeVerdict && judgeProvider && <div className="px-6 pb-2 text-xs font-bold text-[#63349B]" role="status">{judgeProvider === 'nashmi_gemini' ? 'التحكيم: نشمي · Gemini' : 'التحكيم: محلي — بدون Ollama'}</div>}
+              {viewMode === 'judge' && judgeVerdict && judgeProvider && <div className="px-6 pb-2 text-xs font-bold text-[#63349B]" role="status">{judgeProvider === 'nashmi_gemini' ? 'التحكيم: يزن · Gemini' : 'التحكيم: محلي — بدون Ollama'}</div>}
               {viewMode === 'chat' ? (
                 <>
                   {/* Messages & Quick Action Chips */}
@@ -319,7 +319,7 @@ export function GameAssistantBot({
                         {msg.role === 'assistant' ? (
                           <div className="max-w-[90%] bg-white border-2 border-[#1F112E] rounded-2xl rounded-br-sm px-4 py-3 text-sm sm:text-[15px] font-bold leading-relaxed text-[#1F112E] whitespace-pre-wrap shadow-[0_2px_0_rgba(31,17,46,0.12)]">
                             {msg.text}
-                            {msg.provider && <div className="mt-2 pt-1 border-t border-black/10 text-[11px] text-[#63349B]">{msg.provider === 'nashmi_gemini' ? 'المحرك: نشمي · Gemini' : msg.provider === 'local_guide' ? 'مرشد محلي فوري — بدون AI' : 'نشمي غير متاح — لم يُستخدم Ollama'}</div>}
+                            {msg.provider && <div className="mt-2 pt-1 border-t border-black/10 text-[11px] text-[#63349B]">{msg.provider === 'nashmi_gemini' ? 'المحرك: يزن · Gemini' : msg.provider === 'local_guide' ? 'مرشد محلي فوري — بدون AI' : 'يزن غير متاح — لم يُستخدم Ollama'}</div>}
                           </div>
                         ) : (
                           <div className="max-w-[85%] bg-[#63349B] text-white border-2 border-[#1F112E] rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm font-bold leading-relaxed whitespace-pre-wrap shadow-[0_2px_0_#1F112E]">
@@ -333,7 +333,7 @@ export function GameAssistantBot({
                       <div className="flex items-center gap-2">
                         <div className="bg-white border-2 border-[#1F112E] rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs font-black text-[#63349B]">
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>نشمي يراجع القواعد والدرس...</span>
+                          <span>يزن يراجع القواعد والدرس...</span>
                         </div>
                       </div>
                     )}
