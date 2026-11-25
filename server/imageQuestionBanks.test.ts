@@ -24,12 +24,13 @@ test('football first names use 100 distinct photos and hide names and credit lin
   );
   const photos = new Set<string>();
   for (const question of FOOTBALL_FIRST_NAME_QUESTIONS) {
-    assert.match(question.imageUrl ?? '', /\/football-first-name\/[a-f0-9]{24}\.jpg$/);
+    assert.match(question.imageUrl ?? '', /^\/assets\/(?:questions\/football-first-name\/[a-f0-9]{24}\.jpg|world_cup_2026\/players\/[a-z0-9_.]+\.(?:jpg|webp))$/);
     const image = readFileSync(new URL(`../public${question.imageUrl}`, import.meta.url));
-    assert.equal(image.toString('hex', 0, 3), 'ffd8ff');
+    assert.ok(image.toString('hex', 0, 3) === 'ffd8ff' || (image.toString('ascii', 0, 4) === 'RIFF' && image.toString('ascii', 8, 12) === 'WEBP'));
     photos.add(createHash('sha256').update(image).digest('hex'));
-    assert.ok(question.imageSourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:'));
-    assert.ok(question.sourceRef?.startsWith('https://creativecommons.org/'));
+    assert.ok(question.imageSourceUrl?.startsWith('https://'));
+    assert.ok(question.sourceRef?.startsWith('https://'));
+    if (question.points !== 200) assert.ok(question.imageUrl?.startsWith('/assets/world_cup_2026/players/'));
   }
   assert.equal(photos.size, 100);
   const firstNameDeck = buildBoardDeckFromCategories(

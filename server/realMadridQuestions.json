@@ -13,10 +13,10 @@
   {
     "id": "RM-002",
     "points": 400,
-    "question": "من هو الحارس الأساسي الذي خرج مصابًا ليدخل كاسياس بدلًا منه في نهائي 2002؟",
+    "question": "مين حارس ريال مدريد الإسباني اللي بدأ نهائي دوري الأبطال 2002 أمام ليفركوزن؟",
     "answer": "سيزار سانشيز",
-    "answer_english": "Cesar Sanchez",
-    "explanation": "تعرض سيزار للإصابة ليحل كاسياس محله.",
+    "answer_english": "César Sánchez",
+    "explanation": "بدأ سيزار في حراسة المرمى.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/01e8-0e7502634b7d-f2f809914477-1000/",
     "imageUrl": "https://img.allfootballapp.com/www/M00/2B/50/CgAGVmJTqeGASzi6AAlIjSsKics469.jpg",
     "imageSourceUrl": "https://m-api.allfootballapp.com/article/2808406"
@@ -70,11 +70,11 @@
   {
     "id": "RM-007-R2",
     "points": 600,
-    "question": "في نهائي ويمبلي 2024، مين اللاعب اللي دخل بدل رودريغو في الوقت بدل الضائع؟",
+    "question": "أي مدافع برازيلي انتقل لريال مدريد من بورتو في 2019، وكان ضمن قائمة الفريق المتوجة بدوري الأبطال 2024؟",
     "answer": "إيدير ميليتاو",
-    "explanation": "دخل ميليتاو في الدقيقة 90+1.",
+    "explanation": "انضم ميليتاو من بورتو عام 2019.",
     "answer_english": "Éder Militão",
-    "source_url": "https://www.uefa.com/uefachampionsleague/match/2039970/",
+    "source_url": "https://www.realmadrid.com/en-US/football/first-team/players/eder-gabriel-militao",
     "imageUrl": "https://pbs.twimg.com/media/FqEfrryXwB8m77G.jpg",
     "imageSourceUrl": "https://x.com/MadridXtra/status/1630619390629625884",
     "imageCaption": "إيدير ميليتاو — صورة أرشيفية للاعب وليست بالضرورة من المباراة المذكورة"
@@ -158,16 +158,13 @@
     "imageSourceUrl": "https://www.fourfourtwo.com/features/real-madrids-galacticos-remembered-galacticos-zidane-figo-ronaldo-and-roberto-carlos-recall"
   },
   {
-    "id": "RM-015-R2",
+    "id": "RM-015-R2-R4",
     "points": 600,
-    "question": "في نهائي ويمبلي 2024، مين المهاجم اللي دخل بدل بيلينغهام في نفس دقيقة خروج كروس؟",
-    "answer": "خوسيلو",
-    "explanation": "شارك خوسيلو بدل بيلينغهام في الدقيقة 85.",
-    "answer_english": "Joselu",
-    "source_url": "https://www.uefa.com/uefachampionsleague/match/2039970/",
-    "imageUrl": "https://sportal365images.com/process/smp-images-production/ringier.africa/09052024/6198ea51-23f0-48bd-b146-8a601f301b9c.png?operations=autocrop%28700%3A467%29",
-    "imageSourceUrl": "https://www.pulsesports.ng/story/joselu-from-being-relegated-twice-to-la-liga-winner-and-champions-league-finalist-2024050907172715379",
-    "imageCaption": "خوسيلو — صورة أرشيفية للاعب وليست بالضرورة من المباراة المذكورة"
+    "question": "في موسم 2023-24، أي فريق إسباني انضم منه خوسيلو إلى ريال مدريد على سبيل الإعارة؟",
+    "answer": "إسبانيول",
+    "explanation": "انتقل خوسيلو معارًا من إسبانيول.",
+    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/joselu-new-real-madrid-player",
+    "answer_english": "Espanyol"
   },
   {
     "id": "RM-016",
@@ -529,10 +526,10 @@
   {
     "id": "RM-049",
     "points": 600,
-    "question": "في نهائي دوري الأبطال 2002، من لاعب الوسط البرازيلي الذي دخل في آخر تبديلات ريال مدريد بدل كلود ماكيليلي؟",
+    "question": "مين لاعب الوسط البرازيلي الذي انضم لريال مدريد من ديبورتيفو لا كورونيا عام 2000 وشارك معه في نهائي الأبطال 2002؟",
     "answer": "فلافيو كونسيساو",
     "answer_english": "Flávio Conceição",
-    "explanation": "شارك كونسيساو بدل ماكيليلي في التبديل الأخير.",
+    "explanation": "انتقل كونسيساو من ديبورتيفو إلى مدريد في 2000.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0185-0e6a414977dc-840dff896fae-1000/",
     "imageUrl": "https://media05.ligtv.com.tr/img/gallery/202377_hem_real_madrid_hem_de_turkiyede_oynayan_tum_oyuncular_burada/conceicao-real.jpg",
     "imageSourceUrl": "https://beinsports.com.tr/fotogaleri/hem-real-madrid-hem-de-turkiyede-oynayan-tum-oyuncular-burada/14",
@@ -638,10 +635,10 @@
   {
     "id": "RM-059",
     "points": 400,
-    "question": "من الظهير الذي بدأ أساسيًا بدل كارفاخال في مباراة ريال مدريد وتوتنهام بالبرنابيو في أكتوبر 2017؟",
+    "question": "مين الظهير المغربي اللي نشأ في أكاديمية ريال مدريد وظهر مع الفريق الأول في دوري الأبطال موسم 2017-18؟",
     "answer": "أشرف حكيمي",
     "answer_english": "Achraf Hakimi",
-    "explanation": "شارك حكيمي في التشكيلة الأساسية.",
+    "explanation": "حكيمي من خريجي أكاديمية ريال مدريد.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
     "imageUrl": "/assets/questions/football-first-name/d95db4be17d185b2f70a6d52.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Achraf_Hakimi_Morocco_v_Norway_7_June_2026-32.jpg",

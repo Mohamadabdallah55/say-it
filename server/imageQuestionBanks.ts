@@ -143,8 +143,8 @@ export const WORLD_FOOTBALL_QUESTIONS = worldFootballRows.map((row): QuizQuestio
 export const FOOTBALL_FIRST_NAME_QUESTIONS = footballFirstNameRows.map((row): QuizQuestion => ({
   ...createQuestion(FOOTBALL_FIRST_NAME_CATEGORY, row),
   prompt: `${row.question} اسم العائلة «${row.family_name}».`,
-  explanation: `الاسم الكامل ${row.answer_full} · تصوير ${row.imageCredit} · ${row.imageLicenseLabel} · نسخة مصغّرة`,
-  imageUrl: `/assets/questions/football-first-name/${row.imageFile}`,
+  explanation: `الاسم الكامل ${row.answer_full} · ${row.imageCredit} · ${row.imageLicenseLabel}`,
+  imageUrl: 'localImagePath' in row && typeof row.localImagePath === 'string' ? row.localImagePath : `/assets/questions/football-first-name/${row.imageFile}`,
   imageDisplay: 'before_reveal',
   imageCaption: 'صورة اللاعب',
   imageSourceUrl: row.imageSourceUrl,

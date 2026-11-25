@@ -419,10 +419,10 @@
   {
     "id": "UCL-NEW-26-01",
     "points": 600,
-    "question": "في نهائي دوري الأبطال 2025، مين لاعب باريس اللي دخل بدل فابيان رويز وسجل الهدف الخامس؟",
+    "question": "مين خريج أكاديمية باريس الذي أصبح رابع لاعب دون العشرين يسجل في نهائي دوري الأبطال، بعدما سجل الخامس ضد إنتر 2025؟",
     "answer": "سيني مايولو",
-    "explanation": "دخل مايولو بديلًا وسجل الهدف الأخير في فوز باريس 5-0.",
-    "theme": "التبديلات وتأثيرها",
+    "explanation": "كان مايولو رابع مراهق يسجل في نهائي دوري الأبطال.",
+    "theme": "مسيرة وإنجازات وتفاصيل المباريات",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/"
   },
   {
@@ -1033,11 +1033,14 @@
   {
     "id": "UCL-089-R2",
     "points": 600,
-    "question": "في نهائي دوري الأبطال 2025، مين لاعب باريس اللي دخل بدل كفاراتسخيليا قبل الهدف الخامس؟",
+    "question": "أي لاعب من باريس كان يرتدي القميص رقم 9 في نهائي دوري الأبطال 2025 أمام إنتر؟",
     "answer": "غونسالو راموس",
-    "explanation": "دخل راموس في الدقيقة 84.",
-    "theme": "تفاصيل حديثة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/match/2044466/"
+    "explanation": "راموس ارتدى رقم 9 مع باريس في ذلك الموسم.",
+    "theme": "مسيرة وإنجازات وتفاصيل المباريات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/",
+    "imageUrl": "/assets/world_cup_2026/players/goncalo_ramos.jpg",
+    "imageSourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_%28cropped%29.jpg/960px-Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
     "id": "UCL-090",
@@ -1049,13 +1052,16 @@
     "source_url": "https://es.uefa.com/uefachampionsleague/news/0252-0e98d341867a-1f3b773dccf1-1000--todas-las-finales-de-la-champions-league-en-video/"
   },
   {
-    "id": "UCL-NEW-26-03",
+    "id": "UCL-NEW-26-03-R4",
     "points": 600,
-    "question": "في نهائي دوري الأبطال 2025، مين لاعب إنتر اللي دخل بديلًا لبافار ثم تم استبداله بعد دقائق؟",
-    "answer": "يان أوريل بيسيك",
-    "explanation": "دخل بيسيك بدل بافار ثم خرج ودخل دارميان.",
-    "theme": "تبديلات وتفاصيل المباريات",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/"
+    "question": "في نهائي دوري الأبطال 2025، مين الجناح الفرنسي الذي مرّر الكرة لسيني مايولو ليسجّل الهدف الخامس لباريس؟",
+    "answer": "برادلي باركولا",
+    "explanation": "صنع باركولا الهدف الخامس.",
+    "theme": "مسيرة وإنجازات وتفاصيل المباريات",
+    "source_url": "https://www.inter.it/en/match_center/5313",
+    "imageUrl": "/assets/world_cup_2026/players/bradley_barcola.jpg",
+    "imageSourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Bradley_Barcola_France_v_Spain_7.24.26-112_%28cropped%29.jpg/960px-Bradley_Barcola_France_v_Spain_7.24.26-112_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
     "id": "UCL-092",

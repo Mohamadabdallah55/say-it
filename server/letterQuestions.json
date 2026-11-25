@@ -272,25 +272,25 @@
       "id": "FK-038-R2",
       "points": 600,
       "letter": "ي",
-      "question": "في نهائي مونديال قطر 2022، مين لاعب وسط فرنسا اللي دخل بدل رابيو بالوقت الإضافي؟",
+      "question": "مين لاعب الوسط الفرنسي اللي انتقل من موناكو إلى ميلان في صيف 2024؟",
       "answer": "يوسف فوفانا",
-      "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/argentina-france-2022-final-greatest-games"
+      "sourceUrl": "https://www.acmilan.com/en/news/articles/media/2024-08-17/official-statement-youssouf-fofana"
     },
     {
       "id": "FK-039-R2",
       "points": 600,
       "letter": "م",
-      "question": "في نهائي دوري الأبطال 2025، مين المدافع الإيطالي الذي دخل بدل بيسيك بعد إصابته؟",
+      "question": "أي ظهير إيطالي مثّل مانشستر يونايتد وبارما ثم انضم لإنتر عام 2020؟",
       "answer": "ماتيو دارميان",
-      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2044466/"
+      "sourceUrl": "https://www.inter.it/en/teams/first-team/matteo-darmian"
     },
     {
       "id": "FK-040-R2",
       "points": 600,
       "letter": "س",
-      "question": "في نهائي دوري الأبطال 2024، مين المهاجم الإيفواري اللي دخل بدل يوليان براندت؟",
+      "question": "أي مهاجم من ساحل العاج عاد للملاعب بعد التعافي من السرطان وسجل هدف الفوز في نهائي أمم أفريقيا 2023؟",
       "answer": "سيباستيان هالر",
-      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2039970/"
+      "sourceUrl": "https://www.cafonline.com/caf-africa-cup-of-nations/"
     },
     {
       "id": "FK-041",
@@ -476,9 +476,9 @@
       "id": "FK-066-R2",
       "points": 600,
       "letter": "أ",
-      "question": "في ريمونتادا أنفيلد ضد برشلونة، مين المدافع الإسكتلندي اللي خرج بين الشوطين ودخل فينالدوم بدله؟",
+      "question": "مين الظهير الإسكتلندي الذي جاء إلى ليفربول من هال سيتي سنة 2017 وفاز معه بدوري الأبطال؟",
       "answer": "أندي روبرتسون",
-      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2027160/"
+      "sourceUrl": "https://www.liverpoolfc.com/team/mens/player/andy-robertson"
     },
     {
       "id": "FK-067",
@@ -711,7 +711,7 @@
       "id": "FK-099-R2",
       "points": 600,
       "letter": "م",
-      "question": "في نهائي يورو 2024، مين لاعب إسبانيا الذي دخل بدل لامين يامال في الدقيقة 89؟",
+      "question": "مين الإسباني الذي سجل هدف التأهل في الوقت الإضافي أمام ألمانيا بربع نهائي يورو 2024 واحتفل بالدوران حول راية الركنية؟",
       "answer": "ميكيل ميرينو",
       "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/0259-0e5e039dd8b6-ac24fc62a240-1000--all-the-euro-finals-scores-scorers-line-ups-and-venues/"
     },
@@ -747,8 +747,9 @@
       "id": "FK-E-004",
       "points": 400,
       "letter": "ث",
-      "question": "أي ظهير فرنسي شارك بديلًا في إياب السوبر الإسباني 2017 بدل ماركو أسينسيو؟",
-      "answer": "ثيو هيرنانديز"
+      "question": "أي ظهير فرنسي انتقل مباشرة من أتلتيكو مدريد إلى ريال مدريد في صيف 2017 بعد إعارته لألافيس؟",
+      "answer": "ثيو هيرنانديز",
+      "sourceUrl": "https://en.atleticodemadrid.com/noticias/theo-hernandez-transferred-to-real-madrid"
     },
     {
       "id": "FK-E-005",
