@@ -46,6 +46,8 @@ import {
 } from './server/pdfExtractorService';
 import { probePyMuPdf } from './server/pymupdfBridge';
 import { PRIMARY_GEMINI_MODEL, pdfGeminiConfigured } from './server/geminiClient';
+import { requirePaidPdfStaff } from './server/paidPdfStaff';
+import { usePaidPdfBridge } from './server/paidPdfBridge';
 import {
   formatGeminiError,
   isQuotaError,
@@ -141,7 +143,7 @@ async function startServer() {
 
   // Health checks must not spawn Python or contact any AI model.
   app.get('/api/health', (_req, res) => {
-    res.json({ok:true,service:'yemken-hay',version:2,aiConfigured:pdfGeminiConfigured(),aiModel:PRIMARY_GEMINI_MODEL,aiProvider:'gemini'});
+    res.json({ok:true,service:'yemken-hay',version:2,aiConfigured:pdfGeminiConfigured(),aiModel:usePaidPdfBridge()?'gpt-6-luna':PRIMARY_GEMINI_MODEL,aiProvider:usePaidPdfBridge()?'openai':'gemini'});
   });
 
   const pdfAiStatus = async (_req: express.Request, res: express.Response) => {
@@ -155,7 +157,7 @@ async function startServer() {
       selectedVisionModel: configured ? PRIMARY_GEMINI_MODEL : null,
       pymupdfAvailable: Boolean(extraction?.available),
       pymupdfVersion: extraction?.pymupdfVersion,
-      message: configured ? 'استوديو PDF يستخدم Gemini مباشرة' : 'أضف GEMINI_API_KEY إلى إعدادات Render لخادم يمكن هاي.',
+      message: configured ? (usePaidPdfBridge()?'استوديو PDF يستخدم ميزانية يزن المشتركة':'استوديو PDF يستخدم Gemini مباشرة') : 'أضف GEMINI_API_KEY إلى إعدادات Render لخادم يمكن هاي.',
     });
   };
   app.get('/api/pdf/ai-status', pdfAiStatus);
@@ -173,6 +175,7 @@ async function startServer() {
     res.json({ questionIdsByCategory });
   });
 
+  app.use('/api/pdf', requirePaidPdfStaff);
   app.use(['/api/decks', '/api/pdf'], selectLibrary);
   app.post('/api/rooms', selectLibrary);
   app.get('/api/quran-audio/:id', serveQuranRecitation);

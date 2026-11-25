@@ -1,3 +1,4 @@
+import { usePaidPdfBridge, paidPdfBridgeConfigured, paidPdfBridge } from './paidPdfBridge';
 import {
   GoogleGenAI,
   ThinkingLevel,
@@ -19,6 +20,7 @@ export const PRIMARY_GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || 'gemini-
 export const FALLBACK_GEMINI_MODELS = ['gemini-3.1-flash-lite', 'gemini-2.5-flash'];
 
 export function pdfGeminiConfigured(): boolean {
+  if(usePaidPdfBridge()) return paidPdfBridgeConfigured();
   return Boolean(process.env.GEMINI_API_KEY?.trim() && process.env.GEMINI_API_KEY !== 'MY_GEMINI_API_KEY');
 }
 
@@ -88,6 +90,7 @@ async function callGeminiRemoteOnly(params: {
   contents: GenerateContentParameters['contents'];
   config: GenerateContentConfig;
 }): Promise<string | undefined> {
+  if(usePaidPdfBridge()) return paidPdfBridge(params);
   const seen = new Set<string>();
   const attempts: Array<{ model: string; apiVersion: 'v1beta' | 'v1' }> = [];
   const pushAttempt = (model: string, apiVersion: 'v1beta' | 'v1') => {

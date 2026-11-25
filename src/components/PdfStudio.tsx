@@ -1,3 +1,4 @@
+import { auth } from '../firebase';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AlertTriangle,
@@ -196,8 +197,8 @@ export function PdfStudio({
   const refreshLocalAndJobs = async () => {
     try {
       const [statusRes, jobsRes] = await Promise.all([
-        fetch('/api/pdf/ai-status'),
-        fetch('/api/pdf/jobs'),
+        staffPdfFetch('/api/pdf/ai-status'),
+        staffPdfFetch('/api/pdf/jobs'),
       ]);
       if (statusRes.ok) {
         setLocalStatus((await statusRes.json()) as LocalAiStatusSummary);
@@ -288,7 +289,7 @@ export function PdfStudio({
       setBusyMessage(
         'المرحلة 1/4: جارٍ استخراج المحتوى وفهم الأفكار والصور عبر Gemini...',
       );
-      const res = await fetch('/api/pdf/extract', { method: 'POST', body: formData });
+      const res = await staffPdfFetch('/api/pdf/extract', { method: 'POST', body: formData });
       const data = await parseApiJson<{
         error?: string;
         report?: PdfAnalysisReport;
@@ -309,7 +310,7 @@ export function PdfStudio({
           if (visualResult.visuals.length > 0) {
             visuals = [...visuals, ...visualResult.visuals];
             if (data.report.fileHash) {
-              void fetch('/api/pdf/save-visuals', {
+              void staffPdfFetch('/api/pdf/save-visuals', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -357,7 +358,7 @@ export function PdfStudio({
       `المرحلة 2–3/4: تصميم خطة ${categoryCount} فئات رئيسية متخصصة لـ ${teamCount} فرق وتوزيع التغطية على كامل المحتوى...`,
     );
     try {
-      const res = await fetch('/api/pdf/plan-board', {
+      const res = await staffPdfFetch('/api/pdf/plan-board', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -422,7 +423,7 @@ export function PdfStudio({
     );
 
     try {
-      const res = await fetch('/api/pdf/generate-board', {
+      const res = await staffPdfFetch('/api/pdf/generate-board', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -528,7 +529,7 @@ export function PdfStudio({
 
   const handleDeleteJob = async (jobId: string) => {
     try {
-      const res = await fetch(`/api/pdf/jobs/${jobId}`, { method: 'DELETE' });
+      const res = await staffPdfFetch(`/api/pdf/jobs/${jobId}`, { method: 'DELETE' });
       if (res.ok) {
         const data = (await res.json()) as { jobs?: ResumableJobSummary[] };
         setResumableJobs(Array.isArray(data.jobs) ? data.jobs : []);
@@ -555,7 +556,7 @@ export function PdfStudio({
     setStatusBanner(null);
     setBusyMessage('جارٍ تنفيذ التحديث الذكي مع الحفاظ على جميع الأسئلة المعتمدة...');
     try {
-      const res = await fetch('/api/pdf/regenerate', {
+      const res = await staffPdfFetch('/api/pdf/regenerate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -594,7 +595,7 @@ export function PdfStudio({
     if (!deck || !candidateSwap) return;
     setError(null);
     try {
-      const res = await fetch(
+      const res = await staffPdfFetch(
         `/api/decks/${deck.id}/questions/${candidateSwap.oldQuestionId}/confirm-replace`,
         {
           method: 'POST',
@@ -620,7 +621,7 @@ export function PdfStudio({
     if (!deck) return;
     setError(null);
     try {
-      const res = await fetch(`/api/decks/${deck.id}/questions/${questionId}/status`, {
+      const res = await staffPdfFetch(`/api/decks/${deck.id}/questions/${questionId}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status }),
@@ -640,7 +641,7 @@ export function PdfStudio({
     if (!deck || !editingQuestionId) return;
     setError(null);
     try {
-      const res = await fetch(`/api/decks/${deck.id}/questions/${editingQuestionId}`, {
+      const res = await staffPdfFetch(`/api/decks/${deck.id}/questions/${editingQuestionId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editDraft),
@@ -664,7 +665,7 @@ export function PdfStudio({
     try {
       let targetDeck = deck;
       if (deck.questions.some((q) => q.status === 'needs_review')) {
-        const res = await fetch(`/api/decks/${deck.id}/approve-all`, {
+        const res = await staffPdfFetch(`/api/decks/${deck.id}/approve-all`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ confirmSensitive: true }),
@@ -1224,7 +1225,7 @@ export function PdfStudio({
                             const updated = extractedVisuals.filter((v) => v.id !== vis.id);
                             setExtractedVisuals(updated);
                             if (analysis.fileHash) {
-                              void fetch('/api/pdf/save-visuals', {
+                              void staffPdfFetch('/api/pdf/save-visuals', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
@@ -2233,4 +2234,13 @@ export function PdfStudio({
       </main>
     </div>
   );
+}
+
+// Keep existing library routing and add a Firebase ID token to same-origin PDF requests only.
+async function staffPdfFetch(input:RequestInfo|URL,init?:RequestInit){
+  if(typeof input==='string'&&input.startsWith('/api/pdf/')){
+    const user=auth.currentUser;
+    if(user){const headers=new Headers(init?.headers);headers.set('Authorization','Bearer '+await user.getIdToken());return fetch(input,{...init,headers});}
+  }
+  return fetch(input,init);
 }
