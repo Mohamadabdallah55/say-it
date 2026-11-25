@@ -44,3 +44,11 @@ test('mixing never changes the answer, points or image belonging to a question',
   const mixed=selectActiveBoardForDeck(deck,1,undefined,2,true);
   assert.deepEqual(mixed.questionPool,bank);
 });
+
+test('score prompts and scorer prompts are different families; recent scorer variants are discouraged',()=>{
+  const bank=[item('goal1',200,'مين سجل هدف بايرن في نهائي 2013؟','روبن'),item('goal2',200,'مين سجل ثنائية في نهائي 2017؟','رونالدو'),item('score',200,'كم انتهى نهائي 2014؟','4-1')];
+  const deck=buildBoardDeckFromCategories([CHAMPIONS_LEAGUE_CATEGORY.id],undefined,bank);
+  deck.questions=bank;
+  const mixed=selectActiveBoardForDeck(deck,1,undefined,2,true);
+  assert.deepEqual(mixed.tiles.map(t=>t.questionId),['goal1','score']);
+});

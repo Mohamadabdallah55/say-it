@@ -11,7 +11,8 @@
       "إنتر ميامي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+    "clueFile": "FC-001-timeline-v3.svg"
   },
   {
     "id": "FC-002",
@@ -27,7 +28,7 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/news/0254-0d7cf3e37912-f305bae6c633-1000--clarence-seedorf/",
-    "clueFile": "FC-002-new.svg"
+    "clueFile": "FC-002-timeline-v3.svg"
   },
   {
     "id": "FC-003",
@@ -44,7 +45,8 @@
       "ساغان توسو"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fernando_Torres_2017.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Fernando_Torres_2017.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Fernando_Torres_2017.jpg",
+    "clueFile": "FC-003-timeline-v3.svg"
   },
   {
     "id": "FC-004",
@@ -60,7 +62,7 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-004-new.svg"
+    "clueFile": "FC-004-timeline-v3.svg"
   },
   {
     "id": "FC-005",
@@ -74,7 +76,8 @@
       "ريال مدريد"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg/500px-Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg/500px-Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg",
+    "clueFile": "FC-005-timeline-v3.svg"
   },
   {
     "id": "FC-006",
@@ -91,7 +94,8 @@
       "النصر السعودي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg",
+    "clueFile": "FC-006-timeline-v3.svg"
   },
   {
     "id": "FC-007",
@@ -106,7 +110,8 @@
       "يوفنتوس",
       "بارما"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Buffon"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gianluigi_Buffon",
+    "clueFile": "FC-007-timeline-v3.svg"
   },
   {
     "id": "FC-008",
@@ -121,7 +126,8 @@
       "ريال مدريد"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg",
+    "clueFile": "FC-008-timeline-v3.svg"
   },
   {
     "id": "FC-009",
@@ -135,7 +141,7 @@
       "تشيلسي"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-009-new.svg"
+    "clueFile": "FC-009-timeline-v3.svg"
   },
   {
     "id": "FC-010",
@@ -154,7 +160,8 @@
       "مونتريال إمباكت",
       "فينيكس رايزينغ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Didier_Drogba"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Didier_Drogba",
+    "clueFile": "FC-010-timeline-v3.svg"
   },
   {
     "id": "FC-011",
@@ -170,7 +177,7 @@
       "بشكتاش"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-011-new.svg"
+    "clueFile": "FC-011-timeline-v3.svg"
   },
   {
     "id": "FC-012",
@@ -185,7 +192,7 @@
       "إنتر ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/01f4-0ea2a098b10d-8d04252d7dfa-1000--inter-complete-deals-for-forlan-poli-and-zarate/",
-    "clueFile": "FC-012-new.svg"
+    "clueFile": "FC-012-timeline-v3.svg"
   },
   {
     "id": "FC-013",
@@ -202,7 +209,8 @@
       "ليفربول"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg",
+    "clueFile": "FC-013-timeline-v3.svg"
   },
   {
     "id": "FC-014",
@@ -213,10 +221,14 @@
     "clubs": [
       "ليون",
       "ريال مدريد",
-      "الاتحاد السعودي"
+      "الاتحاد السعودي",
+      "الهلال السعودي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg/500px-Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg/500px-Karim_Benzema_vs._FC_Schalke_04_%2816647992937%29.jpg",
+    "careerUpdateSource": "https://www.spl.com.sa/en/news/benzema-completes-move-to-rsl-leaders-al-hilal",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-014-timeline-v3.svg"
   },
   {
     "id": "FC-015",
@@ -230,7 +242,8 @@
       "مانشستر يونايتد",
       "برشلونة"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Gerard_Piqué"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gerard_Piqué",
+    "clueFile": "FC-015-timeline-v3.svg"
   },
   {
     "id": "FC-016",
@@ -245,7 +258,7 @@
       "بازل"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-016-new.svg"
+    "clueFile": "FC-016-timeline-v3.svg"
   },
   {
     "id": "FC-017",
@@ -258,10 +271,14 @@
       "تشيلسي",
       "فيردر بريمن",
       "فولفسبورغ",
-      "مانشستر سيتي"
+      "مانشستر سيتي",
+      "نابولي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg",
+    "careerUpdateSource": "https://www.fotmob.com/en-GB/players/169200/kevin-de-bruyne",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-017-timeline-v3.svg"
   },
   {
     "id": "FC-018",
@@ -277,7 +294,8 @@
       "برشلونة"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg/500px-Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg/500px-Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg",
+    "clueFile": "FC-018-timeline-v3.svg"
   },
   {
     "id": "FC-019",
@@ -291,7 +309,7 @@
       "بنفيكا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-019-new.svg"
+    "clueFile": "FC-019-timeline-v3.svg"
   },
   {
     "id": "FC-020",
@@ -307,7 +325,8 @@
       "لوس أنجلوس إف سي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg",
+    "clueFile": "FC-020-timeline-v3.svg"
   },
   {
     "id": "FC-021",
@@ -321,7 +340,7 @@
       "أولمبياكوس"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-021-new.svg"
+    "clueFile": "FC-021-timeline-v3.svg"
   },
   {
     "id": "FC-022",
@@ -337,7 +356,8 @@
       "مانشستر سيتي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
+    "clueFile": "FC-022-timeline-v3.svg"
   },
   {
     "id": "FC-023",
@@ -354,7 +374,7 @@
       "ملقا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-023-new.svg"
+    "clueFile": "FC-023-timeline-v3.svg"
   },
   {
     "id": "FC-024",
@@ -373,7 +393,8 @@
       "فلومينينسي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
+    "clueFile": "FC-024-timeline-v3.svg"
   },
   {
     "id": "FC-025",
@@ -393,7 +414,8 @@
       "إنتر ميامي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_2026_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Luis_Su%C3%A1rez_2026_%28cropped%29.jpg/500px-Luis_Su%C3%A1rez_2026_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Luis_Su%C3%A1rez_2026_%28cropped%29.jpg/500px-Luis_Su%C3%A1rez_2026_%28cropped%29.jpg",
+    "clueFile": "FC-025-timeline-v3.svg"
   },
   {
     "id": "FC-026",
@@ -414,7 +436,8 @@
       "ميلان"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zlatan_Ibrahimovi%C4%87_nyc.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Zlatan_Ibrahimovi%C4%87_nyc.jpg/500px-Zlatan_Ibrahimovi%C4%87_nyc.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Zlatan_Ibrahimovi%C4%87_nyc.jpg/500px-Zlatan_Ibrahimovi%C4%87_nyc.jpg",
+    "clueFile": "FC-026-timeline-v3.svg"
   },
   {
     "id": "FC-027",
@@ -429,7 +452,7 @@
       "موناكو"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-027-new.svg"
+    "clueFile": "FC-027-timeline-v3.svg"
   },
   {
     "id": "FC-028",
@@ -445,7 +468,7 @@
       "براغا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-028-new.svg"
+    "clueFile": "FC-028-timeline-v3.svg"
   },
   {
     "id": "FC-029",
@@ -461,7 +484,7 @@
       "بشكتاش"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-029-new.svg"
+    "clueFile": "FC-029-timeline-v3.svg"
   },
   {
     "id": "FC-030",
@@ -473,10 +496,14 @@
       "سانتوس",
       "برشلونة",
       "باريس سان جيرمان",
-      "الهلال السعودي"
+      "الهلال السعودي",
+      "سانتوس"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg/500px-Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg/500px-Neymar_Junior_Brazil_V_Morocco_13_June_2026-40.jpg",
+    "careerUpdateSource": "https://www.santosfc.com.br/santos-fc-e-neymar-jr-renovam-contrato-ate-o-fim-de-2026/",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-030-timeline-v3.svg"
   },
   {
     "id": "FC-031",
@@ -487,10 +514,14 @@
     "clubs": [
       "هامبورغ",
       "باير ليفركوزن",
-      "توتنهام"
+      "توتنهام",
+      "لوس أنجلوس إف سي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/500px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/500px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
+    "careerUpdateSource": "https://www.lafc.com/news/lafc-signs-global-football-icon-son-heung-min",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-031-timeline-v3.svg"
   },
   {
     "id": "FC-032",
@@ -505,7 +536,7 @@
       "ليغيا وارسو"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-032-new.svg"
+    "clueFile": "FC-032-timeline-v3.svg"
   },
   {
     "id": "FC-033",
@@ -518,9 +549,13 @@
       "بوروسيا دورتموند",
       "مانشستر سيتي",
       "برشلونة",
-      "مانشستر سيتي"
+      "مانشستر سيتي",
+      "غلطة سراي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/İlkay_Gündoğan"
+    "sourceUrl": "https://en.wikipedia.org/wiki/İlkay_Gündoğan",
+    "careerUpdateSource": "https://www.galatasaray.org/en/haber/football/galatasaray-have-signed-ilkay-gundogan/58401",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-033-timeline-v3.svg"
   },
   {
     "id": "FC-034",
@@ -534,9 +569,13 @@
       "إسبانيول",
       "ريال مدريد",
       "باريس سان جيرمان",
-      "أستون فيلا"
+      "أستون فيلا",
+      "فنربخشة"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Marco_Asensio"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marco_Asensio",
+    "careerUpdateSource": "https://www.tff.org/Default.aspx?kisiId=2823881&pageId=526",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-034-timeline-v3.svg"
   },
   {
     "id": "FC-035",
@@ -550,7 +589,7 @@
       "تشيلسي"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-035-new.svg"
+    "clueFile": "FC-035-timeline-v3.svg"
   },
   {
     "id": "FC-036",
@@ -564,7 +603,7 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-036-new.svg"
+    "clueFile": "FC-036-timeline-v3.svg"
   },
   {
     "id": "FC-037",
@@ -581,7 +620,8 @@
       "أرسنال"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_%2851649035951%29_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Thierry_Henry_%2851649035951%29_%28cropped%29.jpg/500px-Thierry_Henry_%2851649035951%29_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Thierry_Henry_%2851649035951%29_%28cropped%29.jpg/500px-Thierry_Henry_%2851649035951%29_%28cropped%29.jpg",
+    "clueFile": "FC-037-timeline-v3.svg"
   },
   {
     "id": "FC-038",
@@ -596,10 +636,14 @@
       "مانشستر يونايتد",
       "باريس سان جيرمان",
       "يوفنتوس",
-      "بنفيكا"
+      "بنفيكا",
+      "روزاريو سنترال"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_%285%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/NIG-ARG_%285%29.jpg/500px-NIG-ARG_%285%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/NIG-ARG_%285%29.jpg/500px-NIG-ARG_%285%29.jpg",
+    "careerUpdateSource": "https://rosariocentral.com/noticia/angel-di-maria-vuelve-a-casa/",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-038-timeline-v3.svg"
   },
   {
     "id": "FC-039",
@@ -616,7 +660,8 @@
       "إسطنبول باشاك شهير"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg/500px-Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg/500px-Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "clueFile": "FC-039-timeline-v3.svg"
   },
   {
     "id": "FC-040",
@@ -627,10 +672,14 @@
     "clubs": [
       "دينامو زغرب",
       "توتنهام",
-      "ريال مدريد"
+      "ريال مدريد",
+      "ميلان"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+    "careerUpdateSource": "https://www.acmilan.com/en/news/articles/media/2026-07-23/official-statement-luka-modric",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-040-timeline-v3.svg"
   },
   {
     "id": "FC-041",
@@ -646,7 +695,8 @@
       "أورلاندو سيتي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kak%C3%A1_visited_Stadium_St._Petersburg.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kak%C3%A1_visited_Stadium_St._Petersburg.jpg/500px-Kak%C3%A1_visited_Stadium_St._Petersburg.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kak%C3%A1_visited_Stadium_St._Petersburg.jpg/500px-Kak%C3%A1_visited_Stadium_St._Petersburg.jpg",
+    "clueFile": "FC-041-timeline-v3.svg"
   },
   {
     "id": "FC-042",
@@ -663,7 +713,8 @@
       "النصر السعودي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg/500px-Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg/500px-Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg",
+    "clueFile": "FC-042-timeline-v3.svg"
   },
   {
     "id": "FC-043",
@@ -679,7 +730,8 @@
       "ديربي كاونتي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg/500px-Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg/500px-Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg",
+    "clueFile": "FC-043-timeline-v3.svg"
   },
   {
     "id": "FC-044",
@@ -691,10 +743,14 @@
       "مانشستر يونايتد",
       "يوفنتوس",
       "مانشستر يونايتد",
-      "يوفنتوس"
+      "يوفنتوس",
+      "موناكو"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Pogba_Cannes_2025.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Paul_Pogba_Cannes_2025.jpg/500px-Paul_Pogba_Cannes_2025.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Paul_Pogba_Cannes_2025.jpg/500px-Paul_Pogba_Cannes_2025.jpg",
+    "careerUpdateSource": "https://www.asmonaco.com/en/news/paul-pogba-to-as-monaco",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-044-timeline-v3.svg"
   },
   {
     "id": "FC-045",
@@ -709,7 +765,7 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-045-new.svg"
+    "clueFile": "FC-045-timeline-v3.svg"
   },
   {
     "id": "FC-046",
@@ -726,7 +782,8 @@
       "روما",
       "الاتفاق السعودي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Georginio_Wijnaldum"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Georginio_Wijnaldum",
+    "clueFile": "FC-046-timeline-v3.svg"
   },
   {
     "id": "FC-047",
@@ -745,7 +802,8 @@
       "هايدوك سبليت",
       "آيندهوفن"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Perišić"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Perišić",
+    "clueFile": "FC-047-timeline-v3.svg"
   },
   {
     "id": "FC-048",
@@ -760,7 +818,7 @@
       "أتالانتا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-048-new.svg"
+    "clueFile": "FC-048-timeline-v3.svg"
   },
   {
     "id": "FC-049",
@@ -775,7 +833,8 @@
       "ميلان",
       "إنتر ميلان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Hakan_Çalhanoğlu"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hakan_Çalhanoğlu",
+    "clueFile": "FC-049-timeline-v3.svg"
   },
   {
     "id": "FC-050",
@@ -792,7 +851,8 @@
       "الشباب السعودي",
       "هايدوك سبليت"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Rakitić"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ivan_Rakitić",
+    "clueFile": "FC-050-timeline-v3.svg"
   },
   {
     "id": "FC-051",
@@ -807,7 +867,7 @@
       "فولفسبورغ"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-051-new.svg"
+    "clueFile": "FC-051-timeline-v3.svg"
   },
   {
     "id": "FC-052",
@@ -822,7 +882,8 @@
       "برشلونة"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ag%C3%BCero_in_2018.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Ag%C3%BCero_in_2018.jpg/500px-Ag%C3%BCero_in_2018.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Ag%C3%BCero_in_2018.jpg/500px-Ag%C3%BCero_in_2018.jpg",
+    "clueFile": "FC-052-timeline-v3.svg"
   },
   {
     "id": "FC-053",
@@ -837,7 +898,8 @@
       "ريال مدريد"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toni_Kroos_Real_Madrid_2021.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Toni_Kroos_Real_Madrid_2021.jpg/500px-Toni_Kroos_Real_Madrid_2021.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Toni_Kroos_Real_Madrid_2021.jpg/500px-Toni_Kroos_Real_Madrid_2021.jpg",
+    "clueFile": "FC-053-timeline-v3.svg"
   },
   {
     "id": "FC-054",
@@ -852,7 +914,8 @@
       "الأهلي السعودي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mahrez_2021.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Mahrez_2021.jpg/500px-Mahrez_2021.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Mahrez_2021.jpg/500px-Mahrez_2021.jpg",
+    "clueFile": "FC-054-timeline-v3.svg"
   },
   {
     "id": "FC-055",
@@ -864,9 +927,13 @@
       "بازل",
       "بوروسيا مونشنغلادباخ",
       "أرسنال",
-      "باير ليفركوزن"
+      "باير ليفركوزن",
+      "سندرلاند"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Granit_Xhaka"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Granit_Xhaka",
+    "careerUpdateSource": "https://www.safc.com/news/2026/november/10/50-up-for-granit-xhaka/",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-055-timeline-v3.svg"
   },
   {
     "id": "FC-056",
@@ -883,7 +950,8 @@
       "غرونينغن"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg/500px-2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg/500px-2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_%28cropped%29.jpg",
+    "clueFile": "FC-056-timeline-v3.svg"
   },
   {
     "id": "FC-057",
@@ -896,9 +964,13 @@
       "توتنهام",
       "إنتر ميلان",
       "برينتفورد",
-      "مانشستر يونايتد"
+      "مانشستر يونايتد",
+      "فولفسبورغ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Christian_Eriksen"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Christian_Eriksen",
+    "careerUpdateSource": "https://www.vfl-wolfsburg.de/en/newsdetails/news-detail/detail/news/contract-terminated-5",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-057-timeline-v3.svg"
   },
   {
     "id": "FC-058",
@@ -913,7 +985,8 @@
       "يوفنتوس",
       "برشلونة"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Wojciech_Szczęsny"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wojciech_Szczęsny",
+    "clueFile": "FC-058-timeline-v3.svg"
   },
   {
     "id": "FC-059",
@@ -929,7 +1002,8 @@
       "نابولي",
       "باريس سان جيرمان"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Khvicha_Kvaratskhelia"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Khvicha_Kvaratskhelia",
+    "clueFile": "FC-059-timeline-v3.svg"
   },
   {
     "id": "FC-060",
@@ -949,7 +1023,8 @@
       "ساو باولو",
       "رايو فاييكانو"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez"
+    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez",
+    "clueFile": "FC-060-timeline-v3.svg"
   },
   {
     "id": "FC-061",
@@ -961,7 +1036,8 @@
       "فانكوفر وايتكابس",
       "بايرن ميونخ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Alphonso_Davies"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Alphonso_Davies",
+    "clueFile": "FC-061-timeline-v3.svg"
   },
   {
     "id": "FC-062",
@@ -977,7 +1053,8 @@
       "برايتون",
       "أرسنال"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard",
+    "clueFile": "FC-062-timeline-v3.svg"
   },
   {
     "id": "FC-063",
@@ -998,7 +1075,8 @@
       "مارسيليا"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alexis_S%C3%A1nchez_2017.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Alexis_S%C3%A1nchez_2017.jpg/500px-Alexis_S%C3%A1nchez_2017.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Alexis_S%C3%A1nchez_2017.jpg/500px-Alexis_S%C3%A1nchez_2017.jpg",
+    "clueFile": "FC-063-timeline-v3.svg"
   },
   {
     "id": "FC-064",
@@ -1016,10 +1094,14 @@
       "برشلونة",
       "تشيلسي",
       "مارسيليا",
-      "القادسية السعودي"
+      "القادسية السعودي",
+      "مارسيليا"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg/500px-1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg/500px-1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg",
+    "careerUpdateSource": "https://ligue1.com/en/articles/l1_article_2948-",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-064-timeline-v3.svg"
   },
   {
     "id": "FC-065",
@@ -1034,7 +1116,8 @@
       "إنتر ميلان",
       "النصر السعودي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Marcelo_Brozović"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marcelo_Brozović",
+    "clueFile": "FC-065-timeline-v3.svg"
   },
   {
     "id": "FC-066",
@@ -1048,7 +1131,8 @@
       "ريال مدريد"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg",
+    "clueFile": "FC-066-timeline-v3.svg"
   },
   {
     "id": "FC-067",
@@ -1064,7 +1148,8 @@
       "الاتحاد السعودي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg/500px-N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg/500px-N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
+    "clueFile": "FC-067-timeline-v3.svg"
   },
   {
     "id": "FC-068",
@@ -1084,7 +1169,8 @@
       "رايو فاييكانو"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg/500px-Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg/500px-Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg",
+    "clueFile": "FC-068-timeline-v3.svg"
   },
   {
     "id": "FC-069",
@@ -1096,9 +1182,13 @@
       "بارانكيا",
       "أتلتيكو جونيور",
       "بورتو",
-      "ليفربول"
+      "ليفربول",
+      "بايرن ميونخ"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Luis_Díaz_(footballer,_born_1997)"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Luis_Díaz_(footballer,_born_1997)",
+    "careerUpdateSource": "https://fcbayern.com/en/news/2025/07/fc-bayern-sign-luis-diaz-from-liverpool",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-069-timeline-v3.svg"
   },
   {
     "id": "FC-070",
@@ -1118,7 +1208,8 @@
       "وولفرهامبتون",
       "بوتافوغو"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Diego_Costa"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Diego_Costa",
+    "clueFile": "FC-070-timeline-v3.svg"
   },
   {
     "id": "FC-071",
@@ -1133,7 +1224,8 @@
       "غلطة سراي",
       "فيسيل كوبي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Juan_Mata"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Juan_Mata",
+    "clueFile": "FC-071-timeline-v3.svg"
   },
   {
     "id": "FC-072",
@@ -1145,10 +1237,14 @@
       "فيغيرينسي",
       "هوفنهايم",
       "ليفربول",
-      "الأهلي السعودي"
+      "الأهلي السعودي",
+      "السد القطري"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg",
+    "careerUpdateSource": "https://al-saddclub.com/al-sadd-sign-brazilian-forward-roberto-firmino-until-2027/",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-072-timeline-v3.svg"
   },
   {
     "id": "FC-073",
@@ -1162,7 +1258,8 @@
       "الإمارات الإماراتي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg",
+    "clueFile": "FC-073-timeline-v3.svg"
   },
   {
     "id": "FC-074",
@@ -1178,10 +1275,14 @@
       "أرسنال",
       "تشيلسي",
       "ميلان",
-      "لوس أنجلوس إف سي"
+      "لوس أنجلوس إف سي",
+      "ليل"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olivier_Giroud_December_2024.png",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Olivier_Giroud_December_2024.png"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Olivier_Giroud_December_2024.png",
+    "careerUpdateSource": "https://www.losc.fr/en/node/15379",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-074-timeline-v3.svg"
   },
   {
     "id": "FC-075",
@@ -1197,7 +1298,8 @@
       "باريس سان جيرمان",
       "نوتنغهام فورست"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Keylor_Navas"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Keylor_Navas",
+    "clueFile": "FC-075-timeline-v3.svg"
   },
   {
     "id": "FC-076",
@@ -1217,7 +1319,8 @@
       "ساسولو",
       "برشلونة"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Kevin-Prince_Boateng"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kevin-Prince_Boateng",
+    "clueFile": "FC-076-timeline-v3.svg"
   },
   {
     "id": "FC-077",
@@ -1230,7 +1333,8 @@
       "مانشستر سيتي",
       "إشبيلية"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Jesús_Navas"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jesús_Navas",
+    "clueFile": "FC-077-timeline-v3.svg"
   },
   {
     "id": "FC-078",
@@ -1246,7 +1350,8 @@
       "ريو آفي",
       "أتلتيكو مدريد"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Jan_Oblak"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jan_Oblak",
+    "clueFile": "FC-078-timeline-v3.svg"
   },
   {
     "id": "FC-079",
@@ -1261,7 +1366,8 @@
       "روما"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg",
+    "clueFile": "FC-079-timeline-v3.svg"
   },
   {
     "id": "FC-080",
@@ -1277,7 +1383,8 @@
       "مانشستر يونايتد"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg/500px-Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg/500px-Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
+    "clueFile": "FC-080-timeline-v3.svg"
   },
   {
     "id": "FC-081",
@@ -1293,7 +1400,7 @@
       "أيك أثينا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-081-new.svg"
+    "clueFile": "FC-081-timeline-v3.svg"
   },
   {
     "id": "FC-082",
@@ -1312,7 +1419,8 @@
       "إنتر ميامي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_%2822%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/NIG-ARG_%2822%29.jpg/500px-NIG-ARG_%2822%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/NIG-ARG_%2822%29.jpg/500px-NIG-ARG_%2822%29.jpg",
+    "clueFile": "FC-082-timeline-v3.svg"
   },
   {
     "id": "FC-083",
@@ -1327,7 +1435,8 @@
       "ليفربول"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8876_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg",
+    "clueFile": "FC-083-timeline-v3.svg"
   },
   {
     "id": "FC-084",
@@ -1340,9 +1449,13 @@
       "ألافيس",
       "ريال مدريد",
       "ريال سوسييداد",
-      "ميلان"
+      "ميلان",
+      "الهلال السعودي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Theo_Hernández"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Theo_Hernández",
+    "careerUpdateSource": "https://www.acmilan.com/en/news/articles/media/2025-07-10/official-statement-theo-hernandez",
+    "careerUpdatedAt": "2026-11-26",
+    "clueFile": "FC-084-timeline-v3.svg"
   },
   {
     "id": "FC-085",
@@ -1362,7 +1475,8 @@
       "بوكا جونيورز"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg",
-    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg/500px-Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg"
+    "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg/500px-Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg",
+    "clueFile": "FC-085-timeline-v3.svg"
   },
   {
     "id": "FC-086",
@@ -1380,7 +1494,8 @@
       "أستون فيلا",
       "الدحيل القطري"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho",
+    "clueFile": "FC-086-timeline-v3.svg"
   },
   {
     "id": "FC-087",
@@ -1398,7 +1513,8 @@
       "فيسيل كوبي"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg",
+    "clueFile": "FC-087-timeline-v3.svg"
   },
   {
     "id": "FC-088",
@@ -1411,7 +1527,8 @@
       "السد القطري"
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi%2C_Persepolis_vs._Al_Sadd%2C_20190520_02_%28cropped%29.jpg",
-    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Xavi%2C_Persepolis_vs._Al_Sadd%2C_20190520_02_%28cropped%29.jpg"
+    "answerImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Xavi%2C_Persepolis_vs._Al_Sadd%2C_20190520_02_%28cropped%29.jpg",
+    "clueFile": "FC-088-timeline-v3.svg"
   },
   {
     "id": "FC-089",
@@ -1425,7 +1542,8 @@
       "توتنهام",
       "لوس أنجلوس إف سي"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Hugo_Lloris"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hugo_Lloris",
+    "clueFile": "FC-089-timeline-v3.svg"
   },
   {
     "id": "FC-090",
@@ -1439,6 +1557,6 @@
       "زينيت"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-090-new.svg"
+    "clueFile": "FC-090-timeline-v3.svg"
   }
 ]

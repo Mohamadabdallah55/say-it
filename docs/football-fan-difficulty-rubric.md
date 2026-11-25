@@ -14,3 +14,10 @@ This pass preserves IDs, questions, answer texts and existing media, and adjusts
 - clubLogoQuestions: 43 reclassified of 102, tier counts 54/36/12
 - letterQuestions: 75 reclassified of 130, tier counts 79/34/17
 - footballOrderingQuestions: 14 reclassified of 130, tier counts 27/65/38
+
+## Updated audience standard (2026-11-26)
+- 200: a casual viewer or non-specialist can answer; iconic names, basic rules, famous clubs and highly memorable events. A clue can make a recognizable answer accessible.
+- 400: regular fans; mix approachable questions with moderately demanding details. Do not make the whole tier obscure.
+- 600: an unusually attentive fan should have a fair chance; precise roles, substitutions, opponents, historical context, lesser-known records and tactical or transfer details, with unambiguous clues and reliable sources. Avoid artificially obscure trivia.
+- Diversify across nearby questions and across score levels; goals, assists, braces and penalties are related families, not independent variety.
+- Global football and football letters are text-first; no new images required.

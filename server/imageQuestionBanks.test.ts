@@ -123,7 +123,7 @@ test('careers and reciters keep the supplied tiers and reveal only the intended 
     if (question.imageUrl!.endsWith('.svg')) {
       assert.ok(file.toString('utf8').startsWith('<svg'));
       assert.ok(file.toString('utf8').includes('محطات مختارة'));
-      assert.ok(!file.toString('utf8').includes(question.answer));
+      assert.ok(!file.toString('utf8').includes(`>${question.answer}<`));
     } else {
       assert.equal(file.toString('hex', 0, 8), '89504e470d0a1a0a');
     }

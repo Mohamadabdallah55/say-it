@@ -26,8 +26,8 @@ const rules: [string, RegExp][] = [
   ['award',/الحذاء الذهبي|الكره الذهبيه|القفاز الذهبي|جائزه|رجل المباراه|هداف/],
   ['multi_goal',/هاتريك|ثلاثيه|رباعيه|ثنائيه|هدفين|هدفي|ثلاثه اهداف|اربعه اهداف|خمسه اهداف/],
   ['assist',/صنع|التمريره الحاسمه|ارسل العرضيه|مرر الكره/],
+  ['score',/كم انته|ما نتيجه|كم هدفا|مجموع اهداف|عدد اهداف|شو كانت نتيجه/],
   ['goal',/سجل|هدف|افتتح التسجيل|احرز/],
-  ['score',/كم انته|ما نتيجه|كم هدفا|مجموع اهداف|عدد اهداف/],
   ['title',/توج|التتويج|فاز.{0,12}(بكاس|باللقب|بالدوري)|احرز.{0,12}لقب/],
   ['knockout',/اقصي|اقصاء|تاهل|خرج|واجه|خصم/],
   ['record',/رقم قياسي|اول لاعب|اكبر|اصغر|اسرع|كم عدد|كم مره/],
@@ -41,13 +41,23 @@ function family(q: QuizQuestion): string {
   return rules.find(([,pattern])=>pattern.test(prompt))?.[0] ?? normalize(q.subtopic && !q.subtopic.startsWith('http') ? q.subtopic : q.questionType);
 }
 const stopWords = new Set(['الذي','التي','بعد','قبل','عام','سنه','موسم','دوري','ابطال','اوروبا','بطوله','البطوله','مباراه','المباراه','نهائي','النهائي','العالم','الكاس','اللاعب','الفريق','المنتخب','النادي','امام','خلال','سجل','كان','فاز','الاول','الثاني','الثالث','الرابع','الاخير','الهدف','هدف','اهداف','الذي','هذا','هذه','التي','اخر','كام','مين','من','اسم','شو','كم','بين','على','علي','الي','اي','ذلك','الفوز','مواجهه','ريال','مدريد','برشلونه']);
+const detailCache = new WeakMap<QuizQuestion, { family: string; answer: string; year: string[]; tokens: Set<string>; topic: string }>();
 function details(q: QuizQuestion) {
+  const cached = detailCache.get(q);
+  if (cached) return cached;
   const prompt = normalize(q.prompt);
   const answer = normalize(q.answer);
   const year = prompt.match(/\b(?:19|20)\d{2}\b/g) ?? [];
   const tokens = new Set(prompt.split(' ').filter(w => w.length >= 3 && !/^\d+$/.test(w) && !stopWords.has(w)));
   const topic = q.subtopic && !q.subtopic.startsWith('http') ? normalize(q.subtopic) : '';
-  return {family:family(q),answer,year,tokens,topic};
+  const value = {family:family(q),answer,year,tokens,topic};
+  detailCache.set(q, value);
+  return value;
+}
+
+const goalFamilies = new Set(['goal','multi_goal','assist','penalty']);
+function sameBroadFamily(a: string, b: string): boolean {
+  return goalFamilies.has(a) && goalFamilies.has(b);
 }
 
 /** Stable tie-breaking retains the randomized input order from RoomManager. */
@@ -59,7 +69,10 @@ export function pickDiverseFootballQuestion(candidates: QuizQuestion[], selected
   for (const q of candidates) {
     const d = details(q);
     let penalty = 0;
-    for(const {q:previous,d:p} of prior) {
+    for(const [index,{q:previous,d:p}] of prior.entries()) {
+      const recent = index >= prior.length - 2;
+      if (recent && sameBroadFamily(d.family,p.family)) penalty += 12;
+      if (recent && d.family === p.family) penalty += 10;
       const sameCategory = previous.categoryId === q.categoryId;
       if (d.answer.length > 3 && d.answer === p.answer) penalty += 25;
       if (sameCategory && d.family === p.family) penalty += 8;
