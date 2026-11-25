@@ -125,10 +125,10 @@ export const WORLD_FOOTBALL_QUESTIONS = worldFootballRows.map((row): QuizQuestio
   subtopic: row.subcategory,
   explanation: row.explanation,
   sourceRef: row.source_url,
-  imageUrl: row.photo ? `/assets/questions/world-football/${row.photo.file}` : undefined,
-  imageSourceUrl: row.photo?.source,
-  imageCaption: row.photo ? `صورة ${row.answer} · تصوير ${row.photo.credit} · ${row.photo.licenseLabel}` : undefined,
-  imageDisplay: row.photo ? 'after_reveal' : undefined,
+  imageUrl: row.photo ? `/assets/questions/world-football/${row.photo.file}` : row.imageUrl,
+  imageSourceUrl: row.photo?.source ?? row.imageSourceUrl,
+  imageCaption: row.photo ? `صورة ${row.answer} · تصوير ${row.photo.credit} · ${row.photo.licenseLabel}` : row.imageCaption,
+  imageDisplay: row.photo || row.imageUrl ? 'after_reveal' : undefined,
 }));
 
 export const FOOTBALL_FIRST_NAME_QUESTIONS = footballFirstNameRows.map((row): QuizQuestion => ({
