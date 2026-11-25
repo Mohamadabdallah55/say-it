@@ -61,7 +61,7 @@ test('football first names use 100 distinct photos and hide names and credit lin
 test('world football can share a board with Champions League and only reveals sourced photos with the answer', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => WORLD_FOOTBALL_QUESTIONS.filter(q => q.points === points).length),
-    [48, 27, 25],
+    [33, 35, 32],
   );
   const photoQuestions = WORLD_FOOTBALL_QUESTIONS.filter(q => q.imageUrl);
   assert.ok(photoQuestions.length);
@@ -154,7 +154,7 @@ test('both packs are selectable, have all tiers, and do not count distinct flags
   const tierCounts = (questions: typeof FLAGS_QUESTIONS) =>
     [200, 400, 600].map(points => questions.filter(q => q.points === points).length);
   assert.deepEqual(tierCounts(FLAGS_QUESTIONS), [25, 35, 40]);
-  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [58, 31, 11]);
+  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [35, 40, 25]);
   assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q => q.imageDisplay === 'after_reveal').length >= 25);
   const flagHashes = FLAGS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));

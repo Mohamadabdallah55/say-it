@@ -1,19 +1,21 @@
 [
   {
     "id": "BAR-001",
-    "points": 200,
-    "question": "بأول تتويج أوروبي لبرشلونة سنة 1992، أمام مين سجل كومان الركلة الحرة الحاسمة؟",
-    "answer": "سامبدوريا",
-    "explanation": "فاز برشلونة عليه بهدف في الوقت الإضافي.",
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0221-0e9b62f81668-026e01bbda09-1000--juventus-and-barcelona-the-final-victories/",
+    "points": 600,
+    "question": "اذكر أحد الأندية الثلاثة التي واجهها برشلونة في مرحلة المجموعات المؤهلة لنهائي كأس أوروبا 1992.",
+    "answer": "بنفيكا / سبارتا براغ / دينامو كييف",
+    "explanation": "تأهل برشلونة من مجموعة ضمت هذه الأندية الثلاثة.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/first-champions-league",
     "isPlayer": false,
     "acceptableAnswers": [
-      "Sampdoria"
+      "بنفيكا",
+      "سبارتا براغ",
+      "دينامو كييف",
+      "Benfica",
+      "Sparta Prague",
+      "Dynamo Kyiv"
     ],
-    "kind": "history",
-    "imageUrl": "https://cadenaser00.epimg.net/ser/imagenes/2011/05/24/deportes/1306193290_740215_0000000000_noticia_normal.jpg",
-    "imageSourceUrl": "https://cadenaser.com/ser/2011/05/24/deportes/1306193297_850215.html",
-    "imageCaption": "لقطة من نهائي برشلونة وسامبدوريا عام 1992"
+    "kind": "history"
   },
   {
     "id": "BAR-002",
@@ -33,15 +35,14 @@
   },
   {
     "id": "BAR-003",
-    "points": 200,
-    "question": "قبل هدف ميسي بالصدر في نهائي مونديال الأندية 2009، كان برشلونة على وشك خسارة اللقب أمام أي نادٍ أرجنتيني؟",
-    "answer": "إستوديانتس دي لا بلاتا",
-    "explanation": "أدرك برشلونة التعادل قبل الفوز في الوقت الإضافي.",
+    "points": 400,
+    "question": "أي نادٍ واجه برشلونة في السوبر الأوروبي سنة 2009، قبل أن تكتمل السداسية؟",
+    "answer": "شاختار دونيتسك",
+    "explanation": "فاز برشلونة بالسوبر الأوروبي في موناكو.",
     "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
     "isPlayer": false,
     "acceptableAnswers": [
-      "إستوديانتس",
-      "Estudiantes"
+      "Shakhtar Donetsk"
     ],
     "kind": "history"
   },
@@ -65,49 +66,42 @@
   },
   {
     "id": "BAR-005",
-    "points": 200,
-    "question": "ما النادي الذي واجه برشلونة في نهائي كأس العالم للأندية 2015؟",
-    "answer": "ريفر بليت",
-    "explanation": "انتهى النهائي بفوز برشلونة 3-0.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/news/1074271/an-amazing-for-fc-barcelona",
+    "points": 600,
+    "question": "أي نادٍ مكسيكي واجه برشلونة في نصف نهائي كأس العالم للأندية 2009 قبل نهائي إستوديانتس؟",
+    "answer": "أتلانتي",
+    "explanation": "تجاوز برشلونة أتلانتي في طريقه للقب.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
     "isPlayer": false,
     "acceptableAnswers": [
-      "River Plate"
+      "Atlante"
     ],
     "kind": "history"
   },
   {
     "id": "BAR-006",
-    "points": 200,
-    "question": "فريق الأحلام بقيادة كرويف خسر نهائي أثينا 1994 برباعية. مين كان الخصم؟",
-    "answer": "ميلان",
-    "explanation": "خسر برشلونة النهائي أمام ميلان.",
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82dda57-672859abc63f-1000--1993-94-massaro-leads-milan-rout/",
+    "points": 400,
+    "question": "أي نادٍ واجه برشلونة في ربع نهائي دوري الأبطال 2011 في طريقه للقب؟",
+    "answer": "شاختار دونيتسك",
+    "explanation": "تأهل برشلونة أمام شاختار إلى نصف النهائي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/4231695/26th-appearance-in-the-champions-league-quarter-finals",
     "isPlayer": false,
     "acceptableAnswers": [
-      "إيه سي ميلان",
-      "AC Milan"
+      "Shakhtar Donetsk"
     ],
-    "kind": "history",
-    "imageUrl": "https://img.allfootballapp.com/www/M00/75/19/720x-/-/-/rB8ApF6hpc2AFCiTAAIbZueKU_4381.jpg.webp",
-    "imageSourceUrl": "https://m.allfootballapp.com/news/EPL/That-night-in-94-When-Milan-overcame-Barcelonas-dream-team-against-all-odds/2321292",
-    "imageCaption": "لوحة نتيجة نهائي ميلان وبرشلونة 1994"
+    "kind": "history"
   },
   {
     "id": "BAR-007",
-    "points": 200,
-    "question": "مين كان خصم برشلونة في نهائي مونديال الأندية 2011 الذي انتهى 4–0؟",
-    "answer": "سانتوس",
-    "explanation": "فاز برشلونة على الفريق البرازيلي برباعية.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/guardiolas-barcelona",
+    "points": 600,
+    "question": "أي فريق ألماني واجه برشلونة في دور الـ16 من كأس أوروبا 1991/92 قبل مرحلة المجموعات الثانية؟",
+    "answer": "كايزرسلاوترن",
+    "explanation": "تأهل برشلونة بهدف متأخر خارج أرضه.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
     "isPlayer": false,
     "acceptableAnswers": [
-      "Santos"
+      "Kaiserslautern"
     ],
-    "kind": "history",
-    "imageUrl": "https://jpimg.com.br/uploads/2017/04/I_20111218_104941.jpg",
-    "imageSourceUrl": "https://jovempan.com.br/esportes/ha-tres-anos-show-de-messi-destruia-sonho-do-tri-mundial-do-santos.html",
-    "imageCaption": "احتفال برشلونة أمام سانتوس في نهائي مونديال الأندية 2011"
+    "kind": "history"
   },
   {
     "id": "BAR-010",

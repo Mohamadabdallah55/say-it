@@ -1,0 +1,38 @@
+# Replacement pass
+
+Replaced selected easy questions with new medium/hard material, keeping total question counts and IDs. Sources attached for factual text banks; the letter category retains its original minimal schema and uses historical clues cross-checked against existing banks and tournament records. Existing matching match imagery retained only if applicable; unmatched old images removed. More sourced imagery and new visual-bank content remain outstanding. Existing user progress keyed to an ID may still mark a replacement played.
+
+{
+  "ucl": {
+    "n": 23,
+    "counts": [
+      35,
+      40,
+      25
+    ]
+  },
+  "wf": {
+    "n": 15,
+    "counts": [
+      33,
+      35,
+      32
+    ]
+  },
+  "bar": {
+    "n": 5,
+    "counts": [
+      14,
+      22,
+      11
+    ]
+  },
+  "letters": {
+    "n": 33,
+    "counts": [
+      46,
+      46,
+      38
+    ]
+  }
+}
