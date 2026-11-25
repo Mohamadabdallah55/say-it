@@ -41,3 +41,14 @@ test('Madrid hard tier retains historical questions and adds varied sourced hist
     assert.ok(q?.sourceRef?.startsWith('https://'));
   }
 });
+
+
+test('Madrid 200 tier favors accessible club knowledge rather than season-specific shirt trivia', () => {
+  const easy = rows.filter(q => q.points === 200);
+  assert.equal(easy.length, 51);
+  assert.equal(easy.filter(q => 'kind' in q && q.kind === 'number').length, 8);
+  assert.ok(easy.some(q => q.answer === 'سانتياغو برنابيو'));
+  assert.ok(easy.some(q => q.answer === 'الأبيض'));
+  assert.ok(easy.some(q => q.answer === 'كارلو أنشيلوتي'));
+  assert.ok(easy.every(q => !/دخل بدل|حل بديلًا|في الدقيقة \d+/.test(q.question)));
+});

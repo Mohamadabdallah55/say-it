@@ -1,14 +1,19 @@
 [
   {
-    "id": "RM-001",
+    "id": "RM-001-E6",
     "points": 200,
-    "question": "مين الظهير الإسباني داني، صاحب هدف فوز ريال مدريد بالسوبر الأوروبي 2016؟",
-    "answer": "داني كارفاخال",
-    "answer_english": "Dani Carvajal",
-    "explanation": "حسم كارفاخال المباراة بهدف فردي في الوقت الإضافي.",
-    "source_url": "https://www.uefa.com/uefasupercup/history/2016/",
+    "question": "مين الظهير الإسباني الشهير داني كارفاخال بلعب بأي مركز؟",
+    "answer": "ظهير أيمن",
+    "answer_english": "Right-back",
+    "explanation": "مركز كارفاخال الأساسي الظهير الأيمن.",
+    "source_url": "https://www.uefa.com/uefachampionsleague/clubs/players/250024448--dani-carvajal/",
+    "acceptableAnswers": [
+      "الظهير الأيمن",
+      "ظهير يمين"
+    ],
     "imageUrl": "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250024448.png",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/clubs/players/250024448--dani-carvajal/"
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/clubs/players/250024448--dani-carvajal/",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-002",
@@ -91,15 +96,19 @@
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/sergio-ramos-garcia"
   },
   {
-    "id": "RM-009",
+    "id": "RM-009-E6",
     "points": 200,
-    "question": "مين المهاجم المونتينيغري بريدراج، اللي سجل هدف تتويج ريال مدريد بالسابعة عام 1998؟",
-    "answer": "بريدراج مياتوفيتش",
-    "answer_english": "Predrag Mijatovic",
-    "explanation": "سجل مياتوفيتش هدف السابعة في الدقيقة 66.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0155-0e6a20959a54-7745f9013b98-1000--1997-98-seventh-heaven-for-madrid/",
-    "imageUrl": "https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_0%2Cw_1900%2Ch_1068/c_fill%2Cw_720%2Car_16%3A9%2Cf_auto%2Cq_auto%2Cg_auto/images/voltaxMediaLibrary/mmsport/real_madrid_cf_on_si/01jba038bq2kvmw3kah6.jpg",
-    "imageSourceUrl": "https://www.si.com/onsi/soccer/real-madrid/news/7-real-madrid-stars-who-came-close-but-never-won-the-ballon-dor"
+    "question": "شو اسم ملعب ريال مدريد الرئيسي؟",
+    "answer": "سانتياغو برنابيو",
+    "answer_english": "Santiago Bernabéu",
+    "explanation": "ملعب ريال مدريد هو سانتياغو برنابيو.",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/120-years-in-the-making",
+    "acceptableAnswers": [
+      "سانتياغو بيرنابيو",
+      "البرنابيو",
+      "برنابيو",
+      "بيرنابيو"
+    ]
   },
   {
     "id": "RM-010",
@@ -116,35 +125,44 @@
   {
     "id": "RM-011",
     "points": 200,
-    "question": "مين المدرب البرتغالي الملقب بالسبيشل ون اللي حقق أول ألقابه مع ريال مدريد بكأس الملك 2011؟",
+    "question": "مين المدرب البرتغالي الملقب بالسبيشل ون اللي درّب ريال مدريد؟",
     "answer": "جوزيه مورينيو",
-    "answer_english": "Jose Mourinho",
-    "explanation": "كانت كأس الملك 2011 أول ألقاب مورينيو مع ريال مدريد.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/eleventh-anniversary-of-clubs-18th-copa-del-rey-triumph",
+    "answer_english": "José Mourinho",
+    "explanation": "مورينيو درّب ريال مدريد من 2010 إلى 2013.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "acceptableAnswers": [
+      "مورينيو",
+      "جوزي مورينيو"
+    ],
     "imageUrl": "https://2.bp.blogspot.com/-FvOiTf3_I4Y/T8rD0Z1cqvI/AAAAAAAAEyA/L-nJF35EVqU/s1600/Mourinho.jpg",
-    "imageSourceUrl": "https://actualidadrealmadrid.blogspot.com/2012/06/plantilla-2011-12.html"
+    "imageSourceUrl": "https://actualidadrealmadrid.blogspot.com/2012/06/plantilla-2011-12.html",
+    "imageCaption": "صورة الإجابة"
   },
   {
-    "id": "RM-012",
+    "id": "RM-012-E6",
     "points": 200,
-    "question": "مين المدافع الإسباني مارك اللي حاول إيقاف انطلاقة غاريث بيل في نهائي الكأس 2014؟",
-    "answer": "مارك بارترا",
-    "answer_english": "Marc Bartra",
-    "explanation": "انطلق بيل بجانب بارترا قبل أن يتقدم ويسجل هدف الفوز.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
-    "imageUrl": "https://media.zenfs.com/en_us/News/ap_webfeeds/ce135a43f1bb8d0e510f6a7067005bed.jpg",
-    "imageSourceUrl": "https://www.yahoo.com/news/bale-leads-madrid-2-1-past-barca-copa-212325514.html"
+    "question": "شو اسم المباراة بين ريال مدريد وبرشلونة؟",
+    "answer": "الكلاسيكو",
+    "answer_english": "El Clásico",
+    "explanation": "تُعرف مواجهة ريال مدريد وبرشلونة بالكلاسيكو.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "acceptableAnswers": [
+      "كلاسيكو",
+      "إل كلاسيكو"
+    ]
   },
   {
-    "id": "RM-013",
+    "id": "RM-013-E6",
     "points": 200,
-    "question": "من سجّل لريال مدريد في نهائي 2018 بعدما اعترض كرة كان حارس ليفربول يحاول تمريرها بيده؟",
-    "answer": "كريم بنزيما",
-    "answer_english": "Karim Benzema",
-    "explanation": "اعترض بنزيما رمية الحارس كاريوس لتدخل الشباك.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d7318379-716954065574-1000--madrid-beat-liverpool-to-complete-hat-trick/",
-    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/50/08/3045008_karim_benzema_20240530003408.jpg",
-    "imageSourceUrl": "https://www.playmakerstats.com/player/karim-benzema/12913?epoca_id=145"
+    "question": "شو لون القميص الأساسي لريال مدريد؟",
+    "answer": "الأبيض",
+    "answer_english": "White",
+    "explanation": "القميص الأبيض هو اللون التقليدي لريال مدريد.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "acceptableAnswers": [
+      "أبيض",
+      "ابيض"
+    ]
   },
   {
     "id": "RM-014",
@@ -219,26 +237,33 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028a-1a2cac0ebcfd-8d059c940a51-1000--highlights-report-real-madrid-edge-leipzig/"
   },
   {
-    "id": "RM-021",
+    "id": "RM-021-E6",
     "points": 200,
-    "question": "من سجل هدف التأهل لريال مدريد في الوقت الإضافي ضد تشيلسي بربع نهائي 2022؟",
-    "answer": "كريم بنزيما",
-    "answer_english": "Karim Benzema",
-    "explanation": "سجّل بنزيما الهدف الذي حسم التأهل بنتيجة إجمالية 5-4.",
-    "source_url": "https://www.uefa.com/news/0274-14e4d0f0f820-0ebe4b5ae427-1000--madrid-rally-to-quell-chelsea-comeback/",
-    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/50/08/3045008_karim_benzema_20240530003408.jpg",
-    "imageSourceUrl": "https://www.playmakerstats.com/player/karim-benzema/12913?epoca_id=145"
+    "question": "مين المدرب الإيطالي اللي قاد ريال مدريد للتتويج بدوري الأبطال عام 2024؟",
+    "answer": "كارلو أنشيلوتي",
+    "answer_english": "Carlo Ancelotti",
+    "explanation": "قاد أنشيلوتي الفريق نحو لقبه الأوروبي الخامس عشر.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "acceptableAnswers": [
+      "أنشيلوتي",
+      "انشيلوتي"
+    ]
   },
   {
-    "id": "RM-022",
+    "id": "RM-022-E6",
     "points": 200,
-    "question": "من افتتح التسجيل لريال مدريد برأسية ضد دورتموند في نهائي دوري الأبطال 2024؟",
-    "answer": "داني كارفاخال",
-    "answer_english": "Dani Carvajal",
-    "explanation": "حوّل كارفاخال ركنية كروس برأسه إلى هدف.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07e18d875a-ba78e4b9d9fc-1000--real-madrid-win-champions-league-carvajal-and-vinicius-junior-see-off-dortmund/",
-    "imageUrl": "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250024448.png",
-    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/clubs/players/250024448--dani-carvajal/"
+    "question": "شو اسم النادي الألماني اللي فاز عليه ريال مدريد في نهائي دوري الأبطال 2024؟",
+    "answer": "بوروسيا دورتموند",
+    "answer_english": "Borussia Dortmund",
+    "explanation": "فاز ريال مدريد على دورتموند 2-0.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "acceptableAnswers": [
+      "دورتموند",
+      "بروسيا دورتموند"
+    ],
+    "imageUrl": "/assets/questions/club-logos/CLUB-109.png",
+    "imageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/borussia-dortmund.png",
+    "imageCaption": "شعار النادي"
   },
   {
     "id": "RM-023",
@@ -254,24 +279,34 @@
   {
     "id": "RM-024",
     "points": 200,
-    "question": "مين النجم الإنجليزي اللي سجل هدف الفوز بأول ظهور أوروبي له مع ريال مدريد؟",
+    "question": "مين النجم الإنجليزي الشاب اللي انتقل لريال مدريد من دورتموند سنة 2023؟",
     "answer": "جود بيلينغهام",
     "answer_english": "Jude Bellingham",
-    "explanation": "سجّل بيلينغهام في الوقت بدل الضائع.",
+    "explanation": "انضم بيلينغهام إلى مدريد عام 2023.",
     "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/bellingham-is-first-player-to-score-in-his-first-four-european-cup-games-for-madrid",
+    "acceptableAnswers": [
+      "بيلينغهام",
+      "بيلينجهام"
+    ],
     "imageUrl": "https://cdn-img.staticzz.com/img/planteis/new/74/60/11147460_jude_bellingham_20251130052133.jpg",
-    "imageSourceUrl": "https://www.ogol.com.br/jogador/jude-bellingham/737532?epoca_id=154"
+    "imageSourceUrl": "https://www.ogol.com.br/jogador/jude-bellingham/737532?epoca_id=154",
+    "imageCaption": "صورة الإجابة"
   },
   {
-    "id": "RM-025",
+    "id": "RM-025-E6",
     "points": 200,
-    "question": "مين الجناح الأرجنتيني اللي أرسل عرضية هدف رونالدو في نهائي الكأس 2011؟",
-    "answer": "أنخيل دي ماريا",
-    "answer_english": "Angel Di Maria",
-    "explanation": "أرسل دي ماريا الكرة العرضية التي حولها رونالدو برأسه إلى هدف.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/eleventh-anniversary-of-clubs-18th-copa-del-rey-triumph",
+    "question": "من أي بلد النجم السابق لريال مدريد أنخيل دي ماريا؟",
+    "answer": "الأرجنتين",
+    "answer_english": "Argentina",
+    "explanation": "دي ماريا لاعب دولي أرجنتيني.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria",
+    "acceptableAnswers": [
+      "ارجنتين",
+      "الأرجنتين"
+    ],
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/angel-di-maria/assets/1330783779915.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria"
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-026",
@@ -287,13 +322,18 @@
   {
     "id": "RM-027",
     "points": 200,
-    "question": "أي حارس دخل بديلًا وساهم بتصديات حاسمة في نهاية نهائي ريال مدريد أمام ليفركوزن 2002؟",
+    "question": "مين حارس ريال مدريد الإسباني الأسطوري اللي رفع كأس العالم 2010 مع منتخب بلده؟",
     "answer": "إيكر كاسياس",
     "answer_english": "Iker Casillas",
-    "explanation": "دخل كاسياس بديلًا وأوقف محاولات ليفركوزن الأخيرة.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/01e8-0e7502634b7d-f2f809914477-1000/",
+    "explanation": "قاد كاسياس إسبانيا للفوز بكأس العالم 2010.",
+    "source_url": "https://www.realmadrid.com/de-DE/der-club/geschichte/fussballlenden/iker-casillas-fernandez",
+    "acceptableAnswers": [
+      "كاسياس",
+      "ايكر كاسياس"
+    ],
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/iker-casillas-fernandez/assets/1330347659219.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/de-DE/der-club/geschichte/fussballlenden/iker-casillas-fernandez"
+    "imageSourceUrl": "https://www.realmadrid.com/de-DE/der-club/geschichte/fussballlenden/iker-casillas-fernandez",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-028",
@@ -320,13 +360,17 @@
   {
     "id": "RM-030",
     "points": 200,
-    "question": "مين لاعب الوسط البرازيلي اللي شكل ثلاثيًا مع كروس ومودريتش وسجل ثاني أهداف الريال بنهائي 2017؟",
+    "question": "مين لاعب الوسط البرازيلي اللي كان يشكّل ثلاثي الوسط مع كروس ومودريتش؟",
     "answer": "كاسيميرو",
     "answer_english": "Casemiro",
-    "explanation": "أسهمت لمسة دفاعية في تغيير اتجاه تسديدة كاسيميرو إلى الشباك.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c5117c008df-de0901ea6dae-1000--majestic-real-madrid-win-champions-league-in-cardiff/",
+    "explanation": "شكّل كاسيميرو مع كروس ومودريتش ثلاثي وسط ريال مدريد.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "acceptableAnswers": [
+      "كاسيميرو"
+    ],
     "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTYyYWRkNTItM2ZlYi00Y2NlLTk5YTktMzAzMmRiNjY5MDgyXkEyXkFqcGc%40._V1_.jpg",
-    "imageSourceUrl": "https://www.imdb.com/name/nm9220376/bio/"
+    "imageSourceUrl": "https://www.imdb.com/name/nm9220376/bio/",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-031",
@@ -341,26 +385,36 @@
     "imageCaption": "خوانيتو بقميص ريال مدريد — صورة أرشيفية"
   },
   {
-    "id": "RM-032",
+    "id": "RM-032-E6",
     "points": 200,
-    "question": "من سجل ثلاثية ريال مدريد في شباك باريس سان جيرمان خلال ريمونتادا ثمن نهائي 2022؟",
-    "answer": "كريم بنزيما",
-    "answer_english": "Karim Benzema",
-    "explanation": "سجّل بنزيما ثلاثة أهداف في الشوط الثاني.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0273-14a076282e68-eac8f8c8c071-1000--benzema-sends-madrid-through/",
-    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/50/08/3045008_karim_benzema_20240530003408.jpg",
-    "imageSourceUrl": "https://www.playmakerstats.com/player/karim-benzema/12913?epoca_id=145"
+    "question": "من أي نادٍ فرنسي انتقل كيليان مبابي إلى ريال مدريد عام 2024؟",
+    "answer": "باريس سان جيرمان",
+    "answer_english": "Paris Saint-Germain",
+    "explanation": "انضم مبابي إلى ريال مدريد بعد رحيله عن باريس سان جيرمان.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "acceptableAnswers": [
+      "باريس",
+      "باريس سان جيرمان",
+      "PSG"
+    ],
+    "imageUrl": "/assets/questions/club-logos/CLUB-110.png",
+    "imageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/paris-saint-germain.png",
+    "imageCaption": "شعار النادي"
   },
   {
-    "id": "RM-033",
+    "id": "RM-033-E6",
     "points": 200,
-    "question": "من سجل هدف ريال مدريد الوحيد في نهائي دوري الأبطال 2022 ضد ليفربول؟",
-    "answer": "فينيسيوس جونيور",
-    "answer_english": "Vinicius Junior",
-    "explanation": "سجّل فينيسيوس الهدف الوحيد في باريس.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-15415a62aaf0-36d3e17d7404-1000--highlights-report-real-madrid-triumph/",
-    "imageUrl": "https://s1.staticld.com/2022/05/28/vinicius-galeria.jpg",
-    "imageSourceUrl": "https://www.libertaddigital.com/deportes/champions/2022-05-28/final-champions-league-real-madrid-liverpool-trece-champions-trece-fotos-1936363/"
+    "question": "شو اسم النادي الإنجليزي اللي فاز عليه ريال مدريد بنهائي دوري الأبطال 2022؟",
+    "answer": "ليفربول",
+    "answer_english": "Liverpool",
+    "explanation": "انتصر ريال مدريد على ليفربول 1-0 في باريس.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "acceptableAnswers": [
+      "ليفربول"
+    ],
+    "imageUrl": "/assets/questions/club-logos/CLUB-105.png",
+    "imageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/liverpool-fc.png",
+    "imageCaption": "شعار النادي"
   },
   {
     "id": "RM-034-R3",
@@ -383,26 +437,35 @@
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/jose-antonio-reyes-calderon"
   },
   {
-    "id": "RM-036",
+    "id": "RM-036-E6",
     "points": 200,
-    "question": "من حسم ريمونتادا ريال مدريد ضد مانشستر سيتي في 2022 بركلة جزاء إضافية؟",
-    "answer": "كريم بنزيما",
-    "answer_english": "Karim Benzema",
-    "explanation": "سجّل بنزيما ركلة جزاء الوقت الإضافي في الفوز 3-1.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-1511132895f4-1744cbc9329e-1000--real-madrid-3-1-manchester-city-agg-6-5-rodrygo-and-benzem/",
-    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/50/08/3045008_karim_benzema_20240530003408.jpg",
-    "imageSourceUrl": "https://www.playmakerstats.com/player/karim-benzema/12913?epoca_id=145"
+    "question": "شو اسم البطولة الإسبانية اللي يتنافس فيها ريال مدريد وبرشلونة وأتلتيكو طوال الموسم؟",
+    "answer": "الدوري الإسباني",
+    "answer_english": "La Liga",
+    "explanation": "يتنافس الفريق في الدوري الإسباني.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/track-record/football",
+    "acceptableAnswers": [
+      "الليغا",
+      "لاليغا",
+      "لا ليغا",
+      "الدوري الاسباني"
+    ]
   },
   {
     "id": "RM-037",
     "points": 200,
-    "question": "مين مهاجم ريال مدريد الإسباني خوسيه لويس، اللي قلب نصف نهائي 2024 أمام بايرن؟",
+    "question": "مين المهاجم الإسباني اللي قلب النتيجة بثنائية أمام بايرن في نصف نهائي الأبطال 2024؟",
     "answer": "خوسيلو",
     "answer_english": "Joselu",
-    "explanation": "سجّل خوسيلو هدفين ليقلب التأخر إلى فوز 2-1.",
+    "explanation": "سجل خوسيلو هدفين في الدقائق الأخيرة.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ad79abc3529-95537ff37e0b-1000--real-madrid-2-1-bayern-agg-4-3-joselu-double-conjures-up/",
+    "acceptableAnswers": [
+      "خوسيلو",
+      "جوسيلو"
+    ],
     "imageUrl": "https://s2-ge.glbimg.com/Nw2q2j3ghqDuOLEyLuRSJ5lhjbA%3D/0x0%3A1024x682/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/r/6/xBiAozSfiEJQlWzUlkhA/000-34r92qt.jpg",
-    "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/liga-dos-campeoes/noticia/2024/05/08/quem-e-joselu-heroi-da-classificacao-do-real-madrid-sobre-o-bayern-na-champions.ghtml"
+    "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/liga-dos-campeoes/noticia/2024/05/08/quem-e-joselu-heroi-da-classificacao-do-real-madrid-sobre-o-bayern-na-champions.ghtml",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-038",
@@ -438,13 +501,18 @@
   {
     "id": "RM-041",
     "points": 200,
-    "question": "من سجّل ثنائية ريال مدريد في الفوز 3-1 بالكامب نو بإياب نصف نهائي كأس الملك 2013؟",
+    "question": "مين الهداف التاريخي لريال مدريد؟",
     "answer": "كريستيانو رونالدو",
     "answer_english": "Cristiano Ronaldo",
-    "explanation": "سجّل رونالدو هدفين في الإياب.",
-    "source_url": "https://www.realmadrid.com/StaticFiles/RealMadrid/img/pdf/M_Rm_InfomeAnual_1213_eng_260913.pdf",
+    "explanation": "رونالدو الهداف التاريخي للنادي.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/cristiano-ronaldo-dos-santos-aveiro/",
+    "acceptableAnswers": [
+      "كريستيانو",
+      "رونالدو"
+    ],
     "imageUrl": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/03/08/cristiano-ronaldo.jpg?fit=crop&height=1200&width=1200",
-    "imageSourceUrl": "https://www.independent.co.uk/sport/football/european/cristiano-ronaldo-real-madrid-forward-donates-eu600-000-champions-league-final-bonus-to-charity-a7063036.html"
+    "imageSourceUrl": "https://www.independent.co.uk/sport/football/european/cristiano-ronaldo-real-madrid-forward-donates-eu600-000-champions-league-final-bonus-to-charity-a7063036.html",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-042",
@@ -470,15 +538,21 @@
     "imageCaption": "إغناسيو زوكو — أرشيف النادي"
   },
   {
-    "id": "RM-044",
+    "id": "RM-044-E6",
     "points": 200,
-    "question": "من سجل هدف التقدم 2-1 لريال مدريد في الوقت الإضافي بنهائي 2014؟",
-    "answer": "غاريث بيل",
-    "answer_english": "Gareth Bale",
-    "explanation": "سجل بيل في الدقيقة 110.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0250-0c51093bd4a7-41ccc377a75c-1000--madrid-finally-fulfil-decima-dream/",
-    "imageUrl": "https://b.fssta.com/uploads/application/soccer/headshots/862.png",
-    "imageSourceUrl": "https://www.foxsports.com/soccer/gareth-bale-player"
+    "question": "شو اسم النادي الثاني الكبير في مدينة مدريد، منافس ريال مدريد في الديربي؟",
+    "answer": "أتلتيكو مدريد",
+    "answer_english": "Atlético Madrid",
+    "explanation": "يجمع ديربي مدريد ريال مدريد وأتلتيكو مدريد.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "acceptableAnswers": [
+      "اتلتيكو",
+      "أتلتيكو",
+      "اتليتكو مدريد"
+    ],
+    "imageUrl": "/assets/questions/club-logos/CLUB-114.png",
+    "imageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/atletico-de-madrid.png",
+    "imageCaption": "شعار النادي"
   },
   {
     "id": "RM-045",
@@ -513,15 +587,19 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0185-0e6a414977dc-840dff896fae-1000/"
   },
   {
-    "id": "RM-048",
+    "id": "RM-048-E6",
     "points": 200,
-    "question": "من افتتح التسجيل لريال مدريد أمام برشلونة في نهائي كأس الملك 2014؟",
-    "answer": "أنخيل دي ماريا",
-    "answer_english": "Angel Di Maria",
-    "explanation": "وضع دي ماريا ريال مدريد في المقدمة.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/undecimo-aniversario-de-la-19a-copa-del-rey-16-04-2025",
-    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/angel-di-maria/assets/1330783779915.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/angel-di-maria"
+    "question": "أي منتخب يمثّل تيبو كورتوا؟",
+    "answer": "بلجيكا",
+    "answer_english": "Belgium",
+    "explanation": "كورتوا حارس بلجيكي.",
+    "source_url": "https://sport.sky.it/calcio/atleti/thibaut-courtois/60772",
+    "acceptableAnswers": [
+      "بلجيكا"
+    ],
+    "imageUrl": "https://static.sky.it/images/skysport/it/calcio/serie-a/probabili-formazioni/superscudetto/512/60772.png",
+    "imageSourceUrl": "https://sport.sky.it/calcio/atleti/thibaut-courtois/60772",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-049",
@@ -536,15 +614,18 @@
     "imageCaption": "فلافيو كونسيساو بقميص ريال مدريد"
   },
   {
-    "id": "RM-050",
+    "id": "RM-050-E6",
     "points": 200,
-    "question": "من سجل هدف ريال مدريد الذي فرض الوقت الإضافي ضد تشيلسي في إياب ربع نهائي 2022؟",
-    "answer": "رودريغو",
-    "answer_english": "Rodrygo",
-    "explanation": "سجل رودريغو هدفًا أعاد التعادل في مجموع المباراتين.",
-    "source_url": "https://www.uefa.com/news/0274-14e4d0f0f820-0ebe4b5ae427-1000--madrid-rally-to-quell-chelsea-comeback/",
-    "imageUrl": "https://assets.laliga.com/squad/2024/t186/p440077/512x556/p440077_t186_2024_0_001_000.png",
-    "imageSourceUrl": "https://www.laliga.com/en-GB/player/rodrygo"
+    "question": "كم مرة متتالية فاز ريال مدريد بدوري الأبطال من 2016 إلى 2018؟",
+    "answer": "3 مرات",
+    "answer_english": "Three",
+    "explanation": "توج ريال مدريد ثلاث مرات متتالية.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "acceptableAnswers": [
+      "3",
+      "ثلاث مرات",
+      "ثلاثة"
+    ]
   },
   {
     "id": "RM-051",
@@ -577,15 +658,20 @@
     "imageCaption": "خيسوس فاييخو بقميص موسم 2017–18"
   },
   {
-    "id": "RM-054",
+    "id": "RM-054-E6",
     "points": 200,
-    "question": "مين لاعب الوسط الإسباني تشابي اللي غاب عن نهائي العاشرة بسبب الإيقاف؟",
-    "answer": "تشابي ألونسو",
-    "answer_english": "Xabi Alonso",
-    "explanation": "تسببت البطاقة في إيقاف ألونسو عن النهائي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0ea7afff94fb-bde8be084a86-1000--road-to-the-final-madrid/",
-    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330503025554?%24Mobile%24=&fit=wrap&wid=312",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/xabier-alonso-olano"
+    "question": "مين لاعب الوسط الكرواتي اللي فاز بالكرة الذهبية عام 2018 مع ريال مدريد؟",
+    "answer": "لوكا مودريتش",
+    "answer_english": "Luka Modrić",
+    "explanation": "فاز مودريتش بالكرة الذهبية عام 2018.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/luka-modric",
+    "acceptableAnswers": [
+      "مودريتش",
+      "لوكا مودريتش"
+    ],
+    "imageUrl": "/assets/questions/football-first-name/4170ff456958e5c24762e6a5.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
     "id": "RM-055",
@@ -692,13 +778,18 @@
   {
     "id": "RM-064",
     "points": 200,
-    "question": "مين الظهير البرازيلي صاحب الشعر المجعد، اللي سجل ثالث أهداف الريال أمام يوفنتوس في 2018؟",
+    "question": "مين الظهير البرازيلي السابق لريال مدريد المشهور بشعره المجعد؟",
     "answer": "مارسيلو",
     "answer_english": "Marcelo",
-    "explanation": "أكمل مارسيلو ثلاثية مدريد في تورينو.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
+    "explanation": "مارسيلو من أبرز أظهرة ريال مدريد.",
+    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/historic-goals-marcelo",
+    "acceptableAnswers": [
+      "مارسيلو",
+      "مارسيلو فييرا"
+    ],
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330808559422-2?%24Mobile%24=&fit=wrap&wid=312",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/historic-goals-marcelo"
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/historic-goals-marcelo",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-065",
@@ -762,19 +853,24 @@
   {
     "id": "RM-070",
     "points": 200,
-    "question": "مين أسطورة ريال مدريد الإسبانية المعروفة بالقميص رقم 7، واللي لعب لاحقًا لشالكه؟",
+    "question": "مين أسطورة ريال مدريد الإسبانية اللي حمل الرقم 7 قبل كريستيانو رونالدو؟",
     "answer": "راؤول غونزاليس",
-    "answer_english": "Raul Gonzalez",
-    "explanation": "سجل راؤول في النهائيين بعد مشاركته في لقب 1998.",
+    "answer_english": "Raúl González",
+    "explanation": "راؤول ارتدى القميص 7 قبل رونالدو.",
     "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
+    "acceptableAnswers": [
+      "راؤول",
+      "راوول"
+    ],
     "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186261754?%24Mobile%24=&fit=wrap&wid=312",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco"
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/raul-gonzalez-blanco",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-N-001",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص زين الدين زيدان مع ريال مدريد بموسم 2005-06؟",
+    "question": "شو رقم زين الدين زيدان الشهير مع ريال مدريد؟",
     "answer": "5",
     "answer_english": "5",
     "acceptableAnswers": [
@@ -792,7 +888,7 @@
     "id": "RM-N-003",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص ديفيد بيكهام مع ريال مدريد بموسم 2005-06؟",
+    "question": "شو رقم ديفيد بيكهام الشهير مع ريال مدريد؟",
     "answer": "23",
     "answer_english": "23",
     "acceptableAnswers": [
@@ -810,7 +906,7 @@
     "id": "RM-N-004",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص روبرتو كارلوس مع ريال مدريد بموسم 2005-06؟",
+    "question": "شو رقم روبرتو كارلوس الشهير مع ريال مدريد؟",
     "answer": "3",
     "answer_english": "3",
     "acceptableAnswers": [
@@ -828,7 +924,7 @@
     "id": "RM-N-005",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص إيكر كاسياس مع ريال مدريد بموسم 2005-06؟",
+    "question": "شو رقم إيكر كاسياس المعروف مع ريال مدريد؟",
     "answer": "1",
     "answer_english": "1",
     "acceptableAnswers": [
@@ -846,7 +942,7 @@
     "id": "RM-N-006",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص كريستيانو رونالدو مع ريال مدريد بموسم 2016-17؟",
+    "question": "شو رقم كريستيانو رونالدو الشهير مع ريال مدريد؟",
     "answer": "7",
     "answer_english": "7",
     "acceptableAnswers": [
@@ -864,7 +960,7 @@
     "id": "RM-N-007",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص كريم بنزيما مع ريال مدريد بموسم 2016-17؟",
+    "question": "شو رقم كريم بنزيما الشهير مع ريال مدريد؟",
     "answer": "9",
     "answer_english": "9",
     "acceptableAnswers": [
@@ -882,7 +978,7 @@
     "id": "RM-N-008",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص سيرخيو راموس مع ريال مدريد بموسم 2016-17؟",
+    "question": "شو رقم سيرخيو راموس الشهير مع ريال مدريد؟",
     "answer": "4",
     "answer_english": "4",
     "acceptableAnswers": [
@@ -897,28 +993,24 @@
     "imageCaption": "راموس بقميص النادي رقم 4 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-009",
-    "kind": "number",
+    "id": "RM-E-009-E6",
     "points": 200,
-    "question": "شو كان رقم قميص غاريث بيل مع ريال مدريد بموسم 2016-17؟",
-    "answer": "11",
-    "answer_english": "11",
+    "question": "كم لقبًا في دوري أبطال أوروبا وصل إليه ريال مدريد بعد فوزه بنهائي 2024؟",
+    "answer": "15 لقبًا",
+    "answer_english": "15",
+    "explanation": "الفوز على دورتموند منح ريال مدريد لقبه الخامس عشر.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
     "acceptableAnswers": [
-      "١١",
-      "رقم 11",
-      "رقم ١١"
-    ],
-    "explanation": "ارتدى غاريث بيل القميص رقم 11 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://images8.alphacoders.com/115/1152550.jpg",
-    "imageSourceUrl": "https://wall.alphacoders.com/big.php?i=1152550",
-    "imageCaption": "غاريث بيل بقميص النادي رقم 11 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
+      "15",
+      "خمسة عشر",
+      "خمسة عشر لقبًا"
+    ]
   },
   {
     "id": "RM-N-010",
     "kind": "number",
     "points": 200,
-    "question": "شو كان رقم قميص مارسيلو مع ريال مدريد بموسم 2016-17؟",
+    "question": "شو رقم مارسيلو الشهير مع ريال مدريد؟",
     "answer": "12",
     "answer_english": "12",
     "acceptableAnswers": [
@@ -933,37 +1025,33 @@
     "imageCaption": "مارسيلو بقميص النادي رقم 12 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-011",
-    "kind": "number",
+    "id": "RM-E-011-E6",
     "points": 200,
-    "question": "شو كان رقم قميص توني كروس مع ريال مدريد بموسم 2016-17؟",
-    "answer": "8",
-    "answer_english": "8",
+    "question": "مين النجم الفرنسي اللي درّب ريال مدريد وحقق معه دوري الأبطال ثلاث مرات متتالية؟",
+    "answer": "زين الدين زيدان",
+    "answer_english": "Zinedine Zidane",
+    "explanation": "قاد زيدان ريال مدريد إلى ألقاب 2016 و2017 و2018.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/zinedine-zidane",
     "acceptableAnswers": [
-      "٨",
-      "رقم 8",
-      "رقم ٨"
+      "زيدان",
+      "زين الدين زيدان"
     ],
-    "explanation": "ارتدى توني كروس القميص رقم 8 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://madridistanews.com/assets/admin/news/toni-kroos-reveals-who-will-inherit-his-iconic-number8.jpg",
-    "imageSourceUrl": "https://madridistanews.com/en/news/detail/kroos-reveals-who-will-inherit-his-number-8-at-real-madrid",
-    "imageCaption": "كروس بقميص النادي رقم 8 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
+    "imageUrl": "/assets/questions/football-first-name/e3b5d66a61b29465bd6df5f8.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg",
+    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
-    "id": "RM-N-013",
-    "kind": "number",
+    "id": "RM-E-013-E6",
     "points": 200,
-    "question": "شو كان رقم قميص بيبي مع ريال مدريد بموسم 2016-17؟",
-    "answer": "3",
-    "answer_english": "3",
+    "question": "مين المدافع البرتغالي الشهير اللي شكّل ثنائي دفاع مع سيرخيو راموس؟",
+    "answer": "بيبي",
+    "answer_english": "Pepe",
+    "explanation": "لعب بيبي بجوار راموس في قلب دفاع ريال مدريد.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
     "acceptableAnswers": [
-      "٣",
-      "رقم 3",
-      "رقم ٣"
+      "بيبي",
+      "كيبلر بيبي"
     ],
-    "explanation": "ارتدى بيبي القميص رقم 3 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
     "imageUrl": "https://assets.goal.com/images/v3/bltdb12ecb47006c381/b648035f6793cda4d2dcc21ea0e63d76f166bfe5.jpg?auto=webp&format=pjpg&quality=60&width=3840",
     "imageSourceUrl": "https://www.goal.com/tr/haber/portekizden-flas-iddia-fenerbahce-de-pepeye-teklif-yapti/yg5zp2hecz1w1qubt7l3udjs8",
     "imageCaption": "بيبي بقميص النادي رقم 3 — صورة توضيحية للرقم وقد تكون من موسم آخر"
@@ -987,22 +1075,16 @@
     "imageCaption": "مودريتش بقميص النادي رقم 19 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-016",
-    "kind": "number",
+    "id": "RM-E-016-E6",
     "points": 200,
-    "question": "شو كان رقم قميص تيبو كورتوا مع ريال مدريد بموسم 2022-23؟",
-    "answer": "1",
-    "answer_english": "1",
+    "question": "في أي دولة يقع نادي ريال مدريد؟",
+    "answer": "إسبانيا",
+    "answer_english": "Spain",
+    "explanation": "ريال مدريد نادٍ إسباني.",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/120-years-in-the-making",
     "acceptableAnswers": [
-      "١",
-      "رقم 1",
-      "رقم ١"
-    ],
-    "explanation": "ارتدى تيبو كورتوا القميص رقم 1 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dXFOdkbxWanqGSEGiRNn_A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xMzUwO2NmPXdlYnA-/https%3A/media.zenfs.com/en/foot_africa_articles_352/87705ddf1075ac6022fffd3eed818f1e",
-    "imageSourceUrl": "https://ca.sports.yahoo.com/news/real-madrid-defeat-against-getafe-193000995.html",
-    "imageCaption": "كورتوا بقميص النادي رقم 1 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+      "اسبانيا"
+    ]
   },
   {
     "id": "RM-N-017",
@@ -1059,22 +1141,19 @@
     "imageCaption": "هازارد بقميص النادي رقم 7 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
   },
   {
-    "id": "RM-N-020",
-    "kind": "number",
+    "id": "RM-E-020-E6",
     "points": 200,
-    "question": "شو كان رقم قميص داني كارفاخال مع ريال مدريد بموسم 2022-23؟",
-    "answer": "2",
-    "answer_english": "2",
+    "question": "شو لقب ريال مدريد المعروف بالإسباني Los Merengues؟",
+    "answer": "الميرينغي",
+    "answer_english": "Los Merengues",
+    "explanation": "من ألقاب ريال مدريد الميرينغي والملكي.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
     "acceptableAnswers": [
-      "٢",
-      "رقم 2",
-      "رقم ٢"
-    ],
-    "explanation": "ارتدى داني كارفاخال القميص رقم 2 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://album.mediaset.es/eimg/2025/12/23/dani-carvajal-en-un-partido-con-el-real-madrid-16-9-aspect-ratio-default-0_da39.jpg?h=900&w=1200",
-    "imageSourceUrl": "https://www.eldesmarque.com/futbol/liga-1a-division/20251223/dani-carvajal-salida-real-madrid-mundial_18_017938559.html",
-    "imageCaption": "كارفاخال بقميص النادي رقم 2 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+      "الميرنغي",
+      "المرينغي",
+      "الميرينجي",
+      "لوس ميرينغيس"
+    ]
   },
   {
     "id": "RM-N-021",
@@ -1149,40 +1228,36 @@
     "imageCaption": "أسينسيو بقميص النادي رقم 11 — صورة توضيحية للرقم وقد تكون من موسم آخر"
   },
   {
-    "id": "RM-N-025",
-    "kind": "number",
+    "id": "RM-E-025-E6",
     "points": 200,
-    "question": "شو كان رقم قميص كاكا مع ريال مدريد بموسم 2009-10؟",
-    "answer": "8",
-    "answer_english": "8",
+    "question": "مين النجم البرازيلي اللي انتقل من ميلان لريال مدريد بنفس صيف انتقال كريستيانو رونالدو؟",
+    "answer": "كاكا",
+    "answer_english": "Kaká",
+    "explanation": "انضم كاكا إلى مدريد في صيف 2009.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ricardo-izecson-dos-santos-leite/",
     "acceptableAnswers": [
-      "٨",
-      "رقم 8",
-      "رقم ٨"
+      "كاكا"
     ],
-    "explanation": "ارتدى كاكا القميص رقم 8 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
     "imageUrl": "https://i.pinimg.com/736x/68/15/29/681529bcf75ca3c275d5e01b6e049e76.jpg",
     "imageSourceUrl": "https://www.pinterest.com/faheem_zee11/rkaka-8/",
     "imageCaption": "كاكا بقميص النادي رقم 8 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
   },
   {
-    "id": "RM-N-026",
-    "kind": "number",
+    "id": "RM-E-026-E6",
     "points": 200,
-    "question": "شو كان رقم قميص كريستيانو رونالدو مع ريال مدريد بموسم 2009-10؟",
-    "answer": "9",
-    "answer_english": "9",
+    "question": "من أي نادٍ إنجليزي انتقل كريستيانو رونالدو لريال مدريد عام 2009؟",
+    "answer": "مانشستر يونايتد",
+    "answer_english": "Manchester United",
+    "explanation": "جاء رونالدو من مانشستر يونايتد.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/cristiano-ronaldo-dos-santos-aveiro/",
     "acceptableAnswers": [
-      "٩",
-      "رقم 9",
-      "رقم ٩"
+      "مان يونايتد",
+      "اليونايتد",
+      "مانشستر يونايتد"
     ],
-    "explanation": "ارتدى كريستيانو رونالدو القميص رقم 9 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://pbs.twimg.com/media/GvHVurFW8AEoAiw.jpg",
-    "imageSourceUrl": "https://x.com/Football__Tweet/status/1941633191737163967",
-    "imageCaption": "كريستيانو رونالدو بقميص النادي رقم 9 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+    "imageUrl": "/assets/questions/club-logos/CLUB-103.png",
+    "imageSourceUrl": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-united.png",
+    "imageCaption": "شعار النادي"
   },
   {
     "id": "RM-N-028",
@@ -1371,19 +1446,20 @@
     "imageCaption": "هونتيلار — رقم 19 ظاهر على الشورت، مارس 2009"
   },
   {
-    "id": "RM-N-039",
-    "kind": "number",
+    "id": "RM-E-039-E6",
     "points": 200,
-    "question": "شو كان رقم قميص مسعود أوزيل مع ريال مدريد بموسم 2010-11؟",
-    "answer": "23",
-    "answer_english": "23",
+    "question": "مين لاعب ريال مدريد الألماني السابق المشهور بتمريراته، ولعب بعده لأرسنال؟",
+    "answer": "مسعود أوزيل",
+    "answer_english": "Mesut Özil",
+    "explanation": "غادر أوزيل ريال مدريد إلى أرسنال عام 2013.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
     "acceptableAnswers": [
-      "٢٣",
-      "رقم 23",
-      "رقم ٢٣"
+      "أوزيل",
+      "اوزيل"
     ],
-    "explanation": "ارتدى مسعود أوزيل القميص رقم 23 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
+    "imageUrl": "/assets/questions/football-first-name/41152ed492df58326bace4ce.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
     "id": "RM-N-040",
@@ -1401,22 +1477,18 @@
     "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/"
   },
   {
-    "id": "RM-N-041",
-    "kind": "number",
+    "id": "RM-E-041-E6",
     "points": 200,
-    "question": "شو كان رقم قميص أنخيل دي ماريا مع ريال مدريد بموسم 2010-11؟",
-    "answer": "22",
-    "answer_english": "22",
+    "question": "مين النجم البرازيلي اللي كان مشهور بلقب الظاهرة ولعب لريال مدريد في عصر الغالاكتيكوس؟",
+    "answer": "رونالدو نازاريو",
+    "answer_english": "Ronaldo Nazário",
+    "explanation": "رونالدو البرازيلي معروف بلقب الظاهرة.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ronaldo-luis-nazario-de-lima/",
     "acceptableAnswers": [
-      "٢٢",
-      "رقم 22",
-      "رقم ٢٢"
-    ],
-    "explanation": "ارتدى أنخيل دي ماريا القميص رقم 22 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://media.baobinhphuoc.com.vn/Content/UploadFiles/Thumb/2014/Quy3/809angeldimariarealmadridnumber22player26082014031435.jpg",
-    "imageSourceUrl": "https://baobinhphuoc.com.vn/news/18/109719/tiet-lo-su-that-khien-real-madrid-ban-angel-di-maria-cho-mu",
-    "imageCaption": "دي ماريا بقميص النادي رقم 22 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+      "رونالدو البرازيلي",
+      "الظاهرة",
+      "رونالدو نازاريو"
+    ]
   },
   {
     "id": "RM-N-042",
@@ -1668,40 +1740,32 @@
     "imageCaption": "كيكو كاسيا — الرقم 13 على ظهر القميص (2016-17)"
   },
   {
-    "id": "RM-N-057",
-    "kind": "number",
+    "id": "RM-E-057-E6",
     "points": 200,
-    "question": "شو كان رقم قميص خوسيلو مع ريال مدريد بموسم 2023-24؟",
-    "answer": "14",
-    "answer_english": "14",
+    "question": "من أي مدينة إسبانية نادي ريال مدريد؟",
+    "answer": "مدريد",
+    "answer_english": "Madrid",
+    "explanation": "يقع النادي في العاصمة الإسبانية مدريد.",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/120-years-in-the-making",
     "acceptableAnswers": [
-      "١٤",
-      "رقم 14",
-      "رقم ١٤"
-    ],
-    "explanation": "ارتدى خوسيلو القميص رقم 14 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://sportal365images.com/process/smp-images-production/ringier.africa/09052024/6198ea51-23f0-48bd-b146-8a601f301b9c.png?operations=autocrop%28700%3A467%29",
-    "imageSourceUrl": "https://www.pulsesports.ng/story/joselu-from-being-relegated-twice-to-la-liga-winner-and-champions-league-finalist-2024050907172715379",
-    "imageCaption": "خوسيلو بقميص النادي رقم 14 — صورة توضيحية للرقم وقد تكون من موسم آخر"
+      "مدينة مدريد"
+    ]
   },
   {
-    "id": "RM-N-058",
-    "kind": "number",
+    "id": "RM-E-058-E6",
     "points": 200,
-    "question": "شو كان رقم قميص أوريلين تشواميني مع ريال مدريد بموسم 2023-24؟",
-    "answer": "18",
-    "answer_english": "18",
+    "question": "مين نجم الوسط الفرنسي الشاب اللي انضم لريال مدريد من رين عام 2021؟",
+    "answer": "إدواردو كامافينغا",
+    "answer_english": "Eduardo Camavinga",
+    "explanation": "انضم كامافينغا من رين عام 2021.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
     "acceptableAnswers": [
-      "١٨",
-      "رقم 18",
-      "رقم ١٨"
+      "كامافينغا",
+      "كامافينجا"
     ],
-    "explanation": "ارتدى أوريلين تشواميني القميص رقم 18 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://photo.maxifoot.fr/real-madrid-tchouameni-3.jpg",
-    "imageSourceUrl": "https://www.maxifoot.fr/football/article-51794.htm",
-    "imageCaption": "تشواميني بقميص النادي رقم 18 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
+    "imageUrl": "https://i0.statig.com.br/bancodeimagens/imgalta/ed/ps/et/edpsetekueppfk3v73d160qe0.jpg",
+    "imageSourceUrl": "https://esporte.ig.com.br/futebol/internacional/2024-04-09/em-jogo-de-6-gols--real-madrid-e-city-empatam-nas-quartas-da-champions.html",
+    "imageCaption": "صورة الإجابة"
   },
   {
     "id": "RM-N-059",
@@ -1722,19 +1786,18 @@
     "imageCaption": "براهيم دياز بقميص النادي رقم 21 — الموسم المذكور في السؤال"
   },
   {
-    "id": "RM-N-060",
-    "kind": "number",
+    "id": "RM-E-060-E6",
     "points": 200,
-    "question": "شو كان رقم قميص أنطونيو روديغر مع ريال مدريد بموسم 2023-24؟",
-    "answer": "22",
-    "answer_english": "22",
+    "question": "مين قلب الدفاع الألماني اللي انتقل لريال مدريد من تشيلسي عام 2022؟",
+    "answer": "أنطونيو روديغر",
+    "answer_english": "Antonio Rüdiger",
+    "explanation": "انضم روديغر بعد انتهاء عقده مع تشيلسي.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
     "acceptableAnswers": [
-      "٢٢",
-      "رقم 22",
-      "رقم ٢٢"
+      "روديغر",
+      "روديجر",
+      "روديجير"
     ],
-    "explanation": "ارتدى أنطونيو روديغر القميص رقم 22 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
     "imageUrl": "https://assets.goal.com/images/v3/blt7d2bee9908304019/1600.jpg?auto=webp&format=pjpg&quality=60&width=3840",
     "imageSourceUrl": "https://www.goal.com/de/listen/schlimmste-befuerchtungen-von-real-madrid-treten-nicht-ein-antonio-ruediger-erhaelt-fuer-seine-kopf-ab-geste-in-der-champions-league-wohl-ein-mildes-urteil/blt035ffe04c088b34e",
     "imageCaption": "روديغر بقميص النادي رقم 22 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
@@ -1776,22 +1839,18 @@
     "imageCaption": "كيبا — رقم 25 ظاهر على الشورت"
   },
   {
-    "id": "RM-N-063",
-    "kind": "number",
+    "id": "RM-E-063-E6",
     "points": 200,
-    "question": "شو كان رقم قميص إدواردو كامافينغا مع ريال مدريد بموسم 2023-24؟",
-    "answer": "12",
-    "answer_english": "12",
+    "question": "شو اسم البطولة اللي فاز فيها ريال مدريد بلقب العاشرة عام 2014؟",
+    "answer": "دوري أبطال أوروبا",
+    "answer_english": "UEFA Champions League",
+    "explanation": "العاشرة تعني اللقب العاشر في دوري أبطال أوروبا.",
+    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
     "acceptableAnswers": [
-      "١٢",
-      "رقم 12",
-      "رقم ١٢"
-    ],
-    "explanation": "ارتدى إدواردو كامافينغا القميص رقم 12 في ذلك الموسم.",
-    "source_url": "https://www.footballshirtandprint.co.uk/squad-numbers/real-madrid/",
-    "imageUrl": "https://i0.statig.com.br/bancodeimagens/imgalta/ed/ps/et/edpsetekueppfk3v73d160qe0.jpg",
-    "imageSourceUrl": "https://esporte.ig.com.br/futebol/internacional/2024-04-09/em-jogo-de-6-gols--real-madrid-e-city-empatam-nas-quartas-da-champions.html",
-    "imageCaption": "كامافينغا بقميص النادي رقم 12 — الموسم المذكور في السؤال"
+      "دوري الابطال",
+      "أبطال أوروبا",
+      "الشامبيونزليغ"
+    ]
   },
   {
     "id": "RM-N-064",
