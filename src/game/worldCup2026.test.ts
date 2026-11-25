@@ -65,7 +65,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions in revised tiers', 
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, {"200":46,"400":55,"600":49});
+  assert.deepEqual(tierCounts, { 200: 34, 400: 58, 600: 58 });
 });
 
 test('World Cup 2026 uses exclusively verified local assets with zero spoilers before reveal', () => {
@@ -107,7 +107,7 @@ test('World Cup 2026 uses exclusively verified local assets with zero spoilers b
     }
   }
 
-  assert.equal(playerRevealCount, 62);
+  assert.equal(playerRevealCount, 72);
 });
 
 test('World Cup 2026 manifest exists and confirms 46 flags, 1 trophy, and 50 players verified', () => {
@@ -218,13 +218,21 @@ test('Projector state shows beforeImageUrls pre-reveal and strictly hides afterI
 
 test('World Cup score cards are local factual graphics and sourced fixture photos stay hidden until reveal', () => {
   const rows = WORLD_CUP_2026_ALL_ROWS.filter(row=>row.answer_type==='score');
-  assert.equal(rows.length, 33);
+  assert.equal(rows.length, 3);
   for (const row of rows) {
     assert.ok(row.afterImageUrl.endsWith('.svg'));
     assert.ok(row.source_url.startsWith('https://www.fifa.com/'));
     assert.ok(fs.readFileSync(path.join(process.cwd(),'public',row.afterImageUrl.slice(1)),'utf8').includes('بطاقة توضيحية'));
   }
   const photos = WORLD_CUP_2026_QUESTIONS.filter(q=>q.imageUrl);
-  assert.equal(photos.length,4);
+  assert.equal(photos.length,10);
   for(const q of photos) { assert.equal(q.imageDisplay,'after_reveal'); assert.ok(q.imageSourceUrl?.startsWith('https://')); }
+});
+
+
+test('World Cup editorial bank has varied topics rather than repetitive fixture winners', () => {
+  assert.equal(new Set(WORLD_CUP_2026_ALL_ROWS.map(row => row.question)).size, 150);
+  assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.answer_type === 'score').length <= 8);
+  assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.topic === 'نتائج ومباريات').length <= 10);
+  assert.ok(new Set(WORLD_CUP_2026_ALL_ROWS.map(row => row.topic)).size >= 15);
 });
