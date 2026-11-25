@@ -52,3 +52,10 @@ test('score prompts and scorer prompts are different families; recent scorer var
   const mixed=selectActiveBoardForDeck(deck,1,undefined,2,true);
   assert.deepEqual(mixed.tiles.map(t=>t.questionId),['goal1','score']);
 });
+
+test('diversity penalizes repeated answers even when questions use different wording',()=>{
+ const bank=[item('a1',200,'مين سجل ثلاثية كندا أمام قطر في مونديال 2026؟','جوناثان ديفيد'),item('a2',200,'مين سجل في أول فوز لكندا؟','جوناثان ديفيد'),item('b',200,'مين مدرب إنتر عام 2010؟','مورينيو')];
+ const deck=buildBoardDeckFromCategories([CHAMPIONS_LEAGUE_CATEGORY.id],undefined,bank);deck.questions=bank;
+ const mixed=selectActiveBoardForDeck(deck,1,undefined,2,true);
+ assert.equal(new Set(mixed.tiles.map(t=>bank.find(q=>q.id===t.questionId)?.answer)).size,2);
+});

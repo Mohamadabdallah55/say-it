@@ -55,14 +55,21 @@
     "answer": "هيرنان كريسبو",
     "type": "player",
     "clubs": [
+      "ريفر بليت",
       "بارما",
       "لاتسيو",
       "إنتر ميلان",
       "تشيلسي",
-      "ميلان"
+      "ميلان",
+      "تشيلسي",
+      "إنتر ميلان",
+      "جنوى",
+      "بارما"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-004-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/en-GB/players/35561/hernan-crespo",
+    "clueFile": "FC-004-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/en-GB/players/35561/hernan-crespo",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-005",
@@ -174,10 +181,19 @@
       "برشلونة",
       "بورتو",
       "إنتر ميلان",
-      "بشكتاش"
+      "تشيلسي",
+      "إنتر ميلان",
+      "بشكتاش",
+      "شباب الأهلي دبي",
+      "بورتو",
+      "بشكتاش",
+      "قاسم باشا",
+      "فيتوريا غيمارايش"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-011-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/38239/ricardo-quaresma",
+    "clueFile": "FC-011-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/38239/ricardo-quaresma",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-012",
@@ -186,13 +202,21 @@
     "answer": "دييغو فورلان",
     "type": "player",
     "clubs": [
+      "إنديبندينتي",
       "مانشستر يونايتد",
       "فياريال",
       "أتلتيكو مدريد",
-      "إنتر ميلان"
+      "إنتر ميلان",
+      "إنترناسيونال",
+      "سيريزو أوساكا",
+      "بينيارول",
+      "مومباي سيتي",
+      "كيتشي"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/01f4-0ea2a098b10d-8d04252d7dfa-1000--inter-complete-deals-for-forlan-poli-and-zarate/",
-    "clueFile": "FC-012-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/38460/diego-forlan",
+    "clueFile": "FC-012-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/38460/diego-forlan",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-013",
@@ -366,15 +390,22 @@
     "answer": "خافيير سافيولا",
     "type": "player",
     "clubs": [
+      "ريفر بليت",
       "برشلونة",
       "موناكو",
       "إشبيلية",
+      "برشلونة",
       "ريال مدريد",
       "بنفيكا",
-      "ملقا"
+      "ملقا",
+      "أولمبياكوس",
+      "هيلاس فيرونا",
+      "ريفر بليت"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-023-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/37576/javier-saviola",
+    "clueFile": "FC-023-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/37576/javier-saviola",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-024",
@@ -815,10 +846,13 @@
       "سبورتينغ لشبونة",
       "وولفرهامبتون",
       "روما",
-      "أتالانتا"
+      "أتالانتا",
+      "العين الإماراتي"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-048-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/40604/rui-patricio",
+    "clueFile": "FC-048-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/40604/rui-patricio",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-049",
@@ -1012,19 +1046,26 @@
     "answer": "موناكو",
     "type": "missing",
     "clubs": [
+      "إنفيغادو",
       "بانفيلد",
       "بورتو",
       "موناكو",
       "ريال مدريد",
       "بايرن ميونخ",
+      "ريال مدريد",
       "إيفرتون",
       "الريان القطري",
       "أولمبياكوس",
       "ساو باولو",
-      "رايو فاييكانو"
+      "رايو فاييكانو",
+      "ليون المكسيكي",
+      "مينيسوتا يونايتد",
+      "أتلتيكو ناسيونال"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/James_Rodríguez",
-    "clueFile": "FC-060-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/164684/james-rodriguez",
+    "clueFile": "FC-060-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/164684/james-rodriguez",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-061",
@@ -1064,7 +1105,6 @@
     "type": "player",
     "clubs": [
       "كوبريلوا",
-      "أودينيزي",
       "كولو كولو",
       "ريفر بليت",
       "أودينيزي",
@@ -1072,11 +1112,17 @@
       "أرسنال",
       "مانشستر يونايتد",
       "إنتر ميلان",
-      "مارسيليا"
+      "مارسيليا",
+      "إنتر ميلان",
+      "أودينيزي",
+      "إشبيلية",
+      "مونتريال"
     ],
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alexis_S%C3%A1nchez_2017.jpg",
+    "sourceUrl": "https://www.fotmob.com/players/50047/alexis-sanchez",
     "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Alexis_S%C3%A1nchez_2017.jpg/500px-Alexis_S%C3%A1nchez_2017.jpg",
-    "clueFile": "FC-063-timeline-v3.svg"
+    "clueFile": "FC-063-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/50047/alexis-sanchez",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-064",
@@ -1145,11 +1191,14 @@
       "كان الفرنسي",
       "ليستر سيتي",
       "تشيلسي",
-      "الاتحاد السعودي"
+      "الاتحاد السعودي",
+      "فنربخشة"
     ],
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
+    "sourceUrl": "https://www.fotmob.com/players/319300/ngolo-kante",
     "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg/500px-N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
-    "clueFile": "FC-067-timeline-v3.svg"
+    "clueFile": "FC-067-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/319300/ngolo-kante",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-068",
@@ -1222,10 +1271,14 @@
       "تشيلسي",
       "مانشستر يونايتد",
       "غلطة سراي",
-      "فيسيل كوبي"
+      "فيسيل كوبي",
+      "ويسترن سيدني واندررز",
+      "ملبورن فيكتوري"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Juan_Mata",
-    "clueFile": "FC-071-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/41468/juan-mata",
+    "clueFile": "FC-071-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/41468/juan-mata",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-072",
@@ -1296,10 +1349,15 @@
       "ليفانتي",
       "ريال مدريد",
       "باريس سان جيرمان",
-      "نوتنغهام فورست"
+      "نوتنغهام فورست",
+      "باريس سان جيرمان",
+      "نيويلز أولد بويز",
+      "بوماس"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Keylor_Navas",
-    "clueFile": "FC-075-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/51949/keylor-navas",
+    "clueFile": "FC-075-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/51949/keylor-navas",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-076",
@@ -1488,14 +1546,20 @@
       "فاسكو دا غاما",
       "إنتر ميلان",
       "إسبانيول",
+      "إنتر ميلان",
       "ليفربول",
       "برشلونة",
       "بايرن ميونخ",
+      "برشلونة",
       "أستون فيلا",
-      "الدحيل القطري"
+      "الدحيل القطري",
+      "فاسكو دا غاما",
+      "سانتوس"
     ],
-    "sourceUrl": "https://en.wikipedia.org/wiki/Philippe_Coutinho",
-    "clueFile": "FC-086-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/184536/philippe-coutinho",
+    "clueFile": "FC-086-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/184536/philippe-coutinho",
+    "careerUpdatedAt": "2026-11-26"
   },
   {
     "id": "FC-087",
@@ -1552,11 +1616,19 @@
     "answer": "ديان لوفرين",
     "type": "player",
     "clubs": [
+      "دينامو زغرب",
+      "إنتر زابريشيتش",
+      "دينامو زغرب",
       "ليون",
+      "ساوثهامبتون",
       "ليفربول",
-      "زينيت"
+      "زينيت",
+      "ليون",
+      "باوك"
     ],
-    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-090-timeline-v3.svg"
+    "sourceUrl": "https://www.fotmob.com/players/114268/dejan-lovren",
+    "clueFile": "FC-090-timeline-v4.svg",
+    "careerUpdateSource": "https://www.fotmob.com/players/114268/dejan-lovren",
+    "careerUpdatedAt": "2026-11-26"
   }
 ]

@@ -1,5 +1,12 @@
 name: Verify football content
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'server/**'
+      - 'src/game/**'
+      - 'public/assets/questions/football-career/**'
+      - '.github/workflows/verify-football-content.yml'
   pull_request:
     paths:
       - 'server/**'

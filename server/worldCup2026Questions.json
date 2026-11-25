@@ -299,17 +299,17 @@
     "afterImageUrl": "/assets/world_cup_2026/players/kylian_mbappe.jpg"
   },
   {
-    "id": "WC26-200-05",
+    "id": "WC26-R26-001",
+    "question": "كم دولة استضافت كأس العالم 2026 مع بعض لأول مرة بتاريخ البطولة؟",
+    "answer": "3 دول",
+    "explanation": "كندا والمكسيك والولايات المتحدة.",
+    "topic": "نظام البطولة والاستضافة",
     "points": 200,
     "difficulty": "سهل",
-    "topic": "الهدافون",
-    "question": "مين سجل ثلاثية كندا في المباراة التي حققت فيها أول فوز مونديالي بتاريخها؟",
-    "answer": "جوناثان ديفيد",
-    "explanation": "سجل هاتريك أمام قطر في فانكوفر.",
-    "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/articles/magic-moments-canada-win-first-game",
+    "answer_type": "text",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/fifa-world-cup-26-match-schedule-revealed",
     "beforeImageUrls": [],
-    "afterImageUrl": "/assets/world_cup_2026/players/jonathan_david.jpg"
+    "afterImageUrl": ""
   },
   {
     "id": "WC26-200-31",
@@ -2033,22 +2033,17 @@
     "afterImageUrl": "/assets/world_cup_2026/players/julian_alvarez.jpg"
   },
   {
-    "id": "WC26-600-17",
+    "id": "WC26-R26-003",
+    "question": "أي مدينة أمريكية استضافت تسع مباريات في مونديال 2026، أكثر من أي مدينة ثانية؟",
+    "answer": "دالاس",
+    "explanation": "استضاف ملعب دالاس تسع مباريات، بينها نصف نهائي.",
+    "topic": "المدن والملاعب",
     "points": 600,
     "difficulty": "صعب",
-    "topic": "اللحظات المميزة",
-    "question": "أمام أي منتخب سجّل سيدني لوبيش كابرال هدفه المرشح للأجمل في البطولة؟",
-    "answer": "الأرجنتين",
-    "explanation": "جاء الهدف في دور الـ32.",
-    "answer_type": "country",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/sidny-lopes-cabral-cabo-verde-round-of-32-best-goal",
+    "answer_type": "text",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/fifa-world-cup-26-match-schedule-revealed",
     "beforeImageUrls": [],
-    "afterImageUrl": "/assets/world_cup_2026/flags/ar.png",
-    "answerPhoto": {
-      "url": "https://media.baovanhoa.vn/uploaded/ngoctrung/2026_07_28/hmv9edhw4aasgud_yxmm.jpg",
-      "source": "https://baovanhoa.vn/the-thao/ban-thang-vao-luoi-argentina-dep-nhat-world-cup-2026-249071.html",
-      "caption": "احتفال سيدني لوبيش كابرال بهدفه أمام الأرجنتين"
-    }
+    "afterImageUrl": ""
   },
   {
     "id": "WC26-600-46",
@@ -2182,17 +2177,17 @@
     "afterImageUrl": ""
   },
   {
-    "id": "WC26-600-23",
+    "id": "WC26-R26-002",
+    "question": "مين المدينة الأمريكية اللي استضافت مباراة تحديد المركز الثالث في مونديال 2026؟",
+    "answer": "ميامي",
+    "explanation": "خصص جدول FIFA مباراة المركز الثالث لميامي.",
+    "topic": "المدن والملاعب",
     "points": 400,
     "difficulty": "متوسط",
-    "topic": "نجوم المباريات",
-    "question": "مين اختير رجل مباراة كندا والمغرب في دور الـ16 بعد ثنائيته؟",
-    "answer": "عز الدين أوناحي",
-    "explanation": "سجل الهدفين الأول والثاني للمغرب.",
-    "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/articles/michelob-ultra-superior-player-of-match-winner",
+    "answer_type": "text",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/fifa-world-cup-26-match-schedule-revealed",
     "beforeImageUrls": [],
-    "afterImageUrl": "/assets/world_cup_2026/players/azzedine_ounahi.jpg"
+    "afterImageUrl": ""
   },
   {
     "id": "WC26-600-48",

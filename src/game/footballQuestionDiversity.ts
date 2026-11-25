@@ -74,13 +74,15 @@ export function pickDiverseFootballQuestion(candidates: QuizQuestion[], selected
       if (recent && sameBroadFamily(d.family,p.family)) penalty += 12;
       if (recent && d.family === p.family) penalty += 10;
       const sameCategory = previous.categoryId === q.categoryId;
-      if (d.answer.length > 3 && d.answer === p.answer) penalty += 25;
+      if (d.answer.length > 3 && d.answer === p.answer) penalty += 100;
+      if (recent && d.answer.length > 3 && (d.answer.includes(p.answer) || p.answer.includes(d.answer)) && p.answer.length > 5) penalty += 20;
       if (sameCategory && d.family === p.family) penalty += 8;
       if (sameCategory && d.topic && d.topic === p.topic) penalty += 3;
       const shared = [...d.tokens].filter(w=>p.tokens.has(w)).length;
       const sameYear = d.year.some(y=>p.year.includes(y));
       if (shared >= 3) penalty += 5 + shared;
-      if (shared >= 2 && sameYear) penalty += 10;
+      if (shared >= 2 && sameYear) penalty += recent ? 40 : 18;
+      if (recent && shared >= 2 && d.family === p.family) penalty += 12;
       if (sameCategory && d.year.length && sameYear) penalty += 1;
     }
     if (penalty < min) { best=q; min=penalty; }
