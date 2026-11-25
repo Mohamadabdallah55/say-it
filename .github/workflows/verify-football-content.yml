@@ -1,0 +1,22 @@
+name: Verify football content
+on:
+  pull_request:
+    paths:
+      - 'server/**'
+      - 'src/game/**'
+      - '.github/workflows/verify-football-content.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bunx tsx --test server/imageQuestionBanks.test.ts server/realMadridQuestions.test.ts server/barcelonaQuestions.test.ts server/letterQuestions.test.ts server/footballOrderingQuestions.test.ts src/game/worldCup2026.test.ts
+      - run: bun run build

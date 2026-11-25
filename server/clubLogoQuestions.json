@@ -355,7 +355,7 @@
   },
   {
     "id": "CLUB-123",
-    "points": 200,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "باير ليفركوزن",
     "answer_en": "Bayer Leverkusen",
@@ -372,7 +372,7 @@
   },
   {
     "id": "CLUB-124",
-    "points": 200,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "لاتسيو",
     "answer_en": "Lazio",
@@ -388,7 +388,7 @@
   },
   {
     "id": "CLUB-125",
-    "points": 200,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "مارسيليا",
     "answer_en": "Marseille",
@@ -517,7 +517,7 @@
   },
   {
     "id": "CLUB-133",
-    "points": 400,
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "فولهام",
     "answer_en": "Fulham",
@@ -642,7 +642,7 @@
   },
   {
     "id": "CLUB-141",
-    "points": 400,
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "بولونيا",
     "answer_en": "Bologna",
@@ -660,7 +660,7 @@
   },
   {
     "id": "CLUB-142",
-    "points": 400,
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "تورينو",
     "answer_en": "Torino",
@@ -707,7 +707,7 @@
   },
   {
     "id": "CLUB-145",
-    "points": 400,
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "شتوتغارت",
     "answer_en": "VfB Stuttgart",
@@ -721,7 +721,7 @@
   },
   {
     "id": "CLUB-146",
-    "points": 400,
+    "points": 600,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "فولفسبورغ",
     "answer_en": "Wolfsburg",
@@ -832,7 +832,7 @@
   },
   {
     "id": "CLUB-153",
-    "points": 600,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "سبورتينغ لشبونة",
     "answer_en": "Sporting CP",
@@ -869,7 +869,7 @@
   },
   {
     "id": "CLUB-155",
-    "points": 600,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "بي إس في آيندهوفن",
     "answer_en": "PSV Eindhoven",
@@ -883,7 +883,7 @@
   },
   {
     "id": "CLUB-156",
-    "points": 600,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "فينورد",
     "answer_en": "Feyenoord",
@@ -900,7 +900,7 @@
   },
   {
     "id": "CLUB-157",
-    "points": 600,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "سيلتيك",
     "answer_en": "Celtic",
@@ -1164,7 +1164,7 @@
   },
   {
     "id": "CLUB-173",
-    "points": 600,
+    "points": 400,
     "question": "ما اسم النادي صاحب هذا الشعار؟",
     "answer": "جيرونا",
     "answer_en": "Girona",
@@ -1368,7 +1368,7 @@
   },
   {
     "id": "CLUB-211",
-    "points": 400,
+    "points": 200,
     "question": "ما اسم المنتخب صاحب هذا الشعار؟",
     "answer": "مصر",
     "answer_en": "Egypt",
@@ -1385,7 +1385,7 @@
   },
   {
     "id": "CLUB-212",
-    "points": 400,
+    "points": 200,
     "question": "ما اسم المنتخب صاحب هذا الشعار؟",
     "answer": "السعودية",
     "answer_en": "Saudi Arabia",
@@ -1401,7 +1401,7 @@
   },
   {
     "id": "CLUB-213",
-    "points": 400,
+    "points": 200,
     "question": "ما اسم المنتخب صاحب هذا الشعار؟",
     "answer": "هولندا",
     "answer_en": "Netherlands",

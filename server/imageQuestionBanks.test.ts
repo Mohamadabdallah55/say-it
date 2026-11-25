@@ -20,7 +20,7 @@ const settings = { categoryCount: 3, lifelinesEnabled: false };
 test('football first names use 100 distinct photos and hide names and credit links until reveal', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => FOOTBALL_FIRST_NAME_QUESTIONS.filter(q => q.points === points).length),
-    [34, 33, 33],
+    [39, 32, 29],
   );
   const photos = new Set<string>();
   for (const question of FOOTBALL_FIRST_NAME_QUESTIONS) {
@@ -58,7 +58,7 @@ test('football first names use 100 distinct photos and hide names and credit lin
   assert.equal(after?.sourceRef, question.sourceRef);
 });
 
-test('world football can share a board with Champions League and only reveals verified local photos with the answer', () => {
+test('world football can share a board with Champions League and only reveals sourced photos with the answer', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => WORLD_FOOTBALL_QUESTIONS.filter(q => q.points === points).length),
     [25, 35, 40],
@@ -67,9 +67,15 @@ test('world football can share a board with Champions League and only reveals ve
   assert.ok(photoQuestions.length);
   for (const question of photoQuestions) {
     assert.equal(question.imageDisplay, 'after_reveal');
-    assert.ok(question.imageSourceUrl?.startsWith('https://www.flickr.com/photos/'));
-    const image = readFileSync(new URL(`../public${question.imageUrl}`, import.meta.url));
-    assert.equal(image.toString('hex', 0, 3), 'ffd8ff');
+    assert.ok(question.imageSourceUrl?.startsWith('https://'));
+    if (question.imageUrl?.startsWith('/')) {
+      assert.ok(question.imageSourceUrl?.startsWith('https://www.flickr.com/photos/'));
+      const image = readFileSync(new URL(`../public${question.imageUrl}`, import.meta.url));
+      assert.equal(image.toString('hex', 0, 3), 'ffd8ff');
+    } else {
+      assert.ok(question.imageUrl?.startsWith('https://'));
+      assert.ok(question.imageCaption);
+    }
   }
 
   const question = photoQuestions[0];

@@ -12,14 +12,17 @@
   },
   {
     "id": "WF-002",
-    "points": 600,
-    "question": "من سجّل الهدف الفردي الشهير للسعودية ضد بلجيكا في كأس العالم 1994؟",
+    "points": 400,
+    "question": "في مونديال 1994، انطلق لاعب سعودي بالكرة من نصف ملعبه حتى مرمى بلجيكا. مين صاحب هالهدف التاريخي؟",
     "answer": "سعيد العويران",
     "answer_english": "Saeed Al-Owairan",
     "subcategory": "كأس العالم",
     "explanation": "انطلق من منتصف الملعب وسجل هدف الفوز.",
     "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/S2UGJMZGRZG3LMB4PSJWMCTXLU.jpg",
+    "imageSourceUrl": "https://www.thenationalnews.com/fifa-world-cup-2022/2022/11/16/the-best-world-cup-goals-of-all-time-part-i-van-persie-careca-rodriguez/",
+    "imageCaption": "لقطة من مباراة السعودية وبلجيكا في مونديال 1994"
   },
   {
     "id": "WF-003",
@@ -56,7 +59,7 @@
   },
   {
     "id": "WF-006",
-    "points": 400,
+    "points": 600,
     "question": "من سجّل هدف اليابان الحاسم أمام أستراليا في نهائي كأس آسيا 2011؟",
     "answer": "تاداناري لي",
     "answer_english": "Tadanari Lee",
@@ -67,7 +70,7 @@
   },
   {
     "id": "WF-007",
-    "points": 400,
+    "points": 200,
     "question": "من نفّذ ركلة الترجيح الحاسمة للمغرب ضد إسبانيا في دور الـ16 بكأس العالم 2022 بطريقة بانينكا؟",
     "answer": "أشرف حكيمي",
     "answer_english": "Achraf Hakimi",
@@ -188,7 +191,7 @@
   },
   {
     "id": "WF-018",
-    "points": 600,
+    "points": 400,
     "question": "من سجّل هدف إيطاليا الأول ضد ألمانيا في الوقت الإضافي بنصف نهائي مونديال 2006؟",
     "answer": "فابيو غروسو",
     "answer_english": "Fabio Grosso",
@@ -278,7 +281,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل أوريغي الهدف الثاني بتسديدة منخفضة.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://editorial.uefa.com/resources/025b-0f05affdaf3a-33d492360749-1000/format/wide1/divock_origi_liverpool_.jpeg?imwidth=988",
+    "imageSourceUrl": "https://www.uefa.com/uefachampionsleague/news/0252-0e99c19b0df2-c2e63df5c79b-1000/",
+    "imageCaption": "نهائي ليفربول وتوتنهام 2019"
   },
   {
     "id": "WF-026",
@@ -348,7 +354,7 @@
   },
   {
     "id": "WF-032",
-    "points": 200,
+    "points": 400,
     "question": "من توّج بالحذاء الذهبي لكأس العالم 2006 بخمسة أهداف؟",
     "answer": "ميروسلاف كلوزه",
     "answer_english": "Miroslav Klose",
@@ -360,7 +366,7 @@
   {
     "id": "WF-033",
     "points": 600,
-    "question": "من كان حارس كوت ديفوار الذي سجّل ركلة الترجيح الحاسمة أمام غانا في نهائي كأس أفريقيا 2015؟",
+    "question": "في نهائي أمم أفريقيا 2015، حارس ساحل العاج حسم ركلات الترجيح بتسجيل الركلة الأخيرة بنفسه. مين هو؟",
     "answer": "بوبكر باري",
     "answer_english": "Boubacar Barry",
     "subcategory": "كأس أفريقيا",
@@ -381,7 +387,7 @@
   },
   {
     "id": "WF-035",
-    "points": 400,
+    "points": 200,
     "question": "من سجّل هدفي البرازيل أمام ألمانيا في نهائي كأس العالم 2002؟",
     "answer": "رونالدو نازاريو",
     "answer_english": "Ronaldo Nazario",
@@ -392,7 +398,7 @@
   },
   {
     "id": "WF-036",
-    "points": 400,
+    "points": 600,
     "question": "من حصل على جائزة أفضل لاعب شاب في مونديال 2006 مع ألمانيا؟",
     "answer": "لوكاس بودولسكي",
     "answer_english": "Lukas Podolski",
@@ -480,7 +486,7 @@
   },
   {
     "id": "WF-044",
-    "points": 400,
+    "points": 600,
     "question": "من سجّل هدف فوز أستراليا على كوريا الجنوبية في الوقت الإضافي بنهائي كأس آسيا 2015؟",
     "answer": "جيمس ترويسي",
     "answer_english": "James Troisi",
@@ -498,7 +504,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "استغل تمريرة كاريوس الخاطئة ليسجل.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://images.welt.de/67e35d5c4043cc0cc565ef3b/99ca6f0f6ddfb30c47154b8377cf925d/ci102l-w1200/ukraine-soccer-champions-league-final",
+    "imageSourceUrl": "https://www.welt.de/sport/fussball/champions-league/article176706966/Champions-League-FC-Liverpool-Die-folgenschweren-Patzer-des-Loris-Karius.html",
+    "imageCaption": "نهائي ريال مدريد وليفربول 2018"
   },
   {
     "id": "WF-046",
@@ -536,7 +545,7 @@
   {
     "id": "WF-049",
     "points": 400,
-    "question": "أي نجم إيطالي أهدر ركلة الترجيح الأخيرة في نهائي كأس العالم 1994 أمام البرازيل؟",
+    "question": "لقطة من أكثر لحظات المونديال شهرة: في نهائي 1994 طارت ركلة إيطاليا الأخيرة فوق العارضة. مين نفّذها؟",
     "answer": "روبرتو باجيو",
     "answer_english": "Roberto Baggio",
     "subcategory": "كأس العالم",
@@ -546,7 +555,7 @@
   },
   {
     "id": "WF-050",
-    "points": 200,
+    "points": 400,
     "question": "من أحرز هدف اليونان الوحيد أمام البرتغال في نهائي يورو 2004؟",
     "answer": "أنغيلوس خاريستياس",
     "answer_english": "Angelos Charisteas",
@@ -579,7 +588,7 @@
   },
   {
     "id": "WF-053",
-    "points": 600,
+    "points": 400,
     "question": "من سجل هدف السنغال أمام فرنسا في افتتاح مونديال 2002؟",
     "answer": "بابا بوبا ديوب",
     "answer_english": "Papa Bouba Diop",
@@ -597,7 +606,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل هدف التعادل والتأهل في الدقائق الأخيرة.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://s2-ge.glbimg.com/Nw2q2j3ghqDuOLEyLuRSJ5lhjbA%3D/0x0%3A1024x682/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/r/6/xBiAozSfiEJQlWzUlkhA/000-34r92qt.jpg",
+    "imageSourceUrl": "https://ge.globo.com/futebol/futebol-internacional/liga-dos-campeoes/noticia/2024/05/08/quem-e-joselu-heroi-da-classificacao-do-real-madrid-sobre-o-bayern-na-champions.ghtml",
+    "imageCaption": "إياب نصف النهائي بين ريال مدريد وبايرن 2024"
   },
   {
     "id": "WF-055",
@@ -612,7 +624,7 @@
   },
   {
     "id": "WF-056",
-    "points": 400,
+    "points": 600,
     "question": "من افتتح أهداف البرازيل في الفوز 3-0 على الأرجنتين بنهائي كوبا أمريكا 2007؟",
     "answer": "جوليو بابتيستا",
     "answer_english": "Julio Baptista",
@@ -629,8 +641,11 @@
     "answer_english": "Rodri",
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجّل رودري الهدف الوحيد في إسطنبول.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "source_url": "https://www.mancity.com/matchday/fixtures/mens/2022/man-city-v-inter-ucl-final-10-june-2023",
+    "photo": null,
+    "imageUrl": "https://www.mancity.com/meta/media/qqblxfdc/hlts-wide_ucl-final.jpg",
+    "imageSourceUrl": "https://www.mancity.com/citytv/mens/short-highlights-manchester-city-inter-63822029",
+    "imageCaption": "صورة من التغطية الرسمية لنهائي دوري الأبطال 2023"
   },
   {
     "id": "WF-058",
@@ -656,7 +671,7 @@
   },
   {
     "id": "WF-060",
-    "points": 400,
+    "points": 600,
     "question": "من افتتح أهداف بورتو ضد موناكو في نهائي دوري الأبطال 2004؟",
     "answer": "كارلوس ألبرتو",
     "answer_english": "Carlos Alberto Gomes de Jesus",
@@ -678,7 +693,7 @@
   },
   {
     "id": "WF-062",
-    "points": 200,
+    "points": 400,
     "question": "من سجّل هدف الفوز المتأخر لمانشستر يونايتد ضد بايرن في نهائي دوري الأبطال 1999؟",
     "answer": "أولي غونار سولشاير",
     "answer_english": "Ole Gunnar Solskjaer",
@@ -696,11 +711,14 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "حسم روبن النهائي بهدف متأخر في ويمبلي.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://img.bundesliga.com/tachyon/sites/2/2019/11/imago13745199h.jpg?resize=960,768",
+    "imageSourceUrl": "https://www.bundesliga.com/en/bundesliga/news/klassiker-2013-champions-league-final-bayern-munich-borussia-dortmund-wembley-7875",
+    "imageCaption": "نهائي بايرن ودورتموند 2013"
   },
   {
     "id": "WF-064",
-    "points": 200,
+    "points": 400,
     "question": "من سجّل هدف فرنسا الثالث أمام كرواتيا في نهائي كأس العالم 2018؟",
     "answer": "بول بوغبا",
     "answer_english": "Paul Pogba",
@@ -734,7 +752,7 @@
   {
     "id": "WF-067",
     "points": 600,
-    "question": "من هو حارس ستيوا بوخارست الذي تصدى لأربع ركلات ترجيح ضد برشلونة في نهائي كأس أوروبا 1986؟",
+    "question": "نهائي 1986 انتهى دون أهداف، ثم تصدى حارس ستيوا لأربع ركلات ترجيح متتالية أمام برشلونة. مين الحارس؟",
     "answer": "هيلموث دوكادام",
     "answer_english": "Helmuth Duckadam",
     "subcategory": "كأس أوروبا للأندية",
@@ -755,7 +773,7 @@
   },
   {
     "id": "WF-069",
-    "points": 400,
+    "points": 200,
     "question": "من أحرز هدفين بالرأس لفرنسا أمام البرازيل في نهائي كأس العالم 1998؟",
     "answer": "زين الدين زيدان",
     "answer_english": "Zinedine Zidane",
@@ -766,7 +784,7 @@
   },
   {
     "id": "WF-070",
-    "points": 400,
+    "points": 200,
     "question": "من سجّل الهدف الفردي الشهير أمام إنجلترا في ربع نهائي كأس العالم 1986؟",
     "answer": "دييغو مارادونا",
     "answer_english": "Diego Maradona",
@@ -832,8 +850,8 @@
   },
   {
     "id": "WF-076",
-    "points": 600,
-    "question": "من سجّل هدف التعادل لبورتو بكعب القدم ضد بايرن في نهائي كأس أوروبا 1987؟",
+    "points": 400,
+    "question": "أي لاعب عربي خلد اسمه بهدف بالكعب أمام بايرن ميونخ في نهائي كأس أوروبا 1987؟",
     "answer": "رابح ماجر",
     "answer_english": "Rabah Madjer",
     "subcategory": "كأس أوروبا للأندية",
@@ -844,7 +862,7 @@
   {
     "id": "WF-077",
     "points": 400,
-    "question": "من كان حارس فياريال الذي سجّل ركلته وتصدى لركلة دي خيا في نهائي الدوري الأوروبي 2021؟",
+    "question": "في نهائي الدوري الأوروبي 2021، سجل حارس فياريال ركلته ثم تصدى لركلة دي خيا. مين هو؟",
     "answer": "جيرونيمو رولي",
     "answer_english": "Geronimo Rulli",
     "subcategory": "الدوري الأوروبي",
@@ -854,7 +872,7 @@
   },
   {
     "id": "WF-078",
-    "points": 400,
+    "points": 600,
     "question": "من سجّل هدف فوز ألمانيا 3-2 أمام أوروغواي في مباراة المركز الثالث بكأس العالم 2010؟",
     "answer": "سامي خضيرة",
     "answer_english": "Sami Khedira",
@@ -877,13 +895,16 @@
   {
     "id": "WF-080",
     "points": 600,
-    "question": "من سجّل الهدفين الأول والثاني لميلان أمام برشلونة في نهائي دوري أبطال أوروبا 1994؟",
+    "question": "في نهائي أثينا 1994، أنهى ميلان الشوط الأول متقدمًا بهدفين على فريق كرويف. مين سجل الهدفين؟",
     "answer": "دانييلي ماسارو",
     "answer_english": "Daniele Massaro",
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجل ثنائية في الفوز التاريخي 4-0.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82dda57-672859abc63f-1000--1993-94-massaro-leads-milan-rout/",
+    "photo": null,
+    "imageUrl": "https://prd-images2-gazzanet.gazzettaobjects.it/7rfoMGjv3DVqINMuiAQyXSJyFgE%3D/712x402/smart/www.pianetamilan.it/assets/uploads/201412/19/08/massaro.jpg",
+    "imageSourceUrl": "https://www.pianetamilan.it/news-milan/interviste/atene-1994-massaro-cruijff-e-il-barca-arroganti-avevamo-rabbia-agonistica/",
+    "imageCaption": "لقطة من نهائي ميلان وبرشلونة 1994"
   },
   {
     "id": "WF-081",
@@ -909,7 +930,7 @@
   },
   {
     "id": "WF-083",
-    "points": 400,
+    "points": 200,
     "question": "من سجّل هدف فوز تشيلسي ضد مانشستر سيتي في نهائي دوري الأبطال 2021؟",
     "answer": "كاي هافيرتز",
     "answer_english": "Kai Havertz",
@@ -964,7 +985,7 @@
   },
   {
     "id": "WF-088",
-    "points": 600,
+    "points": 400,
     "question": "من سجّل هدف فوز أياكس على ميلان 1-0 في نهائي دوري الأبطال 1995 وهو بعمر 18 سنة؟",
     "answer": "باتريك كلويفرت",
     "answer_english": "Patrick Kluivert",
@@ -997,7 +1018,7 @@
   },
   {
     "id": "WF-091",
-    "points": 200,
+    "points": 400,
     "question": "من كان حارس ليفربول الذي تصدى لركلتين ترجيح في نهائي إسطنبول 2005 ضد ميلان؟",
     "answer": "جيرزي دوديك",
     "answer_english": "Jerzy Dudek",
@@ -1026,7 +1047,10 @@
     "subcategory": "دوري أبطال أوروبا",
     "explanation": "سجّل هدف النهائي الوحيد في سان دوني.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null
+    "photo": null,
+    "imageUrl": "https://s1.staticld.com/2022/05/28/vinicius-galeria.jpg",
+    "imageSourceUrl": "https://www.libertaddigital.com/deportes/champions/2022-05-28/final-champions-league-real-madrid-liverpool-trece-champions-trece-fotos-1936363/",
+    "imageCaption": "نهائي ريال مدريد وليفربول 2022"
   },
   {
     "id": "WF-094",
@@ -1063,7 +1087,7 @@
   },
   {
     "id": "WF-097",
-    "points": 400,
+    "points": 200,
     "question": "من سجّل هدف تعادل تشيلسي أمام بايرن في الدقيقة 88 من نهائي دوري الأبطال 2012؟",
     "answer": "ديدييه دروغبا",
     "answer_english": "Didier Drogba",
@@ -1085,7 +1109,7 @@
   },
   {
     "id": "WF-099",
-    "points": 200,
+    "points": 400,
     "question": "من سجل هدف برشلونة الثالث ضد يوفنتوس في نهائي دوري الأبطال 2015؟",
     "answer": "نيمار",
     "answer_english": "Neymar",
@@ -1096,8 +1120,8 @@
   },
   {
     "id": "WF-100",
-    "points": 600,
-    "question": "من اللاعب الإنجليزي الذي سجّل ثلاثية في نهائي كأس العالم 1966 أمام ألمانيا الغربية؟",
+    "points": 400,
+    "question": "هاتريك في نهائي كأس العالم 1966، وأحد أهدافه لا يزال من أشهر اللقطات الجدلية. مين اللاعب؟",
     "answer": "جيف هيرست",
     "answer_english": "Geoff Hurst",
     "subcategory": "كأس العالم",

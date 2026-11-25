@@ -2,15 +2,18 @@
   {
     "id": "BAR-001",
     "points": 200,
-    "question": "أي فريق إيطالي واجه برشلونة في أول نهائي أوروبي توّج به بكأس أوروبا عام 1992؟",
+    "question": "بأول تتويج أوروبي لبرشلونة سنة 1992، أمام مين سجل كومان الركلة الحرة الحاسمة؟",
     "answer": "سامبدوريا",
     "explanation": "فاز برشلونة عليه بهدف في الوقت الإضافي.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/first-champions-league",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0221-0e9b62f81668-026e01bbda09-1000--juventus-and-barcelona-the-final-victories/",
     "isPlayer": false,
     "acceptableAnswers": [
       "Sampdoria"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://cadenaser00.epimg.net/ser/imagenes/2011/05/24/deportes/1306193290_740215_0000000000_noticia_normal.jpg",
+    "imageSourceUrl": "https://cadenaser.com/ser/2011/05/24/deportes/1306193297_850215.html",
+    "imageCaption": "لقطة من نهائي برشلونة وسامبدوريا عام 1992"
   },
   {
     "id": "BAR-002",
@@ -18,17 +21,20 @@
     "question": "في أي مدينة تُوّج برشلونة بدوري الأبطال سنة 2015؟",
     "answer": "برلين",
     "explanation": "أقيم النهائي أمام يوفنتوس في برلين.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2015227--juventus-vs-barcelona/",
     "isPlayer": false,
     "acceptableAnswers": [
       "Berlin"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://web-cdnprod.aa.com.tr/uploads/Contents/2015/06/05/thumbs_b_c_53ea403249d8c26b2ac3bb951543806b.jpg",
+    "imageSourceUrl": "https://www.aa.com.tr/en/sports/football-berlin-ready-for-champions-league-final/39932",
+    "imageCaption": "الملعب الأولمبي في برلين عشية نهائي 2015"
   },
   {
     "id": "BAR-003",
-    "points": 200,
-    "question": "ما اسم الفريق الأرجنتيني الذي خسره برشلونة أمامه حتى الدقائق الأخيرة من نهائي مونديال الأندية 2009 قبل أن يقلب النتيجة؟",
+    "points": 400,
+    "question": "قبل هدف ميسي بالصدر في نهائي مونديال الأندية 2009، كان برشلونة على وشك خسارة اللقب أمام أي نادٍ أرجنتيني؟",
     "answer": "إستوديانتس دي لا بلاتا",
     "explanation": "أدرك برشلونة التعادل قبل الفوز في الوقت الإضافي.",
     "sourceUrl": "https://www.fcbarcelona.com/en/news/1537648/ten-years-since-historic-sextuple",
@@ -73,21 +79,24 @@
   {
     "id": "BAR-006",
     "points": 200,
-    "question": "أي فريق هزم برشلونة في نهائي دوري الأبطال 1994 بأثينا؟",
+    "question": "فريق الأحلام بقيادة كرويف خسر نهائي أثينا 1994 برباعية. مين كان الخصم؟",
     "answer": "ميلان",
     "explanation": "خسر برشلونة النهائي أمام ميلان.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82dda57-672859abc63f-1000--1993-94-massaro-leads-milan-rout/",
     "isPlayer": false,
     "acceptableAnswers": [
       "إيه سي ميلان",
       "AC Milan"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://img.allfootballapp.com/www/M00/75/19/720x-/-/-/rB8ApF6hpc2AFCiTAAIbZueKU_4381.jpg.webp",
+    "imageSourceUrl": "https://m.allfootballapp.com/news/EPL/That-night-in-94-When-Milan-overcame-Barcelonas-dream-team-against-all-odds/2321292",
+    "imageCaption": "لوحة نتيجة نهائي ميلان وبرشلونة 1994"
   },
   {
     "id": "BAR-007",
     "points": 200,
-    "question": "ما الفريق الذي هزمه برشلونة في نهائي كأس العالم للأندية 2011 بنتيجة 4-0؟",
+    "question": "مين كان خصم برشلونة في نهائي مونديال الأندية 2011 الذي انتهى 4–0؟",
     "answer": "سانتوس",
     "explanation": "فاز برشلونة على الفريق البرازيلي برباعية.",
     "sourceUrl": "https://www.fcbarcelona.com/en/guardiolas-barcelona",
@@ -95,7 +104,10 @@
     "acceptableAnswers": [
       "Santos"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://jpimg.com.br/uploads/2017/04/I_20111218_104941.jpg",
+    "imageSourceUrl": "https://jovempan.com.br/esportes/ha-tres-anos-show-de-messi-destruia-sonho-do-tri-mundial-do-santos.html",
+    "imageCaption": "احتفال برشلونة أمام سانتوس في نهائي مونديال الأندية 2011"
   },
   {
     "id": "BAR-010",
@@ -207,7 +219,7 @@
   },
   {
     "id": "BAR-N-006",
-    "points": 200,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص داني ألفيش مع برشلونة بموسم 2014-15؟",
     "answer": "22",
@@ -279,7 +291,7 @@
   },
   {
     "id": "BAR-N-010",
-    "points": 200,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص دافيد فيا مع برشلونة بموسم 2010-11؟",
     "answer": "7",
@@ -315,7 +327,7 @@
   },
   {
     "id": "BAR-015",
-    "points": 400,
+    "points": 200,
     "question": "من صنع أول هدف رسمي لميسي مع برشلونة أمام ألباسيتي سنة 2005؟",
     "answer": "رونالدينيو",
     "explanation": "مرر الكرة لميسي ليسجل هدفه الرسمي الأول.",
@@ -331,7 +343,7 @@
   },
   {
     "id": "BAR-N-013",
-    "points": 400,
+    "points": 200,
     "kind": "number",
     "question": "شو كان رقم قميص سيرخيو بوسكيتس مع برشلونة بموسم 2010-11؟",
     "answer": "16",
@@ -421,7 +433,7 @@
   },
   {
     "id": "BAR-N-018",
-    "points": 400,
+    "points": 600,
     "kind": "number",
     "question": "شو كان رقم قميص بويان كركيتش مع برشلونة بموسم 2010-11؟",
     "answer": "9",
@@ -457,7 +469,7 @@
   },
   {
     "id": "BAR-N-020",
-    "points": 400,
+    "points": 200,
     "kind": "number",
     "question": "شو كان رقم قميص رافاييل ماركيز مع برشلونة بموسم 2005-06؟",
     "answer": "4",
@@ -566,7 +578,7 @@
   },
   {
     "id": "BAR-P-003",
-    "points": 400,
+    "points": 600,
     "kind": "photo",
     "question": "مين هذا الجناح البرتغالي اللي لعب مع برشلونة موسم 2003-04؟",
     "answer": "ريكاردو كواريزما",
@@ -659,7 +671,7 @@
   },
   {
     "id": "BAR-N-028",
-    "points": 600,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص سيدو كيتا مع برشلونة بموسم 2010-11؟",
     "answer": "15",
@@ -807,7 +819,7 @@
   },
   {
     "id": "BAR-P-010",
-    "points": 600,
+    "points": 400,
     "kind": "photo",
     "question": "مين هذا الظهير البرازيلي اللي لعب مع برشلونة بين 2004 و2007؟",
     "answer": "جوليانو بيليتي",
