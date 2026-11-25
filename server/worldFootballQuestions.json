@@ -1,13 +1,13 @@
 [
   {
-    "id": "WF-001",
+    "id": "WF-001-R2",
     "points": 600,
-    "question": "من سجّل ثنائية لإيطاليا ضد المجر في نهائي كأس العالم 1938، وهو الهداف التاريخي للدوري الإيطالي؟",
-    "answer": "سيلفيو بيولا",
-    "answer_english": "Silvio Piola",
-    "subcategory": "كأس العالم",
-    "explanation": "سجل هدفين في فوز إيطاليا 4-2.",
-    "source_url": "https://www.figc.it/en/museum/news-and-events/silvio-piola-the-leading-serie-a-goalscorer-was-born-100-years-ago-today-e05zx1xl",
+    "question": "في نهائي مونديال قطر، أي مهاجم فرنسي دخل بدل أوليفييه جيرو قبل نهاية الشوط الأول؟",
+    "answer": "ماركوس تورام",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "دخل تورام مع كولو مواني ضمن تبديلين مبكرين.",
+    "answer_english": "Marcus Thuram",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/argentina-france-2022-final-greatest-games",
     "photo": null
   },
   {
@@ -127,14 +127,14 @@
     "photo": null
   },
   {
-    "id": "WF-012",
+    "id": "WF-012-R2",
     "points": 600,
-    "question": "من أحرز هدف تعادل البرازيل ضد تشيكوسلوفاكيا في نهائي كأس العالم 1962؟",
-    "answer": "أماريلدو",
-    "answer_english": "Amarildo",
-    "subcategory": "كأس العالم",
-    "explanation": "تعادل للبرازيل في الفوز 3-1.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+    "question": "في نهائي يورو 2024، مين لاعب إسبانيا اللي دخل بدل رودري بين الشوطين؟",
+    "answer": "مارتن زوبيميندي",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "دخل زوبيميندي في بداية الشوط الثاني.",
+    "answer_english": "Martín Zubimendi",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/0259-0e5e039dd8b6-ac24fc62a240-1000--all-the-euro-finals-scores-scorers-line-ups-and-venues/",
     "photo": null
   },
   {
@@ -171,14 +171,14 @@
     "photo": null
   },
   {
-    "id": "WF-016",
+    "id": "WF-016-R2",
     "points": 600,
-    "question": "مين صاحب هدف فرنسا الأول في تاريخ كأس العالم سنة 1930؟",
-    "answer": "لوسيان لوران",
-    "answer_english": "Lucien Laurent",
-    "subcategory": "تاريخ البطولات والأرقام",
-    "explanation": "سجل أمام المكسيك في أول نسخة.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/players-who-scored-opening-goal",
+    "question": "في نهائي يورو 2024، مين المدافع الذي دخل بدل روبن لو نورماند بعد هدف كول بالمر؟",
+    "answer": "ناتشو فيرنانديز",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "دخل ناتشو في الدقيقة 83.",
+    "answer_english": "Nacho Fernández",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/0259-0e5e039dd8b6-ac24fc62a240-1000--all-the-euro-finals-scores-scorers-line-ups-and-venues/",
     "photo": null
   },
   {
@@ -243,14 +243,14 @@
     "photo": null
   },
   {
-    "id": "WF-022",
+    "id": "WF-022-R2",
     "points": 600,
-    "question": "من سجل هدف إيطاليا الفائز في الوقت الإضافي ضد تشيكوسلوفاكيا في نهائي كأس العالم 1934؟",
-    "answer": "أنجيلو سكيافيو",
-    "answer_english": "Angelo Schiavio",
-    "subcategory": "كأس العالم",
-    "explanation": "حسم النهائي 2-1 في الوقت الإضافي.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+    "question": "في ربع نهائي يورو 2024 بين إسبانيا وألمانيا، مين اختير رجل المباراة حسب UEFA؟",
+    "answer": "داني أولمو",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "اختير أولمو رجل المباراة.",
+    "answer_english": "Dani Olmo",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b4c0eace715-d70920033715-1000--spain-2-1-germany-after-extra-time-late-merino-header-sends-/",
     "photo": null
   },
   {
@@ -345,14 +345,14 @@
     "photo": null
   },
   {
-    "id": "WF-031",
+    "id": "WF-031-R2",
     "points": 600,
-    "question": "من سجّل هدف تعادل البرازيل 1-1 أمام السويد في نهائي كأس العالم 1958؟",
-    "answer": "فافا",
-    "answer_english": "Vava",
-    "subcategory": "كأس العالم",
-    "explanation": "عادل النتيجة للبرازيل وسجل هدفًا آخر لاحقًا.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+    "question": "في نهائي مونديال قطر، مين لاعب فرنسا الذي دخل بدل أنطوان غريزمان في الشوط الثاني؟",
+    "answer": "كينغسلي كومان",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "دخل كومان في الدقيقة 71.",
+    "answer_english": "Kingsley Coman",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/argentina-france-2022-final-greatest-games",
     "photo": null
   },
   {
@@ -411,14 +411,14 @@
     "photo": null
   },
   {
-    "id": "WF-037",
+    "id": "WF-037-R2",
     "points": 600,
-    "question": "من سجّل هدف فوز ريال مدريد 2-1 على بارتيزان في نهائي كأس أوروبا 1966؟",
-    "answer": "فرناندو سيرينا",
-    "answer_english": "Fernando Serena",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "سجّل الهدف الثاني والفائز في بروكسل.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "question": "مين الظهير الأيسر اللي بدأ أساسيًا مع المغرب في مباراة إقصاء البرتغال بمونديال 2022؟",
+    "answer": "يحيى عطية الله",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "شارك عطية الله في التشكيلة الأساسية.",
+    "answer_english": "Yahia Attiyat Allah",
+    "source_url": "https://www.fifa.com/en/articles/morocco-portugal",
     "photo": null
   },
   {
@@ -433,14 +433,14 @@
     "photo": null
   },
   {
-    "id": "WF-039",
+    "id": "WF-039-R2",
     "points": 600,
-    "question": "أي لاعب تشيكوسلوفاكي أحرز هدفًا بعد 15 ثانية أمام المكسيك في مونديال 1962؟",
-    "answer": "فاتسلاف ماشيك",
-    "answer_english": "Václav Mašek",
-    "subcategory": "تاريخ البطولات والأرقام",
-    "explanation": "سجل أحد أسرع أهداف المونديال.",
-    "source_url": "https://www.fifa.com/en/articles/quickest-fastest-goals",
+    "question": "في ريمونتادا توتنهام على أياكس 2019، مين المهاجم الإسباني اللي تصدى أونانا لتسديدته قبل هدف لوكاس مورا الثاني؟",
+    "answer": "فرناندو يورينتي",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "تصدى أونانا للكرة قبل أن تصل إلى مورا.",
+    "answer_english": "Fernando Llorente",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0251-0e9ce1f530f2-d243cb498094-1000--ajax-2-3-tottenham-champions-league-at-a-glance/",
     "photo": null
   },
   {

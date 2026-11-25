@@ -1357,9 +1357,9 @@ export function GameArena({
                           ترخيص الصورة
                         </a>
                       )}
-                      {roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id && (
+                      {roundMeta.answerImageUrl && roundMeta.answerImageUrl !== roundMeta.afterImageUrl && roundMeta.answerImageUrl !== getQuestionImageSrc(roundMeta) && (
                         <QuestionMedia
-                          key={roundMeta.questionId}
+                          key={`answer-photo-${roundMeta.questionId}`}
                           imageSrc={roundMeta.answerImageUrl}
                           sourceUrl={roundMeta.imageSourceUrl}
                           sourceLabel="صفحة المصدر"

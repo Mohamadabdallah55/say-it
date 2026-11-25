@@ -34,6 +34,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   onOrientationDetected,
 }: QuestionMediaProps) {
   const [zoomed, setZoomed] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   const [loadedSrc, setLoadedSrc] = useState<string | undefined>(undefined);
   const [failedImage, setFailedImage] = useState<string | undefined>(undefined);
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -180,6 +181,7 @@ export const QuestionMedia = memo(function QuestionMedia({
             <span className="font-display font-black text-sm text-[#1F112E]/80">
               تعذر تحميل الصورة التوضيحية
             </span>
+            <button type="button" onClick={() => { setFailedImage(undefined); setLoadedSrc(undefined); setRetryCount(n => n + 1); }} className="rounded-lg border-2 border-[#1F112E] px-3 py-2 text-xs font-bold text-[#1F112E] bg-white">إعادة تحميل الصورة</button>
             {caption && (
               <span className="text-xs font-bold text-[#1F112E]/60">{caption}</span>
             )}
@@ -197,6 +199,7 @@ export const QuestionMedia = memo(function QuestionMedia({
             )}
             <img
               ref={imgRef}
+              key={`${imageSrc}-${retryCount}`}
               src={imageSrc}
               srcSet={srcSet}
               sizes={sizes}
@@ -234,6 +237,7 @@ export const QuestionMedia = memo(function QuestionMedia({
             )}
             <img
               ref={imgRef}
+              key={`${imageSrc}-${retryCount}`}
               src={imageSrc}
               srcSet={srcSet}
               sizes={sizes}

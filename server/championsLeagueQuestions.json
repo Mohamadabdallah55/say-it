@@ -765,13 +765,13 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
-    "id": "UCL-R26-003",
+    "id": "UCL-R26-003-R2",
     "points": 600,
-    "question": "في فوز ميلان 4-0 على غوتبورغ بأول دور مجموعات لدوري الأبطال 1992، مين المهاجم الذي أشركه كابيلو ظهيرًا أيسر بدل مالديني المصاب؟",
-    "answer": "دانييلي ماسارو",
-    "explanation": "اعتمد كابيلو على ماسارو في الظهير الأيسر خلال مباراة رباعية فان باستن.",
-    "theme": "تكتيك وتشكيلات",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/01e8-0e750072a0a8-a3973cb5d1a5-1000/"
+    "question": "في نهائي إسطنبول 2023، أي مدافع كان يتحول إلى خط الوسط بجوار رودري في بناء لعب مانشستر سيتي؟",
+    "answer": "جون ستونز",
+    "explanation": "حلل UEFA دوره في ثنائية الارتكاز أثناء الاستحواذ.",
+    "theme": "تفاصيل حديثة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0282-183fa8a707c0-4056c043e3d1-1000--in-the-zone-city-s-win-analysed/"
   },
   {
     "id": "UCL-069",
@@ -1028,13 +1028,13 @@
     "imageCaption": "لقطة أرشيفية من نهائي 1960 في هامبدن بارك"
   },
   {
-    "id": "UCL-089",
+    "id": "UCL-089-R2",
     "points": 600,
-    "question": "مين الحارس الإيطالي اللي لعب نهائي كأس أوروبا 1983 أمام هامبورغ بعمر 41 سنة؟",
-    "answer": "دينو زوف",
-    "explanation": "شارك في نهائي 1983 مع يوفنتوس.",
-    "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "question": "في نهائي دوري الأبطال 2025، مين لاعب باريس اللي دخل بدل كفاراتسخيليا قبل الهدف الخامس؟",
+    "answer": "غونسالو راموس",
+    "explanation": "دخل راموس في الدقيقة 84.",
+    "theme": "تفاصيل حديثة",
+    "source_url": "https://www.uefa.com/uefachampionsleague/match/2044466/"
   },
   {
     "id": "UCL-090",

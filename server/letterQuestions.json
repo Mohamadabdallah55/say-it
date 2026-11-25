@@ -269,25 +269,28 @@
       "points": 600
     },
     {
-      "id": "FK-038",
+      "id": "FK-038-R2",
       "points": 600,
-      "letter": "ف",
-      "question": "أي لاعب سجل أربعة أهداف لريال مدريد أمام فرانكفورت في نهائي كأس أوروبا 1960؟",
-      "answer": "فيرينتس بوشكاش"
+      "letter": "ي",
+      "question": "في نهائي مونديال قطر 2022، مين لاعب وسط فرنسا اللي دخل بدل رابيو بالوقت الإضافي؟",
+      "answer": "يوسف فوفانا",
+      "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/argentina-france-2022-final-greatest-games"
     },
     {
-      "id": "FK-039",
+      "id": "FK-039-R2",
       "points": 600,
-      "letter": "ت",
-      "question": "مين سجل هدف فوز نوتنغهام فورست في نهائي كأس أوروبا 1979 أمام مالمو؟",
-      "answer": "تريفور فرانسيس"
+      "letter": "م",
+      "question": "في نهائي دوري الأبطال 2025، مين المدافع الإيطالي الذي دخل بدل بيسيك بعد إصابته؟",
+      "answer": "ماتيو دارميان",
+      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2044466/"
     },
     {
-      "id": "FK-040",
+      "id": "FK-040-R2",
       "points": 600,
-      "letter": "ت",
-      "question": "مين سجل هدف ليفربول الثاني في نهائي كأس أوروبا 1977 أمام مونشنغلادباخ؟",
-      "answer": "تومي سميث"
+      "letter": "س",
+      "question": "في نهائي دوري الأبطال 2024، مين المهاجم الإيفواري اللي دخل بدل يوليان براندت؟",
+      "answer": "سيباستيان هالر",
+      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2039970/"
     },
     {
       "id": "FK-041",
@@ -470,11 +473,12 @@
       "points": 400
     },
     {
-      "id": "FK-066",
+      "id": "FK-066-R2",
       "points": 600,
-      "letter": "ي",
-      "question": "من سجل ركلة جزاء هولندا المبكرة في نهائي مونديال 1974؟",
-      "answer": "يوهان نيسكينز"
+      "letter": "أ",
+      "question": "في ريمونتادا أنفيلد ضد برشلونة، مين المدافع الإسكتلندي اللي خرج بين الشوطين ودخل فينالدوم بدله؟",
+      "answer": "أندي روبرتسون",
+      "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2027160/"
     },
     {
       "id": "FK-067",
@@ -704,11 +708,12 @@
       "points": 600
     },
     {
-      "id": "FK-099",
+      "id": "FK-099-R2",
       "points": 600,
-      "letter": "د",
-      "question": "مين أكبر لاعب شارك في نهائي كأس أوروبا عام 1983 بعمر 41 عامًا؟",
-      "answer": "دينو زوف"
+      "letter": "م",
+      "question": "في نهائي يورو 2024، مين لاعب إسبانيا الذي دخل بدل لامين يامال في الدقيقة 89؟",
+      "answer": "ميكيل ميرينو",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/0259-0e5e039dd8b6-ac24fc62a240-1000--all-the-euro-finals-scores-scorers-line-ups-and-venues/"
     },
     {
       "id": "FK-100",

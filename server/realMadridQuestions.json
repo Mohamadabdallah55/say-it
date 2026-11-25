@@ -22,16 +22,13 @@
     "imageSourceUrl": "https://m-api.allfootballapp.com/article/2808406"
   },
   {
-    "id": "RM-003",
+    "id": "RM-003-R2",
     "points": 600,
-    "question": "من سجّل أول هدف لريال مدريد في تاريخ كأس أوروبا، أمام سيرفيت السويسري في 1955؟",
-    "answer": "ميغيل مونيوز",
-    "answer_english": "Miguel Muñoz",
-    "explanation": "افتتح مونيوز سجل أهداف النادي في البطولة.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-68-anos-de-la-primera-copa-de-europa-13-06-2024",
-    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/miguel-munoz-mozun/assets/1330192173461.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/miguel-munoz-mozun",
-    "imageCaption": "صورة ميغيل مونيوز من أرشيف النادي"
+    "question": "في ريمونتادا ريال مدريد ضد مانشستر سيتي عام 2022، مين اللاعب اللي مرّر لبنزيما قبل عرضيته لهدف رودريغو الأول؟",
+    "answer": "إدواردو كامافينغا",
+    "explanation": "أرسل كامافينغا تمريرة لبنزيما الذي جهز الكرة لرودريغو.",
+    "answer_english": "Eduardo Camavinga",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-151c0b511a6f-24fc28103a2e-1000--in-the-zone-real-madrid-3-1-man-city-performance-analysis/"
   },
   {
     "id": "RM-004",
@@ -68,15 +65,13 @@
     "imageSourceUrl": "https://www.foxsports.com/soccer/gareth-bale-player"
   },
   {
-    "id": "RM-007",
+    "id": "RM-007-R2",
     "points": 600,
-    "question": "من سجّل هدف ريال مدريد الحاسم في الدقيقة 107 ضد ميلان بنهائي 1958؟",
-    "answer": "باكو خينتو",
-    "answer_english": "Paco Gento",
-    "explanation": "سجل خينتو هدف الفوز 3-2 في الوقت الإضافي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0258-0e6a03cf9dff-8b73629ec947-1000--1957-58-di-stefano-shines-for-madrid/",
-    "imageUrl": "https://assets.realmadrid.com/is/image/realmadrid/1330186259529?$Desktop$&fit=wrap&wid=900",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/francisco-gento-lopez"
+    "question": "في نهائي ويمبلي 2024، مين اللاعب اللي دخل بدل رودريغو في الوقت بدل الضائع؟",
+    "answer": "إيدير ميليتاو",
+    "explanation": "دخل ميليتاو في الدقيقة 90+1.",
+    "answer_english": "Éder Militão",
+    "source_url": "https://www.uefa.com/uefachampionsleague/match/2039970/"
   },
   {
     "id": "RM-008",
@@ -157,15 +152,13 @@
     "imageSourceUrl": "https://www.fourfourtwo.com/features/real-madrids-galacticos-remembered-galacticos-zidane-figo-ronaldo-and-roberto-carlos-recall"
   },
   {
-    "id": "RM-015",
+    "id": "RM-015-R2",
     "points": 600,
-    "question": "من سجّل هدف الفوز لريال مدريد أمام بارتيزان في نهائي كأس أوروبا 1966؟",
-    "answer": "فرناندو سيرينا",
-    "answer_english": "Fernando Serena",
-    "explanation": "سجل سيرينا هدف التقدم 2-1 بالدقيقة 76.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0258-0e6a050c59da-d347df74d538-1000--1965-66-madrid-make-it-six/",
-    "imageUrl": "https://cdn.al-ain.com/lg/images/2018/10/15/100-143429-died-fernando-serena-2.jpeg",
-    "imageSourceUrl": "https://al-ain.com/article/died-fernando-serena"
+    "question": "في نهائي ويمبلي 2024، مين المهاجم اللي دخل بدل بيلينغهام في نفس دقيقة خروج كروس؟",
+    "answer": "خوسيلو",
+    "explanation": "شارك خوسيلو بدل بيلينغهام في الدقيقة 85.",
+    "answer_english": "Joselu",
+    "source_url": "https://www.uefa.com/uefachampionsleague/match/2039970/"
   },
   {
     "id": "RM-016",

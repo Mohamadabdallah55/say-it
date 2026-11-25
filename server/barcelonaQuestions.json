@@ -1,21 +1,19 @@
 [
   {
-    "id": "BAR-001",
+    "id": "BAR-001-R2",
     "points": 600,
-    "question": "اذكر أحد الأندية الثلاثة التي واجهها برشلونة في مرحلة المجموعات المؤهلة لنهائي كأس أوروبا 1992.",
-    "answer": "بنفيكا / سبارتا براغ / دينامو كييف",
-    "explanation": "تأهل برشلونة من مجموعة ضمت هذه الأندية الثلاثة.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/first-champions-league",
-    "isPlayer": false,
+    "question": "في ريمونتادا ليفربول على برشلونة 2019، مين لاعب برشلونة البرازيلي اللي خرج ودخل بدلًا منه نيلسون سيميدو؟",
+    "answer": "فيليب كوتينيو",
+    "explanation": "استُبدل كوتينيو بسيميدو في الدقيقة 60.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2027160/",
     "acceptableAnswers": [
-      "بنفيكا",
-      "سبارتا براغ",
-      "دينامو كييف",
-      "Benfica",
-      "Sparta Prague",
-      "Dynamo Kyiv"
+      "Philippe Coutinho"
     ],
-    "kind": "history"
+    "imageUrl": "/assets/questions/football-first-name/32c85186af716351912ce6ed.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Philippe_Coutinho_850_1692.jpg",
+    "imageCaption": "صورة أرشيفية للاعب · Granada · CC BY-SA 4.0"
   },
   {
     "id": "BAR-002",
@@ -94,17 +92,17 @@
     "kind": "history"
   },
   {
-    "id": "BAR-007",
+    "id": "BAR-007-R2",
     "points": 600,
-    "question": "أي فريق ألماني واجه برشلونة في دور الـ16 من كأس أوروبا 1991/92 قبل مرحلة المجموعات الثانية؟",
-    "answer": "كايزرسلاوترن",
-    "explanation": "تأهل برشلونة بهدف متأخر خارج أرضه.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
-    "isPlayer": false,
+    "question": "في خسارة برشلونة 4-0 بأنفيلد عام 2019، مين لاعب الوسط اللي دخل بدل أرتورو فيدال بعد الهدف الثالث؟",
+    "answer": "آرثر ميلو",
+    "explanation": "دخل آرثر في الدقيقة 75.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2027160/",
     "acceptableAnswers": [
-      "Kaiserslautern"
-    ],
-    "kind": "history"
+      "Arthur Melo"
+    ]
   },
   {
     "id": "BAR-010",

@@ -209,7 +209,10 @@
     "sourceUrl": "https://www.fotmob.com/players/38239/ricardo-quaresma",
     "clueFile": "FC-011-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/players/38239/ricardo-quaresma",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://m.media-amazon.com/images/M/MV5BNmQ4MzJhMGYtMzA0ZS00NDNhLWE1NDEtYWRhYjE5MDU4MDY1XkEyXkFqcGc%40._V1_.jpg",
+    "answerImageSourceUrl": "https://www.imdb.com/title/tt30589300/mediaviewer/rm2952809985/",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-012",
@@ -232,7 +235,10 @@
     "sourceUrl": "https://www.fotmob.com/players/38460/diego-forlan",
     "clueFile": "FC-012-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/players/38460/diego-forlan",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://www.alwasatnews.com/data/2011/3161/images/spp-1.jpg",
+    "answerImageSourceUrl": "https://www.alwasatnews.com/news/559309.html",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-013",
@@ -360,7 +366,10 @@
       "بنفيكا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-019-timeline-v3.svg"
+    "clueFile": "FC-019-timeline-v3.svg",
+    "answerImageUrl": "https://www.ligaportugal.pt/backoffice/assets/30_OTAMENDI_44229f0ab0.png",
+    "answerImageSourceUrl": "https://www.ligaportugal.pt/videos?playerId=63852&season=20252026&teamId=278&title=Nicolas+Otamendi",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-020",
@@ -393,7 +402,10 @@
       "أولمبياكوس"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-021-timeline-v3.svg"
+    "clueFile": "FC-021-timeline-v3.svg",
+    "answerImageUrl": "https://www.ceroacero.es/img/planteis/new/21/47/752147_esteban_cambiasso_20251019024102.jpg",
+    "answerImageSourceUrl": "https://www.ceroacero.es/jugador/esteban-cambiasso/1014?epoca_id=140",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-022",
@@ -436,7 +448,10 @@
     "sourceUrl": "https://www.fotmob.com/players/37576/javier-saviola",
     "clueFile": "FC-023-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/players/37576/javier-saviola",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://img.youm7.com/ArticleImgs/2018/8/9/129662-%D8%AE%D8%A7%D9%81%D9%8A%D9%8A%D8%B1-%D8%B3%D8%A7%D9%81%D9%8A%D9%88%D9%84%D8%A7.jpg",
+    "answerImageSourceUrl": "https://www.youm7.com/story/2018/8/10/3906030",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-024",
@@ -518,7 +533,10 @@
       "موناكو"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-027-timeline-v3.svg"
+    "clueFile": "FC-027-timeline-v3.svg",
+    "answerImageUrl": "https://www.sofoot.com/convert/aHR0cHM6Ly9zb2Zvb3QuczMuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb20vbGVnYWN5L0lNRy9zb2Zvb3RfYXJ0aWNsZXMvbG9nb18xNDc3NjYuanBn/image/ricardo-carvalho-et-lespoir.jpg",
+    "answerImageSourceUrl": "https://www.sofoot.com/breves/ricardo-carvalho-et-lespoir",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-028",
@@ -534,7 +552,10 @@
       "براغا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-028-timeline-v3.svg"
+    "clueFile": "FC-028-timeline-v3.svg",
+    "answerImageUrl": "https://func-wolves-playmaker-imageresizer-prod-uksouth.azurewebsites.net/api/media/26038/moutinho.png?quality=80&width=400",
+    "answerImageSourceUrl": "https://www.wolves.co.uk/teams/mens-first-team/",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-029",
@@ -550,7 +571,10 @@
       "بشكتاش"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-029-timeline-v3.svg"
+    "clueFile": "FC-029-timeline-v3.svg",
+    "answerImageUrl": "https://m.media-amazon.com/images/M/MV5BOTQ3M2RjMzktOWQyZi00NzFmLWEzNTEtYTgxOTY3YTgxMWFlXkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
+    "answerImageSourceUrl": "https://www.imdb.com/name/nm2322650/bio/",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-030",
@@ -606,7 +630,10 @@
       "ليغيا وارسو"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-032-timeline-v3.svg"
+    "clueFile": "FC-032-timeline-v3.svg",
+    "answerImageUrl": "https://static.jutarnji.hr/images/slike/2025/01/21/36085419.jpg",
+    "answerImageSourceUrl": "https://www.jutarnji.hr/sportske/nogomet/hnl/klubovi/dinamo/eduardo-da-silva-dinamo-moze-iznenaditi-arsenal-odusevili-su-sve-u-brazilu-sin-matheus-hladan-na-tatu-15544899",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-033",
@@ -665,7 +692,10 @@
       "تشيلسي"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-035-timeline-v3.svg"
+    "clueFile": "FC-035-timeline-v3.svg",
+    "answerImageUrl": "https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_720%2Car_16%3A9%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/Ian-MacNicol-Archive-0528b8424c5911579ee8abbb7cfdb4c2.jpg",
+    "answerImageSourceUrl": "https://www.90min.com/es/posts/chelsea-campeon-2012-champions-que-es-de-los-jugadores",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-036",
@@ -679,7 +709,10 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-036-timeline-v3.svg"
+    "clueFile": "FC-036-timeline-v3.svg",
+    "answerImageUrl": "https://prabook.com/web/show-photo.jpg?id=1916442",
+    "answerImageSourceUrl": "https://prabook.com/web/rui.costa/92261",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-037",
@@ -855,7 +888,10 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-045-timeline-v3.svg"
+    "clueFile": "FC-045-timeline-v3.svg",
+    "answerImageUrl": "https://b.fssta.com/uploads/application/soccer/headshots/2254.png",
+    "answerImageSourceUrl": "https://www.foxsports.com/soccer/mario-mandzukic-player",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-046",
@@ -917,7 +953,10 @@
     "sourceUrl": "https://www.fotmob.com/players/40604/rui-patricio",
     "clueFile": "FC-048-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/players/40604/rui-patricio",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://cdn-img.staticzz.com/img/planteis/new/24/80/8772480_rui_patricio_20260202003752.jpg",
+    "answerImageSourceUrl": "https://www.zerozero.pt/jogador/rui-patricio/28531?epoca_id=153",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-049",
@@ -1600,7 +1639,10 @@
       "أيك أثينا"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-081-timeline-v3.svg"
+    "clueFile": "FC-081-timeline-v3.svg",
+    "answerImageUrl": "https://www.aekfc.gr/Uploads/IMAGES/128101/STIN-AEK-O-NTOMAGKOI-VINTA-denlarge.jpg?lm=221FBC0FCE367244E471DA605E440291",
+    "answerImageSourceUrl": "https://www.aekfc.gr/newsdetails/stin-aek-o-ntomagkoi-vinta-128101.htm?lang=en&path=1629508024",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   },
   {
     "id": "FC-082",
@@ -1790,6 +1832,9 @@
     "sourceUrl": "https://www.fotmob.com/players/114268/dejan-lovren",
     "clueFile": "FC-090-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/players/114268/dejan-lovren",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://croatia.org/crown/content_images/2018/dejan_lovren.jpg",
+    "answerImageSourceUrl": "https://www.croatia.org/crown/articles/11092/1/Croatia-2---1-England-media-reports-from-the-FIFA-Word-Cup-semifinals-in-Moscow-2018.html",
+    "answerImageCaption": "صورة أرشيفية للاعب"
   }
 ]
