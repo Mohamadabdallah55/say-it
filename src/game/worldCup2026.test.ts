@@ -225,7 +225,7 @@ test('World Cup score cards are local factual graphics and sourced fixture photo
     assert.ok(fs.readFileSync(path.join(process.cwd(),'public',row.afterImageUrl.slice(1)),'utf8').includes('بطاقة توضيحية'));
   }
   const photos = WORLD_CUP_2026_QUESTIONS.filter(q=>q.imageUrl);
-  assert.equal(photos.length,10);
+  assert.equal(photos.length,9);
   for(const q of photos) { assert.equal(q.imageDisplay,'after_reveal'); assert.ok(q.imageSourceUrl?.startsWith('https://')); }
 });
 
@@ -243,4 +243,12 @@ test('World Cup easy and medium tiers distinguish recognizable stars from more s
   for(const id of ['WC26-200-21','WC26-200-28','WC26-200-39','WC26-400-19','WC26-600-42','WC26-200-16','WC26-200-13','WC26-400-22']) assert.equal(byId.get(id)?.points, 200);
   for(const id of ['WC26-200-06','WC26-200-04','WC26-200-45','WC26-400-46','WC26-400-07','WC26-600-11']) assert.equal(byId.get(id)?.points, 400);
   for(const id of ['WC26-400-01','WC26-600-07','WC26-600-12','WC26-600-22']) assert.equal(byId.get(id)?.points, 600);
+});
+
+test('revised questions replace duplicate event recall with distinct topics',()=>{
+ const byId=new Map(WORLD_CUP_2026_ALL_ROWS.map(q=>[q.id,q]));
+ assert.equal(byId.get('WC26-R26-001')?.answer,'كندا');
+ assert.equal(byId.get('WC26-R26-002')?.answer,'تنبيه صوتي');
+ assert.equal(byId.get('WC26-R26-003')?.answer,'غوادالوبي');
+ assert.equal(WORLD_CUP_2026_ALL_ROWS.filter(q=>q.answer==='جوناثان ديفيد').length,1);
 });
