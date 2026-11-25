@@ -38,3 +38,6 @@ Replaced selected easy questions with new medium/hard material, keeping total qu
 }
 
 - Career: replaced 20 easy questions with new players and selected chronological club routes (UEFA sources). Counts 38/31/21. 20 locally generated SVG text-based clue cards. New player portraits and club crest graphics are not added; existing original PNG cards and portraits remain for other questions.
+
+- Media path audit: no missing referenced local assets in the eleven football banks. Removed three stale photos on new UCL prompts and replaced the incorrect Juanfran image with a photo sourced to the 2016 final. External image uptime and rights are not comprehensively verified.
+- Production RoomManager already shuffles the incoming deck. Board allocation now also prefers different prompt families, topics and answers when selecting football questions within the exact category and points tier, using the existing randomized input as a tie-breaker. No promises about user-selected tile order; no changes to existing saved matches or non-curated modes.

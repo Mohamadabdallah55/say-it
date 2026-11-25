@@ -251,6 +251,7 @@ class RoomManager {
       selectedCategoryIds:
         params.deckId === 'curated_custom' ? undefined : params.selectedCategoryIds,
       nowMs: now,
+      mixFootballTopics: true,
     });
 
     state.libraryId = libraryId;
