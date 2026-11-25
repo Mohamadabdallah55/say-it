@@ -1,0 +1,778 @@
+{
+  "برشلونة": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-102.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/fc-barcelona.png"
+  },
+  "باريس سان جيرمان": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-110.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/paris-saint-germain.png"
+  },
+  "أياكس": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-120.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/ajax-amsterdam.png"
+  },
+  "ريال مدريد": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-101.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/real-madrid.png"
+  },
+  "إنتر ميلان": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-113.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/inter-milan.png"
+  },
+  "ميلان": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-112.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ac-milan.png"
+  },
+  "أتلتيكو مدريد": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-114.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/atletico-de-madrid.png"
+  },
+  "ليفربول": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-105.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/liverpool-fc.png"
+  },
+  "تشيلسي": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-107.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/chelsea-fc.png"
+  },
+  "بارما": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-169.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/parma-calcio-1913.png"
+  },
+  "لاتسيو": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-124.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ss-lazio.png"
+  },
+  "جنوى": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-170.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/genoa-cfc.png"
+  },
+  "موناكو": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-149.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/as-monaco.png"
+  },
+  "سبورتينغ لشبونة": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-153.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sporting-cp.png"
+  },
+  "مانشستر يونايتد": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-103.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-united.png"
+  },
+  "يوفنتوس": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-111.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/juventus-fc.png"
+  },
+  "بورتو": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-119.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/fc-porto.png"
+  },
+  "مارسيليا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-125.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/olympique-marseille.png"
+  },
+  "فياريال": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-135.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/villarreal-cf.png"
+  },
+  "فيورنتينا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-140.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/acf-fiorentina.png"
+  },
+  "روما": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-117.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/as-roma.png"
+  },
+  "ليون": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-148.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/olympique-lyon.png"
+  },
+  "فيردر بريمن": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-166.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/sv-werder-bremen.png"
+  },
+  "فولفسبورغ": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-146.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/vfl-wolfsburg.png"
+  },
+  "مانشستر سيتي": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-104.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/manchester-city.png"
+  },
+  "نابولي": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-116.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/ssc-napoli.png"
+  },
+  "بوروسيا دورتموند": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-109.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/borussia-dortmund.png"
+  },
+  "بايرن ميونخ": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-108.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/bayern-munich.png"
+  },
+  "بنفيكا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-118.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sl-benfica.png"
+  },
+  "توتنهام": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-115.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/tottenham-hotspur.png"
+  },
+  "أولمبياكوس": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-161.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/olympiacos-piraeus.png"
+  },
+  "إشبيلية": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-121.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/sevilla-fc.png"
+  },
+  "وولفرهامبتون": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-129.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/wolverhampton-wanderers.png"
+  },
+  "براغا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-154.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/portugal/sc-braga.png"
+  },
+  "هامبورغ": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-167.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/hamburger-sv.png"
+  },
+  "باير ليفركوزن": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-123.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/bayer-04-leverkusen.png"
+  },
+  "أرسنال": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-106.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/arsenal-fc.png"
+  },
+  "إسبانيول": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-171.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/rcd-espanyol-barcelona.png"
+  },
+  "أستون فيلا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-126.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/aston-villa.png"
+  },
+  "إيفرتون": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-127.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/everton-fc.png"
+  },
+  "فينورد": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-156.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/feyenoord-rotterdam.png"
+  },
+  "آيندهوفن": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-155.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/netherlands/psv-eindhoven.png"
+  },
+  "نيوكاسل": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-122.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/newcastle-united.png"
+  },
+  "كلوب بروج": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-159.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/belgium/club-brugge-kv.png"
+  },
+  "أتالانتا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-139.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/italy/atalanta-bc.png"
+  },
+  "بوروسيا مونشنغلادباخ": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-147.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/borussia-monchengladbach.png"
+  },
+  "برايتون": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-130.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/brighton-and-hove-albion.png"
+  },
+  "ليل": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-150.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/losc-lille.png"
+  },
+  "فالنسيا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-134.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/valencia-cf.png"
+  },
+  "نوتنغهام فورست": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-132.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/nottingham-forest.png"
+  },
+  "آينتراخت فرانكفورت": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-144.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/germany/eintracht-frankfurt.png"
+  },
+  "أيك أثينا": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-163.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/aek-athens.png"
+  },
+  "سلتيك": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-157.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/scotland/celtic-fc.png"
+  },
+  "ريال سوسييداد": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-136.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/spain/real-sociedad.png"
+  },
+  "وست هام": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-128.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/england/west-ham-united.png"
+  },
+  "نيس": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-151.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/france/ogc-nice.png"
+  },
+  "باوك": {
+    "logoUrl": "/assets/questions/club-logos/CLUB-164.png",
+    "source": "https://github.com/leoratzlaff/football-badges/blob/ba8ec269d88498a3842567887677198af43e3dd8/logos/greece/paok-thessaloniki.png"
+  },
+  "إنتر ميامي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Inter_Miami_CF.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Inter_Miami_CF.svg"
+  },
+  "فينيكس رايزينغ": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Phoenix_Rising_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Phoenix_Rising_FC.svg"
+  },
+  "لوس أنجلوس إف سي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Los_Angeles_Football_Club.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Los_Angeles_Football_Club.svg"
+  },
+  "لوس أنجلوس غالاكسي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Los_Angeles_Galaxy.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Los_Angeles_Galaxy.svg"
+  },
+  "نيويورك ريد بولز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/New_York_Red_Bulls.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/New_York_Red_Bulls.svg"
+  },
+  "أورلاندو سيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Orlando_City.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Orlando_City.svg"
+  },
+  "دي سي يونايتد": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/DC_United.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/DC_United.svg"
+  },
+  "مينيسوتا يونايتد": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Minnesota_United_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Minnesota_United_FC.svg"
+  },
+  "نيويورك سيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/New_York_City_Football_Club.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/New_York_City_Football_Club.svg"
+  },
+  "مونتريال إمباكت": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/CF_Montr%C3%A9al.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/CF_Montr%C3%A9al.svg"
+  },
+  "مونتريال": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/CF_Montr%C3%A9al.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/CF_Montr%C3%A9al.svg"
+  },
+  "فانكوفر وايتكابس": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Vancouver_Whitecaps_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/usa/Vancouver_Whitecaps_FC.svg"
+  },
+  "سامبدوريا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Sampdoria.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Sampdoria.svg"
+  },
+  "هيلاس فيرونا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Hellas_Verona.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Hellas_Verona.svg"
+  },
+  "أودينيزي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Udinese.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Udinese.svg"
+  },
+  "باليرمو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Palermo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Palermo.svg"
+  },
+  "ساسولو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Sassuolo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/italy/Sassuolo.svg"
+  },
+  "ساغان توسو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Sagan_Tosu.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Sagan_Tosu.svg"
+  },
+  "سيريزو أوساكا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Cerezo_Osaka.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Cerezo_Osaka.svg"
+  },
+  "فيسيل كوبي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Vissel_Kobe.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/japan/Vissel_Kobe.svg"
+  },
+  "ريفر بليت": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/River_Plate.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/River_Plate.svg"
+  },
+  "إنديبندينتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Independiente.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Independiente.svg"
+  },
+  "روزاريو سنترال": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Rosario_Central.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Rosario_Central.svg"
+  },
+  "بانفيلد": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Banfield.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Banfield.svg"
+  },
+  "نيويلز أولد بويز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Newell's_Old_Boys.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Newell's_Old_Boys.svg"
+  },
+  "إنستيتوتو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Instituto_C%C3%B3rdoba.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Instituto_C%C3%B3rdoba.svg"
+  },
+  "بوكا جونيورز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Boca_Juniors.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/argentina/Boca_Juniors.svg"
+  },
+  "النصر السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Nassr.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Nassr.svg"
+  },
+  "الاتحاد السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ittihad.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ittihad.svg"
+  },
+  "الهلال السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Hilal.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Hilal.svg"
+  },
+  "الاتفاق السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ettifaq.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ettifaq.svg"
+  },
+  "الشباب السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Shabab.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Shabab.svg"
+  },
+  "الأهلي السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ahli.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Ahli.svg"
+  },
+  "القادسية السعودي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Qadsiah.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/saudi-arabia/Al_Qadsiah.svg"
+  },
+  "كان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Stade_Malherbe_Caen.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Stade_Malherbe_Caen.svg"
+  },
+  "كان الفرنسي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Stade_Malherbe_Caen.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Stade_Malherbe_Caen.svg"
+  },
+  "بوردو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Bordeaux.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Bordeaux.svg"
+  },
+  "لو مان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Le_Mans_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Le_Mans_FC.svg"
+  },
+  "غانغان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/EA_Guingamp.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/EA_Guingamp.svg"
+  },
+  "ميتز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/FC_Metz.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/FC_Metz.svg"
+  },
+  "لوهافر": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Le_Havre_AC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Le_Havre_AC.svg"
+  },
+  "ديجون": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Dijon_FCO.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Dijon_FCO.svg"
+  },
+  "سانت إيتيان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/AS_Saint-%C3%89tienne.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/AS_Saint-%C3%89tienne.svg"
+  },
+  "بولوني": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Boulogne.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Boulogne.svg"
+  },
+  "غرونوبل": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Grenoble_Foot_38.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Grenoble_Foot_38.svg"
+  },
+  "إيستر": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Istres_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Istres_FC.svg"
+  },
+  "مونبلييه": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Montpellier.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/france/Montpellier.svg"
+  },
+  "شنغهاي شينهوا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/china/Shanghai_Shenhua.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/china/Shanghai_Shenhua.svg"
+  },
+  "غلطة سراي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Galatasaray.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Galatasaray.svg"
+  },
+  "بشكتاش": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Be%C5%9Fikta%C5%9F.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Be%C5%9Fikta%C5%9F.svg"
+  },
+  "قاسم باشا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Kas%C4%B1mpa%C5%9Fa.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Kas%C4%B1mpa%C5%9Fa.svg"
+  },
+  "فنربخشة": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Fenerbah%C3%A7e.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Fenerbah%C3%A7e.svg"
+  },
+  "إسطنبول باشاك شهير": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Ba%C5%9Fak%C5%9Fehir.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/turkey/Ba%C5%9Fak%C5%9Fehir.svg"
+  },
+  "شباب الأهلي دبي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/uae/Shabab_Al_Ahli_Dubai_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/uae/Shabab_Al_Ahli_Dubai_FC.svg"
+  },
+  "العين الإماراتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/uae/Al_Ain_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/uae/Al_Ain_FC.svg"
+  },
+  "فيتوريا غيمارايش": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Vit%C3%B3ria_de_Guimar%C3%A3es.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Vit%C3%B3ria_de_Guimar%C3%A3es.svg"
+  },
+  "بوافيشتا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Boavista.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Boavista.svg"
+  },
+  "أولانينسي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Olhanense.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Olhanense.svg"
+  },
+  "أونياو ليريا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Uni%C3%A3o_de_Leiria.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Uni%C3%A3o_de_Leiria.svg"
+  },
+  "ريو آفي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Rio_Ave.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/portugal/Rio_Ave.svg"
+  },
+  "إنترناسيونال": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Internacional.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Internacional.svg"
+  },
+  "غريميو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Gr%C3%AAmio.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Gr%C3%AAmio.svg"
+  },
+  "فلامنغو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Flamengo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Flamengo.svg"
+  },
+  "أتلتيكو مينيرو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Atl%C3%A9tico_Mineiro.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Atl%C3%A9tico_Mineiro.svg"
+  },
+  "فلومينينسي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Fluminense.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Fluminense.svg"
+  },
+  "سانتوس": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Santos_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Santos_FC.svg"
+  },
+  "ساو باولو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/S%C3%A3o_Paulo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/S%C3%A3o_Paulo.svg"
+  },
+  "بوتافوغو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Botafogo_FR.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Botafogo_FR.svg"
+  },
+  "فيغيرينسي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Figueirense.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Figueirense.svg"
+  },
+  "كورينثيانز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Corinthians.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Corinthians.svg"
+  },
+  "فاسكو دا غاما": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Vasco_da_Gama.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/brazil/Vasco_da_Gama.svg"
+  },
+  "بينيارول": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/uruguay/Pe%C3%B1arol.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/uruguay/Pe%C3%B1arol.svg"
+  },
+  "ناسيونال": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/uruguay/Nacional.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/uruguay/Nacional.svg"
+  },
+  "مومباي سيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/india/Mumbai_City_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/india/Mumbai_City_FC.svg"
+  },
+  "كيتشي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/hong-kong/Kitchee.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/hong-kong/Kitchee.svg"
+  },
+  "المقاولون العرب": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/egypt/Al_Mokawloon_Al_Arab_SC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/egypt/Al_Mokawloon_Al_Arab_SC.svg"
+  },
+  "بازل": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/switzerland/Basel.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/switzerland/Basel.svg"
+  },
+  "ريال سرقسطة": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Real_Zaragoza.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Real_Zaragoza.svg"
+  },
+  "ملقا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/M%C3%A1laga.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/M%C3%A1laga.svg"
+  },
+  "مايوركا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Mallorca.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Mallorca.svg"
+  },
+  "رايو فاييكانو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Rayo_Vallecano.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Rayo_Vallecano.svg"
+  },
+  "ريال بلد الوليد": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Real_Valladolid.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Real_Valladolid.svg"
+  },
+  "ألباسيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Albacete.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Albacete.svg"
+  },
+  "ليفانتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Levante.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Levante.svg"
+  },
+  "لاس بالماس": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Las_Palmas.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Las_Palmas.svg"
+  },
+  "ألافيس": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Deportivo_Alav%C3%A9s.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Deportivo_Alav%C3%A9s.svg"
+  },
+  "سبورتينغ خيخون": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Sporting_Gij%C3%B3n.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/spain/Sporting_Gij%C3%B3n.svg"
+  },
+  "جينك": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/KRC_Genk.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/KRC_Genk.svg"
+  },
+  "لوميل": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/Lommel_SK.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/Lommel_SK.svg"
+  },
+  "أود هيفرلي لوفين": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/Oud-Heverlee_Leuven.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/Oud-Heverlee_Leuven.svg"
+  },
+  "فيستيرلو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/KVC_Westerlo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/belgium/KVC_Westerlo.svg"
+  },
+  "زنيتش بروشكوف": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Znicz_Pruszk%C3%B3w.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Znicz_Pruszk%C3%B3w.svg"
+  },
+  "ليخ بوزنان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Lech_Pozna%C5%84.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Lech_Pozna%C5%84.svg"
+  },
+  "ليغيا وارسو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Legia_Warszawa.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/poland/Legia_Warszawa.svg"
+  },
+  "ساوثهامبتون": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Southampton.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Southampton.svg"
+  },
+  "ديربي كاونتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Derby_County.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Derby_County.svg"
+  },
+  "ليستر سيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Leicester.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Leicester.svg"
+  },
+  "سندرلاند": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Sunderland.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Sunderland.svg"
+  },
+  "برينتفورد": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Brentford.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Brentford.svg"
+  },
+  "برمنغهام سيتي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Birmingham_City.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Birmingham_City.svg"
+  },
+  "بورتسموث": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Portsmouth.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/england/Portsmouth.svg"
+  },
+  "برينه": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/norway/Bryne.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/norway/Bryne.svg"
+  },
+  "مولده": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/norway/Molde.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/norway/Molde.svg"
+  },
+  "ريد بول سالزبورغ": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/austria/Salzburg.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/austria/Salzburg.svg"
+  },
+  "كيريتارو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/Queretaro_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/Queretaro_FC.svg"
+  },
+  "ليون المكسيكي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/Club_Leon.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/Club_Leon.svg"
+  },
+  "بوماس": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/UNAM_Pumas.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/mexico/UNAM_Pumas.svg"
+  },
+  "غرونينغن": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/netherlands/FC_Groningen.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/netherlands/FC_Groningen.svg"
+  },
+  "مالمو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/sweden/Malm%C3%B6.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/sweden/Malm%C3%B6.svg"
+  },
+  "دينامو زغرب": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/GNK_Dinamo_Zagreb.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/GNK_Dinamo_Zagreb.svg"
+  },
+  "هايدوك سبليت": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/Hajduk_Split.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/Hajduk_Split.svg"
+  },
+  "لوكوموتيفا زغرب": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/Lokomotiva_Zagreb.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/croatia/Lokomotiva_Zagreb.svg"
+  },
+  "شاختار دونيتسك": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/ukraine/Shakhtar.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/ukraine/Shakhtar.svg"
+  },
+  "دينامو كييف": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/ukraine/Dynamo_Kyiv.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/ukraine/Dynamo_Kyiv.svg"
+  },
+  "نورنبيرغ": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/FC_N%C3%BCrnberg.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/FC_N%C3%BCrnberg.svg"
+  },
+  "شالكه": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Schalke_04.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Schalke_04.svg"
+  },
+  "كارلسروه": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Karlsruher_SC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Karlsruher_SC.svg"
+  },
+  "هوفنهايم": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Hoffenheim.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Hoffenheim.svg"
+  },
+  "هيرتا برلين": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Hertha_BSC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/germany/Hertha_BSC.svg"
+  },
+  "سيسكا موسكو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/CSKA_Moscow.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/CSKA_Moscow.svg"
+  },
+  "لوكوموتيف موسكو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Lokomotiv_Moscow.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Lokomotiv_Moscow.svg"
+  },
+  "روبين كازان": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Rubin_Kazan.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Rubin_Kazan.svg"
+  },
+  "زينيت": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Zenit.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/russia/Zenit.svg"
+  },
+  "روستافي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/georgia/FC_Rustavi.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/georgia/FC_Rustavi.svg"
+  },
+  "دينامو باتومي": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/georgia/Dinamo_Batumi.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/georgia/Dinamo_Batumi.svg"
+  },
+  "إنفيغادو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Envigado.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Envigado.svg"
+  },
+  "أتلتيكو ناسيونال": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Atl%C3%A9tico_Nacional.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Atl%C3%A9tico_Nacional.svg"
+  },
+  "أتلتيكو جونيور": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Atl%C3%A9tico_Junior.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/colombia/Atl%C3%A9tico_Junior.svg"
+  },
+  "الريان القطري": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Rayyan.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Rayyan.svg"
+  },
+  "السد القطري": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Sadd.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Sadd.svg"
+  },
+  "الدحيل القطري": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Duhail.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/qatar/Al_Duhail.svg"
+  },
+  "كوبريلوا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/chile/Cobreloa.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/chile/Cobreloa.svg"
+  },
+  "كولو كولو": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/chile/Colo_Colo.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/chile/Colo_Colo.svg"
+  },
+  "ويسترن سيدني واندررز": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/australia/Western_Sydney_Wanderers_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/australia/Western_Sydney_Wanderers_FC.svg"
+  },
+  "ملبورن فيكتوري": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/australia/Melbourne_Victory_FC.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/australia/Melbourne_Victory_FC.svg"
+  },
+  "ديبورتيفو سابريسا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/costa-rica/Deportivo_Saprissa.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/costa-rica/Deportivo_Saprissa.svg"
+  },
+  "أولمبيا ليوبليانا": {
+    "logoUrl": "https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/logos/slovenia/Olimpija.svg",
+    "source": "https://github.com/JoseArroyave/football-logos/blob/5ab11fed47427b3003f4b276554491fe683387b1/logos/slovenia/Olimpija.svg"
+  }
+}

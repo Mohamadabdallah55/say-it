@@ -145,6 +145,8 @@ export interface QuizQuestion {
   imageBase64?: string;
   imageCaption?: string;
   beforeImageUrls?: string[];
+  /** Safe career clue: the missing club is replaced before serialization. */
+  careerClubs?: { name: string; logoUrl?: string; hidden?: boolean }[];
   afterImageUrl?: string;
   showSeconds?: number;
   memorySceneId?: string;
@@ -475,6 +477,8 @@ export interface SanitizedActiveRound {
   imageCaption?: string;
   memorySecondImageUrl?: string;
   beforeImageUrls?: string[];
+  /** Safe career clue: the missing club is replaced before serialization. */
+  careerClubs?: { name: string; logoUrl?: string; hidden?: boolean }[];
   afterImageUrl?: string;
   imageDisplay?: QuestionImageDisplay;
   imageSourceUrl?: string;

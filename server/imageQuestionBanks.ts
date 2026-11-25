@@ -8,6 +8,8 @@ import clubLogoRows from './clubLogoQuestions.json';
 import flagRows from './flagQuestions.json';
 import realMadridRows from './realMadridQuestions.json';
 import footballCareerRows from './footballCareerQuestions.json';
+import careerClubLogos from './footballCareerClubLogos.json';
+const careerLogoByName: Record<string, { logoUrl: string }> = careerClubLogos;
 import worldFootballRows from './worldFootballQuestions.json';
 import footballFirstNameRows from './footballFirstNameQuestions.json';
 
@@ -114,6 +116,9 @@ export const FOOTBALL_CAREER_QUESTIONS = footballCareerRows.map((row): QuizQuest
   imageUrl: `/assets/questions/football-career/${'clueFile' in row && typeof row.clueFile === 'string' ? row.clueFile : `${row.id}.png`}`,
   imageDisplay: 'before_reveal',
   imageCaption: 'محطات المسيرة بالترتيب',
+  careerClubs: row.clubs.map(name => row.type === 'missing' && name === row.answer
+    ? { name: '؟', hidden: true }
+    : { name, logoUrl: careerLogoByName[name]?.logoUrl }),
   answerImageUrl: 'answerImageUrl' in row ? row.answerImageUrl : undefined,
   imageSourceUrl: 'answerImageSourceUrl' in row && typeof row.answerImageSourceUrl === 'string' ? row.answerImageSourceUrl : row.sourceUrl,
   explanation: row.type === 'missing' ? row.clubs.join(' ← ') : undefined,

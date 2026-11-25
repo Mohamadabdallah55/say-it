@@ -1436,6 +1436,7 @@ export function sanitizeStateForRole(
           answerAudioUrl: canRevealAnswer ? state.activeRound.question.answerAudioUrl : undefined,
           videoUrl: (canShowImage || ['cat_el_clasico', 'cat_champions_league'].includes(state.activeRound.question.categoryId)) && !isMemoryQuestionOnly ? state.activeRound.question.videoUrl : undefined,
           beforeImageUrls: !isGeneralKnowledge && canShowImage && !isMemorizing ? state.activeRound.question.beforeImageUrls : undefined,
+          careerClubs: canShowImage && !isMemorizing ? state.activeRound.question.careerClubs : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,

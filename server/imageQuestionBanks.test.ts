@@ -483,3 +483,16 @@ test('fan difficulty rubric keeps major events and obvious careers at 200', () =
   assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.find(q=>q.id==='UCL-051')?.points,400);
   assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.find(q=>q.id==='UCL-093')?.points,600);
 });
+
+
+test('career club cards use local or pinned logos and never expose the missing club', () => {
+  for (const q of FOOTBALL_CAREER_QUESTIONS) {
+    assert.ok(q.careerClubs?.length, q.id);
+    for (const club of q.careerClubs ?? []) {
+      if (club.hidden) { assert.equal(club.name, '؟'); assert.equal(club.logoUrl, undefined); }
+      else if (club.logoUrl?.startsWith('/')) assert.ok(readFileSync(new URL(`../public${club.logoUrl}`, import.meta.url)).length > 0);
+      else if (club.logoUrl) assert.match(club.logoUrl, /^https:\/\/raw\.githubusercontent\.com\/JoseArroyave\/football-logos\/[a-f0-9]{40}\//);
+      assert.notEqual(club.name, q.answer, q.id);
+    }
+  }
+});

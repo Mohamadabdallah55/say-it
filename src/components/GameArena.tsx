@@ -42,6 +42,7 @@ import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia, type MediaOrientation } from './QuestionMedia';
+import { CareerTimeline } from './CareerTimeline';
 import { GuessSoundPlayer } from './GuessSoundPlayer';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
 import { JORDAN_NOSTALGIA_CATEGORY } from '../game/jordanNostalgia';
@@ -333,6 +334,7 @@ export function GameArena({
         imageCaption: showGeneralMedia ? ar.question.imageCaption : undefined,
         memorySecondImageUrl: general ? undefined : ar.question.memorySecondImageUrl,
         beforeImageUrls: general ? undefined : ar.question.beforeImageUrls,
+        careerClubs: general ? undefined : ar.question.careerClubs,
         afterImageUrl: showGeneralMedia ? ar.question.afterImageUrl : undefined,
         imageDisplay: general ? 'after_reveal' as const : ar.question.imageDisplay,
         imageSourceUrl: showGeneralMedia ? ar.question.imageSourceUrl : undefined,
@@ -974,7 +976,8 @@ export function GameArena({
                         ? roundMeta.beforeImageUrls[0]
                         : undefined;
                     const activeSplitImage = primaryImageSrc || singleBeforeImage;
-                    const hasSplitMedia = Boolean(activeSplitImage);
+                    const careerTimeline = roundMeta.categoryId === FOOTBALL_CAREER_CATEGORY.id && roundMeta.careerClubs?.length ? roundMeta.careerClubs : undefined;
+                    const hasSplitMedia = Boolean(activeSplitImage || careerTimeline);
                     const isPromptAyah = !isEnglishRound && isAyahText(roundMeta.prompt, roundMeta.categoryId);
 
                     return (
@@ -982,9 +985,11 @@ export function GameArena({
                       <div
                         className="question-stage-split"
                         data-has-media={hasSplitMedia ? 'true' : 'false'}
-                        data-orientation={hasSplitMedia ? mediaOrientation : undefined}
+                        data-orientation={careerTimeline ? 'landscape' : hasSplitMedia ? mediaOrientation : undefined}
                       >
-                        {primaryImageSrc ? (
+                        {careerTimeline ? (
+                          <CareerTimeline key={roundMeta.questionId} clubs={careerTimeline} compact={state.phase === 'REVEAL'} />
+                        ) : primaryImageSrc ? (
                           <QuestionMedia
                             imageSrc={primaryImageSrc}
                             caption={roundMeta.imageCaption}
