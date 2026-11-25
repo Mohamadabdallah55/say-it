@@ -2,7 +2,7 @@
   {
     "id": "RM-001-E6",
     "points": 200,
-    "question": "مين الظهير الإسباني الشهير داني كارفاخال بلعب بأي مركز؟",
+    "question": "شو المركز الأساسي لداني كارفاخال في الملعب؟",
     "answer": "ظهير أيمن",
     "answer_english": "Right-back",
     "explanation": "مركز كارفاخال الأساسي الظهير الأيمن.",
@@ -102,7 +102,7 @@
     "answer": "سانتياغو برنابيو",
     "answer_english": "Santiago Bernabéu",
     "explanation": "ملعب ريال مدريد هو سانتياغو برنابيو.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/120-years-in-the-making",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/stadium",
     "acceptableAnswers": [
       "سانتياغو بيرنابيو",
       "البرنابيو",
@@ -853,7 +853,7 @@
   {
     "id": "RM-070",
     "points": 200,
-    "question": "مين أسطورة ريال مدريد الإسبانية اللي حمل الرقم 7 قبل كريستيانو رونالدو؟",
+    "question": "مين أسطورة ريال مدريد الإسبانية اللي حمل الرقم 7 لسنوات وانتقل بعدها لشالكه؟",
     "answer": "راؤول غونزاليس",
     "answer_english": "Raúl González",
     "explanation": "راؤول ارتدى القميص 7 قبل رونالدو.",
@@ -1143,16 +1143,15 @@
   {
     "id": "RM-E-020-E6",
     "points": 200,
-    "question": "شو لقب ريال مدريد المعروف بالإسباني Los Merengues؟",
-    "answer": "الميرينغي",
-    "answer_english": "Los Merengues",
-    "explanation": "من ألقاب ريال مدريد الميرينغي والملكي.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "question": "مين رئيس ريال مدريد المعروف بصفقات الغالاكتيكوس مثل زيدان وبيكهام؟",
+    "answer": "فلورنتينو بيريز",
+    "answer_english": "Florentino Pérez",
+    "explanation": "ارتبطت فترة رئاسته الأولى بصفقات نجوم الغالاكتيكوس.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/presidents/florentino-perez",
     "acceptableAnswers": [
-      "الميرنغي",
-      "المرينغي",
-      "الميرينجي",
-      "لوس ميرينغيس"
+      "بيريز",
+      "فلورنتينو بيريز",
+      "فلورنتينو بيرس"
     ]
   },
   {
