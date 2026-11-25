@@ -44,12 +44,15 @@
     "acceptableAnswers": [
       "Shakhtar Donetsk"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://editorial.uefa.com/resources/025d-0f4df0ffc56a-09b6d99fa7e0-1000/pedro_rodriguez_fc_barcelona_.jpeg",
+    "imageSourceUrl": "https://it.uefa.com/uefasupercup/history/2009/",
+    "imageCaption": "احتفال برشلونة بهدف الفوز على شاختار في السوبر الأوروبي 2009"
   },
   {
     "id": "BAR-004",
     "points": 200,
-    "question": "من سجل هدف برشلونة الأول أمام يوفنتوس في نهائي دوري الأبطال 2015؟",
+    "question": "أي لاعب كرواتي افتتح التسجيل لبرشلونة في نهائي دوري الأبطال 2015 أمام يوفنتوس؟",
     "answer": "إيفان راكيتيتش",
     "explanation": "سجل في الدقيقة الرابعة.",
     "sourceUrl": "https://www.fcbarcelona.com/en/matches/10444/juventus-fc-barcelona-ucl-2014-15",
@@ -106,7 +109,7 @@
   {
     "id": "BAR-010",
     "points": 200,
-    "question": "من سجل هدف برشلونة الأخير في نهائي دوري أبطال أوروبا 2011 أمام مانشستر يونايتد؟",
+    "question": "أي مهاجم إسباني اشتهر مع فالنسيا وبرشلونة وسجل الهدف الثالث للبارسا في نهائي ويمبلي 2011؟",
     "answer": "دافيد فيا",
     "explanation": "كان فيا أحد مسجلي الأهداف الثلاثة في ويمبلي.",
     "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",

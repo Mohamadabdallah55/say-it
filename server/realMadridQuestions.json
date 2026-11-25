@@ -2,7 +2,7 @@
   {
     "id": "RM-001",
     "points": 200,
-    "question": "من سجل هدف الفوز لريال مدريد في الدقيقة 119 بكأس السوبر الأوروبي 2016 ضد إشبيلية؟",
+    "question": "أي ظهير إسباني معروف لريال مدريد سجّل هدف الفوز في الدقيقة 119 أمام إشبيلية في السوبر الأوروبي 2016؟",
     "answer": "داني كارفاخال",
     "answer_english": "Dani Carvajal",
     "explanation": "حسم كارفاخال المباراة بهدف فردي في الوقت الإضافي.",
@@ -107,12 +107,15 @@
     "answer": "أندرلخت",
     "answer_english": "Anderlecht",
     "explanation": "أقصى ريال مدريد أندرلخت بعد ريمونتادا في البرنابيو.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-40-anos-de-la-primera-copa-de-la-uefa-22-05-2025"
+    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-40-anos-de-la-primera-copa-de-la-uefa-22-05-2025",
+    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/news/generic/2022/12/12/not-efemeride-remontada-anderlecht-2022/assets/1330804968506.jpg",
+    "imageSourceUrl": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-41-anos-de-la-historica-remontada-contra-el-anderlecht-02-12-2025",
+    "imageCaption": "صورة من ريمونتادا ريال مدريد 6-1 أمام أندرلخت سنة 1984"
   },
   {
     "id": "RM-011",
     "points": 200,
-    "question": "من كان مدرب ريال مدريد الذي حقق أول ألقابه مع النادي بكأس الملك 2011؟",
+    "question": "مين المدرب البرتغالي الملقب بالسبيشل ون اللي حقق أول ألقابه مع ريال مدريد بكأس الملك 2011؟",
     "answer": "جوزيه مورينيو",
     "answer_english": "Jose Mourinho",
     "explanation": "كانت كأس الملك 2011 أول ألقاب مورينيو مع ريال مدريد.",

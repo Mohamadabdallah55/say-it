@@ -2,7 +2,7 @@
   {
     "id": "UCL-001",
     "points": 200,
-    "question": "أي فريق قلب برشلونة أمامه خسارة 4-0 في الذهاب إلى تأهل تاريخي بنتيجة 6-1 في الإياب عام 2017؟",
+    "question": "أي فريق فرنسي خسر أمام برشلونة 6-1 في الريمونتادا الشهيرة عام 2017؟",
     "answer": "باريس سان جيرمان",
     "explanation": "برشلونة تأهل أمام باريس في ثمن النهائي عام 2017 بعد العودة من خسارة الذهاب 4-0.",
     "theme": "ريمونتادا",
@@ -57,7 +57,7 @@
   {
     "id": "UCL-006",
     "points": 200,
-    "question": "نهائي إسطنبول 2023 حسمه هدف رودري. مين كان خصم مانشستر سيتي؟",
+    "question": "أي نادٍ إيطالي يرتدي الأزرق والأسود خسر نهائي دوري الأبطال 2023 أمام مانشستر سيتي؟",
     "answer": "إنتر ميلان",
     "explanation": "أحرز سيتي أول لقب له على حساب إنتر.",
     "theme": "ألقاب أولى",
@@ -81,7 +81,7 @@
   {
     "id": "UCL-008",
     "points": 200,
-    "question": "أي فريق قلب تأخره 3-0 أمام ميلان إلى تعادل 3-3 ثم فاز بركلات الترجيح في نهائي 2005؟",
+    "question": "أي نادٍ إنجليزي يُلقّب بالريدز حقق معجزة إسطنبول أمام ميلان سنة 2005؟",
     "answer": "ليفربول",
     "explanation": "ليفربول قلب خسارة الشوط الأول أمام ميلان ثم فاز بركلات الترجيح بإسطنبول.",
     "theme": "معجزات كروية",
@@ -103,7 +103,7 @@
   {
     "id": "UCL-010",
     "points": 200,
-    "question": "من سجل هدف مانشستر يونايتد في نهائي 2011 أمام برشلونة؟",
+    "question": "مين المهاجم الإنجليزي الشهير اللي لعب لمانشستر يونايتد وسجل هدفه الوحيد أمام برشلونة في نهائي 2011؟",
     "answer": "واين روني",
     "explanation": "روني عادل النتيجة 1-1 قبل أن يفوز برشلونة 3-1.",
     "theme": "نجوم النهائيات",
@@ -214,7 +214,7 @@
   {
     "id": "UCL-019",
     "points": 200,
-    "question": "من سجل ثلاثية توتنهام أمام أياكس في إياب نصف نهائي 2019 وأكملها في الوقت الضائع؟",
+    "question": "أي لاعب برازيلي كان بطل ريمونتادا توتنهام على أياكس في نصف نهائي 2019 بثلاثية؟",
     "answer": "لوكاس مورا",
     "explanation": "هاتريك مورا قاد توتنهام للفوز 3-2 والتأهل في أمستردام.",
     "theme": "ريمونتادا نصف النهائي",
@@ -225,11 +225,14 @@
   {
     "id": "UCL-020",
     "points": 400,
-    "question": "في ريمونتادا ديبورتيفو أمام ميلان 2004، في أي دور من البطولة حدثت المواجهة؟",
+    "question": "ديبورتيفو قلب خسارته 4-1 أمام ميلان إلى فوز 4-0 عام 2004. بأي دور صار هالإنجاز؟",
     "answer": "ربع النهائي",
     "explanation": "تأهل ديبورتيفو من ربع النهائي.",
     "theme": "الريمونتادا الإسبانية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/019c-0e6c12450ff2-294c584e2602-1000--dazzling-depor-ditch-milan/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/019c-0e6c12450ff2-294c584e2602-1000--dazzling-depor-ditch-milan/",
+    "imageUrl": "https://minutemedia-ressh.cloudinary.com/image/upload/v1617795448/shape/cover/sport/Deportivo-Corunas-players-Sergio-Gonzal-f5e9c0a756d9c07a7bdd355d18a5e684.jpg",
+    "imageSourceUrl": "https://www.90min.com/posts/the-night-deportivo-la-coruna-stunned-ac-milan-classic-comeback-ucl",
+    "imageCaption": "احتفال ديبورتيفو في ريمونتادا ميلان عام 2004"
   },
   {
     "id": "UCL-021",
@@ -278,11 +281,14 @@
   {
     "id": "UCL-025",
     "points": 400,
-    "question": "كم مرة احتاجت كأس أوروبا إلى إعادة المباراة النهائية بعد التعادل، حتى عام 2026؟",
+    "question": "نهائي بايرن وأتلتيكو 1974 انتهى بالتعادل وأُعيد. كم مرة أُعيد نهائي كأس أوروبا بسبب التعادل حتى 2026؟",
     "answer": "مرة واحدة",
     "explanation": "أُعيد نهائي 1974 بين بايرن وأتلتيكو بعد التعادل.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/",
+    "imageUrl": "https://img.fcbayern.com/image/upload/f_auto/q_auto/t_cms-16x9-seo/v1715337441/cms/public/images/fcbayern-com/homepage/Saison-23-24/Magazin-51/Mai/51-magazin-mai-die-woche-ihres-lebens-schwarzenbeck-tor-ima.jpg",
+    "imageSourceUrl": "https://fcbayern.com/en/news/2024/05/the-week-of-their-lives-part-5-schwarzenbeck-saves-bayern",
+    "imageCaption": "النهائي الأول بين بايرن وأتلتيكو 1974 قبل مباراة الإعادة"
   },
   {
     "id": "UCL-026",
@@ -756,13 +762,13 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
   },
   {
-    "id": "UCL-068",
+    "id": "UCL-R26-003",
     "points": 600,
-    "question": "أي فريق سجل ثلاثة أهداف في مرمى مانشستر يونايتد في أولد ترافورد بالجولة الأولى من موسم 1998/99؟",
-    "answer": "برشلونة",
-    "explanation": "انتهى اللقاء بالتعادل 3-3.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/"
+    "question": "في فوز ميلان 4-0 على غوتبورغ بأول دور مجموعات لدوري الأبطال 1992، مين المهاجم الذي أشركه كابيلو ظهيرًا أيسر بدل مالديني المصاب؟",
+    "answer": "دانييلي ماسارو",
+    "explanation": "اعتمد كابيلو على ماسارو في الظهير الأيسر خلال مباراة رباعية فان باستن.",
+    "theme": "تكتيك وتشكيلات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d03f82ea361-6b03b5ff74b1-1000--van-basten-hits-four-as-milan-overwhelm-ifk/"
   },
   {
     "id": "UCL-069",
@@ -1120,22 +1126,22 @@
     "imageCaption": "صورة كريم بنزيما · Chris Deahr · CC BY 2.0"
   },
   {
-    "id": "UCL-098",
+    "id": "UCL-R26-001",
     "points": 600,
-    "question": "في الجولة الأولى من موسم 1998/99، كم هدفًا سجل مانشستر يونايتد في الشوط الأول أمام برشلونة؟",
-    "answer": "2",
-    "explanation": "سجل غيغز وسكولز في الشوط الأول.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/"
+    "question": "في نهائي 1997، مين الحارس الألماني الذي حمى مرمى دورتموند أمام يوفنتوس في أول تتويج أوروبي للنادي؟",
+    "answer": "شتيفان كلوس",
+    "explanation": "شارك كلوس أساسيًا في فوز دورتموند 3-1.",
+    "theme": "حراس المرمى والنهائيات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/match/53915--dortmund-vs-juventus/"
   },
   {
-    "id": "UCL-099",
+    "id": "UCL-R26-002",
     "points": 600,
-    "question": "في الجولة الأولى من موسم 1998/99، كيف سجل برشلونة هدف التعادل الثالث أمام مانشستر يونايتد؟",
-    "answer": "ركلة جزاء",
-    "explanation": "سجل لويس إنريكي من ركلة جزاء.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/"
+    "question": "في افتتاح دور المجموعات الثاني بنسخة 2002/03، سجل لاعب لبازل أمام مانشستر يونايتد بعد 32 ثانية. مين هو؟",
+    "answer": "كريستيان خيمينيز",
+    "explanation": "سجل خيمينيز لبازل في اللقاء الذي انتهى بفوز مانشستر يونايتد 3-1.",
+    "theme": "أرقام قياسية وتاريخ النظام",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0237-0e966468be2a-209986d8dffd-1000--fastest-champions-league-goals-roy-makaay-heads-list-includ/"
   },
   {
     "id": "UCL-100",
