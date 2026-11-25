@@ -24,6 +24,9 @@ interface LanguageQuestionRow {
   topic?: string;
   reference?: string;
   referenceUrl?: string;
+  imageUrl?: string;
+  imageSourceUrl?: string;
+  imageCaption?: string;
 }
 
 function buildLanguageQuestions(category: DeckCategory, rows: LanguageQuestionRow[]): QuizQuestion[] {
@@ -44,6 +47,10 @@ function buildLanguageQuestions(category: DeckCategory, rows: LanguageQuestionRo
       subtopic: row.topic,
       explanation: row.explanation ?? row.reference,
       sourceRef: row.referenceUrl,
+      imageUrl: row.imageUrl,
+      imageSourceUrl: row.imageSourceUrl,
+      imageCaption: row.imageCaption,
+      imageDisplay: row.imageUrl ? 'after_reveal' : undefined,
       status: 'approved',
     };
   });
