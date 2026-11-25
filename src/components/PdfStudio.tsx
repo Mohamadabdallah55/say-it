@@ -146,10 +146,10 @@ export function PdfStudio({
       initialDeck.categories.length >= 3 &&
       initialDeck.categories.length <= 6
         ? initialDeck.categories.length
-        : 5),
+        : 3),
   );
   const [teamCount, setTeamCount] = useState<number>(
-    initialDeck?.teamCount ?? (initialDeck?.boardMode === 'team_bundles' ? initialDeck.categories.length : 3),
+    initialDeck?.teamCount ?? (initialDeck?.boardMode === 'team_bundles' ? initialDeck.categories.length : 2),
   );
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(
     initialDeck ? resolveDeckDifficulties(initialDeck) : ['easy', 'medium', 'hard'],
