@@ -192,16 +192,13 @@
     "imageSourceUrl": "https://www.laliga.com/en-GB/player/antonio-rudiger"
   },
   {
-    "id": "RM-018",
+    "id": "RM-018-R3",
     "points": 600,
-    "question": "من كان هداف ريال مدريد في مشوار تتويجه الأول بكأس الاتحاد الأوروبي 1984-85، بخمسة أهداف؟",
-    "answer": "سانتيانا",
-    "answer_english": "Santillana",
-    "explanation": "أنهى سانتيانا المشوار بخمسة أهداف وفق أرشيف النادي.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-40-anos-de-la-primera-copa-de-la-uefa-22-05-2025",
-    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/carlos-alonso-gonzalez/assets/1330186262723.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/carlos-alonso-gonzalez",
-    "imageCaption": "سانتيانا — أرشيف ريال مدريد"
+    "question": "كم مباراة قلب ريال مدريد نتيجتها إلى فوز بعد استقبال الهدف الأول في مشوار أبطال أوروبا 2023-24 حتى إياب نصف النهائي؟",
+    "answer": "4 مباريات",
+    "answer_english": "4",
+    "explanation": "بحسب تحليل UEFA، حقق ريال مدريد أربعة انتصارات بعد التأخر حتى مباراة بايرن.",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ad8fd0126d7-27e090df5704-1000--in-the-zone-how-real-madrid-pulled-off-their-stunning-win/"
   },
   {
     "id": "RM-019",
@@ -216,13 +213,13 @@
     "imageCaption": "لقطة أرشيفية من نهائي 1960 في هامبدن بارك"
   },
   {
-    "id": "RM-020",
+    "id": "RM-020-R3",
     "points": 600,
-    "question": "في ذهاب نهائي كأس الاتحاد الأوروبي 1985، من افتتح التسجيل لريال مدريد أمام فيديوتون قبل سانتيانا وفالدانو؟",
-    "answer": "ميشيل",
-    "answer_english": "Míchel",
-    "explanation": "سجل ميشيل الهدف الأول قبل هدفي زميليه.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-40-anos-de-la-primera-copa-de-la-uefa-22-05-2025"
+    "question": "قبل هدف إبراهيم دياز الفردي أمام لايبزيغ في ذهاب ثمن نهائي 2024، مين لاعب لايبزيغ اللي تخلص منه دياز على الطرف الأيمن؟",
+    "answer": "تشافي سيمونز",
+    "answer_english": "Xavi Simons",
+    "explanation": "تخلص دياز من تشافي سيمونز قبل التقدم والتسديد.",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028a-1a2cac0ebcfd-8d059c940a51-1000--highlights-report-real-madrid-edge-leipzig/"
   },
   {
     "id": "RM-021",
@@ -369,16 +366,13 @@
     "imageSourceUrl": "https://www.libertaddigital.com/deportes/champions/2022-05-28/final-champions-league-real-madrid-liverpool-trece-champions-trece-fotos-1936363/"
   },
   {
-    "id": "RM-034",
+    "id": "RM-034-R3",
     "points": 600,
-    "question": "من المدرب الذي جمع مع ريال مدريد كأس الاتحاد الأوروبي وكأس الدوري الإسباني في موسم 1984-85؟",
-    "answer": "لويس مولوني",
-    "answer_english": "Luis Molowny",
-    "explanation": "قاد مولوني ريال مدريد إلى اللقبين في الموسم نفسه.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/hace-40-anos-se-gano-la-copa-de-la-liga-15-06-2025",
-    "imageUrl": "https://ep00.epimg.net/deportes/imagenes/2010/02/13/album/1266049314_910215_0000000002_album_normal.jpg",
-    "imageSourceUrl": "https://elpais.com/deportes/2010/02/13/album/1266049314_910215.html",
-    "imageCaption": "لويس مولوني في تدريبات ريال مدريد"
+    "question": "في إياب ربع نهائي أبطال أوروبا 2024 ضد مانشستر سيتي، مين لاعب السيتي اللي نفذ ركلة ترجيح ساقطة في منتصف المرمى والتقطها لونين؟",
+    "answer": "برناردو سيلفا",
+    "answer_english": "Bernardo Silva",
+    "explanation": "بقي لونين في مكانه والتقط تسديدة برناردو.",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028c-1aad6a5c7b4a-4c4a76ccd847-1000--manchester-city-1-1-real-madrid-agg-4-4-aet-3-4-pens-real-/"
   },
   {
     "id": "RM-035",
@@ -425,16 +419,13 @@
     "imageSourceUrl": "https://elpais.com/diario/2007/06/09/deportes/1181340004_850215.html"
   },
   {
-    "id": "RM-039",
+    "id": "RM-039-R3",
     "points": 600,
-    "question": "في ذهاب نهائي كأس الاتحاد الأوروبي 1986 أمام كولن، من اللاعب الأرجنتيني الذي سجل ثنائية ريال مدريد في الفوز 5-1؟",
-    "answer": "خورخي فالدانو",
-    "answer_english": "Jorge Valdano",
-    "explanation": "سجل فالدانو الهدفين الثالث والرابع.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-39-anos-de-la-2a-copa-de-la-uefa-06-05-2025",
-    "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/jorge-alberto-valdano-castellano/assets/1330192178619.jpg",
-    "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/jorge-alberto-valdano-castellano",
-    "imageCaption": "خورخي فالدانو — أرشيف النادي"
+    "question": "كم تسديدة سدد ليفربول مقابل أربع تسديدات لريال مدريد في نهائي دوري الأبطال 2022 وفق تحليل UEFA؟",
+    "answer": "24 تسديدة",
+    "answer_english": "24",
+    "explanation": "سدد ليفربول 24 مرة مقابل أربع لريال مدريد.",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-15464696cdc6-bf2145620f18-1000--champions-league-final-in-the-zone-liverpool-0-1-real-madrid-pe/"
   },
   {
     "id": "RM-040",

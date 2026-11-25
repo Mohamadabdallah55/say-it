@@ -323,25 +323,25 @@
     "photo": null
   },
   {
-    "id": "WF-029",
+    "id": "WF-029-R3",
     "points": 600,
-    "question": "من سجّل هدف فوز سلتيك 2-1 ضد إنتر في نهائي كأس أوروبا 1967؟",
-    "answer": "ستيفي تشالمرز",
-    "answer_english": "Stevie Chalmers",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "حوّل كرة زميله بوبي مردوخ داخل المرمى.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "question": "مين المدافع الإنجليزي اللي هيأ الكرة برأسه قبل مقصية بيلينغهام أمام سلوفاكيا في يورو 2024؟",
+    "answer": "مارك غيهي",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "هيأ غيهي الكرة لبيلينغهام الذي أدرك التعادل بمقصية.",
+    "answer_english": "Marc Guéhi",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028e-1b41ff0c9b9e-382c1ab22a1d-1000--england-2-1-slovakia-after-extra-time-bellingham-and-kane-e/",
     "photo": null
   },
   {
-    "id": "WF-030",
+    "id": "WF-030-R3",
     "points": 600,
-    "question": "من سجّل هدف تقدم مانشستر يونايتد في الوقت الإضافي أمام بنفيكا بنهائي كأس أوروبا 1968؟",
-    "answer": "جورج بست",
-    "answer_english": "George Best",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "سجل هدف 2-1 في فوز يونايتد 4-1.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "question": "أي لاعب نمساوي سجل هدف الفوز 3-2 أمام هولندا، ليضمن للنمسا صدارة مجموعة فرنسا وهولندا في يورو 2024؟",
+    "answer": "مارسيل سابيتزر",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "حسم سابيتزر المباراة لصالح النمسا.",
+    "answer_english": "Marcel Sabitzer",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028e-1b37e1ab43a5-f7f8832d2379-1000--netherlands-2-3-austria-sabitzer-seals-top-spot-for-rang/",
     "photo": null
   },
   {
@@ -513,14 +513,14 @@
     "imageCaption": "نهائي ريال مدريد وليفربول 2018"
   },
   {
-    "id": "WF-046",
+    "id": "WF-046-R3",
     "points": 600,
-    "question": "من نفّذ ركلة الجزاء التي افتتحت أهداف هولندا أمام ألمانيا الغربية بنهائي كأس العالم 1974؟",
-    "answer": "يوهان نيسكينز",
-    "answer_english": "Johan Neeskens",
-    "subcategory": "كأس العالم",
-    "explanation": "سجّل قبل أن يلمس المنتخب الألماني الكرة.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+    "question": "تسديدة داني أولمو أمام فرنسا في نصف نهائي يورو 2024 انحرفت عن أي مدافع قبل دخولها المرمى؟",
+    "answer": "جول كوندي",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "غيّرت الكرة اتجاهها بعد لمس كوندي.",
+    "answer_english": "Jules Koundé",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b544afc4a71-e17794a15449-1000--spain-2-1-france-la-roja-fight-back-to-reach-final/",
     "photo": null
   },
   {
@@ -579,14 +579,14 @@
     "photo": null
   },
   {
-    "id": "WF-052",
+    "id": "WF-052-R3",
     "points": 600,
-    "question": "من سجّل هدف أستون فيلا الوحيد أمام بايرن في نهائي كأس أوروبا 1982؟",
-    "answer": "بيتر ويث",
-    "answer_english": "Peter Withe",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "سجّل هدف الفوز في روتردام.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "question": "مين الياباني اللي سجل هدف الفوز على إسبانيا 2-1 في مونديال قطر بعد هدف التعادل لريتسو دوان؟",
+    "answer": "آو تاناكا",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "سجل تاناكا الهدف الثاني في الدقيقة 51.",
+    "answer_english": "Ao Tanaka",
+    "source_url": "https://www.fifa.com/en/articles/world-cup-upsets-japan-spain-2022",
     "photo": null
   },
   {
@@ -651,25 +651,25 @@
     "imageCaption": "صورة من التغطية الرسمية لنهائي دوري الأبطال 2023"
   },
   {
-    "id": "WF-058",
+    "id": "WF-058-R3",
     "points": 600,
-    "question": "أي منتخب خسر نهائي يورو 1968 بعد إعادة المباراة النهائية أمام إيطاليا؟",
-    "answer": "يوغوسلافيا",
-    "answer_english": "Yugoslavia",
-    "subcategory": "تاريخ البطولات والأرقام",
-    "explanation": "تعادل المنتخبان في النهائي الأول ثم فازت إيطاليا بالإعادة.",
-    "source_url": "https://www.uefa.com/news-media/news/0255-0d9f318097eb-ed051e4172d9-1000--what-happened-in-the-15-previous-euro-finals/",
+    "question": "في يورو 2024، مين صاحب الهدف الذي اختاره الجمهور أجمل هدف في البطولة، وليس الاختيار الرسمي للمراقبين الفنيين؟",
+    "answer": "ميرت مولدور",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "تصدر هدف مولدور ضد جورجيا تصويت الجمهور.",
+    "answer_english": "Mert Müldür",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b69569bb33e-89e91bd318f8-1000--mert-muldur-volley-tops-vote-for-fans-goal-of-the-tournament/",
     "photo": null
   },
   {
-    "id": "WF-059",
+    "id": "WF-059-R3",
     "points": 600,
-    "question": "من نفّذ ركلة الترجيح الحاسمة لألمانيا الغربية أمام فرنسا في نصف نهائي كأس العالم 1982؟",
-    "answer": "هورست هروبيش",
-    "answer_english": "Horst Hrubesch",
-    "subcategory": "كأس العالم",
-    "explanation": "حسم ركلات الترجيح لمصلحة ألمانيا الغربية.",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+    "question": "مين اللاعب الشاب اللي صنع الهدف الثالث لأرسنال أمام ريال مدريد 3-0 في ذهاب ربع نهائي أبطال أوروبا 2025؟",
+    "answer": "مايلز لويس سكيلي",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "مرر لويس سكيلي الكرة لميكيل ميرينو الذي سجل الثالث.",
+    "answer_english": "Myles Lewis-Skelly",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0298-1d798677eb22-40b84d719d26-1000--arsenal-3-0-real-madrid-sublime-declan-rice-free-kicks-inspi/",
     "photo": null
   },
   {
@@ -742,14 +742,14 @@
     "photo": null
   },
   {
-    "id": "WF-066",
+    "id": "WF-066-R3",
     "points": 600,
-    "question": "من سجّل هدف فوز ريال مدريد على ستاد ريمس 4-3 في أول نهائي لكأس أوروبا عام 1956؟",
-    "answer": "هيكتور ريال",
-    "answer_english": "Hector Rial",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "سجّل الهدف الرابع لريال مدريد الذي حسم النهائي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "question": "أي مدافع نمساوي تسبب بهدف فرنسا الوحيد بالخطأ في مرماه في افتتاح مشوار المنتخبين بيورو 2024؟",
+    "answer": "ماكسيميليان ووبر",
+    "subcategory": "تفاصيل حديثة",
+    "explanation": "سجل ووبر هدفًا عكسيًا حسم المباراة.",
+    "answer_english": "Maximilian Wöber",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028e-1b28090fd08d-c030ed4acf06-1000--austria-0-1-france-les-bleus-enter-fray-with-narrow-win/",
     "photo": null
   },
   {

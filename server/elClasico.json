@@ -154,21 +154,15 @@
     "imageSourceUrl": "https://www.dailysabah.com/sports/football/kessies-clasico-clutch-strike-sends-barca-12-points-atop-la-liga"
   },
   {
-    "id": "ELC-014",
+    "id": "ELC-014-R3",
     "level": 600,
-    "question": "في خماسية برشلونة بالبرنابيو عام 1974، من اللاعب الذي سجل الهدفين الأول والثالث؟",
-    "answer": "خوان مانويل أسينسي",
-    "explanation": "سجل أسينسي هدفين، وبينهما سجل كرويف الهدف الثاني.",
-    "fact_source_url": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu/amp",
-    "legacyQuestion": {
-      "answer": "رينوس ميخيلس",
-      "prompt": "من كان مدرب برشلونة عندما سحق ريال مدريد 5-0 في البرنابيو سنة 1974؟",
-      "explanation": "تؤكد تغطية FC Barcelona — 50 years since the 5-0 at the Bernabéu هذه المعلومة.",
-      "source": "https://www.fcbarcelona.com/en/news/3897179/50-years-since-the-5-0-at-the-santiago-bernabeu"
-    },
-    "imageUrl": "https://www.cihefe.es/cuadernosdefutbol/wp-content/upLoads/2019/11/CategoriaOlimpica04.jpg",
-    "imageSourceUrl": "https://www.cuadernosdefutbol.com/category/interactivity-type/active/page/26/?print=print-search",
-    "imageCaption": "خوان مانويل أسينسي بقميص برشلونة"
+    "question": "في كلاسيكو أبريل 2024، مين لاعب ريال مدريد اللي بدأ هجمة التعادل 2-2 بتمرير الكرة لفينيسيوس قبل عرضيته للوكاس فاسكيز؟",
+    "answer": "فيديريكو فالفيردي",
+    "explanation": "بدأ فالفيردي الهجمة بتمريرة لفينيسيوس، ثم سجل فاسكيز من عرضيته.",
+    "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-21-04-2024-rm-barcelona",
+    "imageUrl": "https://cadenaser.com/resizer/v2/DBMJKFHVMBELRLBLFRYVBOHYNM.jpg?auth=a77fc33ab80c0e4c68cc2db76ede7c3b6d17d581450591081c08ffb22f097dd2",
+    "imageSourceUrl": "https://cadenaser.com/nacional/2022/10/16/toni-kroos-fede-valverde-top-tres-del-mundo-ahora-mismo-cadena-ser/",
+    "imageCaption": "صورة أرشيفية لفيديريكو فالفيردي وليست من اللقطة المذكورة."
   },
   {
     "id": "ELC-V2-015",
