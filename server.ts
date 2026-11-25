@@ -847,7 +847,14 @@ async function startServer() {
 
   if (process.env.NODE_ENV === 'production') {
     const distDir = path.resolve(process.cwd(), 'dist');
+    // Match rooms are not public search landing pages.
+    app.use((req, res, next) => {
+      if (req.query.room || req.query.role) res.setHeader('X-Robots-Tag', 'noindex');
+      next();
+    });
     app.use(express.static(distDir));
+    // Do not return the SPA home page for missing game guides or sitemap files.
+    app.get(['/games/*', '/sitemap.xml', '/robots.txt'], (_req, res) => res.status(404).send('Not found'));
     app.get('*', (_req, res) => {
       res.sendFile(path.join(distDir, 'index.html'));
     });
