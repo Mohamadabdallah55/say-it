@@ -115,7 +115,7 @@ export const FOOTBALL_CAREER_QUESTIONS = footballCareerRows.map((row): QuizQuest
   imageDisplay: 'before_reveal',
   imageCaption: 'محطات المسيرة بالترتيب',
   answerImageUrl: 'answerImageUrl' in row ? row.answerImageUrl : undefined,
-  imageSourceUrl: row.sourceUrl,
+  imageSourceUrl: 'answerImageSourceUrl' in row && typeof row.answerImageSourceUrl === 'string' ? row.answerImageSourceUrl : row.sourceUrl,
   explanation: row.type === 'missing' ? row.clubs.join(' ← ') : undefined,
 }));
 

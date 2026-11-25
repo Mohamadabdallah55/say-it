@@ -88,7 +88,10 @@
     "acceptableAnswers": [
       "Shakhtar Donetsk"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/e3/9f/2011-04-06T204304Z_01_SPS41_RTRIDSP_3_SOCCER-CHAMPIONS.jpg",
+    "imageSourceUrl": "https://news.sportbox.ru/Vidy_sporta/Futbol/Liga_Chempionov/spbfoto_SHahtyor-Barselona",
+    "imageCaption": "برشلونة أمام شاختار في ربع نهائي 2011"
   },
   {
     "id": "BAR-007",
@@ -101,7 +104,10 @@
     "acceptableAnswers": [
       "Kaiserslautern"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://estaticos-cdn.prensaiberica.es/clip/4fbf7b19-99d5-4a73-bb5f-6f9f8ff43c10_16-9-discover-aspect-ratio_default_0.jpg",
+    "imageSourceUrl": "https://www.sport.es/es/noticias/45-aniversario/dia-bakero-obro-milagro-kaiserslautern-110798905",
+    "imageCaption": "احتفال باكيرو في مواجهة كايزرسلاوترن 1991"
   },
   {
     "id": "BAR-010",
