@@ -46,7 +46,7 @@ test('World Cup 2026 category is registered alongside all existing categories', 
   }
 });
 
-test('World Cup 2026 dataset has all 150 direct_qa questions (50x200, 50x400, 50x600)', () => {
+test('World Cup 2026 dataset has all 150 direct_qa questions in revised tiers', () => {
   assert.equal(WORLD_CUP_2026_QUESTIONS.length, WORLD_CUP_2026_COUNT);
   assert.equal(WORLD_CUP_2026_ALL_ROWS.length, WORLD_CUP_2026_COUNT);
 
@@ -65,7 +65,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions (50x200, 50x400, 50
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 50, 400: 50, 600: 50 });
+  assert.deepEqual(tierCounts, { 200: 58, 400: 64, 600: 28 });
 });
 
 test('World Cup 2026 uses exclusively verified local assets with zero spoilers before reveal', () => {
@@ -107,7 +107,7 @@ test('World Cup 2026 uses exclusively verified local assets with zero spoilers b
     }
   }
 
-  assert.equal(playerRevealCount, 62);
+  assert.equal(playerRevealCount, 70);
 });
 
 test('World Cup 2026 manifest exists and confirms 46 flags, 1 trophy, and 50 players verified', () => {
@@ -213,4 +213,34 @@ test('Projector state shows beforeImageUrls pre-reveal and strictly hides afterI
   assert.equal(projectorAfter.activeRound.afterImageUrl, playerQuestion.afterImageUrl);
   assert.equal(projectorAfter.activeRound.answer, playerQuestion.answer);
   assert.equal(projectorAfter.activeRound.explanation, playerQuestion.explanation);
+});
+
+
+test('World Cup score cards are local factual graphics and sourced fixture photos stay hidden until reveal', () => {
+  const rows = WORLD_CUP_2026_ALL_ROWS.filter(row=>row.answer_type==='score');
+  assert.equal(rows.length, 3);
+  for (const row of rows) {
+    assert.ok(row.afterImageUrl.endsWith('.svg'));
+    assert.ok(row.source_url.startsWith('https://www.fifa.com/'));
+    assert.ok(fs.readFileSync(path.join(process.cwd(),'public',row.afterImageUrl.slice(1)),'utf8').includes('بطاقة توضيحية'));
+  }
+  const photos = WORLD_CUP_2026_QUESTIONS.filter(q=>q.imageUrl);
+  assert.equal(photos.length,10);
+  for(const q of photos) { assert.equal(q.imageDisplay,'after_reveal'); assert.ok(q.imageSourceUrl?.startsWith('https://')); }
+});
+
+
+test('World Cup editorial bank has varied topics rather than repetitive fixture winners', () => {
+  assert.equal(new Set(WORLD_CUP_2026_ALL_ROWS.map(row => row.question)).size, 150);
+  assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.answer_type === 'score').length <= 8);
+  assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.topic === 'نتائج ومباريات').length <= 10);
+  assert.ok(new Set(WORLD_CUP_2026_ALL_ROWS.map(row => row.topic)).size >= 15);
+});
+
+
+test('World Cup easy and medium tiers distinguish recognizable stars from more specific tournament recall', () => {
+  const byId = new Map(WORLD_CUP_2026_ALL_ROWS.map(row => [row.id, row]));
+  for(const id of ['WC26-200-21','WC26-200-28','WC26-200-39','WC26-400-19','WC26-600-42','WC26-200-16','WC26-200-13','WC26-400-22']) assert.equal(byId.get(id)?.points, 200);
+  for(const id of ['WC26-200-06','WC26-200-04','WC26-200-45','WC26-400-46','WC26-400-07','WC26-600-11']) assert.equal(byId.get(id)?.points, 400);
+  for(const id of ['WC26-400-01','WC26-600-07','WC26-600-12','WC26-600-22']) assert.equal(byId.get(id)?.points, 600);
 });
