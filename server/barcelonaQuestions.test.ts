@@ -14,7 +14,7 @@ test('Barcelona is registered, has unique questions and images on every player a
   assert.equal(SERVER_CURATED_QUESTIONS.filter(q => q.categoryId === BARCELONA_CATEGORY.id).length, 47);
   assert.equal(new Set(rows.map(q => q.id)).size, 47);
   assert.equal(new Set(rows.map(q => q.question)).size, 47);
-  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [18,17,12]);
+  assert.deepEqual([200, 400, 600].map(points => rows.filter(q => q.points === points).length), [19, 20, 8]);
   assert.equal(rows.filter(q => q.kind === 'number').length, 27);
   assert.equal(rows.filter(q => q.kind === 'photo').length, 10);
   for (const row of rows.filter(q => q.kind === 'number' && q.imageUrl)) {
