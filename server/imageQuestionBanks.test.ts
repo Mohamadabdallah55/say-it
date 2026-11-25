@@ -20,7 +20,7 @@ const settings = { categoryCount: 3, lifelinesEnabled: false };
 test('football first names use 100 distinct photos and hide names and credit links until reveal', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => FOOTBALL_FIRST_NAME_QUESTIONS.filter(q => q.points === points).length),
-    [39, 32, 29],
+    [79, 13, 8],
   );
   const photos = new Set<string>();
   for (const question of FOOTBALL_FIRST_NAME_QUESTIONS) {
@@ -61,7 +61,7 @@ test('football first names use 100 distinct photos and hide names and credit lin
 test('world football can share a board with Champions League and only reveals sourced photos with the answer', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => WORLD_FOOTBALL_QUESTIONS.filter(q => q.points === points).length),
-    [25, 35, 40],
+    [48, 27, 25],
   );
   const photoQuestions = WORLD_FOOTBALL_QUESTIONS.filter(q => q.imageUrl);
   assert.ok(photoQuestions.length);
@@ -101,8 +101,8 @@ test('world football can share a board with Champions League and only reveals so
 test('careers and reciters keep the supplied tiers and reveal only the intended media', () => {
   const tiers = [200, 400, 600];
   const tierCounts = (bank: typeof FOOTBALL_CAREER_QUESTIONS) => tiers.map(points => bank.filter(q => q.points === points).length);
-  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS), [30, 30, 30]);
-  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [15, 15, 15]);
+  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS), [58, 25, 7]);
+  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [40, 5, 0]);
   assert.deepEqual(tierCounts(RECITER_QUESTIONS), [67, 66, 67]);
   const reciterCounts = new Map<string, number>();
   for (const q of RECITER_QUESTIONS) reciterCounts.set(q.answer, (reciterCounts.get(q.answer) ?? 0) + 1);
@@ -154,7 +154,7 @@ test('both packs are selectable, have all tiers, and do not count distinct flags
   const tierCounts = (questions: typeof FLAGS_QUESTIONS) =>
     [200, 400, 600].map(points => questions.filter(q => q.points === points).length);
   assert.deepEqual(tierCounts(FLAGS_QUESTIONS), [25, 35, 40]);
-  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [25, 35, 40]);
+  assert.deepEqual(tierCounts(CHAMPIONS_LEAGUE_QUESTIONS), [58, 31, 11]);
   assert.ok(CHAMPIONS_LEAGUE_QUESTIONS.filter(q => q.imageDisplay === 'after_reveal').length >= 25);
   const flagHashes = FLAGS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
@@ -206,7 +206,7 @@ test('opening a flag excludes it from subsequent matches without consuming unope
 });
 
 test('club badges load before reveal without exposing the club or its source URL', () => {
-  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [33,35,34]);
+  assert.deepEqual([200, 400, 600].map(points => CLUB_LOGOS_QUESTIONS.filter(q => q.points === points).length), [54, 36, 12]);
   const hashes = CLUB_LOGOS_QUESTIONS.map(q => createHash('sha256')
     .update(readFileSync(new URL(`../public${q.imageUrl}`, import.meta.url))).digest('hex'));
   assert.equal(new Set(hashes).size, 102);
@@ -238,7 +238,7 @@ test('club badges load before reveal without exposing the club or its source URL
 test('El Clásico photos are available to saved matches and hidden from the projector until reveal', () => {
   const clips = EL_CLASICO_QUESTIONS.filter(q => q.videoUrl);
   assert.equal(EL_CLASICO_QUESTIONS.length, 100);
-  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [25, 35, 40]);
+  assert.deepEqual([200, 400, 600].map(points => EL_CLASICO_QUESTIONS.filter(q => q.points === points).length), [32, 39, 29]);
   assert.ok(EL_CLASICO_QUESTIONS.filter(q => q.imageUrl).every(q => q.imageSourceUrl && q.imageDisplay === 'after_reveal'));
   assert.equal(clips.length, 0, 'Unreviewed clips must not play');
   assert.ok(EL_CLASICO_QUESTIONS.every(q => !/^شاهد/.test(q.prompt)));
@@ -466,4 +466,11 @@ test('UCL video remains visible to projector while answer photo and text stay pr
   const revealed=sanitizeStateForRole(revealAnswer(opened.state,'reveal-ucl-video').state,'projector').activeRound;
   assert.equal(revealed?.imageUrl,clip.imageUrl);
   assert.equal(revealed?.answer,clip.answer);
+});
+
+
+test('fan difficulty rubric keeps major events and obvious careers at 200', () => {
+  for (const [bank,id] of [[CHAMPIONS_LEAGUE_QUESTIONS,'UCL-027'],[CHAMPIONS_LEAGUE_QUESTIONS,'UCL-049'],[WORLD_FOOTBALL_QUESTIONS,'WF-049'],[FOOTBALL_CAREER_QUESTIONS,'FC-013'],[FOOTBALL_FIRST_NAME_QUESTIONS,'FN-060']] as const) assert.equal(bank.find(q=>q.id===id)?.points,200);
+  assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.find(q=>q.id==='UCL-051')?.points,400);
+  assert.equal(CHAMPIONS_LEAGUE_QUESTIONS.find(q=>q.id==='UCL-093')?.points,600);
 });

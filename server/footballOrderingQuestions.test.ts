@@ -17,7 +17,7 @@ const deck = buildBoardDeckFromCategories(
 test('different options distinguish shared ordering prompts, while shuffling the same options does not', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => FOOTBALL_ORDERING_QUESTIONS.filter(q => q.points === points).length),
-    [23, 60, 47],
+    [27, 65, 38],
   );
   assert.ok(runBoardPreflightCheck({ deck, teams, settings }).canStart);
   const [question] = FOOTBALL_ORDERING_QUESTIONS;
