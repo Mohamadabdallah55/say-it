@@ -33,10 +33,10 @@ test('Madrid includes historical photos and illustrated shirt number questions',
 
 test('Madrid hard tier retains historical questions and adds varied sourced history', () => {
   assert.equal(REAL_MADRID_QUESTIONS.filter(q => q.points === 600).length, 41);
-  const expected = {"RM-003":"ميغيل مونيوز","RM-005":"ماركيتوس","RM-010":"أندرلخت","RM-018":"سانتيانا","RM-020":"ميشيل","RM-031":"خوانيتو","RM-034":"لويس مولوني","RM-039":"خورخي فالدانو","RM-043":"إغناسيو زوكو","RM-047":"سانتياغو سولاري","RM-049":"فلافيو كونسيساو","RM-051":"لويس فيغو","RM-052":"بوروسيا دورتموند","RM-053":"خيسوس فاييخو","RM-055":"لوكاس فاسكيز","RM-062":"أمانسيو أمارو","RM-063":"ميغيل بارديزا","RM-068":"لويس كارنيغليا"};
+  const expected = {"RM-003-R2":"إدواردو كامافينغا","RM-007-R2":"إيدير ميليتاو","RM-015-R2":"خوسيلو","RM-005":"ماركيتوس","RM-010":"أندرلخت","RM-018":"سانتيانا","RM-020":"ميشيل","RM-031":"خوانيتو","RM-034":"لويس مولوني","RM-039":"خورخي فالدانو","RM-043":"إغناسيو زوكو","RM-047":"سانتياغو سولاري","RM-049":"فلافيو كونسيساو","RM-051":"لويس فيغو","RM-052":"بوروسيا دورتموند","RM-053":"خيسوس فاييخو","RM-055":"لوكاس فاسكيز","RM-062":"أمانسيو أمارو","RM-063":"ميغيل بارديزا","RM-068":"لويس كارنيغليا"};
   for (const [id, answer] of Object.entries(expected)) {
     const q = REAL_MADRID_QUESTIONS.find(x => x.id === id);
-    assert.equal(q?.points, ({"RM-003":600,"RM-005":600,"RM-010":400,"RM-018":600,"RM-020":600,"RM-031":400,"RM-034":600,"RM-039":600,"RM-043":600,"RM-047":600,"RM-049":600,"RM-051":400,"RM-052":400,"RM-053":400,"RM-055":600,"RM-062":600,"RM-063":600,"RM-068":600} as Record<string,number>)[id]);
+    assert.equal(q?.points, ({"RM-003-R2":600,"RM-007-R2":600,"RM-015-R2":600,"RM-005":600,"RM-010":400,"RM-018":600,"RM-020":600,"RM-031":400,"RM-034":600,"RM-039":600,"RM-043":600,"RM-047":600,"RM-049":600,"RM-051":400,"RM-052":400,"RM-053":400,"RM-055":600,"RM-062":600,"RM-063":600,"RM-068":600} as Record<string,number>)[id]);
     assert.equal(q?.answer, answer);
     assert.ok(q?.sourceRef?.startsWith('https://'));
   }

@@ -30,7 +30,10 @@
       "ميلان"
     ],
     "sourceUrl": "https://www.uefa.com/news/0254-0d7cf3e37912-f305bae6c633-1000--clarence-seedorf/",
-    "clueFile": "FC-002-timeline-v3.svg"
+    "clueFile": "FC-002-timeline-v3.svg",
+    "answerImageUrl": "https://static.nexilia.it/giornalettismo/2014/01/clarence-seedorf-7.jpg",
+    "answerImageSourceUrl": "https://archivio.giornalettismo.com/clarence-seedorf-chi-e-il-nuovo-allenatore-del-milan/",
+    "answerImageCaption": "صورة أرشيفية — كلارنس سيدورف"
   },
   {
     "id": "FC-003",
@@ -73,7 +76,10 @@
     "sourceUrl": "https://www.fotmob.com/en-GB/players/35561/hernan-crespo",
     "clueFile": "FC-004-timeline-v4.svg",
     "careerUpdateSource": "https://www.fotmob.com/en-GB/players/35561/hernan-crespo",
-    "careerUpdatedAt": "2026-11-26"
+    "careerUpdatedAt": "2026-11-26",
+    "answerImageUrl": "https://cdn.mos.cms.futurecdn.net/YcvT3zw3rBJraicvRGoaV8-650-80.jpg",
+    "answerImageSourceUrl": "https://www.fourfourtwo.com/features/32-best-serie-a-players-of-the-90s",
+    "answerImageCaption": "صورة أرشيفية — هيرنان كريسبو"
   },
   {
     "id": "FC-005",
@@ -161,7 +167,10 @@
       "تشيلسي"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0246-0e98e228fe16-d5ff2a10c737-1000--which-portuguese-has-played-the-most-uefa-club-games/",
-    "clueFile": "FC-009-timeline-v3.svg"
+    "clueFile": "FC-009-timeline-v3.svg",
+    "answerImageUrl": "https://www.mundodeportivo.com/uploads/2023/09/13/65019304bdb46.jpeg",
+    "answerImageSourceUrl": "https://www.mundodeportivo.com/futbol/fc-barcelona/20230913/1002068656/deco.html",
+    "answerImageCaption": "صورة أرشيفية — ديكو"
   },
   {
     "id": "FC-010",
@@ -311,7 +320,10 @@
       "بازل"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/027c-16debf964576-881d0b79a095-1000--europe-s-top-argentinian-stars/",
-    "clueFile": "FC-016-timeline-v3.svg"
+    "clueFile": "FC-016-timeline-v3.svg",
+    "answerImageUrl": "https://intermilan.bynder.com/m/630e3c1df55d256d/webimage-DFP-0001022-MD.jpg",
+    "answerImageSourceUrl": "https://www.inter.it/en/news/birthday-walter-samuel-2026",
+    "answerImageCaption": "صورة أرشيفية — والتر صامويل"
   },
   {
     "id": "FC-017",
@@ -1011,7 +1023,10 @@
       "فولفسبورغ"
     ],
     "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d811774e433-bc41b14f342d-1000--orsic-modric-perisic-who-are-croatia-s-top-uefa-champions-le/",
-    "clueFile": "FC-051-timeline-v3.svg"
+    "clueFile": "FC-051-timeline-v3.svg",
+    "answerImageUrl": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2012/04/03/22/pg-68-olic-afp-getty.jpg?width=1200",
+    "answerImageSourceUrl": "https://www.independent.co.uk/sport/football/european/ivica-olic-s-double-puts-bayern-munich-one-step-away-from-home-final-dream-7615593.html",
+    "answerImageCaption": "صورة أرشيفية — إيفيكا أوليتش"
   },
   {
     "id": "FC-052",

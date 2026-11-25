@@ -1357,7 +1357,7 @@ export function GameArena({
                           ترخيص الصورة
                         </a>
                       )}
-                      {roundMeta.answerImageUrl && roundMeta.answerImageUrl !== roundMeta.afterImageUrl && roundMeta.answerImageUrl !== getQuestionImageSrc(roundMeta) && (
+                      {roundMeta.answerImageUrl && roundMeta.answerImageUrl !== roundMeta.afterImageUrl && roundMeta.answerImageUrl !== getQuestionImageSrc(roundMeta) && !(roundMeta.categoryId === 'cat_general' && !roundMeta.afterImageUrl && !getQuestionImageSrc(roundMeta)) && (
                         <QuestionMedia
                           key={`answer-photo-${roundMeta.questionId}`}
                           imageSrc={roundMeta.answerImageUrl}

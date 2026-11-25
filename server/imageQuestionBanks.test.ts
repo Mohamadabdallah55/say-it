@@ -102,7 +102,7 @@ test('careers and reciters keep the supplied tiers and reveal only the intended 
   const tiers = [200, 400, 600];
   const tierCounts = (bank: typeof FOOTBALL_CAREER_QUESTIONS) => tiers.map(points => bank.filter(q => q.points === points).length);
   assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS), [38, 31, 21]);
-  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [38, 29, 18]);
+  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [38, 31, 21]);
   for (const q of FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl?.startsWith('/'))) {
     assert.ok(readFileSync(new URL(`../public${q.answerImageUrl}`, import.meta.url)).length > 0, q.id);
   }
