@@ -13,7 +13,7 @@
   {
     "id": "UCL-002",
     "points": 200,
-    "question": "من نفّذ الركنية السريعة التي سجل منها ديفوك أوريغي هدف ليفربول الرابع أمام برشلونة عام 2019؟",
+    "question": "أي ظهير إنجليزي مشهور مع ليفربول، اسمه الأول ترينت، نفّذ الركنية السريعة أمام برشلونة عام 2019؟",
     "answer": "ترينت ألكسندر-أرنولد",
     "explanation": "ركنية ألكسندر-أرنولد المباغتة صنعت هدف أوريغي الرابع في أنفيلد.",
     "theme": "لقطات شهيرة",
@@ -92,7 +92,7 @@
   {
     "id": "UCL-009",
     "points": 200,
-    "question": "من نفّذ ركلة الترجيح الحاسمة لتشيلسي ضد بايرن ميونخ في نهائي 2012؟",
+    "question": "مين المهاجم الإيفواري الأسطوري لتشيلسي اللي سجل ركلة الترجيح الحاسمة بنهائي 2012؟",
     "answer": "ديدييه دروغبا",
     "explanation": "دروغبا نفذ الركلة الفاصلة بعد انتهاء المباراة 1-1.",
     "theme": "نهائيات حاسمة",
@@ -115,7 +115,7 @@
   {
     "id": "UCL-011",
     "points": 200,
-    "question": "من حسم نهائي 2013 لبايرن ميونخ أمام دورتموند بهدف متأخر؟",
+    "question": "مين الجناح الهولندي الشهير بتسديداته بالقدم اليسرى اللي حسم نهائي 2013 لبايرن؟",
     "answer": "آريين روبن",
     "explanation": "سجل روبن هدف الفوز قرب نهاية المباراة التي انتهت 2-1.",
     "theme": "لحظات حاسمة",
@@ -126,7 +126,7 @@
   {
     "id": "UCL-012",
     "points": 200,
-    "question": "من سجّل هدف بايرن ميونخ الوحيد في مرمى باريس سان جيرمان بنهائي 2020؟",
+    "question": "مين الجناح الفرنسي، كينغسلي، اللي سجل هدف فوز بايرن بنهائي 2020؟",
     "answer": "كينغسلي كومان",
     "explanation": "سجل كومان هدف الفوز في الدقيقة 59.",
     "theme": "نهائي 2020",
@@ -161,7 +161,7 @@
   {
     "id": "UCL-015",
     "points": 200,
-    "question": "من سجّل هدف تشيلسي الوحيد أمام مانشستر سيتي في نهائي 2021؟",
+    "question": "مين اللاعب الألماني الذي سجّل هدف تشيلسي بنهائي 2021 وانتقل لاحقًا لأرسنال؟",
     "answer": "كاي هافرتز",
     "explanation": "حسم هافرتز نهائي بورتو بتسجيل هدف المباراة الوحيد.",
     "theme": "النهائيات الإنجليزية",
@@ -183,7 +183,7 @@
   {
     "id": "UCL-017",
     "points": 200,
-    "question": "من افتتح التسجيل لبرشلونة أمام يوفنتوس في نهائي 2015؟",
+    "question": "مين لاعب الوسط الكرواتي إيفان، اللي سجل أول أهداف برشلونة بنهائي 2015؟",
     "answer": "إيفان راكيتيتش",
     "explanation": "تقدم برشلونة بهدف راكيتيتش المبكر قبل الفوز 3-1.",
     "theme": "نهائيات برشلونة",
@@ -195,7 +195,7 @@
   {
     "id": "UCL-018",
     "points": 200,
-    "question": "في نهائي 2006 أمام أرسنال، من كان مدرب برشلونة عند إحراز لقبه الأوروبي الثاني؟",
+    "question": "مين المدرب الهولندي، فرانك، اللي قاد برشلونة للفوز بدوري الأبطال عام 2006؟",
     "answer": "فرانك ريكارد",
     "explanation": "توج برشلونة بقيادة فرانك ريكارد في باريس.",
     "theme": "أرشيف فيديو",
@@ -237,7 +237,7 @@
   {
     "id": "UCL-021",
     "points": 200,
-    "question": "من سجّل الهدف الثالث الحاسم لروما أمام برشلونة في ريمونتادا ربع نهائي 2018؟",
+    "question": "مين المدافع اليوناني، كوستاس، اللي سجل رأسية تأهل روما الشهيرة أمام برشلونة 2018؟",
     "answer": "كوستاس مانولاس",
     "explanation": "سجل مانولاس هدف 3-0 لروما برأسية في الدقيقة 82.",
     "theme": "مفاجآت الأدوار الإقصائية",
@@ -248,7 +248,7 @@
   {
     "id": "UCL-022",
     "points": 200,
-    "question": "من سجّل هدف التأهل السادس لبرشلونة أمام باريس عام 2017؟",
+    "question": "مين لاعب برشلونة، سيرجي، اللي سجل هدف الريمونتادا السادس ضد باريس؟",
     "answer": "سيرجي روبرتو",
     "explanation": "أنهى سيرجي روبرتو ريمونتادا 6-1 بهدف متأخر.",
     "theme": "اللحظات الأخيرة",
@@ -259,7 +259,7 @@
   {
     "id": "UCL-023",
     "points": 200,
-    "question": "من سجّل ركلة الجزاء المتأخرة التي أقصت باريس سان جيرمان أمام مانشستر يونايتد عام 2019؟",
+    "question": "مين المهاجم الإنجليزي اللي سجل ركلة جزاء تأهل مانشستر يونايتد على حساب باريس عام 2019، وكان من نجوم أكاديمية يونايتد؟",
     "answer": "ماركوس راشفورد",
     "explanation": "سجل راشفورد ركلة الجزاء في الوقت بدل الضائع بباريس.",
     "theme": "ركلات مثيرة للجدل",
@@ -417,13 +417,13 @@
     "source_url": "https://www.liverpoolfc.com/vladimir-smicer"
   },
   {
-    "id": "UCL-038",
+    "id": "UCL-NEW-26-01",
     "points": 600,
-    "question": "مين اللاعب البرازيلي اللي نفّذ أول ركلة ترجيح لميلان في نهائي 2005 وأضاعها فوق العارضة؟",
-    "answer": "سيرجينيو",
-    "explanation": "أهدر الركلة الأولى لميلان.",
-    "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/news/025d-0f782b45c942-3e20b8c30dfa-1000--miracle-of-istanbul-an-oral-history/"
+    "question": "في نهائي دوري الأبطال 2025، مين لاعب باريس اللي دخل بدل فابيان رويز وسجل الهدف الخامس؟",
+    "answer": "سيني مايولو",
+    "explanation": "دخل مايولو بديلًا وسجل الهدف الأخير في فوز باريس 5-0.",
+    "theme": "التبديلات وتأثيرها",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/"
   },
   {
     "id": "UCL-039",
@@ -637,13 +637,16 @@
     "imageCaption": "صورة كريستيانو رونالدو · Bryan Berlin · CC BY-SA 4.0"
   },
   {
-    "id": "UCL-057",
+    "id": "UCL-NEW-26-02",
     "points": 600,
-    "question": "من كان أصغر لاعب يشارك في نهائي كأس أوروبا حين لعب مع بنفيكا ضد ريال مدريد سنة 1962 بعمر 18 سنة؟",
-    "answer": "أنطونيو سيمويش",
-    "explanation": "شارك في نهائي أمستردام بعمر 18 عامًا و139 يومًا.",
-    "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "question": "مين لاعب باريس اللي كانت سرعته القصوى 36.9 كم/س حسب تقرير UEFA عن موسم التتويج 2024/25؟",
+    "answer": "أشرف حكيمي",
+    "explanation": "أدرج تقرير UEFA حكيمي بهذه السرعة.",
+    "theme": "أداء اللاعبين",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1db3ed7babb3-e6227af6104f-1000--champions-league-final-paris-vs-inter-meet-the-teams/",
+    "imageUrl": "/assets/questions/football-first-name/d95db4be17d185b2f70a6d52.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Achraf_Hakimi_Morocco_v_Norway_7_June_2026-32.jpg",
+    "imageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
   },
   {
     "id": "UCL-058",
@@ -883,7 +886,10 @@
     "answer": "أوليفييه جيرو",
     "explanation": "سجل جميع أهداف تشيلسي في الفوز 4–0.",
     "theme": "لحظات وأرقام تاريخية",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/"
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-all-the-records-and-st/",
+    "imageUrl": "/assets/questions/football-first-name/6c65dd06b5f92b535c0d4d46.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Olivier_Giroud_December_2024.png",
+    "imageCaption": "صورة محفوظة من مكتبة اللعبة · MHSC TV - Montpellier Hérault Sport Club · CC BY 3.0"
   },
   {
     "id": "UCL-077",
@@ -1040,13 +1046,13 @@
     "source_url": "https://es.uefa.com/uefachampionsleague/news/0252-0e98d341867a-1f3b773dccf1-1000--todas-las-finales-de-la-champions-league-en-video/"
   },
   {
-    "id": "UCL-091",
+    "id": "UCL-NEW-26-03",
     "points": 600,
-    "question": "أي نادٍ ألماني واجه يوفنتوس في نهائي كأس أوروبا عام 1983؟",
-    "answer": "هامبورغ",
-    "explanation": "فاز هامبورغ بهدف نظيف.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--final-records-and-statistics/"
+    "question": "في نهائي دوري الأبطال 2025، مين لاعب إنتر اللي دخل بديلًا لبافار ثم تم استبداله بعد دقائق؟",
+    "answer": "يان أوريل بيسيك",
+    "explanation": "دخل بيسيك بدل بافار ثم خرج ودخل دارميان.",
+    "theme": "تبديلات وتفاصيل المباريات",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/"
   },
   {
     "id": "UCL-092",

@@ -107,7 +107,7 @@ test('World Cup 2026 uses exclusively verified local assets with zero spoilers b
     }
   }
 
-  assert.equal(playerRevealCount, 70);
+  assert.equal(playerRevealCount, 68);
 });
 
 test('World Cup 2026 manifest exists and confirms 46 flags, 1 trophy, and 50 players verified', () => {

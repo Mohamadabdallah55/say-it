@@ -21,3 +21,6 @@ This pass preserves IDs, questions, answer texts and existing media, and adjusts
 - 600: an unusually attentive fan should have a fair chance; precise roles, substitutions, opponents, historical context, lesser-known records and tactical or transfer details, with unambiguous clues and reliable sources. Avoid artificially obscure trivia.
 - Diversify across nearby questions and across score levels; goals, assists, braces and penalties are related families, not independent variety.
 - Global football and football letters are text-first; no new images required.
+
+## Casual tier correction
+200 must be solvable by a casual viewer; add recognizable context (nationality, iconic club, famous nickname or first name where needed), not exact dates, old lineups, or niche statistics. For 600 favor memorable modern matches and substitutions, tactical details, or meaningful statistics over obscure pre-1990 trivia. Reuse already bundled player portraits where identity is exact; keep jersey and match-specific photos separate. Existing archived local images are reused rather than importing new Wikimedia images.

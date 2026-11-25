@@ -77,7 +77,7 @@
   {
     "id": "ELC-007",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في كلاسيكو 19 نوفمبر 2005، من افتتح التسجيل لبرشلونة قبل ثنائية رونالدينيو؟",
+    "question": "مين المهاجم الكاميروني اللي افتتح تسجيل برشلونة في كلاسيكو 2005 قبل ثنائية رونالدينيو؟",
     "answer": "صامويل إيتو",
     "explanation": "إيتو سجل الهدف الأول، ثم أضاف رونالدينيو هدفين.",
     "fact_source_url": "https://www.skysports.com/football/real-madrid-vs-barcelona/teams/66027",
@@ -98,7 +98,7 @@
   {
     "id": "ELC-008",
     "level": 200,
-    "question": "في 1994 فاز برشلونة 5-0 وفي 1995 فاز ريال مدريد 5-0. من اللاعب الذي خاض الانتصارين مع فريق مختلف؟",
+    "question": "مين النجم الدنماركي مايكل اللي فاز بكلاسيكو 5-0 مع برشلونة ثم فاز بنفس النتيجة مع ريال مدريد؟",
     "answer": "مايكل لاودروب",
     "explanation": "تؤكد تغطية FC Barcelona — Michael Laudrup in my own words هذه المعلومة.",
     "fact_source_url": "https://www.fcbarcelona.com/en/news/1526527/in-my-own-words-michael-laudrup",
@@ -146,7 +146,7 @@
   {
     "id": "ELC-013",
     "level": 200,
-    "question": "في فوز برشلونة 2-1 على ريال مدريد في مارس 2023، من سجل هدف الفوز بوقت بدل الضائع وكان هذا الهدف رقم 3000 لبرشلونة في كامب نو بالليغا؟",
+    "question": "مين لاعب الوسط الإيفواري فرانك اللي سجل هدف فوز برشلونة المتأخر في كلاسيكو مارس 2023؟",
     "answer": "فرانك كيسي",
     "explanation": "تؤكد تغطية FC Barcelona — Franck Kessié 3000th goal هذه المعلومة.",
     "fact_source_url": "https://www.fcbarcelona.com/en/futbol/primer-equipo/noticias/3116980/kessie-autor-del-gol-3000-a-lspotify-camp-nou-a-la-lliga",
@@ -194,7 +194,7 @@
   {
     "id": "ELC-018",
     "level": 200,
-    "question": "في رباعية برشلونة بالبرنابيو في نوفمبر 2015، من اخترق وسط ريال مدريد وصنع الهدف الأول للويس سواريز؟",
+    "question": "مين لاعب برشلونة الإسباني سيرجي اللي صنع أول هدف لسواريز في كلاسيكو 2015؟",
     "answer": "سيرجي روبيرتو",
     "explanation": "صنع روبيرتو الهدف الأول لسواريز بعد انطلاقته من الوسط.",
     "fact_source_url": "https://www.fcbarcelona.com/en/news/1076615/real-madrid-v-fc-barcelona-barca-run-to-el-clasico-rout-at-the-bernabeu",
@@ -433,7 +433,7 @@
   {
     "id": "ELC-V2-031",
     "level": 200,
-    "question": "من المدافع الذي شارك مع برشلونة في النهائي الذي شهد انطلاقة غاريث بيل الشهيرة خارج خط الملعب؟",
+    "question": "مين المدافع مارك اللي كان يركض بجانب غاريث بيل في هدف نهائي الكأس الشهير؟",
     "answer": "مارك بارترا",
     "explanation": "كان يطارد بيل على الجهة اليسرى.",
     "fact_source_url": "https://rfef.es/en/noticias/clasico-cup-final-history",
@@ -488,7 +488,7 @@
   {
     "id": "ELC-V2-034",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في كلاسيكو أكتوبر 2014 الذي افتتح فيه نيمار التسجيل، من لاعب ريال مدريد الذي سجل هدف فريقه الثالث؟",
+    "question": "مين مهاجم ريال مدريد الفرنسي اللي سجل ثالث أهداف فريقه في كلاسيكو أكتوبر 2014؟",
     "answer": "كريم بنزيما",
     "explanation": "بنزيما سجل الهدف الثالث لريال مدريد.",
     "fact_source_url": "https://www.fcbarcelona.com/en/matches/34713/real-madrid-fc-barcelona-la-liga-2014-2015",
@@ -508,7 +508,7 @@
   {
     "id": "ELC-V2-035",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في ذهاب السوبر الإسباني 2017، من مدافع برشلونة الذي سجل هدفًا بالخطأ في مرمى فريقه؟",
+    "question": "مين قلب دفاع برشلونة الإسباني المشهور اللي سجل بالخطأ في مرماه بالسوبر 2017؟",
     "answer": "جيرارد بيكيه",
     "explanation": "بيكيه حول عرضية مارسيلو إلى مرماه.",
     "fact_source_url": "https://www.bbc.co.uk/sport/football/40918640",
@@ -834,7 +834,7 @@
   {
     "id": "ELC-054",
     "level": 200,
-    "question": "أي لاعب دخل بدل مسعود أوزيل في الدقيقة 83 من إياب السوبر الإسباني 2012 أمام برشلونة، في أول ظهور رسمي له بقميص مدريد؟",
+    "question": "مين لاعب الوسط الكرواتي اللي كان أول ظهور رسمي له مع ريال مدريد في كلاسيكو السوبر 2012؟",
     "answer": "لوكا مودريتش",
     "explanation": "شارك مودريتش بديلًا في المباراة التي حسمت اللقب.",
     "fact_source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-13-anos-de-la-novena-supercopa-de-espana-29-08-2025",
@@ -1174,7 +1174,7 @@
   {
     "id": "ELC-V3-VIDEO-01",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في نهائي السوبر الإسباني 2024، من مدافع برشلونة الذي تعرض للطرد في الشوط الثاني؟",
+    "question": "مين قلب دفاع برشلونة الأوروغواياني رونالد اللي انطرد في نهائي السوبر 2024؟",
     "answer": "رونالد أراوخو",
     "explanation": "تلقى أراوخو بطاقة حمراء في الشوط الثاني.",
     "fact_source_url": "https://www.fcbarcelona.com/en/matches/110961/r-madrid-fc-barcelona-spanish-super-cup-2023-2024",
@@ -1285,7 +1285,7 @@
   {
     "id": "ELC-V3-VIDEO-06",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في نهائي كأس الملك 2025، من لاعب ريال مدريد الذي سجل هدف التقدم 2-1 بعد تعادل مبابي؟",
+    "question": "مين لاعب الوسط الفرنسي أوريلين اللي سجل هدف التقدم لريال مدريد في نهائي الكأس 2025؟",
     "answer": "أوريلين تشواميني",
     "explanation": "تشواميني سجل هدف التقدم لريال مدريد برأسية.",
     "fact_source_url": "https://rfef.es/en/noticias/match-report-fc-barcelona-crowned-cup-kings-in-classic-encounter",
@@ -1351,7 +1351,7 @@
   {
     "id": "ELC-V3-VIDEO-09",
     "level": 200,
-    "question": "شاهد ملخص كلاسيكو أبريل 2024. من لاعب ريال مدريد الذي سجل التعادل الثاني قبل هدف الحسم؟",
+    "question": "مين لاعب ريال مدريد الإسباني لوكاس اللي سجل هدف التعادل الثاني في كلاسيكو أبريل 2024؟",
     "answer": "لوكاس فاسكيز",
     "explanation": "أعاد لوكاس فاسكيز التعادل قبل هدف جود بيلينغهام.",
     "fact_source_url": "https://www.bbc.co.uk/sport/football/68869328",
@@ -1477,7 +1477,7 @@
   {
     "id": "ELC-V3-VIDEO-14",
     "level": 200,
-    "question": "شاهد اللقطة، ثم أجب: في كلاسيكو 26 أكتوبر 2025 الذي شهد هدف مبابي، من لاعب برشلونة الذي طُرد في الوقت بدل الضائع؟",
+    "question": "مين لاعب الوسط الشاب اللي يشكل ثنائيًا مع غافي في برشلونة وطُرد في كلاسيكو أكتوبر 2025؟",
     "answer": "بيدري",
     "explanation": "بيدري طُرد بعد حصوله على الإنذار الثاني.",
     "fact_source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-barcelona-jornada-10-liga-26-10-2025",
@@ -1644,9 +1644,9 @@
     "videoTimingStatus": "verified_youtube_embed_and_duration",
     "videoPlaybackVerified": true,
     "videoRightsNote": "مقطع هدف بتعليق عربي عبر يوتيوب (مدة 98ث) تم التحقق من إتاحة التضمين بدون حظر.",
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_%28cropped%29.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_(cropped).jpg",
-    "imageCaption": "أندريس إنييستا",
+    "imageUrl": "/assets/questions/football-first-name/3ba31c4c7434a929d4be072d.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg",
+    "imageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
     "videoContentReviewed": false,
     "spoilerReviewStatus": "disabled_pending_exact_clip_content_review",
     "spoilerReviewNote": "Playback metadata alone does not establish that the 17-second footage and audio are relevant and do not disclose the answer."

@@ -102,7 +102,10 @@ test('careers and reciters keep the supplied tiers and reveal only the intended 
   const tiers = [200, 400, 600];
   const tierCounts = (bank: typeof FOOTBALL_CAREER_QUESTIONS) => tiers.map(points => bank.filter(q => q.points === points).length);
   assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS), [38, 31, 21]);
-  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [38, 5, 0]);
+  assert.deepEqual(tierCounts(FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl)), [38, 25, 7]);
+  for (const q of FOOTBALL_CAREER_QUESTIONS.filter(q => q.answerImageUrl?.startsWith('/'))) {
+    assert.ok(readFileSync(new URL(`../public${q.answerImageUrl}`, import.meta.url)).length > 0, q.id);
+  }
   assert.deepEqual(tierCounts(RECITER_QUESTIONS), [67, 66, 67]);
   const reciterCounts = new Map<string, number>();
   for (const q of RECITER_QUESTIONS) reciterCounts.set(q.answer, (reciterCounts.get(q.answer) ?? 0) + 1);
