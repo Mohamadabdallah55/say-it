@@ -65,7 +65,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions in revised tiers', 
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 41, 400: 72, 600: 37 });
+  assert.deepEqual(tierCounts, { 200: 58, 400: 64, 600: 28 });
 });
 
 test('World Cup 2026 uses exclusively verified local assets with zero spoilers before reveal', () => {
@@ -240,7 +240,7 @@ test('World Cup editorial bank has varied topics rather than repetitive fixture 
 
 test('World Cup easy and medium tiers distinguish recognizable stars from more specific tournament recall', () => {
   const byId = new Map(WORLD_CUP_2026_ALL_ROWS.map(row => [row.id, row]));
-  for(const id of ['WC26-200-21','WC26-200-28','WC26-200-39','WC26-400-19','WC26-600-42']) assert.equal(byId.get(id)?.points, 200);
-  for(const id of ['WC26-200-06','WC26-200-16','WC26-200-45','WC26-400-22','WC26-600-39']) assert.equal(byId.get(id)?.points, 400);
+  for(const id of ['WC26-200-21','WC26-200-28','WC26-200-39','WC26-400-19','WC26-600-42','WC26-200-16','WC26-200-13','WC26-400-22']) assert.equal(byId.get(id)?.points, 200);
+  for(const id of ['WC26-200-06','WC26-200-04','WC26-200-45','WC26-400-46','WC26-400-07','WC26-600-11']) assert.equal(byId.get(id)?.points, 400);
   for(const id of ['WC26-400-01','WC26-600-07','WC26-600-12','WC26-600-22']) assert.equal(byId.get(id)?.points, 600);
 });
