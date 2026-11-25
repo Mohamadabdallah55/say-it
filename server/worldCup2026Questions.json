@@ -20,11 +20,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة المكسيك ضد جنوب أفريقيا؟",
+    "question": "من فاز في مواجهة المكسيك ضد جنوب أفريقيا؟",
     "answer": "المكسيك",
     "explanation": "النتيجة المسجلة: المكسيك 2–0 جنوب أفريقيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/mx.png",
       "/assets/world_cup_2026/flags/za.png"
@@ -36,11 +36,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف الأردن أمام النمسا في كأس العالم 2026؟",
+    "question": "مين سجل أول هدف للأردن في تاريخ مشاركاته بكأس العالم، أمام النمسا؟",
     "answer": "علي علوان",
     "explanation": "اللاعب: علي علوان (الأردن). المباراة: النمسا 3–1 الأردن.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/asia-representatives-what-is-next",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/at.png",
       "/assets/world_cup_2026/flags/jo.png"
@@ -49,14 +49,14 @@
   },
   {
     "id": "WC26-200-03",
-    "points": 200,
-    "difficulty": "سهل",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة أستراليا وتركيا في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة أستراليا وتركيا في دور المجموعات؟",
     "answer": "أستراليا",
     "explanation": "النتيجة المسجلة: أستراليا 2–0 تركيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/au.png",
       "/assets/world_cup_2026/flags/tr.png"
@@ -68,11 +68,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف الأردن أمام الجزائر في كأس العالم 2026؟",
+    "question": "مين سجل هدف النشامى في المباراة التي تقدّموا فيها على الجزائر قبل خسارتهم 1–2؟",
     "answer": "نزار الرشدان",
     "explanation": "اللاعب: نزار الرشدان (الأردن). المباراة: الأردن 1–2 الجزائر.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.worldcupstats.app/fixtures",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/dz.png"
@@ -84,11 +84,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة ألمانيا ضد كوراساو؟",
+    "question": "من فاز في مواجهة ألمانيا ضد كوراساو؟",
     "answer": "ألمانيا",
     "explanation": "النتيجة المسجلة: ألمانيا 7–1 كوراساو.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/de.png",
       "/assets/world_cup_2026/flags/cw.png"
@@ -100,11 +100,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف الأردن أمام الأرجنتين في كأس العالم 2026؟",
+    "question": "مين سجل هدف النشامى في مواجهة الأرجنتين في دالاس؟",
     "answer": "موسى التعمري",
     "explanation": "اللاعب: موسى التعمري (الأردن). المباراة: الأردن 1–3 الأرجنتين.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.worldcupstats.app/fixtures",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/ar.png"
@@ -116,11 +116,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة فرنسا والسنغال في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة فرنسا والسنغال في دور المجموعات؟",
     "answer": "فرنسا",
     "explanation": "النتيجة المسجلة: فرنسا 3–1 السنغال.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/fr.png",
       "/assets/world_cup_2026/flags/sn.png"
@@ -132,27 +132,32 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف نهائي البطولة في الدقيقة 106 في كأس العالم 2026؟",
+    "question": "مين حسم نهائي إسبانيا والأرجنتين بهدف في الوقت الإضافي عند الدقيقة 106؟",
     "answer": "فيران توريس",
-    "explanation": "اللاعب: فيران توريس (إسبانيا). المباراة: إسبانيا 1–0 الأرجنتين.",
+    "explanation": "سجل فيران توريس هدف الفوز الوحيد في الوقت الإضافي.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/es.png",
       "/assets/world_cup_2026/flags/ar.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/players/ferran_torres.jpg"
+    "afterImageUrl": "/assets/world_cup_2026/players/ferran_torres.jpg",
+    "answerPhoto": {
+      "url": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/AQUR32XK5FFAVH7YW7MZWYWHTQ.jpg",
+      "source": "https://www.kcrg.com/2026/07/19/spain-wins-world-cup-by-beating-argentina-1-0-ferran-torres-goal-extra-time/",
+      "caption": "احتفال فيران توريس بهدف نهائي 2026"
+    }
   },
   {
     "id": "WC26-200-07",
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة العراق ضد النرويج؟",
+    "question": "من فاز في مواجهة العراق ضد النرويج؟",
     "answer": "النرويج",
     "explanation": "النتيجة المسجلة: العراق 1–4 النرويج.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/iq.png",
       "/assets/world_cup_2026/flags/no.png"
@@ -180,11 +185,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة النمسا والأردن في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة النمسا والأردن في دور المجموعات؟",
     "answer": "النمسا",
     "explanation": "النتيجة المسجلة: النمسا 3–1 الأردن.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/at.png",
       "/assets/world_cup_2026/flags/jo.png"
@@ -212,16 +217,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة الولايات المتحدة وباراغواي في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة الولايات المتحدة وباراغواي في دور المجموعات؟",
     "answer": "4–1",
     "explanation": "النتيجة المسجلة: الولايات المتحدة 4–1 باراغواي.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/us.png",
       "/assets/world_cup_2026/flags/py.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-02.svg"
   },
   {
     "id": "WC26-200-28",
@@ -244,11 +249,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة إنجلترا ضد كرواتيا؟",
+    "question": "من فاز في مواجهة إنجلترا ضد كرواتيا؟",
     "answer": "إنجلترا",
     "explanation": "النتيجة المسجلة: إنجلترا 4–2 كرواتيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/gb-eng.png",
       "/assets/world_cup_2026/flags/hr.png"
@@ -307,16 +312,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة السويد وتونس في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة السويد وتونس في دور المجموعات؟",
     "answer": "5–1",
     "explanation": "النتيجة المسجلة: السويد 5–1 تونس.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/se.png",
       "/assets/world_cup_2026/flags/tn.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-05.svg"
   },
   {
     "id": "WC26-200-31",
@@ -339,11 +344,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة البرازيل وهايتي في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة البرازيل وهايتي في دور المجموعات؟",
     "answer": "البرازيل",
     "explanation": "النتيجة المسجلة: البرازيل 3–0 هايتي.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/ht.png"
@@ -402,16 +407,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة الأرجنتين والجزائر في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة الأرجنتين والجزائر في دور المجموعات؟",
     "answer": "3–0",
     "explanation": "النتيجة المسجلة: الأرجنتين 3–0 الجزائر.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ar.png",
       "/assets/world_cup_2026/flags/dz.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-08.svg"
   },
   {
     "id": "WC26-200-34",
@@ -434,11 +439,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة هولندا ضد السويد؟",
+    "question": "من فاز في مواجهة هولندا ضد السويد؟",
     "answer": "هولندا",
     "explanation": "النتيجة المسجلة: هولندا 5–1 السويد.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/nl.png",
       "/assets/world_cup_2026/flags/se.png"
@@ -481,16 +486,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة كندا وقطر في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة كندا وقطر في دور المجموعات؟",
     "answer": "6–0",
     "explanation": "النتيجة المسجلة: كندا 6–0 قطر.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ca.png",
       "/assets/world_cup_2026/flags/qa.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-11.svg"
   },
   {
     "id": "WC26-200-39",
@@ -505,18 +510,23 @@
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/es.png"
+    "afterImageUrl": "/assets/world_cup_2026/flags/es.png",
+    "answerPhoto": {
+      "url": "https://athlonsports.com/.image/MjY6MDAwMDAwMDAxNDE5MTMx/spain-v-argentina-final-fifa-world-cup-2026.jpg?ar=4-3&profile=w2560",
+      "source": "https://athlonsports.com/soccer/lamine-yamals-304-celebration-meaning-origin",
+      "caption": "احتفال إسبانيا بكأس العالم 2026"
+    }
   },
   {
     "id": "WC26-200-15",
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة إسبانيا والسعودية في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة إسبانيا والسعودية في دور المجموعات؟",
     "answer": "إسبانيا",
     "explanation": "النتيجة المسجلة: إسبانيا 4–0 السعودية.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/es.png",
       "/assets/world_cup_2026/flags/sa.png"
@@ -525,8 +535,8 @@
   },
   {
     "id": "WC26-200-36",
-    "points": 200,
-    "difficulty": "سهل",
+    "points": 600,
+    "difficulty": "صعب",
     "topic": "اللاعبون والهدافون",
     "question": "من اللاعب الذي سجّل هدف المكسيك ضد التشيك في الدقيقة 61 في كأس العالم 2026؟",
     "answer": "خوليان كينيونيس",
@@ -541,14 +551,14 @@
   },
   {
     "id": "WC26-200-44",
-    "points": 200,
-    "difficulty": "سهل",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "في أي شهر بدأت بطولة كأس العالم 2026؟",
-    "answer": "يونيو",
-    "explanation": "بدأت في 11 يونيو 2026.",
+    "question": "كم منتخبًا يتأهل من كل مجموعة مباشرة إلى دور الـ32، قبل حساب أفضل الثوالث؟",
+    "answer": "منتخبان",
+    "explanation": "يتأهل أول وثاني كل مجموعة، إضافة إلى ثمانية من أفضل المنتخبات صاحبة المركز الثالث.",
     "answer_type": "text",
-    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -559,16 +569,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة تونس واليابان في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة تونس واليابان في دور المجموعات؟",
     "answer": "0–4",
     "explanation": "النتيجة المسجلة: تونس 0–4 اليابان.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/tn.png",
       "/assets/world_cup_2026/flags/jp.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-14.svg"
   },
   {
     "id": "WC26-200-40",
@@ -590,11 +600,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة الأرجنتين ضد النمسا؟",
+    "question": "من فاز في مواجهة الأرجنتين ضد النمسا؟",
     "answer": "الأرجنتين",
     "explanation": "النتيجة المسجلة: الأرجنتين 2–0 النمسا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ar.png",
       "/assets/world_cup_2026/flags/at.png"
@@ -603,8 +613,8 @@
   },
   {
     "id": "WC26-200-37",
-    "points": 200,
-    "difficulty": "سهل",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "اللاعبون والهدافون",
     "question": "من اللاعب الذي سجّل ثنائية هولندا أمام السويد في كأس العالم 2026؟",
     "answer": "كودي خاكبو",
@@ -619,14 +629,14 @@
   },
   {
     "id": "WC26-200-45",
-    "points": 200,
-    "difficulty": "سهل",
-    "topic": "جوائز وأرقام وحقائق",
-    "question": "في أي شهر أقيم نهائي كأس العالم 2026؟",
-    "answer": "يوليو",
-    "explanation": "أقيم النهائي في 19 يوليو 2026.",
+    "points": 400,
+    "difficulty": "متوسط",
+    "topic": "الملاعب",
+    "question": "في أي ملعب أقيمت المباراة النهائية بين إسبانيا والأرجنتين؟",
+    "answer": "ملعب نيويورك نيوجيرسي (ميتلايف)",
+    "explanation": "ملعب ميتلايف في إيست رذرفورد، نيوجيرسي.",
     "answer_type": "text",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights",
+    "source_url": "https://www.metlifestadium.com/news/detail/metlife-stadium-selected-as-host-venue-for-fifa-world-cup-26-final",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/es.png",
       "/assets/world_cup_2026/flags/ar.png"
@@ -638,31 +648,36 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة فرنسا والعراق في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة فرنسا والعراق في دور المجموعات؟",
     "answer": "3–0",
     "explanation": "النتيجة المسجلة: فرنسا 3–0 العراق.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/fr.png",
       "/assets/world_cup_2026/flags/iq.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-17.svg"
   },
   {
     "id": "WC26-200-46",
     "points": 200,
     "difficulty": "سهل",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "أي منتخب واجه إسبانيا في نهائي مونديال 2026؟",
-    "answer": "الأرجنتين",
-    "explanation": "النهائي: إسبانيا 1–0 الأرجنتين.",
-    "answer_type": "country",
+    "question": "كم انتهى نهائي مونديال 2026 بين إسبانيا والأرجنتين بعد الوقت الإضافي؟",
+    "answer": "1–0",
+    "explanation": "إسبانيا 1–0 الأرجنتين بعد الوقت الإضافي.",
+    "answer_type": "score",
     "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/ar.png"
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-46.svg",
+    "answerPhoto": {
+      "url": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/AQUR32XK5FFAVH7YW7MZWYWHTQ.jpg",
+      "source": "https://www.kcrg.com/2026/07/19/spain-wins-world-cup-by-beating-argentina-1-0-ferran-torres-goal-extra-time/",
+      "caption": "احتفال فيران توريس بهدف نهائي 2026"
+    }
   },
   {
     "id": "WC26-200-47",
@@ -673,7 +688,7 @@
     "answer": "كيليان مبابي",
     "explanation": "سجل 10 أهداف مع فرنسا.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/ar/articles/award-winners-ar",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -684,11 +699,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة البرتغال وأوزبكستان في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة البرتغال وأوزبكستان في دور المجموعات؟",
     "answer": "البرتغال",
     "explanation": "النتيجة المسجلة: البرتغال 5–0 أوزبكستان.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/pt.png",
       "/assets/world_cup_2026/flags/uz.png"
@@ -697,8 +712,8 @@
   },
   {
     "id": "WC26-200-38",
-    "points": 200,
-    "difficulty": "سهل",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "اللاعبون والهدافون",
     "question": "من اللاعب الذي سجّل ثنائية أمريكا أمام باراغواي في كأس العالم 2026؟",
     "answer": "فولارين بالوغون",
@@ -731,16 +746,16 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة الأردن والأرجنتين في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة الأردن والأرجنتين في دور المجموعات؟",
     "answer": "1–3",
     "explanation": "النتيجة المسجلة: الأردن 1–3 الأرجنتين.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/ar.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-200-20.svg"
   },
   {
     "id": "WC26-200-50",
@@ -766,7 +781,7 @@
     "answer": "رودري",
     "explanation": "لاعب وسط منتخب إسبانيا.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/ar/articles/award-winners-ar",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -777,11 +792,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة التشيك ضد المكسيك؟",
+    "question": "من فاز في مواجهة التشيك ضد المكسيك؟",
     "answer": "المكسيك",
     "explanation": "النتيجة المسجلة: التشيك 0–3 المكسيك.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/cz.png",
       "/assets/world_cup_2026/flags/mx.png"
@@ -809,11 +824,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة كوريا الجنوبية ضد التشيك؟",
+    "question": "من فاز في مواجهة كوريا الجنوبية ضد التشيك؟",
     "answer": "كوريا الجنوبية",
     "explanation": "النتيجة المسجلة: كوريا الجنوبية 2–1 التشيك.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/kr.png",
       "/assets/world_cup_2026/flags/cz.png"
@@ -841,16 +856,16 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة قطر وسويسرا في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة قطر وسويسرا في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: قطر 1–1 سويسرا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/qa.png",
       "/assets/world_cup_2026/flags/ch.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-02.svg"
   },
   {
     "id": "WC26-400-28",
@@ -873,11 +888,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة غانا وبنما في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة غانا وبنما في دور المجموعات؟",
     "answer": "غانا",
     "explanation": "النتيجة المسجلة: غانا 1–0 بنما.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/gh.png",
       "/assets/world_cup_2026/flags/pa.png"
@@ -905,16 +920,16 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة البرازيل والمغرب في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة البرازيل والمغرب في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: البرازيل 1–1 المغرب.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-03.svg"
   },
   {
     "id": "WC26-400-30",
@@ -937,11 +952,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة الولايات المتحدة ضد أستراليا؟",
+    "question": "من فاز في مواجهة الولايات المتحدة ضد أستراليا؟",
     "answer": "الولايات المتحدة",
     "explanation": "النتيجة المسجلة: الولايات المتحدة 2–0 أستراليا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/us.png",
       "/assets/world_cup_2026/flags/au.png"
@@ -969,16 +984,16 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة هولندا واليابان في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة هولندا واليابان في دور المجموعات؟",
     "answer": "2–2",
     "explanation": "النتيجة المسجلة: هولندا 2–2 اليابان.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/nl.png",
       "/assets/world_cup_2026/flags/jp.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-04.svg"
   },
   {
     "id": "WC26-400-32",
@@ -1001,11 +1016,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة ألمانيا وساحل العاج في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة ألمانيا وساحل العاج في دور المجموعات؟",
     "answer": "ألمانيا",
     "explanation": "النتيجة المسجلة: ألمانيا 2–1 ساحل العاج.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/de.png",
       "/assets/world_cup_2026/flags/ci.png"
@@ -1033,16 +1048,16 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة ساحل العاج والإكوادور في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة ساحل العاج والإكوادور في دور المجموعات؟",
     "answer": "1–0",
     "explanation": "النتيجة المسجلة: ساحل العاج 1–0 الإكوادور.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ci.png",
       "/assets/world_cup_2026/flags/ec.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-05.svg"
   },
   {
     "id": "WC26-400-34",
@@ -1065,11 +1080,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة نيوزيلندا ضد مصر؟",
+    "question": "من فاز في مواجهة نيوزيلندا ضد مصر؟",
     "answer": "مصر",
     "explanation": "النتيجة المسجلة: نيوزيلندا 1–3 مصر.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/nz.png",
       "/assets/world_cup_2026/flags/eg.png"
@@ -1097,32 +1112,37 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة بلجيكا ومصر في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة بلجيكا ومصر في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: بلجيكا 1–1 مصر.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/be.png",
       "/assets/world_cup_2026/flags/eg.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-06.svg"
   },
   {
     "id": "WC26-400-15",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة الأردن والجزائر في دور المجموعات بمونديال 2026؟",
+    "question": "بعد ما تقدم الأردن بهدف نزار الرشدان، أي منتخب قلب النتيجة وفاز 2–1؟",
     "answer": "الجزائر",
     "explanation": "النتيجة المسجلة: الأردن 1–2 الجزائر.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jo.png",
       "/assets/world_cup_2026/flags/dz.png"
     ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/dz.png"
+    "afterImageUrl": "/assets/world_cup_2026/flags/dz.png",
+    "answerPhoto": {
+      "url": "https://www.cafonline.com/media/rycfk0hk/2282872655.jpg",
+      "source": "https://www.cafonline.com/fifa-world-cup/news/algeria-fight-back-to-claim-first-victory-at-fifa-world-cup-2026/",
+      "caption": "احتفال الجزائر بعد الفوز على الأردن 2–1"
+    }
   },
   {
     "id": "WC26-400-36",
@@ -1145,27 +1165,27 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة السعودية والأوروغواي في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة السعودية والأوروغواي في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: السعودية 1–1 الأوروغواي.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/sa.png",
       "/assets/world_cup_2026/flags/uy.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-07.svg"
   },
   {
     "id": "WC26-400-16",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة سويسرا ضد كندا؟",
+    "question": "من فاز في مواجهة سويسرا ضد كندا؟",
     "answer": "سويسرا",
     "explanation": "النتيجة المسجلة: سويسرا 2–1 كندا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ch.png",
       "/assets/world_cup_2026/flags/ca.png"
@@ -1193,27 +1213,27 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة البرتغال والكونغو الديمقراطية في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة البرتغال والكونغو الديمقراطية في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: البرتغال 1–1 الكونغو الديمقراطية.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/pt.png",
       "/assets/world_cup_2026/flags/cd.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-08.svg"
   },
   {
     "id": "WC26-400-18",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة الإكوادور وألمانيا في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة الإكوادور وألمانيا في دور المجموعات؟",
     "answer": "الإكوادور",
     "explanation": "النتيجة المسجلة: الإكوادور 2–1 ألمانيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ec.png",
       "/assets/world_cup_2026/flags/de.png"
@@ -1225,11 +1245,11 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف الفوز على ساحل العاج في كأس العالم 2026؟",
+    "question": "مين سجل هدف النرويج الحاسم في الدقيقة 86 أمام ساحل العاج بدور الـ32؟",
     "answer": "إرلينغ هالاند",
     "explanation": "اللاعب: إرلينغ هالاند (النرويج). المباراة: ساحل العاج 1–2 النرويج.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.worldcupstats.app/fixtures",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ci.png",
       "/assets/world_cup_2026/flags/no.png"
@@ -1241,27 +1261,27 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة اسكتلندا والمغرب في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة اسكتلندا والمغرب في دور المجموعات؟",
     "answer": "0–1",
     "explanation": "النتيجة المسجلة: اسكتلندا 0–1 المغرب.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/gb-sct.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-11.svg"
   },
   {
     "id": "WC26-400-19",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة تركيا ضد الولايات المتحدة؟",
+    "question": "من فاز في مواجهة تركيا ضد الولايات المتحدة؟",
     "answer": "تركيا",
     "explanation": "النتيجة المسجلة: تركيا 3–2 الولايات المتحدة.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/tr.png",
       "/assets/world_cup_2026/flags/us.png"
@@ -1286,14 +1306,14 @@
   },
   {
     "id": "WC26-400-46",
-    "points": 400,
-    "difficulty": "متوسط",
-    "topic": "جوائز وأرقام وحقائق",
-    "question": "في أي منطقة أقيم نهائي كأس العالم 2026؟",
-    "answer": "نيويورك/نيوجيرسي",
-    "explanation": "أقيم على ملعب نيويورك نيوجيرسي.",
+    "points": 600,
+    "difficulty": "صعب",
+    "topic": "الملاعب",
+    "question": "في أي مدينة أمريكية تقع منشأة ملعب نهائي 2026، وليس الاسم التجاري لمنطقة الاستضافة؟",
+    "answer": "إيست رذرفورد",
+    "explanation": "يقع ميتلايف في إيست رذرفورد بولاية نيوجيرسي.",
     "answer_type": "text",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights",
+    "source_url": "https://www.metlifestadium.com/stadium/about-metlife-stadium",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/es.png",
       "/assets/world_cup_2026/flags/ar.png"
@@ -1305,27 +1325,27 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة النرويج والسنغال في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة النرويج والسنغال في دور المجموعات؟",
     "answer": "3–2",
     "explanation": "النتيجة المسجلة: النرويج 3–2 السنغال.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/no.png",
       "/assets/world_cup_2026/flags/sn.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-14.svg"
   },
   {
     "id": "WC26-400-21",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة الأوروغواي وإسبانيا في دور المجموعات بمونديال 2026؟",
+    "question": "من المنتخب الذي خرج منتصرًا من مواجهة الأوروغواي وإسبانيا في دور المجموعات؟",
     "answer": "إسبانيا",
     "explanation": "النتيجة المسجلة: الأوروغواي 0–1 إسبانيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/uy.png",
       "/assets/world_cup_2026/flags/es.png"
@@ -1350,8 +1370,8 @@
   },
   {
     "id": "WC26-400-47",
-    "points": 400,
-    "difficulty": "متوسط",
+    "points": 200,
+    "difficulty": "سهل",
     "topic": "جوائز وأرقام وحقائق",
     "question": "كم عدد مجموعات كأس العالم 2026 في الدور الأول؟",
     "answer": "12",
@@ -1368,27 +1388,27 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة المغرب وهايتي في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة المغرب وهايتي في دور المجموعات؟",
     "answer": "4–2",
     "explanation": "النتيجة المسجلة: المغرب 4–2 هايتي.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ma.png",
       "/assets/world_cup_2026/flags/ht.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-17.svg"
   },
   {
     "id": "WC26-400-22",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة نيوزيلندا ضد بلجيكا؟",
+    "question": "من فاز في مواجهة نيوزيلندا ضد بلجيكا؟",
     "answer": "بلجيكا",
     "explanation": "النتيجة المسجلة: نيوزيلندا 1–5 بلجيكا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/nz.png",
       "/assets/world_cup_2026/flags/be.png"
@@ -1431,16 +1451,16 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة النرويج وفرنسا في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة النرويج وفرنسا في دور المجموعات؟",
     "answer": "1–4",
     "explanation": "النتيجة المسجلة: النرويج 1–4 فرنسا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/no.png",
       "/assets/world_cup_2026/flags/fr.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-20.svg"
   },
   {
     "id": "WC26-400-45",
@@ -1466,7 +1486,7 @@
     "answer": "باو كوبارسي",
     "explanation": "من منتخب إسبانيا.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/ar/articles/award-winners-ar",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -1481,7 +1501,7 @@
     "answer": "فرنسا",
     "explanation": "النتيجة المسجلة: فرنسا 3–0 السويد.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/fr.png",
       "/assets/world_cup_2026/flags/se.png"
@@ -1506,8 +1526,8 @@
   },
   {
     "id": "WC26-400-50",
-    "points": 400,
-    "difficulty": "متوسط",
+    "points": 200,
+    "difficulty": "سهل",
     "topic": "جوائز وأرقام وحقائق",
     "question": "كم مباراة أُقيمت في كأس العالم 2026؟",
     "answer": "104",
@@ -1524,31 +1544,29 @@
     "points": 400,
     "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة البرازيل واليابان في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة البرازيل واليابان في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "2–1",
     "explanation": "النتيجة المسجلة: البرازيل 2–1 اليابان.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/jp.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-400-23.svg"
   },
   {
     "id": "WC26-400-49",
     "points": 400,
     "difficulty": "متوسط",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "أي منتخب أقصى البرازيل من دور الـ16 بكأس العالم 2026؟",
-    "answer": "النرويج",
-    "explanation": "فازت النرويج 2–1 على البرازيل.",
+    "question": "مين كان خصم النرويج في ربع النهائي بعد إقصائها للبرازيل؟",
+    "answer": "إنجلترا",
+    "explanation": "فازت إنجلترا 2–1 على النرويج بعد التمديد.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
-    "beforeImageUrls": [
-      "/assets/world_cup_2026/trophy.jpg"
-    ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/no.png"
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
+    "beforeImageUrls": [],
+    "afterImageUrl": "/assets/world_cup_2026/flags/gb-eng.png"
   },
   {
     "id": "WC26-400-44",
@@ -1559,7 +1577,7 @@
     "answer": "أوناي سيمون",
     "explanation": "حارس منتخب إسبانيا.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/ar/articles/award-winners-ar",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -1574,7 +1592,7 @@
     "answer": "إسبانيا",
     "explanation": "النتيجة المسجلة: إسبانيا 3–0 النمسا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/es.png",
       "/assets/world_cup_2026/flags/at.png"
@@ -1602,16 +1620,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة جنوب أفريقيا وكوريا الجنوبية في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة جنوب أفريقيا وكوريا الجنوبية في دور المجموعات؟",
     "answer": "1–0",
     "explanation": "النتيجة المسجلة: جنوب أفريقيا 1–0 كوريا الجنوبية.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/za.png",
       "/assets/world_cup_2026/flags/kr.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-02.svg"
   },
   {
     "id": "WC26-600-27",
@@ -1634,27 +1652,27 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة اليابان والسويد في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة اليابان والسويد في دور المجموعات؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: اليابان 1–1 السويد.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jp.png",
       "/assets/world_cup_2026/flags/se.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-03.svg"
   },
   {
     "id": "WC26-600-28",
     "points": 600,
     "difficulty": "صعب",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف جنوب أفريقيا أمام كوريا الجنوبية في كأس العالم 2026؟",
-    "answer": "ثيمبا ماسكو",
-    "explanation": "اللاعب: ثيمبا ماسكو (جنوب أفريقيا). المباراة: جنوب أفريقيا 1–0 كوريا الجنوبية.",
+    "question": "مين سجّل هدف جنوب أفريقيا الحاسم أمام كوريا الجنوبية في دور المجموعات؟",
+    "answer": "تابيلو ماسيكو",
+    "explanation": "تابيلو ماسيكو (Thapelo Maseko) سجّل في الدقيقة 63.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.worldcupstats.app/fixtures",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/za.png",
       "/assets/world_cup_2026/flags/kr.png"
@@ -1666,11 +1684,11 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة كولومبيا ضد الكونغو الديمقراطية؟",
+    "question": "من فاز في مواجهة كولومبيا ضد الكونغو الديمقراطية؟",
     "answer": "كولومبيا",
     "explanation": "النتيجة المسجلة: كولومبيا 1–0 الكونغو الديمقراطية.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/co.png",
       "/assets/world_cup_2026/flags/cd.png"
@@ -1698,16 +1716,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة كرواتيا وغانا في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة كرواتيا وغانا في دور المجموعات؟",
     "answer": "2–1",
     "explanation": "النتيجة المسجلة: كرواتيا 2–1 غانا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/hr.png",
       "/assets/world_cup_2026/flags/gh.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-05.svg"
   },
   {
     "id": "WC26-600-30",
@@ -1730,11 +1748,11 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة السنغال ضد العراق؟",
+    "question": "من فاز في مواجهة السنغال ضد العراق؟",
     "answer": "السنغال",
     "explanation": "النتيجة المسجلة: السنغال 5–0 العراق.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/sn.png",
       "/assets/world_cup_2026/flags/iq.png"
@@ -1762,16 +1780,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة كولومبيا والبرتغال في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة كولومبيا والبرتغال في دور المجموعات؟",
     "answer": "0–0",
     "explanation": "النتيجة المسجلة: كولومبيا 0–0 البرتغال.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/co.png",
       "/assets/world_cup_2026/flags/pt.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-06.svg"
   },
   {
     "id": "WC26-600-32",
@@ -1794,11 +1812,11 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "في دور المجموعات من مونديال 2026، من فاز بمباراة الكونغو الديمقراطية ضد أوزبكستان؟",
+    "question": "من فاز في مواجهة الكونغو الديمقراطية ضد أوزبكستان؟",
     "answer": "الكونغو الديمقراطية",
     "explanation": "النتيجة المسجلة: الكونغو الديمقراطية 3–1 أوزبكستان.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/cd.png",
       "/assets/world_cup_2026/flags/uz.png"
@@ -1826,16 +1844,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة الجزائر والنمسا في دور المجموعات من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة الجزائر والنمسا في دور المجموعات؟",
     "answer": "3–3",
     "explanation": "النتيجة المسجلة: الجزائر 3–3 النمسا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/dz.png",
       "/assets/world_cup_2026/flags/at.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-08.svg"
   },
   {
     "id": "WC26-600-34",
@@ -1862,7 +1880,7 @@
     "answer": "إنجلترا",
     "explanation": "النتيجة المسجلة: إنجلترا 2–1 الكونغو الديمقراطية.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/gb-eng.png",
       "/assets/world_cup_2026/flags/cd.png"
@@ -1890,16 +1908,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة ألمانيا وباراغواي في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة ألمانيا وباراغواي في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: ألمانيا 1–1 باراغواي؛ وحُسم التأهل بعد ذلك بركلات الترجيح لصالح باراغواي.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/de.png",
       "/assets/world_cup_2026/flags/py.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-09.svg"
   },
   {
     "id": "WC26-600-36",
@@ -1926,7 +1944,7 @@
     "answer": "بلجيكا",
     "explanation": "النتيجة المسجلة: بلجيكا 3–2 السنغال؛ وانتهت بعد وقت إضافي.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/be.png",
       "/assets/world_cup_2026/flags/sn.png"
@@ -1954,16 +1972,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة هولندا والمغرب في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة هولندا والمغرب في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: هولندا 1–1 المغرب؛ وحُسم التأهل بعد ذلك بركلات الترجيح لصالح المغرب.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/nl.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-10.svg"
   },
   {
     "id": "WC26-600-38",
@@ -1990,7 +2008,7 @@
     "answer": "سويسرا",
     "explanation": "النتيجة المسجلة: سويسرا 2–0 الجزائر.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ch.png",
       "/assets/world_cup_2026/flags/dz.png"
@@ -2018,16 +2036,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة ساحل العاج والنرويج في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة ساحل العاج والنرويج في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "1–2",
     "explanation": "النتيجة المسجلة: ساحل العاج 1–2 النرويج.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ci.png",
       "/assets/world_cup_2026/flags/no.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-11.svg"
   },
   {
     "id": "WC26-600-40",
@@ -2054,7 +2072,7 @@
     "answer": "المغرب",
     "explanation": "النتيجة المسجلة: كندا 0–3 المغرب.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ca.png",
       "/assets/world_cup_2026/flags/ma.png"
@@ -2082,27 +2100,27 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة البرتغال وكرواتيا في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة البرتغال وكرواتيا في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "2–1",
     "explanation": "النتيجة المسجلة: البرتغال 2–1 كرواتيا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/pt.png",
       "/assets/world_cup_2026/flags/hr.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-14.svg"
   },
   {
     "id": "WC26-600-19",
-    "points": 600,
-    "difficulty": "صعب",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "في دور الـ16 من مونديال 2026، من فاز بمباراة البرازيل ضد النرويج؟",
+    "question": "أي منتخب أقصى البرازيل بفوز 2–1 في دور الـ16، بعدما سجل هالاند هدفيه؟",
     "answer": "النرويج",
     "explanation": "النتيجة المسجلة: البرازيل 1–2 النرويج.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/br.png",
       "/assets/world_cup_2026/flags/no.png"
@@ -2114,11 +2132,11 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "اللاعبون والهدافون",
-    "question": "من اللاعب الذي سجّل هدف الفوز على النرويج في الوقت الإضافي في كأس العالم 2026؟",
+    "question": "مين سجّل هدفي إنجلترا في ربع النهائي أمام النرويج، ومنهما هدف الحسم في الوقت الإضافي؟",
     "answer": "جود بيلينغهام",
-    "explanation": "اللاعب: جود بيلينغهام (إنجلترا). المباراة: النرويج 1–2 إنجلترا.",
+    "explanation": "جود بيلينغهام سجّل الهدفين، والثاني في الدقيقة 93.",
     "answer_type": "player",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.worldcupstats.app/fixtures",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/no.png",
       "/assets/world_cup_2026/flags/gb-eng.png"
@@ -2130,27 +2148,27 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة أستراليا ومصر في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة أستراليا ومصر في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "1–1",
     "explanation": "النتيجة المسجلة: أستراليا 1–1 مصر؛ وحُسم التأهل بعد ذلك بركلات الترجيح لصالح مصر.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/au.png",
       "/assets/world_cup_2026/flags/eg.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-16.svg"
   },
   {
     "id": "WC26-600-21",
-    "points": 600,
-    "difficulty": "صعب",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة البرتغال وإسبانيا في دور الـ16 بمونديال 2026؟",
+    "question": "من المنتخب الذي أنهى مشوار البرتغال في آخر مشاركة لكريستيانو رونالدو بالمونديال، بهدف متأخر في دور الـ16؟",
     "answer": "إسبانيا",
     "explanation": "النتيجة المسجلة: البرتغال 0–1 إسبانيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/pt.png",
       "/assets/world_cup_2026/flags/es.png"
@@ -2178,16 +2196,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة الأرجنتين والرأس الأخضر في دور الـ32 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة الأرجنتين والرأس الأخضر في دور الـ32 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "3–2",
     "explanation": "النتيجة المسجلة: الأرجنتين 3–2 الرأس الأخضر؛ وانتهت بعد وقت إضافي.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ar.png",
       "/assets/world_cup_2026/flags/cv.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-17.svg"
   },
   {
     "id": "WC26-600-46",
@@ -2198,7 +2216,7 @@
     "answer": "8",
     "explanation": "حل ثانيًا في قائمة الهدافين.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -2213,7 +2231,7 @@
     "answer": "الأرجنتين",
     "explanation": "النتيجة المسجلة: الأرجنتين 3–2 مصر.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/ar.png",
       "/assets/world_cup_2026/flags/eg.png"
@@ -2245,7 +2263,7 @@
     "answer": "هدف واحد",
     "explanation": "سجلًا دفاعيًا استثنائيًا وفق تقرير FIFA.",
     "answer_type": "text",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -2256,16 +2274,16 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة المكسيك وإنجلترا في دور الـ16 من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة المكسيك وإنجلترا في دور الـ16 قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "2–3",
     "explanation": "النتيجة المسجلة: المكسيك 2–3 إنجلترا.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/mx.png",
       "/assets/world_cup_2026/flags/gb-eng.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-20.svg"
   },
   {
     "id": "WC26-600-47",
@@ -2276,7 +2294,7 @@
     "answer": "10",
     "explanation": "نال الحذاء الذهبي.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -2287,16 +2305,13 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "من المنتخب الذي خرج منتصرًا من مواجهة النرويج وإنجلترا في ربع النهائي بمونديال 2026؟",
-    "answer": "إنجلترا",
-    "explanation": "النتيجة المسجلة: النرويج 1–2 إنجلترا؛ وانتهت بعد وقت إضافي.",
+    "question": "أي منتخب ودّع البطولة أمام إنجلترا في ربع النهائي، بعد التقدم بهدف أندرياس شيلدروب؟",
+    "answer": "النرويج",
+    "explanation": "النرويج خسرت 1–2 أمام إنجلترا بعد التمديد.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
-    "beforeImageUrls": [
-      "/assets/world_cup_2026/flags/no.png",
-      "/assets/world_cup_2026/flags/gb-eng.png"
-    ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/gb-eng.png"
+    "source_url": "https://www.worldcupstats.app/fixtures",
+    "beforeImageUrls": [],
+    "afterImageUrl": "/assets/world_cup_2026/flags/no.png"
   },
   {
     "id": "WC26-600-45",
@@ -2319,11 +2334,11 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "كم هدفًا سُجل في مجموع مباريات مونديال 2026؟",
+    "question": "كم بلغ مجموع أهداف البطولة التي شهدت 104 مباريات؟",
     "answer": "308",
     "explanation": "وفق سجل نتائج مباريات البطولة الـ104.",
     "answer_type": "text",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -2334,27 +2349,27 @@
     "points": 600,
     "difficulty": "صعب",
     "topic": "نتائج ومباريات",
-    "question": "كم انتهت مباراة فرنسا والمغرب في ربع النهائي من كأس العالم 2026 قبل ركلات الترجيح إن وُجدت؟",
+    "question": "ما نتيجة مباراة فرنسا والمغرب في ربع النهائي قبل ركلات الترجيح إن أُقيمت؟",
     "answer": "2–0",
     "explanation": "النتيجة المسجلة: فرنسا 2–0 المغرب.",
     "answer_type": "score",
-    "source_url": "https://match-later.com/en/wc2026/results/",
+    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/fr.png",
       "/assets/world_cup_2026/flags/ma.png"
     ],
-    "afterImageUrl": ""
+    "afterImageUrl": "/assets/world_cup_2026/results/WC26-600-23.svg"
   },
   {
     "id": "WC26-600-48",
-    "points": 600,
-    "difficulty": "صعب",
+    "points": 400,
+    "difficulty": "متوسط",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "إلى كم وصل رصيد مبابي الإجمالي من الأهداف في تاريخ كأس العالم بنهاية نسخة 2026؟",
+    "question": "كم أصبح رصيد مبابي التاريخي في المونديال بعد أن سجل عشرة أهداف في نسخة 2026؟",
     "answer": "22",
     "explanation": "أصبح الهداف التاريخي لكأس العالم بحسب FIFA.",
     "answer_type": "player",
-    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/award-winners",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina",
     "beforeImageUrls": [
       "/assets/world_cup_2026/trophy.jpg"
     ],
@@ -2364,16 +2379,13 @@
     "id": "WC26-600-25",
     "points": 600,
     "difficulty": "صعب",
-    "topic": "نتائج ومباريات",
-    "question": "في النهائي من مونديال 2026، من فاز بمباراة إسبانيا ضد الأرجنتين؟",
-    "answer": "إسبانيا",
-    "explanation": "النتيجة المسجلة: إسبانيا 1–0 الأرجنتين؛ وانتهت بعد وقت إضافي.",
+    "topic": "مشوار البطل",
+    "question": "أي منتخب كان الوحيد الذي سجل في مرمى إسبانيا طوال مشوارها نحو اللقب؟",
+    "answer": "بلجيكا",
+    "explanation": "سجلت بلجيكا هدفًا في ربع النهائي، وخسرت 2–1؛ وهو الهدف الوحيد الذي استقبلته إسبانيا.",
     "answer_type": "country",
-    "source_url": "https://match-later.com/en/wc2026/results/",
-    "beforeImageUrls": [
-      "/assets/world_cup_2026/flags/es.png",
-      "/assets/world_cup_2026/flags/ar.png"
-    ],
-    "afterImageUrl": "/assets/world_cup_2026/flags/es.png"
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/unai-simon-adidas-golden-glove",
+    "beforeImageUrls": [],
+    "afterImageUrl": "/assets/world_cup_2026/flags/be.png"
   }
 ]

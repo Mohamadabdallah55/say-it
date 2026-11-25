@@ -14,6 +14,7 @@ export interface WorldCup2026Row {
   source_url: string;
   beforeImageUrls: string[];
   afterImageUrl: string;
+  answerPhoto?: { url: string; source: string; caption: string };
 }
 
 const typedRows = rawQuestions as WorldCup2026Row[];
@@ -56,6 +57,10 @@ export const WORLD_CUP_2026_QUESTIONS: QuizQuestion[] = typedRows.map((row) => {
     sourceRef: row.source_url || undefined,
     beforeImageUrls: beforeImageUrls.length > 0 ? beforeImageUrls : undefined,
     afterImageUrl,
+    imageUrl: row.answerPhoto?.url,
+    imageSourceUrl: row.answerPhoto?.source,
+    imageCaption: row.answerPhoto?.caption,
+    imageDisplay: row.answerPhoto ? 'after_reveal' : undefined,
     status: 'approved',
   };
 });

@@ -46,7 +46,7 @@ test('World Cup 2026 category is registered alongside all existing categories', 
   }
 });
 
-test('World Cup 2026 dataset has all 150 direct_qa questions (50x200, 50x400, 50x600)', () => {
+test('World Cup 2026 dataset has all 150 direct_qa questions in revised tiers', () => {
   assert.equal(WORLD_CUP_2026_QUESTIONS.length, WORLD_CUP_2026_COUNT);
   assert.equal(WORLD_CUP_2026_ALL_ROWS.length, WORLD_CUP_2026_COUNT);
 
@@ -65,7 +65,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions (50x200, 50x400, 50
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 50, 400: 50, 600: 50 });
+  assert.deepEqual(tierCounts, {"200":46,"400":55,"600":49});
 });
 
 test('World Cup 2026 uses exclusively verified local assets with zero spoilers before reveal', () => {
@@ -213,4 +213,18 @@ test('Projector state shows beforeImageUrls pre-reveal and strictly hides afterI
   assert.equal(projectorAfter.activeRound.afterImageUrl, playerQuestion.afterImageUrl);
   assert.equal(projectorAfter.activeRound.answer, playerQuestion.answer);
   assert.equal(projectorAfter.activeRound.explanation, playerQuestion.explanation);
+});
+
+
+test('World Cup score cards are local factual graphics and sourced fixture photos stay hidden until reveal', () => {
+  const rows = WORLD_CUP_2026_ALL_ROWS.filter(row=>row.answer_type==='score');
+  assert.equal(rows.length, 33);
+  for (const row of rows) {
+    assert.ok(row.afterImageUrl.endsWith('.svg'));
+    assert.ok(row.source_url.startsWith('https://www.fifa.com/'));
+    assert.ok(fs.readFileSync(path.join(process.cwd(),'public',row.afterImageUrl.slice(1)),'utf8').includes('بطاقة توضيحية'));
+  }
+  const photos = WORLD_CUP_2026_QUESTIONS.filter(q=>q.imageUrl);
+  assert.equal(photos.length,3);
+  for(const q of photos) { assert.equal(q.imageDisplay,'after_reveal'); assert.ok(q.imageSourceUrl?.startsWith('https://')); }
 });
