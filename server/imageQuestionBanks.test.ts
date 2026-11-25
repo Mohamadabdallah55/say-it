@@ -20,7 +20,7 @@ const settings = { categoryCount: 3, lifelinesEnabled: false };
 test('football first names use 100 distinct photos and hide names and credit links until reveal', () => {
   assert.deepEqual(
     [200, 400, 600].map(points => FOOTBALL_FIRST_NAME_QUESTIONS.filter(q => q.points === points).length),
-    [34, 33, 33],
+    [39, 32, 29],
   );
   const photos = new Set<string>();
   for (const question of FOOTBALL_FIRST_NAME_QUESTIONS) {
