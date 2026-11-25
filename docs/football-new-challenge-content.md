@@ -36,3 +36,5 @@ Replaced selected easy questions with new medium/hard material, keeping total qu
     ]
   }
 }
+
+- Career: replaced 20 easy questions with new players and selected chronological club routes (UEFA sources). Counts 38/31/21. 20 locally generated SVG text-based clue cards. New player portraits and club crest graphics are not added; existing original PNG cards and portraits remain for other questions.

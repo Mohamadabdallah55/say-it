@@ -111,10 +111,10 @@ export const REAL_MADRID_QUESTIONS = (realMadridRows as RealMadridRow[]).map((ro
 
 export const FOOTBALL_CAREER_QUESTIONS = footballCareerRows.map((row): QuizQuestion => ({
   ...createQuestion(FOOTBALL_CAREER_CATEGORY, row),
-  imageUrl: `/assets/questions/football-career/${row.id}.png`,
+  imageUrl: `/assets/questions/football-career/${'clueFile' in row && typeof row.clueFile === 'string' ? row.clueFile : `${row.id}.png`}`,
   imageDisplay: 'before_reveal',
   imageCaption: 'محطات المسيرة بالترتيب',
-  answerImageUrl: row.answerImageUrl,
+  answerImageUrl: 'answerImageUrl' in row ? row.answerImageUrl : undefined,
   imageSourceUrl: row.sourceUrl,
   explanation: row.type === 'missing' ? row.clubs.join(' ← ') : undefined,
 }));
