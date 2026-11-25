@@ -21,12 +21,15 @@
     "question": "في أي مدينة تُوّج برشلونة بدوري الأبطال سنة 2015؟",
     "answer": "برلين",
     "explanation": "أقيم النهائي أمام يوفنتوس في برلين.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/2015227--juventus-vs-barcelona/",
     "isPlayer": false,
     "acceptableAnswers": [
       "Berlin"
     ],
-    "kind": "history"
+    "kind": "history",
+    "imageUrl": "https://web-cdnprod.aa.com.tr/uploads/Contents/2015/06/05/thumbs_b_c_53ea403249d8c26b2ac3bb951543806b.jpg",
+    "imageSourceUrl": "https://www.aa.com.tr/en/sports/football-berlin-ready-for-champions-league-final/39932",
+    "imageCaption": "الملعب الأولمبي في برلين عشية نهائي 2015"
   },
   {
     "id": "BAR-003",
