@@ -63,6 +63,29 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
   const [showJoin, setShowJoin] = useState(false);
   const [roomCode, setRoomCode] = useState('');
   const [joinError, setJoinError] = useState('');
+  const [warmingGames, setWarmingGames] = useState(false);
+  const [warmupMessage, setWarmupMessage] = useState('');
+  const prepareGames = async () => {
+    if (warmingGames) return;
+    setWarmingGames(true);
+    setWarmupMessage('بنطلب تشغيل السيرفرات قبل اللعب…');
+    const links = ['https://say-it-u1w6.onrender.com/', THIRTY_URL, KHALF_URL, CODENAMES_URL, HOROUF_URL];
+    const origins = [...new Set(links.filter((link): link is string => Boolean(link)).map(link => new URL('/', link).href))];
+    const requests = await Promise.allSettled(origins.map(async url => {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 90_000);
+      try {
+        // One request per game on explicit user action; no background polling or AI usage.
+        const response = await fetch(url, { method: 'HEAD', mode: 'no-cors', credentials: 'omit', cache: 'no-store', signal: controller.signal });
+        if (response.type !== 'opaque' && !response.ok) throw new Error('Warmup request failed');
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }));
+    const completed = requests.filter(result => result.status === 'fulfilled').length;
+    setWarmupMessage(`انتهت ${completed} من ${origins.length} طلبات التهيئة. افتح اللعبة للتأكد من جاهزيتها؛ لا يمكن تأكيد حالة السيرفر من طلب التهيئة وحده.`);
+    setWarmingGames(false);
+  };
   const click = (action: () => void) => { soundFX.playSelect(); action(); };
   const join = () => {
     const code = roomCode.trim().toUpperCase();
@@ -156,6 +179,8 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
           </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
+            <button type="button" disabled={warmingGames} onClick={() => click(() => { void prepareGames(); })}><Zap size={21}/><span>{warmingGames ? 'جاري تجهيز الألعاب…' : 'جهّز الألعاب للجلسة'}</span><ArrowLeft size={16}/></button>
+            <p role="status" className="text-sm px-2 py-1">{warmupMessage || 'استخدمه قبل بدء الجلسة لتقليل انتظار تشغيل السيرفرات المجانية.'}</p>
             <button type="button" onClick={() => click(onOpenPdfStudio)}><FileText size={21}/><span>حوّل درس PDF</span><ArrowLeft size={16}/></button>
             <button type="button" onClick={() => click(onOpenLibrary)}><BookOpen size={21}/><span>بنك الأسئلة</span><ArrowLeft size={16}/></button>
             <button type="button" onClick={() => click(onOpenSavedMatches)}><FolderArchive size={21}/><span>المباريات المحفوظة</span><ArrowLeft size={16}/></button>
