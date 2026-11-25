@@ -1,0 +1,17 @@
+name: Verify static room connection
+on:
+  pull_request:
+    paths:
+      - 'src/utils/roomConnection*'
+      - '.github/workflows/verify-static-room.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bunx tsx --test src/utils/roomConnection.test.ts
+      - run: bun run build
