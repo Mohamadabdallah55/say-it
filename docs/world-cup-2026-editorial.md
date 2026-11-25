@@ -1,7 +1,8 @@
 # World Cup 2026 editorial pass
 
-- Retained 150 IDs and changed difficulty without enforcing equal tiers. New distribution: {"200":46,"400":55,"600":49}.
-- Compared score questions with FIFA match results and corroborated scorer-specific edits with the WorldCupStats fixture archive. Official tournament awards and final report used for awards and final questions.
-- 33 original, explicitly labelled result graphics; these are not photographs of stadium scoreboards. Four question-to-photo links covering three sourced event photos are linked after reveal; remote availability, reuse permissions and browser playback not yet verified.
-- Venue photo not added because no suitable direct image with reviewed rights was obtained. Remaining historical/fixture photos require review. Existing local portraits and flags preserved.
-- References: https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums, https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights, https://www.fifa.com/ar/articles/award-winners-ar, https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/overall-tournament-review-spain-argentina, https://www.worldcupstats.app/fixtures.
+- Retained all 150 question IDs; replaced 64 repetitive fixture questions with varied topics, including historic moments, first appearances, records, coaches, venues, goalkeepers, penalties, official ball, mascots, awards and referees.
+- Current tier distribution: 34 easy (200), 58 medium (400), 58 hard (600). Difficulty is editorial, not measured against real player performance.
+- The generic match-results topic dropped from 69 questions to five; three questions ask for exact scores. Three local, explicitly labelled score graphics remain in use.
+- Ten questions now have answer-photo references, including the official match ball, the opening stadium, the Curaçao goalkeeper and the Cabo Verde goal celebration. Remote availability, browser rendering and reuse permissions have not been fully verified. Existing relevant local portraits and flags were retained; not every new question has a suitable photo.
+- Sources are recorded per question. Key sources include FIFA's match schedule, official final report, tournament standings, records, first scorers, player-of-the-match reports, goal votes and mascot announcements.
+- Regression tests cover question count, tier distribution, unique prompts, limits on repetitive result questions, diversity of topics and the referenced local assets. These are technical/content-structure checks, not independent verification of every answer.
