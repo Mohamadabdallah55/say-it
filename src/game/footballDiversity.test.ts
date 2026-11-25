@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { selectActiveBoardForDeck } from './pdfValidation';
+import { pickDiverseFootballQuestion } from './footballQuestionDiversity';
 import { buildBoardDeckFromCategories } from './starterDecks';
 import { CHAMPIONS_LEAGUE_CATEGORY } from './curatedBanks';
 import type { QuizQuestion } from './types';
@@ -58,4 +59,12 @@ test('diversity penalizes repeated answers even when questions use different wor
  const deck=buildBoardDeckFromCategories([CHAMPIONS_LEAGUE_CATEGORY.id],undefined,bank);deck.questions=bank;
  const mixed=selectActiveBoardForDeck(deck,1,undefined,2,true);
  assert.equal(new Set(mixed.tiles.map(t=>bank.find(q=>q.id===t.questionId)?.answer)).size,2);
+});
+
+
+test('avoid same footballer across categories when first-name answer is shortened',()=>{
+  const first={...item('name',200,'ما الاسم الأول لهذا اللاعب؟ اسم العائلة «بنزيما».','كريم'),categoryId:'cat_football_first_name',explanation:'الاسم الكامل كريم بنزيما · صورة'};
+  const repeated=item('repeat',200,'من سجل لريال مدريد؟','كريم بنزيما');
+  const other=item('other',200,'مين كان مدرب إنتر؟','مورينيو');
+  assert.equal(pickDiverseFootballQuestion([repeated,other],[first])?.id,'other');
 });

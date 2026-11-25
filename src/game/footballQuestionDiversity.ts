@@ -41,7 +41,20 @@ function family(q: QuizQuestion): string {
   return rules.find(([,pattern])=>pattern.test(prompt))?.[0] ?? normalize(q.subtopic && !q.subtopic.startsWith('http') ? q.subtopic : q.questionType);
 }
 const stopWords = new Set(['الذي','التي','بعد','قبل','عام','سنه','موسم','دوري','ابطال','اوروبا','بطوله','البطوله','مباراه','المباراه','نهائي','النهائي','العالم','الكاس','اللاعب','الفريق','المنتخب','النادي','امام','خلال','سجل','كان','فاز','الاول','الثاني','الثالث','الرابع','الاخير','الهدف','هدف','اهداف','الذي','هذا','هذه','التي','اخر','كام','مين','من','اسم','شو','كم','بين','على','علي','الي','اي','ذلك','الفوز','مواجهه','ريال','مدريد','برشلونه']);
-const detailCache = new WeakMap<QuizQuestion, { family: string; answer: string; year: string[]; tokens: Set<string>; topic: string }>();
+const playerAliases: Record<string,string> = {
+  'سيرجيو راموس':'سيرخيو راموس','سيرجيو اغويرو':'سيرخيو اغويرو',
+  'ارلينغ هالاند':'ايرلينغ هالاند','لياندرو تروسار':'لياندرو تروسارد',
+  'سيرجي روبيرتو':'سيرجي روبرتو','خاميس رودريغيز':'جيمس رودريغيز',
+  'اندرس انييستا':'اندريس انييستا',
+};
+function identity(q: QuizQuestion): string {
+  const full = q.categoryId === 'cat_football_first_name'
+    ? q.explanation?.match(/الاسم الكامل\s+([^·]+)/)?.[1]?.trim()
+    : undefined;
+  const k = normalize(full || q.answer);
+  return playerAliases[k] || k;
+}
+const detailCache = new WeakMap<QuizQuestion, { family: string; answer: string; identity: string; year: string[]; tokens: Set<string>; topic: string }>();
 function details(q: QuizQuestion) {
   const cached = detailCache.get(q);
   if (cached) return cached;
@@ -50,7 +63,7 @@ function details(q: QuizQuestion) {
   const year = prompt.match(/\b(?:19|20)\d{2}\b/g) ?? [];
   const tokens = new Set(prompt.split(' ').filter(w => w.length >= 3 && !/^\d+$/.test(w) && !stopWords.has(w)));
   const topic = q.subtopic && !q.subtopic.startsWith('http') ? normalize(q.subtopic) : '';
-  const value = {family:family(q),answer,year,tokens,topic};
+  const value = {family:family(q),answer,identity:identity(q),year,tokens,topic};
   detailCache.set(q, value);
   return value;
 }
@@ -74,7 +87,8 @@ export function pickDiverseFootballQuestion(candidates: QuizQuestion[], selected
       if (recent && sameBroadFamily(d.family,p.family)) penalty += 12;
       if (recent && d.family === p.family) penalty += 10;
       const sameCategory = previous.categoryId === q.categoryId;
-      if (d.answer.length > 3 && d.answer === p.answer) penalty += 100;
+      if (d.identity.length > 3 && d.identity === p.identity) penalty += 1000;
+      else if (d.answer.length > 3 && d.answer === p.answer) penalty += 100;
       if (recent && d.answer.length > 3 && (d.answer.includes(p.answer) || p.answer.includes(d.answer)) && p.answer.length > 5) penalty += 20;
       if (sameCategory && d.family === p.family) penalty += 8;
       if (sameCategory && d.topic && d.topic === p.topic) penalty += 3;

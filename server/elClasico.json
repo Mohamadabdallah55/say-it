@@ -408,15 +408,12 @@
     "imageCaption": "صورة أنخيل دي ماريا بقميص النادي — صورة أرشيفية"
   },
   {
-    "id": "ELC-V2-030",
+    "id": "ELC-V2-030-D5",
+    "question": "مين الظهير الأيسر الإسباني اللي سجل هدف برشلونة الرابع في نهائي السوبر الإسباني 2025 ضد ريال مدريد؟",
+    "answer": "أليخاندرو بالدي",
     "level": 200,
-    "question": "حسب تقرير الليغا لعام 2022 عن الكلاسيكو منذ عام 2000، من لاعب برشلونة الذي سجل هاتريكين في الدوري؟",
-    "answer": "ليونيل ميسي",
-    "explanation": "ميسي سجل هاتريك مرتين في كلاسيكو الدوري منذ عام 2000.",
-    "fact_source_url": "https://www.laliga.com/noticias/los-records-de-elclasico-real-madrid-vs-fc-barcelona",
-    "imageUrl": "https://s.yimg.com/ny/api/res/1.2/l94_0fSrCHnk47zJgFzFpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTc2NztoPTUwMDtjZj13ZWJw/https%3A/media.zenfs.com/en_sg/News/AFP/5cc96675d340509dc3226b83939a340fd273e486.jpg",
-    "imageSourceUrl": "https://sg.news.yahoo.com/messi-becomes-time-top-scorer-el-clasico-205301222--spt.html",
-    "imageCaption": "ليونيل ميسي"
+    "explanation": "سجل بالدي الهدف الرابع قبل نهاية الشوط الأول.",
+    "fact_source_url": "https://www.laliga.com/en-GB/match/temporada-2024-2025-supercopa-de-espana-por-determinar-por-determinar-2"
   },
   {
     "id": "ELC-V2-031",

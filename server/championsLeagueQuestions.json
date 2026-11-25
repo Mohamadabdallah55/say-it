@@ -335,15 +335,13 @@
     "imageCaption": "صورة صامويل إيتو · BACHELOR45 · CC BY-SA 4.0"
   },
   {
-    "id": "UCL-030",
+    "id": "UCL-030-D5",
+    "question": "مين مهاجم أستون فيلا الكولومبي اللي حسم مباراة فريقه ضد بايرن في مرحلة الدوري من دوري الأبطال 2024-25؟",
+    "answer": "جون دوران",
     "points": 200,
-    "question": "من استفاد من خطأ تمرير لوريس كاريوس ليسجل أول أهداف ريال مدريد أمام ليفربول في نهائي 2018؟",
-    "answer": "كريم بنزيما",
-    "explanation": "اعترض بنزيما تمريرة الحارس وحولها إلى هدف لريال مدريد.",
-    "theme": "الأخطاء الشهيرة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d7318379-716954065574-1000/",
-    "imageUrl": "https://images.welt.de/67e35d5c4043cc0cc565ef3b/99ca6f0f6ddfb30c47154b8377cf925d/ci102l-w1200/ukraine-soccer-champions-league-final",
-    "imageSourceUrl": "https://www.welt.de/sport/fussball/champions-league/article176706966/Champions-League-FC-Liverpool-Die-folgenschweren-Patzer-des-Loris-Karius.html"
+    "explanation": "سجل دوران هدف فوز أستون فيلا.",
+    "theme": "تنوع كروي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0292-1bfd5249c8ba-d712b6e4560d-1000--champions-league-highlights-and-round-up-arsenal-beat-pa/"
   },
   {
     "id": "UCL-031",
@@ -640,16 +638,13 @@
     "imageCaption": "صورة كريستيانو رونالدو · Bryan Berlin · CC BY-SA 4.0"
   },
   {
-    "id": "UCL-NEW-26-02",
+    "id": "UCL-NEW-26-02-D5",
+    "question": "مين اللاعب الغيني الذي شارك رافينيا صدارة هدافي دوري أبطال أوروبا موسم 2024-25؟",
+    "answer": "سيرو غيراسي",
     "points": 600,
-    "question": "مين لاعب باريس اللي كانت سرعته القصوى 36.9 كم/س حسب تقرير UEFA عن موسم التتويج 2024/25؟",
-    "answer": "أشرف حكيمي",
-    "explanation": "أدرج تقرير UEFA حكيمي بهذه السرعة.",
-    "theme": "أداء اللاعبين",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1db3ed7babb3-e6227af6104f-1000--champions-league-final-paris-vs-inter-meet-the-teams/",
-    "imageUrl": "/assets/questions/football-first-name/d95db4be17d185b2f70a6d52.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Achraf_Hakimi_Morocco_v_Norway_7_June_2026-32.jpg",
-    "imageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "explanation": "أحرز غيراسي ورافينيا 13 هدفًا لكل منهما.",
+    "theme": "تنوع كروي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0291-1be52628e744-a25f57a62887-1000--champions-league-top-scorer-serhou-guirassy-leads-the-way/"
   },
   {
     "id": "UCL-058",
@@ -1031,16 +1026,13 @@
     "imageCaption": "لقطة أرشيفية من نهائي 1960 في هامبدن بارك"
   },
   {
-    "id": "UCL-089-R2",
+    "id": "UCL-089-R2-D5",
+    "question": "مين لاعب نيوكاسل الإنجليزي الذي سجل عشرة أهداف في دوري أبطال أوروبا موسم 2025-26؟",
+    "answer": "أنتوني غوردون",
     "points": 600,
-    "question": "أي لاعب من باريس كان يرتدي القميص رقم 9 في نهائي دوري الأبطال 2025 أمام إنتر؟",
-    "answer": "غونسالو راموس",
-    "explanation": "راموس ارتدى رقم 9 مع باريس في ذلك الموسم.",
-    "theme": "مسيرة وإنجازات وتفاصيل المباريات",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/",
-    "imageUrl": "/assets/world_cup_2026/players/goncalo_ramos.jpg",
-    "imageSourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_%28cropped%29.jpg/960px-Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "imageCaption": "صورة اللاعب من مكتبة اللعبة"
+    "explanation": "سجل غوردون عشرة أهداف في البطولة.",
+    "theme": "تنوع كروي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/history/seasons/2026/statistics/players/goals/"
   },
   {
     "id": "UCL-090",
@@ -1129,16 +1121,13 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/"
   },
   {
-    "id": "UCL-097",
+    "id": "UCL-097-D5",
+    "question": "مين لاعب ليل الذي تألق في مواجهة ريال مدريد يوم عيد ميلاده السابع عشر في دوري الأبطال 2024؟",
+    "answer": "أيوب بوعدي",
     "points": 600,
-    "question": "في الجولة الأولى من موسم 2012/13، من سجل هدف تعادل ريال مدريد قبل هدف فوز رونالدو على مانشستر سيتي؟",
-    "answer": "كريم بنزيما",
-    "explanation": "سجل بنزيما التعادل بعد هدف كولاروف.",
-    "theme": "أرشيف البطولة",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0225-0e919f9fb3a2-f33f9f8bd0a7-1000--matchday-1-classics/",
-    "imageUrl": "/assets/questions/football-first-name/3f422de98614ecab7fa2a23e.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Karim_Benzema_vs._FC_Schalke_04_(16647992937).jpg",
-    "imageCaption": "صورة كريم بنزيما · Chris Deahr · CC BY 2.0"
+    "explanation": "بدأ بوعدي أول مباراة له في البطولة يوم عيد ميلاده السابع عشر.",
+    "theme": "تنوع كروي",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0292-1bfd5249c8ba-d712b6e4560d-1000--champions-league-highlights-and-round-up-arsenal-beat-pa/"
   },
   {
     "id": "UCL-R26-001",

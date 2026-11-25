@@ -26,11 +26,12 @@
       "referenceUrl": "https://new.ofa.om/clubs.aspx?id=6"
     },
     {
-      "id": "FK-004",
-      "letter": "ه",
-      "question": "من فاز بالحذاء الذهبي في كأس العالم 2018 بستة أهداف؟",
-      "answer": "هاري كين",
-      "points": 200
+      "id": "FK-004-D5",
+      "question": "مين الظهير الأيسر الإسباني المعروف بشعره الطويل الذي اختارته UEFA ضمن تشكيلة يورو 2024 المثالية؟",
+      "answer": "مارك كوكوريلا",
+      "points": 200,
+      "letter": "م",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028f-1b61a0e91074-427664e9bbfe-1000--uefa-euro-2024-team-of-the-tournament/"
     },
     {
       "id": "FK-005",
@@ -227,11 +228,12 @@
       "points": 200
     },
     {
-      "id": "FK-032",
-      "letter": "س",
-      "question": "من سجّل رأسية تعادل ريال مدريد في الدقيقة 92:48 أمام أتلتيكو في نهائي دوري الأبطال 2014؟",
-      "answer": "سيرجيو راموس",
-      "points": 200
+      "id": "FK-032-D5",
+      "question": "مين الحارس الفرنسي الذي حافظ على نظافة شباكه أربع مرات في يورو 2024؟",
+      "answer": "مايك مينيان",
+      "points": 200,
+      "letter": "م",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028f-1b61cc9835db-185592165f27-1000--uefa-euro-2024-at-a-glance/"
     },
     {
       "id": "FK-033",
@@ -401,11 +403,12 @@
       "points": 200
     },
     {
-      "id": "FK-056",
-      "letter": "غ",
-      "question": "من سجّل مقصية ريال مدريد أمام ليفربول في نهائي دوري الأبطال 2018؟",
-      "answer": "غاريث بيل",
-      "points": 200
+      "id": "FK-056-D5",
+      "question": "مين لاعب الوسط الإسباني الذي ظهر ضمن تشكيلة يورو 2024 المثالية وكان يلعب لباريس سان جيرمان؟",
+      "answer": "فابيان رويز",
+      "points": 200,
+      "letter": "ف",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028f-1b61a0e91074-427664e9bbfe-1000--uefa-euro-2024-team-of-the-tournament/"
     },
     {
       "id": "FK-057",
@@ -422,11 +425,12 @@
       "points": 400
     },
     {
-      "id": "FK-059",
+      "id": "FK-059-D5",
+      "question": "مين الحارس الجورجي الذي كان يلعب لفالنسيا خلال يورو 2024؟",
+      "answer": "غيورغي مامارداشفيلي",
       "points": 600,
-      "letter": "ن",
-      "question": "أي نادٍ إنجليزي فاز بكأس أوروبا مرتين متتاليتين في 1979 و1980؟",
-      "answer": "نوتنغهام فورست"
+      "letter": "غ",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028e-1b3bc8fd548b-37655de61b66-1000--spain-vs-georgia-facts/"
     },
     {
       "id": "FK-060",
@@ -481,11 +485,12 @@
       "sourceUrl": "https://www.liverpoolfc.com/team/mens/player/andy-robertson"
     },
     {
-      "id": "FK-067",
+      "id": "FK-067-D5",
+      "question": "أي لاعب جورجي سجل ثلاثة أهداف في يورو 2024 وتقاسم جائزة الهداف؟",
+      "answer": "جورج ميكوتادزه",
       "points": 600,
-      "letter": "د",
-      "question": "مين سجل ثنائية ميلان أمام برشلونة في نهائي دوري الأبطال 1994؟",
-      "answer": "دانييلي ماسارو"
+      "letter": "ج",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028f-1b61cc9835db-185592165f27-1000--uefa-euro-2024-at-a-glance/"
     },
     {
       "id": "FK-068",
@@ -574,11 +579,12 @@
       "points": 400
     },
     {
-      "id": "FK-080",
+      "id": "FK-080-D5",
+      "question": "أي لاعب بولندي كان يلعب لنابولي عند اختياره لقائمة يورو 2024؟",
+      "answer": "بيوتر زيلينسكي",
       "points": 600,
       "letter": "ب",
-      "question": "ما اسم عائلة اللاعب الذي نفّذ الركلة الحرة التي افتتحت التسجيل لبايرن أمام يونايتد في نهائي 1999؟",
-      "answer": "باسلر"
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028e-1b154cb8afd1-b5ab2c4eebf5-1000--euro-2024-squads-confirmed-check-out-every-team-s-list-in-full/"
     },
     {
       "id": "FK-081",
@@ -645,11 +651,12 @@
       "points": 200
     },
     {
-      "id": "FK-090",
+      "id": "FK-090-D5",
+      "question": "مين لاعب خط وسط منتخب تركيا الذي كان يلعب لبنفيكا عند انطلاق يورو 2024؟",
+      "answer": "أوركون كوكجو",
       "points": 600,
-      "letter": "ر",
-      "question": "مين سجل بعد 10.12 ثانية أمام ريال مدريد في دوري الأبطال عام 2007؟",
-      "answer": "روي ماكاي"
+      "letter": "أ",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028e-1b154cb8afd1-b5ab2c4eebf5-1000--euro-2024-squads-confirmed-check-out-every-team-s-list-in-full/"
     },
     {
       "id": "FK-091",
@@ -680,11 +687,12 @@
       "points": 400
     },
     {
-      "id": "FK-095",
+      "id": "FK-095-D5",
+      "question": "أي مدافع روماني كان يمثل توتنهام عند مشاركته في يورو 2024؟",
+      "answer": "رادو دراغوشين",
       "points": 600,
-      "letter": "ل",
-      "question": "مين سجل خمسة أهداف لشاختار أمام باتي بوريسوف في 2014؟",
-      "answer": "لويز أدريانو"
+      "letter": "ر",
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028e-1b154cb8afd1-b5ab2c4eebf5-1000--euro-2024-squads-confirmed-check-out-every-team-s-list-in-full/"
     },
     {
       "id": "FK-096",
@@ -864,11 +872,12 @@
       "question": "ما اسم المركز الذي يشغله عادة لاعبان في وسط الخط الخلفي؟"
     },
     {
-      "id": "FK-E-021",
+      "id": "FK-E-021-D5",
+      "question": "مين الظهير الإنجليزي المخضرم الذي اختارته UEFA في تشكيلة يورو 2024 المثالية؟",
+      "answer": "كايل ووكر",
       "points": 200,
       "letter": "ك",
-      "answer": "كريم بنزيما",
-      "question": "من اللاعب الفرنسي الذي فاز بالكرة الذهبية عام 2022؟"
+      "sourceUrl": "https://www.uefa.com/uefaeuro/history/news/028f-1b61a0e91074-427664e9bbfe-1000--uefa-euro-2024-team-of-the-tournament/"
     },
     {
       "id": "FK-E-022",

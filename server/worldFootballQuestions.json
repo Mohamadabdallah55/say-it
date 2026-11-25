@@ -149,14 +149,14 @@
     "photo": null
   },
   {
-    "id": "WF-014",
+    "id": "WF-014-D5",
+    "question": "مين حارس نوتنغهام فورست اللي شارك حارس أرسنال القفاز الذهبي للدوري الإنجليزي موسم 2024-25؟",
+    "answer": "ماتز سيلس",
     "points": 600,
-    "question": "من سجّل ركلة الترجيح الحاسمة للنجم الأحمر ضد مارسيليا في نهائي كأس أوروبا 1991؟",
-    "answer": "داركو بانشيف",
-    "answer_english": "Darko Pancev",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "حسم اللقب للنجم الأحمر بركلات الترجيح.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "answer_english": "Matz Sels",
+    "subcategory": "تنوع كروي",
+    "explanation": "تقاسم سيلس ورايا الجائزة.",
+    "source_url": "https://www.premierleague.com/en/news/4316253/selsraya-claims-golden-glove-awards",
     "photo": null
   },
   {
@@ -182,14 +182,14 @@
     "photo": null
   },
   {
-    "id": "WF-017",
+    "id": "WF-017-D5",
+    "question": "أي لاعب سلوفاكي أنهى يورو 2024 بثلاثة أهداف وتقاسم صدارة الهدافين؟",
+    "answer": "إيفان شرانتس",
     "points": 600,
-    "question": "من سجّل هدف نوتنغهام فورست الوحيد أمام مالمو في نهائي كأس أوروبا 1979؟",
-    "answer": "تريفور فرانسيس",
-    "answer_english": "Trevor Francis",
-    "subcategory": "كأس أوروبا للأندية",
-    "explanation": "سجّل برأسية هدف التتويج لفورست.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/history/",
+    "answer_english": "Ivan Schranz",
+    "subcategory": "تنوع كروي",
+    "explanation": "كان شرانتس ضمن ستة لاعبين سجلوا ثلاثة أهداف.",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b61cc9835db-185592165f27-1000--uefa-euro-2024-at-a-glance/",
     "photo": null
   },
   {
@@ -422,14 +422,14 @@
     "photo": null
   },
   {
-    "id": "WF-038",
+    "id": "WF-038-D5",
+    "question": "مين قلب الدفاع السويسري الذي اختارته UEFA في التشكيلة المثالية ليورو 2024 وكان لاعبًا لمانشستر سيتي؟",
+    "answer": "مانويل أكانجي",
     "points": 600,
-    "question": "مين اللاعب الإنجليزي اللي سجل بعد 28 ثانية أمام فرنسا في مونديال 1982؟",
-    "answer": "براين روبسون",
-    "answer_english": "Bryan Robson",
-    "subcategory": "تاريخ البطولات والأرقام",
-    "explanation": "افتتح التسجيل في دور المجموعات بعد 28 ثانية.",
-    "source_url": "https://www.fifa.com/en/articles/quickest-fastest-goals",
+    "answer_english": "Manuel Akanji",
+    "subcategory": "تنوع كروي",
+    "explanation": "اختير أكانجي ضمن خط الدفاع المثالي.",
+    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b61a0e91074-427664e9bbfe-1000--uefa-euro-2024-team-of-the-tournament/",
     "photo": null
   },
   {
@@ -499,18 +499,15 @@
     "photo": null
   },
   {
-    "id": "WF-045",
+    "id": "WF-045-D5",
+    "question": "مين اللاعب البرازيلي صاحب أجمل هدف في مونديال قطر بتصويت الجمهور، بمقصية أمام صربيا؟",
+    "answer": "ريتشارليسون",
     "points": 200,
-    "question": "من سجل هدف ريال مدريد الأول أمام ليفربول في نهائي دوري الأبطال 2018 بعد خطأ الحارس؟",
-    "answer": "كريم بنزيما",
-    "answer_english": "Karim Benzema",
-    "subcategory": "دوري أبطال أوروبا",
-    "explanation": "استغل تمريرة كاريوس الخاطئة ليسجل.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
-    "photo": null,
-    "imageUrl": "https://images.welt.de/67e35d5c4043cc0cc565ef3b/99ca6f0f6ddfb30c47154b8377cf925d/ci102l-w1200/ukraine-soccer-champions-league-final",
-    "imageSourceUrl": "https://www.welt.de/sport/fussball/champions-league/article176706966/Champions-League-FC-Liverpool-Die-folgenschweren-Patzer-des-Loris-Karius.html",
-    "imageCaption": "نهائي ريال مدريد وليفربول 2018"
+    "answer_english": "Richarlison",
+    "subcategory": "تنوع كروي",
+    "explanation": "فاز هدف ريتشارليسون ضد صربيا بتصويت الجمهور.",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/qatar2022/articles/richarlison-brazil-serbia-bicycle-kick-wins-goal-of-the-tournament-award-fifa-world-cup-qatar-2022",
+    "photo": null
   },
   {
     "id": "WF-046-R3",
@@ -651,25 +648,25 @@
     "imageCaption": "صورة من التغطية الرسمية لنهائي دوري الأبطال 2023"
   },
   {
-    "id": "WF-058-R3",
+    "id": "WF-058-R3-D5",
+    "question": "أي حارس من جنوب أفريقيا تصدى لأربع ركلات ترجيح أمام الرأس الأخضر في كأس أمم أفريقيا 2023؟",
+    "answer": "رونوين ويليامز",
     "points": 600,
-    "question": "في يورو 2024، مين صاحب الهدف الذي اختاره الجمهور أجمل هدف في البطولة، وليس الاختيار الرسمي للمراقبين الفنيين؟",
-    "answer": "ميرت مولدور",
-    "subcategory": "تفاصيل حديثة",
-    "explanation": "تصدر هدف مولدور ضد جورجيا تصويت الجمهور.",
-    "answer_english": "Mert Müldür",
-    "source_url": "https://www.uefa.com/uefaeuro/history/news/028f-1b69569bb33e-89e91bd318f8-1000--mert-muldur-volley-tops-vote-for-fans-goal-of-the-tournament/",
+    "answer_english": "Ronwen Williams",
+    "subcategory": "تنوع كروي",
+    "explanation": "اختير ويليامز أفضل حارس في البطولة.",
+    "source_url": "https://www.cafonline.com/en/caf-africa-cup-of-nations/news/totalenergies-caf-afcon-cote-d-ivoire-2023-awards/",
     "photo": null
   },
   {
-    "id": "WF-059-R3",
+    "id": "WF-059-R3-D5",
+    "question": "مين قائد منتخب نيجيريا الذي اختير أفضل لاعب في كأس أمم أفريقيا 2023 رغم خسارة النهائي؟",
+    "answer": "ويليام تروست إيكونغ",
     "points": 600,
-    "question": "مين اللاعب الشاب اللي صنع الهدف الثالث لأرسنال أمام ريال مدريد 3-0 في ذهاب ربع نهائي أبطال أوروبا 2025؟",
-    "answer": "مايلز لويس سكيلي",
-    "subcategory": "تفاصيل حديثة",
-    "explanation": "مرر لويس سكيلي الكرة لميكيل ميرينو الذي سجل الثالث.",
-    "answer_english": "Myles Lewis-Skelly",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0298-1d798677eb22-40b84d719d26-1000--arsenal-3-0-real-madrid-sublime-declan-rice-free-kicks-inspi/",
+    "answer_english": "William Troost-Ekong",
+    "subcategory": "تنوع كروي",
+    "explanation": "نال قائد نيجيريا جائزة أفضل لاعب.",
+    "source_url": "https://www.cafonline.com/en/caf-africa-cup-of-nations/news/totalenergies-caf-afcon-cote-d-ivoire-2023-awards/",
     "photo": null
   },
   {
@@ -706,18 +703,15 @@
     "photo": null
   },
   {
-    "id": "WF-063",
+    "id": "WF-063-D5",
+    "question": "مين الحارس الإسباني الذي فاز بالقفاز الذهبي للدوري الإنجليزي مع أرسنال في موسم 2023-24؟",
+    "answer": "دافيد رايا",
     "points": 200,
-    "question": "مين الجناح الهولندي آريين اللي حسم نهائي دوري الأبطال لبايرن عام 2013؟",
-    "answer": "آريين روبن",
-    "answer_english": "Arjen Robben",
-    "subcategory": "دوري أبطال أوروبا",
-    "explanation": "حسم روبن النهائي بهدف متأخر في ويمبلي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
-    "photo": null,
-    "imageUrl": "https://img.bundesliga.com/tachyon/sites/2/2019/11/imago13745199h.jpg?resize=960,768",
-    "imageSourceUrl": "https://www.bundesliga.com/en/bundesliga/news/klassiker-2013-champions-league-final-bayern-munich-borussia-dortmund-wembley-7875",
-    "imageCaption": "نهائي بايرن ودورتموند 2013"
+    "answer_english": "David Raya",
+    "subcategory": "تنوع كروي",
+    "explanation": "حافظ رايا على نظافة شباكه في 16 مباراة.",
+    "source_url": "https://www.premierleague.com/en/news/1206130",
+    "photo": null
   },
   {
     "id": "WF-064",
@@ -797,14 +791,14 @@
     "photo": null
   },
   {
-    "id": "WF-071",
+    "id": "WF-071-D5",
+    "question": "مين النجم القطري الذي سجل ثلاث ركلات جزاء في نهائي كأس آسيا 2023 أمام الأردن؟",
+    "answer": "أكرم عفيف",
     "points": 200,
-    "question": "من أحرز التعادل لريال مدريد في الوقت بدل الضائع أمام أتلتيكو بنهائي 2014؟",
-    "answer": "سيرخيو راموس",
-    "answer_english": "Sergio Ramos",
-    "subcategory": "دوري أبطال أوروبا",
-    "explanation": "رأسية راموس في الدقيقة 93 مهّدت لفوز مدريد بالعاشرة.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ae0986c81e3-d2926139ffb1-1000--champions-league-final-dortmund-and-real-madrids-previous-european-cup-final-appearances/",
+    "answer_english": "Akram Afif",
+    "subcategory": "تنوع كروي",
+    "explanation": "سجل عفيف أهداف قطر الثلاثة في النهائي.",
+    "source_url": "https://www.the-afc.com/en/national/afc_asian_cup/news/afif_stars_as_qatar_defeat_jordan_to_retain_title.html",
     "photo": null
   },
   {
@@ -1067,14 +1061,14 @@
     "photo": null
   },
   {
-    "id": "WF-095",
+    "id": "WF-095-D5",
+    "question": "مين المهاجم الأردني اللي سجل هدف النشامى في نهائي كأس آسيا 2023؟",
+    "answer": "يزن النعيمات",
     "points": 200,
-    "question": "من سجّل هدف ريال مدريد الثالث من تسديدة بعيدة ضد ليفربول في نهائي دوري أبطال أوروبا 2018؟",
-    "answer": "غاريث بيل",
-    "answer_english": "Gareth Bale",
-    "subcategory": "دوري أبطال أوروبا",
-    "explanation": "سجّل هدفه الثاني في المباراة بالدقيقة 83، ليحسم فوز ريال مدريد 3–1.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d712edd3-f4ada341e4c7-1000--bale-named-champions-league-final-man-of-the-match/",
+    "answer_english": "Yazan Al-Naimat",
+    "subcategory": "تنوع كروي",
+    "explanation": "أحرز النعيمات هدف التعادل للأردن.",
+    "source_url": "https://www.the-afc.com/en/national/afc_asian_cup/news/afif_stars_as_qatar_defeat_jordan_to_retain_title.html",
     "photo": null
   },
   {
