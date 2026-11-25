@@ -201,13 +201,14 @@
   {
     "id": "RM-019",
     "points": 600,
-    "question": "أي ملعب اسكتلندي شهد فوز ريال مدريد 7-3 على فرانكفورت في 1960؟",
+    "question": "أي ملعب في غلاسكو احتضن النهائي التاريخي الذي فاز فيه ريال مدريد 7–3 على فرانكفورت عام 1960؟",
     "answer": "هامبدن بارك",
     "answer_english": "Hampden Park Glasgow",
     "explanation": "أقيم النهائي التاريخي في ملعب هامبدن بارك في غلاسكو.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b1dc17e3e-c896eaba1732-1000--1959-60-dazzling-madrid-crush-frankfurt/",
-    "imageUrl": "https://cdn.prod.website-files.com/64fed8314c34da2363cb69d7/64fed8314c34da2363cb8634_Hero.webp",
-    "imageSourceUrl": "https://www.champions-journal.com/interview/from-another-universe"
+    "imageUrl": "https://media.eintracht.de/image/upload/ar_3%3A2%2Cc_fill%2Cdpr_3.0%2Cf_auto%2Cg_auto%2Cq_60%2Cw_400/imago59954945h-4141.jpg",
+    "imageSourceUrl": "https://profis.eintracht.de/news/die-helden-von-glasgow-125337/",
+    "imageCaption": "لقطة أرشيفية من نهائي 1960 في هامبدن بارك"
   },
   {
     "id": "RM-020",
@@ -512,7 +513,7 @@
   {
     "id": "RM-047",
     "points": 600,
-    "question": "قبل عرضية روبرتو كارلوس التي سجل منها زيدان هدف نهائي 2002، من لاعب ريال مدريد الذي مرر الكرة إلى كارلوس؟",
+    "question": "قبل هدف زيدان الطائر في نهائي 2002: روبرتو كارلوس أرسل العرضية، لكن مين مرر الكرة لكارلوس قبلها؟",
     "answer": "سانتياغو سولاري",
     "answer_english": "Santiago Solari",
     "explanation": "وجد سولاري كارلوس منطلقًا يسارًا قبل العرضية.",
