@@ -496,3 +496,17 @@ test('career club cards use local or pinned logos and never expose the missing c
     }
   }
 });
+
+
+test('career cards carry chronological entry years without revealing hidden club names', () => {
+  for (const q of FOOTBALL_CAREER_QUESTIONS) {
+    const clubs = q.careerClubs ?? [];
+    assert.ok(clubs.length > 0, q.id);
+    for (let i = 0; i < clubs.length; i++) {
+      const club = clubs[i];
+      assert.ok(Number.isInteger(club.year) && club.year! >= 1950 && club.year! <= 2026, q.id);
+      if (i > 0) assert.ok(club.year! >= clubs[i - 1].year!, q.id);
+      if (club.hidden) { assert.equal(club.name, '؟'); assert.equal(club.logoUrl, undefined); assert.equal(club.moveType, undefined); }
+    }
+  }
+});

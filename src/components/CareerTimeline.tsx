@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { Shield } from 'lucide-react';
-type Club = { name: string; logoUrl?: string; hidden?: boolean };
+type Club = { name: string; logoUrl?: string; hidden?: boolean; year?: number; moveType?: string };
+const moveLabels: Record<string, string> = { loan: 'إعارة', return: 'عودة', reserve: 'الفريق الرديف' };
 
 const ClubBadge = memo(function ClubBadge({ club, compact }: { club: Club; compact: boolean }) {
   const [failed, setFailed] = useState(false);
@@ -20,8 +21,10 @@ export const CareerTimeline = memo(function CareerTimeline({ clubs, compact = fa
         <span className="absolute top-1 right-1 grid size-5 place-items-center rounded-full bg-[#63349B] text-[10px] font-black text-white">{index+1}</span>
         <ClubBadge club={club} compact={compact} />
         <span className="mt-1 min-h-[2.2em] flex items-center justify-center text-center text-[11px] leading-tight md:text-sm font-black text-[#20152E] break-words">{club.hidden ? 'النادي المفقود' : club.name}</span>
+        {club.year && <span className="mt-1 rounded-md bg-[#EEE4FA] px-1.5 py-0.5 text-xs md:text-sm font-black tabular-nums text-[#63349B]" dir="ltr">{club.year}</span>}
+        {!club.hidden && club.moveType && moveLabels[club.moveType] && <span className="mt-0.5 text-[9px] md:text-[11px] font-bold text-[#63349B]">{moveLabels[club.moveType]}</span>}
       </div>)}
     </div>
-    <div className="mt-2 text-center text-[10px] md:text-xs font-bold text-[#E6D8F7]">محطات مختارة • من الأقدم للأحدث</div>
+    <div className="mt-2 text-center text-[10px] md:text-xs font-bold text-[#E6D8F7]">سنة بداية كل محطة • من الأقدم للأحدث</div>
   </div>;
 });

@@ -14,7 +14,17 @@
     "answerImageUrl": "/assets/questions/football-first-name/e060ca186507497ba449c2b0.jpg",
     "clueFile": "FC-001-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2004,
+      2021,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-002",
@@ -33,7 +43,21 @@
     "clueFile": "FC-002-timeline-v3.svg",
     "answerImageUrl": "https://static.nexilia.it/giornalettismo/2014/01/clarence-seedorf-7.jpg",
     "answerImageSourceUrl": "https://archivio.giornalettismo.com/clarence-seedorf-chi-e-il-nuovo-allenatore-del-milan/",
-    "answerImageCaption": "صورة أرشيفية — كلارنس سيدورف"
+    "answerImageCaption": "صورة أرشيفية — كلارنس سيدورف",
+    "clubYears": [
+      1992,
+      1995,
+      1996,
+      1999,
+      2002
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-003",
@@ -53,7 +77,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/df889f24d0bb999bfd67b2f2.jpg",
     "clueFile": "FC-003-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Fernando_Torres_2017.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · cristina cifuentes · CC BY 2.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · cristina cifuentes · CC BY 2.0",
+    "clubYears": [
+      2001,
+      2007,
+      2011,
+      2014,
+      2015,
+      2018
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-004",
@@ -79,7 +119,32 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://cdn.mos.cms.futurecdn.net/YcvT3zw3rBJraicvRGoaV8-650-80.jpg",
     "answerImageSourceUrl": "https://www.fourfourtwo.com/features/32-best-serie-a-players-of-the-90s",
-    "answerImageCaption": "صورة أرشيفية — هيرنان كريسبو"
+    "answerImageCaption": "صورة أرشيفية — هيرنان كريسبو",
+    "clubYears": [
+      1993,
+      1996,
+      2000,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2009,
+      2010
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "loan",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.uefa.com/uefachampionsleague/news/0254-0d7b376ecd25-1bcbd6da7bcb-1000--crespo-makes-milan-move/"
   },
   {
     "id": "FC-005",
@@ -96,7 +161,17 @@
     "answerImageUrl": "/assets/questions/football-first-name/7b3c79d1a2facc51e84bf720.jpg",
     "clueFile": "FC-005-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2015,
+      2017,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-006",
@@ -116,7 +191,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/664a0f8a39ed4ddd7928390b.jpg",
     "clueFile": "FC-006-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2002,
+      2003,
+      2009,
+      2018,
+      2021,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-007",
@@ -135,7 +226,21 @@
     "clueFile": "FC-007-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/ae9b5c574e9c933b09eff8d2.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_44_(Gianluigi_Buffon).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · MichaelEmilio · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · MichaelEmilio · CC BY 4.0",
+    "clubYears": [
+      1995,
+      2001,
+      2018,
+      2019,
+      2021
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "return",
+      "return"
+    ]
   },
   {
     "id": "FC-008",
@@ -153,7 +258,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/e3b5d66a61b29465bd6df5f8.jpg",
     "clueFile": "FC-008-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Hadi Abyar · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Hadi Abyar · CC BY 4.0",
+    "clubYears": [
+      1989,
+      1992,
+      1996,
+      2001
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-009",
@@ -170,7 +287,17 @@
     "clueFile": "FC-009-timeline-v3.svg",
     "answerImageUrl": "https://www.mundodeportivo.com/uploads/2023/09/13/65019304bdb46.jpeg",
     "answerImageSourceUrl": "https://www.mundodeportivo.com/futbol/fc-barcelona/20230913/1002068656/deco.html",
-    "answerImageCaption": "صورة أرشيفية — ديكو"
+    "answerImageCaption": "صورة أرشيفية — ديكو",
+    "clubYears": [
+      1999,
+      2004,
+      2008
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-010",
@@ -193,7 +320,29 @@
     "clueFile": "FC-010-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/4000b4752876beebd373d1d2.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Didier_Drogba_(2019)_(cropped2).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Y.Leclercq© · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Y.Leclercq© · CC BY-SA 4.0",
+    "clubYears": [
+      1998,
+      2002,
+      2003,
+      2004,
+      2012,
+      2013,
+      2014,
+      2015,
+      2017
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-011",
@@ -221,7 +370,35 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://m.media-amazon.com/images/M/MV5BNmQ4MzJhMGYtMzA0ZS00NDNhLWE1NDEtYWRhYjE5MDU4MDY1XkEyXkFqcGc%40._V1_.jpg",
     "answerImageSourceUrl": "https://www.imdb.com/title/tt30589300/mediaviewer/rm2952809985/",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2001,
+      2003,
+      2004,
+      2008,
+      2009,
+      2009,
+      2010,
+      2013,
+      2014,
+      2015,
+      2019,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "return",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-012",
@@ -247,7 +424,31 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://www.alwasatnews.com/data/2011/3161/images/spp-1.jpg",
     "answerImageSourceUrl": "https://www.alwasatnews.com/news/559309.html",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      1997,
+      2002,
+      2004,
+      2007,
+      2011,
+      2012,
+      2014,
+      2015,
+      2016,
+      2018
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-013",
@@ -267,7 +468,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/478a262231f3c23b469e7f12.jpg",
     "clueFile": "FC-013-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2010,
+      2012,
+      2014,
+      2015,
+      2015,
+      2017
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-014",
@@ -287,7 +504,20 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-014-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Karim_Benzema_vs._FC_Schalke_04_(16647992937).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Chris Deahr · CC BY 2.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Chris Deahr · CC BY 2.0",
+    "clubYears": [
+      2004,
+      2009,
+      2023,
+      2026
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.the-afc.com/en/more/transfers.html/news/benzema-joins-al-hilal"
   },
   {
     "id": "FC-015",
@@ -305,7 +535,19 @@
     "clueFile": "FC-015-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/ebc862eeb49532a9404a5380.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Gerard_Piqu%C3%A9_Euro_2012_vs_France_01.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Неймырок · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Неймырок · CC BY-SA 3.0",
+    "clubYears": [
+      2004,
+      2006,
+      2007,
+      2008
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-016",
@@ -323,7 +565,19 @@
     "clueFile": "FC-016-timeline-v3.svg",
     "answerImageUrl": "https://intermilan.bynder.com/m/630e3c1df55d256d/webimage-DFP-0001022-MD.jpg",
     "answerImageSourceUrl": "https://www.inter.it/en/news/birthday-walter-samuel-2026",
-    "answerImageCaption": "صورة أرشيفية — والتر صامويل"
+    "answerImageCaption": "صورة أرشيفية — والتر صامويل",
+    "clubYears": [
+      2000,
+      2004,
+      2005,
+      2014
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-017",
@@ -345,7 +599,23 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-017-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2008,
+      2012,
+      2012,
+      2014,
+      2015,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-018",
@@ -364,7 +634,21 @@
     "answerImageUrl": "/assets/questions/football-first-name/a03d261ef8243d6aea08f266.jpg",
     "clueFile": "FC-018-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_NYCFC_v_Chicago_25_July_2026-383.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2006,
+      2008,
+      2010,
+      2014,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-019",
@@ -381,7 +665,17 @@
     "clueFile": "FC-019-timeline-v3.svg",
     "answerImageUrl": "https://www.ligaportugal.pt/backoffice/assets/30_OTAMENDI_44229f0ab0.png",
     "answerImageSourceUrl": "https://www.ligaportugal.pt/videos?playerId=63852&season=20252026&teamId=278&title=Nicolas+Otamendi",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2010,
+      2015,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-020",
@@ -400,7 +694,21 @@
     "answerImageUrl": "/assets/questions/football-first-name/69f218a9923dedeced0cba3a.jpg",
     "clueFile": "FC-020-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_(32)_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · حسین ظهروند · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · حسین ظهروند · CC BY 4.0",
+    "clubYears": [
+      2006,
+      2007,
+      2013,
+      2020,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-021",
@@ -417,7 +725,17 @@
     "clueFile": "FC-021-timeline-v3.svg",
     "answerImageUrl": "https://www.ceroacero.es/img/planteis/new/21/47/752147_esteban_cambiasso_20251019024102.jpg",
     "answerImageSourceUrl": "https://www.ceroacero.es/jugador/esteban-cambiasso/1014?epoca_id=140",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2002,
+      2004,
+      2015
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-022",
@@ -436,7 +754,21 @@
     "answerImageUrl": "/assets/questions/football-first-name/180c864989ca8fa0d433a943.jpg",
     "clueFile": "FC-022-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2016,
+      2017,
+      2019,
+      2020,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-023",
@@ -463,7 +795,33 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://img.youm7.com/ArticleImgs/2018/8/9/129662-%D8%AE%D8%A7%D9%81%D9%8A%D9%8A%D8%B1-%D8%B3%D8%A7%D9%81%D9%8A%D9%88%D9%84%D8%A7.jpg",
     "answerImageSourceUrl": "https://www.youm7.com/story/2018/8/10/3906030",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      1998,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2009,
+      2012,
+      2013,
+      2014,
+      2015
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-024",
@@ -483,7 +841,27 @@
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
     "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
-    "clueFile": "FC-024-timeline-v3.svg"
+    "clueFile": "FC-024-timeline-v3.svg",
+    "clubYears": [
+      1998,
+      2001,
+      2003,
+      2008,
+      2011,
+      2012,
+      2014,
+      2015
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-025",
@@ -506,7 +884,29 @@
     "answerImageUrl": "/assets/questions/football-first-name/8faa19c167b1ebefb40d1dfc.jpg",
     "clueFile": "FC-025-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_2026_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · The White House · Public domain"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · The White House · Public domain",
+    "clubYears": [
+      2005,
+      2006,
+      2007,
+      2011,
+      2014,
+      2020,
+      2022,
+      2023,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-026",
@@ -530,7 +930,31 @@
     "answerImageUrl": "/assets/questions/football-first-name/32259123b9cc71babea5ab7f.jpg",
     "clueFile": "FC-026-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Zlatan_Ibrahimovi%C4%87_nyc.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Colleen Sturtevant · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Colleen Sturtevant · CC BY-SA 4.0",
+    "clubYears": [
+      1999,
+      2001,
+      2004,
+      2006,
+      2009,
+      2010,
+      2012,
+      2016,
+      2018,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-027",
@@ -548,7 +972,19 @@
     "clueFile": "FC-027-timeline-v3.svg",
     "answerImageUrl": "https://www.sofoot.com/convert/aHR0cHM6Ly9zb2Zvb3QuczMuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb20vbGVnYWN5L0lNRy9zb2Zvb3RfYXJ0aWNsZXMvbG9nb18xNDc3NjYuanBn/image/ricardo-carvalho-et-lespoir.jpg",
     "answerImageSourceUrl": "https://www.sofoot.com/breves/ricardo-carvalho-et-lespoir",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      1997,
+      2004,
+      2010,
+      2013
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-028",
@@ -567,7 +1003,21 @@
     "clueFile": "FC-028-timeline-v3.svg",
     "answerImageUrl": "https://func-wolves-playmaker-imageresizer-prod-uksouth.azurewebsites.net/api/media/26038/moutinho.png?quality=80&width=400",
     "answerImageSourceUrl": "https://www.wolves.co.uk/teams/mens-first-team/",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2004,
+      2010,
+      2013,
+      2018,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-029",
@@ -586,7 +1036,21 @@
     "clueFile": "FC-029-timeline-v3.svg",
     "answerImageUrl": "https://m.media-amazon.com/images/M/MV5BOTQ3M2RjMzktOWQyZi00NzFmLWEzNTEtYTgxOTY3YTgxMWFlXkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
     "answerImageSourceUrl": "https://www.imdb.com/name/nm2322650/bio/",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      1997,
+      1999,
+      2001,
+      2007,
+      2011
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-030",
@@ -607,7 +1071,21 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-030-timeline-v3.svg",
     "answerImageSourceUrl": "https://inside.fifa.com/organisation/media-releases/packed-stadiums-record-digital-reach-world-cup-2026-numbers-unprecedented-scale",
-    "answerImageCaption": "صورة اللاعب من مكتبة اللعبة المحلية"
+    "answerImageCaption": "صورة اللاعب من مكتبة اللعبة المحلية",
+    "clubYears": [
+      2009,
+      2013,
+      2017,
+      2023,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-031",
@@ -627,7 +1105,19 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-031-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ujishadow · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ujishadow · CC BY-SA 4.0",
+    "clubYears": [
+      2010,
+      2013,
+      2015,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-032",
@@ -645,7 +1135,19 @@
     "clueFile": "FC-032-timeline-v3.svg",
     "answerImageUrl": "https://static.jutarnji.hr/images/slike/2025/01/21/36085419.jpg",
     "answerImageSourceUrl": "https://www.jutarnji.hr/sportske/nogomet/hnl/klubovi/dinamo/eduardo-da-silva-dinamo-moze-iznenaditi-arsenal-odusevili-su-sve-u-brazilu-sin-matheus-hladan-na-tatu-15544899",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2001,
+      2007,
+      2010,
+      2018
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-033",
@@ -667,7 +1169,23 @@
     "clueFile": "FC-033-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/63942bf94e45f38de5685232.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0",
+    "clubYears": [
+      2009,
+      2011,
+      2016,
+      2023,
+      2024,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-034",
@@ -690,7 +1208,26 @@
     "clueFile": "FC-034-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/31de897fd7e066d83bd61b73.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Marco_Asensio_10_Fenerbah%C3%A7e_20260805_(4)_(cropped).JPG",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · User:Zafer · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · User:Zafer · CC BY-SA 4.0",
+    "clubYears": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2023,
+      2025,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "loan",
+      "join"
+    ],
+    "careerYearSource": "https://www.psg.fr/en/content/pr-marco-asensio-signs-for-fenerbahce-sk"
   },
   {
     "id": "FC-035",
@@ -707,7 +1244,17 @@
     "clueFile": "FC-035-timeline-v3.svg",
     "answerImageUrl": "https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_720%2Car_16%3A9%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/Ian-MacNicol-Archive-0528b8424c5911579ee8abbb7cfdb4c2.jpg",
     "answerImageSourceUrl": "https://www.90min.com/es/posts/chelsea-campeon-2012-champions-que-es-de-los-jugadores",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2000,
+      2003,
+      2008
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-036",
@@ -724,7 +1271,17 @@
     "clueFile": "FC-036-timeline-v3.svg",
     "answerImageUrl": "https://prabook.com/web/show-photo.jpg?id=1916442",
     "answerImageSourceUrl": "https://prabook.com/web/rui.costa/92261",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      1990,
+      1994,
+      2001
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-037",
@@ -744,7 +1301,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/c6490b31618e3d72e7131ad4.jpg",
     "clueFile": "FC-037-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_(51649035951)_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Web Summit · CC BY 2.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Web Summit · CC BY 2.0",
+    "clubYears": [
+      1994,
+      1999,
+      1999,
+      2007,
+      2010,
+      2012
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan"
+    ]
   },
   {
     "id": "FC-038",
@@ -768,7 +1341,27 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-038-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_(5).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2007,
+      2010,
+      2014,
+      2015,
+      2022,
+      2023,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "return"
+    ]
   },
   {
     "id": "FC-039",
@@ -788,7 +1381,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/41152ed492df58326bace4ce.jpg",
     "clueFile": "FC-039-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Amir Hosseini · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Amir Hosseini · CC BY 4.0",
+    "clubYears": [
+      2006,
+      2008,
+      2010,
+      2013,
+      2021,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-040",
@@ -808,7 +1417,19 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-040-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2003,
+      2008,
+      2012,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-041",
@@ -825,7 +1446,21 @@
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kak%C3%A1_visited_Stadium_St._Petersburg.jpg",
     "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kak%C3%A1_visited_Stadium_St._Petersburg.jpg/500px-Kak%C3%A1_visited_Stadium_St._Petersburg.jpg",
-    "clueFile": "FC-041-timeline-v3.svg"
+    "clueFile": "FC-041-timeline-v3.svg",
+    "clubYears": [
+      2001,
+      2003,
+      2009,
+      2013,
+      2014
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-042",
@@ -845,7 +1480,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/e434aaa84db5098bc7908623.jpg",
     "clueFile": "FC-042-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2011,
+      2012,
+      2014,
+      2016,
+      2022,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-043",
@@ -864,7 +1515,21 @@
     "answerImageUrl": "/assets/questions/football-first-name/fde84d8cfbfa560c5d893e4f.jpg",
     "clueFile": "FC-043-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Wayne_Rooney_(50121495731)_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · All-Pro Reels from District of Columbia, USA · CC BY-SA 2.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · All-Pro Reels from District of Columbia, USA · CC BY-SA 2.0",
+    "clubYears": [
+      2002,
+      2004,
+      2017,
+      2018,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-044",
@@ -885,7 +1550,21 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-044-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Pogba_Cannes_2025.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Gilzetbase · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Gilzetbase · CC BY-SA 4.0",
+    "clubYears": [
+      2011,
+      2012,
+      2016,
+      2022,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "return",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-045",
@@ -903,7 +1582,19 @@
     "clueFile": "FC-045-timeline-v3.svg",
     "answerImageUrl": "https://b.fssta.com/uploads/application/soccer/headshots/2254.png",
     "answerImageSourceUrl": "https://www.foxsports.com/soccer/mario-mandzukic-player",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2012,
+      2014,
+      2015,
+      2021
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-046",
@@ -924,7 +1615,25 @@
     "clueFile": "FC-046-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/df6996fd046663b61c6a34dd.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8884_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ailura , Derivative work by Eliasrexofficial · CC BY-SA 3.0 at"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ailura , Derivative work by Eliasrexofficial · CC BY-SA 3.0 at",
+    "clubYears": [
+      2007,
+      2011,
+      2015,
+      2016,
+      2019,
+      2022,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-047",
@@ -947,7 +1656,29 @@
     "clueFile": "FC-047-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/725ec5a5f92ab7c82ebd4cbc.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Perisic_Croatia_v_Portugal_2_July_2026-033.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2009,
+      2011,
+      2013,
+      2015,
+      2019,
+      2020,
+      2022,
+      2024,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-048",
@@ -968,7 +1699,22 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://cdn-img.staticzz.com/img/planteis/new/24/80/8772480_rui_patricio_20260202003752.jpg",
     "answerImageSourceUrl": "https://www.zerozero.pt/jogador/rui-patricio/28531?epoca_id=153",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2006,
+      2018,
+      2021,
+      2024,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.reuters.com/sports/soccer/portuguese-goalkeeper-patricio-joins-al-ain-club-world-cup-2025-05-31/"
   },
   {
     "id": "FC-049",
@@ -987,7 +1733,21 @@
     "clueFile": "FC-049-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/e78b2652871555b1067b43c2.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:AUT_vs._TUR_2016-03-29_(342).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Steindy ( talk ) 10:15, 11 April 2016 (UTC) · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Steindy ( talk ) 10:15, 11 April 2016 (UTC) · CC BY-SA 3.0",
+    "clubYears": [
+      2011,
+      2013,
+      2014,
+      2017,
+      2021
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-050",
@@ -1008,7 +1768,25 @@
     "clueFile": "FC-050-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/bbc8ca3ed89499ca551c8886.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Rakiti%C4%87_2020_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Пукалик · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Пукалик · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2007,
+      2011,
+      2014,
+      2020,
+      2024,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-051",
@@ -1026,7 +1804,19 @@
     "clueFile": "FC-051-timeline-v3.svg",
     "answerImageUrl": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2012/04/03/22/pg-68-olic-afp-getty.jpg?width=1200",
     "answerImageSourceUrl": "https://www.independent.co.uk/sport/football/european/ivica-olic-s-double-puts-bayern-munich-one-step-away-from-home-final-dream-7615593.html",
-    "answerImageCaption": "صورة أرشيفية — إيفيكا أوليتش"
+    "answerImageCaption": "صورة أرشيفية — إيفيكا أوليتش",
+    "clubYears": [
+      2003,
+      2007,
+      2009,
+      2012
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-052",
@@ -1044,7 +1834,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/8ce1ca6423d5c7b8a03fd985.jpg",
     "clueFile": "FC-052-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ag%C3%BCero_in_2018.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2003,
+      2006,
+      2011,
+      2021
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-053",
@@ -1062,7 +1864,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/77bbde7748359ac5d4c34ec7.jpg",
     "clueFile": "FC-053-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Toni_Kroos_Real_Madrid_2021.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · https://www.youtube.com/@realmadrid · CC BY 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · https://www.youtube.com/@realmadrid · CC BY 3.0",
+    "clubYears": [
+      2007,
+      2009,
+      2010,
+      2014
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-054",
@@ -1080,7 +1894,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/5e3ebe3642f4ea4b34596c31.jpg",
     "clueFile": "FC-054-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mahrez_2021.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Jeanpierrekepseu · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Jeanpierrekepseu · CC BY-SA 4.0",
+    "clubYears": [
+      2010,
+      2014,
+      2018,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-055",
@@ -1101,7 +1927,21 @@
     "clueFile": "FC-055-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/7de704b6a2cfa344355916f9.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Granit_Xhaka_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · @cfcunofficial (Chelsea Debs) London from London, UK · CC BY-SA 2.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · @cfcunofficial (Chelsea Debs) London from London, UK · CC BY-SA 2.0",
+    "clubYears": [
+      2010,
+      2012,
+      2016,
+      2023,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-056",
@@ -1121,7 +1961,23 @@
     "answerImageUrl": "/assets/questions/football-first-name/2fe07bcb7b8439ba5bb5e508.jpg",
     "clueFile": "FC-056-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Sven Mandel · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Sven Mandel · CC BY-SA 4.0",
+    "clubYears": [
+      2000,
+      2002,
+      2004,
+      2007,
+      2009,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-057",
@@ -1143,7 +1999,23 @@
     "clueFile": "FC-057-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/283e83a34f650aae3197e6b3.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:EriksenTottenham2016(cropped)_2.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Голубович · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Голубович · CC BY-SA 3.0",
+    "clubYears": [
+      2010,
+      2013,
+      2020,
+      2022,
+      2022,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-058",
@@ -1162,7 +2034,21 @@
     "clueFile": "FC-058-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/7ec2ff6433d107ea8af67b24.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Wojciech_Szcz%C4%99sny.png",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · La Gazzetta dello Sport · CC BY 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · La Gazzetta dello Sport · CC BY 3.0",
+    "clubYears": [
+      2009,
+      2009,
+      2015,
+      2017,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "loan",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-059",
@@ -1182,7 +2068,23 @@
     "clueFile": "FC-059-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/933cf55946552b66c0921406.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Kvaratskhelia_asse_psg_2425.png",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Paté kroute · CC0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Paté kroute · CC0",
+    "clubYears": [
+      2016,
+      2018,
+      2019,
+      2022,
+      2022,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-060",
@@ -1213,7 +2115,42 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "/assets/questions/football-first-name/bf82e68ec15eee923d199227.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Argentina_-_Colombia_2022_(28)_(cropped_2).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · jmmuguerza · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · jmmuguerza · CC BY-SA 3.0",
+    "clubYears": [
+      2006,
+      2008,
+      2010,
+      2013,
+      2014,
+      2017,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2026
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.fifa.com/es/articles/james-rodriguez-revolucion-atletico-nacional-vuelve-a-colombia"
   },
   {
     "id": "FC-061",
@@ -1229,7 +2166,15 @@
     "clueFile": "FC-061-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/d95d54a308506d8528e3e4f6.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Alphonso_Davies_Canada_v_Qatar_18_June_2026-007_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2016,
+      2019
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-062",
@@ -1249,7 +2194,23 @@
     "clueFile": "FC-062-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/45fdb0e923771b17ab415532.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Leandro_Trossard_Belgium_v_USA_6_July_2026-258.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2012,
+      2012,
+      2013,
+      2015,
+      2019,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "loan",
+      "loan",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-063",
@@ -1278,7 +2239,38 @@
     "careerUpdateSource": "https://www.fotmob.com/players/50047/alexis-sanchez",
     "careerUpdatedAt": "2026-11-26",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Alexis_S%C3%A1nchez_2017.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2006,
+      2007,
+      2008,
+      2011,
+      2014,
+      2018,
+      2019,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join",
+      "return",
+      "return",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.mlssoccer.com/news/cf-montreal-sign-chilean-legend-alexis-sanchez"
   },
   {
     "id": "FC-064",
@@ -1305,7 +2297,33 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-064-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:1_Pierre-Emerick_Aubameyang_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Chensiyuan · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Chensiyuan · CC BY-SA 4.0",
+    "clubYears": [
+      2008,
+      2009,
+      2010,
+      2011,
+      2013,
+      2018,
+      2022,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "clubMoveTypes": [
+      "loan",
+      "loan",
+      "loan",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-065",
@@ -1324,7 +2342,21 @@
     "clueFile": "FC-065-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/d3e96d32a88eb32a5ee56534.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Marcelo_Brozovi%C4%87_2021_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Антон Зайцев · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Антон Зайцев · CC BY-SA 3.0",
+    "clubYears": [
+      2010,
+      2011,
+      2012,
+      2015,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-066",
@@ -1341,7 +2373,17 @@
     "answerImageUrl": "/assets/questions/football-first-name/25016d3970774a8a2bd5e986.jpg",
     "clueFile": "FC-066-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Jude_Bellingham_England_v_Ghana_23_June_2026-061_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2019,
+      2020,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-067",
@@ -1363,7 +2405,24 @@
     "careerUpdateSource": "https://www.fotmob.com/players/319300/ngolo-kante",
     "careerUpdatedAt": "2026-11-26",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2012,
+      2013,
+      2015,
+      2016,
+      2023,
+      2026
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.reuters.com/sports/soccer/kante-joins-fenerbahce-after-transfer-dispute-2026-02-04/"
   },
   {
     "id": "FC-068",
@@ -1386,7 +2445,29 @@
     "answerImageUrl": "/assets/questions/football-first-name/e625cf558e77fc3ca096a429.jpg",
     "clueFile": "FC-068-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Radamel_Falcao_Garc%C3%ADa_en_Millonarios.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Futbolero · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Futbolero · CC BY-SA 4.0",
+    "clubYears": [
+      2005,
+      2009,
+      2011,
+      2013,
+      2014,
+      2015,
+      2016,
+      2019,
+      2021
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-069",
@@ -1407,7 +2488,22 @@
     "clueFile": "FC-069-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/2b2bc21533280706ae8a6e73.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_(2026-01-06_Testspiel)_40_(Luiz_D%C3%ADaz).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Werner100359 · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Werner100359 · CC BY-SA 4.0",
+    "clubYears": [
+      2016,
+      2017,
+      2019,
+      2022,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://www.liverpoolfc.com/news/luis-diazs-journey-liverpool"
   },
   {
     "id": "FC-070",
@@ -1431,7 +2527,31 @@
     "clueFile": "FC-070-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/a7408fa3867a15c60d476aca.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Iran_and_Spain_match_at_the_FIFA_World_Cup_23.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Mahdi Zare/Fars News Agency · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Mahdi Zare/Fars News Agency · CC BY 4.0",
+    "clubYears": [
+      2006,
+      2007,
+      2009,
+      2012,
+      2013,
+      2014,
+      2018,
+      2021,
+      2022,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "return",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-071",
@@ -1454,7 +2574,26 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "/assets/questions/football-first-name/56a1db4686f483e80770df25.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Mata_Melbourne_Victory_Signing_Press_Conference_(cropped).png",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Paladisious · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Paladisious · CC BY-SA 4.0",
+    "clubYears": [
+      2007,
+      2011,
+      2014,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://melbournevictory.com.au/news/juan-mata-signs-for-melbourne-victory/"
   },
   {
     "id": "FC-072",
@@ -1475,7 +2614,21 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-072-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0",
+    "clubYears": [
+      2009,
+      2011,
+      2015,
+      2023,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-073",
@@ -1492,7 +2645,17 @@
     "answerImageUrl": "/assets/questions/football-first-name/3ba31c4c7434a929d4be072d.jpg",
     "clueFile": "FC-073-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2002,
+      2018,
+      2023
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-074",
@@ -1517,7 +2680,29 @@
     "careerUpdatedAt": "2026-11-26",
     "clueFile": "FC-074-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Olivier_Giroud_December_2024.png",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · MHSC TV - Montpellier Hérault Sport Club · CC BY 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · MHSC TV - Montpellier Hérault Sport Club · CC BY 3.0",
+    "clubYears": [
+      2005,
+      2007,
+      2008,
+      2010,
+      2012,
+      2018,
+      2021,
+      2024,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-075",
@@ -1542,7 +2727,29 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "/assets/questions/football-first-name/55c4346633b6b321e02a4439.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Keylor_Navas_2018_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Антон Зайцев · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Антон Зайцев · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2010,
+      2011,
+      2014,
+      2019,
+      2023,
+      2023,
+      2025,
+      2025
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-076",
@@ -1566,7 +2773,31 @@
     "clueFile": "FC-076-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/7380a573c01c5049aab64890.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Prince_Boateng_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · luca · Public domain"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · luca · Public domain",
+    "clubYears": [
+      2005,
+      2007,
+      2009,
+      2009,
+      2010,
+      2014,
+      2016,
+      2016,
+      2018,
+      2019
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan"
+    ]
   },
   {
     "id": "FC-077",
@@ -1583,7 +2814,17 @@
     "clueFile": "FC-077-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/26593acda63ac9085be33c30.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Jes%C3%BAs_Navas.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Садовников · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Дмитрий Садовников · CC BY-SA 3.0",
+    "clubYears": [
+      2003,
+      2013,
+      2017
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-078",
@@ -1603,7 +2844,23 @@
     "clueFile": "FC-078-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/91b9aca649c51b21a2c40577.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Jan_Oblak_2019.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Анна Нэсси · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Анна Нэсси · CC BY-SA 3.0",
+    "clubYears": [
+      2009,
+      2010,
+      2010,
+      2011,
+      2012,
+      2014
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "loan",
+      "join"
+    ]
   },
   {
     "id": "FC-079",
@@ -1621,7 +2878,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/faf960465609b7291afcead2.jpg",
     "clueFile": "FC-079-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Olga Shcherbytska · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Olga Shcherbytska · CC BY-SA 4.0",
+    "clubYears": [
+      2011,
+      2012,
+      2015,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-080",
@@ -1638,7 +2907,21 @@
     ],
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
     "answerImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg/500px-Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
-    "clueFile": "FC-080-timeline-v3.svg"
+    "clueFile": "FC-080-timeline-v3.svg",
+    "clubYears": [
+      2010,
+      2013,
+      2014,
+      2015,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "loan",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-081",
@@ -1657,7 +2940,21 @@
     "clueFile": "FC-081-timeline-v3.svg",
     "answerImageUrl": "https://www.aekfc.gr/Uploads/IMAGES/128101/STIN-AEK-O-NTOMAGKOI-VINTA-denlarge.jpg?lm=221FBC0FCE367244E471DA605E440291",
     "answerImageSourceUrl": "https://www.aekfc.gr/newsdetails/stin-aek-o-ntomagkoi-vinta-128101.htm?lang=en&path=1629508024",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2010,
+      2011,
+      2013,
+      2018,
+      2022
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-082",
@@ -1679,7 +2976,27 @@
     "answerImageUrl": "/assets/questions/football-first-name/fc15b50bb69345889e54282f.jpg",
     "clueFile": "FC-082-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_(22).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2007,
+      2013,
+      2016,
+      2018,
+      2019,
+      2020,
+      2020
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "loan",
+      "loan",
+      "return",
+      "join"
+    ]
   },
   {
     "id": "FC-083",
@@ -1697,7 +3014,19 @@
     "answerImageUrl": "/assets/questions/football-first-name/c81f7c7ab2b4bc572a6effe0.jpg",
     "clueFile": "FC-083-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8876_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ailura · CC BY-SA 3.0 at"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Ailura · CC BY-SA 3.0 at",
+    "clubYears": [
+      2011,
+      2013,
+      2015,
+      2018
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-084",
@@ -1719,7 +3048,24 @@
     "clueFile": "FC-084-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/3bd32fe4a2bb2b83eade252b.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Theo_Hernandez_France_v_Senegal_16_June_2026-222_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Bryan Berlin · CC BY-SA 4.0",
+    "clubYears": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2025
+    ],
+    "clubMoveTypes": [
+      "reserve",
+      "loan",
+      "join",
+      "loan",
+      "join",
+      "join"
+    ],
+    "careerYearSource": "https://en.atleticodemadrid.com/noticias/theo-hernandez-transferred-to-real-madrid"
   },
   {
     "id": "FC-085",
@@ -1742,7 +3088,29 @@
     "answerImageUrl": "/assets/questions/football-first-name/c843d30bd0f9d08570151f5e.jpg",
     "clueFile": "FC-085-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Carlos_Tevez_with_Argentina_November_2014_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Egghead06 · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Egghead06 · CC BY-SA 4.0",
+    "clubYears": [
+      2001,
+      2005,
+      2006,
+      2007,
+      2009,
+      2013,
+      2015,
+      2017,
+      2018
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "loan",
+      "join",
+      "join",
+      "return",
+      "join",
+      "return"
+    ]
   },
   {
     "id": "FC-086",
@@ -1770,7 +3138,36 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "/assets/questions/football-first-name/32c85186af716351912ce6ed.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Philippe_Coutinho_850_1692.jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Granada · CC BY-SA 4.0",
+    "clubYears": [
+      2009,
+      2010,
+      2012,
+      2012,
+      2013,
+      2018,
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2026
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "loan",
+      "return",
+      "join",
+      "loan",
+      "loan",
+      "join"
+    ],
+    "careerYearSource": "https://www.fotmob.com/players/184536/philippe-coutinho"
   },
   {
     "id": "FC-087",
@@ -1791,7 +3188,25 @@
     "answerImageUrl": "/assets/questions/football-first-name/a070ec7457f26176b4ca3e2b.jpg",
     "clueFile": "FC-087-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti,_Confederations_Cup_2013_(02)_(Villa_crop).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Tânia Rêgo/ABr · CC BY 3.0 br"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Tânia Rêgo/ABr · CC BY 3.0 br",
+    "clubYears": [
+      2001,
+      2003,
+      2005,
+      2010,
+      2013,
+      2015,
+      2019
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-088",
@@ -1807,7 +3222,15 @@
     "answerImageUrl": "/assets/questions/football-first-name/cfd218f760f1a71c0c29b023.jpg",
     "clueFile": "FC-088-timeline-v3.svg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi,_Persepolis_vs._Al_Sadd,_20190520_02_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Meysam Mehabadi · CC BY 4.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Meysam Mehabadi · CC BY 4.0",
+    "clubYears": [
+      1998,
+      2015
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-089",
@@ -1825,7 +3248,19 @@
     "clueFile": "FC-089-timeline-v3.svg",
     "answerImageUrl": "/assets/questions/football-first-name/63f10e0c3825e1d872b00629.jpg",
     "answerImageSourceUrl": "https://commons.wikimedia.org/wiki/File:Lloris_2018_(cropped).jpg",
-    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0"
+    "answerImageCaption": "صورة محفوظة من مكتبة اللعبة · Кирилл Венедиктов · CC BY-SA 3.0",
+    "clubYears": [
+      2005,
+      2008,
+      2012,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "join",
+      "join",
+      "join"
+    ]
   },
   {
     "id": "FC-090",
@@ -1850,6 +3285,28 @@
     "careerUpdatedAt": "2026-11-26",
     "answerImageUrl": "https://croatia.org/crown/content_images/2018/dejan_lovren.jpg",
     "answerImageSourceUrl": "https://www.croatia.org/crown/articles/11092/1/Croatia-2---1-England-media-reports-from-the-FIFA-Word-Cup-semifinals-in-Moscow-2018.html",
-    "answerImageCaption": "صورة أرشيفية للاعب"
+    "answerImageCaption": "صورة أرشيفية للاعب",
+    "clubYears": [
+      2006,
+      2006,
+      2008,
+      2010,
+      2013,
+      2014,
+      2020,
+      2022,
+      2024
+    ],
+    "clubMoveTypes": [
+      "join",
+      "loan",
+      "return",
+      "join",
+      "join",
+      "join",
+      "join",
+      "return",
+      "join"
+    ]
   }
 ]
