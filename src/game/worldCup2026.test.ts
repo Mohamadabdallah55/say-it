@@ -65,7 +65,7 @@ test('World Cup 2026 dataset has all 150 direct_qa questions in revised tiers', 
     tierCounts[q.points] += 1;
   }
 
-  assert.deepEqual(tierCounts, { 200: 34, 400: 58, 600: 58 });
+  assert.deepEqual(tierCounts, { 200: 41, 400: 72, 600: 37 });
 });
 
 test('World Cup 2026 uses exclusively verified local assets with zero spoilers before reveal', () => {
@@ -107,7 +107,7 @@ test('World Cup 2026 uses exclusively verified local assets with zero spoilers b
     }
   }
 
-  assert.equal(playerRevealCount, 72);
+  assert.equal(playerRevealCount, 70);
 });
 
 test('World Cup 2026 manifest exists and confirms 46 flags, 1 trophy, and 50 players verified', () => {
@@ -235,4 +235,12 @@ test('World Cup editorial bank has varied topics rather than repetitive fixture 
   assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.answer_type === 'score').length <= 8);
   assert.ok(WORLD_CUP_2026_ALL_ROWS.filter(row => row.topic === 'نتائج ومباريات').length <= 10);
   assert.ok(new Set(WORLD_CUP_2026_ALL_ROWS.map(row => row.topic)).size >= 15);
+});
+
+
+test('World Cup easy and medium tiers distinguish recognizable stars from more specific tournament recall', () => {
+  const byId = new Map(WORLD_CUP_2026_ALL_ROWS.map(row => [row.id, row]));
+  for(const id of ['WC26-200-21','WC26-200-28','WC26-200-39','WC26-400-19','WC26-600-42']) assert.equal(byId.get(id)?.points, 200);
+  for(const id of ['WC26-200-06','WC26-200-16','WC26-200-45','WC26-400-22','WC26-600-39']) assert.equal(byId.get(id)?.points, 400);
+  for(const id of ['WC26-400-01','WC26-600-07','WC26-600-12','WC26-600-22']) assert.equal(byId.get(id)?.points, 600);
 });
