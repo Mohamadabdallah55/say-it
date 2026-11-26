@@ -14,6 +14,7 @@ interface QuestionMediaProps {
   pageNumber?: number;
   compact?: boolean;
   obscured?: boolean;
+  progressiveBlurPx?: number;
   answerMasks?: readonly { x: number; y: number; w: number; h: number }[];
   planetCell?: readonly [number, number];
   hidePlanetLabel?: boolean;
@@ -33,6 +34,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   pageNumber,
   compact = false,
   obscured = false,
+  progressiveBlurPx,
   answerMasks,
   planetCell,
   hidePlanetLabel = false,
@@ -276,10 +278,11 @@ export const QuestionMedia = memo(function QuestionMedia({
               onLoad={handleImageLoad}
               onError={() => setFailedImage(imageSrc)}
               className={imgClasses}
+              style={progressiveBlurPx === undefined ? undefined : { filter: `blur(${progressiveBlurPx}px)` }}
             />
             <div
               aria-hidden="true"
-              className={isJordanBrand ? 'pointer-events-none absolute inset-0' : 'pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1F112E]/10 via-transparent to-[#1F112E]/15 backdrop-blur-[3px]'}
+              className={isJordanBrand || progressiveBlurPx !== undefined ? 'pointer-events-none absolute inset-0' : 'pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1F112E]/10 via-transparent to-[#1F112E]/15 backdrop-blur-[3px]'}
             />
             <span className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#1F112E] px-3 py-1 text-xs font-black text-[#FFE047] shadow-[0_2px_0_#1F112E]">
               <EyeOff className="w-3.5 h-3.5" />
