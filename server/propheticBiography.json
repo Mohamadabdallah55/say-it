@@ -113,7 +113,7 @@
   },
   {
     "id": "SAH-015",
-    "difficulty": 600,
+    "difficulty": 200,
     "question": "ماذا طلب أبو بكر من النبي ﷺ عندما أُذن له بالهجرة؟",
     "answer": "أن يصحبه في الرحلة",
     "reference": "https://sunnah.com/bukhari:3905",
@@ -177,7 +177,7 @@
   },
   {
     "id": "SAH-023",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "في أي غزوة انتدب الزبير بن العوام نفسه مرارًا للاستطلاع، فأثنى عليه النبي ﷺ؟",
     "answer": "غزوة الخندق / الأحزاب",
     "reference": "https://sunnah.com/muslim:2415a",
@@ -217,7 +217,7 @@
   },
   {
     "id": "SAH-028",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "أي خوخة في المسجد استُثنيت من أمر النبي ﷺ بسدّ الخوخات؟",
     "answer": "خوخة أبي بكر",
     "reference": "https://sunnah.com/muslim:2382a",
@@ -225,7 +225,7 @@
   },
   {
     "id": "SAH-029",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "في أي سورة وُجدت خاتمة الآيات عند أبي خزيمة الأنصاري أثناء جمع زيد للقرآن؟",
     "answer": "سورة التوبة",
     "reference": "https://sunnah.com/bukhari:4986",
@@ -410,7 +410,7 @@
   {
     "id": "SAH-052",
     "difficulty": 400,
-    "question": "من الصحابي الذي أرسله النبي ﷺ إلى اليمن قاضيًا ومعلمًا؟",
+    "question": "من الصحابي الذي أوصاه النبي ﷺ حين بعثه إلى اليمن أن يبدأ بدعوة أهل الكتاب إلى توحيد الله؟",
     "answer": "معاذ بن جبل",
     "reference": "https://sunnah.com/bukhari:1395",
     "note": "وصاه النبي بالتدرج في الدعوة."
@@ -449,7 +449,7 @@
   },
   {
     "id": "SAH-057",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من الصحابي الذي وُجدت عنده آية «من المؤمنين رجال صدقوا» عند نسخ المصاحف؟",
     "answer": "خزيمة بن ثابت الأنصاري",
     "reference": "https://sunnah.com/bukhari:4988",
@@ -481,7 +481,7 @@
   },
   {
     "id": "SAH-061",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "إلى أي قوم أرسل النبي ﷺ معاذ بن جبل في أواخر عهده؟",
     "answer": "أهل اليمن",
     "reference": "https://sunnah.com/bukhari:1395",
@@ -505,7 +505,7 @@
   },
   {
     "id": "SAH-064",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "ما أول أولوية أمر النبي ﷺ معاذًا بها عند دعوة أهل اليمن؟",
     "answer": "دعوتهم إلى توحيد الله",
     "reference": "https://sunnah.com/bukhari:1395",
