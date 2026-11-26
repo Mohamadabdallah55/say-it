@@ -1,4 +1,4 @@
-import { SERVER_CURATED_CATEGORY_IDS } from '../src/game/curatedBanks';
+import { OFFICIAL_CATEGORY_IDS } from './officialRemoteBanks';
 import type { QuizDeck, QuizQuestion, RoomState } from '../src/game/types';
 
 export function refreshSavedCuratedQuestions(
@@ -30,7 +30,7 @@ export function filterPlayedCuratedQuestions(
   now: number,
   { ignorePlayed = false }: { ignorePlayed?: boolean } = {},
 ): QuizDeck {
-  const categoryIds = new Set(SERVER_CURATED_CATEGORY_IDS);
+  const categoryIds = new Set(OFFICIAL_CATEGORY_IDS);
   if (!deck.categories.some(category => categoryIds.has(category.id))) return deck;
 
   const unavailable = new Set<string>();
@@ -58,7 +58,7 @@ export function filterPlayedCuratedQuestions(
 }
 
 export function reserveCuratedQuestions(room: RoomState) {
-  const categoryIds = new Set(SERVER_CURATED_CATEGORY_IDS);
+  const categoryIds = new Set(OFFICIAL_CATEGORY_IDS);
   if (!room.categories.some(category => categoryIds.has(category.id))) return;
 
   const boardIds = new Set(room.boardTiles.map(tile => tile.questionId));
@@ -81,7 +81,7 @@ export function reserveCuratedQuestions(room: RoomState) {
 
 export function recordPlayedCuratedQuestion(room: RoomState) {
   const question = room.activeRound?.question;
-  if (!question || room.phase === 'LIFELINE_PICK' || !SERVER_CURATED_CATEGORY_IDS.includes(question.categoryId)) return room;
+  if (!question || room.phase === 'LIFELINE_PICK' || !OFFICIAL_CATEGORY_IDS.includes(question.categoryId)) return room;
   const playedByCategory = room.playedRotatingQuestionIds ?? {};
   const playedIds = playedByCategory[question.categoryId] ?? [];
   if (playedIds.includes(question.id)) return room;
