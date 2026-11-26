@@ -675,7 +675,7 @@ export function selectActiveBoardForDeck(
       } else if (deck.sourceType === 'curated' && (
         cat.id === 'cat_prophet_stories' || cat.id === 'cat_prophetic_biography' ||
         cat.id === 'cat_rashidun' || cat.id === 'cat_quran_verse_meanings' ||
-        cat.id === 'cat_islamic' || cat.id === 'cat_quran_media'
+        cat.id === 'cat_islamic' || cat.id === 'cat_quran_media' || cat.id === 'cat_rub_yasin'
       )) {
         // Prefer unrelated sources and different answers across the board.
         // Keep the same tier, and fall back to the remaining questions if the pool is small.
