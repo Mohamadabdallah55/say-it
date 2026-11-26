@@ -14,6 +14,7 @@ interface QuestionMediaProps {
   pageNumber?: number;
   compact?: boolean;
   obscured?: boolean;
+  answerMasks?: readonly { x: number; y: number; w: number; h: number }[];
   obscuredDifficulty?: 'easy' | 'medium' | 'hard';
   wide?: boolean;
   variant?: 'question' | 'answer';
@@ -30,6 +31,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   pageNumber,
   compact = false,
   obscured = false,
+  answerMasks,
   obscuredDifficulty,
   wide = false,
   variant = 'question',
@@ -64,10 +66,10 @@ export const QuestionMedia = memo(function QuestionMedia({
   }, [imageSrc, reportOrientation]);
 
   useEffect(() => {
-    if (obscured && zoomed) {
+    if ((obscured || answerMasks?.length) && zoomed) {
       setZoomed(false);
     }
-  }, [obscured, zoomed]);
+  }, [obscured, answerMasks, zoomed]);
 
   useEffect(() => {
     if (!zoomed) return;
@@ -101,7 +103,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   };
 
   const modalContent =
-    zoomed && !obscured && !isFailed && typeof document !== 'undefined'
+    zoomed && !obscured && !answerMasks?.length && !isFailed && typeof document !== 'undefined'
       ? createPortal(
           <div
             role="dialog"
@@ -194,6 +196,34 @@ export const QuestionMedia = memo(function QuestionMedia({
               <span className="text-xs font-bold text-[#1F112E]/60">{caption}</span>
             )}
           </div>
+        ) : answerMasks?.length ? (
+          <div className={`relative w-full rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} p-3 flex items-center justify-center shadow-[0_4px_0_#1F112E]`}>
+            <div className="relative inline-block max-w-full overflow-hidden rounded-xl">
+              <img
+                ref={imgRef}
+                key={`${imageSrc}-${retryCount}`}
+                src={imageSrc}
+                srcSet={srcSet}
+                sizes={sizes}
+                loading="eager"
+                decoding="async"
+                referrerPolicy="no-referrer"
+                alt="صورة للتخمين مع إخفاء كلمة الإجابة"
+                draggable={false}
+                onLoad={handleImageLoad}
+                onError={() => setFailedImage(imageSrc)}
+                className={imgClasses}
+              />
+              {isLoaded && answerMasks.map((mask, index) => (
+                <span
+                  key={index}
+                  aria-hidden="true"
+                  className="pointer-events-none absolute backdrop-blur-[16px] bg-[#1F112E]/35"
+                  style={{ left: `${mask.x * 100}%`, top: `${mask.y * 100}%`, width: `${mask.w * 100}%`, height: `${mask.h * 100}%` }}
+                />
+              ))}
+            </div>
+          </div>
         ) : obscured ? (
           <div
             aria-label="شعار مموّه قبل كشف الإجابة"
@@ -268,7 +298,7 @@ export const QuestionMedia = memo(function QuestionMedia({
           </button>
         )}
 
-        {(caption || pageNumber) && !obscured && (
+        {(caption || pageNumber) && !obscured && !answerMasks?.length && (
           <figcaption
             className={`mt-2 flex flex-wrap items-center justify-center gap-1.5 text-center text-xs font-bold ${
               variant === 'answer' ? 'text-white/90' : 'text-[#1F112E]/80'
