@@ -4,20 +4,20 @@
   "title": "زمن الطيبين — ذكريات جيل الألفينات",
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
-  "importPolicy": "أسئلة نصية وصور محلية موثقة من البنك السابق. تمويه موضع الكتابة قبل الإجابة فقط.",
-  "questionCount": 120,
-  "total_source_questions": 120,
-  "verified_playable_count": 120,
+  "importPolicy": "أسئلة نصية وصور محلية مرخصة وروابط خارجية للقطات ألعاب؛ الترخيص الخارجي غير مؤكد.",
+  "questionCount": 135,
+  "total_source_questions": 135,
+  "verified_playable_count": 135,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 30,
-    "400": 45,
-    "600": 45
+    "200": 32,
+    "400": 51,
+    "600": 52
   },
   "points_distribution_playable": {
-    "200": 30,
-    "400": 45,
-    "600": 45
+    "200": 32,
+    "400": 51,
+    "600": 52
   },
   "questions": [
     {
@@ -53,20 +53,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة النباتات اللي بتوقف الزومبي عن الوصول للبيت؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Plants vs. Zombies",
       "acceptedAnswers": [
         "Plants vs. Zombies",
         "بلانتس ضد الزومبي",
         "بلانتس فيرسس زومبيز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/scke67.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Plants vs. Zombies",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Plants vs. Zombies",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://backloggd.com/games/plants-vs-zombies/",
+        "sourcePublisher": "backloggd.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://backloggd.com/games/plants-vs-zombies/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -79,19 +95,35 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الألغاز اللي فيها روبوت صغير اسمه جوزيف في مدينة من الخردة؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Machinarium",
       "acceptedAnswers": [
         "Machinarium",
         "ماشيناريوم"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.steamusercontent.com/ugc/11503269741887685195/86EC2424FFF837B73B21D3643379CA6F72704DB7/?ima=fit&imcolor=%23000000&impolicy=Letterbox&imw=1024&letterbox=false",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Machinarium",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Machinarium",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://steamcommunity.com/app/40700",
+        "sourcePublisher": "steamcommunity.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://steamcommunity.com/app/40700"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -339,19 +371,35 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "لعبة الضفدع اللي بطلع كرات ملوّنة وبيحاول يمنع سلسلة الكرات توصل للنهاية؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "زوما",
       "acceptedAnswers": [
         "زوما",
         "Zuma"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3330/0000000522.1920x1080.jpg?t=1627918693",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Zuma Deluxe",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Zuma Deluxe",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://store.steampowered.com/app/3330/",
+        "sourcePublisher": "store.steampowered.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://store.steampowered.com/app/3330/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -730,20 +778,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "في لعبة قديمة بنلعب بقط قرصان اسمه ناثانيال، شو اسم اللعبة؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Captain Claw",
       "acceptedAnswers": [
         "Captain Claw",
         "كابتن كلو",
         "Claw"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/b1b09eee-ac1f-11ed-b6e7-02420a000135.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Claw",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Claw",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/1123/claw/screenshots/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/1123/claw/screenshots/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -1092,20 +1156,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "لعبة كمبيوتر قديمة بنط فيها على طوابق برج والمرحلة بتصير أسرع كل ما طلعنا؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Icy Tower",
       "acceptedAnswers": [
         "Icy Tower",
         "آيسي تاور",
         "ايسي تاور"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://lassaho.weebly.com/uploads/1/3/5/4/135422190/874202532_orig.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Icy Tower",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Icy Tower",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10",
+        "sourcePublisher": "lassaho.weebly.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -1278,20 +1358,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم اللعبة التي فيها شخصيتا النار والماء تتعاونان للوصول إلى بابيهما وجمع الجواهر؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Fireboy and Watergirl",
       "acceptedAnswers": [
         "Fireboy and Watergirl",
         "فاير بوي ووتر غيرل",
         "ولد النار وبنت الماء"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.pomu.com/nl/files/game/img_mobile/16950/Fireboy-And-Watergirl-In-The-Forest-Temple.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Fireboy and Watergirl",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Fireboy and Watergirl",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html",
+        "sourcePublisher": "www.pomu.nl",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -1485,20 +1581,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "شو اسم لعبة الدجاج اللي كنا نلعبها على الكمبيوتر ونواجه فيها أسراب الدجاج من الفضاء؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Chicken Invaders",
       "acceptedAnswers": [
         "Chicken Invaders",
         "تشيكن إنفيدرز",
         "لعبة الفراخ"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.macgamestore.com/images_screenshots/chicken-invaders-2-62046.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Chicken Invaders 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Chicken Invaders 2",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/",
+        "sourcePublisher": "www.macgamestore.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -1823,20 +1935,37 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "لعبة السمكة اللي بتاكل الأسماك الأصغر منها وبتكبر شوي شوي، شو اسمها؟",
+      "question": "شو اسم سلسلة لعبة السمكة اللي بالصورة؟",
       "answer": "Feeding Frenzy",
       "acceptedAnswers": [
         "Feeding Frenzy",
         "فيدينغ فرينزي",
-        "لعبة السمكة"
+        "لعبة السمكة",
+        "Feeding Frenzy 2"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3390/0000000561.1920x1080.jpg?t=1615206261",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Feeding Frenzy 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Feeding Frenzy 2",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://store.steampowered.com/app/3390/",
+        "sourcePublisher": "store.steampowered.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://store.steampowered.com/app/3390/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -1875,19 +2004,35 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة المزرعة القديمة اللي كنا فيها نجمع البيض ونطعم الحيوانات ونبيع المنتجات ضمن وقت محدد؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Farm Frenzy",
       "acceptedAnswers": [
         "Farm Frenzy",
         "فارم فرينزي"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://m.media-amazon.com/images/M/MV5BNGExYWE0MzQtNTlkNS00NmU5LTljZTgtNWNjZTQ1ZGY2Mjc2XkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Farm Frenzy",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Farm Frenzy",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/",
+        "sourcePublisher": "www.imdb.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -2132,19 +2277,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر القديمة اللي بطلها أرنب أخضر سريع اسمه Jazz ومعه مسدس كرتوني؟",
+      "question": "شو اسم سلسلة لعبة الأرنب الأخضر القديمة اللي بالصورة؟",
       "answer": "Jazz Jackrabbit",
       "acceptedAnswers": [
         "جاز جاك رابيت",
-        "Jazz Jackrabbit"
+        "Jazz Jackrabbit",
+        "Jazz Jackrabbit 2"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/642fc034809e711eff62ee86/bcaff641-f55a-40e1-aee1-55dd39961d9d/1.JPG",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Jazz Jackrabbit 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Jazz Jackrabbit 2",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://gamesof1998.com/home/jazzjackrabbit2",
+        "sourcePublisher": "gamesof1998.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://gamesof1998.com/home/jazzjackrabbit2"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -2572,6 +2734,32 @@
       ]
     },
     {
+      "id": "JONOS-RETRO-01",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 200,
+      "points": 200,
+      "question": "لعبة الألغاز القديمة اللي كنا نرتب فيها ثلاثة أحجار كريمة من نفس اللون؟",
+      "answer": "Bejeweled",
+      "acceptedAnswers": [
+        "Bejeweled",
+        "بيجويلد",
+        "Bejeweled Deluxe"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
       "id": "JONOS-V2-400-19",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -2622,6 +2810,32 @@
       "tags": [
         "زمن الطيبين",
         "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-02",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم لعبة الورق اللي كانت موجودة مع ويندوز ونرتب فيها الأوراق من الآس للملك؟",
+      "answer": "Solitaire",
+      "acceptedAnswers": [
+        "Solitaire",
+        "سوليتير",
+        "سوليتير ويندوز"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
       ]
     },
     {
@@ -3022,20 +3236,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم اللعبة اللي فيها كرة بتتدحرج بمسارات ثلاثية الأبعاد وبنحوّلها بين الخشب والحجر والورق؟",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
       "answer": "Ballance",
       "acceptedAnswers": [
         "Ballance",
         "بالانس",
         "Ballance 2004"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://i0.wp.com/thegamingoutsider.com/wp-content/uploads/2024/01/Ballance-3.png?ssl=1",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Ballance",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Ballance",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/",
+        "sourcePublisher": "thegamingoutsider.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -3351,6 +3581,359 @@
       "tags": [
         "زمن الطيبين",
         "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-03",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بتسحب فيها الذهب من تحت الأرض بخطاف متأرجح؟",
+      "answer": "Gold Miner",
+      "acceptedAnswers": [
+        "Gold Miner",
+        "غولد ماينر",
+        "عامل المنجم",
+        "لعبة الذهب"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-09",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم سلسلة الألعاب القديمة اللي بتتنافس فيها فرق ديدان على خريطة ثنائية الأبعاد؟",
+      "answer": "Worms",
+      "acceptedAnswers": [
+        "Worms",
+        "وورمز",
+        "لعبة الديدان"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-04",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة قديمة كانت فيها كرات فرو ملوّنة بعيون، بنسحب صفوفها حتى تتطابق؟",
+      "answer": "Chuzzle",
+      "acceptedAnswers": [
+        "Chuzzle",
+        "تشازل",
+        "Chuzzle Deluxe"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-10",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الموبايل اللي بنوصل فيها الماء لتمساح اسمه Swampy عن طريق حفر التراب؟",
+      "answer": "Where's My Water?",
+      "acceptedAnswers": [
+        "Where's My Water?",
+        "ويرز ماي ووتر",
+        "أين مائي"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-05",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Peggle",
+      "acceptedAnswers": [
+        "Peggle",
+        "بيغل",
+        "Peggle Deluxe"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3480/0000001533.1920x1080.jpg?t=1777394376",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Peggle Deluxe",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Peggle Deluxe",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://store.steampowered.com/app/3480/",
+        "sourcePublisher": "store.steampowered.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://store.steampowered.com/app/3480/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-11",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الألغاز اللي فيها حلزون اسمه بوب وبنفتح له الطريق بتشغيل أزرار وآليات؟",
+      "answer": "Snail Bob",
+      "acceptedAnswers": [
+        "Snail Bob",
+        "سنيل بوب",
+        "الحلزون بوب"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-06",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم سلسلة ألعاب إدارة شركة قطارات وبناء خطوط سكك حديدية؟",
+      "answer": "Railroad Tycoon",
+      "acceptedAnswers": [
+        "Railroad Tycoon",
+        "ريلرود تايكون"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-12",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الكمبيوتر اللي بنحرك فيها بطريق على الجليد ونحاول نتفادى العقبات؟",
+      "answer": "Tux Racer",
+      "acceptedAnswers": [
+        "Tux Racer",
+        "تكس ريسر",
+        "توكس ريسر"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-07",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكرات الملونة الشبيهة بزوما لكن بتدور أحداثها في مصر القديمة وبنطلق الكرات من أسفل الشاشة؟",
+      "answer": "Luxor",
+      "acceptedAnswers": [
+        "Luxor",
+        "لوكسور",
+        "لعبة الأقصر"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-13",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الكمبيوتر اللي بتدير فيها حوض أسماك وبتجمع العملات من السمك؟",
+      "answer": "Insaniquarium",
+      "acceptedAnswers": [
+        "Insaniquarium",
+        "إنسانيكواريوم",
+        "Insaniquarium Deluxe"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-08",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة المطاعم القديمة اللي فيها نادلة اسمها Flo بتجلس الزبائن وتقدم الطلبات؟",
+      "answer": "Diner Dash",
+      "acceptedAnswers": [
+        "Diner Dash",
+        "داينر داش",
+        "دينر داش"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-14",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة إدارة الملاهي القديمة اللي بنبني فيها قطارات الملاهي والألعاب ونحدد أسعار التذاكر؟",
+      "answer": "RollerCoaster Tycoon",
+      "acceptedAnswers": [
+        "RollerCoaster Tycoon",
+        "رولر كوستر تايكون"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-RETRO-15",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الألغاز اللي بنعمل فيها مسار متصل للماء باستخدام قطع أنابيب؟",
+      "answer": "Pipe Mania",
+      "acceptedAnswers": [
+        "Pipe Mania",
+        "بايب مانيا",
+        "Pipe Dream"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "evidenceUrls": [],
+      "rightsStatus": "not_applicable",
+      "contentStatus": "approved",
+      "reviewNotes": "سؤال نصي",
+      "questionType": "ذكريات الطفولة",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
       ]
     }
   ]
