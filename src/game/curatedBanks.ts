@@ -61,6 +61,14 @@ export const JUZ_TABARAK_CATEGORY: DeckCategory = {
   accentColor: '#347C72',
 };
 
+export const RUB_YASIN_CATEGORY: DeckCategory = {
+  id: 'cat_rub_yasin',
+  name: 'ربع يس',
+  description: 'تسميع وإكمال الآيات وتحديد السورة من يس إلى الناس',
+  iconKey: 'islamic',
+  accentColor: '#26715B',
+};
+
 export const EL_CLASICO_CATEGORY: DeckCategory = {
   id: 'cat_el_clasico',
   name: 'كلاسيكو',
@@ -343,6 +351,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   VISUAL_MEMORY_CATEGORY.id,
   JUZ_AMMA_CATEGORY.id,
   JUZ_TABARAK_CATEGORY.id,
+  RUB_YASIN_CATEGORY.id,
   EL_CLASICO_CATEGORY.id,
   CLUB_LOGOS_CATEGORY.id,
   QURAN_MEDIA_CATEGORY.id,
@@ -374,6 +383,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: CHAMPIONS_LEAGUE_CATEGORY, questionCount: 100 },
   { category: JUZ_AMMA_CATEGORY, questionCount: 150 },
   { category: JUZ_TABARAK_CATEGORY, questionCount: 150 },
+  { category: RUB_YASIN_CATEGORY, questionCount: 150 },
   { category: EL_CLASICO_CATEGORY, questionCount: 100 },
   { category: CLUB_LOGOS_CATEGORY, questionCount: 102 },
   { category: QURAN_MEDIA_CATEGORY, questionCount: 150 },
