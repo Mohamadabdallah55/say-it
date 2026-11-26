@@ -1,7 +1,7 @@
 export type Point = [number, number];
 export type Stroke = { player: number; points: Point[] };
 export type DrawingPhase = 'secret'|'draw'|'discussion'|'vote'|'guess'|'result'|'final';
-export type DrawingConfig = { rounds: number; category: string; mode: 'known'|'decoy'; seconds: number };
+export type DrawingConfig = { rounds: number; category: string; mode: 'known'|'decoy'; seconds: number; drawingStyle?: 'classic'|'blind' };
 export const COLORS = ['#c23b4d','#1862b6','#15803d','#8d46c0','#b4550c','#087d83','#d12d85','#45455b','#806517','#72912d'];
 const PAIRS: Record<string, string[][]> = {
   'حيوانات': [
@@ -21,8 +21,8 @@ const PAIRS: Record<string, string[][]> = {
   ],
   'أماكن وطبيعة': [
     ['جبل','تل'],['شجرة','نخلة'],['شمس','قمر'],['نجمة','كوكب'],['سحابة','ضباب'],['بحر','بحيرة'],['شلال','نهر'],['بركان','جبل'],['صحراء','شاطئ'],['جزيرة','شبه جزيرة'],['بيت','مدرسة'],['قلعة','قصر'],['مسجد','مئذنة'],['ملعب','صالة رياضية'],['مستشفى','عيادة'],['مكتبة','مدرسة'],['غابة','حديقة'],['كهف','نفق'],['خيمة','كوخ'],['قوس قزح','شلال']
-  ]
-  ,'ذكريات أردنية وفلسطينية': [
+  ],
+  'ذكريات أردنية وفلسطينية': [
     ['إبريق شاي','دلة قهوة'],['كيس خبز','سلة قش'],['صوبة كاز','مدفأة كهربائية'],['منقل','موقد'],['جرن','هاون'],['كوفية','شال'],['مفتول','مجدرة'],['طابون','فرن'],['قربة ماء','إبريق'],['مسبحة','عقد'],['طبلة','دف'],['زير ماء','جرة'],['دكان','بسطة'],['مقلاة','طنجرة'],['مرجوحة','زحليقة'],['باص مدرسة','سرفيس'],['طاقية','قبعة'],['راديو','مسجل'],['شريط كاسيت','فيديو كاسيت'],['براد شاي','ترمس'],['صحن حمص','صحن فول'],['فانوس','شمعة'],['كعك القدس','خبز دائري'],['حجر رحى','حجر طحن'],['زيتونة','تين']
   ],
   'ألعاب ورياضة': [
@@ -33,10 +33,10 @@ const PAIRS: Record<string, string[][]> = {
   ]
 };
 export const WORD_CATEGORIES = Object.entries(PAIRS).map(([name,pairs])=>({name,count:pairs.length*2}));
-export const DEFAULT_CONFIG: DrawingConfig = { rounds:5, category:'حيوانات', mode:'known', seconds:60 };
+export const DEFAULT_CONFIG: DrawingConfig = { rounds:5, category:'حيوانات', mode:'known', seconds:60, drawingStyle:'classic' };
 export type DrawingGame = { names:string[]; config:DrawingConfig; round:number; scores:number[]; phase:DrawingPhase; word:string; decoy:string; outsider:number; order:number[]; cursor:number; cycles:number; strokes:Stroke[]; ready:number[]; votes:Record<number,number>; deadline:number|null; accused:number|null; guessed:string; winner:'outsider'|'group'|null; usedWords:string[]; votePass?:number; voteCandidates?:number[]; firstVotes?:Record<number,number> };
 const norm = (s:string)=>s.normalize('NFKC').replace(/[\u064b-\u065f\u0670ـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/\s+/g,' ').trim().replace(/^ال/,'');
-export function validConfig(c:DrawingConfig) {return !!c && [3,5,7].includes(c.rounds) && Object.prototype.hasOwnProperty.call(PAIRS,c.category) && ['known','decoy'].includes(c.mode) && [0,30,60,90].includes(c.seconds);}
+export function validConfig(c:DrawingConfig) {return !!c && [3,5,7].includes(c.rounds) && Object.prototype.hasOwnProperty.call(PAIRS,c.category) && ['known','decoy'].includes(c.mode) && [0,30,60,90].includes(c.seconds) && (c.drawingStyle===undefined||['classic','blind'].includes(c.drawingStyle));}
 export function startDrawing(names:string[],config:DrawingConfig,previous?:DrawingGame):DrawingGame {
   if(names.length<3||names.length>10||!validConfig(config)) throw new Error('إعدادات اللعبة غير صالحة.');
   const usedWords=previous?.usedWords??[];
