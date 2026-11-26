@@ -53,70 +53,28 @@ test('Visual Memory category is registered alongside the existing categories', (
   }
 });
 
-test('Visual Memory exposes one image or one video per question', () => {
+test('Focus exposes video only and uses appropriate tier counts', () => {
   assert.equal(VISUAL_MEMORY_QUESTIONS.length, VISUAL_MEMORY_PLAYABLE_COUNT);
-  assert.equal(VISUAL_MEMORY_QUESTIONS.filter(q => q.memorySecondImageUrl).length, 0);
-  assert.ok(VISUAL_MEMORY_QUESTIONS.every(q => Boolean(q.imageUrl) !== Boolean(q.videoUrl)));
-
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
-  const expectedShowSeconds = { 200: 10, 400: 8, 600: 6 } as const;
-
-  for (let i = 0; i < VISUAL_MEMORY_QUESTIONS.length; i += 1) {
-    const q = VISUAL_MEMORY_QUESTIONS[i];
+  for (const q of VISUAL_MEMORY_QUESTIONS) {
     assert.match(q.id, /^MEM-\d{3}$/);
+    assert.ok(!ids.has(q.id));
+    ids.add(q.id);
     assert.equal(q.categoryId, VISUAL_MEMORY_CATEGORY.id);
     assert.equal(q.questionType, 'direct_qa');
     assert.equal(q.status, 'approved');
-    assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
-    ids.add(q.id);
-    assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
-    if (q.videoUrl) { assert.ok(q.showSeconds === 15 || q.showSeconds === 17); assert.match(q.memorySceneId ?? '', /^V\d{2}$/); tierCounts[q.points] += 1; continue; }
-    assert.equal(q.showSeconds, q.memorySecondImageUrl ? 8 : expectedShowSeconds[q.points]);
-    const firstScene = path.basename(q.imageUrl ?? '', '.jpg');
-    const expectedScene = q.memorySecondImageUrl
-      ? `PAIR-${firstScene}-${path.basename(q.memorySecondImageUrl, '.jpg')}`
-      : firstScene;
-    assert.equal(q.memorySceneId, expectedScene);
-    assert.ok(q.prompt.trim().length > 0);
-    assert.ok(q.answer.trim().length > 0);
-    assert.equal(q.subtopic, undefined, 'Must not store scene name as subtopic');
-    assert.equal(q.sourceRef, undefined, 'Must not expose sourceRef/filename');
-    assert.equal(q.imageCaption, undefined, 'Must not attach image caption overlay');
+    assert.ok(q.videoUrl && !q.imageUrl && !q.memorySecondImageUrl);
+    assert.ok(q.showSeconds === 15 || q.showSeconds === 17);
+    assert.match(q.memorySceneId ?? '', /^V\d{2}$/);
+    assert.ok(q.prompt.trim() && q.answer.trim());
+    assert.equal(q.subtopic, undefined);
+    assert.equal(q.sourceRef, undefined);
+    assert.equal(q.imageCaption, undefined);
     tierCounts[q.points] += 1;
   }
-
-  assert.deepEqual(tierCounts, { 200: 22, 400: 40, 600: 57 });
-});
-
-test('All 36 Visual Memory image assets are local JPEGs', () => {
-  const publicDir = path.join(process.cwd(), 'public');
-  const images = new Set<string>();
-  const scenes = new Set<string>();
-  for (const question of VISUAL_MEMORY_QUESTIONS) {
-    if (question.videoUrl) continue;
-    assert.ok(question.imageUrl);
-    assert.ok(question.memorySceneId);
-    scenes.add(question.memorySceneId);
-    images.add(question.imageUrl);
-    if (question.memorySecondImageUrl) {
-      assert.notEqual(question.memorySecondImageUrl, question.imageUrl);
-      images.add(question.memorySecondImageUrl);
-    }
-  }
-  assert.equal(images.size, 36);
-  assert.equal(scenes.size, 36);
-
-  for (const url of images) {
-    assert.match(url, /^\/assets\/questions\/visual-memory\/[EHJM]\d{2}\.jpg$/);
-    const data = fs.readFileSync(path.join(publicDir, url.slice(1)));
-    assert.ok(data.byteLength > 1000, `Suspiciously tiny JPG file: ${url}`);
-    assert.equal(data[0], 0xff);
-    assert.equal(data[1], 0xd8);
-  }
-
-  const catSvg = path.join(publicDir, 'assets', 'categories', 'cat_visual_memory.svg');
-  assert.ok(fs.existsSync(catSvg), 'Category SVG artwork should exist on disk');
+  assert.deepEqual(tierCounts, {"200":12,"400":15,"600":10});
+  assert.ok(fs.existsSync(path.join(process.cwd(), 'public/assets/categories/cat_visual_memory.svg')));
 });
 
 test('Visual Memory passes preflight, picks distinct scenes on board & backups, and tracks account progress', () => {
@@ -217,7 +175,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
 
   const projMemorize = sanitizeStateForRole(room, 'projector', baseNow);
   assert.equal(projMemorize.activeRound?.memoryStage, 'MEMORIZE');
-  assert.equal(projMemorize.activeRound?.imageUrl, firstQuestion.imageUrl);
+  assert.equal(projMemorize.activeRound?.videoUrl, firstQuestion.videoUrl);
   assert.equal(projMemorize.activeRound?.prompt, '', 'Question prompt must stay hidden during MEMORIZE');
   assert.equal(projMemorize.activeRound?.answer, undefined);
   assert.equal(projMemorize.activeRound?.subtopic, undefined);
@@ -236,7 +194,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
 
   const projQuestion = sanitizeStateForRole(room, 'projector', advNow);
   assert.equal(projQuestion.activeRound?.memoryStage, 'QUESTION');
-  assert.equal(projQuestion.activeRound?.imageUrl, undefined, 'Scene image must be stripped on projector during QUESTION');
+  assert.equal(projQuestion.activeRound?.videoUrl, undefined, 'Scene video must be stripped on projector during QUESTION');
   assert.equal(projQuestion.activeRound?.imageBase64, undefined);
   assert.equal(projQuestion.activeRound?.prompt, firstQuestion.prompt);
   assert.equal(projQuestion.activeRound?.answer, undefined);
@@ -253,7 +211,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   const projReveal = sanitizeStateForRole(room, 'projector', advNow + 4000);
   assert.equal(projReveal.activeRound?.answer, firstQuestion.answer);
   assert.equal(projReveal.activeRound?.explanation, firstQuestion.explanation);
-  assert.equal(projReveal.activeRound?.imageUrl, firstQuestion.imageUrl);
+  assert.equal(projReveal.activeRound?.videoUrl, firstQuestion.videoUrl);
 
   // Award & check reopen correction preserves Visual Memory metadata
   const awarded = awardRoundAndReturnToBoard(room, ['team_1'], 'act_award', advNow + 5000);
@@ -263,12 +221,12 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   const reopened = reopenQuestionForCorrection(awarded.state, firstTile.questionId, 'act_corr', advNow + 6000);
   assert.equal(reopened.ok, true);
   assert.equal(reopened.state.activeRound?.memoryStage, 'QUESTION');
-  assert.equal(sanitizeStateForRole(reopened.state, 'projector').activeRound?.imageUrl, firstQuestion.imageUrl);
+  assert.equal(sanitizeStateForRole(reopened.state, 'projector').activeRound?.videoUrl, firstQuestion.videoUrl);
 });
 
 test('Consecutive rounds reject the same memorySceneId when an alternative tile exists', () => {
-  const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'E01');
-  const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'E02')!;
+  const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'V04');
+  const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'V06')!;
   assert.ok(scene1Qs.length >= 2);
 
   const qA = { ...scene1Qs[0], points: 200 as const, difficulty: 'easy' as const };
@@ -299,33 +257,33 @@ test('Consecutive rounds reject the same memorySceneId when an alternative tile 
     selectedCategoryIds: [VISUAL_MEMORY_CATEGORY.id],
   });
 
-  // Play qA (E01)
+  // Play qA (V04)
   room = selectBoardTile(room, qA.id, 's1').state;
   if (room.phase === 'LIFELINE_PICK') room = skipLifelinePick(room, 'sk1').state;
   room = advanceMemoryToQuestion(room, 'a1').state;
   room = revealAnswer(room, 'r1').state;
   room = awardRoundAndReturnToBoard(room, ['team_1'], 'w1').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'E01');
+  assert.equal(room.lastPlayedMemorySceneId, 'V04');
 
-  // Selecting qB (also E01) immediately after must be blocked because qC (E02) is available
+  // Selecting qB (also V04) immediately after must be blocked because qC (V06) is available
   const blocked = selectBoardTile(room, qB.id, 's2_blocked');
   assert.equal(blocked.ok, false);
   assert.ok(blocked.error?.includes('المشهد البصري'));
 
-  // Play qC (E02) instead
+  // Play qC (V06) instead
   room = selectBoardTile(room, qC.id, 's2_ok').state;
   room = advanceMemoryToQuestion(room, 'a2').state;
   room = revealAnswer(room, 'r2').state;
   room = awardRoundAndReturnToBoard(room, ['team_2'], 'w2').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'E02');
+  assert.equal(room.lastPlayedMemorySceneId, 'V06');
 
-  // Now qB (E01) is allowed again
+  // Now qB (V04) is allowed again
   const unblocked = selectBoardTile(room, qB.id, 's3_ok');
   assert.equal(unblocked.ok, true);
 });
 
 test('A paired scene exposes both images for preview and review while hiding them during the question', () => {
-  const question = { ...VISUAL_MEMORY_QUESTIONS[0], id: 'MEM-PAIR-LEGACY', showSeconds: 6, memorySecondImageUrl: '/assets/questions/visual-memory/E02.jpg' };
+  const question = { ...VISUAL_MEMORY_QUESTIONS[0], id: 'MEM-PAIR-LEGACY', showSeconds: 6, videoUrl: undefined, imageUrl: '/assets/questions/visual-memory/E01.jpg', memorySecondImageUrl: '/assets/questions/visual-memory/E02.jpg' };
   const deck = buildBoardDeckFromCategories([VISUAL_MEMORY_CATEGORY.id], undefined, [question]);
   const now = 1_700_000_000_000;
   const room = createRoomState({
@@ -404,7 +362,7 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
 
 test('Focus includes real short video sources with distinct scene identifiers', () => {
   const videos = VISUAL_MEMORY_QUESTIONS.filter(q => q.videoUrl);
-  assert.equal(videos.length, 39);
-  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 30);
+  assert.equal(videos.length, 37);
+  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 29);
   assert.ok(videos.every(q => !q.imageUrl && (q.showSeconds === 17 || q.showSeconds === 15)));
 });
