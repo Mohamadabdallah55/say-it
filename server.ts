@@ -1,3 +1,4 @@
+import { drawingRouter } from './server/drawingRooms';
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
 import 'dotenv/config';
 import http from 'node:http';
@@ -89,6 +90,7 @@ const upload = multer({
 
 async function startServer() {
   const app = express();
+  app.use('/api/drawing', express.json({limit:'128kb'}), drawingRouter);
   app.use(express.json({ limit: '25mb' }));
 
   const server = http.createServer(app);
