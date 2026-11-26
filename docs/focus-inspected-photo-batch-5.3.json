@@ -1,0 +1,21 @@
+{
+  "version": "5.3",
+  "added": 25,
+  "local": 11,
+  "remote": 14,
+  "source_images": [
+    "https://www.flickr.com/photos/terrazzo/7986059316/",
+    "https://www.flickr.com/photos/c-u-b/20112429593/",
+    "https://www.flickr.com/photos/rainrannu/2110077501/",
+    "https://www.flickr.com/photos/volvob12b/51853001326/",
+    "https://www.flickr.com/photos/dejankrsmanovic/47024892221/",
+    "https://www.flickr.com/photos/el_cajon_yacht_club/26032506705/",
+    "https://commons.wikimedia.org/wiki/File:Keys_(4601980551).jpg",
+    "https://commons.wikimedia.org/wiki/File:Diverse_sleutels.jpg",
+    "https://commons.wikimedia.org/wiki/File:Colored-Pencils.jpg",
+    "https://commons.wikimedia.org/wiki/File:Overhead_checkmate.jpg",
+    "https://commons.wikimedia.org/wiki/File:Customers_shop_for_fruit_and_vegetables_at_an_outdoor_market_stall_in_daylight.jpg",
+    "https://commons.wikimedia.org/wiki/File:Produce_stand_displays_vegetables_and_fruit_at_an_indoor_market.jpg"
+  ],
+  "review": "Actual images or 1280px previews inspected before question authoring. No new video approved; deployment and automated tests not executed."
+}

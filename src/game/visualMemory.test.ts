@@ -71,9 +71,13 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
       assert.match(q.memorySceneId ?? '', /^V\d{2}$/);
     } else {
       assert.equal(q.showSeconds, {200: 10, 400: 8, 600: 6}[q.points]);
-      assert.match(q.memorySceneId ?? '', /^P\d{3}$/);
-      assert.ok(q.imageUrl?.startsWith('/assets/jordan_nostalgia/'));
-      assert.ok(fs.existsSync(path.join(process.cwd(), 'public', q.imageUrl!.slice(1))));
+      assert.match(q.memorySceneId ?? '', /^(P\d{3}|N\d{2})$/);
+      if (q.imageUrl?.startsWith('/')) {
+        assert.ok(q.imageUrl.startsWith('/assets/jordan_nostalgia/'));
+        assert.ok(fs.existsSync(path.join(process.cwd(), 'public', q.imageUrl.slice(1))));
+      } else {
+        assert.ok(q.imageUrl?.startsWith('https://'));
+      }
     }
     assert.ok(q.prompt.trim() && q.answer.trim());
     assert.equal(q.subtopic, undefined);
@@ -81,7 +85,7 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
     assert.equal(q.imageCaption, undefined);
     tierCounts[q.points] += 1;
   }
-  assert.deepEqual(tierCounts, {"200":14,"400":30,"600":10});
+  assert.deepEqual(tierCounts, {"200":20,"400":39,"600":20});
   assert.ok(fs.existsSync(path.join(process.cwd(), 'public/assets/categories/cat_visual_memory.svg')));
 });
 

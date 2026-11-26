@@ -1,8 +1,8 @@
 {
-  "note": "New media review queue. Images were inspected in web preview; exact original rendering/download not confirmed. Do not activate until the original has been opened and the answer verified in the game. All video sources are candidates only: do not invent clip timestamps or answers. User requires a single genuinely difficult incidental detail or selective count, not multiple easy facts. A supplemental batch reuses licensed photographs from other categories after inspecting their actual repository JPEGs. These are not new external downloads. Existing video playback remains unverified. Editorial cleanup removed weak and compound questions; no full playback verification of legacy clips was performed.",
+  "note": "New media review queue. Images were inspected in web preview; exact original rendering/download not confirmed. Do not activate until the original has been opened and the answer verified in the game. All video sources are candidates only: do not invent clip timestamps or answers. User requires a single genuinely difficult incidental detail or selective count, not multiple easy facts. A supplemental batch reuses licensed photographs from other categories after inspecting their actual repository JPEGs. These are not new external downloads. Existing video playback remains unverified. Editorial cleanup removed weak and compound questions; no full playback verification of legacy clips was performed. Batch 5.3: added individually inspected images from existing licensed assets and new direct Commons media sources; remote images reviewed visually but playback on deployment is not tested.",
   "target": 100,
-  "active_count": 54,
-  "needed": 46,
+  "active_count": 79,
+  "needed": 21,
   "photo_questions": [
     {
       "scene_id": "N01",
