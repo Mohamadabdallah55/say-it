@@ -349,7 +349,7 @@ export const CLARIFY_IMAGE_CATEGORY: DeckCategory = {
   id: 'cat_clarify_image',
   name: 'وضّح شوي',
   description: 'خمن الصورة المغبشة؛ ثلاث مساعدات للتوضيح مقابل 50 نقطة لكل مساعدة',
-  iconKey: 'islamic',
+  iconKey: 'visual_memory',
   accentColor: '#7351A4',
 };
 
