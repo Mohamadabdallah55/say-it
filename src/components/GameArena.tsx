@@ -190,6 +190,69 @@ function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabl
 }
 
 
+/** Short preview only: never show the source video's full duration or seek controls. */
+function NostalgiaShortClip({ src, soundEnabled, onFailure }: { src: string; soundEnabled: boolean; onFailure: () => void }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const failure = useRef(onFailure);
+  failure.current = onFailure;
+  const [playing, setPlaying] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const durationLimit = 8;
+  const watchdog = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const clearWatchdog = () => { if (watchdog.current !== null) { clearTimeout(watchdog.current); watchdog.current = null; } };
+  const armWatchdog = () => { clearWatchdog(); watchdog.current = setTimeout(() => failure.current(), 6500); };
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    let active = true;
+    armWatchdog();
+    video.muted = !soundEnabled;
+    video.play().catch(() => {
+      if (!active) return;
+      video.muted = true;
+      video.play().catch(() => { if (active) setPlaying(false); });
+    });
+    return () => { active = false; clearWatchdog(); video.pause(); };
+  }, [src]);
+  const restart = () => {
+    const video = ref.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.muted = !soundEnabled;
+    setElapsed(0);
+    armWatchdog();
+    video.play().catch(() => { video.muted = true; video.play().catch(() => setPlaying(false)); });
+  };
+  return (
+    <div className="mx-auto mt-4 w-full max-w-3xl">
+      <div className="relative overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-black">
+        <video ref={ref} src={src} playsInline preload="auto" disablePictureInPicture disableRemotePlayback
+          aria-label="مقطع قصير للتخمين"
+          className="mx-auto block max-h-[48vh] w-full object-contain"
+          onLoadedData={() => { setLoaded(true); clearWatchdog(); }}
+          onPlaying={() => { setPlaying(true); clearWatchdog(); }}
+          onWaiting={armWatchdog}
+          onPause={() => { setPlaying(false); clearWatchdog(); }}
+          onEnded={() => { setPlaying(false); clearWatchdog(); }}
+          onError={() => { clearWatchdog(); failure.current(); }}
+          onTimeUpdate={event => {
+            const video = event.currentTarget;
+            setElapsed(Math.min(durationLimit, video.currentTime));
+            if (video.currentTime >= durationLimit) video.pause();
+          }}
+        />
+        {!loaded && <div className="absolute inset-0 flex items-center justify-center bg-[#F2ECE0] font-bold text-[#1F112E]">جاري تحميل المقطع…</div>}
+      </div>
+      <div className="mt-2 flex items-center justify-center gap-3">
+        <button type="button" onClick={restart} className="rounded-xl border-2 border-[#1F112E] bg-white px-4 py-2 font-bold">{playing ? 'إعادة من البداية' : 'تشغيل / إعادة المقطع'}</button>
+        <span className="text-xs font-bold tabular-nums">{Math.floor(elapsed)} / {durationLimit} ثوانٍ كحد أقصى</span>
+      </div>
+    </div>
+  );
+}
+
+
 const QURAN_CATEGORY_IDS = new Set([
   'cat_juz_amma',
   'cat_juz_tabarak',
@@ -1210,21 +1273,11 @@ export function GameArena({
                               <button type="button" onClick={() => setFailedNostalgiaVideoRound(null)} className="mx-2 underline">إعادة المحاولة</button>
                             </div>
                           ) : (
-                            <video
+                            <NostalgiaShortClip
                               key={roundMeta.roundId + roundMeta.videoUrl}
-                              className="mx-auto mt-4 max-h-[52vh] w-full max-w-3xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black"
                               src={roundMeta.videoUrl}
-                              controls playsInline preload="metadata"
-                              aria-label="مقطع زمن الطيبين"
-                              onError={() => setFailedNostalgiaVideoRound(roundMeta.roundId)}
-                              onTimeUpdate={(event) => {
-                                const media = event.currentTarget;
-                                const segment = /#t=(\d+(?:\.\d+)?),(\d+(?:\.\d+)?)/.exec(media.getAttribute('src') || '');
-                                const start = segment ? Number(segment[1]) : 0;
-                                const end = segment ? Math.min(Number(segment[2]), start + 10) : 10;
-                                if (media.currentTime < start) media.currentTime = start;
-                                if (media.currentTime >= end) media.pause();
-                              }}
+                              soundEnabled={state.settings.soundEnabled && (isHost || localAudio)}
+                              onFailure={() => setFailedNostalgiaVideoRound(roundMeta.roundId)}
                             />
                           )
                         ) : ['cat_el_clasico', 'cat_champions_league'].includes(roundMeta.categoryId) ? (
