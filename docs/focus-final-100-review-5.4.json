@@ -1,0 +1,31 @@
+{
+  "version": "5.4",
+  "removed": 11,
+  "added": 32,
+  "removedScenes": [
+    "P038",
+    "P036",
+    "P044",
+    "N07",
+    "N08"
+  ],
+  "counts": {
+    "total": 100,
+    "imageQuestions": 74,
+    "videoQuestions": 26,
+    "imageScenes": 37,
+    "videoScenes": 25,
+    "tier": {
+      "200": 23,
+      "400": 48,
+      "600": 29
+    }
+  },
+  "limitations": [
+    "No new video fully verified in this pass.",
+    "New direct source photograph N09 visually inspected; game loading pending.",
+    "Existing clips not fully reviewed.",
+    "Local images about 800 px; projector legibility pending.",
+    "Automated tests updated, not executed."
+  ]
+}

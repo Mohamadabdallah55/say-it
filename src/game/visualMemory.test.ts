@@ -85,7 +85,7 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
     assert.equal(q.imageCaption, undefined);
     tierCounts[q.points] += 1;
   }
-  assert.deepEqual(tierCounts, {"200":20,"400":39,"600":20});
+  assert.deepEqual(tierCounts, {"200":23,"400":48,"600":29});
   assert.ok(fs.existsSync(path.join(process.cwd(), 'public/assets/categories/cat_visual_memory.svg')));
 });
 
