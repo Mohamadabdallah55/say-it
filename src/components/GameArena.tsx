@@ -31,6 +31,7 @@ import {
 import { computeRemainingMs, elapsedQuestionMs } from '../game/engine';
 import { GUESS_PRICE_CATEGORY } from '../game/guessPrice';
 import { ARABIC_GRAMMAR_CATEGORY, ARABIC_PLURALS_CATEGORY, clubLogoRoundImageUrl, ENGLISH_LETTERS_CATEGORY, FOOTBALL_CAREER_CATEGORY, FOOTBALL_FIRST_NAME_CATEGORY, FOOTBALL_ORDERING_CATEGORY, FOUR_PICTURES_CATEGORY, GEOMETRY_CATEGORY, HASHEMITE_UNIVERSITY_CATEGORY, REVERSED_WORDS_CATEGORY, SILENT_ACTING_CATEGORY } from '../game/curatedBanks';
+import { cardsForTeam } from '../game/cardSettings';
 import { getQuestionImageSrc, QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type {
   HostViewState,
@@ -727,8 +728,9 @@ export function GameArena({
   const answerTeams = roundMeta?.activeLifeline === 'silence' ? state.teams.filter(t => t.id === roundMeta.ownerTeamId) : [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
   const cardTeam = state.teams.find(t => t.id === roundMeta?.ownerTeamId) ?? currentTeam;
-  const remainingCards = state.settings.lifelinesEnabled && state.settings.cards
-    ? [...new Set(state.settings.cards)].filter(c => !cardTeam.usedLifelines.includes(c)).length
+  const allowedCards = cardsForTeam(state.settings, cardTeam.id);
+  const remainingCards = !state.settings.lifelinesEnabled ? 0 : allowedCards
+    ? [...new Set(allowedCards)].filter(c => !cardTeam.usedLifelines.includes(c)).length
     : cardTeam.lifelinesRemaining;
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
   const isTeamBundlesBoard =
@@ -989,7 +991,7 @@ export function GameArena({
               host={isHost}
               used={cardTeam.usedLifelines}
               remaining={remainingCards}
-              allowed={state.settings.cards}
+              allowed={allowedCards}
               canSwap={'hasBackupQuestionsForActiveCategory' in state && state.hasBackupQuestionsForActiveCategory}
               choose={(lifeline) => sendCommand('APPLY_LIFELINE', { lifeline })}
               skip={() => sendCommand('SKIP_CARD_PICK')}
@@ -1488,7 +1490,7 @@ export function GameArena({
                       <HelpCircle className="w-5 h-5 text-[#63349B] shrink-0" />
                       <span>
                         {roundMeta.hint
-                          ? `${roundMeta.activeLifeline === 'hint' || (state.settings.lifelinesEnabled && (!state.settings.cards || state.settings.cards.includes('hint'))) ? 'بطاقة ألو (تلميح)' : 'تلميح'}: ${roundMeta.hint}`
+                          ? `${roundMeta.activeLifeline === 'hint' || (state.settings.lifelinesEnabled && (!allowedCards || allowedCards.includes('hint'))) ? 'بطاقة ألو (تلميح)' : 'تلميح'}: ${roundMeta.hint}`
                           : 'بطاقة ألو مفعّلة — يمكنك الاتصال بصديق أو طلب مساعدة لمدة 30 ثانية!'}
                       </span>
                     </div>
@@ -1718,12 +1720,12 @@ export function GameArena({
                       {state.settings.lifelinesEnabled &&
                         currentTeam &&
                         (['swap_question', 'hint'] as LifelineType[]).some(
-                          (k) => !state.settings.cards || state.settings.cards.includes(k),
+                          (k) => !allowedCards || allowedCards.includes(k),
                         ) && (
                           <div className="flex flex-col items-center gap-1.5">
                             <div className="flex flex-wrap items-center justify-center gap-2.5">
-                              {(!state.settings.cards ||
-                                state.settings.cards.includes('swap_question')) && (
+                              {(!allowedCards ||
+                                allowedCards.includes('swap_question')) && (
                                 <button
                                   type="button"
                                   disabled={
@@ -1745,7 +1747,7 @@ export function GameArena({
                                 </button>
                               )}
 
-                              {(!state.settings.cards || state.settings.cards.includes('hint')) && (
+                              {(!allowedCards || allowedCards.includes('hint')) && (
                                 <button
                                   type="button"
                                   disabled={
@@ -1774,7 +1776,7 @@ export function GameArena({
                       {roundMeta.hint &&
                         !roundMeta.hintRevealed &&
                         (!state.settings.lifelinesEnabled ||
-                          (Boolean(state.settings.cards) && !state.settings.cards!.includes('hint'))) && (
+                          (!state.settings.teamCards && Boolean(allowedCards) && !allowedCards!.includes('hint'))) && (
                           <button
                             type="button"
                             onClick={() => {
