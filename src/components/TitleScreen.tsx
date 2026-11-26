@@ -1,3 +1,4 @@
+import { KhattBrandArtwork } from './KhattBrandArtwork';
 import { useMemo, useState } from 'react';
 import { useAccount } from '../context/AccountContext';
 import { getUploadedCategoryArt, getCategoryCardArt } from '../utils/gameAssets';
@@ -183,7 +184,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
               <div className="platform-rounds"><span><Users size={14}/> جهاز واحد أو عدة أجهزة</span><span><Eye size={14}/> تصويت سري</span></div>
               <div className="platform-actions"><a href="/?drawing=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div>
             </div>
-            <svg viewBox="0 0 220 145" aria-hidden="true" className="platform-drawing-art"><rect x="10" y="10" width="200" height="125" rx="15" fill="#fffdf5" stroke="#251d36" strokeWidth="4"/><path d="M47 93 L105 38 L163 93" fill="none" stroke="#bd365e" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M61 82 V119 H149 V82" fill="none" stroke="#2773b6" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M95 119 V95 H116 V119" fill="none" stroke="#15936b" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M176 30 l14 13 -25 29 -14 4 1 -14z" fill="#ffdc53" stroke="#251d36" strokeWidth="3"/></svg>
+            <KhattBrandArtwork className="platform-drawing-art khatt-cover-art"/>
           </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
