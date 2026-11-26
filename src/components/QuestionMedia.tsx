@@ -15,6 +15,8 @@ interface QuestionMediaProps {
   compact?: boolean;
   obscured?: boolean;
   answerMasks?: readonly { x: number; y: number; w: number; h: number }[];
+  planetCell?: readonly [number, number];
+  hidePlanetLabel?: boolean;
   obscuredDifficulty?: 'easy' | 'medium' | 'hard';
   wide?: boolean;
   variant?: 'question' | 'answer';
@@ -32,6 +34,8 @@ export const QuestionMedia = memo(function QuestionMedia({
   compact = false,
   obscured = false,
   answerMasks,
+  planetCell,
+  hidePlanetLabel = false,
   obscuredDifficulty,
   wide = false,
   variant = 'question',
@@ -103,7 +107,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   };
 
   const modalContent =
-    zoomed && !obscured && !answerMasks?.length && !isFailed && typeof document !== 'undefined'
+    zoomed && !obscured && !planetCell && !answerMasks?.length && !isFailed && typeof document !== 'undefined'
       ? createPortal(
           <div
             role="dialog"
@@ -196,6 +200,28 @@ export const QuestionMedia = memo(function QuestionMedia({
               <span className="text-xs font-bold text-[#1F112E]/60">{caption}</span>
             )}
           </div>
+        ) : planetCell ? (
+          <div className={`relative w-full rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} p-3 flex items-center justify-center shadow-[0_4px_0_#1F112E]`}>
+            <div className="relative overflow-hidden rounded-xl bg-[#0B1130]" style={{ width: compact ? 'min(100%, 36vh, 360px)' : 'min(100%, 55vh, 480px)', aspectRatio: '1 / 1' }}>
+              <img
+                ref={imgRef}
+                key={`${imageSrc}-${planetCell.join('-')}-${retryCount}`}
+                src={imageSrc}
+                loading="eager"
+                decoding="async"
+                referrerPolicy="no-referrer"
+                alt="صورة كوكب سبيستون"
+                draggable={false}
+                onLoad={handleImageLoad}
+                onError={() => setFailedImage(imageSrc)}
+                className="absolute max-w-none select-none pointer-events-none"
+                style={{ width: '300%', height: '300%', maxWidth: 'none', left: `${-100 * planetCell[0]}%`, top: `${-100 * planetCell[1]}%`, opacity: isLoaded ? 1 : 0 }}
+              />
+              {hidePlanetLabel && (
+                <span aria-hidden="true" className="absolute pointer-events-none backdrop-blur-[24px] bg-[#080F26]/95" style={{ right: 0, bottom: 0, width: '46%', height: '18%' }} />
+              )}
+            </div>
+          </div>
         ) : answerMasks?.length ? (
           <div className={`relative w-full rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} p-3 flex items-center justify-center shadow-[0_4px_0_#1F112E]`}>
             <div className="relative inline-block max-w-full overflow-hidden rounded-xl">
@@ -218,7 +244,7 @@ export const QuestionMedia = memo(function QuestionMedia({
                 <span
                   key={index}
                   aria-hidden="true"
-                  className="pointer-events-none absolute backdrop-blur-[16px] bg-[#1F112E]/35"
+                  className="pointer-events-none absolute backdrop-blur-[20px] bg-[#1F112E]/85"
                   style={{ left: `${mask.x * 100}%`, top: `${mask.y * 100}%`, width: `${mask.w * 100}%`, height: `${mask.h * 100}%` }}
                 />
               ))}
