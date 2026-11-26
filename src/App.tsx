@@ -13,7 +13,6 @@ import type { ClientRole, QuizDeck, TeamState } from './game/types';
 import {
   dismissRecoveredDeckNewBadge,
   loadHydratedRecoveredState,
-  SESSION_REMOTE_SYNC_KEY,
   syncRemoteDecks,
   toggleRecoveredDeckVisibility,
   updateRemoteBaseUrl,
@@ -119,24 +118,6 @@ function AppContent() {
       loadHydratedRecoveredState()
         .then((cachedState) => {
           applyRemoteState(cachedState);
-          let alreadyChecked = false;
-          try {
-            alreadyChecked = sessionStorage.getItem(SESSION_REMOTE_SYNC_KEY) === '1';
-            if (!alreadyChecked) {
-              sessionStorage.setItem(SESSION_REMOTE_SYNC_KEY, '1');
-            }
-          } catch {
-            // ignore sessionStorage limitations
-          }
-          if (!alreadyChecked) {
-            syncRemoteDecks({ force: false })
-              .then(({ state }) => {
-                applyRemoteState(state);
-              })
-              .catch(() => {
-                // Keep silently cached IndexedDB decks when background sync fails/offline
-              });
-          }
         })
         .catch(() => {});
     }
@@ -163,6 +144,22 @@ function AppContent() {
     window.addEventListener('yh:open-admin', onOpenAdmin);
     return () => window.removeEventListener('yh:open-admin', onOpenAdmin);
   }, [refreshDecksAndRooms, applyRemoteState]);
+
+  // Automatic recovery is only a fallback for external/custom banks.
+  // Official categories now come directly from the server catalog.
+  useEffect(() => {
+    if (!['title', 'lobby', 'library'].includes(screen.name) || syncingRemote || remoteBaseUrl === DEFAULT_REMOTE_DECKS_BASE_URL) return;
+    let cancelled = false;
+    const refresh = () => {
+      if (document.visibilityState !== 'visible') return;
+      syncRemoteDecks({ force: false }).then(({ state }) => {
+        if (!cancelled) applyRemoteState(state);
+      }).catch(() => {});
+    };
+    // Do not repeatedly download images or fight with a manual recovery.
+    const timer = window.setTimeout(refresh, 1200);
+    return () => { cancelled = true; window.clearTimeout(timer); };
+  }, [screen.name, syncingRemote, remoteBaseUrl, applyRemoteState]);
 
   const handleManualRemoteSync = useCallback(async () => {
     if (syncingRemote) return;
