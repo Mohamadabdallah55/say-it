@@ -39,6 +39,25 @@ export const DEFAULT_SETTINGS: MatchSettings = {
   reducedMotion: false,
 };
 
+// An explicitly selected card is a single-use entitlement for each team.
+export function remainingLifelines(settings: MatchSettings, team: Pick<TeamState, 'usedLifelines' | 'lifelinesRemaining'>): number {
+  if (!settings.lifelinesEnabled) return 0;
+  if (Array.isArray(settings.cards)) {
+    return [...new Set(settings.cards)].filter(card => !team.usedLifelines.includes(card)).length;
+  }
+  // Legacy rooms without an explicit selection retain their original allowance.
+  return Math.max(0, team.lifelinesRemaining);
+}
+
+export function syncRoomLifelines(state: RoomState): RoomState {
+  const cards = state.settings.cards;
+  if (!Array.isArray(cards)) return state;
+  const settings = { ...state.settings, maxLifelinesPerTeam: new Set(cards).size };
+  return { ...state, settings, teams: state.teams.map(team => ({
+    ...team, lifelinesRemaining: remainingLifelines(settings, team),
+  })) };
+}
+
 export function computeRemainingMs(timer: TimerState, nowMs = Date.now()): number {
   if (!timer.running || timer.startedAtMs === null) {
     return Math.max(0, timer.remainingMs);
@@ -181,6 +200,8 @@ export function createRoomState(params: {
     ...DEFAULT_SETTINGS,
     ...params.settings,
   };
+
+  if (Array.isArray(settings.cards)) settings.maxLifelinesPerTeam = new Set(settings.cards).size;
 
   const matrixMode = isCategoryTeamMatrixDeck(params.deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(params.deck);
@@ -361,7 +382,7 @@ export function selectBoardTile(
       phase:
         state.settings.lifelinesEnabled &&
         hasAvailablePreQuestionCard &&
-        currentTeam.lifelinesRemaining > 0
+        remainingLifelines(state.settings, currentTeam) > 0
           ? 'LIFELINE_PICK'
           : 'QUESTION_READY',
       questionCounter: state.questionCounter + 1,
@@ -408,15 +429,20 @@ export function applyLifeline(
     return { ok: false, error: 'لا توجد جولة نشطة لاستخدام وسيلة مساعدة.', state };
   }
 
-  const currentTeam = state.teams[state.currentTurnTeamIndex];
+  const ownerIndex = state.teams.findIndex(t => t.id === state.activeRound?.ownerTeamId);
+  const cardTeamIndex = ownerIndex >= 0 ? ownerIndex : state.currentTurnTeamIndex;
+  const currentTeam = state.teams[cardTeamIndex];
   if (!currentTeam) {
     return { ok: false, error: 'الفريق صاحب الدور غير موجود.', state };
   }
-  if (currentTeam.lifelinesRemaining <= 0) {
+  if (remainingLifelines(state.settings, currentTeam) <= 0) {
     return { ok: false, error: `استنفد فريق «${currentTeam.name}» جميع وسائل المساعدة المتاحة.`, state };
   }
   if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit','silence','show_cards'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
     return { ok: false, error: 'البطاقة غير متاحة.', state };
+  }
+  if (isPreQuestionLifeline(lifeline) && state.phase !== 'LIFELINE_PICK') {
+    return { ok: false, error: 'هذه البطاقة تُستخدم قبل ظهور السؤال.', state };
   }
   const prevLifeline = state.activeRound.activeLifeline;
   if (prevLifeline === lifeline) {
@@ -516,10 +542,10 @@ export function applyLifeline(
   }
 
   const nextTeams = state.teams.map((t, idx) =>
-    idx === state.currentTurnTeamIndex
+    idx === cardTeamIndex
       ? {
           ...t,
-          lifelinesRemaining: Math.max(0, t.lifelinesRemaining - 1),
+          lifelinesRemaining: Math.max(0, remainingLifelines(state.settings, t) - 1),
           usedLifelines: [...t.usedLifelines, lifeline],
         }
       : t,
