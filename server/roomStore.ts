@@ -566,7 +566,9 @@ class RoomManager {
         result = submitOrder(room, payload.indices, actionId, now);
         break;
       case 'SKIP_CARD_PICK':
-        result = skipLifelinePick(room, actionId, now);
+        result = payload.roundId && payload.roundId !== room.activeRound?.roundId
+          ? { ok: false, state: room, error: 'انتهت مرحلة اختيار البطاقة لهذا السؤال.' }
+          : skipLifelinePick(room, actionId, now);
         break;
       case 'SKIP_MEMORY_PREVIEW':
         result = advanceMemoryToQuestion(room, actionId, now);
