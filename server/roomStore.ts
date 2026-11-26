@@ -28,7 +28,7 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { SERVER_CURATED_CATEGORY_IDS } from '../src/game/curatedBanks';
+import { SERVER_CURATED_CATEGORY_IDS, WORLD_FOOD_CATEGORY } from '../src/game/curatedBanks';
 import { SERVER_CURATED_QUESTIONS } from './curatedQuestionBanks';
 import {
   applyAccountProgressToDeck,
@@ -141,8 +141,9 @@ class RoomManager {
     accountActive?: boolean;
     clientDeck?: QuizDeck;
   }): RoomState & { resetCategoryIds?: string[] } {
-    const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories);
-    const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions);
+    const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories).filter(c => c.id !== WORLD_FOOD_CATEGORY.id);
+    // Never merge a stale recovered food bank over the current built-in version.
+    const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions).filter(q => q.categoryId !== WORLD_FOOD_CATEGORY.id);
     const cleanPlayedMap = sanitizePlayedMap(params.playedQuestionIdsByCategory);
 
     let deck: QuizDeck = STARTER_DEMO_DECK;
