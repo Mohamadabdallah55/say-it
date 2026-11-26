@@ -412,20 +412,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي كنا نصمم فيها بيتًا ونراقب حياة عائلة افتراضية ونلبي احتياجاتها؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "The Sims",
       "acceptedAnswers": [
         "The Sims",
         "ذا سيمز",
         "سيمز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://news-cdn.softpedia.com/images/news2/The-Sims-Only-Included-Same-Sex-Relationships-by-Mistake-447642-2.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "The Sims",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "The Sims",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.computerhistory.org/revolution/computer-games/16/201/853",
+        "sourcePublisher": "www.computerhistory.org",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.computerhistory.org/revolution/computer-games/16/201/853"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -464,20 +480,36 @@
       "subCategory": "ألعاب الطفولة",
       "difficulty": 200,
       "points": 200,
-      "question": "شو اسم البلابل المعدنية اللي كنا ننافس فيها داخل حلبة دائرية؟",
+      "question": "شو اسم اللعبة اللي كنا نتنافس فيها بهالبلابل؟",
       "answer": "بي بليد",
       "acceptedAnswers": [
         "بي بليد",
         "Beyblade",
         "بيبلاد"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.ebayimg.com/images/g/JFYAAOSwxNBoImf5/s-l400.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Beyblade",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Beyblade",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.ebay.de/itm/297301028171",
+        "sourcePublisher": "www.ebay.de",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.ebay.de/itm/297301028171"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الطفولة"
@@ -1562,19 +1594,35 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة اللي كنا نحرّك فيها الطائر بلمسات حتى يمر بين الأنابيب الخضراء؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Flappy Bird",
       "acceptedAnswers": [
         "Flappy Bird",
         "فلابي بيرد"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.thegamesdb.net/images/medium/screenshot/123335-1.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Flappy Bird",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Flappy Bird",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://thegamesdb.net/game.php?id=123335",
+        "sourcePublisher": "thegamesdb.net",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://thegamesdb.net/game.php?id=123335"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -2044,20 +2092,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر القديمة اللي فيها بناء حضارات من العصر الحجري وجمع الموارد؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Age of Empires",
       "acceptedAnswers": [
         "Age of Empires",
         "عصر الإمبراطوريات",
         "إيج أوف إمبايرز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.mobygames.com/images/promo/l/11844-age-of-empires-screenshot.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Age of Empires",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Age of Empires",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/windows/age-of-empires/promo/promoImageId%2C11844/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/windows/age-of-empires/promo/promoImageId%2C11844/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -2318,19 +2382,35 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة اللي بنركض فيها داخل معبد قديم ونلف يمين وشمال ونهرب من مخلوقات؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Temple Run",
       "acceptedAnswers": [
         "Temple Run",
         "تمبل رن"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.nichesites.pikoya.com/gamesparkles_com/images/games/7264/gallery/20460.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Temple Run",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Temple Run",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.gamesparkles.com/games/temple_run",
+        "sourcePublisher": "www.gamesparkles.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gamesparkles.com/games/temple_run"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -2787,20 +2867,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "لعبة البلايستيشن اللي فيها بندقوط برتقالي بيجمع فاكهة الوومبا؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Crash Bandicoot",
       "acceptedAnswers": [
         "Crash Bandicoot",
         "كراش بانديكوت",
         "كراش"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cimg.kgl-systems.io/camion/files/famitsu/26255/a08ecb3cf4087eb5184798b2ac2a34520.jpg?x=767",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Crash Bandicoot",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Crash Bandicoot",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.famitsu.com/article/202412/26255",
+        "sourcePublisher": "www.famitsu.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.famitsu.com/article/202412/26255"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
