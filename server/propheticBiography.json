@@ -1,11 +1,11 @@
 [
   {
     "id": "SAH-001",
-    "difficulty": 400,
-    "question": "من أم الحسن والحسين وسبطي النبي ﷺ؟",
-    "answer": "فاطمة بنت رسول الله ﷺ",
-    "reference": "https://sunnah.com/bukhari/62",
-    "note": "بنت رسول الله ﷺ وزوجة علي."
+    "difficulty": 200,
+    "question": "في أي مدينة وُلد النبي ﷺ؟",
+    "answer": "مكة المكرمة",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "مكة موطن النبي ﷺ قبل الهجرة."
   },
   {
     "id": "SAH-002",
@@ -17,15 +17,15 @@
   },
   {
     "id": "SAH-003",
-    "difficulty": 400,
-    "question": "من الصحابي الذي وصفته رؤيا بحديقة وعمود وعروة وثقى، فبشّره النبي ﷺ بالثبات على الإسلام؟",
-    "answer": "عبد الله بن سلام",
-    "reference": "https://sunnah.com/muslim:2484a",
-    "note": "رؤيا العروة الوثقى."
+    "difficulty": 200,
+    "question": "في أي غار نزل الوحي على النبي ﷺ لأول مرة؟",
+    "answer": "غار حراء",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "حديث بدء الوحي."
   },
   {
     "id": "SAH-004",
-    "difficulty": 200,
+    "difficulty": 600,
     "question": "من الصحابية التي نزل أول سورة المجادلة بسبب شكواها في شأن زوجها؟",
     "answer": "خولة بنت ثعلبة",
     "reference": "https://quran.com/58/1",
@@ -34,14 +34,14 @@
   {
     "id": "SAH-005",
     "difficulty": 600,
-    "question": "من الصحابي الذي وصفه النبي ﷺ في قصة الرؤيا بأنه باقٍ متمسكًا بالعروة الوثقى حتى موته؟",
-    "answer": "عبد الله بن سلام",
-    "reference": "https://sunnah.com/muslim:2484a",
-    "note": "الرؤيا في روضة خضراء وعمود."
+    "question": "ما الوصف الذي قاله ورقة بن نوفل عن الذي جاء النبي ﷺ بالوحي؟",
+    "answer": "الناموس الذي نزل على موسى",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "عرف ورقة أن ما جاءه وحي من الله."
   },
   {
     "id": "SAH-006",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي شهد غزوة مؤتة ثم تولى الإمرة بعد القادة الثلاثة؟",
     "answer": "خالد بن الوليد",
     "reference": "https://sunnah.com/bukhari/64",
@@ -49,7 +49,7 @@
   },
   {
     "id": "SAH-007",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي بعثه النبي ﷺ معلمًا إلى أهل يثرب قبل الهجرة؟",
     "answer": "مصعب بن عمير",
     "reference": "https://sunnah.com/bukhari/63",
@@ -58,26 +58,26 @@
   {
     "id": "SAH-008",
     "difficulty": 200,
-    "question": "من الصحابي الذي بسط رداءه أمام النبي ﷺ ثم ضمّه فلم ينس ما سمع؟",
-    "answer": "أبو هريرة",
-    "reference": "https://sunnah.com/bukhari:7354",
-    "note": "من أسباب كثرة حفظه للحديث."
+    "question": "من أول زوجات النبي ﷺ التي طمأنته بعد نزول الوحي؟",
+    "answer": "خديجة بنت خويلد",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "وقفت خديجة معه في بداية الوحي."
   },
   {
     "id": "SAH-009",
     "difficulty": 600,
-    "question": "أي واحد من أصحاب الشورى الستة جعل حقه في الاختيار لعبد الرحمن بن عوف؟",
-    "answer": "سعد بن أبي وقاص",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "تفاصيل التشاور في صحيح البخاري."
+    "question": "من كان ينقل أخبار قريش للنبي ﷺ وأبي بكر أثناء إقامتهما في غار ثور؟",
+    "answer": "عبد الله بن أبي بكر",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "كان يستمع لأخبار قريش ويخبرهما بها."
   },
   {
     "id": "SAH-010",
     "difficulty": 400,
-    "question": "مَن الصحابي الذي أمر النبي ﷺ معاذًا أن يبدأ بدعوة أهل اليمن إلى التوحيد قبل الصلاة والزكاة؟",
-    "answer": "معاذ بن جبل",
-    "reference": "https://sunnah.com/bukhari:1395",
-    "note": "وصية ترتيب التعليم."
+    "question": "كم ليلة مكث النبي ﷺ وأبو بكر في غار ثور؟",
+    "answer": "ثلاث ليال",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "حديث عائشة في الهجرة."
   },
   {
     "id": "SAH-011",
@@ -90,10 +90,10 @@
   {
     "id": "SAH-012",
     "difficulty": 600,
-    "question": "ما الاسم الذي ذكره ابن مسعود لمن يبدأ النبي ﷺ بهم الأربعة المأمور بأخذ القرآن عنهم؟",
-    "answer": "ابن أم عبد، أي عبد الله بن مسعود",
-    "reference": "https://sunnah.com/muslim:2464a",
-    "note": "بدأ به في الحديث."
+    "question": "من كان يرعى الغنم ويأتي بها إلى النبي ﷺ وأبي بكر في غار ثور؟",
+    "answer": "عامر بن فهيرة",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "حديث الهجرة يبين دوره في إمدادهما."
   },
   {
     "id": "SAH-013",
@@ -105,23 +105,23 @@
   },
   {
     "id": "SAH-014",
-    "difficulty": 600,
-    "question": "ما الخصوصية التي ذكرها النبي ﷺ لأصحاب سفينة الحبشة مقارنةً بمن هاجروا من مكة إلى المدينة مباشرة؟",
-    "answer": "لهم هجرتان: هجرة الحبشة ثم هجرة المدينة",
-    "reference": "https://sunnah.com/muslim/44",
-    "note": "في قصة أسماء بنت عميس وأهل السفينة."
+    "difficulty": 400,
+    "question": "ما اتجاه القبلة الذي كان المسلمون يصلون إليه قبل التحويل إلى الكعبة؟",
+    "answer": "بيت المقدس",
+    "reference": "https://quran.com/2/142-144",
+    "note": "آيات تحويل القبلة."
   },
   {
     "id": "SAH-015",
     "difficulty": 600,
-    "question": "من الصحابي الذي كان مع أسيد بن حضير في حادثة الضوء الذي رافقهما حين انصرفا من عند النبي ﷺ؟",
-    "answer": "عبّاد بن بشر",
-    "reference": "https://sunnah.com/bukhari:3805",
-    "note": "ثبتت تسميته في طرق الحديث."
+    "question": "ماذا طلب أبو بكر من النبي ﷺ عندما أُذن له بالهجرة؟",
+    "answer": "أن يصحبه في الرحلة",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "فرح أبو بكر بالإذن له بالصحبة."
   },
   {
     "id": "SAH-016",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي دعا له النبي ﷺ بالعلم بالكتاب؟",
     "answer": "عبد الله بن عباس",
     "reference": "https://sunnah.com/bukhari:3756",
@@ -137,7 +137,7 @@
   },
   {
     "id": "SAH-018",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي كان شاعرًا يدافع عن الإسلام، ودعا له النبي ﷺ بتأييد جبريل؟",
     "answer": "حسان بن ثابت",
     "reference": "https://sunnah.com/muslim:2486a",
@@ -145,7 +145,7 @@
   },
   {
     "id": "SAH-019",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "عندما طال التفاوض في الحديبية، من الصحابي الذي تولّى كتابة وثيقة الصلح، ووقع اختلاف في صيغة اسم النبي ﷺ؟",
     "answer": "علي بن أبي طالب",
     "reference": "https://sunnah.com/bukhari:2731",
@@ -161,23 +161,23 @@
   },
   {
     "id": "SAH-021",
-    "difficulty": 600,
-    "question": "من الصحابي الذي عُرف بكنية أبي دجانة واسمه في الصحيح «سماك بن خرشة»؟",
-    "answer": "أبو دجانة الأنصاري",
-    "reference": "https://sunnah.com/muslim:2470",
-    "note": "مناقبه في أُحد."
+    "difficulty": 400,
+    "question": "ما الاسم الآخر لغزوة الخندق الوارد في القرآن؟",
+    "answer": "غزوة الأحزاب",
+    "reference": "https://quran.com/33/9-27",
+    "note": "اجتمعت الأحزاب حول المدينة."
   },
   {
     "id": "SAH-022",
-    "difficulty": 600,
-    "question": "من الصحابي الذي ذُكر مع بلال وصهيب حين أقبل أبو سفيان، في باب فضائلهم من صحيح مسلم؟",
-    "answer": "سلمان الفارسي",
-    "reference": "https://sunnah.com/muslim:2504",
-    "note": "اجتمع سلمان وبلال وصهيب."
+    "difficulty": 400,
+    "question": "ما السورة التي نزلت في سياق صلح الحديبية وسمته فتحًا مبينًا؟",
+    "answer": "سورة الفتح",
+    "reference": "https://quran.com/48/1",
+    "note": "افتتحت السورة بالبشارة بالفتح."
   },
   {
     "id": "SAH-023",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "في أي غزوة انتدب الزبير بن العوام نفسه مرارًا للاستطلاع، فأثنى عليه النبي ﷺ؟",
     "answer": "غزوة الخندق / الأحزاب",
     "reference": "https://sunnah.com/muslim:2415a",
@@ -186,14 +186,14 @@
   {
     "id": "SAH-024",
     "difficulty": 200,
-    "question": "من الصحابي الذي سمّى النبي ﷺ أحد سبطيه الحسن؟",
-    "answer": "الحسن بن علي",
-    "reference": "https://sunnah.com/muslim:2421a",
-    "note": "الحسن حفيد النبي ﷺ من فاطمة وعلي."
+    "question": "إلى أي مدينة هاجر النبي ﷺ من مكة؟",
+    "answer": "المدينة المنورة",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "الهجرة النبوية."
   },
   {
     "id": "SAH-025",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابية التي استشيرت يوم الحديبية فأشارت على النبي ﷺ ببدء تنفيذ النسك بنفسه؟",
     "answer": "أم سلمة",
     "reference": "https://sunnah.com/bukhari:2731",
@@ -201,23 +201,23 @@
   },
   {
     "id": "SAH-026",
-    "difficulty": 200,
-    "question": "من أم المؤمنين التي حفظت الصحف القرآنية الموروثة من عمر بعد وفاته؟",
-    "answer": "حفصة بنت عمر",
-    "reference": "https://sunnah.com/bukhari:4987",
-    "note": "استعان عثمان بالصحف في نسخ المصاحف."
+    "difficulty": 400,
+    "question": "مَن كان ممثل قريش عند كتابة صلح الحديبية؟",
+    "answer": "سهيل بن عمرو",
+    "reference": "https://sunnah.com/bukhari:2731",
+    "note": "هو الذي فاوض النبي ﷺ على الصلح."
   },
   {
     "id": "SAH-027",
     "difficulty": 600,
-    "question": "من الصحابي الذي وردت فضيلته بأن النبي ﷺ أحبّه ودعا له كما في حديث الحسن بن علي؟",
-    "answer": "الحسن بن علي",
-    "reference": "https://sunnah.com/muslim:2421a",
-    "note": "دعاء المحبة للحسن."
+    "question": "أي صيغة للبسملة طلب سهيل بن عمرو كتابتها في وثيقة الحديبية؟",
+    "answer": "باسمك اللهم",
+    "reference": "https://sunnah.com/bukhari:2731",
+    "note": "اعترض سهيل على الصيغة المقترحة فكتبوا باسمك اللهم."
   },
   {
     "id": "SAH-028",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "أي خوخة في المسجد استُثنيت من أمر النبي ﷺ بسدّ الخوخات؟",
     "answer": "خوخة أبي بكر",
     "reference": "https://sunnah.com/muslim:2382a",
@@ -225,7 +225,7 @@
   },
   {
     "id": "SAH-029",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "في أي سورة وُجدت خاتمة الآيات عند أبي خزيمة الأنصاري أثناء جمع زيد للقرآن؟",
     "answer": "سورة التوبة",
     "reference": "https://sunnah.com/bukhari:4986",
@@ -233,7 +233,7 @@
   },
   {
     "id": "SAH-030",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "مَن الصحابي الذي كُلّف بالاستئذان من عائشة بشأن دفن عمر بن الخطاب مع النبي ﷺ وأبي بكر؟",
     "answer": "عبد الله بن عمر",
     "reference": "https://sunnah.com/bukhari:3700",
@@ -241,7 +241,7 @@
   },
   {
     "id": "SAH-031",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من هو ثاني قادة مؤتة الثلاثة بعد زيد بن حارثة؟",
     "answer": "جعفر بن أبي طالب",
     "reference": "https://sunnah.com/bukhari/64",
@@ -249,7 +249,7 @@
   },
   {
     "id": "SAH-032",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي قال له النبي ﷺ: لقد أوتيت مزمارًا من مزامير آل داود؟",
     "answer": "أبو موسى الأشعري",
     "reference": "https://sunnah.com/bukhari/66",
@@ -258,14 +258,14 @@
   {
     "id": "SAH-033",
     "difficulty": 400,
-    "question": "من الصحابي الذي أخبر أنه كان يبسط رداءه في مجلس النبي ﷺ طلبًا للحفظ؟",
-    "answer": "أبو هريرة",
-    "reference": "https://sunnah.com/bukhari:7354",
-    "note": "ظهر أثر ذلك في حفظه."
+    "question": "ما الاسم الذي ورد للمدينة في سورة الأحزاب على لسان بعض أهلها؟",
+    "answer": "يثرب",
+    "reference": "https://quran.com/33/13",
+    "note": "ورد الاسم في الآية."
   },
   {
     "id": "SAH-034",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الرجل الذي ذكره القرآن ضمن الثلاثة المذكورين في توبة تبوك وكان اسمه هلال؟",
     "answer": "هلال بن أمية",
     "reference": "https://sunnah.com/bukhari:4418",
@@ -282,10 +282,10 @@
   {
     "id": "SAH-036",
     "difficulty": 200,
-    "question": "من الصحابي الذي بشّره النبي ﷺ بالجنة بعد رؤيا فيها عروة وثقى؟",
-    "answer": "عبد الله بن سلام",
-    "reference": "https://sunnah.com/muslim:2484a",
-    "note": "ورد تأويل الرؤيا في صحيح مسلم."
+    "question": "ما أول غزوة كبرى انتصر فيها المسلمون على قريش؟",
+    "answer": "بدر",
+    "reference": "https://quran.com/3/123",
+    "note": "نص القرآن على نصر بدر."
   },
   {
     "id": "SAH-037",
@@ -297,7 +297,7 @@
   },
   {
     "id": "SAH-038",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابية التي شاركت في هجرة الحبشة وعُرفت بأنها من أهل السفينة في عودة جعفر؟",
     "answer": "أسماء بنت عميس",
     "reference": "https://sunnah.com/muslim:2502",
@@ -305,7 +305,7 @@
   },
   {
     "id": "SAH-039",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "أي صحابي لقب «ذو الشهادتين» وقُبلت شهادته بما يعادل شهادة رجلين؟",
     "answer": "خزيمة بن ثابت",
     "reference": "https://sunnah.com/abudawud:3607",
@@ -313,7 +313,7 @@
   },
   {
     "id": "SAH-040",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي قال عنه النبي ﷺ يوم أُحد «ارمِ، فداك أبي وأمي»؟",
     "answer": "سعد بن أبي وقاص",
     "reference": "https://sunnah.com/bukhari:3725",
@@ -321,7 +321,7 @@
   },
   {
     "id": "SAH-041",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي حاور النبي ﷺ في مسألة أحب الناس إليه بعد إمارة ذات السلاسل؟",
     "answer": "عمرو بن العاص",
     "reference": "https://sunnah.com/muslim:2384",
@@ -337,7 +337,7 @@
   },
   {
     "id": "SAH-043",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي كان صاحب نخل «بيرحاء» وأنفقه حين نزل قوله تعالى «لن تنالوا البر»؟",
     "answer": "أبو طلحة الأنصاري",
     "reference": "https://sunnah.com/bukhari:2758",
@@ -353,7 +353,7 @@
   },
   {
     "id": "SAH-045",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي قال عنه النبي ﷺ إنه حواريّه؟",
     "answer": "الزبير بن العوام",
     "reference": "https://sunnah.com/bukhari:3719",
@@ -361,7 +361,7 @@
   },
   {
     "id": "SAH-046",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي أمره النبي ﷺ أن يقرأ القرآن على نحو قراءته ثم اشتُهر بالفقه؟",
     "answer": "عبد الله بن مسعود",
     "reference": "https://sunnah.com/bukhari/62",
@@ -369,7 +369,7 @@
   },
   {
     "id": "SAH-047",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من الصحابية التي تزوجها النبي ﷺ بعد زيد بن حارثة ونصّت الآية 37 من الأحزاب على ذلك؟",
     "answer": "زينب بنت جحش",
     "reference": "https://quran.com/33/37",
@@ -385,15 +385,15 @@
   },
   {
     "id": "SAH-049",
-    "difficulty": 600,
-    "question": "من حفيد النبي ﷺ الذي قال عنه إنه سيصلح الله به بين فئتين عظيمتين من المسلمين؟",
-    "answer": "الحسن بن علي",
-    "reference": "https://sunnah.com/bukhari:2704",
-    "note": "من مناقب الحسن."
+    "difficulty": 400,
+    "question": "ما المناسبة التي نزل فيها قول الله تعالى عن الرضا عن المؤمنين إذ يبايعون تحت الشجرة؟",
+    "answer": "بيعة الرضوان",
+    "reference": "https://quran.com/48/18",
+    "note": "وقعت البيعة في الحديبية."
   },
   {
     "id": "SAH-050",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي قيل له بعد قتال أُحد «لقد أوجب طلحة»؟",
     "answer": "طلحة بن عبيد الله",
     "reference": "https://sunnah.com/tirmidhi:1692",
@@ -409,7 +409,7 @@
   },
   {
     "id": "SAH-052",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي أرسله النبي ﷺ إلى اليمن قاضيًا ومعلمًا؟",
     "answer": "معاذ بن جبل",
     "reference": "https://sunnah.com/bukhari:1395",
@@ -434,10 +434,10 @@
   {
     "id": "SAH-055",
     "difficulty": 200,
-    "question": "من الصحابي الذي حمل لقب «ابن أم عبد» في روايات أخذ القرآن؟",
-    "answer": "عبد الله بن مسعود",
-    "reference": "https://sunnah.com/muslim:2464a",
-    "note": "أحد الأربعة الذين ورد الحث على أخذ القرآن عنهم."
+    "question": "في أي شهر يؤدي المسلمون الحج الذي أداه النبي ﷺ في حجة الوداع؟",
+    "answer": "ذو الحجة",
+    "reference": "https://sunnah.com/muslim:1218",
+    "note": "حديث جابر في صفة الحج."
   },
   {
     "id": "SAH-056",
@@ -449,7 +449,7 @@
   },
   {
     "id": "SAH-057",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي وُجدت عنده آية «من المؤمنين رجال صدقوا» عند نسخ المصاحف؟",
     "answer": "خزيمة بن ثابت الأنصاري",
     "reference": "https://sunnah.com/bukhari:4988",
@@ -465,7 +465,7 @@
   },
   {
     "id": "SAH-059",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي شهد بيعة العقبة وبدرًا، ونقل حديث البيعة على ترك الشرك؟",
     "answer": "عبادة بن الصامت",
     "reference": "https://sunnah.com/bukhari/63",
@@ -473,7 +473,7 @@
   },
   {
     "id": "SAH-060",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من الصحابي الذي تولى القيادة ثالثًا في مؤتة قبل خالد بن الوليد؟",
     "answer": "عبد الله بن رواحة",
     "reference": "https://sunnah.com/bukhari/64",
@@ -482,10 +482,10 @@
   {
     "id": "SAH-061",
     "difficulty": 400,
-    "question": "من الصحابي الذي نقل عمر إليه إمامة الصلاة في لحظة تعذّر عليه إتمام الصلاة، قبل اختيار الخليفة؟",
-    "answer": "عبد الرحمن بن عوف",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "خبر عمر والشورى في صحيح البخاري."
+    "question": "إلى أي قوم أرسل النبي ﷺ معاذ بن جبل في أواخر عهده؟",
+    "answer": "أهل اليمن",
+    "reference": "https://sunnah.com/bukhari:1395",
+    "note": "بعثه النبي ﷺ إلى اليمن."
   },
   {
     "id": "SAH-062",
@@ -497,7 +497,7 @@
   },
   {
     "id": "SAH-063",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "ما اسم السرية التي كان عمرو بن العاص أميرًا عليها حين سأل النبي ﷺ عمن يحب أكثر؟",
     "answer": "ذات السلاسل",
     "reference": "https://sunnah.com/muslim:2384",
@@ -505,15 +505,15 @@
   },
   {
     "id": "SAH-064",
-    "difficulty": 400,
-    "question": "ما الحدث الذي أثار خشية عمر على ذهاب شيء من القرآن عند جمعه أول مرة؟",
-    "answer": "وقعة اليمامة وكثرة من استشهد فيها من القراء",
-    "reference": "https://sunnah.com/bukhari:4986",
-    "note": "في خلافة أبي بكر."
+    "difficulty": 600,
+    "question": "ما أول أولوية أمر النبي ﷺ معاذًا بها عند دعوة أهل اليمن؟",
+    "answer": "دعوتهم إلى توحيد الله",
+    "reference": "https://sunnah.com/bukhari:1395",
+    "note": "تقديم التوحيد ثم تعليم الفرائض."
   },
   {
     "id": "SAH-065",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي كان رئيسًا للأوس قبل الإسلام وأُسلم قومه على يديه؟",
     "answer": "سعد بن معاذ",
     "reference": "https://sunnah.com/bukhari/63",
@@ -537,7 +537,7 @@
   },
   {
     "id": "SAH-068",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي اختاره النبي ﷺ قائدًا لبعث مع صغر سنه، وأبوه زيد بن حارثة؟",
     "answer": "أسامة بن زيد",
     "reference": "https://sunnah.com/muslim/44",
@@ -545,7 +545,7 @@
   },
   {
     "id": "SAH-069",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من الصحابية التي كانت إذا ذكرها النبي ﷺ أرسل الطعام إلى صديقاتها وفاءً لها؟",
     "answer": "خديجة بنت خويلد",
     "reference": "https://sunnah.com/muslim:2435b",
@@ -553,11 +553,11 @@
   },
   {
     "id": "SAH-070",
-    "difficulty": 400,
-    "question": "عند من كانت الصحف التي طلبها عثمان لنسخ المصاحف، ومن الذي جمعها أولًا؟",
-    "answer": "عند حفصة بنت عمر، وجُمعت أولًا بأمر أبي بكر",
-    "reference": "https://sunnah.com/bukhari:4987",
-    "note": "اختبار العلاقة بين الجمع الأول ونسخ المصاحف."
+    "difficulty": 600,
+    "question": "ما العمل الذي باشره النبي ﷺ بعد مشورة أم سلمة في الحديبية حتى اقتدى به أصحابه؟",
+    "answer": "نحر هديه ثم حلق رأسه",
+    "reference": "https://sunnah.com/bukhari:2731",
+    "note": "باشر النسك عمليًا بعد الصلح."
   },
   {
     "id": "SAH-071",
@@ -569,7 +569,7 @@
   },
   {
     "id": "SAH-072",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابية التي كانت والدة أسامة بن زيد وزوجة زيد بن حارثة؟",
     "answer": "أم أيمن بركة الحبشية",
     "reference": "https://sunnah.com/muslim/44",
@@ -585,7 +585,7 @@
   },
   {
     "id": "SAH-074",
-    "difficulty": 600,
+    "difficulty": 200,
     "question": "في أي غزوة قُتل القادة الثلاثة الذين سبقوا خالد بن الوليد في الإمرة؟",
     "answer": "مؤتة",
     "reference": "https://sunnah.com/bukhari/64",
@@ -593,7 +593,7 @@
   },
   {
     "id": "SAH-075",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي ذُكر اسمه صراحة في القرآن في سورة الأحزاب؟",
     "answer": "زيد بن حارثة",
     "reference": "https://quran.com/33/37",
@@ -601,11 +601,11 @@
   },
   {
     "id": "SAH-076",
-    "difficulty": 200,
-    "question": "من أم المؤمنين التي حفظت عندها الصحف المجموعة قبل نسخ مصاحف عثمان؟",
-    "answer": "حفصة بنت عمر",
-    "reference": "https://sunnah.com/bukhari:4987",
-    "note": "أرسل عثمان إليها يطلب الصحف."
+    "difficulty": 400,
+    "question": "أي غزوة وقع فيها تخلف كعب بن مالك وصاحبيه ثم قبول توبتهم؟",
+    "answer": "تبوك",
+    "reference": "https://quran.com/9/118",
+    "note": "حديث كعب يشرح سياق الآية."
   },
   {
     "id": "SAH-077",
@@ -617,7 +617,7 @@
   },
   {
     "id": "SAH-078",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي سأل النبي ﷺ عن أحب الناس إليه فكان الجواب «عائشة»، ثم سأل عن الرجال؟",
     "answer": "عمرو بن العاص",
     "reference": "https://sunnah.com/muslim:2384",
@@ -625,11 +625,11 @@
   },
   {
     "id": "SAH-079",
-    "difficulty": 200,
-    "question": "من الصحابي الذي روى حديث تعاقب أفضلية القرون وفضل جيل الصحابة في صحيح البخاري؟",
-    "answer": "أبو سعيد الخدري",
-    "reference": "https://sunnah.com/bukhari:3649",
-    "note": "ورد الحديث في مقدمة فضائل الصحابة."
+    "difficulty": 600,
+    "question": "ما اسم البيعة التي قال كعب بن مالك إنه لا يحب أن تكون له بدر بدلًا منها؟",
+    "answer": "بيعة العقبة",
+    "reference": "https://sunnah.com/bukhari:4418",
+    "note": "ذكر كعب فضل حضوره للعقبة."
   },
   {
     "id": "SAH-080",
@@ -649,7 +649,7 @@
   },
   {
     "id": "SAH-082",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي قال له النبي ﷺ: أنت مني بمنزلة هارون من موسى إلا أنه لا نبي بعدي؟",
     "answer": "علي بن أبي طالب",
     "reference": "https://sunnah.com/muslim:2404a",
@@ -666,10 +666,10 @@
   {
     "id": "SAH-084",
     "difficulty": 200,
-    "question": "من الصحابي الذي كان أبًا لجابر بن عبد الله واستُشهد بأحد؟",
-    "answer": "عبد الله بن عمرو بن حرام",
-    "reference": "https://sunnah.com/muslim:2471a",
-    "note": "وردت مناقبه في مسلم."
+    "question": "ما اسم أم المؤمنين التي كانت ابنة أبي بكر الصديق؟",
+    "answer": "عائشة رضي الله عنها",
+    "reference": "https://sunnah.com/bukhari/62",
+    "note": "زوجة النبي ﷺ."
   },
   {
     "id": "SAH-085",
@@ -681,15 +681,15 @@
   },
   {
     "id": "SAH-086",
-    "difficulty": 200,
-    "question": "من الصحابي الذي استجاب لاستنفار النبي ﷺ يوم الخندق ثلاث مرات؟",
-    "answer": "الزبير بن العوام",
-    "reference": "https://sunnah.com/muslim:2415a",
-    "note": "في ذلك الموقف قال النبي: حواريّي الزبير."
+    "difficulty": 400,
+    "question": "في أي غزوة عفا الله عمن تولى من المسلمين كما ورد في آل عمران؟",
+    "answer": "غزوة أحد",
+    "reference": "https://quran.com/3/155",
+    "note": "سياق آيات أحد."
   },
   {
     "id": "SAH-087",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "في أي غزوة ورد حديث تقديم النبي ﷺ سيفًا لأبي دجانة وما يتعلق بحق السيف؟",
     "answer": "أُحد",
     "reference": "https://sunnah.com/muslim:2470",
@@ -705,35 +705,35 @@
   },
   {
     "id": "SAH-089",
-    "difficulty": 200,
-    "question": "من الصحابي الذي نقل البخاري أنه كان أول من صلى بالناس التراويح حين جمعهم عمر على إمام واحد؟",
-    "answer": "أُبيّ بن كعب",
-    "reference": "https://sunnah.com/bukhari:2010",
-    "note": "العمل في خلافة عمر."
+    "difficulty": 600,
+    "question": "ماذا كان النبي ﷺ يفعل في حراء قبل نزول الوحي كما وصفت عائشة في الحديث؟",
+    "answer": "يتحنث، أي يتعبد",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "كان يحب الخلوة للعبادة."
   },
   {
     "id": "SAH-090",
     "difficulty": 600,
-    "question": "من الصحابي الذي أمره عمر ضمن الستة أهل الشورى، ثم تولى استخلاص رأي الناس واختيار الخليفة؟",
-    "answer": "عبد الرحمن بن عوف",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "دوره في الشورى بعد عمر."
+    "question": "كيف رد النبي ﷺ على طلب تغيير عبارة محمد رسول الله في وثيقة الحديبية؟",
+    "answer": "وافق على كتابة محمد بن عبد الله مع تأكيد أنه رسول الله",
+    "reference": "https://sunnah.com/bukhari:2731",
+    "note": "أتم الصلح رغم الاعتراض على الصيغة."
   },
   {
     "id": "SAH-091",
     "difficulty": 200,
-    "question": "من الصحابي الذي أمره أبو بكر بجمع القرآن بعد اليمامة؟",
-    "answer": "زيد بن ثابت",
-    "reference": "https://sunnah.com/bukhari:4986",
-    "note": "كان ممن كتب الوحي."
+    "question": "ما اسم الغار الذي لجأ إليه النبي ﷺ وأبو بكر في الهجرة؟",
+    "answer": "غار ثور",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "غار ثور في طريق الهجرة."
   },
   {
     "id": "SAH-092",
-    "difficulty": 200,
-    "question": "من الصحابي الذي اقترح على أبي بكر جمع القرآن خشية ضياع شيء منه؟",
-    "answer": "عمر بن الخطاب",
-    "reference": "https://sunnah.com/bukhari:4986",
-    "note": "كان سبب الاقتراح ما حدث لقراء القرآن باليمامة."
+    "difficulty": 400,
+    "question": "ما اسم السورة التي ذكرت نصر الله لنبيه ﷺ وهو مع صاحبه في الغار؟",
+    "answer": "سورة التوبة",
+    "reference": "https://quran.com/9/40",
+    "note": "آية الغار."
   },
   {
     "id": "SAH-093",
@@ -753,7 +753,7 @@
   },
   {
     "id": "SAH-095",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابية التي قدّمت ابنها أنسًا لخدمة النبي ﷺ؟",
     "answer": "أم سليم",
     "reference": "https://sunnah.com/muslim/44",
@@ -770,14 +770,14 @@
   {
     "id": "SAH-097",
     "difficulty": 600,
-    "question": "من الصحابي الذي أحال اختياره في مجلس الشورى بعد عمر إلى عثمان بن عفان؟",
-    "answer": "طلحة بن عبيد الله",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "تنازل طلحة عن حقه لصالح عثمان."
+    "question": "إلى من ذهبت خديجة بالنبي ﷺ بعد أن أخبرها بما حصل في حراء؟",
+    "answer": "ورقة بن نوفل",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "حديث بدء الوحي."
   },
   {
     "id": "SAH-098",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي تخلّف عن غزوة تبوك ثم وردت قصة توبته مفصّلة في الصحيح؟",
     "answer": "كعب بن مالك",
     "reference": "https://sunnah.com/bukhari:4418",
@@ -785,7 +785,7 @@
   },
   {
     "id": "SAH-099",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الأنصاري الذي كان يقف أمام النبي ﷺ في أُحد يحميه بترسه؟",
     "answer": "أبو طلحة الأنصاري",
     "reference": "https://sunnah.com/bukhari:3811",
@@ -801,23 +801,23 @@
   },
   {
     "id": "SAH-101",
-    "difficulty": 600,
-    "question": "أي صحابي أنصاري استضاف النبي ﷺ في داره بعد قدومه إلى المدينة، وكان بيته من أقرب الدور إلى المسجد؟",
-    "answer": "أبو أيوب الأنصاري",
-    "reference": "https://sunnah.com/bukhari/63",
-    "note": "إقامة النبي الأولى بالمدينة."
+    "difficulty": 400,
+    "question": "في أي غزوة قال الله إن كثرة المسلمين لم تغن عنهم شيئًا في بداية اللقاء؟",
+    "answer": "حنين",
+    "reference": "https://quran.com/9/25",
+    "note": "الآية تصرح باسم حنين."
   },
   {
     "id": "SAH-102",
-    "difficulty": 400,
-    "question": "من الصحابي الذي جمع الناس في رمضان على إمام واحد في الصلاة؟",
-    "answer": "عمر بن الخطاب",
-    "reference": "https://sunnah.com/bukhari:2010",
-    "note": "رتّب الجماعة خلف أُبي."
+    "difficulty": 600,
+    "question": "ما الحادثة التي جعلت كعب بن مالك يواجه اختبار الصدق بعد رجوع النبي ﷺ من غزوته؟",
+    "answer": "تخلفه عن تبوك بلا عذر",
+    "reference": "https://sunnah.com/bukhari:4418",
+    "note": "اختار الصدق وعدم اختلاق عذر."
   },
   {
     "id": "SAH-103",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من هو أول مولود للمهاجرين في المدينة بعد الهجرة كما ورد في الصحيح؟",
     "answer": "عبد الله بن الزبير",
     "reference": "https://sunnah.com/bukhari/63",
@@ -849,19 +849,19 @@
   },
   {
     "id": "SAH-107",
-    "difficulty": 600,
-    "question": "أي خليفة تولى الخلافة بعد مشاورات عبد الرحمن بن عوف لأهل الشورى؟",
-    "answer": "عثمان بن عفان",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "من أحداث الشورى."
+    "difficulty": 400,
+    "question": "في أي غزوة سبق صلح الحديبية فتحَ حصونها؟",
+    "answer": "خيبر",
+    "reference": "https://sunnah.com/bukhari/64",
+    "note": "خيبر من أحداث العهد المدني بعد الحديبية."
   },
   {
     "id": "SAH-108",
-    "difficulty": 400,
-    "question": "أي عضو من أهل الشورى الستة حوّل حقه في الشورى إلى علي بن أبي طالب؟",
-    "answer": "الزبير بن العوام",
-    "reference": "https://sunnah.com/bukhari:3700",
-    "note": "خبر أهل الشورى بعد عمر."
+    "difficulty": 600,
+    "question": "ما شرط العودة إلى مكة للعمرة في العام التالي الذي ورد في حديث الحديبية؟",
+    "answer": "أن يعود المسلمون ذلك العام ويأتوا في العام التالي",
+    "reference": "https://sunnah.com/bukhari:2731",
+    "note": "من بنود الصلح."
   },
   {
     "id": "SAH-109",
@@ -905,11 +905,11 @@
   },
   {
     "id": "SAH-114",
-    "difficulty": 400,
-    "question": "من الصحابي الذي حمل خبر رفع الخلاف في القراءات وطلب من عثمان توحيد المصاحف؟",
-    "answer": "حذيفة بن اليمان",
-    "reference": "https://sunnah.com/bukhari:4987",
-    "note": "كان حاضرًا في الفتوح ولاحظ الاختلاف."
+    "difficulty": 600,
+    "question": "ماذا أخبر ورقةُ النبيَّ ﷺ أن قومه سيفعلونه به مستقبلًا؟",
+    "answer": "سيخرجونه من بلده",
+    "reference": "https://sunnah.com/bukhari:3",
+    "note": "أخبره أن الرسل يواجهون عداوة أقوامهم."
   },
   {
     "id": "SAH-115",
@@ -929,7 +929,7 @@
   },
   {
     "id": "SAH-117",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابية التي ورد في الحديث أن «أطولكن يدًا» كانت أكثرهن صدقة؟",
     "answer": "زينب بنت جحش",
     "reference": "https://sunnah.com/muslim:2452",
@@ -937,7 +937,7 @@
   },
   {
     "id": "SAH-118",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابية التي اشتهرت بلقب «ذات النطاقين» لمساعدتها في تجهيز رحلة الهجرة؟",
     "answer": "أسماء بنت أبي بكر",
     "reference": "https://sunnah.com/bukhari/63",
@@ -954,22 +954,22 @@
   {
     "id": "SAH-120",
     "difficulty": 400,
-    "question": "من الصحابي الذي عرّض نفسه للحبس المعنوي بعد تخلفه عن تبوك، وصدق في اعتذاره دون اختلاق عذر؟",
-    "answer": "كعب بن مالك",
-    "reference": "https://sunnah.com/bukhari:4418",
-    "note": "قصة التوبة المفصلة."
+    "question": "كم عدد الذين خُلّفوا في تبوك وقُبلت توبتهم في الآية؟",
+    "answer": "ثلاثة",
+    "reference": "https://quran.com/9/118",
+    "note": "ورد عددهم في القرآن."
   },
   {
     "id": "SAH-121",
-    "difficulty": 400,
-    "question": "من الصحابي الذي كانت له ابنة اسمها فاطمة رضي الله عنها، وهي أم الحسن والحسين؟",
-    "answer": "علي بن أبي طالب",
-    "reference": "https://sunnah.com/muslim/44",
-    "note": "سؤال قرابة، ويمكن تحسينه قبل العرض."
+    "difficulty": 200,
+    "question": "ما اسم الكتاب الذي نزل على النبي محمد ﷺ؟",
+    "answer": "القرآن الكريم",
+    "reference": "https://quran.com/47/2",
+    "note": "أصل الرسالة التي دعا إليها النبي ﷺ."
   },
   {
     "id": "SAH-122",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من هو الصحابي الذي جرى به القول «تعلموا القرآن من أربعة»، وكان من الأنصار؟",
     "answer": "أُبي بن كعب أو معاذ بن جبل",
     "reference": "https://sunnah.com/muslim:2464a",
@@ -993,7 +993,7 @@
   },
   {
     "id": "SAH-125",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي وصفه النبي ﷺ بأنه أمين هذه الأمة؟",
     "answer": "أبو عبيدة بن الجراح",
     "reference": "https://sunnah.com/bukhari:3744",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": "SAH-126",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الثالث مع كعب بن مالك وهلال بن أمية في قصة التوبة بعد تبوك؟",
     "answer": "مرارة بن الربيع",
     "reference": "https://sunnah.com/bukhari:4418",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "SAH-127",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "من الصحابي الذي وفد من الحبشة مع جعفر بن أبي طالب وأدرك فتح خيبر؟",
     "answer": "أبو موسى الأشعري",
     "reference": "https://sunnah.com/muslim:2502",
@@ -1017,11 +1017,11 @@
   },
   {
     "id": "SAH-128",
-    "difficulty": 200,
-    "question": "من الصحابي الذي جاء إلى النبي ﷺ واستشهد له بالصدق عند حديث «العروة الوثقى» في رؤيا؟",
-    "answer": "عبد الله بن سلام",
-    "reference": "https://sunnah.com/muslim:2484a",
-    "note": "كان من علماء بني إسرائيل قبل إسلامه."
+    "difficulty": 600,
+    "question": "ما الرؤيا التي بشّر بها النبي ﷺ قبل الهجرة عن أرض هجرته؟",
+    "answer": "أرض ذات نخل بين حرتين",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "ورد وصف أرض الهجرة في حديث عائشة."
   },
   {
     "id": "SAH-129",
@@ -1033,7 +1033,7 @@
   },
   {
     "id": "SAH-130",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي أعطاه النبي ﷺ راية خيبر ووصفه بأنه يحب الله ورسوله ويحبه الله ورسوله؟",
     "answer": "علي بن أبي طالب",
     "reference": "https://sunnah.com/muslim/44",
@@ -1041,7 +1041,7 @@
   },
   {
     "id": "SAH-131",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "من الصحابي الذي دعا له النبي ﷺ بتكثير المال والولد والبركة، وهو من خدمه؟",
     "answer": "أنس بن مالك",
     "reference": "https://sunnah.com/muslim/44",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "SAH-133",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "في خبر الثلاثة الذين خُلّفوا، ما الذي اختاره كعب بن مالك عند سؤاله عن غيابه: المراوغة أم الاعتراف؟",
     "answer": "اعترف بالحق وصدق ولم يختلق عذرًا",
     "reference": "https://sunnah.com/bukhari:4418",
@@ -1066,30 +1066,30 @@
   {
     "id": "SAH-134",
     "difficulty": 400,
-    "question": "من الصحابي الذي خاطب النبي ﷺ معترضًا على إمارة أبيه زيد بن حارثة من بعده، فدافع النبي عنه؟",
-    "answer": "أسامة بن زيد",
-    "reference": "https://sunnah.com/muslim:2425a",
-    "note": "دافع النبي عن إمارته وإمارة أبيه."
+    "question": "ما المهمة التي كلف النبي ﷺ أسامة بن زيد بها في أواخر حياته؟",
+    "answer": "قيادة بعث من المسلمين",
+    "reference": "https://sunnah.com/bukhari/64",
+    "note": "دافع النبي ﷺ عن إمارة أسامة."
   },
   {
     "id": "SAH-135",
     "difficulty": 600,
-    "question": "من الصحابي الذي اعتمد في مبادرة جمع القرآن على شاب حافظ كتب الوحي وكان صغير السن؟",
-    "answer": "أبو بكر الصديق",
-    "reference": "https://sunnah.com/bukhari:4986",
-    "note": "تكليف زيد."
+    "question": "ما الطريق العام الذي سلكه دليل الهجرة بالنبي ﷺ وأبي بكر وفق حديث عائشة؟",
+    "answer": "طريق الساحل",
+    "reference": "https://sunnah.com/bukhari:3905",
+    "note": "ورد في رواية الهجرة أنه أخذ بهما طريق الساحل."
   },
   {
     "id": "SAH-136",
     "difficulty": 600,
-    "question": "من الصحابي الذي رُوي أنه أول مولود للمهاجرين في المدينة بعد الهجرة؟",
-    "answer": "عبد الله بن الزبير",
-    "reference": "https://sunnah.com/bukhari/63",
-    "note": "ابن أسماء والزبير."
+    "question": "ما موقف كعب من كتاب ملك غسان الذي دعاه إلى اللحاق به أثناء المقاطعة؟",
+    "answer": "ألقاه في التنور وأحرقه",
+    "reference": "https://sunnah.com/bukhari:4418",
+    "note": "رفض العرض وعده من البلاء."
   },
   {
     "id": "SAH-137",
-    "difficulty": 600,
+    "difficulty": 400,
     "question": "في أي غزوة وقع الموقف الذي قال فيه النبي ﷺ للأنصار: ترجعون برسول الله إلى بيوتكم؟",
     "answer": "بعد حنين وتقسيم غنائمها",
     "reference": "https://sunnah.com/bukhari/63",
@@ -1113,7 +1113,7 @@
   },
   {
     "id": "SAH-140",
-    "difficulty": 200,
+    "difficulty": 600,
     "question": "من الصحابي الذي وصل إلى معسكر المسلمين في الحديبية وكان أبوه سهيل بن عمرو يشترط إرجاعه؟",
     "answer": "أبو جندل بن سهيل",
     "reference": "https://sunnah.com/bukhari:2731",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "SAH-141",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الأنصاري الذي ورد أن عرش الرحمن اهتز لموته؟",
     "answer": "سعد بن معاذ",
     "reference": "https://sunnah.com/bukhari:3803",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": "SAH-144",
-    "difficulty": 400,
+    "difficulty": 600,
     "question": "أي صحابي أنصاري ذُكر مع أُبيّ بن كعب في الأربعة الذين أوصى النبي ﷺ بأخذ القرآن عنهم؟",
     "answer": "معاذ بن جبل",
     "reference": "https://sunnah.com/muslim:2464a",
@@ -1153,7 +1153,7 @@
   },
   {
     "id": "SAH-145",
-    "difficulty": 200,
+    "difficulty": 600,
     "question": "من الصحابي الذي عُرف بأنه أحد الأربعة الذين تؤخذ عنهم قراءة القرآن، وكان مولى لأبي حذيفة؟",
     "answer": "سالم مولى أبي حذيفة",
     "reference": "https://sunnah.com/muslim:2464a",
@@ -1161,7 +1161,7 @@
   },
   {
     "id": "SAH-146",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من الصحابي الذي أمر الله نبيه ﷺ أن يقرأ عليه سورة البينة؟",
     "answer": "أُبيّ بن كعب",
     "reference": "https://sunnah.com/bukhari:3809",
@@ -1169,15 +1169,15 @@
   },
   {
     "id": "SAH-147",
-    "difficulty": 400,
-    "question": "من الصحابي الذي كان من المشاركين في تحديد مصاحف عثمان وكتّاب المصحف، وهو من صغار الأنصار؟",
-    "answer": "زيد بن ثابت",
-    "reference": "https://sunnah.com/bukhari:4987",
-    "note": "رأس لجنة النسخ."
+    "difficulty": 600,
+    "question": "ما العذر الذي لم يذكره كعب بن مالك لنفسه عند سؤال النبي ﷺ له عن تخلفه؟",
+    "answer": "لم يدّع عذرًا؛ أقر بأنه كان قادرًا على الخروج",
+    "reference": "https://sunnah.com/bukhari:4418",
+    "note": "صدق في اعترافه."
   },
   {
     "id": "SAH-148",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "كم عدد الرجال الذين خُلّفوا ثم تاب الله عليهم في سورة التوبة؟",
     "answer": "ثلاثة",
     "reference": "https://quran.com/9/118",
@@ -1185,7 +1185,7 @@
   },
   {
     "id": "SAH-149",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من المهاجر الذي وُلد له عبد الله بن الزبير، أول مولود للمهاجرين بالمدينة؟",
     "answer": "الزبير بن العوام",
     "reference": "https://sunnah.com/bukhari/63",
@@ -1193,7 +1193,7 @@
   },
   {
     "id": "SAH-150",
-    "difficulty": 200,
+    "difficulty": 400,
     "question": "من أم المؤمنين التي أذنت لعمر بن الخطاب أن يُدفن بجانب النبي ﷺ وأبي بكر، مع أنها كانت تريد الموضع لنفسها؟",
     "answer": "عائشة بنت أبي بكر",
     "reference": "https://sunnah.com/bukhari:3700",
