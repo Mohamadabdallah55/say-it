@@ -41,7 +41,6 @@ import {
   ARABIC_ROOTS_CATEGORY,
   CAPITALS_CURRENCIES_CATEGORY,
   SCIENCE_QUIZ_CATEGORY,
-  SERVER_CURATED_CATEGORY_IDS,
   STORY_LOGIC_CATEGORY,
   WORLD_WARS_CATEGORY,
 } from '../game/curatedBanks';
@@ -341,7 +340,7 @@ export function LobbySetup({
         customCategories,
         undefined,
         [...adminCustomQuestions, ...recoveredQuestions],
-        [...adminCustomCategories, ...recoveredCategories],
+        [...allCategoriesForLobby, ...recoveredCategories],
       );
     }
     if (approvedLesson?.id === selectedDeckId) return approvedLesson;
@@ -350,7 +349,7 @@ export function LobbySetup({
     selectedDeckId,
     customCategories,
     adminCustomQuestions,
-    adminCustomCategories,
+    allCategoriesForLobby,
     recoveredQuestions,
     recoveredCategories,
     decks,
@@ -412,7 +411,7 @@ export function LobbySetup({
     return runBoardPreflightCheck({
       deck: selectedDeck,
       selectedCategoryIds: activeCategoryIdsForPreflight,
-      serverValidatedCategoryIds: selectedDeckId === 'curated_custom' ? SERVER_CURATED_CATEGORY_IDS : [],
+      serverValidatedCategoryIds: selectedDeckId === 'curated_custom' ? allCategoriesForLobby.filter(c => !c.isCustom).map(c => c.id) : [],
       teams,
       settings: {
         categoryCount: effectiveCatCount,
@@ -429,6 +428,7 @@ export function LobbySetup({
     categoryCount,
     isMatrixDeck,
     activeCategoryIdsForPreflight,
+    allCategoriesForLobby,
     teams,
     timerSeconds,
     lifelinesEnabled,
