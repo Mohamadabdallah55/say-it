@@ -255,7 +255,7 @@ export const QuestionMedia = memo(function QuestionMedia({
           </div>
         ) : obscured ? (
           <div
-            aria-label="شعار مموّه قبل كشف الإجابة"
+            aria-label={progressiveBlurPx === undefined ? "شعار مموّه قبل كشف الإجابة" : "صورة مغبشة قبل كشف الإجابة"}
             className={`relative w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] ${surfaceClass} shadow-[0_4px_0_#1F112E] flex items-center justify-center ${isJordanBrand ? 'p-1 sm:p-2 min-h-[220px]' : 'p-3 min-h-[180px]'}`}
           >
             {!isLoaded && (
@@ -286,7 +286,7 @@ export const QuestionMedia = memo(function QuestionMedia({
             />
             <span className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1 rounded-lg border-2 border-[#1F112E] bg-[#1F112E] px-3 py-1 text-xs font-black text-[#FFE047] shadow-[0_2px_0_#1F112E]">
               <EyeOff className="w-3.5 h-3.5" />
-              <span>شعار مموّه</span>
+              <span>{progressiveBlurPx === undefined ? "شعار مموّه" : "صورة مغبشة"}</span>
             </span>
           </div>
         ) : (
