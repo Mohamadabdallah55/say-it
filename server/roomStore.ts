@@ -157,6 +157,8 @@ class RoomManager {
         [...SERVER_CURATED_QUESTIONS, ...cleanExtraQuestions],
         cleanExtraCategories,
       );
+    } else if (params.deckId === 'world_food_images_v1') {
+      deck = buildBoardDeckFromCategories([WORLD_FOOD_CATEGORY.id], undefined, SERVER_CURATED_QUESTIONS);
     } else if (params.deckId) {
       const saved = getDeckById(params.deckId);
       if (saved) {
