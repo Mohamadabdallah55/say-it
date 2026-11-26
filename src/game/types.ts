@@ -493,6 +493,7 @@ export interface SanitizedActiveRound {
   answerAudioUrl?: string;
   videoUrl?: string;
   sourceRef?: string;
+  sourceSnippet?: string;
   pageNumber?: number;
   basePoints: PointValue;
   effectivePoints: number;
