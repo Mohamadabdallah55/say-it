@@ -33,6 +33,9 @@ export interface JordanNostalgiaQuestionRow {
   answer: string;
   acceptedAnswers: string[];
   imageRequired: boolean;
+  videoUrl?: string;
+  videoSourceUrl?: string;
+  videoReviewStatus?: string;
   image: JordanNostalgiaImageMeta | null;
   evidenceUrls: string[];
   rightsStatus: 'verified_for_publication' | 'not_verified' | string;
@@ -61,6 +64,10 @@ const typedDataset = dataset as JordanNostalgiaDataset;
 export const JORDAN_NOSTALGIA_ALL_ROWS: JordanNostalgiaQuestionRow[] = [...typedDataset.questions];
 
 function isVerifiedPlayableRow(row: JordanNostalgiaQuestionRow): boolean {
+  if (row.contentStatus === 'approved' && row.rightsStatus === 'public_domain_source' &&
+      typeof row.videoUrl === 'string' &&
+      /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//.test(row.videoUrl) &&
+      row.videoSourceUrl?.startsWith('https://commons.wikimedia.org/')) return true;
   // Nostalgia is a visual category. Keep text-only rows in the source bank until they have a matching image.
   if (!row.imageRequired || !row.image || !(row.image.localFile || row.image.url)) return false;
   if (row.contentStatus === 'approved' &&
@@ -112,11 +119,12 @@ export const JORDAN_NOSTALGIA_QUESTIONS: QuizQuestion[] = JORDAN_NOSTALGIA_ALL_R
       answer: row.answer,
       acceptableAnswers: uniqueAcceptedAnswers,
       imageUrl: row.image?.localFile ?? row.image?.url ?? undefined,
+      videoUrl: typeof row.videoUrl === 'string' && /^https:\/\/(?:video\.fastly\.steamstatic\.com\/store_trailers\/|upload\.wikimedia\.org\/wikipedia\/commons\/)/.test(row.videoUrl) ? row.videoUrl : undefined,
       imageDisplay: row.image ? 'before_reveal' : undefined,
       imageSourceUrl: row.image?.sourcePage ?? undefined,
       subtopic: row.subCategory,
       explanation: explanationParts.join(' — '),
-      sourceRef: row.image?.sourcePage ?? row.evidenceUrls?.[0],
+      sourceRef: row.videoSourceUrl ?? row.image?.sourcePage ?? row.evidenceUrls?.[0],
       verificationStatus: row.image?.status === 'verified_and_licensed' ? 'verified' : undefined,
       status: 'approved',
     };
