@@ -1,5 +1,6 @@
 import foodDeck from '../decks/world-food-images/deck.json';
 import type { QuizQuestion } from '../src/game/types';
+import religiousEvidenceData from './religiousEvidence.json';
 import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
 import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
 import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
@@ -40,6 +41,38 @@ import { APPS_QUESTIONS } from './appsQuestions';
 import { ZOOMED_IMAGE_QUESTIONS } from './zoomedImageQuestions';
 
 export const WORLD_FOOD_QUESTIONS = (foodDeck.deck.questions as QuizQuestion[]).filter(q => q.categoryId === 'world_food' && q.status === 'approved' && Boolean(q.imageUrl));
+
+interface ReligiousReferenceText {
+  kind: 'quran' | 'hadith' | 'index';
+  label: string;
+  url: string;
+  text: string;
+}
+const religiousEvidence = religiousEvidenceData as unknown as {
+  texts: Record<string, ReligiousReferenceText>;
+  byQuestion: Record<string, string[]>;
+};
+const sourceRequiredCategories = new Set([
+  'cat_prophetic_biography', 'cat_rashidun', 'cat_prophet_stories',
+  'cat_hadith', 'cat_islamic_ordering', 'cat_islamic_letters',
+  'cat_juz_amma', 'cat_juz_tabarak', 'cat_quran_verse_meanings',
+]);
+
+// Missing exact primary-source references are retained in the original JSON for
+// editorial repair, but excluded from new curated matches. Never invent a text.
+function attachReligiousEvidence(question: QuizQuestion): QuizQuestion[] {
+  if (!sourceRequiredCategories.has(question.categoryId)) return [question];
+  const keys = religiousEvidence.byQuestion[question.id];
+  if (!keys?.length) return [];
+  const references = keys.map(key => religiousEvidence.texts[key]);
+  if (references.some(ref => !ref?.text || !/^https:\/\/(?:quran\.com\/|sunnah\.com\/(?:bukhari|muslim):)/.test(ref.url))) return [];
+  return [{
+    ...question,
+    isSensitiveReligious: true,
+    sourceRef: references.map(ref => ref.label + ' · ' + ref.url).join('\n'),
+    sourceSnippet: references.map(ref => ref.text).join('\n\n'),
+  }];
+}
 
 export const SERVER_CURATED_QUESTIONS = [
   ...WORLD_FOOD_QUESTIONS,
@@ -89,4 +122,4 @@ export const SERVER_CURATED_QUESTIONS = [
   ...ARABIC_DIALECTS_QUESTIONS,
   ...SILENT_ACTING_QUESTIONS,
   ...GUESS_SOUND_QUESTIONS,
-];
+].flatMap(attachReligiousEvidence);
