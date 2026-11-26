@@ -22,6 +22,7 @@ export interface JordanBrandQuestionRow {
   is_playable_offline: boolean;
   darkBackdrop?: boolean;
   asset_source_url?: string;
+  asset_source_method?: string;
 }
 
 interface JordanBrandsDataset {
@@ -34,7 +35,7 @@ interface JordanBrandsDataset {
 
 const typedDataset = dataset as JordanBrandsDataset;
 
-export const JORDAN_BRANDS_PROMPT = 'ما هذا الشعار؟';
+export const JORDAN_BRANDS_PROMPT = 'ما هذا الشعار أو المنتج؟';
 
 export const JORDAN_BRANDS_ALL_ROWS: JordanBrandQuestionRow[] = [...typedDataset.questions].sort(
   (a, b) => a.display_order - b.display_order,
@@ -44,9 +45,10 @@ export const JORDAN_BRANDS_QUESTIONS: QuizQuestion[] = JORDAN_BRANDS_ALL_ROWS.fi
   (row) =>
     row.status === 'approved' &&
     !row.needs_asset_review &&
-    row.is_playable_offline &&
     typeof row.imageUrl === 'string' &&
-    row.imageUrl.startsWith('/assets/jordan_brands_nostalgia/'),
+    ((row.is_playable_offline && row.imageUrl.startsWith('/assets/jordan_brands_nostalgia/')) ||
+      (row.asset_source_method === 'manufacturer_remote' &&
+       /^https:\/\/(?:dnc-factory\.com|www\.ezeidan\.com|jordinajo\.com|www\.subeih\.com)\//.test(row.imageUrl))),
 ).map((row) => {
   const points = (row.points === 200 || row.points === 400 || row.points === 600
     ? row.points
