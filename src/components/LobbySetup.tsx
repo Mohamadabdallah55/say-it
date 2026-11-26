@@ -158,7 +158,7 @@ export function LobbySetup({
     initialDeckId && initialDeckId !== STARTER_DEMO_DECK.id ? initialDeckId : 'curated_custom',
   );
   const [customCategories, setCustomCategories] = useState<string[]>(()=>initialClassic?[...CLASSIC_CATEGORY_IDS]:initialCategoryId?[initialCategoryId]:[]);
-  const [teams, setTeams] = useState<Array<{ name: string; color: string; participantsCount: number }>>([
+  const [teams, setTeams] = useState<Array<{ name: string; color: string; participantsCount: number; selectedCards?: LifelineType[] }>>([
     { name: 'الفريق الأول', color: '#F05B63', participantsCount: 5 },
     { name: 'الفريق الثاني', color: '#279ED6', participantsCount: 5 },
   ]);
@@ -171,8 +171,21 @@ export function LobbySetup({
     'pit',
     'double_points',
   ]);
-  const maxLifelinesPerTeam = cards.length;
+  const [cardMode, setCardMode] = useState<'shared' | 'individual'>('shared');
+  const [editingCardTeam, setEditingCardTeam] = useState(0);
+  const editingTeamIndex = Math.min(editingCardTeam, teams.length - 1);
+  const displayedCards = cardMode === 'individual' ? teams[editingTeamIndex]?.selectedCards ?? cards : cards;
+  const maxLifelinesPerTeam = cardMode === 'individual'
+    ? Math.max(0, ...teams.map(t => (t.selectedCards ?? cards).length))
+    : cards.length;
   const lifelinesEnabled = maxLifelinesPerTeam > 0;
+  const changeCardMode = (mode: 'shared' | 'individual') => {
+    if (mode === 'individual') {
+      setTeams(prev => prev.map(t => ({ ...t, selectedCards: t.selectedCards ?? [...cards] })));
+      setEditingCardTeam(0);
+    }
+    setCardMode(mode);
+  };
   const [buzzerMode, setBuzzerMode] = useState<boolean>(false);
   const [allowMultiTeamAward, setAllowMultiTeamAward] = useState<boolean>(false);
   const [categoryTab, setCategoryTab] = useState<'official' | 'decks'>(
@@ -438,11 +451,15 @@ export function LobbySetup({
 
   const toggleCard = (card: LifelineType) => {
     soundFX.playClick();
-    setCards(selected => {
+    const toggle = (selected: LifelineType[]) => {
       if (selected.includes(card)) return selected.filter(key => key !== card);
       const other = card === 'hint' ? 'swap_question' : card === 'swap_question' ? 'hint' : null;
       return [...selected.filter(key => key !== other), card];
-    });
+    };
+    if (cardMode === 'individual') {
+      setTeams(prev => prev.map((t, i) => i === editingTeamIndex
+        ? { ...t, selectedCards: toggle(t.selectedCards ?? cards) } : t));
+    } else setCards(toggle);
   };
 
   const handleAddTeam = () => {
@@ -464,6 +481,7 @@ export function LobbySetup({
     if (teams.length <= 2 || lockedTeamCount) return;
     soundFX.playClick();
     setTeams((prev) => prev.filter((_, i) => i !== idx));
+    setEditingCardTeam(current => Math.max(0, current - Number(idx <= current)));
   };
 
   const toggleCustomCategory = (catId: string) => {
@@ -514,7 +532,8 @@ export function LobbySetup({
         categoryCount: effectiveCategoryCount,
         timerSeconds,
         lifelinesEnabled,
-        cards,
+        cards: cardMode === 'shared' ? cards : undefined,
+        teamCards: cardMode === 'individual' ? Object.fromEntries(teams.map((t, i) => [`team_${i + 1}`, t.selectedCards ?? cards])) : undefined,
         maxLifelinesPerTeam,
         buzzerMode,
         allowMultiTeamAward,
@@ -1074,17 +1093,38 @@ export function LobbySetup({
             <div className="power-card-settings" dir="rtl">
               <div className="power-card-heading">
                 <h3>البطاقات المتاحة</h3>
-                <span dir="ltr" className="power-card-counter">{cards.length} / {SELECTABLE_POWER_CARDS.length}</span>
+                <span dir="ltr" className="power-card-counter">{displayedCards.length} / {SELECTABLE_POWER_CARDS.length}</span>
               </div>
+              <div className="grid grid-cols-2 gap-2" role="group" aria-label="نظام اختيار البطاقات">
+                <button type="button" aria-pressed={cardMode === 'shared'} onClick={() => changeCardMode('shared')}
+                  className={`rounded-xl border-2 border-[#1F112E] px-3 py-2 text-sm font-black ${cardMode === 'shared' ? 'bg-[#FFE047]' : 'bg-white'}`}>
+                  بطاقات مشتركة
+                </button>
+                <button type="button" aria-pressed={cardMode === 'individual'} onClick={() => changeCardMode('individual')}
+                  className={`rounded-xl border-2 border-[#1F112E] px-3 py-2 text-sm font-black ${cardMode === 'individual' ? 'bg-[#FFE047]' : 'bg-white'}`}>
+                  كل فريق يختار
+                </button>
+              </div>
+              {cardMode === 'individual' && (
+                <div className="flex flex-wrap gap-2 py-2" role="group" aria-label="اختيار الفريق">
+                  {teams.map((t, i) => (
+                    <button key={i} type="button" aria-pressed={editingTeamIndex === i} onClick={() => setEditingCardTeam(i)}
+                      style={{ borderColor: t.color }}
+                      className={`flex-1 min-w-[100px] rounded-xl border-2 px-3 py-2 font-black text-sm ${editingTeamIndex === i ? 'bg-[#1F112E] text-white' : 'bg-white text-[#1F112E]'}`}>
+                      {t.name.trim() || `الفريق ${i + 1}`} · {(t.selectedCards ?? cards).length}
+                    </button>
+                  ))}
+                </div>
+              )}
               <div className="power-card-settings-note">
                 <div>
-                  <strong>البطاقات المشتركة للفرق</strong>
-                  <small>لكل فريق {maxLifelinesPerTeam} بطاقات مختارة؛ كل بطاقة تُستخدم مرة واحدة</small>
+                  <strong>{cardMode === 'shared' ? 'البطاقات المشتركة للفرق' : `بطاقات ${teams[editingTeamIndex]?.name || 'الفريق'}`}</strong>
+                  <small>{displayedCards.length} بطاقات مختارة؛ كل بطاقة تُستخدم مرة واحدة لكل فريق</small>
                 </div>
               </div>
               <div className="power-card-grid">
                 {SELECTABLE_POWER_CARDS.map((card) => {
-                  const active = cards.includes(card.key);
+                  const active = displayedCards.includes(card.key);
                   return (
                     <div key={card.key} className="power-card-tile" data-active={active} data-card={card.key}>
                       <button
