@@ -86,7 +86,12 @@
   "additional_photo_sources": [
     {
       "url": "https://www.pexels.com/photo/vintage-style-brass-key-collection-on-display-33388008/",
-      "focus": "اتجاه رؤوس المفاتيح أو عدد مفاتيح تحقق شرطًا مكانيًا"
+      "focus": "اتجاه رؤوس المفاتيح أو عدد مفاتيح تحقق شرطًا مكانيًا",
+      "width": 8192,
+      "height": 5464,
+      "author": "Magda Ehlers",
+      "license": "Pexels",
+      "status": "source_metadata_verified_original_pixels_pending"
     },
     {
       "url": "https://www.pexels.com/photo/yellow-and-orange-plastic-keys-on-yellow-background-7123553/",
@@ -103,6 +108,51 @@
     {
       "url": "https://unsplash.com/photos/an-overhead-view-of-a-parking-lot-with-cars-parked-in-it-aQv4MbaKKEs",
       "focus": "اتجاهات السيارات أو تفاصيل مساحة الوقوف"
+    },
+    {
+      "url": "https://www.pexels.com/photo/heap-of-various-metal-hex-keys-5691648/",
+      "width": 3800,
+      "height": 2537,
+      "author": "Ksenia Chernaya",
+      "license": "Pexels",
+      "focus": "اتجاه أطراف مفاتيح الألن في جزء محدد من الصورة",
+      "status": "source_metadata_verified_original_pixels_pending"
+    },
+    {
+      "url": "https://www.pexels.com/photo/coins-on-a-wooden-table-6927340/",
+      "width": 3000,
+      "height": 2000,
+      "author": "Polina Tankilevitch",
+      "license": "Pexels",
+      "focus": "عدد العملات التي تظهر وجهًا معينًا في منطقة محددة، إذا كانت الوجوه مقروءة",
+      "status": "source_metadata_verified_original_pixels_pending"
+    },
+    {
+      "url": "https://www.pexels.com/photo/keyboard-keys-lot-373072/",
+      "width": 3117,
+      "height": 2078,
+      "author": "Pixabay",
+      "license": "Pexels",
+      "focus": "حرف ظاهر باتجاه مختلف أو عد انتقائي ضمن منطقة محددة",
+      "status": "source_metadata_verified_original_pixels_pending"
+    },
+    {
+      "url": "https://www.pexels.com/photo/documents-scattered-on-wooden-surface-9489398/",
+      "width": 5760,
+      "height": 3840,
+      "author": "Monstera Production",
+      "license": "Pexels",
+      "focus": "موضع اليد أو اتجاه القلم أو تفصيل جانبي واضح",
+      "status": "source_metadata_verified_original_pixels_pending"
+    },
+    {
+      "url": "https://www.pexels.com/photo/assorted-keys-laid-on-a-surface-7630510/",
+      "width": 3736,
+      "height": 2491,
+      "author": "Nikita Belokhonov",
+      "license": "Pexels",
+      "focus": "اتجاه رؤوس المفاتيح؛ يرفض المشهد إن كان التداخل يجعل العد ملتبسًا",
+      "status": "source_metadata_verified_original_pixels_pending"
     }
   ],
   "video_sources": [

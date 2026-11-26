@@ -177,7 +177,7 @@ function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabl
     <div className="relative">
       <video ref={videoRef} data-testid="visual-memory-video" src={src}
         playsInline disablePictureInPicture disableRemotePlayback preload="auto"
-        className="block max-w-full max-h-[54vh] w-auto h-auto select-none" />
+        className="block w-full max-w-[1400px] max-h-[66vh] h-auto object-contain select-none" />
       {(needsPlay || (silent && soundEnabled)) && (
         <button type="button" onClick={playWithSound}
           className="absolute bottom-3 right-3 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#1F112E] shadow">
@@ -1019,7 +1019,7 @@ export function GameArena({
                               alt="مشهد تحدّي الذاكرة البصرية"
                               draggable={false}
                               loading="eager"
-                              className="block max-w-full max-h-[54vh] w-auto h-auto object-contain select-none"
+                              className="block w-full max-w-[1400px] max-h-[66vh] h-auto object-contain select-none"
                             />
                           </div>
                         </div>
@@ -1488,7 +1488,7 @@ export function GameArena({
                               controls
                               playsInline
                               preload="metadata"
-                              className="max-h-[34vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
+                              className="max-h-[58vh] w-full max-w-[1400px] object-contain rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
                             />
                           </div>
                         ) : memoryImageUrl ? (
@@ -1505,7 +1505,7 @@ export function GameArena({
                                   src={src}
                                   alt={memorySecondImageUrl ? (index === 0 ? 'الصورة الأولى' : 'الصورة الثانية') : 'مراجعة المشهد الكامل'}
                                   draggable={false}
-                                  className="block max-w-full max-h-[32vh] w-auto h-auto object-contain select-none"
+                                  className="block w-full max-w-[1400px] max-h-[58vh] h-auto object-contain select-none"
                                 />
                               </div>
                             ))}
