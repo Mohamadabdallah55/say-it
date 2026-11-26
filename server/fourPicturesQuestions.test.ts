@@ -9,15 +9,13 @@ test('New four-picture bank has independent assets and stable 14 letter clues', 
   assert.equal(FOUR_PICTURES_QUESTIONS.length, 45);
   assert.deepEqual([200,400,600].map(p => FOUR_PICTURES_QUESTIONS.filter(q=>q.points===p).length), [15,15,15]);
   for (const q of FOUR_PICTURES_QUESTIONS) {
-    assert.match(q.id, /^FOUR-PICS-V[34]-/);
+    assert.match(q.id, /^FOUR-PICS-V[345]-/);
     assert.equal(q.imageUrl, undefined);
     assert.equal(new Set(q.beforeImageUrls).size, 4);
     for(const url of q.beforeImageUrls ?? []) {
+      assert.match(url, /\.(?:jpe?g|png|webp)(?:\?|$)/i, 'Only photographic raster media references, no SVG illustration');
       if (url.startsWith('/')) assert.ok(fs.existsSync(path.join(process.cwd(), 'public', url.slice(1))));
-      else {
-        assert.equal(q.answer, 'وزن');
-        assert.match(url, /^https:\/\/thumb\.wikimedia\.org\/wikipedia\/commons\/thumb\//);
-      }
+      else assert.match(url, /^https:\/\/images\.pexels\.com\/photos\/\d+\/pexels-photo-\d+\.jpeg\?/);
     }
     assert.equal(q.wordLetters?.length, 14);
     assert.equal(q.wordLength, fourPictureWordLength(q.answer));
@@ -39,4 +37,10 @@ test('four-picture puzzles sharing the same prompt are unique by their clue set'
   assert.notEqual(questionUniquenessKey(first), questionUniquenessKey(changed));
   assert.equal(questionUniquenessKey({prompt:'same text'}), questionUniquenessKey({prompt:'same text', beforeImageUrls: []}));
   assert.equal(questionUniquenessKey({prompt:'same text', imageDisplay:'after_reveal', beforeImageUrls:['/hidden-a.jpg']}), questionUniquenessKey({prompt:'same text', imageDisplay:'after_reveal', beforeImageUrls:['/hidden-b.jpg']}));
+});
+
+test('Hard photo clues are not reused across hard four-picture questions', () => {
+  const photos = FOUR_PICTURES_QUESTIONS.filter(q => q.points === 600).flatMap(q => q.beforeImageUrls ?? []);
+  assert.equal(photos.length, 60);
+  assert.equal(new Set(photos).size, 60);
 });

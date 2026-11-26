@@ -1,0 +1,29 @@
+{
+  "count": 45,
+  "tiers": [
+    15,
+    15,
+    15
+  ],
+  "hardAnswers": [
+    "وزن",
+    "عرض",
+    "عقد",
+    "حد",
+    "سحب",
+    "رصيد",
+    "دور",
+    "طبقة",
+    "صرف",
+    "خط",
+    "مسار",
+    "موجة",
+    "فصل",
+    "عزل",
+    "منصة"
+  ],
+  "removedSvgReferences": 58,
+  "hardUniquePhotoReferences": 60,
+  "newPexelsPhotoReferences": 57,
+  "notes": "Pexels photo page descriptions were searched and selected for clue relevance. CDN URLs follow the provider's observed photo ID pattern; direct image downloads and pixels could not be verified due to unavailable network/DNS. Existing local photo assets retained; prior photo reuse rights not independently verified. Existing no-duplicate question logic and category rotation unchanged. No runtime verification yet."
+}
