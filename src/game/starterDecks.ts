@@ -440,62 +440,20 @@ export const CURATED_QUESTIONS: QuizQuestion[] = [
     { isBackup: true },
   ),
 
-  // 7. ثقافة إسلامية
-  q(
-    'isl_200',
-    'cat_islamic',
-    'ثقافة إسلامية',
-    'easy',
-    200,
-    'complete',
-    'أكمل الحديث النبوي الشريف: «الكلمة الطيبة ...........»',
-    'صدقة',
-    {
-      isSensitiveReligious: true,
-      explanation: 'من آداب الإسلام أن الكلمة الحسنة والدعوة للخير تُكتب أجرًا لصاحبها.',
-    },
-  ),
-  q(
-    'isl_400',
-    'cat_islamic',
-    'ثقافة إسلامية',
-    'medium',
-    400,
-    'direct_qa',
-    'ما أول مسجد أُسس على التقوى وبُني عند قدوم النبي ﷺ إلى المدينة المنورة؟',
-    'مسجد قباء',
-    {
-      isSensitiveReligious: true,
-      hint: 'يقع في أطراف المدينة المنورة.',
-    },
-  ),
-  q(
-    'isl_600',
-    'cat_islamic',
-    'ثقافة إسلامية',
-    'hard',
-    600,
-    'analysis_reasoning',
-    'ما الفرق الأساسي بين «السنة المؤكدة» و«الفرض» في العبادات؟',
-    'الفرض واجب يأثم تاركه، أما السنة المؤكدة فداوم عليها النبي ﷺ ويُثاب فاعلها ولا يأثم تاركها مع الحرص على اتباعها.',
-    {
-      isSensitiveReligious: true,
-    },
-  ),
-  q(
-    'isl_bak',
-    'cat_islamic',
-    'ثقافة إسلامية',
-    'easy',
-    200,
-    'direct_qa',
-    'كم عدد أركان الإسلام الخمسة؟ واذكر الركن الأول منها.',
-    'خمسة أركان، وأولها شهادة أن لا إله إلا الله وأن محمدًا رسول الله.',
-    {
-      isBackup: true,
-      isSensitiveReligious: true,
-    },
-  ),
+  // 7. ثقافة إسلامية — primary sources, short evidence
+  q('isl_200', 'cat_islamic', 'ثقافة إسلامية', 'easy', 200, 'complete',
+    'أكمل الحديث النبوي: «الكلمة الطيبة ...»', 'صدقة',
+    { isSensitiveReligious: true, sourceRef: 'صحيح البخاري، 2989 · https://sunnah.com/bukhari:2989' }),
+  q('isl_400', 'cat_islamic', 'ثقافة إسلامية', 'medium', 400, 'direct_qa',
+    'ذكر النبي ﷺ ثلاثة أعمال يستمر أجرها بعد الموت. اذكرها.', 'صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له.',
+    { isSensitiveReligious: true, sourceRef: 'صحيح مسلم، 1631 · https://sunnah.com/muslim:1631' }),
+  q('isl_600', 'cat_islamic', 'ثقافة إسلامية', 'hard', 600, 'direct_qa',
+    'في حديث المفلس، ماذا يحدث له إذا نفدت حسناته قبل أن تؤدّى حقوق جميع من ظلمهم؟',
+    'تؤخذ من خطاياهم فتطرح عليه.',
+    { isSensitiveReligious: true, sourceRef: 'صحيح مسلم، 2581 · https://sunnah.com/muslim:2581' }),
+  q('isl_bak', 'cat_islamic', 'ثقافة إسلامية', 'easy', 200, 'direct_qa',
+    'كم عدد أركان الإسلام؟', 'خمسة',
+    { isBackup: true, isSensitiveReligious: true, sourceRef: 'صحيح البخاري، 8 · https://sunnah.com/bukhari:8' }),
 ];
 
 export const STARTER_DEMO_DECK: QuizDeck = {
