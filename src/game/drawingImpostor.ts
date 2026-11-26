@@ -22,24 +22,33 @@ const PAIRS: Record<string, string[][]> = {
   'أماكن وطبيعة': [
     ['جبل','تل'],['شجرة','نخلة'],['شمس','قمر'],['نجمة','كوكب'],['سحابة','ضباب'],['بحر','بحيرة'],['شلال','نهر'],['بركان','جبل'],['صحراء','شاطئ'],['جزيرة','شبه جزيرة'],['بيت','مدرسة'],['قلعة','قصر'],['مسجد','مئذنة'],['ملعب','صالة رياضية'],['مستشفى','عيادة'],['مكتبة','مدرسة'],['غابة','حديقة'],['كهف','نفق'],['خيمة','كوخ'],['قوس قزح','شلال']
   ]
+  ,'ذكريات أردنية وفلسطينية': [
+    ['إبريق شاي','دلة قهوة'],['كيس خبز','سلة قش'],['صوبة كاز','مدفأة كهربائية'],['منقل','موقد'],['جرن','هاون'],['كوفية','شال'],['مفتول','مجدرة'],['طابون','فرن'],['قربة ماء','إبريق'],['مسبحة','عقد'],['طبلة','دف'],['زير ماء','جرة'],['دكان','بسطة'],['مقلاة','طنجرة'],['مرجوحة','زحليقة'],['باص مدرسة','سرفيس'],['طاقية','قبعة'],['راديو','مسجل'],['شريط كاسيت','فيديو كاسيت'],['براد شاي','ترمس'],['صحن حمص','صحن فول'],['فانوس','شمعة'],['كعك القدس','خبز دائري'],['حجر رحى','حجر طحن'],['زيتونة','تين']
+  ],
+  'ألعاب ورياضة': [
+    ['كرة قدم','كرة سلة'],['مرمى','شبكة طائرة'],['حذاء كرة','حذاء ركض'],['صفارة','جرس'],['ميدالية','كأس'],['قفاز حارس','قفاز ملاكمة'],['مضرب تنس','مضرب ريشة'],['طاولة تنس','طاولة بلياردو'],['شطرنج','داما'],['نرد','مكعب'],['بلايستيشن','إكس بوكس'],['يد تحكم','ريموت'],['مكعب روبيك','مكعب تركيب'],['طائرة ورقية','بالون'],['سهم رماية','رمح'],['حلبة سباق','مضمار ركض'],['كرة بولينغ','كرة بلياردو'],['دراجة سباق','دراجة عادية'],['زلاجة','لوح تزلج'],['سباحة','غطس'],['شبكة كرة سلة','شبكة صيد'],['لوح نقاط','ساعة ملعب'],['خوذة دراجة','خوذة سباق'],['كيس ملاكمة','دمية تدريب'],['حبل قفز','حبل تسلق']
+  ],
+  'مهن وأدوات': [
+    ['نجار','حداد'],['طبيب','ممرض'],['مهندس','معماري'],['طباخ','خباز'],['مصور','مخرج'],['رسام','نحات'],['مزارع','بستاني'],['سائق','طيار'],['حلاق','خياط'],['معلم','أمين مكتبة'],['ساعي بريد','عامل توصيل'],['بائع خضار','بائع فواكه'],['ميكانيكي','كهربائي'],['موسيقي','مايسترو'],['مطافئ','إسعاف'],['ممرض أسنان','طبيب أسنان'],['متر','مسطرة'],['سماعة طبيب','سماعة رأس'],['منشار','مبرد'],['ميزان','عداد']
+  ]
 };
 export const WORD_CATEGORIES = Object.entries(PAIRS).map(([name,pairs])=>({name,count:pairs.length*2}));
 export const DEFAULT_CONFIG: DrawingConfig = { rounds:5, category:'حيوانات', mode:'known', seconds:60 };
-export type DrawingGame = { names:string[]; config:DrawingConfig; round:number; scores:number[]; phase:DrawingPhase; word:string; decoy:string; outsider:number; order:number[]; cursor:number; cycles:number; strokes:Stroke[]; ready:number[]; votes:Record<number,number>; deadline:number|null; accused:number|null; guessed:string; winner:'outsider'|'group'|null; usedWords:string[] };
+export type DrawingGame = { names:string[]; config:DrawingConfig; round:number; scores:number[]; phase:DrawingPhase; word:string; decoy:string; outsider:number; order:number[]; cursor:number; cycles:number; strokes:Stroke[]; ready:number[]; votes:Record<number,number>; deadline:number|null; accused:number|null; guessed:string; winner:'outsider'|'group'|null; usedWords:string[]; votePass?:number; voteCandidates?:number[]; firstVotes?:Record<number,number> };
 const norm = (s:string)=>s.normalize('NFKC').replace(/[\u064b-\u065f\u0670ـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/\s+/g,' ').trim().replace(/^ال/,'');
 export function validConfig(c:DrawingConfig) {return !!c && [3,5,7].includes(c.rounds) && Object.prototype.hasOwnProperty.call(PAIRS,c.category) && ['known','decoy'].includes(c.mode) && [0,30,60,90].includes(c.seconds);}
 export function startDrawing(names:string[],config:DrawingConfig,previous?:DrawingGame):DrawingGame {
   if(names.length<3||names.length>10||!validConfig(config)) throw new Error('إعدادات اللعبة غير صالحة.');
   const usedWords=previous?.usedWords??[];
-  let choices=PAIRS[config.category].flatMap(p=>[p,[p[1],p[0]]]).filter(p=>!usedWords.includes(p[0]));
+  let choices=PAIRS[config.category].flatMap(p=>[p,[p[1],p[0]]]).filter(p=>!usedWords.includes(p[0])&&!usedWords.includes(p[1]));
   if(!choices.length) choices=PAIRS[config.category];
   const [word,decoy]=choices[Math.floor(Math.random()*choices.length)];
   const round=(previous?.round??0)+1;
   const start=Math.floor(Math.random()*names.length);
   const order=names.map((_,i)=>(i+start)%names.length);
-  return {names:[...names],config,round,scores:previous?[...previous.scores]:names.map(()=>0),phase:'secret',word,decoy,outsider:Math.floor(Math.random()*names.length),order,cursor:0,cycles:2,strokes:[],ready:[],votes:{},deadline:null,accused:null,guessed:'',winner:null,usedWords:[...usedWords,word]};
+  return {names:[...names],config,round,scores:previous?[...previous.scores]:names.map(()=>0),phase:'secret',word,decoy,outsider:Math.floor(Math.random()*names.length),order,cursor:0,cycles:2,strokes:[],ready:[],votes:{},deadline:null,accused:null,guessed:'',winner:null,usedWords:[...usedWords,word,decoy],votePass:1};
 }
-export function clueFor(g:DrawingGame,p:number) {return p===g.outsider ? (g.config.mode==='known'?'أنت برا الرسمة! حاول تعرف الكلمة.':g.decoy):g.word;}
+export function clueFor(g:DrawingGame,p:number) {return p===g.outsider ? (g.config.mode==='known'?'أنت صاحب الخط المشبوه! حاول تعرف الكلمة.':g.decoy):g.word;}
 export function activeDrawer(g:DrawingGame){return g.order[g.cursor%g.names.length];}
 export function finishRound(g:DrawingGame,winner:'outsider'|'group',guess=''):DrawingGame{
   return {...g,phase:'result',winner,guessed:guess,scores:g.scores.map((s,i)=>s+(winner==='outsider'?(i===g.outsider?2:0):(i===g.outsider?0:1)))};
@@ -64,10 +73,12 @@ export function drawingAction(g:DrawingGame,actor:number,action:string,value?:un
   if(action==='voting'&&host&&g.phase==='discussion') return {...g,phase:'vote',deadline:null};
   if((action==='vote'||skip)&&g.phase==='vote'&&g.votes[actor]===undefined){
     if(skip)value=-1;
-    if(!skip&&(typeof value!=='number'||!Number.isInteger(value)||value<0||value>=g.names.length||value===actor)) throw new Error('اختر لاعبًا آخر.');
+    if(!skip&&(typeof value!=='number'||!Number.isInteger(value)||value<0||value>=g.names.length||value===actor||(g.voteCandidates&&!g.voteCandidates.includes(value)))) throw new Error('اختر لاعبًا آخر.');
     const votes={...g.votes,[actor]:value as number};if(Object.keys(votes).length<g.names.length)return {...g,votes};
-    const counts=g.names.map((_,i)=>Object.values(votes).filter(v=>v===i).length);
-    const top=Math.max(...counts);const leaders=counts.map((n,i)=>n===top?i:-1).filter(i=>i>=0);
+    const candidates=g.voteCandidates??g.names.map((_,i)=>i);
+    const counts=candidates.map(i=>Object.values(votes).filter(v=>v===i).length);
+    const top=Math.max(...counts);const leaders=candidates.filter((_,i)=>counts[i]===top);
+    if(top>0&&leaders.length>1&&(g.votePass??1)===1)return {...g,votes:{},firstVotes:votes,voteCandidates:leaders,votePass:2};
     const accused=top>0&&leaders.length===1?leaders[0]:null;
     const next={...g,votes,accused};
     return accused===g.outsider?{...next,phase:'guess'}:finishRound(next,'outsider');
@@ -81,10 +92,10 @@ export function drawingAction(g:DrawingGame,actor:number,action:string,value?:un
   throw new Error('هذا الإجراء غير متاح الآن.');
 }
 export function drawingView(g:DrawingGame,player:number) {
-  const {word,decoy,outsider,votes,usedWords,...publicGame}=g;
+  const {word,decoy,outsider,votes,usedWords,firstVotes,...publicGame}=g;
   const reveal=g.phase==='result'||g.phase==='final';
   return {...publicGame,clue:g.phase==='secret'&&!g.ready.includes(player)?clueFor(g,player):undefined,
-    voted:Object.keys(votes).map(Number), votes:reveal?votes:undefined,
+    voted:Object.keys(votes).map(Number), votes:reveal?votes:undefined,firstVotes:reveal?firstVotes:undefined,
     outsider:reveal||g.phase==='guess'?outsider:undefined,word:reveal?word:undefined,decoy:reveal&&g.config.mode==='decoy'?decoy:undefined};
 }
 export type DrawingView=ReturnType<typeof drawingView>;
