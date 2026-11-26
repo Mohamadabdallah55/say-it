@@ -68,7 +68,9 @@ test('Palestinian Proverbs dataset imports all 100 unique questions (34x200, 33x
     assert.equal(q.status, 'approved');
     assert.ok(!ids.has(q.id), `Duplicate ID: ${q.id}`);
     ids.add(q.id);
-    assert.equal(q.prompt, 'ما المثل الشعبي الفلسطيني الذي تمثله الصور؟');
+    const row = PALESTINIAN_PROVERBS_ALL_ROWS[i];
+    assert.equal(q.prompt, `${row.question}\n${row.icons.join(' | ')}`);
+    assert.equal(q.imageUrl, undefined, 'Legacy shuffled image must not be displayed');
     assert.ok(q.answer.trim().length > 0);
     assert.ok((q.hint ?? '').trim().length > 0);
     assert.ok(q.points === 200 || q.points === 400 || q.points === 600);
@@ -78,29 +80,22 @@ test('Palestinian Proverbs dataset imports all 100 unique questions (34x200, 33x
   assert.deepEqual(tierCounts, { 200: 34, 400: 33, 600: 33 });
 });
 
-test('All 100 Palestinian Proverb PNG files resolve locally on disk with valid PNG headers', () => {
-  const publicDir = path.join(process.cwd(), 'public');
-  const seenImages = new Set<string>();
-
-  for (const q of PALESTINIAN_PROVERBS_QUESTIONS) {
-    const url = q.imageUrl ?? '';
-    assert.ok(!/^https?:\/\//i.test(url), `External URL forbidden in ${q.id}: ${url}`);
-    assert.ok(
-      url.startsWith(`/assets/aistudio/${q.id}_`) && url.endsWith('.png'),
-      `Expected local PNG path for ${q.id}, got ${url}`,
-    );
-    assert.ok(!seenImages.has(url), `Duplicate image mapping for ${url}`);
-    seenImages.add(url);
-
-    const diskPath = path.join(publicDir, url.replace(/^\//, ''));
-    assert.ok(fs.existsSync(diskPath), `Missing PNG file on disk for ${q.id}: ${diskPath}`);
-    const data = fs.readFileSync(diskPath);
-    assert.ok(data.byteLength > 0, `Empty PNG file for ${q.id}`);
-    assert.equal(data.subarray(0, 4).toString('hex'), '89504e47', `Invalid PNG header for ${q.id}`);
+test('All 100 ordered Palestinian Proverb clue sequences and answers are unique', () => {
+  const sequences = new Set<string>();
+  const answers = new Set<string>();
+  for (const row of PALESTINIAN_PROVERBS_ALL_ROWS) {
+    assert.ok(row.icons.length >= 2);
+    assert.ok(row.icons.every((icon) => icon.trim() && !icon.includes(' | ')));
+    const key = row.icons.join(' | ');
+    assert.ok(!sequences.has(key), `Duplicate clue sequence: ${row.id}`);
+    sequences.add(key);
+    assert.ok(!answers.has(row.answer.trim()), `Duplicate proverb: ${row.id}`);
+    answers.add(row.answer.trim());
   }
-
-  const catSvg = path.join(publicDir, 'assets', 'categories', 'cat_palestinian_proverbs.svg');
-  assert.ok(fs.existsSync(catSvg), 'Category SVG badge should exist on disk');
+  assert.deepEqual(PALESTINIAN_PROVERBS_ALL_ROWS[0].icons, ['🚶↔️', '😈', '🎤']);
+  assert.deepEqual(PALESTINIAN_PROVERBS_ALL_ROWS[2].icons, ['🗣️', '🐕', '🪵']);
+  assert.deepEqual(PALESTINIAN_PROVERBS_ALL_ROWS[14].icons, ['🐓', '🗣️', '🥚', '📣']);
+  assert.ok(fs.existsSync(path.join(process.cwd(), 'public', 'assets', 'categories', 'cat_palestinian_proverbs.svg')));
 });
 
 test('Palestinian Proverbs passes board preflight and account progress non-repetition + auto-reset', () => {
@@ -160,12 +155,13 @@ test('Answer and hint stay hidden until requested; hint reveal shows hint only; 
     room = skipLifelinePick(room, 'act_skip').state;
   }
 
-  // Before hint request or reveal: projector has imageUrl, prompt, no answer, no hint
+  // Before hint request or reveal: projector has ordered prompt, no answer, no hint
   const projectorInitial = sanitizeStateForRole(room, 'projector');
   const hostInitial = sanitizeStateForRole(room, 'host');
   assert.ok(projectorInitial.activeRound);
-  assert.ok(projectorInitial.activeRound.imageUrl?.startsWith('/assets/aistudio/PAL-'));
-  assert.equal(projectorInitial.activeRound.prompt, 'ما المثل الشعبي الفلسطيني الذي تمثله الصور؟');
+  assert.equal(projectorInitial.activeRound.imageUrl, undefined);
+  assert.ok(projectorInitial.activeRound.prompt.startsWith('ما المثل الشعبي الفلسطيني الذي تمثله الصور؟\n'));
+  assert.ok(projectorInitial.activeRound.prompt.includes(' | '));
   assert.equal(projectorInitial.activeRound.answer, undefined);
   assert.equal(projectorInitial.activeRound.hint, undefined);
   assert.equal(projectorInitial.activeRound.hintRevealed, false);

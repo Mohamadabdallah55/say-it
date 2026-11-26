@@ -1240,6 +1240,25 @@ export function GameArena({
                                 <mark className="rounded-md bg-[#FFE047] text-inherit">【{grammarPrompt[2]}】</mark>
                                 {grammarPrompt[3]}
                               </>
+                            ) : roundMeta.categoryId === 'cat_palestinian_proverbs' && roundMeta.prompt.includes('\n') ? (
+                              <>
+                                <span className="block">{roundMeta.prompt.split('\n')[0]}</span>
+                                <span
+                                  dir="rtl"
+                                  data-testid="palestinian-proverb-clues"
+                                  className="mx-auto mt-4 flex w-full flex-row flex-wrap items-center justify-center gap-2 md:gap-4"
+                                >
+                                  {roundMeta.prompt.split('\n').slice(1).join('\n').split(' | ').map((clue, index) => (
+                                    <span
+                                      key={index}
+                                      dir="ltr"
+                                      className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 border-[#1F112E] bg-white px-2 py-1 text-3xl leading-tight md:min-h-20 md:min-w-20 md:text-5xl"
+                                    >
+                                      {clue}
+                                    </span>
+                                  ))}
+                                </span>
+                              </>
                             ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
                           </p>
                         </div>

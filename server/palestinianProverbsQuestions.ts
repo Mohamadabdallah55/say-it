@@ -31,8 +31,7 @@ export const PALESTINIAN_PROVERBS_ALL_ROWS: PalestinianProverbQuestionRow[] = [
 
 export const PALESTINIAN_PROVERBS_QUESTIONS: QuizQuestion[] = PALESTINIAN_PROVERBS_ALL_ROWS.filter(
   (row) =>
-    typeof row.imageUrl === 'string' &&
-    row.imageUrl.startsWith('/assets/aistudio/PAL-') &&
+    Array.isArray(row.icons) && row.icons.length >= 2 && row.icons.every((icon) => typeof icon === 'string' && Boolean(icon.trim())) &&
     Boolean(row.answer?.trim()) &&
     Boolean(row.question?.trim()),
 ).map((row) => {
@@ -47,10 +46,11 @@ export const PALESTINIAN_PROVERBS_QUESTIONS: QuizQuestion[] = PALESTINIAN_PROVER
     questionType: 'direct_qa',
     difficulty: difficultyForPoints(points),
     points,
-    prompt: row.question.trim(),
+    // The order is authored in the same order as the proverb (first clue first).
+    // Keep clues in the prompt so they also travel to the projector and count for deduplication.
+    prompt: `${row.question.trim()}\n${row.icons.join(' | ')}`,
     answer: row.answer.trim(),
     hint: row.hint?.trim() || undefined,
-    imageUrl: row.imageUrl,
     sourceRef: row.source_url,
     verificationStatus: 'verified',
     status: 'approved',

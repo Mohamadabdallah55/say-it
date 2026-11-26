@@ -1,6 +1,6 @@
 {
   "category_id": "cat_palestinian_proverbs",
-  "title": "تركيب أمثال فلسطينية — 100 سؤال بصور فعلية",
+  "title": "تركيب أمثال فلسطينية — 100 سؤال برموز مرتبة",
   "category": "تركيب أمثال فلسطينية",
   "question_count": 100,
   "source_of_proverb_text": "https://info.wafa.ps/pages/details/29759",
@@ -12,8 +12,8 @@
       "hint": "الابتعاد عن المتاعب",
       "points": 200,
       "icons": [
+        "🚶↔️",
         "😈",
-        "↔",
         "🎤"
       ],
       "imageUrl": "/assets/aistudio/PAL-001_dc71dcbf.png",
@@ -26,10 +26,10 @@
       "hint": "الطباع الموروثة",
       "points": 200,
       "icons": [
-        "🐭",
-        "⛏",
-        "🦆",
-        "🌊"
+        "🐭🐣",
+        "⛏️",
+        "🦆🐣",
+        "🏊"
       ],
       "imageUrl": "/assets/aistudio/PAL-002_15ba8f8c.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -41,8 +41,8 @@
       "hint": "ذكر أحدهم فيأتي",
       "points": 600,
       "icons": [
+        "🗣️",
         "🐕",
-        "🗣",
         "🪵"
       ],
       "imageUrl": "/assets/aistudio/PAL-003_06f038e7.png",
@@ -55,9 +55,10 @@
       "hint": "اختيار الرفقة",
       "points": 200,
       "icons": [
-        "👥",
         "❓",
-        "🛣"
+        "👥",
+        "⏮️",
+        "🛣️"
       ],
       "imageUrl": "/assets/aistudio/PAL-004_5576cf9a.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -69,8 +70,9 @@
       "hint": "حسن الجوار",
       "points": 400,
       "icons": [
-        "🧑",
         "❓",
+        "🧑🏘️",
+        "⏮️",
         "🏠"
       ],
       "imageUrl": "/assets/aistudio/PAL-005_b5bdf629.png",
@@ -83,8 +85,9 @@
       "hint": "الخبرة العملية",
       "points": 200,
       "icons": [
-        "👴",
         "❓",
+        "👴",
+        "🚫❓",
         "🩺"
       ],
       "imageUrl": "/assets/aistudio/PAL-006_10cf07fc.png",
@@ -97,9 +100,9 @@
       "hint": "اختلاف الناس",
       "points": 400,
       "icons": [
-        "✋",
+        "🖐️",
         "≠",
-        "☝"
+        "🖐️"
       ],
       "imageUrl": "/assets/aistudio/PAL-007_114a0bdc.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -111,9 +114,10 @@
       "hint": "الإكرام",
       "points": 600,
       "icons": [
-        "🥖",
+        "🍞",
         "👄",
-        "👁"
+        "😳",
+        "👁️"
       ],
       "imageUrl": "/assets/aistudio/PAL-008_de83ff91.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -125,8 +129,10 @@
       "hint": "إعطاء العمل للخبير",
       "points": 600,
       "icons": [
+        "🤲",
         "🍞",
         "👨‍🍳",
+        "🍽️",
         "½"
       ],
       "imageUrl": "/assets/aistudio/PAL-009_85d0c890.png",
@@ -140,7 +146,7 @@
       "points": 600,
       "icons": [
         "🤝",
-        "➡",
+        "🤾",
         "🌊"
       ],
       "imageUrl": "/assets/aistudio/PAL-010_e6ed37a4.png",
@@ -153,8 +159,9 @@
       "hint": "الشبه بالأهل",
       "points": 200,
       "icons": [
+        "🔄",
         "🏺",
-        "🔃",
+        "👇",
         "👧",
         "👩"
       ],
@@ -168,10 +175,10 @@
       "hint": "صاحب المهنة المحروم",
       "points": 200,
       "icons": [
-        "👞",
+        "👞🛠️",
         "🦶",
         "🪡",
-        "👕"
+        "🚫👕"
       ],
       "imageUrl": "/assets/aistudio/PAL-012_913e45fd.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -183,9 +190,10 @@
       "hint": "البعد والنسيان",
       "points": 400,
       "icons": [
-        "👀",
-        "📏",
-        "💔"
+        "↔️",
+        "👁️",
+        "↔️",
+        "❤️"
       ],
       "imageUrl": "/assets/aistudio/PAL-013_fe135a0e.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -197,9 +205,10 @@
       "hint": "تقلّب الأيام",
       "points": 600,
       "icons": [
-        "📅",
-        "⬆",
-        "⬇"
+        "⏳",
+        "2️⃣📅",
+        "📈",
+        "📉"
       ],
       "imageUrl": "/assets/aistudio/PAL-014_0afd4b5a.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -211,8 +220,9 @@
       "hint": "الموهبة المبكرة",
       "points": 200,
       "icons": [
-        "🥚",
         "🐓",
+        "🗣️",
+        "🥚",
         "📣"
       ],
       "imageUrl": "/assets/aistudio/PAL-015_2809d295.png",
@@ -225,9 +235,9 @@
       "hint": "ظهور الحقيقة",
       "points": 600,
       "icons": [
-        "☀",
-        "🧺",
-        "🙈"
+        "☀️",
+        "🚫🙈",
+        "🧺"
       ],
       "imageUrl": "/assets/aistudio/PAL-016_27ab25a3.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -266,9 +276,8 @@
       "hint": "تعدد المتدخلين",
       "points": 400,
       "icons": [
-        "🧑‍🍳",
-        "🧑‍🍳",
         "🍲",
+        "👨‍🍳👩‍🍳",
         "🔥"
       ],
       "imageUrl": "/assets/aistudio/PAL-019_33e3aef4.png",
@@ -282,8 +291,8 @@
       "points": 200,
       "icons": [
         "🤑",
-        "💰",
-        "💨"
+        "💨",
+        "💰"
       ],
       "imageUrl": "/assets/aistudio/PAL-020_f7238ebd.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -295,6 +304,7 @@
       "hint": "المظهر والعقل",
       "points": 400,
       "icons": [
+        "📏",
         "🌴",
         "🧠",
         "🐐"
@@ -323,7 +333,8 @@
       "hint": "قلة الحيلة",
       "points": 200,
       "icons": [
-        "👁",
+        "👁️",
+        "🔍",
         "✋",
         "📏"
       ],
@@ -337,8 +348,8 @@
       "hint": "التعلق بأي أمل",
       "points": 400,
       "icons": [
-        "🌊",
-        "🙋",
+        "🌊🙋",
+        "🤝",
         "🌾"
       ],
       "imageUrl": "/assets/aistudio/PAL-024_326c6ec8.png.webp",
@@ -351,8 +362,7 @@
       "hint": "التدخل في أمور الناس",
       "points": 400,
       "icons": [
-        "🛋",
-        "⚖",
+        "🛋️",
         "👨‍⚖️"
       ],
       "imageUrl": "/assets/aistudio/PAL-025_3d6aa6f6.png.webp",
@@ -366,7 +376,7 @@
       "points": 600,
       "icons": [
         "🐒",
-        "👁",
+        "👁️",
         "👩",
         "🦌"
       ],
@@ -382,7 +392,7 @@
       "icons": [
         "😊",
         "💎",
-        "🔒"
+        "♾️"
       ],
       "imageUrl": "/assets/aistudio/PAL-027_8e48d481.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -396,7 +406,7 @@
       "icons": [
         "🤥",
         "🪢",
-        "📏"
+        "🤏"
       ],
       "imageUrl": "/assets/aistudio/PAL-028_35b3d6fd.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -409,9 +419,8 @@
       "points": 400,
       "icons": [
         "🎁",
-        "🐎",
-        "↔",
-        "🐪"
+        "➡️🐎",
+        "⬅️🐪"
       ],
       "imageUrl": "/assets/aistudio/PAL-029_f83f3ca6.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -425,6 +434,7 @@
       "icons": [
         "✋",
         "🔥",
+        "≠",
         "👀"
       ],
       "imageUrl": "/assets/aistudio/PAL-030_6dd7c9d5.png",
@@ -438,6 +448,7 @@
       "points": 400,
       "icons": [
         "🐍",
+        "😖",
         "😰",
         "🪢"
       ],
@@ -451,6 +462,7 @@
       "hint": "بداية السلوك السيئ",
       "points": 400,
       "icons": [
+        "🥷",
         "🥚",
         "🥷",
         "🐪"
@@ -465,9 +477,10 @@
       "hint": "ترك البيت",
       "points": 400,
       "icons": [
-        "🏠",
         "🚶",
-        "🧳"
+        "🏠",
+        "⬇️",
+        "👑"
       ],
       "imageUrl": "/assets/aistudio/PAL-033_7edc978f.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -479,9 +492,10 @@
       "hint": "تحمّل النتائج",
       "points": 200,
       "icons": [
+        "🎮",
         "🐈",
-        "🧶",
-        "✋"
+        "⏳",
+        "🐾"
       ],
       "imageUrl": "/assets/aistudio/PAL-034_52ec26ef.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -493,9 +507,10 @@
       "hint": "الإنفاق والرزق",
       "points": 200,
       "icons": [
-        "👖",
         "💸",
-        "🎁"
+        "👖",
+        "🎁",
+        "🌫️"
       ],
       "imageUrl": "/assets/aistudio/PAL-035_ac3b81e8.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -507,8 +522,8 @@
       "hint": "تحقيق غرضين",
       "points": 600,
       "icons": [
-        "🐦",
-        "🐦",
+        "🤾",
+        "🐦🐦",
         "🪨"
       ],
       "imageUrl": "/assets/aistudio/PAL-036_c1ace7e3.png",
@@ -535,9 +550,9 @@
       "hint": "بداية المشكلة",
       "points": 600,
       "icons": [
+        "🌱",
         "😈",
-        "✨",
-        "🔥"
+        "✨"
       ],
       "imageUrl": "/assets/aistudio/PAL-038_dc79fb45.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -549,10 +564,10 @@
       "hint": "غياب الرقيب",
       "points": 200,
       "icons": [
-        "🐈",
         "🚪",
-        "🐭",
-        "🎉"
+        "🐈",
+        "🎉",
+        "🐭"
       ],
       "imageUrl": "/assets/aistudio/PAL-039_724812ad.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -564,7 +579,7 @@
       "hint": "فضل الصمت",
       "points": 400,
       "icons": [
-        "🗣",
+        "🗣️",
         "🥈",
         "🤫",
         "🥇"
@@ -581,7 +596,8 @@
       "icons": [
         "👫",
         "🍯",
-        "👅"
+        "🚫👅",
+        "💯"
       ],
       "imageUrl": "/assets/aistudio/PAL-041_93c5f65c.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -593,6 +609,7 @@
       "hint": "البدايات الصغيرة",
       "points": 200,
       "icons": [
+        "1️⃣",
         "💃",
         "👣"
       ],
@@ -607,8 +624,8 @@
       "points": 600,
       "icons": [
         "👴",
-        "📚",
-        "🏫"
+        "➡️",
+        "🏫📚"
       ],
       "imageUrl": "/assets/aistudio/PAL-043_8db4279f.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -620,9 +637,10 @@
       "hint": "كشف الحقيقة",
       "points": 400,
       "icons": [
-        "❄",
-        "☀",
-        "🔎"
+        "🌅",
+        "🫠❄️",
+        "👀",
+        "👇"
       ],
       "imageUrl": "/assets/aistudio/PAL-044_844fd3e4.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -635,8 +653,8 @@
       "points": 600,
       "icons": [
         "🥷",
-        "👁",
-        "🖌"
+        "🖌️",
+        "👁️"
       ],
       "imageUrl": "/assets/aistudio/PAL-045_ec6b00f6.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -648,9 +666,9 @@
       "hint": "المبالغة",
       "points": 400,
       "icons": [
+        "🛠️",
         "🫘",
-        "🏛",
-        "⬆"
+        "🏛️"
       ],
       "imageUrl": "/assets/aistudio/PAL-046_e2df0b0b.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -662,8 +680,9 @@
       "hint": "الخداع",
       "points": 600,
       "icons": [
-        "🚶",
+        "➡️",
         "🌊",
+        "⬅️",
         "🥵"
       ],
       "imageUrl": "/assets/aistudio/PAL-047_d6faf86e.png.webp",
@@ -677,8 +696,8 @@
       "points": 600,
       "icons": [
         "🍇",
-        "👨‍🌾",
-        "💬"
+        "⚔️",
+        "👨‍🌾"
       ],
       "imageUrl": "/assets/aistudio/PAL-048_315fcfff.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -690,9 +709,9 @@
       "hint": "الجمع بين مسؤوليتين",
       "points": 200,
       "icons": [
-        "🍉",
-        "🍉",
-        "✋"
+        "🍉🍉",
+        "1️⃣✋",
+        "🚫"
       ],
       "imageUrl": "/assets/aistudio/PAL-049_229a6f9e.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -705,7 +724,6 @@
       "points": 600,
       "icons": [
         "👮",
-        "🔑",
         "🥷"
       ],
       "imageUrl": "/assets/aistudio/PAL-050_3182cb20.png.webp",
@@ -733,9 +751,9 @@
       "hint": "الاحتياج والأحلام",
       "points": 200,
       "icons": [
-        "😴",
-        "🥖",
-        "😋"
+        "💭",
+        "😋",
+        "🍞"
       ],
       "imageUrl": "/assets/aistudio/PAL-052_9f46139e.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -748,8 +766,8 @@
       "points": 600,
       "icons": [
         "🐍",
-        "🌾",
-        "🫣"
+        "👇",
+        "🌾"
       ],
       "imageUrl": "/assets/aistudio/PAL-053_f9a05112.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -763,7 +781,7 @@
       "icons": [
         "🐎",
         "🐴",
-        "🗣"
+        "🗣️"
       ],
       "imageUrl": "/assets/aistudio/PAL-054_1f847bf8.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -775,9 +793,10 @@
       "hint": "الادخار",
       "points": 400,
       "icons": [
-        "☀",
         "📦",
-        "❄"
+        "☀️",
+        "✅",
+        "❄️"
       ],
       "imageUrl": "/assets/aistudio/PAL-055_a71567df.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -789,7 +808,7 @@
       "hint": "الحسد",
       "points": 400,
       "icons": [
-        "👁",
+        "👁️",
         "😒",
         "🪵"
       ],
@@ -803,8 +822,9 @@
       "hint": "تكرار العادة",
       "points": 200,
       "icons": [
-        "👩",
         "🔄",
+        "👩",
+        "🔁",
         "⏳"
       ],
       "imageUrl": "/assets/aistudio/PAL-057_3eb60606.png",
@@ -817,9 +837,9 @@
       "hint": "زيادة التعقيد",
       "points": 200,
       "icons": [
-        "🧱",
-        "💦",
-        "⬆"
+        "⬆️",
+        "🟫",
+        "💧"
       ],
       "imageUrl": "/assets/aistudio/PAL-058_a297df87.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -832,8 +852,7 @@
       "points": 400,
       "icons": [
         "🙉",
-        "🥁",
-        "🎉"
+        "🥁🎉"
       ],
       "imageUrl": "/assets/aistudio/PAL-059_3d5dd9b5.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -845,8 +864,8 @@
       "hint": "الحجج والتمسك",
       "points": 200,
       "icons": [
-        "👴",
         "🔩",
+        "👴",
         "🏠"
       ],
       "imageUrl": "/assets/aistudio/PAL-060_af5e2f3c.png.webp",
@@ -859,8 +878,9 @@
       "hint": "أثر الكلام",
       "points": 200,
       "icons": [
+        "⚠️",
         "🦶",
-        "⚠",
+        "⚠️",
         "👅"
       ],
       "imageUrl": "/assets/aistudio/PAL-061_83328a03.png",
@@ -873,8 +893,9 @@
       "hint": "تفضيل القريب",
       "points": 600,
       "icons": [
-        "🌾",
+        "🌿",
         "🏡",
+        "🌾",
         "🌍"
       ],
       "imageUrl": "/assets/aistudio/PAL-062_fc36fd6e.png.webp",
@@ -887,9 +908,10 @@
       "hint": "الاحتياط",
       "points": 600,
       "icons": [
-        "🚪",
         "🔒",
-        "🧑"
+        "🚪",
+        "🚫👉",
+        "🧑🏘️"
       ],
       "imageUrl": "/assets/aistudio/PAL-063_aeb01e9a.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -901,7 +923,7 @@
       "hint": "تعدد المهارات",
       "points": 200,
       "icons": [
-        "7",
+        "7️⃣",
         "🧰",
         "🍀",
         "❌"
@@ -916,9 +938,10 @@
       "hint": "فساد يأتي من الداخل",
       "points": 600,
       "icons": [
-        "🪵",
         "🐛",
-        "🕳"
+        "🪵",
+        "↔️",
+        "🪵"
       ],
       "imageUrl": "/assets/aistudio/PAL-065_de709a44.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -930,9 +953,9 @@
       "hint": "تحمل الهموم",
       "points": 600,
       "icons": [
+        "🏋️",
         "🌍",
-        "💪",
-        "😓"
+        "💪"
       ],
       "imageUrl": "/assets/aistudio/PAL-066_4d096a68.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -946,7 +969,7 @@
       "icons": [
         "✨",
         "🔥",
-        "🏘"
+        "🏘️"
       ],
       "imageUrl": "/assets/aistudio/PAL-067_b777440c.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -959,7 +982,7 @@
       "points": 200,
       "icons": [
         "🌵",
-        "➡",
+        "➡️",
         "🌹"
       ],
       "imageUrl": "/assets/aistudio/PAL-068_8bd580d4.png",
@@ -973,7 +996,8 @@
       "points": 600,
       "icons": [
         "🌙",
-        "🍽",
+        "🌙",
+        "🍽️",
         "🧅"
       ],
       "imageUrl": "/assets/aistudio/PAL-069_7204c54e.png",
@@ -999,9 +1023,9 @@
       "hint": "خسارة كل شيء",
       "points": 600,
       "icons": [
+        "❓",
         "🐪",
-        "🎒",
-        "❓"
+        "🎒"
       ],
       "imageUrl": "/assets/aistudio/PAL-071_6e92123e.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1013,9 +1037,10 @@
       "hint": "الخروج بلا فائدة",
       "points": 400,
       "icons": [
+        "🚶",
         "🎪",
-        "🥣",
-        "🚫"
+        "🚫",
+        "🥣"
       ],
       "imageUrl": "/assets/aistudio/PAL-072_ec4bd7c9.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1028,8 +1053,8 @@
       "points": 200,
       "icons": [
         "🍲",
-        "🧢",
-        "💞"
+        "🤝",
+        "🥘"
       ],
       "imageUrl": "/assets/aistudio/PAL-073_27f74421.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1042,8 +1067,9 @@
       "points": 400,
       "icons": [
         "🐦",
-        "🏜",
-        "🐧",
+        "🏜️",
+        "🚫🤝",
+        "🐦",
         "🌊"
       ],
       "imageUrl": "/assets/aistudio/PAL-074_bee59640.png",
@@ -1056,9 +1082,10 @@
       "hint": "العيش بحسب الإمكانات",
       "points": 400,
       "icons": [
-        "🛏",
-        "🦵",
-        "📏"
+        "📏",
+        "🛏️",
+        "↔️",
+        "🦵"
       ],
       "imageUrl": "/assets/aistudio/PAL-075_48d069a8.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1084,8 +1111,8 @@
       "hint": "الانشغال بالجوع",
       "points": 400,
       "icons": [
-        "🍽",
-        "🤯",
+        "🍽️",
+        "💨",
         "🧠"
       ],
       "imageUrl": "/assets/aistudio/PAL-077_766a9404.png.webp",
@@ -1099,8 +1126,7 @@
       "points": 200,
       "icons": [
         "🐐",
-        "🪽",
-        "😤"
+        "🪽"
       ],
       "imageUrl": "/assets/aistudio/PAL-078_157837be.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1112,10 +1138,11 @@
       "hint": "الشجاعة والعزة",
       "points": 600,
       "icons": [
+        "🧬",
         "🐓",
-        "☀",
-        "🐤",
-        "♾"
+        "1️⃣📅",
+        "🐔",
+        "♾️"
       ],
       "imageUrl": "/assets/aistudio/PAL-079_0b65c0ca.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1127,8 +1154,8 @@
       "hint": "طبع الأبناء",
       "points": 400,
       "icons": [
-        "🦆",
         "🐣",
+        "🦆",
         "🏊"
       ],
       "imageUrl": "/assets/aistudio/PAL-080_79474cb1.png",
@@ -1142,8 +1169,7 @@
       "points": 400,
       "icons": [
         "💡",
-        "🕊",
-        "💭"
+        "🕊️"
       ],
       "imageUrl": "/assets/aistudio/PAL-081_fd9491f4.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1156,7 +1182,7 @@
       "points": 400,
       "icons": [
         "🐓",
-        "🗑",
+        "🗑️",
         "📣"
       ],
       "imageUrl": "/assets/aistudio/PAL-082_1c8e8c9c.png.webp",
@@ -1170,7 +1196,7 @@
       "points": 600,
       "icons": [
         "🪢",
-        "🔓",
+        "✅",
         "🧠"
       ],
       "imageUrl": "/assets/aistudio/PAL-083_393078fe.png.webp",
@@ -1184,6 +1210,7 @@
       "points": 200,
       "icons": [
         "🏺",
+        "💧",
         "💦"
       ],
       "imageUrl": "/assets/aistudio/PAL-084_99134a76.png",
@@ -1211,8 +1238,8 @@
       "points": 400,
       "icons": [
         "🤥",
-        "🗣",
-        "🤔"
+        "🗣️",
+        "✅"
       ],
       "imageUrl": "/assets/aistudio/PAL-086_a89cb3a5.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1224,9 +1251,9 @@
       "hint": "المظاهر الخادعة",
       "points": 400,
       "icons": [
+        "🚫",
         "✨",
-        "🥇",
-        "🚫"
+        "🥇"
       ],
       "imageUrl": "/assets/aistudio/PAL-087_a612d00e.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1238,9 +1265,9 @@
       "hint": "عدم ضمان النتائج",
       "points": 200,
       "icons": [
-        "☁",
         "🚫",
-        "🌧"
+        "☁️",
+        "🌧️"
       ],
       "imageUrl": "/assets/aistudio/PAL-088_8804b0fc.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1252,8 +1279,8 @@
       "hint": "ليس كل احتمال يتحقق",
       "points": 200,
       "icons": [
-        "🥚",
         "🚫",
+        "🥚",
         "🐣"
       ],
       "imageUrl": "/assets/aistudio/PAL-089_fd909b66.png",
@@ -1266,9 +1293,10 @@
       "hint": "تبرير العجز",
       "points": 600,
       "icons": [
-        "🙋",
+        "🙅",
         "🍇",
-        "😒"
+        "🗣️",
+        "🟢"
       ],
       "imageUrl": "/assets/aistudio/PAL-090_575dab37.png.webp",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1280,9 +1308,9 @@
       "hint": "خداع المظاهر",
       "points": 600,
       "icons": [
-        "⚪",
         "🚫",
-        "🥜"
+        "⚪",
+        "🌰"
       ],
       "imageUrl": "/assets/aistudio/PAL-091_f6dbedd2.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1296,7 +1324,7 @@
       "icons": [
         "💰",
         "💨",
-        "🌪"
+        "🌪️"
       ],
       "imageUrl": "/assets/aistudio/PAL-092_a112f82d.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1308,9 +1336,10 @@
       "hint": "الغرور وعاقبته",
       "points": 200,
       "icons": [
-        "🐦",
-        "⬆",
-        "⬇"
+        "🕊️",
+        "⬆️",
+        "🕊️",
+        "⬇️"
       ],
       "imageUrl": "/assets/aistudio/PAL-093_331149fa.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1322,9 +1351,9 @@
       "hint": "تقلب الحال",
       "points": 600,
       "icons": [
-        "⛰",
-        "⬆",
-        "⬇"
+        "⬆️",
+        "⛰️",
+        "⬇️"
       ],
       "imageUrl": "/assets/aistudio/PAL-094_7177aa29.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1336,9 +1365,9 @@
       "hint": "التمسك بالحقوق",
       "points": 600,
       "icons": [
-        "⚖",
-        "🗣",
-        "👣"
+        "🚫💨",
+        "⚖️",
+        "🏃"
       ],
       "imageUrl": "/assets/aistudio/PAL-095_42d900e7.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1350,9 +1379,11 @@
       "hint": "تفاوت الحظوظ",
       "points": 400,
       "icons": [
-        "🐔",
-        "🍴",
         "👥",
+        "🍽️",
+        "🐔",
+        "👥",
+        "🤸",
         "🚧"
       ],
       "imageUrl": "/assets/aistudio/PAL-096_e55ac9a5.png",
@@ -1365,9 +1396,9 @@
       "hint": "العادات الصحية",
       "points": 600,
       "icons": [
-        "🌙",
         "🛌",
-        "🌅",
+        "🌙",
+        "🛏️🌅",
         "💪"
       ],
       "imageUrl": "/assets/aistudio/PAL-097_69b00d47.png",
@@ -1382,7 +1413,7 @@
       "icons": [
         "🔥",
         "👪",
-        "🌈",
+        "🌴",
         "🚶"
       ],
       "imageUrl": "/assets/aistudio/PAL-098_188583f2.png",
@@ -1397,7 +1428,7 @@
       "icons": [
         "🪚",
         "🚪",
-        "🪵"
+        "💥"
       ],
       "imageUrl": "/assets/aistudio/PAL-099_cdf185c4.png",
       "source_url": "https://info.wafa.ps/pages/details/29759"
@@ -1409,7 +1440,6 @@
       "hint": "الشبه بالأصل",
       "points": 600,
       "icons": [
-        "🦁",
         "🐾",
         "🦁"
       ],
