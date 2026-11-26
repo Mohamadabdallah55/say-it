@@ -64,6 +64,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const [selectedVote,setSelectedVote]=useState<number|null>(null);
   const [replay,setReplay]=useState<number|null>(null);
   const [passDraw,setPassDraw]=useState(false);
+  const [blindKey,setBlindKey]=useState('');
   const [now,setNow]=useState(Date.now());
   const [showRules,setShowRules]=useState(false);
   const [copied,setCopied]=useState(false);
@@ -87,7 +88,12 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const view=local?drawingView(local,player):room?.game;
   const waiting=!!room&&!view;
   const restoring=!!session&&!room;
-  const canDraw=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&!busy&&(!session||connected)&&(!local||passDraw);
+  const myDrawingTurn=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&(!local||passDraw);
+  const blindTurn=myDrawingTurn&&view?.config.drawingStyle==='blind';
+  const turnKey=view?view.round+':'+view.cursor:'';
+  const blindHidden=blindTurn&&blindKey===turnKey;
+  const canDraw=myDrawingTurn&&!busy&&(!session||connected)&&(!blindTurn||blindHidden);
+  useEffect(()=>{if(!blindTurn)return;const timer=window.setTimeout(()=>setBlindKey(turnKey),3000);return()=>window.clearTimeout(timer);},[blindTurn,turnKey]);
   useEffect(()=>{if(view?.phase!=='discussion')return;setNow(Date.now());const timer=window.setInterval(()=>setNow(Date.now()),250);return()=>window.clearInterval(timer);},[view?.phase,view?.deadline]);
   const seconds=view?.deadline?Math.max(0,Math.ceil((view.deadline-now)/1000)):null;
   useEffect(()=>{setSecret(false);setGuess('');setSelectedVote(null);setReplay(null);},[view?.round,view?.phase,view?.votePass,player]);
@@ -128,7 +134,15 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     try{const data=await api(onlineMode==='create'?'/create':'/join','POST',{name,code:joinCode.trim().toUpperCase(),config});if(!mounted.current)return;store(LOCAL_KEY,null);setLocal(null);setRoom(data);setSession({code:data.code,token:data.token});}
     catch(e){setError(e instanceof Error?e.message:'تعذر إنشاء الغرفة.');}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
-  function leave(){store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
+  function leave(){setBlindKey('');store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
+  function saveDrawing(){
+    if(!view||!['result','final'].includes(view.phase))return;
+    const canvas=document.createElement('canvas');canvas.width=1600;canvas.height=1000;
+    const ctx=canvas.getContext('2d');if(!ctx)return;
+    ctx.fillStyle='#fffdf5';ctx.fillRect(0,0,1600,1000);ctx.lineWidth=14;ctx.lineCap='round';ctx.lineJoin='round';
+    for(const stroke of view.strokes){ctx.beginPath();ctx.strokeStyle=COLORS[stroke.player]??'#251d36';stroke.points.forEach((point,i)=>{if(i===0)ctx.moveTo(point[0]*1600,point[1]*1000);else ctx.lineTo(point[0]*1600,point[1]*1000);});ctx.stroke();}
+    canvas.toBlob(blob=>{if(!blob)return;const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='khatt-mashbooh-'+view.round+'.png';link.click();window.setTimeout(()=>URL.revokeObjectURL(url),5000);},'image/png');
+  }
   const invite=room?window.location.origin+'/?drawing=1&join='+encodeURIComponent(room.code):'';
   const share=async()=>{try{await navigator.clipboard.writeText(invite);setCopied(true);}catch{setCopied(false);setError('انسخ الرابط الظاهر يدويًا.');}};
   return <div dir="rtl" className="khatt-game min-h-screen text-[#251d36] p-3 sm:p-6">
@@ -149,6 +163,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
         {(mode==='local'||onlineMode==='create')&&<section className={panel+' space-y-4'}><h2 className="font-black text-xl">إعداد الجولة</h2><h3 className="font-black">عدد الجولات</h3><div className="grid grid-cols-3 gap-2">{[3,5,7].map(v=><Option key={v} selected={config.rounds===v} label={String(v)} onClick={()=>setConfig({...config,rounds:v})}/>)}</div>
         <h3 className="font-black">خط مشبوه</h3><div className="grid grid-cols-2 gap-2"><Option selected={config.mode==='known'} label="يعرف نفسه" onClick={()=>setConfig({...config,mode:'known'})}/><Option selected={config.mode==='decoy'} label="مموّه" onClick={()=>setConfig({...config,mode:'decoy'})}/></div>
         <p className="text-xs font-bold">{config.mode==='known'?'المختلف يرى رسالة سرية بدل الكلمة.':'المختلف يرى كلمة مشابهة ولا يعرف أنه مختلف.'}</p><h3 className="font-black">مؤقت النقاش</h3><div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{[30,60,90,0].map(v=><Option key={v} selected={config.seconds===v} label={v?v+' ث':'بلا مؤقت'} onClick={()=>setConfig({...config,seconds:v})}/>)}</div>
+        <h3 className="font-black">أسلوب الرسم</h3><div className="grid grid-cols-2 gap-2"><Option selected={config.drawingStyle!=='blind'} label="كلاسيكي" onClick={()=>setConfig({...config,drawingStyle:'classic'})}/><Option selected={config.drawingStyle==='blind'} label="الرسم الأعمى" onClick={()=>setConfig({...config,drawingStyle:'blind'})}/></div><p className="text-xs font-bold">{config.drawingStyle==='blind'?'شاهد الرسمة لمدة 3 ثوانٍ قبل أن تختفي الخطوط السابقة أثناء رسمك.':'الرسمة السابقة ظاهرة لجميع اللاعبين.'}</p>
         <h3 className="font-black">ملف الكلمات</h3><div className="grid grid-cols-2 gap-2">{WORD_CATEGORIES.map(c=><Option key={c.name} selected={config.category===c.name} label={c.name+" · "+c.count+" كلمة"} onClick={()=>setConfig({...config,category:c.name})}/>)}</div></section>}
         <button className={yellow+' md:col-span-2 text-xl'} disabled={busy} onClick={start}>{busy?'جاري الاتصال…':mode==='local'?'ابدأ اللعبة':onlineMode==='create'?'أنشئ غرفة خاصة':'انضم للغرفة'}</button>
       </div>}
@@ -158,9 +173,9 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
         <div className="flex flex-wrap gap-2 justify-between font-black"><span className="rounded-xl bg-[#251d36] px-4 py-2 text-white">الجولة {view.round} / {view.config.rounds}</span><span className="rounded-xl border-2 border-[#251d36] px-4 py-2 bg-white">{view.config.category}</span></div>
         {view.phase==='secret'&&<section className={panel+' khatt-private text-center space-y-4'}><h2 className="text-2xl font-black">{local?'مرّر الجهاز إلى '+view.names[player]:'بطاقتك السرية · '+view.names[player]}</h2>{view.ready.includes(player)?<p>بانتظار بقية اللاعبين ({view.ready.length}/{view.names.length})</p>:!secret?<><p>لا تخلي أي لاعب ثاني يشوف بطاقتك.</p><button className={yellow+' w-full'} onClick={()=>setSecret(true)}>اكشف بطاقتي</button></>:<><div className="khatt-secret-card p-8 text-3xl font-black"><span className="block text-sm mb-2"><LockKeyhole size={18} className="inline ml-2"/>بطاقة سرية</span>{view.clue}</div><button className={yellow+' w-full'} disabled={busy} onClick={()=>{setSecret(false);void action('ready');}}>فهمت، أخفِ البطاقة</button></>}<p className="text-sm font-bold">جاهزون: {view.ready.length} / {view.names.length}</p></section>}
         {['draw','discussion','result','final'].includes(view.phase)&&<section className={panel+' space-y-3'}>
-          {view.phase==='draw'&&<div className="text-center"><p className="text-sm font-bold">دورة الرسم {Math.floor(view.cursor/view.names.length)+1} / {view.cycles}</p><h2 className="text-2xl font-black" style={{color:COLORS[view.order[view.cursor%view.names.length]]}}>دور {view.names[view.order[view.cursor%view.names.length]]}</h2><p>{canDraw?'ارسم خطًا واحدًا، وارفع إصبعك لإنهاء الدور.':'بانتظار اللاعب صاحب الدور.'}</p></div>}
-          {local&&view.phase==='draw'&&!passDraw?<div className="khatt-pass"><Pencil size={44}/><h3>الهاتف بيد {view.names[player]}</h3><p>استلم الجهاز وارسم خطك.</p><button className={yellow} onClick={()=>setPassDraw(true)}>جاهز للرسم</button></div>:<div className="khatt-paper"><Board view={replay===null?view:{...view,strokes:view.strokes.slice(0,replay)}} enabled={canDraw} onStroke={points=>void action('stroke',points)}/></div>}
-          {(view.phase==='result'||view.phase==='final')&&<div className="flex flex-wrap justify-center gap-2"><button className={secondary} onClick={()=>setReplay(0)}><Play size={16} className="inline ml-1"/>إعادة رسم الخطوط</button>{replay!==null&&<button className={secondary} onClick={()=>setReplay(null)}>عرض الرسمة كاملة</button>}{replay!==null&&replay>0&&<p className="w-full text-center font-bold" style={{color:COLORS[view.strokes[replay-1]?.player??0]}}>خط {replay}: {view.names[view.strokes[replay-1]?.player??0]}</p>}</div>}
+          {view.phase==='draw'&&<div className="text-center"><p className="text-sm font-bold">دورة الرسم {Math.floor(view.cursor/view.names.length)+1} / {view.cycles}</p><h2 className="text-2xl font-black" style={{color:COLORS[view.order[view.cursor%view.names.length]]}}>دور {view.names[view.order[view.cursor%view.names.length]]}</h2><p>{blindTurn&&!blindHidden?'تأمل الرسمة الآن… ستختفي بعد 3 ثوانٍ.':canDraw?'ارسم خطًا واحدًا، وارفع إصبعك لإنهاء الدور.':'بانتظار اللاعب صاحب الدور.'}</p></div>}
+          {local&&view.phase==='draw'&&!passDraw?<div className="khatt-pass"><Pencil size={44}/><h3>الهاتف بيد {view.names[player]}</h3><p>استلم الجهاز وارسم خطك.</p><button className={yellow} onClick={()=>setPassDraw(true)}>جاهز للرسم</button></div>:<div className="khatt-paper"><Board view={blindHidden?{...view,strokes:[]}:replay===null?view:{...view,strokes:view.strokes.slice(0,replay)}} enabled={canDraw} onStroke={points=>void action('stroke',points)}/></div>}
+          {(view.phase==='result'||view.phase==='final')&&<div className="flex flex-wrap justify-center gap-2"><button className={secondary} onClick={()=>setReplay(0)}><Play size={16} className="inline ml-1"/>إعادة رسم الخطوط</button><button className={secondary} onClick={saveDrawing}>حفظ الرسمة</button>{replay!==null&&<button className={secondary} onClick={()=>setReplay(null)}>عرض الرسمة كاملة</button>}{replay!==null&&replay>0&&<p className="w-full text-center font-bold" style={{color:COLORS[view.strokes[replay-1]?.player??0]}}>خط {replay}: {view.names[view.strokes[replay-1]?.player??0]}</p>}</div>}
           <div className="flex flex-wrap gap-2">{view.names.map((n,i)=><span key={i} className="flex items-center gap-1 text-xs font-bold"><span className="w-3 h-3 rounded-full" style={{background:COLORS[i]}}/>{n}</span>)}</div>
         </section>}
         {view.phase==='discussion'&&<section className={panel+' text-center space-y-3'}><h2 className="font-black text-2xl">مين صاحب الخط المشبوه؟</h2><p>ناقشوا الخطوط واتفقوا على مين مش عارف الكلمة.</p><div className="font-black text-4xl tabular-nums">{seconds===null?'بلا مؤقت':seconds+' ث'}</div>{host&&<div className="flex flex-wrap gap-2 justify-center">{view.cycles===2&&<button disabled={busy} className={secondary} onClick={()=>action('extra')}>أضف دورة ثالثة</button>}<button disabled={busy} className={yellow} onClick={()=>action('voting')}>ابدأ التصويت</button></div>}</section>}
