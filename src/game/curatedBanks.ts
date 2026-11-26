@@ -10,6 +10,16 @@ import { GUESS_SOUND_CATEGORY, GUESS_SOUND_COUNT } from './guessSound';
 import { ZOOMED_IMAGE_CATEGORY, ZOOMED_IMAGE_COUNT } from './zoomedImage';
 import type { DeckCategory } from './types';
 
+export const WORLD_FOOD_CATEGORY: DeckCategory = {
+  id: 'world_food',
+  name: 'أكلات العالم',
+  description: 'خمن اسم الأكلة من الصورة — أطباق عربية وعالمية',
+  iconKey: 'geography',
+  menuGroup: 'world',
+  accentColor: '#E98E32',
+  coverImageUrl: 'https://www.petranightstours.com/uploads/images/cms/1656146445_1568708875_Mansaf.jpg',
+};
+
 export const APPS_CATEGORY: DeckCategory = {
   id: 'cat_apps',
   name: 'التطبيقات',
@@ -350,6 +360,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
 ];
 
 export const SERVER_CURATED_CATEGORIES = [
+  { category: WORLD_FOOD_CATEGORY, questionCount: 45 },
   { category: APPS_CATEGORY, questionCount: 100 },
   { category: PROPHET_STORIES_CATEGORY, questionCount: PROPHET_STORIES_COUNT },
   { category: GUESS_PRICE_CATEGORY, questionCount: GUESS_PRICE_COUNT },
