@@ -33,7 +33,7 @@ export interface JordanNostalgiaQuestionRow {
   answer: string;
   acceptedAnswers: string[];
   imageRequired: boolean;
-  image: JordanNostalgiaImageMeta;
+  image: JordanNostalgiaImageMeta | null;
   evidenceUrls: string[];
   rightsStatus: 'verified_for_publication' | 'not_verified' | string;
   contentStatus: 'approved' | 'needs_manual_asset' | string;
@@ -61,6 +61,7 @@ const typedDataset = dataset as JordanNostalgiaDataset;
 export const JORDAN_NOSTALGIA_ALL_ROWS: JordanNostalgiaQuestionRow[] = [...typedDataset.questions];
 
 function isVerifiedPlayableRow(row: JordanNostalgiaQuestionRow): boolean {
+  if (row.contentStatus === 'approved' && !row.imageRequired && !row.image) return true;
   return (
     row.contentStatus === 'approved' &&
     row.rightsStatus === 'verified_for_publication' &&
@@ -81,7 +82,7 @@ export const JORDAN_NOSTALGIA_QUESTIONS: QuizQuestion[] = JORDAN_NOSTALGIA_ALL_R
       row.points === 200 || row.points === 400 || row.points === 600 ? row.points : 400
     ) as PointValue;
 
-    const attribution = [row.image.sourcePublisher?.trim(), row.image.license?.trim()]
+    const attribution = [row.image?.sourcePublisher?.trim(), row.image?.license?.trim()]
       .filter(Boolean)
       .join(' · ');
     const explanationParts = [
@@ -103,13 +104,13 @@ export const JORDAN_NOSTALGIA_QUESTIONS: QuizQuestion[] = JORDAN_NOSTALGIA_ALL_R
       prompt: row.question,
       answer: row.answer,
       acceptableAnswers: uniqueAcceptedAnswers,
-      imageUrl: row.image.localFile as string,
-      imageDisplay: 'before_reveal',
-      imageSourceUrl: row.image.sourcePage as string,
+      imageUrl: row.image?.localFile ?? undefined,
+      imageDisplay: row.image ? 'before_reveal' : undefined,
+      imageSourceUrl: row.image?.sourcePage ?? undefined,
       subtopic: row.subCategory,
       explanation: explanationParts.join(' — '),
-      sourceRef: row.image.sourcePage as string,
-      verificationStatus: 'verified',
+      sourceRef: row.image?.sourcePage ?? row.evidenceUrls?.[0],
+      verificationStatus: row.image ? 'verified' : undefined,
       status: 'approved',
     };
   });
