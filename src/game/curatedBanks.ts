@@ -117,6 +117,14 @@ export const CAPITALS_CURRENCIES_CATEGORY: DeckCategory = {
   accentColor: '#226BA2',
 };
 
+export const WHO_SAHABI_CATEGORY: DeckCategory = {
+  id: 'cat_who_sahabi',
+  name: 'من الصحابي؟',
+  description: 'تعرّف على الصحابة والصحابيات من مواقفهم وفضائلهم وألقابهم',
+  iconKey: 'islamic',
+  accentColor: '#34715C',
+};
+
 export const PROPHETIC_BIOGRAPHY_CATEGORY: DeckCategory = {
   id: 'cat_prophetic_biography',
   name: 'السيرة النبوية',
@@ -357,6 +365,7 @@ export const PRIVATE_REFERENCE_CATEGORY_IDS = [
   QURAN_MEDIA_CATEGORY.id,
   CAPITALS_CURRENCIES_CATEGORY.id,
   PROPHETIC_BIOGRAPHY_CATEGORY.id,
+  WHO_SAHABI_CATEGORY.id,
   QURAN_VERSE_MEANINGS_CATEGORY.id,
   WORLD_WARS_CATEGORY.id,
   HADITH_CATEGORY.id,
@@ -389,6 +398,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: QURAN_MEDIA_CATEGORY, questionCount: 150 },
   { category: CAPITALS_CURRENCIES_CATEGORY, questionCount: 75 },
   { category: PROPHETIC_BIOGRAPHY_CATEGORY, questionCount: 140 },
+  { category: WHO_SAHABI_CATEGORY, questionCount: 70 },
   { category: QURAN_VERSE_MEANINGS_CATEGORY, questionCount: 150 },
   { category: WORLD_WARS_CATEGORY, questionCount: 75 },
   { category: HADITH_CATEGORY, questionCount: 49 },
