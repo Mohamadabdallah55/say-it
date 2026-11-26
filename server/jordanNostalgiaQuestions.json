@@ -4,1654 +4,22 @@
   "title": "زمن الطيبين — ذكريات جيل الألفينات",
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
-  "importPolicy": "فئة مصورة فقط في اللعب؛ النصوص المحفوظة تنتظر صورًا مناسبة. الروابط الخارجية غير مؤكدة الترخيص.",
-  "questionCount": 112,
-  "total_source_questions": 112,
-  "verified_playable_count": 40,
-  "needs_manual_asset_count": 72,
+  "importPolicy": "الأسئلة المفعلة مصورة فقط. روابط خارجية مع مصدر معلوم، الترخيص غير مؤكد.",
+  "questionCount": 59,
+  "total_source_questions": 59,
+  "verified_playable_count": 59,
+  "needs_manual_asset_count": 0,
   "levels": {
-    "200": 25,
-    "400": 45,
-    "600": 42
+    "200": 15,
+    "400": 28,
+    "600": 16
   },
   "points_distribution_playable": {
-    "200": 9,
-    "400": 19,
-    "600": 12
+    "200": 15,
+    "400": 28,
+    "600": 16
   },
   "questions": [
-    {
-      "id": "JONOS-V2-200-04",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "مين الشخصية اللي بتلبس أحمر وبتنط فوق الفطر وبتنقذ الأميرة؟",
-      "answer": "ماريو",
-      "acceptedAnswers": [
-        "ماريو",
-        "Mario",
-        "سوبر ماريو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-04",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Plants vs. Zombies",
-      "acceptedAnswers": [
-        "Plants vs. Zombies",
-        "بلانتس ضد الزومبي",
-        "بلانتس فيرسس زومبيز"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/scke67.webp",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Plants vs. Zombies",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Plants vs. Zombies",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://backloggd.com/games/plants-vs-zombies/",
-        "sourcePublisher": "backloggd.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://backloggd.com/games/plants-vs-zombies/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-04",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Machinarium",
-      "acceptedAnswers": [
-        "Machinarium",
-        "ماشيناريوم"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://images.steamusercontent.com/ugc/11503269741887685195/86EC2424FFF837B73B21D3643379CA6F72704DB7/?ima=fit&imcolor=%23000000&impolicy=Letterbox&imw=1024&letterbox=false",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Machinarium",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Machinarium",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://steamcommunity.com/app/40700",
-        "sourcePublisher": "steamcommunity.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://steamcommunity.com/app/40700"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-11",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "أي كوكب كان مخصصًا للبرامج العلمية والاكتشافات؟",
-      "answer": "علوم",
-      "acceptedAnswers": [
-        "علوم",
-        "كوكب علوم"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-15",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الحارة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "لعبة حارة فيها سبع حجارة مكدسة وفريق برمي عليها طابة، شو اسمها؟",
-      "answer": "السبع حجار",
-      "acceptedAnswers": [
-        "السبع حجار",
-        "سبع حجارة",
-        "السبع حجارة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الحارة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-18",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم الروبوت القط الأزرق اللي عنده جيب مليان اختراعات؟",
-      "answer": "دورايمون",
-      "acceptedAnswers": [
-        "دورايمون",
-        "عبقور",
-        "Doraemon"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-30",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في أبطال الديجيتال الجزء الأول، شو اسم التطور التالي لرعد بعد شكله الأول المعروف عند أمجد؟",
-      "answer": "صنديد",
-      "acceptedAnswers": [
-        "صنديد",
-        "Greymon"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-02",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "زوما",
-      "acceptedAnswers": [
-        "زوما",
-        "Zuma"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3330/0000000522.1920x1080.jpg?t=1627918693",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Zuma Deluxe",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Zuma Deluxe",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://store.steampowered.com/app/3330/",
-        "sourcePublisher": "store.steampowered.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://store.steampowered.com/app/3330/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-03",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "The Sims",
-      "acceptedAnswers": [
-        "The Sims",
-        "ذا سيمز",
-        "سيمز"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://news-cdn.softpedia.com/images/news2/The-Sims-Only-Included-Same-Sex-Relationships-by-Mistake-447642-2.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "The Sims",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "The Sims",
-        "imageSelectionInstructions": "صورة مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://www.computerhistory.org/revolution/computer-games/16/201/853",
-        "sourcePublisher": "www.computerhistory.org",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.computerhistory.org/revolution/computer-games/16/201/853"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-11",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم شخصية العالِم الشرير اللي كان عدو كراش بانديكوت الأساسي؟",
-      "answer": "نيو كورتيكس",
-      "acceptedAnswers": [
-        "نيو كورتيكس",
-        "Neo Cortex",
-        "دكتور كورتيكس"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-09",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم اللعبة اللي كنا نتنافس فيها بهالبلابل؟",
-      "answer": "بي بليد",
-      "acceptedAnswers": [
-        "بي بليد",
-        "Beyblade",
-        "بيبلاد"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://i.ebayimg.com/images/g/JFYAAOSwxNBoImf5/s-l400.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Beyblade",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Beyblade",
-        "imageSelectionInstructions": "صورة مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://www.ebay.de/itm/297301028171",
-        "sourcePublisher": "www.ebay.de",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.ebay.de/itm/297301028171"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-14",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة الدوّارة الخشبية هاي اللي كنا نلعب فيها؟",
-      "answer": "البلبل",
-      "acceptedAnswers": [
-        "البلبل",
-        "الدوامة",
-        "النحلة"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/4453/37541233846_4a488d1a93_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-043.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "بلبل لعبة شعبية اردنية spinning top",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=%D8%A8%D9%84%D8%A8%D9%84%20%D9%84%D8%B9%D8%A8%D8%A9%20%D8%B4%D8%B9%D8%A8%D9%8A%D8%A9%20%D8%A7%D8%B1%D8%AF%D9%86%D9%8A%D8%A9%20spinning%20top%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "البلبل",
-        "imageSelectionInstructions": "بلبل خشبي تقليدي على الأرض",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
-        "sourcePage": "https://www.flickr.com/photos/eu2017ee/37541233846/",
-        "sourcePublisher": "EU2017EE Estonian Presidency (Flickr)",
-        "license": "CC BY 2.0",
-        "photoTitle": "Spinning top",
-        "width": 799,
-        "height": 533,
-        "bytes": 32882
-      },
-      "evidenceUrls": [
-        "https://ich.gov.jo/node/50756"
-      ],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-16",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم القط اللي دايمًا بحاول يمسك الفأر جيري؟",
-      "answer": "توم",
-      "acceptedAnswers": [
-        "توم",
-        "Tom"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-25",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم الحارس صاحب الشعر الأسود اللي كان من أبرز منافسي الكابتن ماجد؟",
-      "answer": "وليد",
-      "acceptedAnswers": [
-        "وليد",
-        "جينزو واكاباياشي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-37",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم موديل جهاز الألعاب القديم هذا؟",
-      "answer": "سيجا ميغا درايف 2",
-      "acceptedAnswers": [
-        "سيجا ميغا درايف 2",
-        "Sega Mega Drive II",
-        "سيجا ميجا درايف 2",
-        "Mega Drive II"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/8393/8671024135_fdac5d6d48_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-082.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "Sega Mega Drive Genesis classic console Jordan",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sega%20Mega%20Drive%20Genesis%20classic%20console%20Jordan%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "سيجا",
-        "imageSelectionInstructions": "صورة سيجا ميجا درايف لا NES",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض صورة موثوقة للمنتج أو الغرض النادر مع تحدٍّ حقيقي؛ استخدم قصًا منطقيًا دون إفساد هوية الغرض أو تحريف الأرشيف",
-        "sourcePage": "https://www.flickr.com/photos/kibyegon/8671024135/",
-        "sourcePublisher": "Kibet Yegon (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "photoTitle": "P1060948",
-        "width": 800,
-        "height": 450,
-        "bytes": 80316
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-36",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم برنامج المحادثة اللي كان فيه ميزة النكزة على الكمبيوتر؟",
-      "answer": "MSN Messenger",
-      "acceptedAnswers": [
-        "MSN Messenger",
-        "إم إس إن",
-        "ويندوز لايف ماسنجر",
-        "MSN"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-05",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر التي يقفز فيها ضفدع بين السيارات ويعبر النهر على جذوع الخشب؟",
-      "answer": "Frogger",
-      "acceptedAnswers": [
-        "Frogger",
-        "فروغر",
-        "فروجر"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-30",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم اللعبة اللي بنركض فيها بين القطارات ونجمع العملات؟",
-      "answer": "Subway Surfers",
-      "acceptedAnswers": [
-        "Subway Surfers",
-        "صب واي",
-        "سابواي",
-        "صب واي سيرفرز"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-02",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Captain Claw",
-      "acceptedAnswers": [
-        "Captain Claw",
-        "كابتن كلو",
-        "Claw"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn.mobygames.com/b1b09eee-ac1f-11ed-b6e7-02420a000135.webp",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Claw",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Claw",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://www.mobygames.com/game/1123/claw/screenshots/",
-        "sourcePublisher": "www.mobygames.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.mobygames.com/game/1123/claw/screenshots/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-18",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم اللعبة المائية الصغيرة اللي بنضغط أزرارها حتى ندخل حلقات على أعواد داخلها؟",
-      "answer": "لعبة الحلقات المائية",
-      "acceptedAnswers": [
-        "لعبة الحلقات المائية",
-        "Water ring toss",
-        "لعبة الماء والحلقات"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-31",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم بطل كرتون سلام دانك بالدبلجة العربية؟",
-      "answer": "حسان",
-      "acceptedAnswers": [
-        "حسان",
-        "ساكوراغي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-14",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "أي كوكب كان مرتبطًا بالمنافسات الرياضية؟",
-      "answer": "رياضة",
-      "acceptedAnswers": [
-        "رياضة",
-        "كوكب رياضة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-24",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم المخترع اللي ساعد كونان وصنع له أدواته؟",
-      "answer": "الدكتور أغاسا",
-      "acceptedAnswers": [
-        "الدكتور أغاسا",
-        "أغاسا",
-        "البروفيسور أغاسا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-21",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "أي جيل من البلايستيشن هذا الجهاز الرمادي اللي كان يشغل أسطوانات CD؟",
-      "answer": "بلايستيشن 1",
-      "acceptedAnswers": [
-        "بلايستيشن 1",
-        "PS1",
-        "PlayStation 1"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/297/19014523271_7d6f4a510d_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-080.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "Sony PlayStation 1 original grey console",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sony%20PlayStation%201%20original%20grey%20console%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "بلايستيشن 1",
-        "imageSelectionInstructions": "موديل PS1 الأصلي الرمادي",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
-        "sourcePage": "https://www.flickr.com/photos/79157069@N03/19014523271/",
-        "sourcePublisher": "Matthew Paul  Argall (Flickr)",
-        "license": "CC BY 2.0",
-        "photoTitle": "Sony Playstation in black-and-white",
-        "width": 799,
-        "height": 540,
-        "bytes": 103313
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-35",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم القرص المربع اللي كنا نحفظ عليه الملفات قبل الفلاشة؟",
-      "answer": "ديسكيت",
-      "acceptedAnswers": [
-        "ديسكيت",
-        "Floppy disk",
-        "قرص مرن"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/5483/9120429846_5ac00d8ba7_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-083.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "floppy disk 3.5 inch old computer",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=floppy%20disk%203.5%20inch%20old%20computer%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "الديسكيت",
-        "imageSelectionInstructions": "قرص مرن 3.5 بوصة",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض صورة موثوقة للمنتج أو الغرض النادر مع تحدٍّ حقيقي؛ استخدم قصًا منطقيًا دون إفساد هوية الغرض أو تحريف الأرشيف",
-        "sourcePage": "https://www.flickr.com/photos/jepoirrier/9120429846/",
-        "sourcePublisher": "Jean-Etienne Minh-Duy Poirrier (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "photoTitle": "Floppy disks",
-        "width": 799,
-        "height": 533,
-        "bytes": 62938
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-12",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في ماريو، شو اسم الديناصور الأخضر اللي بيركب عليه ماريو؟",
-      "answer": "يوشي",
-      "acceptedAnswers": [
-        "يوشي",
-        "Yoshi"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-28",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
-      "answer": "Fruit Ninja",
-      "acceptedAnswers": [
-        "Fruit Ninja",
-        "فروت نينجا"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.cdgameclub.com/games/images/com_Eliminate_Leisure_fruit_ninja_free/1ced1ab253e9f4850d2508e9bd5c0afe.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Fruit Ninja",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Fruit Ninja",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.cdgameclub.com/game/fruit_ninja_free.html",
-        "sourcePublisher": "www.cdgameclub.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.cdgameclub.com/game/fruit_ninja_free.html"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-01",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Icy Tower",
-      "acceptedAnswers": [
-        "Icy Tower",
-        "آيسي تاور",
-        "ايسي تاور"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://lassaho.weebly.com/uploads/1/3/5/4/135422190/874202532_orig.png",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Icy Tower",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Icy Tower",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10",
-        "sourcePublisher": "lassaho.weebly.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-25",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم كونان الحقيقي قبل ما يصير صغير؟",
-      "answer": "سينشي كودو",
-      "acceptedAnswers": [
-        "سينشي كودو",
-        "شينيتشي كودو",
-        "سينشي",
-        "Shinichi Kudo"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-05",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة ترتيب القطع اللي بتنزل بأشكال مختلفة ونحاول نكمّل فيها صفوف كاملة؟",
-      "answer": "تتريس",
-      "acceptedAnswers": [
-        "تتريس",
-        "Tetris"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-12",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة الإلكترونية الصغيرة بشكل بيضة، اللي لازم تطعم فيها حيوانك الافتراضي؟",
-      "answer": "تاماغوتشي",
-      "acceptedAnswers": [
-        "تاماغوتشي",
-        "Tamagotchi",
-        "تاماجوتشي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-38",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو رقم موديل تلفون نوكيا الظاهر بالصورة؟",
-      "answer": "نوكيا 6600",
-      "acceptedAnswers": [
-        "نوكيا 6600",
-        "6600",
-        "الباندا",
-        "Nokia 6600"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-53787374%2Cwidth-1200%2Cheight-900/53787374.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Nokia 6600",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Nokia 6600",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms",
-        "sourcePublisher": "gadgetsnow.indiatimes.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-12",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "أي كوكب كان مخصصًا للحروف والأرقام؟",
-      "answer": "أبجد",
-      "acceptedAnswers": [
-        "أبجد",
-        "ابجد",
-        "كوكب أبجد"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-23",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللص الغامض بملابس بيضاء اللي كان يتحدى كونان في سرقة الجواهر؟",
-      "answer": "كايتو كيد",
-      "acceptedAnswers": [
-        "كايتو كيد",
-        "كيد",
-        "Kaito Kid"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-06",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Fireboy and Watergirl",
-      "acceptedAnswers": [
-        "Fireboy and Watergirl",
-        "فاير بوي ووتر غيرل",
-        "ولد النار وبنت الماء"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.pomu.com/nl/files/game/img_mobile/16950/Fireboy-And-Watergirl-In-The-Forest-Temple.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Fireboy and Watergirl",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Fireboy and Watergirl",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html",
-        "sourcePublisher": "www.pomu.nl",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-19",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم شخصية الكرتون اللي معها ساعة فضائية بتخليها تتحول لمخلوقات مختلفة؟",
-      "answer": "بن تن",
-      "acceptedAnswers": [
-        "بن تن",
-        "Ben 10",
-        "بن 10"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-34",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو الاسم المعروف لهذا الجهاز المحمول اللي كان يشغّل أشرطة الكاسيت؟",
-      "answer": "ووكمان",
-      "acceptedAnswers": [
-        "ووكمان",
-        "Walkman",
-        "ووك مان"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/3016/3116717772_263b7b88b5_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-077.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "Sony Walkman cassette player vintage",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sony%20Walkman%20cassette%20player%20vintage%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "الووكمان",
-        "imageSelectionInstructions": "جهاز كاسيت محمول حقيقي",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
-        "sourcePage": "https://www.flickr.com/photos/beleaveme/3116717772/",
-        "sourcePublisher": "Bob B. Brown (Flickr)",
-        "license": "CC BY 2.0",
-        "photoTitle": "Throwback",
-        "width": 800,
-        "height": 600,
-        "bytes": 122972
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-45",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Flappy Bird",
-      "acceptedAnswers": [
-        "Flappy Bird",
-        "فلابي بيرد"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn.thegamesdb.net/images/medium/screenshot/123335-1.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Flappy Bird",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Flappy Bird",
-        "imageSelectionInstructions": "صورة مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://thegamesdb.net/game.php?id=123335",
-        "sourcePublisher": "thegamesdb.net",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://thegamesdb.net/game.php?id=123335"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-03",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Chicken Invaders",
-      "acceptedAnswers": [
-        "Chicken Invaders",
-        "تشيكن إنفيدرز",
-        "لعبة الفراخ",
-        "Chicken Invaders 2",
-        "تشيكن إنفيدرز 2"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.macgamestore.com/images_screenshots/chicken-invaders-2-62046.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Chicken Invaders 2",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Chicken Invaders 2",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/",
-        "sourcePublisher": "www.macgamestore.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-11",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "الأقراص البلاستيكية الصغيرة اللي كانت تيجي داخل أكياس الشيبس ونجمعها ونبادلها؟",
-      "answer": "تازوس",
-      "acceptedAnswers": [
-        "تازوس",
-        "Tazos",
-        "تازو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-45",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
-      "answer": "Bounce",
-      "acceptedAnswers": [
-        "Bounce",
-        "باونس",
-        "لعبة الكرة"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.sify.com/wp-content/uploads/2023/02/bounce_game_level4.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Bounce",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Bounce",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/",
-        "sourcePublisher": "www.sify.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-22",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "أي قناة ثانية ارتبط اسمها بسبيستون وكان جمهورها الأكبر سنًا؟",
-      "answer": "سبيس باور",
-      "acceptedAnswers": [
-        "سبيس باور",
-        "Space Power",
-        "سبيس بور"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-13",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في لعبة سونيك، شو اسم الثعلب اللي عنده ذيلين؟",
-      "answer": "تيلز",
-      "acceptedAnswers": [
-        "تيلز",
-        "Tails"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-17",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم الكرتون اللي بطله إسفنجة صفراء بتعيش تحت البحر؟",
-      "answer": "سبونج بوب",
-      "acceptedAnswers": [
-        "سبونج بوب",
-        "سبونجبوب",
-        "SpongeBob"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-33",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو رقم موديل هذا التلفون؟",
-      "answer": "3310",
-      "acceptedAnswers": [
-        "3310",
-        "نوكيا 3310",
-        "Nokia 3310"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/6148/6039229981_e95615fdcc_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-084.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "Nokia 3310 original phone front",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Nokia%203310%20original%20phone%20front%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "نوكيا 3310",
-        "imageSelectionInstructions": "صورة نوكيا 3310 الأصلي لا 3310 الجديد",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
-        "sourcePage": "https://www.flickr.com/photos/asimzb/6039229981/",
-        "sourcePublisher": "Asim Bijarani (Flickr)",
-        "license": "CC BY 2.0",
-        "photoTitle": "Nokia 3310",
-        "width": 538,
-        "height": 800,
-        "bytes": 93678
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-26",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم المحقق والد ران في المحقق كونان؟",
-      "answer": "توغو موري",
-      "acceptedAnswers": [
-        "توغو موري",
-        "كوغورو موري",
-        "موري",
-        "توغو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-24",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم برنامج الرسم البسيط اللي كان موجود بويندوز؟",
-      "answer": "Paint",
-      "acceptedAnswers": [
-        "Paint",
-        "الرسام",
-        "مايكروسوفت بينت"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-44",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
-      "answer": "Doodle Jump",
-      "acceptedAnswers": [
-        "Doodle Jump",
-        "دودل جمب"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://img.utdstc.com/screen/a54/a60/a54a60762864b06842c3c90746f2798b2234e8fe0675ebe5a2a9d67bf732433e%3A600",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Doodle Jump",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Doodle Jump",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://doodle-jump.kr.uptodown.com/windows",
-        "sourcePublisher": "doodle-jump.kr.uptodown.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://doodle-jump.kr.uptodown.com/windows"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
     {
       "id": "JONOS-V2-200-01",
       "category": "زمن الطيبين",
@@ -1690,473 +58,6 @@
       "contentStatus": "approved",
       "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
       "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-10",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Age of Empires",
-      "acceptedAnswers": [
-        "Age of Empires",
-        "عصر الإمبراطوريات",
-        "إيج أوف إمبايرز"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.mobygames.com/images/promo/l/11844-age-of-empires-screenshot.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Age of Empires",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Age of Empires",
-        "imageSelectionInstructions": "صورة مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://www.mobygames.com/game/windows/age-of-empires/promo/promoImageId%2C11844/",
-        "sourcePublisher": "www.mobygames.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.mobygames.com/game/windows/age-of-empires/promo/promoImageId%2C11844/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-07",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Farm Frenzy",
-      "acceptedAnswers": [
-        "Farm Frenzy",
-        "فارم فرينزي"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://m.media-amazon.com/images/M/MV5BNGExYWE0MzQtNTlkNS00NmU5LTljZTgtNWNjZTQ1ZGY2Mjc2XkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Farm Frenzy",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Farm Frenzy",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/",
-        "sourcePublisher": "www.imdb.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-08",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "لعبة قرصين مربوطين بخيط بننزله وبنرجعه على إيدنا؟",
-      "answer": "اليويو",
-      "acceptedAnswers": [
-        "اليويو",
-        "Yo-yo",
-        "يو يو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-21",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "كم كان عدد كواكب سبيستون الأصلية؟",
-      "answer": "10",
-      "acceptedAnswers": [
-        "10",
-        "عشرة",
-        "١٠"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-20",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات التلفزيون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم مجلة الأطفال الإماراتية اللي كانت فيها شخصيات مثل فضولي وكسلان جدًا؟",
-      "answer": "مجلة ماجد",
-      "acceptedAnswers": [
-        "مجلة ماجد",
-        "ماجد"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات التلفزيون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-15",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم المحقق الصغير اللي كان يحل القضايا بعد ما صار طفل؟",
-      "answer": "كونان",
-      "acceptedAnswers": [
-        "كونان",
-        "المحقق كونان"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-32",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات التلفزيون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم البرنامج التثقيفي العربي اللي أشهر شخصياته نعمان وملسون؟",
-      "answer": "افتح يا سمسم",
-      "acceptedAnswers": [
-        "افتح يا سمسم",
-        "افتح ياسمسم"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات التلفزيون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-33",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم الصديق ذو الشعر الأبيض في مسلسل القناص؟",
-      "answer": "كيلوا",
-      "acceptedAnswers": [
-        "كيلوا",
-        "Killua",
-        "كيلووا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-22",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "قبل الفلاشات، شو اسم شريط الأفلام اللي كنا ندخله بجهاز الفيديو؟",
-      "answer": "VHS",
-      "acceptedAnswers": [
-        "VHS",
-        "شريط فيديو",
-        "كاسيت فيديو"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://live.staticflickr.com/2849/33337363300_037be71a99_c.jpg",
-        "localFile": "/assets/jordan_nostalgia/JONOS-078.jpg",
-        "status": "verified_and_licensed",
-        "searchQueryAr": "VHS tape old Jordan video shop",
-        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=VHS%20tape%20old%20Jordan%20video%20shop%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "شريط الفيديو",
-        "imageSelectionInstructions": "شريط VHS كبير لا كاسيت صوتي",
-        "mustBeRealPhoto": true,
-        "rejectIf": [
-          "الصورة ليست للعنصر المطلوب",
-          "اسم المنتج أو مكانه غير مطابق",
-          "مولدة بالذكاء الاصطناعي",
-          "علامة مائية",
-          "لقطة من ويكيبيديا",
-          "الحقوق غير مناسبة للنشر"
-        ],
-        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
-        "sourcePage": "https://www.flickr.com/photos/149074387@N08/33337363300/",
-        "sourcePublisher": "Lisa Giles (Flickr)",
-        "license": "Public Domain Mark 1.0",
-        "photoTitle": "Video Tapes/VHS Tapes",
-        "width": 800,
-        "height": 600,
-        "bytes": 64246
-      },
-      "evidenceUrls": [],
-      "rightsStatus": "verified_for_publication",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-43",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Temple Run",
-      "acceptedAnswers": [
-        "Temple Run",
-        "تمبل رن"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn.nichesites.pikoya.com/gamesparkles_com/images/games/7264/gallery/20460.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Temple Run",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Temple Run",
-        "imageSelectionInstructions": "صورة مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://www.gamesparkles.com/games/temple_run",
-        "sourcePublisher": "www.gamesparkles.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.gamesparkles.com/games/temple_run"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-01",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم سلسلة لعبة الأرنب الأخضر القديمة اللي بالصورة؟",
-      "answer": "Jazz Jackrabbit",
-      "acceptedAnswers": [
-        "جاز جاك رابيت",
-        "Jazz Jackrabbit",
-        "Jazz Jackrabbit 2"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://images.squarespace-cdn.com/content/v1/642fc034809e711eff62ee86/bcaff641-f55a-40e1-aee1-55dd39961d9d/1.JPG",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Jazz Jackrabbit 2",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Jazz Jackrabbit 2",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://gamesof1998.com/home/jazzjackrabbit2",
-        "sourcePublisher": "gamesof1998.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://gamesof1998.com/home/jazzjackrabbit2"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-29",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الهاتف",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
-      "answer": "Angry Birds",
-      "acceptedAnswers": [
-        "Angry Birds",
-        "الطيور الغاضبة",
-        "أنغري بيردز"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn.mobygames.com/screenshots/11783709-angry-birds-ipad-failed-to-topple-this-structure.png",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Angry Birds",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Angry Birds",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/",
-        "sourcePublisher": "www.mobygames.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-09",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "في سلسلة نيد فور سبيد، شو اسم نسخة 2005 اللي اشتهرت بسيارة BMW M3 GTR؟",
-      "answer": "Most Wanted",
-      "acceptedAnswers": [
-        "Most Wanted",
-        "موست وانتد",
-        "Need for Speed Most Wanted"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-14",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في كراش، شو اسم الفاكهة اللي كنا نجمعها بالمراحل؟",
-      "answer": "وومبا",
-      "acceptedAnswers": [
-        "وومبا",
-        "Wumpa",
-        "فاكهة وومبا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -2217,169 +118,531 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-27",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في المحقق كونان، شو اسم الفتاة التي كانت تعمل على العقار APTX 4869 وأصبحت طفلة مثله؟",
-      "answer": "هيبارا",
-      "acceptedAnswers": [
-        "هيبارا",
-        "آي هايبرا",
-        "هايبرا",
-        "شيهو ميانو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-13",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 200,
-      "points": 200,
-      "question": "أي كوكب كان للضحك والمواقف المضحكة؟",
-      "answer": "كوميديا",
-      "acceptedAnswers": [
-        "كوميديا",
-        "كوكب كوميديا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-31",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات التلفزيون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم قناة الأطفال العربية اللي كانت معروفة قبل تغيير اسمها إلى تلفزيون ج؟",
-      "answer": "قناة الجزيرة للأطفال",
-      "acceptedAnswers": [
-        "الجزيرة للأطفال",
-        "JCC",
-        "الجزيرة للاطفال"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات التلفزيون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-40",
+      "id": "JONOS-V2-200-21",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم جهاز الألعاب المحمول من سوني اللي كانت ألعابه على أقراص UMD؟",
-      "answer": "PSP",
+      "difficulty": 200,
+      "points": 200,
+      "question": "أي جيل من أجهزة الألعاب هذا الجهاز الرمادي؟",
+      "answer": "بلايستيشن 1",
       "acceptedAnswers": [
-        "PSP",
-        "بلايستيشن بورتابل",
-        "PlayStation Portable"
+        "بلايستيشن 1",
+        "PS1",
+        "PlayStation 1"
       ],
-      "imageRequired": false,
-      "image": null,
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/297/19014523271_7d6f4a510d_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-080.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "Sony PlayStation 1 original grey console",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sony%20PlayStation%201%20original%20grey%20console%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "بلايستيشن 1",
+        "imageSelectionInstructions": "موديل PS1 الأصلي الرمادي",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
+        "sourcePage": "https://www.flickr.com/photos/79157069@N03/19014523271/",
+        "sourcePublisher": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "photoTitle": "Sony Playstation in black-and-white",
+        "width": 799,
+        "height": 540,
+        "bytes": 103313
+      },
       "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "rightsStatus": "verified_for_publication",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "تقنية"
       ]
     },
     {
-      "id": "JONOS-V2-400-42",
+      "id": "JONOS-BAL-006",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ذكريات المدرسة",
+      "difficulty": 200,
+      "points": 200,
+      "question": "كم لون مختلف كان في هالنوع من الأقلام الظاهر بالصورة؟",
+      "answer": "10 ألوان",
+      "acceptedAnswers": [
+        "10 ألوان",
+        "10",
+        "عشرة",
+        "عشر ألوان"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.pinimg.com/736x/3c/9c/c5/3c9cc5d261808350289e3afe55522790.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "10 ألوان",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "10 ألوان",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pinterest.com/pin/10-in-1-color-pen-10-multi-colour-ballpoint-pen-1-set--959900108108577397/",
+        "sourcePublisher": "www.pinterest.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pinterest.com/pin/10-in-1-color-pen-10-multi-colour-ballpoint-pen-1-set--959900108108577397/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ذكريات المدرسة"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-011",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم المسلسل اللي منه هاي الشخصيات الرقمية؟",
+      "answer": "أبطال الديجيتال",
+      "acceptedAnswers": [
+        "أبطال الديجيتال",
+        "ابطال الديجيتال",
+        "Digimon"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i1.sndcdn.com/artworks-000208093709-s77mvj-t1080x1080.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "أبطال الديجيتال",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "أبطال الديجيتال",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://soundcloud.com/user-621956450/2-1",
+        "sourcePublisher": "soundcloud.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://soundcloud.com/user-621956450/2-1"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-02",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "زوما",
+      "acceptedAnswers": [
+        "زوما",
+        "Zuma"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3330/0000000522.1920x1080.jpg?t=1627918693",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Zuma Deluxe",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Zuma Deluxe",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://store.steampowered.com/app/3330/",
+        "sourcePublisher": "store.steampowered.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://store.steampowered.com/app/3330/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-09",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم اللعبة اللي كنا نتنافس فيها بهالبلابل؟",
+      "answer": "بي بليد",
+      "acceptedAnswers": [
+        "بي بليد",
+        "Beyblade",
+        "بيبلاد"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.ebayimg.com/images/g/JFYAAOSwxNBoImf5/s-l400.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Beyblade",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Beyblade",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.ebay.de/itm/297301028171",
+        "sourcePublisher": "www.ebay.de",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.ebay.de/itm/297301028171"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-22",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 200,
+      "points": 200,
+      "question": "قبل الفلاشات، شو اسم شريط الأفلام اللي كنا ندخله بجهاز الفيديو؟",
+      "answer": "VHS",
+      "acceptedAnswers": [
+        "VHS",
+        "شريط فيديو",
+        "كاسيت فيديو"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/2849/33337363300_037be71a99_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-078.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "VHS tape old Jordan video shop",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=VHS%20tape%20old%20Jordan%20video%20shop%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "شريط الفيديو",
+        "imageSelectionInstructions": "شريط VHS كبير لا كاسيت صوتي",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
+        "sourcePage": "https://www.flickr.com/photos/149074387@N08/33337363300/",
+        "sourcePublisher": "Lisa Giles (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "photoTitle": "Video Tapes/VHS Tapes",
+        "width": 800,
+        "height": 600,
+        "bytes": 64246
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-03",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Chicken Invaders",
+      "acceptedAnswers": [
+        "Chicken Invaders",
+        "تشيكن إنفيدرز",
+        "لعبة الفراخ",
+        "Chicken Invaders 2",
+        "تشيكن إنفيدرز 2"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.macgamestore.com/images_screenshots/chicken-invaders-2-62046.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Chicken Invaders 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Chicken Invaders 2",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/",
+        "sourcePublisher": "www.macgamestore.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-18",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو المطلوب نعمله لما نضغط أزرار هاللعبة؟",
+      "answer": "ندخل الحلقات بالأعمدة",
+      "acceptedAnswers": [
+        "ندخل الحلقات بالأعمدة",
+        "ندخل الحلقات في الأعواد",
+        "نركب الحلقات",
+        "تجميع الحلقات"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://d38vousazc6cao.cloudfront.net/Images/Shop/8/Product/16349/400/3788d966993d4ccf99dedb3e6d2c0d75.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "ندخل الحلقات بالأعمدة",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "ندخل الحلقات بالأعمدة",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.gokcemuzayede.com/en/product/6323152/2000-ler-cin-mali-donemin-halka-gecirmeli-su-oyunu-mini-seyahat-oyuncagi-cin-ure",
+        "sourcePublisher": "www.gokcemuzayede.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gokcemuzayede.com/en/product/6323152/2000-ler-cin-mali-donemin-halka-gecirmeli-su-oyunu-mini-seyahat-oyuncagi-cin-ure"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-016",
+      "category": "زمن الطيبين",
+      "region": "الأردن",
+      "subCategory": "تقنية",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو نوع التلفون اللي كنا نلف فيه الأرقام بدل الكبس؟",
+      "answer": "تلفون القرص",
+      "acceptedAnswers": [
+        "تلفون القرص",
+        "تلفون دوار",
+        "هاتف القرص الدوار",
+        "تلفون القرص الدوّار"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/3856/15105041327_68fd261dea_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-071.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "rotary telephone old Jordan home",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=rotary%20telephone%20old%20Jordan%20home%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "التلفون الدوّار",
+        "imageSelectionInstructions": "هاتف قرص دوار حقيقي",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
+        "sourcePage": "https://www.flickr.com/photos/51764518@N02/15105041327/",
+        "sourcePublisher": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "photoTitle": "Vintage Dutch PTT Rotary Dial Telephone, Made In The Netherlands",
+        "width": 800,
+        "height": 611,
+        "bytes": 96855
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "الصورة القديمة فُحصت بصريًا من جديد؛ السؤال أعيدت صياغته",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "أردن",
+        "ذكريات",
+        "تراث",
+        "صور"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-29",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الهاتف",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بتربّي فيها مخلوق بني صغير وبتطعميه وبتنظفيه؟",
-      "answer": "Pou",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
+      "answer": "Angry Birds",
       "acceptedAnswers": [
-        "Pou",
-        "بو"
+        "Angry Birds",
+        "الطيور الغاضبة",
+        "أنغري بيردز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/11783709-angry-birds-ipad-failed-to-topple-this-structure.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Angry Birds",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Angry Birds",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
       ]
     },
     {
-      "id": "JONOS-V2-600-08",
+      "id": "JONOS-V2-200-08",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Red Ball",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم هاللعبة اللي كانت ترجع على الإيد بخيط؟",
+      "answer": "اليويو",
       "acceptedAnswers": [
-        "Red Ball",
-        "ريد بول",
-        "الكرة الحمراء"
+        "اليويو",
+        "Yo-yo",
+        "يو يو"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://images.pling.com/img/00/00/56/42/80/2014623/3.jpg",
+        "url": "https://cdn.shopify.com/s/files/1/0640/9506/0183/files/vintage-wooden-fixed-axle-yoyo-history.jpg?v=1774874095",
         "localFile": null,
         "status": "external_reference",
-        "searchQueryAr": "Red Ball",
+        "searchQueryAr": "اليويو",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Red Ball",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "visualTarget": "اليويو",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
         "mustBeRealPhoto": false,
         "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.appimagehub.com/p/2014623",
-        "sourcePublisher": "www.appimagehub.com",
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://gentrystein.com/en-au/blogs/yoyochampion-blog/responsive-vs-unresponsive-yo-yos-explained-by-a-2-world-champion-beginner-to-pro-guide",
+        "sourcePublisher": "gentrystein.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.appimagehub.com/p/2014623"
+        "https://gentrystein.com/en-au/blogs/yoyochampion-blog/responsive-vs-unresponsive-yo-yos-explained-by-a-2-world-champion-beginner-to-pro-guide"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-43",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم اللعبة اللي بالصورة؟",
+      "answer": "Temple Run",
+      "acceptedAnswers": [
+        "Temple Run",
+        "تمبل رن"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.nichesites.pikoya.com/gamesparkles_com/images/games/7264/gallery/20460.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Temple Run",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Temple Run",
+        "imageSelectionInstructions": "صورة مطابقة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة عند الحاجة",
+        "sourcePage": "https://www.gamesparkles.com/games/temple_run",
+        "sourcePublisher": "www.gamesparkles.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gamesparkles.com/games/temple_run"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
@@ -2387,45 +650,92 @@
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "ألعاب الهاتف"
       ]
     },
     {
-      "id": "JONOS-V2-400-08",
+      "id": "JONOS-BAL-002",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو اسم اللعبة الزنبركية اللي كنا نخليها تنزل الدرج لحالها؟",
+      "answer": "السبرنغ",
+      "acceptedAnswers": [
+        "السبرنغ",
+        "سبرينغ",
+        "Slinky",
+        "سلنكي",
+        "سلكي",
+        "النابض",
+        "الزنبرك",
+        "لولب قوس قزح"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://maxsmile.in/cdn/shop/files/magic-smiley-spring-toys-games-207.webp?v=1776201739&width=1946",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "السبرنغ",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "السبرنغ",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://maxsmile.in/products/magic-smiley-spring-toys",
+        "sourcePublisher": "maxsmile.in",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://maxsmile.in/products/magic-smiley-spring-toys"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-01",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Crash Bandicoot",
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Icy Tower",
       "acceptedAnswers": [
-        "Crash Bandicoot",
-        "كراش بانديكوت",
-        "كراش"
+        "Icy Tower",
+        "آيسي تاور",
+        "ايسي تاور"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://cimg.kgl-systems.io/camion/files/famitsu/26255/a08ecb3cf4087eb5184798b2ac2a34520.jpg?x=767",
+        "url": "https://lassaho.weebly.com/uploads/1/3/5/4/135422190/874202532_orig.png",
         "localFile": null,
         "status": "external_reference",
-        "searchQueryAr": "Crash Bandicoot",
+        "searchQueryAr": "Icy Tower",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Crash Bandicoot",
-        "imageSelectionInstructions": "صورة مطابقة",
+        "visualTarget": "Icy Tower",
+        "imageSelectionInstructions": "لقطة من اللعب",
         "mustBeRealPhoto": false,
         "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة عند الحاجة",
-        "sourcePage": "https://www.famitsu.com/article/202412/26255",
-        "sourcePublisher": "www.famitsu.com",
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10",
+        "sourcePublisher": "lassaho.weebly.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.famitsu.com/article/202412/26255"
+        "https://lassaho.weebly.com/blog/windows-95-games-on-windows-10"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
@@ -2433,158 +743,946 @@
       ]
     },
     {
-      "id": "JONOS-RETRO-01",
+      "id": "JONOS-V2-400-14",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "لعبة الألغاز القديمة اللي كنا نرتب فيها ثلاثة أحجار كريمة من نفس اللون؟",
-      "answer": "Bejeweled",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم اللعبة الدوّارة الخشبية هاي اللي كنا نلعب فيها؟",
+      "answer": "البلبل",
       "acceptedAnswers": [
-        "Bejeweled",
-        "بيجويلد",
-        "Bejeweled Deluxe"
+        "البلبل",
+        "الدوامة",
+        "النحلة"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/4453/37541233846_4a488d1a93_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-043.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "بلبل لعبة شعبية اردنية spinning top",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=%D8%A8%D9%84%D8%A8%D9%84%20%D9%84%D8%B9%D8%A8%D8%A9%20%D8%B4%D8%B9%D8%A8%D9%8A%D8%A9%20%D8%A7%D8%B1%D8%AF%D9%86%D9%8A%D8%A9%20spinning%20top%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "البلبل",
+        "imageSelectionInstructions": "بلبل خشبي تقليدي على الأرض",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
+        "sourcePage": "https://www.flickr.com/photos/eu2017ee/37541233846/",
+        "sourcePublisher": "EU2017EE Estonian Presidency (Flickr)",
+        "license": "CC BY 2.0",
+        "photoTitle": "Spinning top",
+        "width": 799,
+        "height": 533,
+        "bytes": 32882
+      },
+      "evidenceUrls": [
+        "https://ich.gov.jo/node/50756"
+      ],
+      "rightsStatus": "verified_for_publication",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "ألعاب الطفولة"
       ]
     },
     {
-      "id": "JONOS-V2-400-19",
+      "id": "JONOS-V2-400-33",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو رقم موديل هذا التلفون؟",
+      "answer": "3310",
+      "acceptedAnswers": [
+        "3310",
+        "نوكيا 3310",
+        "Nokia 3310"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/6148/6039229981_e95615fdcc_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-084.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "Nokia 3310 original phone front",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Nokia%203310%20original%20phone%20front%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "نوكيا 3310",
+        "imageSelectionInstructions": "صورة نوكيا 3310 الأصلي لا 3310 الجديد",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
+        "sourcePage": "https://www.flickr.com/photos/asimzb/6039229981/",
+        "sourcePublisher": "Asim Bijarani (Flickr)",
+        "license": "CC BY 2.0",
+        "photoTitle": "Nokia 3310",
+        "width": 538,
+        "height": 800,
+        "bytes": 93678
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-004",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ذكريات المدرسة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو الميزة اللي كانت تميز هالمحايات عن المحاية العادية؟",
+      "answer": "معطرة",
+      "acceptedAnswers": [
+        "معطرة",
+        "رائحة الفواكه",
+        "ريحة",
+        "ريحة الفواكه",
+        "معطرة بروائح"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.pineappleretro.co.uk/cdn/shop/files/DSC_3234_858e3531-797c-4648-8c5e-eb5fac555aa4.jpg?v=1746768304",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "معطرة",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "معطرة",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pineappleretro.co.uk/products/vintage-1980s-collectable-erasers-rubbers-scented-cased",
+        "sourcePublisher": "www.pineappleretro.co.uk",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pineappleretro.co.uk/products/vintage-1980s-collectable-erasers-rubbers-scented-cased"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ذكريات المدرسة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-200-11",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "سبيستون",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم الكوكب اللي كان مخصصًا للصغار جدًا؟",
-      "answer": "بون بون",
+      "question": "من كواكب القناة الظاهرة بالصورة، أي كوكب كان مخصصًا للاكتشاف والمعرفة؟",
+      "answer": "علوم",
       "acceptedAnswers": [
-        "بون بون",
-        "بونبون",
-        "كوكب بون بون"
+        "علوم",
+        "كوكب علوم"
       ],
-      "imageRequired": false,
-      "image": null,
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.aljazeera.net/wp-content/uploads/2018/07/f3a75351-a7da-4f32-8443-521afcffff7b.jpeg?quality=80",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "علوم",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "علوم",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.aljazeera.net/arts/2018/7/17/جيل-النبلاء-هكذا-خلقت-سبيستون-هوية",
+        "sourcePublisher": "www.aljazeera.net",
+        "license": null
+      },
       "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
+        "https://www.aljazeera.net/arts/2018/7/17/جيل-النبلاء-هكذا-خلقت-سبيستون-هوية"
       ],
-      "rightsStatus": "not_applicable",
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "سبيستون"
       ]
     },
     {
-      "id": "JONOS-V2-600-34",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم البطل في مسلسل أنا وأخي الذي كان يعتني بأخيه الصغير؟",
-      "answer": "سامي",
-      "acceptedAnswers": [
-        "سامي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-02",
+      "id": "JONOS-V2-400-02",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الورق اللي كانت موجودة مع ويندوز ونرتب فيها الأوراق من الآس للملك؟",
-      "answer": "Solitaire",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Captain Claw",
       "acceptedAnswers": [
-        "Solitaire",
-        "سوليتير",
-        "سوليتير ويندوز"
+        "Captain Claw",
+        "كابتن كلو",
+        "Claw"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/b1b09eee-ac1f-11ed-b6e7-02420a000135.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Claw",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Claw",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/1123/claw/screenshots/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/1123/claw/screenshots/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
       ]
     },
     {
-      "id": "JONOS-V2-400-30",
+      "id": "JONOS-V2-400-11",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو كان اسم هالقطع الدائرية اللي كنا نجمعها ونبادلها؟",
+      "answer": "تازوس",
+      "acceptedAnswers": [
+        "تازوس",
+        "تازو",
+        "Tazos",
+        "بوغز",
+        "Pogs"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://img.chilango.com/2019/04/Captura-de-pantalla-2019-04-30-a-las-12.45.19.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "تازوس",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "تازوس",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.chilango.com/ocio/tazos-de-los-90-coleccion/",
+        "sourcePublisher": "www.chilango.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.chilango.com/ocio/tazos-de-los-90-coleccion/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-34",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو الاسم المعروف لهذا الجهاز المحمول اللي كان يشغّل أشرطة الكاسيت؟",
+      "answer": "ووكمان",
+      "acceptedAnswers": [
+        "ووكمان",
+        "Walkman",
+        "ووك مان"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/3016/3116717772_263b7b88b5_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-077.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "Sony Walkman cassette player vintage",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sony%20Walkman%20cassette%20player%20vintage%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "الووكمان",
+        "imageSelectionInstructions": "جهاز كاسيت محمول حقيقي",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
+        "sourcePage": "https://www.flickr.com/photos/beleaveme/3116717772/",
+        "sourcePublisher": "Bob B. Brown (Flickr)",
+        "license": "CC BY 2.0",
+        "photoTitle": "Throwback",
+        "width": 800,
+        "height": 600,
+        "bytes": 122972
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-005",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ذكريات المدرسة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم هالنوع من أقلام الرصاص اللي بنبدّل رأسه من تحت لفوق بدل ما نبريه؟",
+      "answer": "قلم الرصاص أبو رؤوس",
+      "acceptedAnswers": [
+        "قلم الرصاص أبو رؤوس",
+        "قلم رؤوس",
+        "قلم الرصاص متعدد الرؤوس",
+        "Pop-A-Point",
+        "قلم كبس",
+        "قلم الرصاص أبو راس"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://d2j6dbq0eux0bg.cloudfront.net/images/122879314/5112044629.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "قلم الرصاص أبو رؤوس",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "قلم الرصاص أبو رؤوس",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://4stateteacherresources.com/products/pop-a-point-fruit-pencils-mechanical-pencils",
+        "sourcePublisher": "4stateteacherresources.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://4stateteacherresources.com/products/pop-a-point-fruit-pencils-mechanical-pencils"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ذكريات المدرسة"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-009",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم الفتاة التي عاشت في الجبال مع جدها وصديقها بيتر؟",
-      "answer": "هايدي",
+      "question": "شو اسم المسلسل اللي كان بطلاه يتسابقوا بسيارات صغيرة؟",
+      "answer": "سابق ولاحق",
       "acceptedAnswers": [
-        "هايدي",
-        "Heidi"
+        "سابق ولاحق",
+        "سابق و لاحق",
+        "Let's & Go"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://i1.sndcdn.com/artworks-000089021756-pac0yz-t500x500.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "سابق ولاحق",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "سابق ولاحق",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://soundcloud.com/wswsart/sabq-la7q",
+        "sourcePublisher": "soundcloud.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://soundcloud.com/wswsart/sabq-la7q"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "كرتون"
       ]
     },
     {
-      "id": "JONOS-V2-600-02",
+      "id": "JONOS-V2-400-04",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بتتحكم فيها بسفينة فضائية من أسفل الشاشة وبتواجه صفوفًا من المخلوقات الفضائية بتنزل تدريجيًا؟",
-      "answer": "Space Invaders",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Plants vs. Zombies",
       "acceptedAnswers": [
-        "سبيس إنفيدرز",
-        "Space Invaders"
+        "Plants vs. Zombies",
+        "بلانتس ضد الزومبي",
+        "بلانتس فيرسس زومبيز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/scke67.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Plants vs. Zombies",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Plants vs. Zombies",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://backloggd.com/games/plants-vs-zombies/",
+        "sourcePublisher": "backloggd.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://backloggd.com/games/plants-vs-zombies/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-12",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الحيوان الإلكتروني اللي كنا نطعميه ونعتني فيه؟",
+      "answer": "تاماغوتشي",
+      "acceptedAnswers": [
+        "تاماغوتشي",
+        "Tamagotchi",
+        "تاماجوتشي"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.insider.com/52976d626da811857028f9c1?auto=webp&format=jpeg&width=600",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "تاماغوتشي",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "تاماغوتشي",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.businessinsider.com/tech-gadgets-from-the-1990s-2013-11",
+        "sourcePublisher": "www.businessinsider.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.businessinsider.com/tech-gadgets-from-the-1990s-2013-11"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-35",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم قطعة التخزين هاي اللي كنا نحفظ عليها ملفاتنا؟",
+      "answer": "ديسكيت",
+      "acceptedAnswers": [
+        "ديسكيت",
+        "Floppy disk",
+        "قرص مرن"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/5483/9120429846_5ac00d8ba7_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-083.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "floppy disk 3.5 inch old computer",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=floppy%20disk%203.5%20inch%20old%20computer%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "الديسكيت",
+        "imageSelectionInstructions": "قرص مرن 3.5 بوصة",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة موثوقة للمنتج أو الغرض النادر مع تحدٍّ حقيقي؛ استخدم قصًا منطقيًا دون إفساد هوية الغرض أو تحريف الأرشيف",
+        "sourcePage": "https://www.flickr.com/photos/jepoirrier/9120429846/",
+        "sourcePublisher": "Jean-Etienne Minh-Duy Poirrier (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "photoTitle": "Floppy disks",
+        "width": 799,
+        "height": 533,
+        "bytes": 62938
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-015",
+      "category": "زمن الطيبين",
+      "region": "الأردن",
+      "subCategory": "ذكريات المدرسة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو نوع المقلمة اللي كانت إلها غطا معدني ورسومات زي هاي؟",
+      "answer": "مقلمة حديد",
+      "acceptedAnswers": [
+        "مقلمة حديد",
+        "مقلمة معدنية",
+        "علبة أقلام معدنية"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/8058/8245311669_988c6eab4b_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-060.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "مقلمة معدنية قديمة مدرسة الاردن",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=%D9%85%D9%82%D9%84%D9%85%D8%A9%20%D9%85%D8%B9%D8%AF%D9%86%D9%8A%D8%A9%20%D9%82%D8%AF%D9%8A%D9%85%D8%A9%20%D9%85%D8%AF%D8%B1%D8%B3%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "مقلمة حديد",
+        "imageSelectionInstructions": "مقلمة معدنية قديمة وملصقات رسوم عامة",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض لقطة أدق أو اسأل عن الاستخدام/التفصيل؛ لا تكشف الجواب في النص المصاحب",
+        "sourcePage": "https://www.flickr.com/photos/china_tin_box/8245311669/",
+        "sourcePublisher": "Aiyu ye (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "photoTitle": "Pencil box",
+        "width": 800,
+        "height": 350,
+        "bytes": 73948
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "الصورة القديمة فُحصت بصريًا من جديد؛ السؤال أعيدت صياغته",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "أردن",
+        "ذكريات",
+        "تراث",
+        "صور"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-010",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم مسلسل الكرتون اللي كان فيه هالأخوين؟",
+      "answer": "أنا وأخي",
+      "acceptedAnswers": [
+        "أنا وأخي",
+        "انا واخي",
+        "Baby and Me"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.spacetoongo.com/6bbe3b83-2be2-4308-8340-f68c61968b85.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "أنا وأخي",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "أنا وأخي",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://carateen.tv/watch/sp/134",
+        "sourcePublisher": "carateen.tv",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://carateen.tv/watch/sp/134"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-06",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Fireboy and Watergirl",
+      "acceptedAnswers": [
+        "Fireboy and Watergirl",
+        "فاير بوي ووتر غيرل",
+        "ولد النار وبنت الماء"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.pomu.com/nl/files/game/img_mobile/16950/Fireboy-And-Watergirl-In-The-Forest-Temple.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Fireboy and Watergirl",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Fireboy and Watergirl",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html",
+        "sourcePublisher": "www.pomu.nl",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-001",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم سلسلة الألعاب والكرتون اللي كانت كراتها تفتح على شكل مخلوقات؟",
+      "answer": "باكوغان",
+      "acceptedAnswers": [
+        "باكوغان",
+        "Bakugan",
+        "باكوجان"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.hlj.com/productimages/tkt/tkt14484_3.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "باكوغان",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "باكوغان",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.hlj.com/baku-032-bakugan-special-match-set-tkt14484",
+        "sourcePublisher": "www.hlj.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.hlj.com/baku-032-bakugan-special-match-set-tkt14484"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-36",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم برنامج المحادثة اللي كانت منه هاي النافذة القديمة؟",
+      "answer": "MSN Messenger",
+      "acceptedAnswers": [
+        "MSN Messenger",
+        "MSN",
+        "ويندوز لايف ماسنجر",
+        "إم إس إن ماسنجر"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://s2.glbimg.com/H0mjysZ6Qu0KRBeqTgVv9u3i_8U%3D/0x0%3A359x277/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/7/Y/t79OOLQOO06HQBgqf8Dw/msn-atencao.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "MSN Messenger",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "MSN Messenger",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.techtudo.com.br/listas/2018/01/10-coisas-que-todo-mundo-fazia-no-msn.ghtml",
+        "sourcePublisher": "www.techtudo.com.br",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.techtudo.com.br/listas/2018/01/10-coisas-que-todo-mundo-fazia-no-msn.ghtml"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-23",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم صاحب القبعة البيضاء اللي كان يتحدى كونان؟",
+      "answer": "كايتو كيد",
+      "acceptedAnswers": [
+        "كايتو كيد",
+        "كيد",
+        "Kaito Kid"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://pbs.twimg.com/media/FhxX050UUAM-7b0.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "كايتو كيد",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "كايتو كيد",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://x.com/spacetoon/status/1593529457796677633",
+        "sourcePublisher": "x.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://x.com/spacetoon/status/1593529457796677633"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-07",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Farm Frenzy",
+      "acceptedAnswers": [
+        "Farm Frenzy",
+        "فارم فرينزي"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://m.media-amazon.com/images/M/MV5BNGExYWE0MzQtNTlkNS00NmU5LTljZTgtNWNjZTQ1ZGY2Mjc2XkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Farm Frenzy",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Farm Frenzy",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/",
+        "sourcePublisher": "www.imdb.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-003",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم لعبة لوح التزلج المصغّر اللي كنا نتحكم فيه بأصابعنا؟",
+      "answer": "فنجربورد (لوح تزلج الأصابع)",
+      "acceptedAnswers": [
+        "fingerboard",
+        "Fingerboard",
+        "فنجربورد",
+        "فينغر بورد",
+        "تيك ديك",
+        "Tech Deck",
+        "سكيت الأصابع",
+        "فنجربورد (لوح تزلج الأصابع)",
+        "لوح تزلج الأصابع"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.legit.ng/images/720/01fe29f65100b89a.jpeg?v=1",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "fingerboard",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "fingerboard",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.legit.ng/ask-legit/top/1589034-nostalgic-2000s-toys-remind-good-days/",
+        "sourcePublisher": "www.legit.ng",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.legit.ng/ask-legit/top/1589034-nostalgic-2000s-toys-remind-good-days/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-32",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ذكريات التلفزيون",
+      "difficulty": 400,
+      "points": 400,
+      "question": "شو اسم برنامج الأطفال العربي اللي ظهرت فيه هاي الشخصيات؟",
+      "answer": "افتح يا سمسم",
+      "acceptedAnswers": [
+        "افتح يا سمسم",
+        "إفتح يا سمسم",
+        "افتح ياسمسم"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.ranksarabia.com/img/content/62ae70b3-51e4-4aa0-8fa7-ef01b3e17039.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "افتح يا سمسم",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "افتح يا سمسم",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.ranksarabia.com/list/أجمل-برامج-تلفزيونية-قديمة-للأطفال",
+        "sourcePublisher": "www.ranksarabia.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.ranksarabia.com/list/أجمل-برامج-تلفزيونية-قديمة-للأطفال"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ذكريات التلفزيون"
       ]
     },
     {
@@ -2629,479 +1727,59 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-15",
+      "id": "JONOS-V2-400-15",
       "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة ويندوز القديمة اللي فيها كرة فضية بتضرب أهداف على طاولة فضائية، وكان اسمها الفرعي Space Cadet؟",
-      "answer": "3D Pinball",
-      "acceptedAnswers": [
-        "3D Pinball",
-        "Pinball",
-        "بينبول",
-        "ثري دي بينبول"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-07",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم الشخصية الزرقاء السريعة اللي بتجمع الحلقات الذهبية؟",
-      "answer": "سونيك",
-      "acceptedAnswers": [
-        "سونيك",
-        "Sonic"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-28",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في أبطال الديجيتال الجزء الأول، شو اسم أخو يامن الصغير؟",
-      "answer": "وسيم",
-      "acceptedAnswers": [
-        "وسيم",
-        "T.K."
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-18",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم كوكب البرامج اللي كان اسمه مأخوذ من حجر كريم أخضر؟",
-      "answer": "زمردة",
-      "acceptedAnswers": [
-        "زمردة",
-        "كوكب زمردة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-41",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم جهاز الألعاب المحمول هذا؟",
-      "answer": "Nintendo DS",
-      "acceptedAnswers": [
-        "نينتندو دي إس",
-        "Nintendo DS",
-        "DS"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://2.bp.blogspot.com/-gflSEQw5Bfw/UMt-K4_5r2I/AAAAAAAACaI/zpnN-m1ZDko/s1600/ds.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Nintendo DS",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Nintendo DS",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html",
-        "sourcePublisher": "www.reinodocogumelo.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-29",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم الشخصية الرئيسية في كرتون جزيرة الكنز؟",
-      "answer": "جيم هوكينز",
-      "acceptedAnswers": [
-        "جيم هوكينز",
-        "جيم",
-        "Jim Hawkins"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-22",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات التلفزيون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم برنامج الرسوم التعليمي الفرنسي اللي بيشرح جسم الإنسان وكأن خلايا الدم شخصيات كرتونية؟",
-      "answer": "كان يا ما كان الحياة",
-      "acceptedAnswers": [
-        "كان يا ما كان الحياة",
-        "Once Upon a Time... Life",
-        "كان يا مكان الحياة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات التلفزيون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-06",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "لعبة قديمة فيها رجل يركض تلقائيًا ويجمع علب المشروب ويهرب من العوائق في الشارع؟",
-      "answer": "Pepsiman",
-      "acceptedAnswers": [
-        "Pepsiman",
-        "بيبسي مان",
-        "بيبسيمن"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-35",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في سابق ولاحق، شو نوع السيارات اللي كانوا يتسابقوا فيها؟",
-      "answer": "سيارات Mini 4WD",
-      "acceptedAnswers": [
-        "سيارات Mini 4WD",
-        "ميني فور دبليو دي",
-        "سيارات رباعية الدفع الصغيرة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-03",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Ballance",
-      "acceptedAnswers": [
-        "Ballance",
-        "بالانس",
-        "Ballance 2004"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://i0.wp.com/thegamingoutsider.com/wp-content/uploads/2024/01/Ballance-3.png?ssl=1",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Ballance",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Ballance",
-        "imageSelectionInstructions": "لقطة من اللعب",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/",
-        "sourcePublisher": "thegamingoutsider.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-28",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "في عهد الأصدقاء، شو اسم الصديق المقرب لروميو؟",
-      "answer": "ألفريدو",
-      "acceptedAnswers": [
-        "ألفريدو",
-        "الفريدو",
-        "Alfredo"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-16",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم الخيوط البلاستيكية الملونة التي كنا نجدلها لصنع ميداليات؟",
-      "answer": "سكوبيدو",
-      "acceptedAnswers": [
-        "سكوبيدو",
-        "Scoubidou"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-39",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم مشغل الموسيقى القديم اللي كانت له أشكال Skins وأيقونة برق؟",
-      "answer": "Winamp",
-      "acceptedAnswers": [
-        "Winamp",
-        "وينامب",
-        "وين أمب"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-29",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "في أبطال الديجيتال الجزء الأول، شو اسم أخت أمجد الصغيرة؟",
-      "answer": "هند",
-      "acceptedAnswers": [
-        "هند",
-        "Hikari",
-        "Kari"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-05",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة ويندوز اللي كنا نفتح فيها مربعات ونحاول نحدد أماكن الألغام حسب الأرقام؟",
-      "answer": "Minesweeper",
-      "acceptedAnswers": [
-        "Minesweeper",
-        "كانسة الألغام",
-        "لعبة الألغام"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-42",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم برنامج المحادثة القديم اللي كان شعاره وردة خضراء؟",
-      "answer": "ICQ",
-      "acceptedAnswers": [
-        "ICQ",
-        "آي سي كيو"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-16",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
+      "region": "الأردن",
       "subCategory": "ألعاب الحارة",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة الدائرة اللي بيمشي فيها واحد وبحط منديل وراء لاعب من غير ما ينتبه؟",
-      "answer": "طاق طاق طاقية",
+      "question": "شو اسم اللعبة اللي كانت تبدأ بكومة حجارة وطابة زي بالصورة؟",
+      "answer": "السبع حجار",
       "acceptedAnswers": [
-        "طاق طاق طاقية",
-        "طاق طاقيه"
+        "السبع حجار",
+        "سبع حجارة",
+        "سبع حجار",
+        "سبعة حجار"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/8438/8019898135_5815ef3d91_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-033.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "السبع حجار لعبة اطفال الاردن",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%20%D8%AD%D8%AC%D8%A7%D8%B1%20%D9%84%D8%B9%D8%A8%D8%A9%20%D8%A7%D8%B7%D9%81%D8%A7%D9%84%20%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "السبع حجار",
+        "imageSelectionInstructions": "كومة سبع حجار مسطحة وطابة صغيرة",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
+        "sourcePage": "https://www.flickr.com/photos/venkatarameshkommoju/8019898135/",
+        "sourcePublisher": "Venkataramesh Kommoju (Flickr)",
+        "license": "CC BY-NC-ND 2.0",
+        "photoTitle": "Seven Stones / Lagori / Dikori / Lagoori   ---  ఏడు పెంకులాట",
+        "width": 799,
+        "height": 385,
+        "bytes": 153867
+      },
+      "evidenceUrls": [
+        "https://ich.gov.jo/node/50907"
+      ],
+      "rightsStatus": "verified_for_publication",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "الصورة القديمة فُحصت بصريًا من جديد؛ السؤال أعيدت صياغته",
+      "questionType": "الصورة والتفاصيل",
       "tags": [
-        "زمن الطيبين",
-        "ألعاب الحارة"
+        "أردن",
+        "ذكريات",
+        "تراث",
+        "صور"
       ]
     },
     {
@@ -3111,115 +1789,36 @@
       "subCategory": "كرتون",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم الكرتون اللي بطله ولد صغير ينكمش بحجم صغير ويسافر مع الإوز البري؟",
+      "question": "شو اسم الكرتون اللي كان بطله يطير مع الإوز؟",
       "answer": "مغامرات نيلز",
       "acceptedAnswers": [
         "مغامرات نيلز",
         "نيلز",
         "Nils"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-23",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "مين المغنية السورية المشهورة بأداء عدد كبير من شارات سبيستون؟",
-      "answer": "رشا رزق",
-      "acceptedAnswers": [
-        "رشا رزق",
-        "رشا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-38",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم خلفية ويندوز XP الأصلية هاي؟",
-      "answer": "Bliss",
-      "acceptedAnswers": [
-        "Bliss",
-        "بليس",
-        "خلفية بليس"
-      ],
       "imageRequired": true,
       "image": {
-        "url": "https://imgix.bustle.com/mic/a7c71a3466116ca302c8bccd356f7e10abdaf33bd77be56dafd4a92bf87c7f6b.jpg?crop=faces&fit=crop&fm=jpg&h=1200&w=1200",
+        "url": "https://m.media-amazon.com/images/M/MV5BZTAxMWQ3N2UtNjRjZC00YWIzLTk1Y2QtNWQ0OWU3M2FjODI3XkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
         "localFile": null,
         "status": "external_reference",
-        "searchQueryAr": "Bliss",
+        "searchQueryAr": "مغامرات نيلز",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Bliss",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "visualTarget": "مغامرات نيلز",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
         "mustBeRealPhoto": false,
         "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.mic.com/articles/87481/a-billion-people-have-seen-this-famous-desktop-photo-but-who-snapped-the-picture",
-        "sourcePublisher": "www.mic.com",
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.imdb.com/title/tt0296386/mediaviewer/rm4228326144/",
+        "sourcePublisher": "www.imdb.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.mic.com/articles/87481/a-billion-people-have-seen-this-famous-desktop-photo-but-who-snapped-the-picture"
+        "https://www.imdb.com/title/tt0296386/mediaviewer/rm4228326144/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
       "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-36",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم الرجل الجوال اللي رافق ريمي مع فرقة الحيوانات في دروب ريمي؟",
-      "answer": "فيتاليس",
-      "acceptedAnswers": [
-        "فيتاليس",
-        "Vitalis"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
       "tags": [
         "زمن الطيبين",
         "كرتون"
@@ -3269,216 +1868,45 @@
       ]
     },
     {
-      "id": "JONOS-RETRO-09",
+      "id": "JONOS-BAL-013",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم سلسلة الألعاب القديمة اللي بتتنافس فيها فرق ديدان على خريطة ثنائية الأبعاد؟",
-      "answer": "Worms",
-      "acceptedAnswers": [
-        "Worms",
-        "وورمز",
-        "لعبة الديدان"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-04",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
+      "subCategory": "كرتون",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة قديمة كانت فيها كرات فرو ملوّنة بعيون، بنسحب صفوفها حتى تتطابق؟",
-      "answer": "Chuzzle",
+      "question": "شو اسم الكرتون اللي منه مشهد التصدي الظاهر بالصورة؟",
+      "answer": "الكابتن ماجد",
       "acceptedAnswers": [
-        "Chuzzle",
-        "تشازل",
-        "Chuzzle Deluxe"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-10",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الموبايل اللي بنوصل فيها الماء لتمساح اسمه Swampy عن طريق حفر التراب؟",
-      "answer": "Where's My Water?",
-      "acceptedAnswers": [
-        "Where's My Water?",
-        "ويرز ماي ووتر",
-        "أين مائي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-05",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
-      "answer": "Peggle",
-      "acceptedAnswers": [
-        "Peggle",
-        "بيغل",
-        "Peggle Deluxe"
+        "الكابتن ماجد",
+        "كابتن ماجد",
+        "Captain Tsubasa"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3480/0000001533.1920x1080.jpg?t=1777394376",
+        "url": "https://d1okbxqf70pew6.cloudfront.net/images/captain-majid/captain-majid-48.jpg",
         "localFile": null,
         "status": "external_reference",
-        "searchQueryAr": "Peggle Deluxe",
+        "searchQueryAr": "الكابتن ماجد",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Peggle Deluxe",
-        "imageSelectionInstructions": "لقطة من اللعب",
+        "visualTarget": "الكابتن ماجد",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
         "mustBeRealPhoto": false,
         "rejectIf": [],
-        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
-        "sourcePage": "https://store.steampowered.com/app/3480/",
-        "sourcePublisher": "store.steampowered.com",
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.istikana.com/en/episodes/captain-majid-48",
+        "sourcePublisher": "www.istikana.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://store.steampowered.com/app/3480/"
+        "https://www.istikana.com/en/episodes/captain-majid-48"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-11",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Snail Bob",
-      "acceptedAnswers": [
-        "Snail Bob",
-        "سنيل بوب",
-        "الحلزون بوب"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://www.gamekarma.com/images/screenshots/906/1.png",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "Snail Bob",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "Snail Bob",
-        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.gamekarma.com/g/snail-bob-1/",
-        "sourcePublisher": "www.gamekarma.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.gamekarma.com/g/snail-bob-1/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-06",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم سلسلة ألعاب إدارة شركة قطارات وبناء خطوط سكك حديدية؟",
-      "answer": "Railroad Tycoon",
-      "acceptedAnswers": [
-        "Railroad Tycoon",
-        "ريلرود تايكون"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-RETRO-12",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بنحرك فيها بطريق على الجليد ونحاول نتفادى العقبات؟",
-      "answer": "Tux Racer",
-      "acceptedAnswers": [
-        "Tux Racer",
-        "تكس ريسر",
-        "توكس ريسر"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "كرتون"
       ]
     },
     {
@@ -3524,6 +1952,310 @@
       ]
     },
     {
+      "id": "JONOS-V2-600-03",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الكمبيوتر اللي بالصورة؟",
+      "answer": "Ballance",
+      "acceptedAnswers": [
+        "Ballance",
+        "بالانس",
+        "Ballance 2004"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i0.wp.com/thegamingoutsider.com/wp-content/uploads/2024/01/Ballance-3.png?ssl=1",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Ballance",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Ballance",
+        "imageSelectionInstructions": "لقطة من اللعب",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "لقطة من اللعب، تُخفى كتابة الإجابة عند الحاجة",
+        "sourcePage": "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/",
+        "sourcePublisher": "thegamingoutsider.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-16",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الطفولة",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو كان اسم طريقة جدل الخيوط البلاستيكية الملونة لصنع ميداليات زي هاي؟",
+      "answer": "سكوبيدو",
+      "acceptedAnswers": [
+        "سكوبيدو",
+        "Scoubidou",
+        "سكوبيدو الخيوط"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://static.10doigts.fr/media/cache/w640/assets/generics/247-06707c.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "سكوبيدو",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "سكوبيدو",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.10doigts.fr/c/scoubidou-fil-c1310.aspx",
+        "sourcePublisher": "www.10doigts.fr",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.10doigts.fr/c/scoubidou-fil-c1310.aspx"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الطفولة"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-37",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم موديل جهاز الألعاب القديم هذا؟",
+      "answer": "سيجا ميغا درايف 2",
+      "acceptedAnswers": [
+        "سيجا ميغا درايف 2",
+        "Sega Mega Drive II",
+        "سيجا ميجا درايف 2",
+        "Mega Drive II"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/8393/8671024135_fdac5d6d48_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-082.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "Sega Mega Drive Genesis classic console Jordan",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Sega%20Mega%20Drive%20Genesis%20classic%20console%20Jordan%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "سيجا",
+        "imageSelectionInstructions": "صورة سيجا ميجا درايف لا NES",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة موثوقة للمنتج أو الغرض النادر مع تحدٍّ حقيقي؛ استخدم قصًا منطقيًا دون إفساد هوية الغرض أو تحريف الأرشيف",
+        "sourcePage": "https://www.flickr.com/photos/kibyegon/8671024135/",
+        "sourcePublisher": "Kibet Yegon (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "photoTitle": "P1060948",
+        "width": 800,
+        "height": 450,
+        "bytes": 80316
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-V2-400-21",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "سبيستون",
+      "difficulty": 600,
+      "points": 600,
+      "question": "كم كوكب كان في التقسيم الأصلي لقناة سبيستون، حتى الكواكب اللي مش ظاهرة باللقطات؟",
+      "answer": "10",
+      "acceptedAnswers": [
+        "10",
+        "عشرة",
+        "١٠"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://pbs.twimg.com/media/GPoJeA3WsAAESDG.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "10",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "10",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://x.com/SpacetoonAghani/status/1801694092734107702",
+        "sourcePublisher": "x.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://x.com/SpacetoonAghani/status/1801694092734107702"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "سبيستون"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-45",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
+      "answer": "Bounce",
+      "acceptedAnswers": [
+        "Bounce",
+        "باونس",
+        "لعبة الكرة"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.sify.com/wp-content/uploads/2023/02/bounce_game_level4.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Bounce",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Bounce",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/",
+        "sourcePublisher": "www.sify.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-38",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو رقم موديل تلفون نوكيا الظاهر بالصورة؟",
+      "answer": "نوكيا 6600",
+      "acceptedAnswers": [
+        "نوكيا 6600",
+        "6600",
+        "الباندا",
+        "Nokia 6600"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-53787374%2Cwidth-1200%2Cheight-900/53787374.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Nokia 6600",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Nokia 6600",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms",
+        "sourcePublisher": "gadgetsnow.indiatimes.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-36",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم الرجل الكبير اللي رافق ريمي في رحلتها؟",
+      "answer": "فيتاليس",
+      "acceptedAnswers": [
+        "فيتاليس",
+        "Vitalis"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://image.tmdb.org/t/p/w600_and_h900_face/9ASuySoy2AhYWNKLsBXFN5yeD5s.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "فيتاليس",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "فيتاليس",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.themoviedb.org/tv/44742-remi-nobody-s-girl?language=ar-SA",
+        "sourcePublisher": "www.themoviedb.org",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.themoviedb.org/tv/44742-remi-nobody-s-girl?language=ar-SA"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
       "id": "JONOS-RETRO-13",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -3566,37 +2298,37 @@
       ]
     },
     {
-      "id": "JONOS-RETRO-08",
+      "id": "JONOS-V2-600-41",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بالصورة؟",
-      "answer": "Diner Dash",
+      "subCategory": "تقنية",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم جهاز الألعاب المحمول هذا؟",
+      "answer": "Nintendo DS",
       "acceptedAnswers": [
-        "Diner Dash",
-        "داينر داش",
-        "دينر داش"
+        "نينتندو دي إس",
+        "Nintendo DS",
+        "DS"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://www.myabandonware.com/media/screenshots/d/diner-dash-p3u/diner-dash_18.png",
+        "url": "https://2.bp.blogspot.com/-gflSEQw5Bfw/UMt-K4_5r2I/AAAAAAAACaI/zpnN-m1ZDko/s1600/ds.jpg",
         "localFile": null,
         "status": "external_reference",
-        "searchQueryAr": "Diner Dash",
+        "searchQueryAr": "Nintendo DS",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Diner Dash",
+        "visualTarget": "Nintendo DS",
         "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
         "mustBeRealPhoto": false,
         "rejectIf": [],
         "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
-        "sourcePage": "https://www.myabandonware.com/game/diner-dash-g41",
-        "sourcePublisher": "www.myabandonware.com",
+        "sourcePage": "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html",
+        "sourcePublisher": "www.reinodocogumelo.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.myabandonware.com/game/diner-dash-g41"
+        "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
@@ -3604,58 +2336,316 @@
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "تقنية"
       ]
     },
     {
-      "id": "JONOS-RETRO-14",
+      "id": "JONOS-V2-400-28",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
+      "subCategory": "كرتون",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة إدارة الملاهي القديمة اللي بنبني فيها قطارات الملاهي والألعاب ونحدد أسعار التذاكر؟",
-      "answer": "RollerCoaster Tycoon",
+      "question": "في عهد الأصدقاء، شو اسم الولد الأشقر الظاهر بالصورة؟",
+      "answer": "ألفريدو",
       "acceptedAnswers": [
-        "RollerCoaster Tycoon",
-        "رولر كوستر تايكون"
+        "ألفريدو",
+        "الفريدو",
+        "Alfredo"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://s.pacn.ws/1/p/1c3/romeos-blue-skies-compact-bluray-box-865837.1.jpg?v=svgupr",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "ألفريدو",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "ألفريدو",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.play-asia.com/en/romeos-blue-skies-compact-blu-ray-box/13/70ik31",
+        "sourcePublisher": "www.play-asia.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.play-asia.com/en/romeos-blue-skies-compact-blu-ray-box/13/70ik31"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "كرتون"
       ]
     },
     {
-      "id": "JONOS-RETRO-15",
+      "id": "JONOS-BAL-007",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
+      "subCategory": "تقنية",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الألغاز اللي بنعمل فيها مسار متصل للماء باستخدام قطع أنابيب؟",
-      "answer": "Pipe Mania",
+      "question": "شو موديل تلفون نوكيا من سلسلة N الظاهر بالصورة؟",
+      "answer": "N73",
       "acceptedAnswers": [
-        "Pipe Mania",
-        "بايب مانيا",
-        "Pipe Dream"
+        "N73",
+        "نوكيا N73",
+        "نوكيا ان 73",
+        "Nokia N73"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mos.cms.futurecdn.net/f6cd462666a9b46004dcc02cd1212f65-1890-80.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "N73",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "N73",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.techradar.com/reviews/phones/mobile-phones/nokia-n73-86905/review",
+        "sourcePublisher": "www.techradar.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.techradar.com/reviews/phones/mobile-phones/nokia-n73-86905/review"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
-        "ألعاب الكمبيوتر"
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-012",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم المسلسل القديم اللي منه الشخصية بالصورة؟",
+      "answer": "هزيم الرعد",
+      "acceptedAnswers": [
+        "هزيم الرعد",
+        "Thunder Jet"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i1.sndcdn.com/artworks-000089015881-a590of-t1080x1080.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "هزيم الرعد",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "هزيم الرعد",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://soundcloud.com/wswsart/hzeem-alr3d",
+        "sourcePublisher": "soundcloud.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://soundcloud.com/wswsart/hzeem-alr3d"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-008",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "تقنية",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو موديل تلفون سوني إريكسون الموسيقي هذا؟",
+      "answer": "W810i",
+      "acceptedAnswers": [
+        "W810i",
+        "W810",
+        "Sony Ericsson W810i",
+        "سوني اريكسون دبليو 810"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.allphones.com.au/media/catalog/product/s/o/sony-ericsson-w810i-satin-black-main.jpg?image-type=image&store=allphones",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "W810i",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "W810i",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.allphones.com.au/brand-new-sealed-in-box-vintage-stock-2g-only-sony-ericsson-w810i-satin-black",
+        "sourcePublisher": "www.allphones.com.au",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.allphones.com.au/brand-new-sealed-in-box-vintage-stock-2g-only-sony-ericsson-w810i-satin-black"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "تقنية"
+      ]
+    },
+    {
+      "id": "JONOS-V2-600-31",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم اللاعب صاحب الشعر الأحمر في الدبلجة العربية لمسلسل سلام دانك؟",
+      "answer": "حسان",
+      "acceptedAnswers": [
+        "حسان",
+        "ساكوراغي",
+        "هاناميتشي ساكوراغي"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.pinimg.com/originals/1d/30/90/1d309030cfdb2a7822d81f6a539a41d6.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "حسان",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "حسان",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pinterest.com/pin/in-2023--671599363205275027/",
+        "sourcePublisher": "www.pinterest.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pinterest.com/pin/in-2023--671599363205275027/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-017",
+      "category": "زمن الطيبين",
+      "region": "الأردن",
+      "subCategory": "تقنية",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم جهاز الألعاب الرمادي الموجود أسفل التلفزيون بالصورة؟",
+      "answer": "Nintendo Entertainment System",
+      "acceptedAnswers": [
+        "Nintendo Entertainment System",
+        "NES",
+        "نينتندو إنترتينمنت سيستم",
+        "نينتندو NES",
+        "نينتندو"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://live.staticflickr.com/842/43602035062_acdd632c63_c.jpg",
+        "localFile": "/assets/jordan_nostalgia/JONOS-085.jpg",
+        "status": "verified_and_licensed",
+        "searchQueryAr": "CRT old box television Jordan home 1990s",
+        "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=CRT%20old%20box%20television%20Jordan%20home%201990s%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
+        "visualTarget": "تلفزيون الصندوق",
+        "imageSelectionInstructions": "تلفزيون أنبوب قديم غليظ",
+        "mustBeRealPhoto": true,
+        "rejectIf": [
+          "الصورة ليست للعنصر المطلوب",
+          "اسم المنتج أو مكانه غير مطابق",
+          "مولدة بالذكاء الاصطناعي",
+          "علامة مائية",
+          "لقطة من ويكيبيديا",
+          "الحقوق غير مناسبة للنشر"
+        ],
+        "displayGuidance": "اعرض صورة واضحة كاملة للغرض وتجنب الإفصاح عن الإجابة في عنوان الصورة",
+        "sourcePage": "https://www.flickr.com/photos/79157069@N03/43602035062/",
+        "sourcePublisher": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "photoTitle": "Sanyo Telecolor CTP 5623 television set, NES, Sega Master System II (photo 2)",
+        "width": 800,
+        "height": 603,
+        "bytes": 151300
+      },
+      "evidenceUrls": [],
+      "rightsStatus": "verified_for_publication",
+      "contentStatus": "approved",
+      "reviewNotes": "الصورة القديمة فُحصت بصريًا من جديد؛ السؤال أعيدت صياغته",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "أردن",
+        "ذكريات",
+        "تراث",
+        "صور"
+      ]
+    },
+    {
+      "id": "JONOS-BAL-014",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "difficulty": 600,
+      "points": 600,
+      "question": "شو اسم القرصان صاحب الببغاء في جزيرة الكنز؟",
+      "answer": "سيلفر",
+      "acceptedAnswers": [
+        "سيلفر",
+        "جون سيلفر",
+        "لونغ جون سيلفر",
+        "Long John Silver"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://i.pinimg.com/1200x/b4/73/f6/b473f6bdeb1a86aac698aa81be118974.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "سيلفر",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "سيلفر",
+        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
+        "sourcePage": "https://www.pinterest.com/pin/725079608779837436/",
+        "sourcePublisher": "www.pinterest.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.pinterest.com/pin/725079608779837436/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون"
       ]
     }
   ]
