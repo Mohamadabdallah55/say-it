@@ -5,19 +5,19 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
-  "questionCount": 119,
-  "total_source_questions": 119,
-  "verified_playable_count": 119,
+  "questionCount": 114,
+  "total_source_questions": 114,
+  "verified_playable_count": 114,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 42,
-    "400": 50,
-    "600": 27
+    "200": 51,
+    "400": 40,
+    "600": 23
   },
   "points_distribution_playable": {
-    "200": 42,
-    "400": 50,
-    "600": 27
+    "200": 51,
+    "400": 40,
+    "600": 23
   },
   "questions": [
     {
@@ -123,7 +123,7 @@
       "subCategory": "ذكريات المدرسة",
       "difficulty": 200,
       "points": 200,
-      "question": "شو كنا نسمي هالقلم اللي كان يجمع عدة ألوان؟",
+      "question": "شو اسم القلم القديم اللي بالصورة؟",
       "answer": "قلم متعدد الألوان",
       "acceptedAnswers": [
         "قلم متعدد الألوان",
@@ -139,7 +139,7 @@
         "status": "external_reference",
         "searchQueryAr": "10 ألوان",
         "googleImagesSearchUrl": "",
-        "visualTarget": "10 ألوان",
+        "visualTarget": "قلم متعدد الألوان",
         "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -210,7 +210,7 @@
       "subCategory": "تقنية",
       "difficulty": 200,
       "points": 200,
-      "question": "أي جيل من أجهزة الألعاب هذا الجهاز الرمادي؟",
+      "question": "شو اسم جهاز الألعاب الظاهر بالصورة؟",
       "answer": "بلايستيشن 1",
       "acceptedAnswers": [
         "بلايستيشن 1",
@@ -252,50 +252,6 @@
       "tags": [
         "زمن الطيبين",
         "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-BAL-029",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات البيت",
-      "points": 200,
-      "difficulty": 200,
-      "question": "شو كانت ميزة النجوم اللي كنا نلزقها على سقف غرفة النوم؟",
-      "answer": "تضيء في العتمة",
-      "acceptedAnswers": [
-        "تضيء في العتمة",
-        "بتضوي بالليل",
-        "تضيء في الظلام",
-        "بتضوي بالعتمة",
-        "بتضوي بعد ما نطفي الضوء"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://i.ebayimg.com/images/g/e58AAOSwf-dg~nK2/s-l1200.jpg",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "تضيء في العتمة",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "تضيء في العتمة",
-        "imageSelectionInstructions": "صورة مرجعية مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
-        "sourcePage": "https://www.ebay.com/itm/364378333354",
-        "sourcePublisher": "www.ebay.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.ebay.com/itm/364378333354"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة خارجية، ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات البيت"
       ]
     },
     {
@@ -474,7 +430,7 @@
       "subCategory": "ذكريات المدرسة",
       "points": 200,
       "difficulty": 200,
-      "question": "شو كانت المعلمة تستخدم هالأشياء عشان تحط وجوه مبتسمة على دفاترنا؟",
+      "question": "شو كنا نسمي الأختام اللي كانت المعلمة تحطها على دفاترنا؟",
       "answer": "أختام التشجيع",
       "acceptedAnswers": [
         "أختام التشجيع",
@@ -518,7 +474,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "زوما",
       "acceptedAnswers": [
         "زوما",
@@ -533,7 +489,7 @@
         "status": "external_reference",
         "searchQueryAr": "Zuma Deluxe",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Zuma Deluxe",
+        "visualTarget": "زوما",
         "imageSelectionInstructions": "لقطة من اللعب",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -745,7 +701,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "ما اسم اللعبة الظاهرة في المقطع؟ وإذا ظهرت صورة بديلة، خمن اللعبة منها.",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Chicken Invaders",
       "acceptedAnswers": [
         "Chicken Invaders",
@@ -761,7 +717,7 @@
         "status": "external_reference",
         "searchQueryAr": "Chicken Invaders 2",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Chicken Invaders 2",
+        "visualTarget": "Chicken Invaders",
         "imageSelectionInstructions": "لقطة من اللعب",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -1278,7 +1234,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "ما اسم اللعبة الظاهرة في المقطع؟ وإذا ظهرت صورة بديلة، خمن اللعبة منها.",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Plants vs. Zombies",
       "acceptedAnswers": [
         "Plants vs. Zombies",
@@ -1422,8 +1378,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
+      "difficulty": 200,
+      "points": 200,
       "question": "ما اسم المسلسل الكرتوني الظاهر بالصورة؟",
       "answer": "سابق ولاحق",
       "acceptedAnswers": [
@@ -1553,7 +1509,7 @@
       "subCategory": "تقنية",
       "difficulty": 400,
       "points": 400,
-      "question": "شو رقم موديل هذا التلفون؟",
+      "question": "شو موديل تلفون نوكيا القديم بالصورة؟",
       "answer": "3310",
       "acceptedAnswers": [
         "3310",
@@ -1567,7 +1523,7 @@
         "status": "verified_and_licensed",
         "searchQueryAr": "Nokia 3310 original phone front",
         "googleImagesSearchUrl": "https://www.google.com/search?tbm=isch&q=Nokia%203310%20original%20phone%20front%20-site%3Awikipedia.org%20-site%3Acommons.wikimedia.org",
-        "visualTarget": "نوكيا 3310",
+        "visualTarget": "3310",
         "imageSelectionInstructions": "صورة نوكيا 3310 الأصلي لا 3310 الجديد",
         "mustBeRealPhoto": true,
         "rejectIf": [
@@ -1598,58 +1554,12 @@
       ]
     },
     {
-      "id": "JONOS-BAL-027",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات البيت",
-      "points": 400,
-      "difficulty": 400,
-      "question": "شو كنا نسمي القطعتين المعدنيات اللي فوق التلفزيون لتحسين استقبال القنوات؟",
-      "answer": "أنتين داخلي",
-      "acceptedAnswers": [
-        "أنتين داخلي",
-        "أنتين",
-        "إنتين",
-        "هوائي التلفزيون",
-        "أنتينا",
-        "هوائي داخلي",
-        "قرون التلفزيون"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://img.ricardostatic.ch/images/44997715-ef53-416e-829a-c8456ddc5080/t_1000x750/1980s-roehren-color-tv-melectronic-pp-4200-mit-fernbedienung",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "أنتين داخلي",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "أنتين داخلي",
-        "imageSelectionInstructions": "صورة مرجعية مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
-        "sourcePage": "https://www.ricardo.ch/de/a/1980s-roehren-color-tv-melectronic-pp-4200-mit-fernbedienung-1251215180/",
-        "sourcePublisher": "www.ricardo.ch",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.ricardo.ch/de/a/1980s-roehren-color-tv-melectronic-pp-4200-mit-fernbedienung-1251215180/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة خارجية، ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات البيت"
-      ]
-    },
-    {
       "id": "JONOS-V2-400-14",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
+      "difficulty": 200,
+      "points": 200,
       "question": "شو اسم اللعبة الدوّارة الخشبية هاي اللي كنا نلعب فيها؟",
       "answer": "البلبل",
       "acceptedAnswers": [
@@ -1785,14 +1695,14 @@
       "category": "زمن الطيبين",
       "region": "الأردن",
       "subCategory": "ذكريات المدرسة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو نوع المقلمة اللي كانت إلها غطا معدني ورسومات زي هاي؟",
+      "difficulty": 200,
+      "points": 200,
+      "question": "شو كنا نسمي المقلمة القديمة اللي بالصورة؟",
       "answer": "مقلمة حديد",
       "acceptedAnswers": [
         "مقلمة حديد",
         "مقلمة معدنية",
-        "علبة أقلام معدنية"
+        "مقلمة تنك"
       ],
       "imageRequired": true,
       "image": {
@@ -2016,8 +1926,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ذكريات التلفزيون",
-      "difficulty": 400,
-      "points": 400,
+      "difficulty": 200,
+      "points": 200,
       "question": "شو اسم برنامج الأطفال العربي اللي ظهرت فيه هاي الشخصيات؟",
       "answer": "افتح يا سمسم",
       "acceptedAnswers": [
@@ -2054,57 +1964,13 @@
       ]
     },
     {
-      "id": "JONOS-BAL-024",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات المدرسة",
-      "points": 400,
-      "difficulty": 400,
-      "question": "شو اسم نوع الأقلام اللي كنا نزين فيها الدفاتر بحبر فيه لمعة؟",
-      "answer": "أقلام الجليتر",
-      "acceptedAnswers": [
-        "أقلام الجليتر",
-        "أقلام لامعة",
-        "أقلام جل لامعة",
-        "Glitter pens",
-        "قلم جليتر"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://escolaeducacao.com.br/wp-content/uploads/2023/05/caneta-glitter.webp",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "أقلام الجليتر",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "أقلام الجليتر",
-        "imageSelectionInstructions": "صورة مرجعية مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
-        "sourcePage": "https://escolaeducacao.com.br/voce-se-lembra-este-era-o-material-escolar-que-toda-crianca-dos-anos-2000-queria-ter/",
-        "sourcePublisher": "escolaeducacao.com.br",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://escolaeducacao.com.br/voce-se-lembra-este-era-o-material-escolar-que-toda-crianca-dos-anos-2000-queria-ter/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة خارجية، ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات المدرسة"
-      ]
-    },
-    {
       "id": "JONOS-V2-600-06",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Fireboy and Watergirl",
       "acceptedAnswers": [
         "Fireboy and Watergirl",
@@ -2327,7 +2193,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Farm Frenzy",
       "acceptedAnswers": [
         "Farm Frenzy",
@@ -2578,54 +2444,6 @@
       ]
     },
     {
-      "id": "JONOS-BAL-003",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة لوح التزلج المصغّر اللي كنا نتحكم فيه بأصابعنا؟",
-      "answer": "فنجربورد (لوح تزلج الأصابع)",
-      "acceptedAnswers": [
-        "fingerboard",
-        "Fingerboard",
-        "فنجربورد",
-        "فينغر بورد",
-        "تيك ديك",
-        "Tech Deck",
-        "سكيت الأصابع",
-        "فنجربورد (لوح تزلج الأصابع)",
-        "لوح تزلج الأصابع"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn.legit.ng/images/720/01fe29f65100b89a.jpeg?v=1",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "fingerboard",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "fingerboard",
-        "imageSelectionInstructions": "صورة معاينة مطابقة للسؤال",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء كلمة الإجابة عند الحاجة",
-        "sourcePage": "https://www.legit.ng/ask-legit/top/1589034-nostalgic-2000s-toys-remind-good-days/",
-        "sourcePublisher": "www.legit.ng",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://www.legit.ng/ask-legit/top/1589034-nostalgic-2000s-toys-remind-good-days/"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "صورة خارجية مطابقة بصريًا؛ ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
       "id": "JONOS-V2-600-31",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -2708,53 +2526,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-2026-stickyhand",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "points": 400,
-      "difficulty": 400,
-      "question": "شو كنا نسمي هاللعبة المطاطية اللي تلزق على الحيط؟",
-      "answer": "اليد اللاصقة",
-      "acceptedAnswers": [
-        "اليد اللاصقة",
-        "الإيد اللاصقة",
-        "ايد لزقة",
-        "إيد لزقة",
-        "يد لزجة",
-        "إيد مطاط",
-        "Sticky hand",
-        "اليد المطاطية"
-      ],
-      "imageRequired": true,
-      "image": {
-        "url": "https://cdn11.bigcommerce.com/s-1103cbqbtv/images/stencil/800x800/products/15813/16291/39_1649b__48786.1646937349.jpg?c=1",
-        "localFile": null,
-        "status": "external_reference",
-        "searchQueryAr": "اليد اللاصقة",
-        "googleImagesSearchUrl": "",
-        "visualTarget": "اليد اللاصقة",
-        "imageSelectionInstructions": "لقطة أو صورة مرجعية مطابقة",
-        "mustBeRealPhoto": false,
-        "rejectIf": [],
-        "displayGuidance": "إخفاء نص الإجابة إن ظهر",
-        "sourcePage": "https://partytimebr.com/mega-pack-glitter-sticky-hands",
-        "sourcePublisher": "partytimebr.com",
-        "license": null
-      },
-      "evidenceUrls": [
-        "https://partytimebr.com/mega-pack-glitter-sticky-hands"
-      ],
-      "rightsStatus": "external_reference_unconfirmed",
-      "contentStatus": "approved",
-      "reviewNotes": "مرجع صورة من نتيجة بحث مرئية؛ لم تُختبر على الموقع، ترخيص إعادة الاستخدام غير مؤكد",
-      "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
       ]
     },
     {
@@ -2846,8 +2617,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
-      "points": 400,
-      "difficulty": 400,
+      "points": 200,
+      "difficulty": 200,
       "question": "ما اسم المسلسل الكرتوني الظاهر بالصورة؟",
       "answer": "إيداتين جمب",
       "acceptedAnswers": [
@@ -2891,9 +2662,9 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
-      "points": 400,
-      "difficulty": 400,
-      "question": "شو اسم جزء نيد فور سبيد الشهير اللي نزل سنة 2005؟",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم الجزء من سلسلة نيد فور سبيد الظاهر بالصورة؟",
       "answer": "Need for Speed: Most Wanted",
       "acceptedAnswers": [
         "Need for Speed: Most Wanted",
@@ -3149,8 +2920,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
+      "difficulty": 400,
+      "points": 400,
       "question": "ما اسم المسلسل الكرتوني الظاهر بالصورة؟",
       "answer": "دروب ريمي",
       "acceptedAnswers": [
@@ -3193,7 +2964,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "ما اسم اللعبة الظاهرة في المقطع؟ وإذا ظهرت صورة بديلة، خمن اللعبة منها.",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Ballance",
       "acceptedAnswers": [
         "Ballance",
@@ -3373,8 +3144,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
+      "difficulty": 400,
+      "points": 400,
       "question": "ما اسم المسلسل الكرتوني الظاهر بالصورة؟",
       "answer": "عهد الأصدقاء",
       "acceptedAnswers": [
@@ -3415,8 +3186,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الهاتف",
-      "difficulty": 600,
-      "points": 600,
+      "difficulty": 400,
+      "points": 400,
       "question": "ما اسم اللعبة الظاهرة بالصورة؟",
       "answer": "Bounce",
       "acceptedAnswers": [
@@ -4101,7 +3872,7 @@
       "subCategory": "كرتون",
       "points": 200,
       "difficulty": 200,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "question": "ما اسم المسلسل الكرتوني الظاهر بالمشهد؟",
       "answer": "شون ذا شيب",
       "acceptedAnswers": [
         "شون ذا شيب",
@@ -4148,7 +3919,7 @@
       "subCategory": "كرتون",
       "points": 200,
       "difficulty": 200,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "question": "ما اسم المسلسل الكرتوني الظاهر بالمشهد؟",
       "answer": "سبونج بوب",
       "acceptedAnswers": [
         "سبونج بوب",
@@ -4195,7 +3966,7 @@
       "subCategory": "كرتون",
       "points": 200,
       "difficulty": 200,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "question": "ما اسم المسلسل الكرتوني الظاهر بالمشهد؟",
       "answer": "عالم غامبول المدهش",
       "acceptedAnswers": [
         "عالم غامبول المدهش",
@@ -4242,9 +4013,9 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "كرتون",
-      "points": 400,
-      "difficulty": 400,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر بالمشهد؟",
       "answer": "العرض العادي",
       "acceptedAnswers": [
         "العرض العادي",
@@ -4291,7 +4062,7 @@
       "subCategory": "كرتون",
       "points": 200,
       "difficulty": 200,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "question": "ما اسم المسلسل الكرتوني الظاهر بالمشهد؟",
       "answer": "وقت المغامرة",
       "acceptedAnswers": [
         "وقت المغامرة",
@@ -4518,8 +4289,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الهاتف",
-      "points": 400,
-      "difficulty": 400,
+      "points": 200,
+      "difficulty": 200,
       "question": "ما اسم اللعبة الظاهرة بالصورة؟",
       "answer": "Flappy Bird",
       "acceptedAnswers": [
@@ -4654,8 +4425,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الكمبيوتر",
-      "points": 400,
-      "difficulty": 400,
+      "points": 200,
+      "difficulty": 200,
       "question": "ما اسم اللعبة الظاهرة بالصورة؟",
       "answer": "Red Ball 4",
       "acceptedAnswers": [
@@ -4703,7 +4474,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "points": 400,
       "difficulty": 400,
-      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
+      "question": "ما اسم اللعبة الظاهرة بالمشهد؟",
       "answer": "Snail Bob",
       "acceptedAnswers": [
         "Snail Bob",
@@ -4751,8 +4522,8 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب الهاتف",
-      "points": 600,
-      "difficulty": 600,
+      "points": 400,
+      "difficulty": 400,
       "question": "ما اسم اللعبة الظاهرة بالصورة؟",
       "answer": "Bad Piggies",
       "acceptedAnswers": [
@@ -4892,16 +4663,14 @@
       "subCategory": "ألعاب البلايستيشن",
       "points": 200,
       "difficulty": 200,
-      "question": "شو اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
-      "answer": "بيس 2013",
+      "question": "ما اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
+      "answer": "بيس",
       "acceptedAnswers": [
-        "بيس 2013",
         "بيس",
         "PES",
+        "Pro Evolution Soccer",
+        "بيس 2013",
         "PES 2013",
-        "Pro Evolution Soccer 2013",
-        "برو إيفولوشن سوكر",
-        "بيس 13",
         "ويننغ إليفن"
       ],
       "imageRequired": true,
@@ -4911,7 +4680,7 @@
         "status": "external_reference",
         "searchQueryAr": "بيس 2013",
         "googleImagesSearchUrl": "",
-        "visualTarget": "بيس 2013",
+        "visualTarget": "بيس",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -4941,38 +4710,37 @@
       "subCategory": "ألعاب البلايستيشن",
       "points": 200,
       "difficulty": 200,
-      "question": "شو اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
-      "answer": "فيفا 12",
+      "question": "ما اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
+      "answer": "فيفا",
       "acceptedAnswers": [
-        "فيفا 12",
         "فيفا",
         "FIFA",
         "FIFA 12",
-        "فيفا 2012",
-        "فيفا ١٢"
+        "فيفا 12",
+        "فيفا 2012"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://www.video-games-museum.com/en/screenshots/Playstation%202/4/54781-ingame-FIFA-12.jpg",
+        "url": "https://images.launchbox-app.com/8b19009c-b10a-45b6-a763-0cb3b00f4467.png",
         "localFile": null,
         "status": "external_reference",
         "searchQueryAr": "فيفا 12",
         "googleImagesSearchUrl": "",
-        "visualTarget": "فيفا 12",
+        "visualTarget": "فيفا",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
         "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
-        "sourcePage": "https://www.video-games-museum.com/en/game/FIFA-12/80/2/54781",
-        "sourcePublisher": "www.video-games-museum.com",
+        "sourcePage": "https://gamesdb.launchbox-app.com/games/images/12529-fifa-soccer-12",
+        "sourcePublisher": "gamesdb.launchbox-app.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.video-games-museum.com/en/game/FIFA-12/80/2/54781"
+        "https://gamesdb.launchbox-app.com/games/images/12529-fifa-soccer-12"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "reviewNotes": "تمت معاينة الصورة المرجعية؛ تشغيل الموقع وترخيص إعادة الاستخدام غير مؤكدين.",
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
@@ -4988,16 +4756,14 @@
       "subCategory": "ألعاب البلايستيشن",
       "points": 200,
       "difficulty": 200,
-      "question": "شو اسم سلسلة ألعاب البلايستيشن اللي منها شاشة اختيار الشخصيات هاي؟",
-      "answer": "تكن 5",
+      "question": "ما اسم سلسلة الألعاب من شاشة اختيار الشخصيات؟",
+      "answer": "تكن",
       "acceptedAnswers": [
-        "تكن 5",
         "تكن",
         "تيكن",
         "Tekken",
-        "Tekken 5",
-        "تكن خمسة",
-        "تيكن 5"
+        "تكن 5",
+        "Tekken 5"
       ],
       "imageRequired": true,
       "image": {
@@ -5006,7 +4772,7 @@
         "status": "external_reference",
         "searchQueryAr": "تكن 5",
         "googleImagesSearchUrl": "",
-        "visualTarget": "تكن 5",
+        "visualTarget": "تكن",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -5036,15 +4802,14 @@
       "subCategory": "ألعاب البلايستيشن",
       "points": 400,
       "difficulty": 400,
-      "question": "ما اسم لعبة كرة القدم بالشوارع هاي؟",
-      "answer": "FIFA Street 2",
+      "question": "ما اسم لعبة كرة القدم بالشوارع الظاهرة بالصورة؟",
+      "answer": "FIFA Street",
       "acceptedAnswers": [
-        "FIFA Street 2",
-        "فيفا ستريت",
-        "فيفا ستريت 2",
         "FIFA Street",
-        "فيفا الشوارع",
-        "فيفا ستريت تو"
+        "فيفا ستريت",
+        "FIFA Street 2",
+        "فيفا ستريت 2",
+        "فيفا الشوارع"
       ],
       "imageRequired": true,
       "image": {
@@ -5053,7 +4818,7 @@
         "status": "external_reference",
         "searchQueryAr": "FIFA Street 2",
         "googleImagesSearchUrl": "",
-        "visualTarget": "FIFA Street 2",
+        "visualTarget": "FIFA Street",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -5081,9 +4846,9 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب البلايستيشن",
-      "points": 600,
-      "difficulty": 600,
-      "question": "شو اسم جزء نيد فور سبيد اللي كنا نلعبه بالمدينة الليلية، قبل Most Wanted؟",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم الجزء من سلسلة نيد فور سبيد الظاهر بالصورة؟",
       "answer": "Need for Speed: Underground 2",
       "acceptedAnswers": [
         "Need for Speed: Underground 2",
@@ -5179,15 +4944,13 @@
       "subCategory": "ألعاب البلايستيشن",
       "points": 600,
       "difficulty": 600,
-      "question": "ما اسم سلسلة ألعاب السيارات الظاهرة بالصورة؟",
-      "answer": "Gran Turismo 4",
+      "question": "ما اسم سلسلة سباقات السيارات الظاهرة بالصورة؟",
+      "answer": "Gran Turismo",
       "acceptedAnswers": [
-        "Gran Turismo 4",
+        "Gran Turismo",
         "غران توريزمو",
         "جران توريزمو",
-        "Gran Turismo",
-        "غران توريزمو 4",
-        "جران توريزمو 4",
+        "Gran Turismo 4",
         "GT4"
       ],
       "imageRequired": true,
@@ -5197,7 +4960,7 @@
         "status": "external_reference",
         "searchQueryAr": "Gran Turismo 4",
         "googleImagesSearchUrl": "",
-        "visualTarget": "Gran Turismo 4",
+        "visualTarget": "Gran Turismo",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
@@ -5225,21 +4988,21 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب البلايستيشن",
-      "points": 400,
-      "difficulty": 400,
+      "points": 200,
+      "difficulty": 200,
       "question": "ما اسم لعبة البلايستيشن الظاهرة بالصورة؟",
       "answer": "Ben 10: Protector of Earth",
       "acceptedAnswers": [
         "Ben 10: Protector of Earth",
-        "بن تن",
-        "بن 10",
-        "Ben 10",
         "بن تن حامي الأرض",
-        "بن تن بروتكتور أوف إيرث"
+        "بن 10 حامي الأرض",
+        "بن تن",
+        "Ben 10",
+        "بن 10"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://retroislandny.com/cdn/shop/files/ben-10-protector-of-earth-greatest-hits-playstation-2-575255.png?v=1764305114",
+        "url": "https://cdn.mobygames.com/screenshots/4334399-ben-10-protector-of-earth-playstation-2-fourarms-fighting-laser-.jpg",
         "localFile": null,
         "status": "external_reference",
         "searchQueryAr": "Ben 10: Protector of Earth",
@@ -5249,16 +5012,16 @@
         "mustBeRealPhoto": false,
         "rejectIf": [],
         "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
-        "sourcePage": "https://retroislandny.com/products/ben-10-protector-of-earth-greatest-hits-playstation-2",
-        "sourcePublisher": "retroislandny.com",
+        "sourcePage": "https://www.mobygames.com/game/30965/ben-10-protector-of-earth/screenshots/ps2/871504/",
+        "sourcePublisher": "www.mobygames.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://retroislandny.com/products/ben-10-protector-of-earth-greatest-hits-playstation-2"
+        "https://www.mobygames.com/game/30965/ben-10-protector-of-earth/screenshots/ps2/871504/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "reviewNotes": "تمت معاينة الصورة المرجعية؛ تشغيل الموقع وترخيص إعادة الاستخدام غير مؤكدين.",
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
@@ -5320,40 +5083,39 @@
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
       "subCategory": "ألعاب البلايستيشن",
-      "points": 400,
-      "difficulty": 400,
-      "question": "شو اسم لعبة البلايستيشن القديمة اللي منها هاللقطة؟",
-      "answer": "SpongeBob SquarePants: Battle for Bikini Bottom",
+      "points": 600,
+      "difficulty": 600,
+      "question": "ما اسم الجزء من ألعاب سبونج بوب الذي يظهر في هذه اللقطة؟",
+      "answer": "Battle for Bikini Bottom",
       "acceptedAnswers": [
-        "SpongeBob SquarePants: Battle for Bikini Bottom",
         "Battle for Bikini Bottom",
-        "سبونج بوب معركة قاع الهامور",
+        "SpongeBob SquarePants: Battle for Bikini Bottom",
         "معركة قاع الهامور",
-        "سبونج بوب باتل فور بيكيني بوتوم",
-        "سبونج بوب"
+        "سبونج بوب معركة قاع الهامور",
+        "باتل فور بيكيني بوتوم"
       ],
       "imageRequired": true,
       "image": {
-        "url": "https://m.media-amazon.com/images/M/MV5BOTlhMjg5OTktOTFhNy00ODg2LWI3NTQtNzkzNzg2NTRiMjVlXkEyXkFqcGc%40._V1_.jpg",
+        "url": "https://retromagaz.com/uploads/product_box_galleries/16/53/site_big_f2drr06l8_cadb5c5a.png",
         "localFile": null,
         "status": "external_reference",
         "searchQueryAr": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "googleImagesSearchUrl": "",
-        "visualTarget": "SpongeBob SquarePants: Battle for Bikini Bottom",
+        "visualTarget": "Battle for Bikini Bottom",
         "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
         "mustBeRealPhoto": false,
         "rejectIf": [],
         "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
-        "sourcePage": "https://www.imdb.com/title/tt0395770/",
-        "sourcePublisher": "www.imdb.com",
+        "sourcePage": "https://retromagaz.com/ru/product/gra-sony-playstation-2-spongebob-squarepants-battle-for-bikini-bottom-europe-angliyska-versiya-bu-khoroshiy",
+        "sourcePublisher": "retromagaz.com",
         "license": null
       },
       "evidenceUrls": [
-        "https://www.imdb.com/title/tt0395770/"
+        "https://retromagaz.com/ru/product/gra-sony-playstation-2-spongebob-squarepants-battle-for-bikini-bottom-europe-angliyska-versiya-bu-khoroshiy"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "reviewNotes": "تمت معاينة الصورة المرجعية؛ تشغيل الموقع وترخيص إعادة الاستخدام غير مؤكدين.",
       "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
