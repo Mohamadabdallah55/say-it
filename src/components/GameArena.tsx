@@ -1675,7 +1675,7 @@ export function GameArena({
                       {isHost && (
                         <button type="button" data-testid="clarify-image"
                           disabled={(roundMeta.clarificationCount ?? 0) >= 3}
-                          onClick={() => sendCommand('CLARIFY_IMAGE')}
+                          onClick={() => sendCommand('CLARIFY_IMAGE', { roundId: roundMeta.roundId })}
                           className="game-btn-3d rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-5 py-2.5 font-black disabled:opacity-50 disabled:cursor-not-allowed">
                           وضّح شوي (−50 نقطة)
                         </button>
