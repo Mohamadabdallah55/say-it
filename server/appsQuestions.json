@@ -30,18 +30,19 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-meet.png"
   },
   {
-    "id": "APP-027",
+    "id": "APP-015",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "كورسيرا",
+    "answer": "فيغما",
     "acceptableAnswers": [
-      "Coursera"
+      "Figma",
+      "فيجما"
     ],
-    "explanation": "اسم التطبيق: Coursera.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png"
+    "explanation": "اسم التطبيق: Figma.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png"
   },
   {
     "id": "APP-061-color",
@@ -72,18 +73,20 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/soundcloud.png"
   },
   {
-    "id": "APP-077",
+    "id": "APP-041",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "أوداسيتي",
+    "answer": "أوبسيديان",
     "acceptableAnswers": [
-      "Audacity"
+      "Obsidian",
+      "اوبسيديان",
+      "أوبسيدين"
     ],
-    "explanation": "اسم التطبيق: Audacity.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png"
+    "explanation": "اسم التطبيق: Obsidian.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/obsidian.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/obsidian.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/obsidian.png"
   },
   {
     "id": "APP-FAMILIAR-app-store",
@@ -117,19 +120,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-fit",
+    "id": "APP-013",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جوجل فيت",
+    "answer": "نوشن",
     "acceptableAnswers": [
-      "Google Fit",
-      "غوغل فيت"
+      "Notion"
     ],
-    "explanation": "اسم التطبيق: Google Fit.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-fit.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-fit.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-fit.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Notion.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png"
   },
   {
     "id": "APP-014",
@@ -162,18 +164,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/reddit.png"
   },
   {
-    "id": "APP-017",
+    "id": "APP-044",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "تريلو",
+    "answer": "زوتيرو",
     "acceptableAnswers": [
-      "Trello"
+      "Zotero"
     ],
-    "explanation": "اسم التطبيق: Trello.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png"
+    "explanation": "اسم التطبيق: Zotero.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/zotero.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/zotero.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/zotero.png"
   },
   {
     "id": "APP-FAMILIAR-facebook",
@@ -207,19 +209,18 @@
     "points": 400
   },
   {
-    "id": "APP-076",
+    "id": "APP-017",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "بلندر",
+    "answer": "تريلو",
     "acceptableAnswers": [
-      "Blender",
-      "بليندر"
+      "Trello"
     ],
-    "explanation": "اسم التطبيق: Blender.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png"
+    "explanation": "اسم التطبيق: Trello.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/atlassian-trello.png"
   },
   {
     "id": "APP-FAMILIAR-chatgpt",
@@ -253,19 +254,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-news",
+    "id": "APP-049-color",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "أخبار جوجل",
+    "answer": "إف إل ستوديو",
     "acceptableAnswers": [
-      "Google News",
-      "جوجل نيوز"
+      "FL Studio"
     ],
-    "explanation": "اسم التطبيق: Google News.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-news.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-news.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-news.png",
-    "points": 600
+    "explanation": "اسم التطبيق: FL Studio.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/fl-studio.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/fl-studio.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/fl-studio.png"
   },
   {
     "id": "APP-020",
@@ -297,19 +297,18 @@
     "points": 400
   },
   {
-    "id": "APP-015",
+    "id": "APP-027",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "فيغما",
+    "answer": "كورسيرا",
     "acceptableAnswers": [
-      "Figma",
-      "فيجما"
+      "Coursera"
     ],
-    "explanation": "اسم التطبيق: Figma.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/figma.png"
+    "explanation": "اسم التطبيق: Coursera.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/coursera.png"
   },
   {
     "id": "APP-003",
@@ -343,19 +342,19 @@
     "points": 400
   },
   {
-    "id": "APP-079",
+    "id": "APP-054",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "أنكي",
+    "answer": "جيمب",
     "acceptableAnswers": [
-      "Anki",
-      "انكي"
+      "GIMP",
+      "جمب"
     ],
-    "explanation": "اسم التطبيق: Anki.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png"
+    "explanation": "اسم التطبيق: GIMP.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/gimp.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/gimp.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/gimp.png"
   },
   {
     "id": "APP-019",
@@ -386,19 +385,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-wallet",
+    "id": "APP-028",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "محفظة جوجل",
+    "answer": "يوديمي",
     "acceptableAnswers": [
-      "Google Wallet",
-      "جوجل واليت"
+      "Udemy"
     ],
-    "explanation": "اسم التطبيق: Google Wallet.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-wallet.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-wallet.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-wallet.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Udemy.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png"
   },
   {
     "id": "APP-FAMILIAR-google-play",
@@ -433,18 +431,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/signal.png"
   },
   {
-    "id": "APP-013",
+    "id": "APP-055-color",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "نوشن",
+    "answer": "ستريميو",
     "acceptableAnswers": [
-      "Notion"
+      "Stremio"
     ],
-    "explanation": "اسم التطبيق: Notion.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/notion.png"
+    "explanation": "اسم التطبيق: Stremio.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/stremio.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/stremio.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/stremio.png"
   },
   {
     "id": "APP-010",
@@ -476,18 +474,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-teams.png"
   },
   {
-    "id": "APP-078",
+    "id": "APP-072",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "مودل",
+    "answer": "جوجل إيرث",
     "acceptableAnswers": [
-      "Moodle"
+      "Google Earth"
     ],
-    "explanation": "اسم التطبيق: Moodle.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png"
+    "explanation": "اسم التطبيق: Google Earth.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png"
   },
   {
     "id": "APP-006",
@@ -519,20 +517,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-epic-games",
+    "id": "APP-056-color",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "إيبك غيمز",
+    "answer": "فايل زيلا",
     "acceptableAnswers": [
-      "Epic Games",
-      "ايبك قيمز",
-      "ايبك جيمز"
+      "FileZilla"
     ],
-    "explanation": "اسم التطبيق: Epic Games.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/epic-games.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/epic-games.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/epic-games.png",
-    "points": 600
+    "explanation": "اسم التطبيق: FileZilla.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/filezilla.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/filezilla.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/filezilla.png"
   },
   {
     "id": "APP-FAMILIAR-safari",
@@ -563,20 +559,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/threads.png"
   },
   {
-    "id": "APP-FAMILIAR-microsoft-defender",
+    "id": "APP-066",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "مايكروسوفت ديفندر",
+    "answer": "جوجل كيب",
     "acceptableAnswers": [
-      "Microsoft Defender",
-      "ديفندر",
-      "ويندوز ديفندر"
+      "Google Keep"
     ],
-    "explanation": "اسم التطبيق: Microsoft Defender.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-defender.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-defender.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-defender.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Google Keep.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png"
   },
   {
     "id": "APP-063",
@@ -611,18 +605,20 @@
     "points": 400
   },
   {
-    "id": "APP-073-color",
+    "id": "APP-058",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "غود نوتس",
+    "answer": "غودوت",
     "acceptableAnswers": [
-      "Goodnotes"
+      "Godot Engine",
+      "جودوت",
+      "Godot"
     ],
-    "explanation": "اسم التطبيق: Goodnotes.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png"
+    "explanation": "اسم التطبيق: Godot Engine.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/godot.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/godot.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/godot.png"
   },
   {
     "id": "APP-002",
@@ -656,19 +652,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/firefox.png"
   },
   {
-    "id": "APP-FAMILIAR-quizlet",
+    "id": "APP-073-color",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "كويزلت",
+    "answer": "غود نوتس",
     "acceptableAnswers": [
-      "Quizlet",
-      "كويزليت"
+      "Goodnotes"
     ],
-    "explanation": "اسم التطبيق: Quizlet.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Goodnotes.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodnotes.png"
   },
   {
     "id": "APP-018",
@@ -701,20 +696,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-microsoft-to-do",
+    "id": "APP-060-color",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "مايكروسوفت تو دو",
+    "answer": "فيفالدي",
     "acceptableAnswers": [
-      "Microsoft To Do",
-      "تو دو",
-      "To Do"
+      "Vivaldi"
     ],
-    "explanation": "اسم التطبيق: Microsoft To Do.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-to-do.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-to-do.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-to-do.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Vivaldi.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/vivaldi.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/vivaldi.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/vivaldi.png"
   },
   {
     "id": "APP-FAMILIAR-google",
@@ -747,18 +740,18 @@
     "points": 400
   },
   {
-    "id": "APP-072",
+    "id": "APP-078",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جوجل إيرث",
+    "answer": "مودل",
     "acceptableAnswers": [
-      "Google Earth"
+      "Moodle"
     ],
-    "explanation": "اسم التطبيق: Google Earth.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-earth.png"
+    "explanation": "اسم التطبيق: Moodle.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/moodle.png"
   },
   {
     "id": "APP-007",
@@ -789,19 +782,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-music.png"
   },
   {
-    "id": "APP-FAMILIAR-ebay",
+    "id": "APP-081",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "إيباي",
+    "answer": "جيلي فين",
     "acceptableAnswers": [
-      "eBay",
-      "اي باي"
+      "Jellyfin"
     ],
-    "explanation": "اسم التطبيق: eBay.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/ebay.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/ebay.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/ebay.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Jellyfin.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/jellyfin.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/jellyfin.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/jellyfin.png"
   },
   {
     "id": "APP-005",
@@ -834,19 +826,19 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-play-books",
+    "id": "APP-079",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "كتب جوجل بلاي",
+    "answer": "أنكي",
     "acceptableAnswers": [
-      "Google Play Books",
-      "جوجل بلاي بوكس"
+      "Anki",
+      "انكي"
     ],
-    "explanation": "اسم التطبيق: Google Play Books.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-books.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-books.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-books.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Anki.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/anki.png"
   },
   {
     "id": "APP-FAMILIAR-google-chrome",
@@ -879,18 +871,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/waze.png"
   },
   {
-    "id": "APP-071-color",
+    "id": "APP-083",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "غودريدز",
+    "answer": "نكست كلاود",
     "acceptableAnswers": [
-      "Goodreads"
+      "Nextcloud"
     ],
-    "explanation": "اسم التطبيق: Goodreads.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodreads.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/goodreads.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/goodreads.png"
+    "explanation": "اسم التطبيق: Nextcloud.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/nextcloud.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/nextcloud.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/nextcloud.png"
   },
   {
     "id": "APP-062",
@@ -923,20 +915,19 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/twitch.png"
   },
   {
-    "id": "APP-FAMILIAR-microsoft-copilot",
+    "id": "APP-076",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "كوبايلوت",
+    "answer": "بلندر",
     "acceptableAnswers": [
-      "Microsoft Copilot",
-      "Copilot",
-      "كو بايلوت"
+      "Blender",
+      "بليندر"
     ],
-    "explanation": "اسم التطبيق: Microsoft Copilot.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Blender.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/blender.png"
   },
   {
     "id": "APP-001",
@@ -970,19 +961,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-tv",
+    "id": "APP-087",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جوجل تي في",
+    "answer": "ماستودون",
     "acceptableAnswers": [
-      "Google TV",
-      "غوغل تي في"
+      "Mastodon"
     ],
-    "explanation": "اسم التطبيق: Google TV.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tv.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tv.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tv.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Mastodon.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/mastodon.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/mastodon.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/mastodon.png"
   },
   {
     "id": "APP-FAMILIAR-x",
@@ -1015,18 +1005,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/discord.png"
   },
   {
-    "id": "APP-070",
+    "id": "APP-077",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "سلاك",
+    "answer": "أوداسيتي",
     "acceptableAnswers": [
-      "Slack"
+      "Audacity"
     ],
-    "explanation": "اسم التطبيق: Slack.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png"
+    "explanation": "اسم التطبيق: Audacity.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/audacity.png"
   },
   {
     "id": "APP-011",
@@ -1058,20 +1048,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-microsoft-onenote",
+    "id": "APP-095-color",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "ون نوت",
+    "answer": "بت واردن",
     "acceptableAnswers": [
-      "OneNote",
-      "وان نوت",
-      "مايكروسوفت ون نوت"
+      "Bitwarden"
     ],
-    "explanation": "اسم التطبيق: OneNote.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-onenote.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-onenote.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-onenote.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Bitwarden.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/bitwarden.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/bitwarden.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/bitwarden.png"
   },
   {
     "id": "APP-012",
@@ -1103,19 +1091,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-home",
+    "id": "APP-039",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جوجل هوم",
+    "answer": "بريف",
     "acceptableAnswers": [
-      "Google Home",
-      "غوغل هوم"
+      "Brave"
     ],
-    "explanation": "اسم التطبيق: Google Home.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-home.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-home.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-home.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Brave.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png"
   },
   {
     "id": "APP-FAMILIAR-paypal",
@@ -1133,18 +1120,18 @@
     "points": 400
   },
   {
-    "id": "APP-066",
+    "id": "APP-096",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جوجل كيب",
+    "answer": "ثندربيرد",
     "acceptableAnswers": [
-      "Google Keep"
+      "Thunderbird"
     ],
-    "explanation": "اسم التطبيق: Google Keep.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-keep.png"
+    "explanation": "اسم التطبيق: Thunderbird.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/thunderbird.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/thunderbird.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/thunderbird.png"
   },
   {
     "id": "APP-026-color",
@@ -1161,20 +1148,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-classroom.png"
   },
   {
-    "id": "APP-FAMILIAR-google-slides",
+    "id": "APP-031",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "عروض جوجل التقديمية",
+    "answer": "ديب إل",
     "acceptableAnswers": [
-      "Google Slides",
-      "جوجل سلايدز",
-      "عروض جوجل"
+      "DeepL"
     ],
-    "explanation": "اسم التطبيق: Google Slides.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-slides.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-slides.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-slides.png",
-    "points": 600
+    "explanation": "اسم التطبيق: DeepL.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png"
   },
   {
     "id": "APP-FAMILIAR-aliexpress",
@@ -1193,19 +1178,19 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-tasks",
+    "id": "APP-098",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "مهام جوجل",
+    "answer": "هوم أسيستنت",
     "acceptableAnswers": [
-      "Google Tasks",
-      "جوجل تاسكس"
+      "Home Assistant",
+      "هوم اسيستنت"
     ],
-    "explanation": "اسم التطبيق: Google Tasks.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tasks.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tasks.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-tasks.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Home Assistant.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/home-assistant.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/home-assistant.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/home-assistant.png"
   },
   {
     "id": "APP-016",
@@ -1222,18 +1207,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/dropbox.png"
   },
   {
-    "id": "APP-033-color",
+    "id": "APP-037",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "أبل بودكاست",
+    "answer": "بروتون ميل",
     "acceptableAnswers": [
-      "Apple Podcasts"
+      "Proton Mail"
     ],
-    "explanation": "اسم التطبيق: Apple Podcasts.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-podcasts.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-podcasts.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-podcasts.png"
+    "explanation": "اسم التطبيق: Proton Mail.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png"
   },
   {
     "id": "APP-FAMILIAR-microsoft-excel",
@@ -1251,20 +1236,18 @@
     "points": 400
   },
   {
-    "id": "APP-FAMILIAR-google-sheets",
+    "id": "APP-075",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جداول بيانات جوجل",
+    "answer": "فوتوبيا",
     "acceptableAnswers": [
-      "Google Sheets",
-      "جوجل شيتس",
-      "جداول جوجل"
+      "Photopea"
     ],
-    "explanation": "اسم التطبيق: Google Sheets.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-sheets.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-sheets.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-sheets.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Photopea.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/photopea.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/photopea.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/photopea.png"
   },
   {
     "id": "APP-040",
@@ -1281,20 +1264,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/opera.png"
   },
   {
-    "id": "APP-FAMILIAR-apple-maps",
+    "id": "APP-029",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "خرائط أبل",
+    "answer": "سترافا",
     "acceptableAnswers": [
-      "Apple Maps",
-      "ابل مابس",
-      "خرائط آبل"
+      "Strava"
     ],
-    "explanation": "اسم التطبيق: Apple Maps.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-maps.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-maps.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/apple-maps.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Strava.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png"
   },
   {
     "id": "APP-FAMILIAR-google-lens",
@@ -1312,18 +1293,18 @@
     "points": 400
   },
   {
-    "id": "APP-032-color",
+    "id": "APP-035",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "بيهانس",
+    "answer": "تودويست",
     "acceptableAnswers": [
-      "Behance"
+      "Todoist"
     ],
-    "explanation": "اسم التطبيق: Behance.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png"
+    "explanation": "اسم التطبيق: Todoist.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/todoist.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/todoist.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/todoist.png"
   },
   {
     "id": "APP-FAMILIAR-microsoft-word",
@@ -1342,18 +1323,18 @@
     "points": 400
   },
   {
-    "id": "APP-037",
+    "id": "APP-032-color",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "بروتون ميل",
+    "answer": "بيهانس",
     "acceptableAnswers": [
-      "Proton Mail"
+      "Behance"
     ],
-    "explanation": "اسم التطبيق: Proton Mail.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/proton-mail.png"
+    "explanation": "اسم التطبيق: Behance.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/behance.png"
   },
   {
     "id": "APP-067",
@@ -1370,19 +1351,18 @@
     "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/viber.png"
   },
   {
-    "id": "APP-FAMILIAR-google-messages",
+    "id": "APP-034",
+    "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "رسائل جوجل",
+    "answer": "بوكت كاستس",
     "acceptableAnswers": [
-      "Google Messages",
-      "جوجل مسجز"
+      "Pocket Casts"
     ],
-    "explanation": "اسم التطبيق: Google Messages.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-messages.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-messages.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-messages.png",
-    "points": 600
+    "explanation": "اسم التطبيق: Pocket Casts.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/pocket-casts.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/pocket-casts.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/pocket-casts.png"
   },
   {
     "id": "APP-FAMILIAR-google-docs",
@@ -1400,89 +1380,90 @@
     "points": 400
   },
   {
-    "id": "APP-029",
+    "id": "APP-070",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "سترافا",
+    "answer": "سلاك",
     "acceptableAnswers": [
-      "Strava"
+      "Slack"
     ],
-    "explanation": "اسم التطبيق: Strava.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/strava.png"
+    "explanation": "اسم التطبيق: Slack.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/slack.png"
   },
   {
-    "id": "APP-031",
+    "id": "APP-030-color",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "ديب إل",
+    "answer": "جارمن كونيكت",
     "acceptableAnswers": [
-      "DeepL"
+      "Garmin Connect"
     ],
-    "explanation": "اسم التطبيق: DeepL.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/deepl.png"
+    "explanation": "اسم التطبيق: Garmin Connect.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/garmin-connect.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/garmin-connect.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/garmin-connect.png"
   },
   {
-    "id": "APP-FAMILIAR-google-contacts",
+    "id": "APP-FAMILIAR-quizlet",
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "جهات اتصال جوجل",
+    "answer": "كويزلت",
     "acceptableAnswers": [
-      "Google Contacts",
-      "جوجل كونتاكتس"
+      "Quizlet",
+      "كويزليت"
     ],
-    "explanation": "اسم التطبيق: Google Contacts.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-contacts.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-contacts.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-contacts.png",
+    "explanation": "اسم التطبيق: Quizlet.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/quizlet.png",
     "points": 600
   },
   {
-    "id": "APP-028",
+    "id": "APP-074-color",
     "points": 600,
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "يوديمي",
+    "answer": "فوكسيت ريدر",
     "acceptableAnswers": [
-      "Udemy"
+      "Foxit PDF Reader"
     ],
-    "explanation": "اسم التطبيق: Udemy.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/udemy.png"
+    "explanation": "اسم التطبيق: Foxit PDF Reader.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/foxit-icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/foxit-icon.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/foxit-icon.png"
   },
   {
-    "id": "APP-039",
-    "points": 600,
+    "id": "APP-FAMILIAR-microsoft-copilot",
     "kind": "logo",
     "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "بريف",
+    "answer": "كوبايلوت",
     "acceptableAnswers": [
-      "Brave"
+      "Microsoft Copilot",
+      "Copilot",
+      "كو بايلوت"
     ],
-    "explanation": "اسم التطبيق: Brave.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/brave.png"
-  },
-  {
-    "id": "APP-FAMILIAR-google-play-games",
-    "kind": "logo",
-    "question": "ما اسم التطبيق الموجود في الصورة؟",
-    "answer": "ألعاب جوجل بلاي",
-    "acceptableAnswers": [
-      "Google Play Games",
-      "بلاي جيمز"
-    ],
-    "explanation": "اسم التطبيق: Google Play Games.",
-    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-games.png",
-    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-games.png",
-    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/google-play-games.png",
+    "explanation": "اسم التطبيق: Microsoft Copilot.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/microsoft-copilot.png",
     "points": 600
+  },
+  {
+    "id": "APP-093",
+    "points": 600,
+    "kind": "logo",
+    "question": "ما اسم التطبيق الموجود في الصورة؟",
+    "answer": "أوفرليف",
+    "acceptableAnswers": [
+      "Overleaf"
+    ],
+    "explanation": "اسم التطبيق: Overleaf.",
+    "sourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/overleaf.png",
+    "imageUrl": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/9d019529dfd4431770e7380bfafd6628800b7986/png/overleaf.png",
+    "imageSourceUrl": "https://github.com/homarr-labs/dashboard-icons/blob/9d019529dfd4431770e7380bfafd6628800b7986/png/overleaf.png"
   }
 ]
