@@ -84,17 +84,14 @@
         "difficulty": "hard",
         "points": 600,
         "questionType": "direct_qa",
-        "answer": "دم",
+        "answer": "زعفران",
         "acceptableAnswers": [
-          "دَم",
-          "دوم",
-          "دم بخت",
-          "دوم بخت",
-          "dum",
-          "dum pukht"
+          "الزعفران",
+          "زعفران حقيقي",
+          "saffron"
         ],
-        "prompt": "بإحدى طرق إعداد البرياني التقليدية، تُرص طبقات الأرز واللحم ويُغلق القدر بإحكام حتى ينضج بالبخار. شو اسم طريقة الطبخ الهندية هاي؟",
-        "explanation": "طريقة الدم تعتمد على الطهي البطيء في قدر مغلق؛ وتُستخدم في بعض وصفات البرياني.",
+        "prompt": "شو البهار المستخرج من مياسم زهرة، واللي يُنقع بالحليب أو الماء ويُستخدم لإعطاء بعض وصفات البرياني لونًا ذهبيًا ورائحة مميزة؟",
+        "explanation": "تستخدم بعض وصفات البرياني الزعفران المنقوع لإضافة اللون والرائحة.",
         "imageUrl": "https://tb-static.uber.com/prod/image-proc/processed_images/5f9bdd049c00673326c524a8247f94e0/c67fc65e9b4e16a553eb7574fba090f1.jpeg",
         "imageSourceUrl": "https://www.ubereats.com/au/store/khan-curry-hut-indian-restaurant/Y63pgL6ARbah-M5fCEoDow",
         "imageDisplay": "before_reveal",
@@ -603,13 +600,12 @@
         "answer": "دايفوكو",
         "acceptableAnswers": [
           "دايفوكو موتشي",
-          "دايفوكو",
           "دايفوكو موشي",
-          "Daifuku",
-          "دايفوكو موتشي الياباني"
+          "دايفوكو",
+          "Daifuku"
         ],
-        "prompt": "شو اسم هالحلو الياباني المحشو اللي بالصورة؟",
-        "explanation": "الدايفوكو نوع من الموتشي المحشو، وغالبًا تكون حشوته من معجون الفاصولياء الحمراء الحلو.",
+        "prompt": "هالحلو الياباني من أنواع الموتشي المحشو. شو اسم النوع المعروف بالموتشي المحشو بمعجون الفاصولياء الحلو؟",
+        "explanation": "الدايفوكو نوع من الموتشي المحشو، ومن حشواته التقليدية معجون الفاصولياء الحمراء الحلو.",
         "imageUrl": "https://www.foodland.sk/sub/foodland.sk/images/articles-images/230239912_fb-image_normal_none%20jpg.jpg",
         "imageSourceUrl": "https://www.foodland.at/blog/mochi-eine-traditionelle-japanische-delikatesse-mit-einem-modernen-touch/",
         "imageDisplay": "before_reveal",
