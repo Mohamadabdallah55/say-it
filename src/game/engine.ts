@@ -516,7 +516,7 @@ export function applyLifeline(
       clarificationCount: 0,
       effectivePoints: nextRound.effectivePoints + 50 * (nextRound.clarificationCount ?? 0),
       hintRevealed: false,
-      twoAnswersActive: false,
+      twoAnswersActive: nextRound.twoAnswersActive,
       ...createMemoryFields(backup),
       ...createActingFields(backup, nowMs),
     };
@@ -619,7 +619,7 @@ export function swapActiveWithBackup(
         clarificationCount: 0,
         effectivePoints: state.activeRound.effectivePoints + 50 * (state.activeRound.clarificationCount ?? 0),
         hintRevealed: false,
-        twoAnswersActive: false,
+        twoAnswersActive: state.activeRound.twoAnswersActive,
         buzzerQueue: [],
         ...swappedMemory,
         ...createActingFields(backup, nowMs),
