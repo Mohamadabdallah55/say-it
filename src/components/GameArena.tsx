@@ -348,7 +348,7 @@ export function GameArena({
   const [state, setState] = useState<ArenaState | null>(null);
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [error, setError] = useState<string | null>(null);
-  const cardCommandPending = useRef(false);
+  const commandPending = useRef(false);
   const [commandError, setCommandError] = useState<string | null>(null);
   const [correction, setCorrection] = useState<{ resultId: string; teamId?: string | null } | null>(null);
   const [correcting, setCorrecting] = useState(false);
@@ -650,17 +650,18 @@ export function GameArena({
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
-    const cardCommand = command === 'APPLY_LIFELINE' || command === 'SKIP_CARD_PICK';
-    if (cardCommand && cardCommandPending.current) return false;
-    if (cardCommand) cardCommandPending.current = true;
+    if (commandPending.current) return false;
+    commandPending.current = true;
     setCommandError(null);
-    const actionId = `act_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
+    const actionId = crypto.randomUUID();
+    const body = JSON.stringify({ role, token, command, actionId, payload: { ...payload, ...(roundMeta?.roundId ? { roundId: roundMeta.roundId } : {}) } });
     try {
-      const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/command`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ role, token, command, actionId, payload: cardCommand ? { ...payload, roundId: roundMeta?.roundId } : payload }),
+      const request = () => fetch(`/api/rooms/${encodeURIComponent(roomCode)}/command`, {
+        method: 'POST', signal: AbortSignal.timeout(12000),
+        headers: { 'Content-Type': 'application/json' }, body,
       });
+      let res: Response;
+      try { res = await request(); } catch { res = await request(); }
       const data = await res.json();
       if (!res.ok) {
         setCommandError(data.error || 'تعذر تنفيذ الأمر.');
@@ -677,7 +678,7 @@ export function GameArena({
       setCommandError('فشل الاتصال بالخادم لتنفيذ الأمر.');
       return false;
     } finally {
-      if (cardCommand) cardCommandPending.current = false;
+      commandPending.current = false;
     }
   };
 
