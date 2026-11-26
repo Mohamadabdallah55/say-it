@@ -347,6 +347,7 @@ export function GameArena({
   const [state, setState] = useState<ArenaState | null>(null);
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [error, setError] = useState<string | null>(null);
+  const cardCommandPending = useRef(false);
   const [commandError, setCommandError] = useState<string | null>(null);
   const [correction, setCorrection] = useState<{ resultId: string; teamId?: string | null } | null>(null);
   const [correcting, setCorrecting] = useState(false);
@@ -648,13 +649,16 @@ export function GameArena({
 
   const sendCommand = async (command: string, payload?: Record<string, unknown>) => {
     if (!isHost) return false;
+    const cardCommand = command === 'APPLY_LIFELINE' || command === 'SKIP_CARD_PICK';
+    if (cardCommand && cardCommandPending.current) return false;
+    if (cardCommand) cardCommandPending.current = true;
     setCommandError(null);
     const actionId = `act_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
     try {
       const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/command`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ role, token, command, actionId, payload }),
+        body: JSON.stringify({ role, token, command, actionId, payload: cardCommand ? { ...payload, roundId: roundMeta?.roundId } : payload }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -671,6 +675,8 @@ export function GameArena({
     } catch {
       setCommandError('فشل الاتصال بالخادم لتنفيذ الأمر.');
       return false;
+    } finally {
+      if (cardCommand) cardCommandPending.current = false;
     }
   };
 
@@ -720,6 +726,10 @@ export function GameArena({
   const animateRound = !state.settings.reducedMotion && !prefersReducedMotion && !smallScreen;
   const answerTeams = roundMeta?.activeLifeline === 'silence' ? state.teams.filter(t => t.id === roundMeta.ownerTeamId) : [...state.teams.slice(state.currentTurnTeamIndex), ...state.teams.slice(0, state.currentTurnTeamIndex)];
   const currentTeam = state.teams[state.currentTurnTeamIndex] ?? state.teams[0];
+  const cardTeam = state.teams.find(t => t.id === roundMeta?.ownerTeamId) ?? currentTeam;
+  const remainingCards = state.settings.lifelinesEnabled && state.settings.cards
+    ? [...new Set(state.settings.cards)].filter(c => !cardTeam.usedLifelines.includes(c)).length
+    : cardTeam.lifelinesRemaining;
   const isMatrixBoard = state.boardMode === 'category_team_matrix';
   const isTeamBundlesBoard =
     !isMatrixBoard &&
@@ -968,7 +978,7 @@ export function GameArena({
 
           {state.phase === 'LIFELINE_PICK' && (
             <SpecialCards
-              team={currentTeam.name}
+              team={cardTeam.name}
               categoryName={
                 roundMeta?.categoryName ??
                 state.categories.find((c) => c.id === roundMeta?.categoryId)?.name
@@ -977,7 +987,8 @@ export function GameArena({
                 state.categories.find((c) => c.id === roundMeta?.categoryId)?.accentColor ?? '#00A86B'
               }
               host={isHost}
-              used={currentTeam.usedLifelines}
+              used={cardTeam.usedLifelines}
+              remaining={remainingCards}
               allowed={state.settings.cards}
               canSwap={'hasBackupQuestionsForActiveCategory' in state && state.hasBackupQuestionsForActiveCategory}
               choose={(lifeline) => sendCommand('APPLY_LIFELINE', { lifeline })}
@@ -1716,8 +1727,8 @@ export function GameArena({
                                 <button
                                   type="button"
                                   disabled={
-                                    currentTeam.lifelinesRemaining <= 0 ||
-                                    currentTeam.usedLifelines.includes('swap_question') ||
+                                    remainingCards <= 0 ||
+                                    cardTeam.usedLifelines.includes('swap_question') ||
                                     !(
                                       'hasBackupQuestionsForActiveCategory' in state &&
                                       state.hasBackupQuestionsForActiveCategory
@@ -1738,8 +1749,8 @@ export function GameArena({
                                 <button
                                   type="button"
                                   disabled={
-                                    currentTeam.lifelinesRemaining <= 0 ||
-                                    currentTeam.usedLifelines.includes('hint') ||
+                                    remainingCards <= 0 ||
+                                    cardTeam.usedLifelines.includes('hint') ||
                                     Boolean(roundMeta.hintRevealed)
                                   }
                                   onClick={() => {
@@ -1754,7 +1765,7 @@ export function GameArena({
                               )}
                             </div>
                             <span className="text-[11px] font-bold text-[#1F112E]/65">
-                              بطاقات تُستخدم مرة واحدة
+                              متبقي {remainingCards} · كل بطاقة تُستخدم مرة واحدة
                             </span>
                           </div>
                         )}
