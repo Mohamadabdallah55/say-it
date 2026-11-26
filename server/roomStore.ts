@@ -29,7 +29,8 @@ import {
   skipLifelinePick,
   submitOrder,
 } from '../src/game/engine';
-import { SERVER_CURATED_CATEGORY_IDS, WORLD_FOOD_CATEGORY } from '../src/game/curatedBanks';
+import { WORLD_FOOD_CATEGORY } from '../src/game/curatedBanks';
+import { OFFICIAL_CATEGORIES, OFFICIAL_CATEGORY_IDS } from './officialRemoteBanks';
 import { SERVER_CURATED_QUESTIONS } from './curatedQuestionBanks';
 import {
   applyAccountProgressToDeck,
@@ -142,9 +143,9 @@ class RoomManager {
     accountActive?: boolean;
     clientDeck?: QuizDeck;
   }): RoomState & { resetCategoryIds?: string[] } {
-    const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories).filter(c => c.id !== WORLD_FOOD_CATEGORY.id);
+    const cleanExtraCategories = sanitizeExternalCategories(params.extraCategories).filter(c => !OFFICIAL_CATEGORY_IDS.includes(c.id));
     // Never merge a stale recovered food bank over the current built-in version.
-    const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions).filter(q => q.categoryId !== WORLD_FOOD_CATEGORY.id);
+    const cleanExtraQuestions = sanitizeExternalQuestions(params.extraQuestions).filter(q => !OFFICIAL_CATEGORY_IDS.includes(q.categoryId));
     const cleanPlayedMap = sanitizePlayedMap(params.playedQuestionIdsByCategory);
 
     let deck: QuizDeck = STARTER_DEMO_DECK;
@@ -156,7 +157,7 @@ class RoomManager {
         params.selectedCategoryIds,
         undefined,
         [...SERVER_CURATED_QUESTIONS, ...cleanExtraQuestions],
-        cleanExtraCategories,
+        [...cleanExtraCategories, ...OFFICIAL_CATEGORIES],
       );
     } else if (params.deckId === 'world_food_images_v1') {
       deck = buildBoardDeckFromCategories([WORLD_FOOD_CATEGORY.id], undefined, SERVER_CURATED_QUESTIONS);
@@ -200,7 +201,7 @@ class RoomManager {
       deck = filterPlayedCuratedQuestions(deck, rooms, libraryId, now);
       if (params.deckId === 'curated_custom') {
         const difficulties = resolveDeckDifficulties(originalDeck);
-        for (const category of deck.categories.filter(({ id }) => SERVER_CURATED_CATEGORY_IDS.includes(id))) {
+        for (const category of deck.categories.filter(({ id }) => OFFICIAL_CATEGORY_IDS.includes(id))) {
           const points = categoryPointValues(category, difficulties);
           const hasEveryTier = (candidateDeck: QuizDeck) => points.every(value => candidateDeck.questions.some(
             question => question.categoryId === category.id && question.points === value && question.status === 'approved',
