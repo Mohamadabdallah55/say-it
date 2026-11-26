@@ -1,3 +1,4 @@
+import { MANIFEST_OFFICIAL_QUESTIONS } from './officialRemoteBanks';
 import foodDeck from '../decks/world-food-images/deck.json';
 import type { QuizQuestion } from '../src/game/types';
 import { WHO_SAHABI_CATEGORY, CLARIFY_IMAGE_CATEGORY } from '../src/game/curatedBanks';
@@ -118,6 +119,7 @@ const CLARIFY_IMAGE_QUESTIONS: QuizQuestion[] = clarifyImageRows.map(row => ({
 }));
 
 export const SERVER_CURATED_QUESTIONS = [
+  ...MANIFEST_OFFICIAL_QUESTIONS,
   ...CLARIFY_IMAGE_QUESTIONS,
   ...WORLD_FOOD_QUESTIONS,
   ...APPS_QUESTIONS,
