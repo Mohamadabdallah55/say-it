@@ -55,6 +55,71 @@ import { CornerStarMascot } from './CornerStarMascot';
 import { GameAssistantBot } from './GameAssistantBot';
 import { useAccount } from '../context/AccountContext';
 
+// Only reversed-word prompts are slowed and amplified; answer audio stays natural.
+function ReversedWordPlayer({ src }: { src: string }) {
+  const contextRef = useRef<AudioContext | null>(null);
+
+  useEffect(() => () => {
+    const context = contextRef.current;
+    contextRef.current = null;
+    if (context && context.state !== 'closed') void context.close().catch(() => {});
+  }, []);
+
+  const setSpeed = (audio: HTMLAudioElement) => {
+    audio.defaultPlaybackRate = 0.8;
+    audio.playbackRate = 0.8;
+  };
+
+  const play = (audio: HTMLAudioElement) => {
+    setSpeed(audio);
+    audio.volume = 1;
+    if (contextRef.current) {
+      void contextRef.current.resume().catch(() => {});
+      return;
+    }
+    // Same-origin assets support Web Audio without a CORS-related silent output.
+    if (typeof AudioContext === 'undefined' || new URL(audio.currentSrc || audio.src, window.location.href).origin !== window.location.origin) return;
+    try {
+      const context = new AudioContext();
+      contextRef.current = context;
+      void context.resume().then(() => {
+        if (contextRef.current !== context || context.state !== 'running') return;
+        const gain = context.createGain();
+        gain.gain.value = 1.7;
+        const limiter = context.createDynamicsCompressor();
+        limiter.threshold.value = -6;
+        limiter.knee.value = 6;
+        limiter.ratio.value = 16;
+        limiter.attack.value = 0.003;
+        limiter.release.value = 0.15;
+        const output = context.createGain();
+        output.gain.value = 0.9;
+        gain.connect(limiter);
+        limiter.connect(output);
+        output.connect(context.destination);
+        context.createMediaElementSource(audio).connect(gain);
+      }).catch(() => {
+        if (contextRef.current === context) contextRef.current = null;
+        if (context.state !== 'closed') void context.close().catch(() => {});
+      });
+    } catch {
+      // Native playback remains available on browsers without Web Audio.
+    }
+  };
+
+  return (
+    <audio
+      className="mx-auto mt-4 w-full max-w-md"
+      src={src}
+      controls
+      preload="metadata"
+      aria-label="الصوت المعكوس"
+      onLoadedMetadata={(event) => setSpeed(event.currentTarget)}
+      onPlay={(event) => play(event.currentTarget)}
+    />
+  );
+}
+
 interface GameArenaProps {
   roomCode: string;
   role: 'host' | 'projector';
@@ -1112,18 +1177,18 @@ export function GameArena({
                           compact={state.phase === 'REVEAL'}
                         />
                       ) : roundMeta.audioUrl && state.phase !== 'REVEAL' ? (
-                        <audio
-                          key={roundMeta.questionId}
-                          className="mx-auto mt-4 w-full max-w-md"
-                          src={
-                            roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id
-                              ? `${roundMeta.audioUrl}?v=fast2`
-                              : roundMeta.audioUrl
-                          }
-                          controls
-                          preload={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'metadata' : 'none'}
-                          aria-label={roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? 'الصوت المعكوس' : 'مقطع التلاوة'}
-                        />
+                        roundMeta.categoryId === REVERSED_WORDS_CATEGORY.id ? (
+                          <ReversedWordPlayer key={roundMeta.questionId} src={`${roundMeta.audioUrl}?v=fast2`} />
+                        ) : (
+                          <audio
+                            key={roundMeta.questionId}
+                            className="mx-auto mt-4 w-full max-w-md"
+                            src={roundMeta.audioUrl}
+                            controls
+                            preload="none"
+                            aria-label="مقطع التلاوة"
+                          />
+                        )
                       ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
                         ['cat_el_clasico', 'cat_champions_league'].includes(roundMeta.categoryId) ? (
