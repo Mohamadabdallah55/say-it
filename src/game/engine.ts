@@ -455,11 +455,11 @@ export function applyLifeline(
   } else if (lifeline === 'hint') {
     nextRound = { ...nextRound, hintRevealed: true };
   } else if (lifeline === 'show_cards') {
-    nextRound.effectivePoints = nextRound.basePoints * 3;
+    nextRound.effectivePoints = nextRound.basePoints * 3 - 50 * (nextRound.clarificationCount ?? 0);
   } else if (lifeline === 'double_points') {
     nextRound = {
       ...nextRound,
-      effectivePoints: state.activeRound.basePoints * 2,
+      effectivePoints: state.activeRound.basePoints * 2 - 50 * (state.activeRound.clarificationCount ?? 0),
     };
   } else if (lifeline === 'second_chance') {
     if (nextTimer.secondChanceGranted) {
@@ -487,6 +487,8 @@ export function applyLifeline(
       },
       orderPlay: resolveOrder(backup) ? {teamId: state.teams[state.currentTurnTeamIndex].id, attempts: [], turns: 0} : undefined,
       swappedFromQuestionId: oldId,
+      clarificationCount: 0,
+      effectivePoints: nextRound.effectivePoints + 50 * (nextRound.clarificationCount ?? 0),
       hintRevealed: false,
       twoAnswersActive: false,
       ...createMemoryFields(backup),
@@ -588,6 +590,8 @@ export function swapActiveWithBackup(
         },
         orderPlay: resolveOrder(backup) ? {teamId: state.teams[state.currentTurnTeamIndex].id, attempts: [], turns: 0} : undefined,
       swappedFromQuestionId: oldId,
+        clarificationCount: 0,
+        effectivePoints: state.activeRound.effectivePoints + 50 * (state.activeRound.clarificationCount ?? 0),
         hintRevealed: false,
         twoAnswersActive: false,
         buzzerQueue: [],
@@ -840,6 +844,25 @@ export function submitOrder(state: RoomState, indices: unknown, actionId: string
   return finished ? revealAnswer(next, actionId + '_reveal', nowMs) : {ok:true,state:next};
 }
 
+export function clarifyRoundImage(
+  state: RoomState, actionId: string, nowMs = Date.now(),
+): { ok: boolean; error?: string; state: RoomState } {
+  if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  const round = state.activeRound;
+  if (!round || round.question.categoryId !== 'cat_clarify_image' ||
+      !['QUESTION_READY', 'PLAYING', 'TIME_UP'].includes(state.phase)) {
+    return { ok: false, state, error: 'التوضيح متاح فقط أثناء سؤال وضّح شوي.' };
+  }
+  const count = round.clarificationCount ?? 0;
+  if (count >= 3) return { ok: false, state, error: 'استُخدمت التوضيحات الثلاثة.' };
+  return { ok: true, state: {
+    ...state,
+    activeRound: { ...round, clarificationCount: count + 1, effectivePoints: round.effectivePoints - 50 },
+    processedActionIds: [...state.processedActionIds, actionId].slice(-200),
+    updatedAt: new Date(nowMs).toISOString(),
+  }};
+}
+
 export function revealRoundHint(
   state: RoomState,
   actionId: string,
@@ -979,7 +1002,7 @@ export function awardRoundAndReturnToBoard(
   const changes: Record<string, number> = {};
   workingTeams = workingTeams.map(team => {
     const won = winnerSet.has(team.id);
-    const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints;
+    const reward = team.id === ownerTeamId ? round.effectivePoints : round.basePoints - 50 * (round.clarificationCount ?? 0);
     const stakeLost = team.id === ownerTeamId && !ownerCorrect && round.activeLifeline === 'show_cards';
     const penalty = stakeLost ? 3 * round.basePoints : ownerCorrect && round.activeLifeline === 'pit' ? round.basePoints : 0;
     const delta = won ? reward : -penalty;
@@ -999,6 +1022,7 @@ export function awardRoundAndReturnToBoard(
     roundId: state.activeRound.roundId,
     questionId: state.activeRound.question.id,
     ownerTeamId, lifeline: round.activeLifeline, scoreChanges: changes,
+    clarificationCount: round.clarificationCount,
     teamId: finalWinnerIds[0] ?? null,
     teamIds: finalWinnerIds,
     delta: finalWinnerIds.length > 0 ? pts : 0,
@@ -1103,7 +1127,8 @@ export function reopenQuestionForCorrection(
         question,
         basePoints: tile.points,
         ownerTeamId: previousEntry?.ownerTeamId ?? prevWinners[0],
-        effectivePoints: previousEntry?.lifeline === 'show_cards' ? tile.points * 3 : previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points,
+        effectivePoints: (previousEntry?.lifeline === 'show_cards' ? tile.points * 3 : previousEntry?.lifeline === 'double_points' ? tile.points * 2 : tile.points) - 50 * (previousEntry?.clarificationCount ?? 0),
+        clarificationCount: previousEntry?.clarificationCount ?? 0,
         activeLifeline: previousEntry?.lifeline ?? null,
         hintRevealed: true,
         twoAnswersActive: false,
@@ -1446,6 +1471,7 @@ export function sanitizeStateForRole(
           ownerTeamId: state.activeRound.ownerTeamId,
           basePoints: state.activeRound.basePoints,
           effectivePoints: state.activeRound.effectivePoints,
+          clarificationCount: state.activeRound.clarificationCount,
           activeLifeline: state.activeRound.activeLifeline,
           hintRevealed: state.activeRound.hintRevealed,
           twoAnswersActive: state.activeRound.twoAnswersActive,
