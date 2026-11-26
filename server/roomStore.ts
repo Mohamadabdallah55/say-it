@@ -1,3 +1,4 @@
+import { validateCardSelections } from '../src/game/cardSettings';
 import { refreshChampionsLeagueMedia } from './imageQuestionBanks';
 import crypto from 'node:crypto';
 import QRCode from 'qrcode';
@@ -226,7 +227,8 @@ class RoomManager {
       }
     }
 
-    if (params.settings?.cards?.includes('hint') && params.settings.cards.includes('swap_question')) throw new Error('اختر شنّص أو ألو فقط.');
+    const cardError = validateCardSelections(params.settings, params.teams.map((_, i) => `team_${i + 1}`));
+    if (cardError) throw new Error(cardError);
     const preflight = runBoardPreflightCheck({
       deck,
       selectedCategoryIds:
@@ -646,8 +648,9 @@ class RoomManager {
           ...room.settings,
           ...(payload as Partial<MatchSettings>),
         };
-        if (payload.cards && nextSettings.cards?.includes('hint') && nextSettings.cards.includes('swap_question')) {
-          result = { ok: false, state: room, error: 'اختر شنّص أو ألو فقط.' };
+        const cardError = validateCardSelections(nextSettings, room.teams.map(t => t.id));
+        if (cardError) {
+          result = { ok: false, state: room, error: cardError };
           break;
         }
         result = {
