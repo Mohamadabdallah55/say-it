@@ -90,7 +90,9 @@ drawingRouter.post('/:code/action',(req,res)=>{
     }else if(game){
       if(req.body?.round!==game.round||req.body?.phase!==game.phase)
         return error(res,'تغيرت الجولة؛ حاول مرة أخرى.',409);
-      if(['stroke','extra','voting','guess','next','skip_disconnected'].includes(action)&&req.body?.revision!==r.revision)
+      if(game.phase==='draw'&&['stroke','skip_disconnected'].includes(action)&&req.body?.cursor!==game.cursor)
+        return error(res,'انتهى دور الرسم؛ حاول مرة أخرى.',409);
+      if(['extra','voting','guess','next'].includes(action)&&req.body?.revision!==r.revision)
         return error(res,'تغيرت الجولة؛ حاول مرة أخرى.',409);
       if(action==='skip_disconnected'){
         if(i!==r.host)return error(res,'هذا الإجراء للمضيف فقط.',403);
