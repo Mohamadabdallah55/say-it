@@ -145,6 +145,12 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const image = question.imageDisplay === 'after_reveal'
     ? undefined
     : getQuestionImageSrc(question);
+  // Multi-image puzzles share a prompt, but are distinct by their visible clue set.
+  // Sort a copy so shuffling the same four images cannot bypass duplicate detection.
+  const beforeImages = question.imageDisplay !== 'after_reveal' && Array.isArray(question.beforeImageUrls)
+    ? [...new Set(question.beforeImageUrls.map(url => url.trim()).filter(Boolean))].sort()
+    : [];
+  const imageGroup = beforeImages.length ? JSON.stringify(beforeImages) : undefined;
   const audio = question.audioUrl?.trim();
   const audioTracks = Array.isArray(question.audioUrls)
     ? question.audioUrls.map((u) => u.trim()).filter(Boolean).join('|')
@@ -153,7 +159,7 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, actingTarget, image, question.memorySecondImageUrl, audio, audioTracks, video, orderItems].filter(Boolean).join('\n');
+  return [prompt, actingTarget, image, imageGroup, question.memorySecondImageUrl, audio, audioTracks, video, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [

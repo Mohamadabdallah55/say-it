@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'src/**'
+      - 'server/fourPicturesQuestions*'
       - 'package.json'
       - 'bun.lock'
       - '.github/workflows/verify-challenge.yml'
@@ -26,3 +27,5 @@ jobs:
         run: bun run build
       - name: TypeScript
         run: bun run lint
+      - name: Four-picture regression tests
+        run: bunx tsx --test server/fourPicturesQuestions.test.ts
