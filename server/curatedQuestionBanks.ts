@@ -1,3 +1,5 @@
+import foodDeck from '../decks/world-food-images/deck.json';
+import type { QuizQuestion } from '../src/game/types';
 import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
 import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
 import { GUESS_PRICE_QUESTIONS } from './guessPriceProducts';
@@ -37,7 +39,10 @@ import { GUESS_SOUND_QUESTIONS } from './guessSoundQuestions';
 import { APPS_QUESTIONS } from './appsQuestions';
 import { ZOOMED_IMAGE_QUESTIONS } from './zoomedImageQuestions';
 
+export const WORLD_FOOD_QUESTIONS = (foodDeck.deck.questions as QuizQuestion[]).filter(q => q.categoryId === 'world_food' && q.status === 'approved' && Boolean(q.imageUrl));
+
 export const SERVER_CURATED_QUESTIONS = [
+  ...WORLD_FOOD_QUESTIONS,
   ...APPS_QUESTIONS,
   ...ZOOMED_IMAGE_QUESTIONS,
   ...PROPHET_STORIES_QUESTIONS,
