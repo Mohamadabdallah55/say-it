@@ -46,8 +46,13 @@ export function finishRound(g:DrawingGame,winner:'outsider'|'group',guess=''):Dr
 }
 export function drawingAction(g:DrawingGame,actor:number,action:string,value?:unknown,host=false,now=Date.now()):DrawingGame {
   if(!Number.isInteger(actor)||actor<0||actor>=g.names.length) throw new Error('اللاعب غير موجود.');
-  if(action==='ready'&&g.phase==='secret'&&!g.ready.includes(actor)){
+  const skip=action==='skip_disconnected'&&host;
+  if((action==='ready'||skip)&&g.phase==='secret'&&!g.ready.includes(actor)){
     const ready=[...g.ready,actor];return {...g,ready,phase:ready.length===g.names.length?'draw':'secret'};
+  }
+  if(skip&&g.phase==='draw'&&actor===activeDrawer(g)){
+    const cursor=g.cursor+1,done=cursor>=g.names.length*g.cycles;
+    return {...g,cursor,phase:done?'discussion':'draw',deadline:done&&g.config.seconds?now+g.config.seconds*1000:null};
   }
   if(action==='stroke'&&g.phase==='draw'&&actor===activeDrawer(g)){
     if(!Array.isArray(value)||value.length<2||value.length>1200||!value.every(p=>Array.isArray(p)&&p.length===2&&p.every(n=>typeof n==='number'&&Number.isFinite(n)&&n>=0&&n<=1))) throw new Error('ارسم خطًا واحدًا متصلًا.');
@@ -57,15 +62,17 @@ export function drawingAction(g:DrawingGame,actor:number,action:string,value?:un
   }
   if(action==='extra'&&host&&g.phase==='discussion'&&g.cycles===2) return {...g,cycles:3,phase:'draw',deadline:null};
   if(action==='voting'&&host&&g.phase==='discussion') return {...g,phase:'vote',deadline:null};
-  if(action==='vote'&&g.phase==='vote'&&g.votes[actor]===undefined){
-    if(typeof value!=='number'||!Number.isInteger(value)||value<0||value>=g.names.length||value===actor) throw new Error('اختر لاعبًا آخر.');
-    const votes={...g.votes,[actor]:value};if(Object.keys(votes).length<g.names.length)return {...g,votes};
+  if((action==='vote'||skip)&&g.phase==='vote'&&g.votes[actor]===undefined){
+    if(skip)value=-1;
+    if(!skip&&(typeof value!=='number'||!Number.isInteger(value)||value<0||value>=g.names.length||value===actor)) throw new Error('اختر لاعبًا آخر.');
+    const votes={...g.votes,[actor]:value as number};if(Object.keys(votes).length<g.names.length)return {...g,votes};
     const counts=g.names.map((_,i)=>Object.values(votes).filter(v=>v===i).length);
     const top=Math.max(...counts);const leaders=counts.map((n,i)=>n===top?i:-1).filter(i=>i>=0);
-    const accused=leaders.length===1?leaders[0]:null;
+    const accused=top>0&&leaders.length===1?leaders[0]:null;
     const next={...g,votes,accused};
     return accused===g.outsider?{...next,phase:'guess'}:finishRound(next,'outsider');
   }
+  if(skip&&g.phase==='guess'&&actor===g.outsider)return finishRound(g,'group');
   if(action==='guess'&&g.phase==='guess'&&actor===g.outsider){
     const guess=typeof value==='string'?value.trim().slice(0,100):'';
     return finishRound(g,!!guess&&norm(guess)===norm(g.word)?'outsider':'group',guess);
