@@ -46,7 +46,7 @@ import { FourPicturesPuzzle } from './FourPicturesPuzzle';
 import { CareerTimeline } from './CareerTimeline';
 import { GuessSoundPlayer } from './GuessSoundPlayer';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
-import { JORDAN_NOSTALGIA_CATEGORY, JORDAN_NOSTALGIA_ANSWER_MASKS } from '../game/jordanNostalgia';
+import { JORDAN_NOSTALGIA_CATEGORY, JORDAN_NOSTALGIA_ANSWER_MASKS, JORDAN_NOSTALGIA_PLANET_CELLS } from '../game/jordanNostalgia';
 import { GUESS_SOUND_CATEGORY } from '../game/guessSound';
 import { VISUAL_MEMORY_CATEGORY } from '../game/visualMemory';
 import { SpecialCards } from './SpecialCards';
@@ -1081,6 +1081,8 @@ export function GameArena({
                             }
                             obscuredDifficulty={roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id ? roundMeta.difficulty : undefined}
                             answerMasks={state.phase !== 'REVEAL' && roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id ? JORDAN_NOSTALGIA_ANSWER_MASKS[roundMeta.questionId] : undefined}
+                            planetCell={roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id ? JORDAN_NOSTALGIA_PLANET_CELLS[roundMeta.questionId] : undefined}
+                            hidePlanetLabel={!['REVEAL', 'AWARD', 'FINAL'].includes(state.phase)}
                             onOrientationDetected={setMediaOrientation}
                           />
                         ) : singleBeforeImage ? (
