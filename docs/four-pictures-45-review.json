@@ -1,0 +1,13 @@
+{
+  "total": 45,
+  "added": 36,
+  "tiers": [
+    15,
+    15,
+    15
+  ],
+  "imageSlots": 180,
+  "uniqueAssets": 97,
+  "missingAssets": [],
+  "source": "Existing project photos from nostalgia and guess-price banks. Verified referenced files exist in the Git tree; selected nostalgia photos reviewed in earlier turns and other product image associations checked against existing catalog metadata. Not every image was reopened visually. Existing retailer image reuse permissions and in-game rendering not independently confirmed. Tests updated but not executed."
+}

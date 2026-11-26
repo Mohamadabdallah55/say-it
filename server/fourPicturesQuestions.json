@@ -313,5 +313,1265 @@
         "source": "https://www.flickr.com/photos/sociate/4188947922/"
       }
     ]
+  },
+  {
+    "id": "V2-010",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "خضار",
+    "explanation": "البصل والبروكلي والجزر والخيار كلها خضار.",
+    "images": [
+      "/images/guess-price/JP-001.jpg",
+      "/images/guess-price/JP-002.jpg",
+      "/images/guess-price/JP-029.jpg",
+      "/images/guess-price/JP-037.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-red-onion-1kg-per-pack"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-fresh-broccoli-approx-700-800g-for-1-piece"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-fresh-carrots-500-600g"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-cucumber-approx-500g-per-pack"
+      }
+    ]
+  },
+  {
+    "id": "V2-011",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "فواكه",
+    "explanation": "الكيوي والبرقوق والعنب والإجاص كلها فواكه.",
+    "images": [
+      "/images/guess-price/JP-006.jpg",
+      "/images/guess-price/JP-007.jpg",
+      "/images/guess-price/JP-035.jpg",
+      "/images/guess-price/JP-106.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/fruits/bustan-kiwi-approx-500g-per-pack"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/fruits/bustan-plums-500g"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/fruits/bustan-red-grapes-500g"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/fruits/bustan-imported-pears-approx-700g-per-pack"
+      }
+    ]
+  },
+  {
+    "id": "V2-012",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "مشروب",
+    "explanation": "التمر الهندي وآر سي وكراش وقوارير المشروبات الغازية.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-020.jpg",
+      "/assets/jordan_nostalgia/JONOS-024.jpg",
+      "/assets/jordan_nostalgia/JONOS-026.jpg",
+      "/assets/jordan_nostalgia/JONOS-022.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Victor Muruet (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/vicmuruet/5847632834/"
+      },
+      {
+        "author": "Andrew Filer (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/afiler/860522277/"
+      },
+      {
+        "author": "Benjamin Hollis (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/dalangalma/22422596/"
+      },
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/28095540416/"
+      }
+    ]
+  },
+  {
+    "id": "V2-013",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "قهوة",
+    "explanation": "ماكينة القهوة ومطحنة البن والمهباش لتحضير البن وماكينة القهوة المفلترة.",
+    "images": [
+      "/images/guess-price/JP-095.webp",
+      "/images/guess-price/JP-142.jpg",
+      "/assets/jordan_nostalgia/JONOS-090.jpg",
+      "/images/guess-price/JP-130.webp"
+    ],
+    "credits": [
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/dsh0622st0014"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/electronics/beverage-appliances/krups-burr-coffee-grinder"
+      },
+      {
+        "author": "Michael Coghlan (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/mikecogh/2334284773/"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/fsu0622st0008"
+      }
+    ]
+  },
+  {
+    "id": "V2-014",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "مطبخ",
+    "explanation": "القدور وصحن الفرن والخلاط والمحمصة من أدوات المطبخ.",
+    "images": [
+      "/images/guess-price/JP-079.webp",
+      "/images/guess-price/JP-052.webp",
+      "/images/guess-price/JP-081.webp",
+      "/images/guess-price/JP-132.webp"
+    ],
+    "credits": [
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/6281100540762-newflon-cooking-set-8-pcs-pots-20-24cm-frypan-26cm"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/pyrex-glass-roasting-dish-40-27cm-glass"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/efe0630st0004"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/sbh0618st0004"
+      }
+    ]
+  },
+  {
+    "id": "V2-015",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "تنظيف",
+    "explanation": "سائل الجلي والإسفنج والمكنسة ومنظف الأثاث.",
+    "images": [
+      "/images/guess-price/JP-009.jpg",
+      "/images/guess-price/JP-042.jpg",
+      "/images/guess-price/JP-074.webp",
+      "/images/guess-price/JP-020.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/laundry-household/dishwashing-kitchen-cleaners/dishwashing-liquid/fairy-original-dishwashing-liquid-soap-1l"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/laundry-household/cleaning-materials/sponges-cloths-scourers-brushes/vileda-tip-top-sponge-5pcs"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/dsh0616st0008"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/laundry-household/multi-purpose-floor-cleaners/wood-furniture-polish-cleaners/pledge-spray-furniture-cleaner-original-300ml"
+      }
+    ]
+  },
+  {
+    "id": "V2-016",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "هاتف",
+    "explanation": "هواتف بأشكال وأجيال مختلفة.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-071.jpg",
+      "/assets/jordan_nostalgia/JONOS-072.jpg",
+      "/assets/jordan_nostalgia/JONOS-084.jpg",
+      "/images/guess-price/JP-188.webp"
+    ],
+    "credits": [
+      {
+        "author": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/51764518@N02/15105041327/"
+      },
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+      },
+      {
+        "author": "Asim Bijarani (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/asimzb/6039229981/"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/smt0701st0622"
+      }
+    ]
+  },
+  {
+    "id": "V2-017",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "ألعاب",
+    "explanation": "المنقلة والبلبل والبلايستيشن وبطاقات اللعب.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-039.jpg",
+      "/assets/jordan_nostalgia/JONOS-043.jpg",
+      "/assets/jordan_nostalgia/JONOS-080.jpg",
+      "/images/guess-price/JP-032.jpg"
+    ],
+    "credits": [
+      {
+        "author": "lost places (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/places_lost/38641185732/"
+      },
+      {
+        "author": "EU2017EE Estonian Presidency (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/eu2017ee/37541233846/"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/19014523271/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/toys/lifestyle/collectables/panini-fifa-365-2027-adrenalyn-trading-cards"
+      }
+    ]
+  },
+  {
+    "id": "V2-018",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "مواصلات",
+    "explanation": "الحافلات والتاكسي وحركة السيارات في الشارع.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-101.jpg",
+      "/assets/jordan_nostalgia/JONOS-102.jpg",
+      "/assets/jordan_nostalgia/JONOS-103.jpg",
+      "/assets/jordan_nostalgia/JONOS-113.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Jason Lawrence (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/27665395@N05/43422566355/"
+      },
+      {
+        "author": "Jerry Michalski (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/sociate/4188947922/"
+      },
+      {
+        "author": "Paul Keller (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/paulk/4816212927/"
+      },
+      {
+        "author": "Edgardo W. Olivera (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/ewolivera/30400436566/"
+      }
+    ]
+  },
+  {
+    "id": "V2-019",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "تصوير",
+    "explanation": "كاميرا فورية وكاميرا مراقبة وكاميرا الهاتف والكاميرا القديمة فوق التلفاز.",
+    "images": [
+      "/images/guess-price/JP-160.webp",
+      "/images/guess-price/JP-112.webp",
+      "/images/guess-price/JP-146.webp",
+      "/assets/jordan_nostalgia/JONOS-085.jpg"
+    ],
+    "credits": [
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/fujifilm-instax-mini-12-pastel-blue"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/twa0910st0014"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/abj1401st0058"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/43602035062/"
+      }
+    ]
+  },
+  {
+    "id": "V2-020",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "تراث",
+    "explanation": "الجرة وصينية القش والقلعة والهاون القديم من مظاهر التراث.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-088.jpg",
+      "/assets/jordan_nostalgia/JONOS-094.jpg",
+      "/assets/jordan_nostalgia/JONOS-118.jpg",
+      "/assets/jordan_nostalgia/JONOS-093.jpg"
+    ],
+    "credits": [
+      {
+        "author": "courtney heilman (Flickr)",
+        "license": "CC0 1.0 Public Domain",
+        "source": "https://www.flickr.com/photos/192252436@N04/50974016916/"
+      },
+      {
+        "author": "Yellowstone National Park (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/yellowstonenps/51690666342/"
+      },
+      {
+        "author": "Dennis Jarvis (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/archer10/2217629808/"
+      },
+      {
+        "author": "David J (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sebilden/28020303129/"
+      }
+    ]
+  },
+  {
+    "id": "V2-021",
+    "points": 200,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "حرارة",
+    "explanation": "المدفأة والشواية والمكواة والصاج كلها تستخدم الحرارة.",
+    "images": [
+      "/images/guess-price/JP-084.webp",
+      "/images/guess-price/JP-080.webp",
+      "/images/guess-price/JP-088.webp",
+      "/assets/jordan_nostalgia/JONOS-091.jpg"
+    ],
+    "credits": [
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/uti0608st0007"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/fsu0639st0003"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/samix-steam-iron-non-stick-soleplate-button-for-steam-water-spray-1800watts-blue"
+      },
+      {
+        "author": "Serge Melki (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sergemelki/4054504710/"
+      }
+    ]
+  },
+  {
+    "id": "V2-022",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "مستدير",
+    "explanation": "قرص الهاتف وكرة الزجاج والصحن والبلبل أشكال مستديرة.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-071.jpg",
+      "/assets/jordan_nostalgia/JONOS-031.jpg",
+      "/images/guess-price/JP-034.jpg",
+      "/assets/jordan_nostalgia/JONOS-043.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/51764518@N02/15105041327/"
+      },
+      {
+        "author": "liz west (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/calliope/411893883/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/plates-and-bowls/bonna-notte-saucer-16cm-black"
+      },
+      {
+        "author": "EU2017EE Estonian Presidency (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/eu2017ee/37541233846/"
+      }
+    ]
+  },
+  {
+    "id": "V2-023",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "معدن",
+    "explanation": "المبراة والهاون المعدني والصينية الفولاذية والدلو المعدني.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-061.jpg",
+      "/assets/jordan_nostalgia/JONOS-093.jpg",
+      "/images/guess-price/JP-089.jpg",
+      "/images/guess-price/JP-165.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Crispin Semmens (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/conskeptical/1542028438/"
+      },
+      {
+        "author": "David J (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sebilden/28020303129/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/serving-trays/pintinox-oval-serving-platter-stainless-steel-42x29cm"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/beverage-accessories/aps-stainless-steel-bucket-23cm"
+      }
+    ]
+  },
+  {
+    "id": "V2-024",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "بخار",
+    "explanation": "مكواة بخار ومكواة ملابس وغلاية وجهاز بخار عمودي.",
+    "images": [
+      "/images/guess-price/JP-068.webp",
+      "/images/guess-price/JP-180.webp",
+      "/images/guess-price/JP-082.webp",
+      "/images/guess-price/JP-186.jpg"
+    ],
+    "credits": [
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/efe0605st0001"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/zan0619st0007"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/efe0622st0003"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/electronics/steamers-and-irons/steamone-garment-steamer-1800w-140ml"
+      }
+    ]
+  },
+  {
+    "id": "V2-025",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "شحن",
+    "explanation": "بطارية متنقلة وشاحن وكابل وهاتف يحتاج للشحن.",
+    "images": [
+      "/images/guess-price/JP-078.webp",
+      "/images/guess-price/JP-114.webp",
+      "/images/guess-price/JP-071.webp",
+      "/images/guess-price/JP-169.webp"
+    ],
+    "credits": [
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-zolo-power-bank-20k-22-5w-built-in-usb-c-cable-black"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-charger-20w-1c-black"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-322-usb-c-to-lightning-cable-6ft-braided-black"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/abj1401st0059"
+      }
+    ]
+  },
+  {
+    "id": "V2-026",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "طحن",
+    "explanation": "المهباش والهاون ومطحنة البن ومحضر الطعام يمكن استخدامها للطحن.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-090.jpg",
+      "/assets/jordan_nostalgia/JONOS-093.jpg",
+      "/images/guess-price/JP-142.jpg",
+      "/images/guess-price/JP-174.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Michael Coghlan (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/mikecogh/2334284773/"
+      },
+      {
+        "author": "David J (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sebilden/28020303129/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/electronics/beverage-appliances/krups-burr-coffee-grinder"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/electronics/countertop-appliances/moulinex-double-force-food-processor-functions-3l-1000w"
+      }
+    ]
+  },
+  {
+    "id": "V2-027",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "سائل",
+    "explanation": "عصير وسائل جلي وصابون سائل ومشروب غازي.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-020.jpg",
+      "/images/guess-price/JP-009.jpg",
+      "/images/guess-price/JP-045.jpg",
+      "/assets/jordan_nostalgia/JONOS-026.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Victor Muruet (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/vicmuruet/5847632834/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/laundry-household/dishwashing-kitchen-cleaners/dishwashing-liquid/fairy-original-dishwashing-liquid-soap-1l"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/personal-care/body-care/liquid-hand-soap/al-naama-olive-oil-soap-400ml"
+      },
+      {
+        "author": "Benjamin Hollis (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/dalangalma/22422596/"
+      }
+    ]
+  },
+  {
+    "id": "V2-028",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "مستطيل",
+    "explanation": "السبورة والصحن المستطيل وشريط الفيديو وشاشة التلفاز.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-051.jpg",
+      "/images/guess-price/JP-103.jpg",
+      "/assets/jordan_nostalgia/JONOS-078.jpg",
+      "/images/guess-price/JP-148.webp"
+    ],
+    "credits": [
+      {
+        "author": "Dejan Krsmanovic (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/dejankrsmanovic/47024892221/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/plates-and-bowls/bonna-notte-moove-rectangular-plate-34x16cm-black"
+      },
+      {
+        "author": "Lisa Giles (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/149074387@N08/33337363300/"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/son0921st0021"
+      }
+    ]
+  },
+  {
+    "id": "V2-029",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "ثنائي",
+    "explanation": "كفتان وعصا تحكم مزدوجة وحقيبتان وسماعتان.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-106.jpg",
+      "/assets/jordan_nostalgia/JONOS-081.jpg",
+      "/assets/jordan_nostalgia/JONOS-067.jpg",
+      "/assets/jordan_nostalgia/JONOS-077.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Da Sal (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/112931986@N07/11645154764/"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/18967317081/"
+      },
+      {
+        "author": "storebukkebruse (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/tusnelda/16633542420/"
+      },
+      {
+        "author": "Bob B. Brown (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/beleaveme/3116717772/"
+      }
+    ]
+  },
+  {
+    "id": "V2-030",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "دوران",
+    "explanation": "البلبل وقرص الهاتف وشفرات الخلاط وبكرات شريط الفيديو تدور.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-043.jpg",
+      "/assets/jordan_nostalgia/JONOS-071.jpg",
+      "/images/guess-price/JP-191.jpg",
+      "/assets/jordan_nostalgia/JONOS-078.jpg"
+    ],
+    "credits": [
+      {
+        "author": "EU2017EE Estonian Presidency (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/eu2017ee/37541233846/"
+      },
+      {
+        "author": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/51764518@N02/15105041327/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/electronics/countertop-appliances/moulinex-blender-1.75l-800w"
+      },
+      {
+        "author": "Lisa Giles (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/149074387@N08/33337363300/"
+      }
+    ]
+  },
+  {
+    "id": "V2-031",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "غطاء",
+    "explanation": "غطاء زجاجة وغطاء مرطبان وأغطية قدور وغطاء غلاية.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-026.jpg",
+      "/assets/jordan_nostalgia/JONOS-108.jpg",
+      "/images/guess-price/JP-079.webp",
+      "/images/guess-price/JP-070.webp"
+    ],
+    "credits": [
+      {
+        "author": "Benjamin Hollis (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/dalangalma/22422596/"
+      },
+      {
+        "author": "Doug Beckers (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/dougbeckers/5636247525/"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/6281100540762-newflon-cooking-set-8-pcs-pots-20-24cm-frypan-26cm"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/samix-electric-kettle-1-8lit-1800watts-stainless-steel"
+      }
+    ]
+  },
+  {
+    "id": "V2-032",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "ماء",
+    "explanation": "موزع الماء وغلاية الماء وكؤوس الشرب وطشت الغسيل.",
+    "images": [
+      "/images/guess-price/JP-173.webp",
+      "/images/guess-price/JP-082.webp",
+      "/images/guess-price/JP-091.jpg",
+      "/assets/jordan_nostalgia/JONOS-096.jpg"
+    ],
+    "credits": [
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/sda0611st0039"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/efe0622st0003"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/glassware/libbey-vibe-double-old-fashion-set-of-6-pieces-355ml"
+      },
+      {
+        "author": "Patrick Feller (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/nakrnsm/3468923921/"
+      }
+    ]
+  },
+  {
+    "id": "V2-033",
+    "points": 400,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "قياس",
+    "explanation": "المسطرة والفرجار والميزان وطول شريط الكاسيت المكتوب بالمتر.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-064.jpg",
+      "/assets/jordan_nostalgia/JONOS-062.jpg",
+      "/assets/jordan_nostalgia/JONOS-106.jpg",
+      "/assets/jordan_nostalgia/JONOS-075.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Scott Akerman (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sterlic/4299631538/"
+      },
+      {
+        "author": "el cajon yacht club (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/el_cajon_yacht_club/26032506705/"
+      },
+      {
+        "author": "Da Sal (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/112931986@N07/11645154764/"
+      },
+      {
+        "author": "Xray40000 (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sebastian_duesseldorf/9159172765/"
+      }
+    ]
+  },
+  {
+    "id": "V2-034",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "رأس",
+    "explanation": "رأس البروكلي ورأس الشاحن ورأس القلم ومجفف شعر الرأس.",
+    "images": [
+      "/images/guess-price/JP-002.jpg",
+      "/images/guess-price/JP-114.webp",
+      "/assets/jordan_nostalgia/JONOS-066.jpg",
+      "/images/guess-price/JP-111.webp"
+    ],
+    "credits": [
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-fresh-broccoli-approx-700-800g-for-1-piece"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-charger-20w-1c-black"
+      },
+      {
+        "author": "H_Elise (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/h_elise/3185511250/"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/babyliss-hair-dryer-2000w"
+      }
+    ]
+  },
+  {
+    "id": "V2-035",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "قرص",
+    "explanation": "قرص مرن وقرص الهاتف وقرص البسكويت وشكل البلبل الدائري.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-083.jpg",
+      "/assets/jordan_nostalgia/JONOS-071.jpg",
+      "/assets/jordan_nostalgia/JONOS-011.jpg",
+      "/assets/jordan_nostalgia/JONOS-043.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Jean-Etienne Minh-Duy Poirrier (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/jepoirrier/9120429846/"
+      },
+      {
+        "author": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/51764518@N02/15105041327/"
+      },
+      {
+        "author": "Dick Thomas Johnson (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/31029865@N06/6194515031/"
+      },
+      {
+        "author": "EU2017EE Estonian Presidency (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/eu2017ee/37541233846/"
+      }
+    ]
+  },
+  {
+    "id": "V2-036",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "زر",
+    "explanation": "أزرار الهاتف ويد التحكم وجهاز الفيديو والهاتف المحمول.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-072.jpg",
+      "/assets/jordan_nostalgia/JONOS-081.jpg",
+      "/assets/jordan_nostalgia/JONOS-079.jpg",
+      "/images/guess-price/JP-188.webp"
+    ],
+    "credits": [
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/18967317081/"
+      },
+      {
+        "author": "JJBers (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/jjbers/24130829268/"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/smt0701st0622"
+      }
+    ]
+  },
+  {
+    "id": "V2-037",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "شريط",
+    "explanation": "شريط كاسيت وشريط فيديو وخطوط طباشير ملونة وشرائط زخرفة الجرة.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-075.jpg",
+      "/assets/jordan_nostalgia/JONOS-078.jpg",
+      "/assets/jordan_nostalgia/JONOS-052.jpg",
+      "/assets/jordan_nostalgia/JONOS-088.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Xray40000 (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sebastian_duesseldorf/9159172765/"
+      },
+      {
+        "author": "Lisa Giles (Flickr)",
+        "license": "Public Domain Mark 1.0",
+        "source": "https://www.flickr.com/photos/149074387@N08/33337363300/"
+      },
+      {
+        "author": "Jacqui Brown (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/120600995@N07/14076729649/"
+      },
+      {
+        "author": "courtney heilman (Flickr)",
+        "license": "CC0 1.0 Public Domain",
+        "source": "https://www.flickr.com/photos/192252436@N04/50974016916/"
+      }
+    ]
+  },
+  {
+    "id": "V2-038",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "طرف",
+    "explanation": "طرف القلم وطرف الفرجار وطرف الكابل وطرف حزام الحقيبة.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-066.jpg",
+      "/assets/jordan_nostalgia/JONOS-062.jpg",
+      "/images/guess-price/JP-071.webp",
+      "/assets/jordan_nostalgia/JONOS-067.jpg"
+    ],
+    "credits": [
+      {
+        "author": "H_Elise (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/h_elise/3185511250/"
+      },
+      {
+        "author": "el cajon yacht club (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/el_cajon_yacht_club/26032506705/"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-322-usb-c-to-lightning-cable-6ft-braided-black"
+      },
+      {
+        "author": "storebukkebruse (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/tusnelda/16633542420/"
+      }
+    ]
+  },
+  {
+    "id": "V2-039",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "قاعدة",
+    "explanation": "قاعدة الميزان وقواعد التماثيل وقاعدة الجرس والصحن قاعدة للفنجان.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-106.jpg",
+      "/assets/jordan_nostalgia/JONOS-085.jpg",
+      "/assets/jordan_nostalgia/JONOS-069.jpg",
+      "/images/guess-price/JP-034.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Da Sal (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/112931986@N07/11645154764/"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/43602035062/"
+      },
+      {
+        "author": "Keith Williamson (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/elwillo/4723805860/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/plates-and-bowls/bonna-notte-saucer-16cm-black"
+      }
+    ]
+  },
+  {
+    "id": "V2-040",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "حبة",
+    "explanation": "حبة زجاج وحبة عنب وحبة تمر وحبات لعبة المنقلة.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-031.jpg",
+      "/images/guess-price/JP-035.jpg",
+      "/images/guess-price/JP-098.jpg",
+      "/assets/jordan_nostalgia/JONOS-039.jpg"
+    ],
+    "credits": [
+      {
+        "author": "liz west (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/calliope/411893883/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/fruits/bustan-red-grapes-500g"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/fruits-vegetables/dates/bustan-dates-500g"
+      },
+      {
+        "author": "lost places (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/places_lost/38641185732/"
+      }
+    ]
+  },
+  {
+    "id": "V2-041",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "ضغط",
+    "explanation": "ضغط المدقة وأزرار التحكم ومضخة الصابون وأزرار الهاتف.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-090.jpg",
+      "/assets/jordan_nostalgia/JONOS-081.jpg",
+      "/images/guess-price/JP-045.jpg",
+      "/assets/jordan_nostalgia/JONOS-072.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Michael Coghlan (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/mikecogh/2334284773/"
+      },
+      {
+        "author": "Matthew Paul  Argall (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/79157069@N03/18967317081/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/personal-care/body-care/liquid-hand-soap/al-naama-olive-oil-soap-400ml"
+      },
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+      }
+    ]
+  },
+  {
+    "id": "V2-042",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "نقل",
+    "explanation": "نقل الركاب ونقل البيانات بالكابل والقرص.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-101.jpg",
+      "/assets/jordan_nostalgia/JONOS-102.jpg",
+      "/images/guess-price/JP-071.webp",
+      "/assets/jordan_nostalgia/JONOS-083.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Jason Lawrence (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/27665395@N05/43422566355/"
+      },
+      {
+        "author": "Jerry Michalski (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/sociate/4188947922/"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-322-usb-c-to-lightning-cable-6ft-braided-black"
+      },
+      {
+        "author": "Jean-Etienne Minh-Duy Poirrier (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/jepoirrier/9120429846/"
+      }
+    ]
+  },
+  {
+    "id": "V2-043",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "موجة",
+    "explanation": "موجات الراديو وموجات الصوت في الهاتف والسماعات وموجات الميكروويف.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-076.jpg",
+      "/assets/jordan_nostalgia/JONOS-072.jpg",
+      "/images/guess-price/JP-086.webp",
+      "/images/guess-price/JP-159.webp"
+    ],
+    "credits": [
+      {
+        "author": "Joe Haupt (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://www.flickr.com/photos/51764518@N02/51391297266/"
+      },
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/jbl-tune-110-wi-red-in-ear-headphones-white"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/sce0135st0002"
+      }
+    ]
+  },
+  {
+    "id": "V2-044",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "اتصال",
+    "explanation": "اتصال هاتفي واتصال بالكابل واتصال لاسلكي بالسماعات واتصال الشاحن بالكهرباء.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-072.jpg",
+      "/images/guess-price/JP-071.webp",
+      "/images/guess-price/JP-105.webp",
+      "/images/guess-price/JP-114.webp"
+    ],
+    "credits": [
+      {
+        "author": "Steve Snodgrass (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-322-usb-c-to-lightning-cable-6ft-braided-black"
+      },
+      {
+        "author": "SmartBuy",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://smartbuy-me.com/products/cav0711st0110"
+      },
+      {
+        "author": "DNA Jordan",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://dna.jo/products/anker-charger-20w-1c-black"
+      }
+    ]
+  },
+  {
+    "id": "V2-045",
+    "points": 600,
+    "question": "ما الكلمة التي تربط الصور الأربع؟",
+    "answer": "سطح",
+    "explanation": "سطح الكتابة على السبورة وسطح الطاولة وسطح القياس والصينية.",
+    "images": [
+      "/assets/jordan_nostalgia/JONOS-051.jpg",
+      "/assets/jordan_nostalgia/JONOS-054.jpg",
+      "/assets/jordan_nostalgia/JONOS-064.jpg",
+      "/images/guess-price/JP-089.jpg"
+    ],
+    "credits": [
+      {
+        "author": "Dejan Krsmanovic (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/dejankrsmanovic/47024892221/"
+      },
+      {
+        "author": "alamosbasement (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/alamosbasement/3564909187/"
+      },
+      {
+        "author": "Scott Akerman (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/sterlic/4299631538/"
+      },
+      {
+        "author": "Cozmo",
+        "license": "Existing project product image; reuse rights not independently verified",
+        "source": "https://cozmo.jo/homeware/dining-and-entertainment/serving-trays/pintinox-oval-serving-platter-stainless-steel-42x29cm"
+      }
+    ]
   }
 ]

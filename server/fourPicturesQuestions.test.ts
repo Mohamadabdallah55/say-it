@@ -5,8 +5,8 @@ import path from 'node:path';
 import { FOUR_PICTURES_QUESTIONS } from './fourPicturesQuestions';
 import { fourPictureLetterBank, fourPictureWordLength } from '../src/game/fourPictures';
 test('New four-picture bank has independent assets and stable 14 letter clues', () => {
-  assert.equal(FOUR_PICTURES_QUESTIONS.length, 9);
-  assert.deepEqual([200,400,600].map(p => FOUR_PICTURES_QUESTIONS.filter(q=>q.points===p).length), [3,3,3]);
+  assert.equal(FOUR_PICTURES_QUESTIONS.length, 45);
+  assert.deepEqual([200,400,600].map(p => FOUR_PICTURES_QUESTIONS.filter(q=>q.points===p).length), [15,15,15]);
   for (const q of FOUR_PICTURES_QUESTIONS) {
     assert.match(q.id, /^FOUR-PICS-V2-/);
     assert.equal(q.imageUrl, undefined);
