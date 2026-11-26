@@ -166,13 +166,13 @@ export function LobbySetup({
   const [categoryCount, setCategoryCount] = useState<number>(8);
   const timerSeconds = 45;
 
-  const maxLifelinesPerTeam = 3;
   const [cards, setCards] = useState<LifelineType[]>([
     'two_answers',
     'pit',
     'double_points',
   ]);
-  const lifelinesEnabled = cards.length > 0;
+  const maxLifelinesPerTeam = cards.length;
+  const lifelinesEnabled = maxLifelinesPerTeam > 0;
   const [buzzerMode, setBuzzerMode] = useState<boolean>(false);
   const [allowMultiTeamAward, setAllowMultiTeamAward] = useState<boolean>(false);
   const [categoryTab, setCategoryTab] = useState<'official' | 'decks'>(
@@ -1079,7 +1079,7 @@ export function LobbySetup({
               <div className="power-card-settings-note">
                 <div>
                   <strong>البطاقات المشتركة للفرق</strong>
-                  <small>كل فريق يمكنه استخدام {maxLifelinesPerTeam} بطاقات أثناء اللعب</small>
+                  <small>لكل فريق {maxLifelinesPerTeam} بطاقات مختارة؛ كل بطاقة تُستخدم مرة واحدة</small>
                 </div>
               </div>
               <div className="power-card-grid">
