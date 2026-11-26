@@ -1,9 +1,10 @@
-import { JUZ_AMMA_CATEGORY, JUZ_TABARAK_CATEGORY, QURAN_VERSE_MEANINGS_CATEGORY } from '../src/game/curatedBanks';
+import { JUZ_AMMA_CATEGORY, JUZ_TABARAK_CATEGORY, RUB_YASIN_CATEGORY, QURAN_VERSE_MEANINGS_CATEGORY } from '../src/game/curatedBanks';
 import { difficultyForPoints, pointsForDifficulty } from '../src/game/pdfValidation';
 import type { DeckCategory, QuizQuestion, RoomState } from '../src/game/types';
 import { refreshSavedCuratedQuestions } from './curatedQuestionRotation';
 import juzAmmaRows from './juzAmma.json';
 import juzTabarakRows from './juzTabarak.json';
+import rubYasinRows from './rubYasin.json';
 import verseMeaningsRows from './quranVerseMeanings.json';
 
 function toQuranQuestion(row: (typeof juzAmmaRows)[number], category: DeckCategory): QuizQuestion {
@@ -27,6 +28,11 @@ function toQuranQuestion(row: (typeof juzAmmaRows)[number], category: DeckCatego
 
 export const JUZ_AMMA_QUESTIONS = juzAmmaRows.map(row => toQuranQuestion(row, JUZ_AMMA_CATEGORY));
 export const JUZ_TABARAK_QUESTIONS = juzTabarakRows.map(row => toQuranQuestion(row, JUZ_TABARAK_CATEGORY));
+export const RUB_YASIN_QUESTIONS: QuizQuestion[] = rubYasinRows.map(row => ({
+  ...toQuranQuestion(row, RUB_YASIN_CATEGORY),
+  sourceRef: [row.scoring, row.source_url].join(' · '),
+  sourceSnippet: row.source_snippet,
+}));
 export const QURAN_VERSE_MEANINGS_QUESTIONS = verseMeaningsRows.map(row => toQuranQuestion(row, QURAN_VERSE_MEANINGS_CATEGORY));
 
 const questionsById = new Map(JUZ_AMMA_QUESTIONS.map(question => [question.id, question]));
