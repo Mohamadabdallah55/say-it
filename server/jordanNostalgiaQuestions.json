@@ -5,19 +5,19 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "أسئلة نصية وصور محلية مرخصة وروابط خارجية للقطات ألعاب؛ الترخيص الخارجي غير مؤكد.",
-  "questionCount": 135,
-  "total_source_questions": 135,
-  "verified_playable_count": 135,
+  "questionCount": 112,
+  "total_source_questions": 112,
+  "verified_playable_count": 112,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 32,
-    "400": 51,
-    "600": 52
+    "200": 25,
+    "400": 45,
+    "600": 42
   },
   "points_distribution_playable": {
-    "200": 32,
-    "400": 51,
-    "600": 52
+    "200": 25,
+    "400": 45,
+    "600": 42
   },
   "questions": [
     {
@@ -184,33 +184,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-17",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم اللعبة القديمة اللي فيها شاشة صغيرة وأزرار ومراحل ترتيب القطع المتساقطة؟",
-      "answer": "Brick Game",
-      "acceptedAnswers": [
-        "Brick Game",
-        "بريك غيم",
-        "أتاري الطوب",
-        "تتريس"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
       "id": "JONOS-V2-200-18",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -223,31 +196,6 @@
         "دورايمون",
         "عبقور",
         "Doraemon"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-26",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم المخلوق الأصفر رفيق آش في بوكيمون؟",
-      "answer": "بيكاتشو",
-      "acceptedAnswers": [
-        "بيكاتشو",
-        "Pikachu"
       ],
       "imageRequired": false,
       "image": null,
@@ -286,82 +234,6 @@
       "tags": [
         "زمن الطيبين",
         "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-25",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم برنامج تشغيل الأغاني والفيديو اللي كانت أيقونته قمع برتقالي وأبيض؟",
-      "answer": "VLC",
-      "acceptedAnswers": [
-        "VLC",
-        "في إل سي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-37",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم المتصفح القديم اللي كانت أيقونته حرف e أزرق حوله حلقة؟",
-      "answer": "Internet Explorer",
-      "acceptedAnswers": [
-        "Internet Explorer",
-        "إنترنت إكسبلورر",
-        "IE"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-43",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم برنامج الضغط وفك الضغط اللي أيقونته ثلاثة كتب ملوّنة مربوطين بحزام؟",
-      "answer": "WinRAR",
-      "acceptedAnswers": [
-        "WinRAR",
-        "وين رار"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
       ]
     },
     {
@@ -569,34 +441,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-24",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "مين ملحن ومغني شارات سبيستون المعروف بتعاونه مع مركز الزهرة؟",
-      "answer": "طارق العربي طرقان",
-      "acceptedAnswers": [
-        "طارق طرقان",
-        "طارق العربي طرقان"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
       "id": "JONOS-V2-200-16",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -693,31 +537,6 @@
       "contentStatus": "approved",
       "reviewNotes": "صورة محفوظة من البنك السابق؛ تم فحص محتواها بصريًا",
       "questionType": "الصورة والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-23",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم وسيلة إرسال الصور بين تلفونين قريبين بدون إنترنت وكانت شعارها أزرق؟",
-      "answer": "بلوتوث",
-      "acceptedAnswers": [
-        "بلوتوث",
-        "Bluetooth"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
       "tags": [
         "زمن الطيبين",
         "تقنية"
@@ -872,59 +691,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-200-07",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الحارة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "لعبة واحد بيعد والباقي بيختبوا، شو اسمها المتداول؟",
-      "answer": "الاستغماية",
-      "acceptedAnswers": [
-        "الاستغماية",
-        "الغميضة",
-        "الطميمة",
-        "كمستير"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الحارة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-13",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم اللعبة اللي بنفكّر فيها كيف نخلي كل وجه من المكعب نفس اللون؟",
-      "answer": "مكعب روبيك",
-      "acceptedAnswers": [
-        "مكعب روبيك",
-        "Rubik's Cube",
-        "روبيك"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
       "id": "JONOS-V2-600-31",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -1001,32 +767,6 @@
       "tags": [
         "زمن الطيبين",
         "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-44",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم برنامج تنزيل الملفات اللي كان يعرض سرعة التحميل ويقسّم الملف لأجزاء واشتهر بأيقونة الكرة الأرضية والسهم؟",
-      "answer": "Internet Download Manager",
-      "acceptedAnswers": [
-        "Internet Download Manager",
-        "IDM",
-        "إنترنت داونلود مانجر"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
       ]
     },
     {
@@ -1535,59 +1275,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-19",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم اللعبة اللي بتتكون من خرز صغير نرتبه على لوحة وبنكويه عشان يثبت؟",
-      "answer": "خرز هاما",
-      "acceptedAnswers": [
-        "خرز هاما",
-        "Hama beads",
-        "بيرلر",
-        "Perler beads"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-26",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات المدرسة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم الدفتر اللي كنا نطلب من زملائنا يكتبوا فيه كلمات وذكريات آخر السنة؟",
-      "answer": "دفتر الذكريات",
-      "acceptedAnswers": [
-        "دفتر الذكريات",
-        "أوتوغراف",
-        "Autograph book"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات المدرسة"
-      ]
-    },
-    {
       "id": "JONOS-V2-400-45",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -1626,32 +1313,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-32",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم الفتى الذي يسعى للعثور على والده جين في مسلسل القناص؟",
-      "answer": "غون",
-      "acceptedAnswers": [
-        "غون",
-        "Gon",
-        "جون"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون"
       ]
     },
     {
@@ -1764,32 +1425,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-200-10",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم اللعبة اللي بنرص فيها قطع مستطيلة وبنسحب واحدة بدون ما ينهار البرج؟",
-      "answer": "جينغا",
-      "acceptedAnswers": [
-        "جينغا",
-        "Jenga",
-        "جينجا"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
       ]
     },
     {
@@ -2015,31 +1650,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-39",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم نظام تشغيل الهواتف اللي كان موجود على أجهزة نوكيا N73 وN95؟",
-      "answer": "سيمبيان",
-      "acceptedAnswers": [
-        "سيمبيان",
-        "Symbian"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
       ]
     },
     {
@@ -2607,34 +2217,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-400-20",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "سبيستون",
-      "difficulty": 400,
-      "points": 400,
-      "question": "أي كوكب كان يعرض القصص التاريخية؟",
-      "answer": "تاريخ",
-      "acceptedAnswers": [
-        "تاريخ",
-        "كوكب تاريخ"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [
-        "https://www.trtarabi.com/article/4944611",
-        "https://www.aranime.art/post/448"
-      ],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "سبيستون"
-      ]
-    },
-    {
       "id": "JONOS-V2-600-27",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -2742,32 +2324,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-200-20",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 200,
-      "points": 200,
-      "question": "لما نفتح لعبة الثعبان على موبايل زمان، شو اسمها بالإنجليزي؟",
-      "answer": "Snake",
-      "acceptedAnswers": [
-        "Snake",
-        "سنيك",
-        "الثعبان"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
       "id": "JONOS-V2-400-42",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -2835,32 +2391,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-200-27",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات المدرسة",
-      "difficulty": 200,
-      "points": 200,
-      "question": "شو اسم لعبة الورقة والقلم اللي بنختار فيها حرف وبنكتب اسم حيوان ونبات وجماد وبلاد؟",
-      "answer": "اسم حيوان نبات جماد بلاد",
-      "acceptedAnswers": [
-        "اسم حيوان نبات جماد بلاد",
-        "إنسان حيوان نبات جماد بلاد",
-        "لعبة الحروف"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات المدرسة"
-      ]
-    },
-    {
       "id": "JONOS-V2-400-08",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -2900,31 +2430,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-21",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ذكريات التلفزيون",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم مجلة الأطفال العربية الكويتية التي بدأت سنة 1986 وكانت تصدر مع مجلة العربي؟",
-      "answer": "العربي الصغير",
-      "acceptedAnswers": [
-        "العربي الصغير",
-        "مجلة العربي الصغير"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ذكريات التلفزيون"
       ]
     },
     {
@@ -3299,58 +2804,6 @@
       ]
     },
     {
-      "id": "JONOS-V2-600-09",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "بأي اسم كانت سلسلة PES معروفة في اليابان؟",
-      "answer": "Winning Eleven",
-      "acceptedAnswers": [
-        "ويننغ إليفن",
-        "Winning Eleven"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-40",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "تقنية",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم التقنية اللي كانت بتنقل الملفات بين تلفونين لازم يكونوا مقابيل بعض مباشرة قبل البلوتوث؟",
-      "answer": "الأشعة تحت الحمراء",
-      "acceptedAnswers": [
-        "الأشعة تحت الحمراء",
-        "Infrared",
-        "إنفراريد",
-        "IR"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "تقنية"
-      ]
-    },
-    {
       "id": "JONOS-V2-600-22",
       "category": "زمن الطيبين",
       "region": "الأردن وبلاد الشام",
@@ -3426,33 +2879,6 @@
       "tags": [
         "زمن الطيبين",
         "كرتون"
-      ]
-    },
-    {
-      "id": "JONOS-V2-400-17",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الطفولة",
-      "difficulty": 400,
-      "points": 400,
-      "question": "شو اسم لعبة اللوح اللي منرمي فيها النرد وبنطلع قطعنا من البيت لما نجيب ستة؟",
-      "answer": "لودو",
-      "acceptedAnswers": [
-        "لودو",
-        "ليدو",
-        "Ludo",
-        "بارشيسي"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الطفولة"
       ]
     },
     {
@@ -3676,32 +3102,6 @@
       "tags": [
         "زمن الطيبين",
         "ألعاب الحارة"
-      ]
-    },
-    {
-      "id": "JONOS-V2-600-10",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "ألعاب الكمبيوتر",
-      "difficulty": 600,
-      "points": 600,
-      "question": "شو اسم سلسلة ألعاب الرقص اللي كانت بتحتاج حصيرة بأزرار الاتجاهات؟",
-      "answer": "Dance Dance Revolution",
-      "acceptedAnswers": [
-        "Dance Dance Revolution",
-        "DDR",
-        "دانس دانس ريفولوشن"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
-      "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
-      "tags": [
-        "زمن الطيبين",
-        "ألعاب الكمبيوتر"
       ]
     },
     {
