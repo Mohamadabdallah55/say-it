@@ -5,19 +5,19 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
-  "questionCount": 97,
-  "total_source_questions": 97,
-  "verified_playable_count": 97,
+  "questionCount": 109,
+  "total_source_questions": 109,
+  "verified_playable_count": 109,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 34,
-    "400": 41,
-    "600": 22
+    "200": 38,
+    "400": 46,
+    "600": 25
   },
   "points_distribution_playable": {
-    "200": 34,
-    "400": 41,
-    "600": 22
+    "200": 38,
+    "400": 46,
+    "600": 25
   },
   "questions": [
     {
@@ -4329,6 +4329,560 @@
         "زمن الطيبين",
         "كرتون",
         "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-subway",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Subway Surfers",
+      "acceptedAnswers": [
+        "Subway Surfers",
+        "صب واي",
+        "سابواي",
+        "سبواي",
+        "صب واي سيرفرز"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/11847049-subway-surfers-ipad-this-looks-helpful.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Subway Surfers",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Subway Surfers",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.mobygames.com/game/56518/subway-surfers/screenshots/ipad/563797/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/56518/subway-surfers/screenshots/ipad/563797/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2012"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-pou",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Pou",
+      "acceptedAnswers": [
+        "Pou",
+        "بو",
+        "باو",
+        "بوو"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/16047784-pou-android-his-bedroom-has-a-lamp-and-you-can-put-to-sleep-pou-.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Pou",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Pou",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.mobygames.com/game/66058/pou/screenshots/android/845491/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/66058/pou/screenshots/android/845491/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2012"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-hill",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Hill Climb Racing",
+      "acceptedAnswers": [
+        "Hill Climb Racing",
+        "هيل كلايمب ريسينغ",
+        "هيل كلايمب",
+        "سيارة التلال",
+        "هيل كلايم رايسينغ"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://fingersoft.com/app/uploads/2026/01/media_hcr_gameplay1-1600x897.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Hill Climb Racing",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Hill Climb Racing",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://fingersoft.com/news/2026/01/15/hill-climb-racing-breaks-a-new-record-2-billion-downloads/",
+        "sourcePublisher": "fingersoft.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://fingersoft.com/news/2026/01/15/hill-climb-racing-breaks-a-new-record-2-billion-downloads/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2012"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-fruit",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Fruit Ninja",
+      "acceptedAnswers": [
+        "Fruit Ninja",
+        "فروت نينجا",
+        "لعبة تقطيع الفواكه",
+        "نينجا الفواكه"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/xsysmekeipgptaniicco.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Fruit Ninja",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Fruit Ninja",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://stash.games/games/fruit-ninja",
+        "sourcePublisher": "stash.games",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://stash.games/games/fruit-ninja"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2010"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-flappy",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Flappy Bird",
+      "acceptedAnswers": [
+        "Flappy Bird",
+        "فلابي بيرد",
+        "فلابي برد",
+        "فلاپي بيرد"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.thegamesdb.net/images/medium/screenshot/123335-1.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Flappy Bird",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Flappy Bird",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://thegamesdb.net/game.php?id=123335",
+        "sourcePublisher": "thegamesdb.net",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://thegamesdb.net/game.php?id=123335"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2013"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-jetpack",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Jetpack Joyride",
+      "acceptedAnswers": [
+        "Jetpack Joyride",
+        "جيت باك جوي رايد",
+        "جيت باك",
+        "جيتباك جوي رايد"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/11840412-jetpack-joyride-ipad-barry-has-a-new-jetpack-and-a-punk-haircut.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Jetpack Joyride",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Jetpack Joyride",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.mobygames.com/game/55840/jetpack-joyride/screenshots/ipad/557156/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/55840/jetpack-joyride/screenshots/ipad/557156/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2011"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-water",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Where's My Water?",
+      "acceptedAnswers": [
+        "Where's My Water?",
+        "أين مائي",
+        "اين مائي",
+        "ويرز ماي ووتر",
+        "لعبة التمساح والماء"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/7103125-wheres-my-water-android-thats-the-way-we-do-it.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Where's My Water?",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Where's My Water?",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.mobygames.com/game/55063/wheres-my-water/screenshots/android/549913/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/55063/wheres-my-water/screenshots/android/549913/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2011"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-redball",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Red Ball 4",
+      "acceptedAnswers": [
+        "Red Ball 4",
+        "ريد بول",
+        "ريد بال",
+        "Red Ball",
+        "ريد بول 4",
+        "الكرة الحمراء"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.atmhtml5games.com/games/game-post/Red_Ball_4_5_image.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Red Ball 4",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Red Ball 4",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.atmhtml5games.com/game/red-ball-4/",
+        "sourcePublisher": "www.atmhtml5games.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.atmhtml5games.com/game/red-ball-4/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر",
+        "طفولة 2010–2016",
+        "2014"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-snail",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
+      "answer": "Snail Bob",
+      "acceptedAnswers": [
+        "Snail Bob",
+        "سنيل بوب",
+        "سنايل بوب",
+        "Snail Bob 2",
+        "الحلزون بوب"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.gamekarma.com/images/screenshots/906/1.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Snail Bob",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Snail Bob",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.gamekarma.com/g/snail-bob-1/",
+        "sourcePublisher": "www.gamekarma.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gamekarma.com/g/snail-bob-1/",
+        "https://steamdb.info/app/349760/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين. العرض القصير للجزء الثاني من السلسلة، والصورة من الجزء الأول.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر",
+        "طفولة 2010–2016",
+        "2010"
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/349760/43417/be88fd46439ff2291e2dd673b0d716a0a64d4eae/1751268155/microtrailer.mp4",
+      "videoSourceUrl": "https://steamdb.info/app/349760/",
+      "videoReviewStatus": "published_preview_reference_playback_unverified"
+    },
+    {
+      "id": "JONOS-2010-GAME-piggies",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الهاتف",
+      "points": 600,
+      "difficulty": 600,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Bad Piggies",
+      "acceptedAnswers": [
+        "Bad Piggies",
+        "باد بيغيز",
+        "باد بيجيز",
+        "باد بيغيس",
+        "الخنازير السيئة"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/539c2a80e4b0432c6a7b7ff6/1402863336349-Y3EMQ2SJ8BPGEXOO5F7K/photo.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Bad Piggies",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Bad Piggies",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.jeremietessier.com/reviews/2014/6/15/ilook-at-bad-piggies",
+        "sourcePublisher": "www.jeremietessier.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.jeremietessier.com/reviews/2014/6/15/ilook-at-bad-piggies"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الهاتف",
+        "طفولة 2010–2016",
+        "2012"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-burger",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "points": 600,
+      "difficulty": 600,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Papa's Burgeria",
+      "acceptedAnswers": [
+        "Papa's Burgeria",
+        "بابا برغريا",
+        "بابا برجر",
+        "باباز برغيريا",
+        "لعبة مطعم بابا البرغر",
+        "بابا برغر"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.flipline.com/gamefiles/papasburgeria/images/screenshot_02.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Papa's Burgeria",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Papa's Burgeria",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.flipline.com/games/papasburgeria/index.html",
+        "sourcePublisher": "www.flipline.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.flipline.com/games/papasburgeria/index.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر",
+        "طفولة 2010–2016",
+        "2010"
+      ]
+    },
+    {
+      "id": "JONOS-2010-GAME-icecream",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب الكمبيوتر",
+      "points": 600,
+      "difficulty": 600,
+      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "answer": "Bad Ice-Cream",
+      "acceptedAnswers": [
+        "Bad Ice-Cream",
+        "Bad Ice Cream",
+        "باد آيس كريم",
+        "باد ايس كريم",
+        "لعبة الآيس كريم"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/zluupykxbfeumvtyeqhc.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Bad Ice-Cream",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Bad Ice-Cream",
+        "imageSelectionInstructions": "لقطة لعب مرجعية، لا غلاف ولا اسم ظاهر في المشهد المعروض",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://backloggd.com/games/bad-ice-cream/",
+        "sourcePublisher": "backloggd.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://backloggd.com/games/bad-ice-cream/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة لعب من مصدر البحث المرئي؛ الحقوق والتشغيل داخل Render غير مؤكدين.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب الكمبيوتر",
+        "طفولة 2010–2016",
+        "2010"
       ]
     }
   ],
