@@ -554,6 +554,12 @@ class RoomManager {
     const actionId =
       params.actionId || `act_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
     const payload = params.payload ?? {};
+    // Network retries reuse the same action ID, including after a round closes.
+    if (room.processedActionIds.includes(actionId)) return { ok: true, state: sanitizeStateForRole(room, 'host', now) };
+    const roundCommands = ['APPLY_LIFELINE','SKIP_CARD_PICK','SUBMIT_ORDER','SKIP_MEMORY_PREVIEW','SWAP_BACKUP','PARK_QUESTION','SKIP_QUESTION','START_TIMER','PAUSE_TIMER','RESUME_TIMER','CLARIFY_IMAGE','REVEAL_HINT','REVEAL_ANSWER','AWARD_ROUND'];
+    if (roundCommands.includes(params.command) && payload.roundId && payload.roundId !== room.activeRound?.roundId) {
+      return { ok: false, error: 'انتهى السؤال الذي أُرسل الأمر له.' };
+    }
     let result: { ok: boolean; error?: string; state: RoomState } = {
       ok: false,
       error: 'أمر غير معروف.',
@@ -682,9 +688,13 @@ class RoomManager {
       return { ok: false, error: result.error };
     }
 
-    const nextState = recordPlayedCuratedQuestion(result.state);
+    const recorded = recordPlayedCuratedQuestion(result.state);
+    const nextState = recorded.processedActionIds.includes(actionId) ? recorded : {
+      ...recorded, processedActionIds: [...recorded.processedActionIds, actionId].slice(-200),
+    };
+    // Persist before acknowledging or broadcasting so a failed disk write cannot produce a phantom score.
+    persistRoomsMap({ ...this.rooms, [code]: nextState });
     this.rooms[code] = nextState;
-    persistRoomsMap(this.rooms);
     this.broadcastRoom(code);
     return { ok: true, state: sanitizeStateForRole(nextState, 'host', now) };
   }
