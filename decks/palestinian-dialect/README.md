@@ -1,0 +1,3 @@
+# Palestinian dialect
+100 original quiz prompts (50 object-identification image links, 35 vocabulary, 15 expressions; 30/35/35 tiers).
+Image links are sourced from the Palestinian WAFA heritage tools reference. 49 are GIF links whose pixels could not be inspected with the available web viewer; the quern JPEG was visually inspected. Browser availability, photo-only content, reuse permissions and CORS must be checked before claiming all images verified. No AI images were created. Dialect vocabulary varies by region. Sources: https://info.wafa.ps/Pages/Details/29722, https://www.safahat.org/books/19363759/33/, https://blfa.ps/archives/250.

@@ -1,0 +1,1873 @@
+{
+  "schemaVersion": 2,
+  "exportedAt": "2026-11-26T15:27:00Z",
+  "app": "yemken-hay",
+  "deck": {
+    "schemaVersion": 2,
+    "id": "palestinian_dialect_v1",
+    "title": "شو يعني بالفلسطيني؟",
+    "description": "50 سؤال مصور من التراث، 35 مفردة، 15 تعبيرًا فلسطينيًا. الأسماء تختلف حسب المنطقة.",
+    "sourceType": "curated",
+    "boardMode": "categories",
+    "ageGroup": "mixed",
+    "createdAt": "2026-11-26T15:27:00Z",
+    "updatedAt": "2026-11-26T15:27:00Z",
+    "categories": [
+      {
+        "id": "cat_palestinian_dialect",
+        "name": "شو يعني بالفلسطيني؟",
+        "description": "خمن اسم الأداة بالصورة أو معنى المفردة أو التعبير الشعبي",
+        "iconKey": "palestinian_proverbs",
+        "accentColor": "#15803D",
+        "availableDifficulties": [
+          "easy",
+          "medium",
+          "hard"
+        ],
+        "menuGroup": "language",
+        "topicCoverage": [
+          "اللهجة الفلسطينية",
+          "الأدوات التراثية",
+          "التعبيرات الشعبية"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الشوبك",
+        "acceptableAnswers": [
+          "الشوبك",
+          "نشابة",
+          "مرقاق"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/381f704b-b3ad-48df-8b20-47358a93e4f4.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-001"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «إسا» بالفلسطيني؟",
+        "answer": "الآن",
+        "acceptableAnswers": [
+          "الآن",
+          "هسا",
+          "هلأ"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-001"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «وين أيامك؟»؟",
+        "answer": "زمان ما شفناك",
+        "acceptableAnswers": [
+          "زمان ما شفناك",
+          "اشتقنالك",
+          "أين كنت منذ زمن"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-001"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "لمبة الكاز",
+        "acceptableAnswers": [
+          "لمبة الكاز",
+          "لامظة",
+          "مصباح الكاز"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/7e9a1248-f838-444b-a4b2-2918182fa63f.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-002"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «أزغر» بالفلسطيني؟",
+        "answer": "أصغر",
+        "acceptableAnswers": [
+          "أصغر",
+          "أقل عمرًا"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-002"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «ورّيني إياه»؟",
+        "answer": "دعني أراه",
+        "acceptableAnswers": [
+          "دعني أراه",
+          "فرجيني إياه"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-002"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "فانوس",
+        "acceptableAnswers": [
+          "فانوس",
+          "قنديل",
+          "فانوس الكاز"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/f799120c-ccbe-459f-80eb-49fb85e310be.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-003"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «طفران» بالفلسطيني؟",
+        "answer": "مفلس",
+        "acceptableAnswers": [
+          "مفلس",
+          "ما معه مصاري"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-003"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «ورا الدار»؟",
+        "answer": "خلف البيت",
+        "acceptableAnswers": [
+          "خلف البيت",
+          "خلف المنزل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-003"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الصاج",
+        "acceptableAnswers": [
+          "الصاج",
+          "صاج الخبز"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/502bd141-d173-42ec-8c93-4addb6956611.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-004"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «بعتاز» بالفلسطيني؟",
+        "answer": "أحتاج",
+        "acceptableAnswers": [
+          "أحتاج",
+          "يلزمني"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-004"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «ما بقدرش أجي»؟",
+        "answer": "لا أستطيع الحضور",
+        "acceptableAnswers": [
+          "لا أستطيع الحضور",
+          "ما بقدر أجي"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-004"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "البابور",
+        "acceptableAnswers": [
+          "البابور",
+          "ببور",
+          "بريموس",
+          "بابور الكاز"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/807db3c4-d7f2-4c7a-b913-6c5da60c01e4.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-005"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «غميق» بالفلسطيني؟",
+        "answer": "عميق",
+        "acceptableAnswers": [
+          "عميق"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-005"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «إيش بدّك؟»؟",
+        "answer": "ماذا تريد",
+        "acceptableAnswers": [
+          "ماذا تريد",
+          "شو بدك"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-005"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المنخل",
+        "acceptableAnswers": [
+          "المنخل",
+          "منخل الطحين"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/4d9e31d9-0c67-4987-a423-3f9a7db50522.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-006"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «مطرح» بالفلسطيني؟",
+        "answer": "مكان",
+        "acceptableAnswers": [
+          "مكان",
+          "موضع"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-006"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «ما فيهوش مي»؟",
+        "answer": "ليس فيه ماء",
+        "acceptableAnswers": [
+          "ليس فيه ماء",
+          "ما فيه ماء"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-006"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "سلة القش",
+        "acceptableAnswers": [
+          "سلة القش",
+          "سلة",
+          "سلّة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/0c767437-9f9e-40fb-bcd0-b22a4cb5643b.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-007"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «قديش» بالفلسطيني؟",
+        "answer": "كم",
+        "acceptableAnswers": [
+          "كم",
+          "ما المقدار"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-007"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الحصيرة",
+        "acceptableAnswers": [
+          "الحصيرة",
+          "حصيرة القش"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/57e2e7b6-a3ab-41be-89e8-fa21123dc63a.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-008"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «أبصر» بالفلسطيني؟",
+        "answer": "لا أعرف",
+        "acceptableAnswers": [
+          "لا أعرف",
+          "الله أعلم",
+          "ما بعرف"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-008"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "مكنسة القش",
+        "acceptableAnswers": [
+          "مكنسة القش",
+          "مكنسة",
+          "مقشة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/693aa86c-3698-4007-b26f-7db54177725c.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-009"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «طنّش» بالفلسطيني؟",
+        "answer": "تجاهل",
+        "acceptableAnswers": [
+          "تجاهل",
+          "تغافل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-009"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الدلو",
+        "acceptableAnswers": [
+          "الدلو",
+          "سطل",
+          "دلو البئر"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/0f361746-3b1d-478d-8dcc-bedb1519db54.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-010"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «فوت» بالفلسطيني؟",
+        "answer": "ادخل",
+        "acceptableAnswers": [
+          "ادخل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-010"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "دلة القهوة",
+        "acceptableAnswers": [
+          "دلة القهوة",
+          "دلة",
+          "دلة عربية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/d15bc011-1aac-4b23-8b9f-d00802bfcfb6.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-011"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «قزاز» بالفلسطيني؟",
+        "answer": "زجاج",
+        "acceptableAnswers": [
+          "زجاج"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-011"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "جرة المي",
+        "acceptableAnswers": [
+          "جرة المي",
+          "جرة",
+          "جرة الماء"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/6f7a0615-eee3-4501-a5fd-a5147ba26f0a.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-012"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 200,
+        "difficulty": "easy",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «ضبّه» بالفلسطيني؟",
+        "answer": "خبئه",
+        "acceptableAnswers": [
+          "خبئه",
+          "رتبه واحفظه"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-012"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الطابون",
+        "acceptableAnswers": [
+          "الطابون",
+          "فرن الطابون"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/cc851896-eb12-4cc8-81ae-7df9f138510b.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-013"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «إدّاين» بالفلسطيني؟",
+        "answer": "استقرض",
+        "acceptableAnswers": [
+          "استقرض",
+          "استدان"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-013"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «فلان بجاكرني»؟",
+        "answer": "يعاندني",
+        "acceptableAnswers": [
+          "يعاندني",
+          "يتعمد معاندتي"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-007"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "اللوكس",
+        "acceptableAnswers": [
+          "اللوكس",
+          "لقس",
+          "لوكس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/cec0fb28-2152-435f-9e4a-93a9613e6ebc.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-014"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «عجرَة» بالفلسطيني؟",
+        "answer": "غير ناضجة",
+        "acceptableAnswers": [
+          "غير ناضجة",
+          "ثمرة لم تنضج"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-014"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «ما سرحناش اليوم (عن الشغل)»؟",
+        "answer": "لم نذهب للعمل اليوم",
+        "acceptableAnswers": [
+          "لم نذهب للعمل اليوم",
+          "اليوم ما اشتغلنا"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-008"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "جرن الكبة",
+        "acceptableAnswers": [
+          "جرن الكبة",
+          "جرن",
+          "جرن حجري"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/cec9fed5-d248-4a5e-9256-58e95159f82c.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-015"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «صرارة» بالفلسطيني؟",
+        "answer": "حصاة",
+        "acceptableAnswers": [
+          "حصاة",
+          "حجر صغير"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-015"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «يدبّه من فوق»؟",
+        "answer": "يرميه من الأعلى",
+        "acceptableAnswers": [
+          "يرميه من الأعلى",
+          "يلقيه من فوق"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-009"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الصفرية",
+        "acceptableAnswers": [
+          "الصفرية",
+          "صفرية",
+          "طنجرة نحاس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/4abe199e-9fec-4f8f-bd84-dad388d99a52.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-016"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «القرنة» بالفلسطيني؟",
+        "answer": "الزاوية",
+        "acceptableAnswers": [
+          "الزاوية",
+          "الركن"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-016"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «عام أول»؟",
+        "answer": "السنة الماضية",
+        "acceptableAnswers": [
+          "السنة الماضية",
+          "العام الماضي"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-010"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الزبدية",
+        "acceptableAnswers": [
+          "الزبدية",
+          "زبدية",
+          "جاط فخار"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/4053411a-03ed-413e-bb8c-66d1bbb6ba74.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-017"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «فشختين» بالفلسطيني؟",
+        "answer": "خطوتان",
+        "acceptableAnswers": [
+          "خطوتان",
+          "خطوتين"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-017"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «عبر عالبيت»؟",
+        "answer": "دخل البيت",
+        "acceptableAnswers": [
+          "دخل البيت",
+          "دخل المنزل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-011"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "السفرطاس",
+        "acceptableAnswers": [
+          "السفرطاس",
+          "سفرطاس",
+          "حاملة الطعام"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/0c4212f8-938f-46e7-bebf-30d47ff15366.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-018"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «مُطّه» بالفلسطيني؟",
+        "answer": "شدّه",
+        "acceptableAnswers": [
+          "شدّه",
+          "اسحبه"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-018"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "النجر",
+        "acceptableAnswers": [
+          "النجر",
+          "هاون",
+          "هون",
+          "مدق"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/d13a9a99-ef1f-4de8-828c-8c394fe746bd.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-019"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «عبر» بالفلسطيني؟",
+        "answer": "دخل",
+        "acceptableAnswers": [
+          "دخل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-019"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "صنية القش",
+        "acceptableAnswers": [
+          "صنية القش",
+          "صينية القش",
+          "طبق قش"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/76ffd46c-4727-4c56-9ebd-d6db8ae5f6a5.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-020"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «غماس» بالفلسطيني؟",
+        "answer": "ما يؤكل مع الخبز",
+        "acceptableAnswers": [
+          "ما يؤكل مع الخبز",
+          "إدام"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-020"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المهفة",
+        "acceptableAnswers": [
+          "المهفة",
+          "مهفة",
+          "مروحة الخوص"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/0161dec7-b65f-4903-be8d-71cbe9ee2335.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-021"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «بطيح» بالفلسطيني؟",
+        "answer": "ينزل",
+        "acceptableAnswers": [
+          "ينزل",
+          "يسيل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-021"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "القفة",
+        "acceptableAnswers": [
+          "القفة",
+          "قفّة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/56478d80-552f-470d-9020-7e31efaa4008.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-022"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «صرط» بالفلسطيني؟",
+        "answer": "ابتلع",
+        "acceptableAnswers": [
+          "ابتلع",
+          "ازدرد"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-022"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الخرج",
+        "acceptableAnswers": [
+          "الخرج",
+          "خرج",
+          "خرج الدابة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/8fc17417-df08-4d82-869d-6fca68ef8eae.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-023"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «صُبحية» بالفلسطيني؟",
+        "answer": "في الصباح",
+        "acceptableAnswers": [
+          "في الصباح",
+          "صباحًا"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-023"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الطنبر",
+        "acceptableAnswers": [
+          "الطنبر",
+          "طنبر",
+          "عربة الحمار"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/1e81afa8-ebe7-4485-98e2-49047dfd5107.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-024"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «بفاقس» بالفلسطيني؟",
+        "answer": "يلاعب غيره بمكاسرة البيض",
+        "acceptableAnswers": [
+          "يلاعب غيره بمكاسرة البيض",
+          "يكاسر البيض المسلوق"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-024"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الفارة",
+        "acceptableAnswers": [
+          "الفارة",
+          "فارة النجارة",
+          "مسحاج"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/bb893115-2449-483c-a95b-8ae12fe17d0c.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-025"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "النول",
+        "acceptableAnswers": [
+          "النول",
+          "نول يدوي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/89bc165c-c55c-4f0c-89c0-bb496a8c866b.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-026"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "مكواة الفحم",
+        "acceptableAnswers": [
+          "مكواة الفحم",
+          "مكواة قديمة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/3b6554dd-d380-4ad4-a381-36e10f8af748.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-027"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "القربة",
+        "acceptableAnswers": [
+          "القربة",
+          "قربة المي",
+          "قربة الماء"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/05fdc981-c4e5-44ef-8ea4-574c155178da.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-028"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "البكرج",
+        "acceptableAnswers": [
+          "البكرج",
+          "بكرج",
+          "إبريق القهوة النحاسي"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/a5e0d632-6011-47a1-90fb-8a1401623a5b.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-029"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 400,
+        "difficulty": "medium",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المنفاخ",
+        "acceptableAnswers": [
+          "المنفاخ",
+          "منفاخ النار"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/a1b010f0-28ae-4e78-924e-6b0afd83e2de.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-030"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "السراج",
+        "acceptableAnswers": [
+          "السراج",
+          "سراج الزيت"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/8963bd2f-030a-46f1-8ff5-eba19893e6e1.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-031"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «الأجرد» بالفلسطيني؟",
+        "answer": "تشرين الثاني",
+        "acceptableAnswers": [
+          "تشرين الثاني",
+          "نوفمبر"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-025"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «وش الصحارة (عند بياع الخضرة)»؟",
+        "answer": "الطبقة الظاهرة من صندوق الخضار التي يضع فيها أجود البضاعة",
+        "acceptableAnswers": [
+          "الطبقة الظاهرة من صندوق الخضار التي يضع فيها أجود البضاعة",
+          "وجه الصندوق المرتب من فوق"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-012"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الباطية",
+        "acceptableAnswers": [
+          "الباطية",
+          "كرمية",
+          "باطية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/6a39786e-7c72-4b44-bf8a-076603d66163.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-032"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «خَواص» بالفلسطيني؟",
+        "answer": "قوة",
+        "acceptableAnswers": [
+          "قوة",
+          "عزيمة"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-026"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «هالأكل بيواتيني»؟",
+        "answer": "هذا الطعام يناسبني ويفيدني",
+        "acceptableAnswers": [
+          "هذا الطعام يناسبني ويفيدني",
+          "الأكل يلائمني"
+        ],
+        "status": "approved",
+        "sourceRef": "https://blfa.ps/archives/250",
+        "id": "PALD-P-013"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الدست",
+        "acceptableAnswers": [
+          "الدست",
+          "دست النحاس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/c9686506-0c79-41d6-91ed-30910b7b28a3.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-033"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «الظاري» بالفلسطيني؟",
+        "answer": "المعتاد",
+        "acceptableAnswers": [
+          "المعتاد",
+          "المتعود"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-027"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «إجزم بطلبك»؟",
+        "answer": "ألح في طلبك",
+        "acceptableAnswers": [
+          "ألح في طلبك",
+          "أصر على طلبك"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-014"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الحلة",
+        "acceptableAnswers": [
+          "الحلة",
+          "قدر نحاسي",
+          "حلة نحاس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/892d3ae2-6b4e-41ce-96b0-0bf728d5ab17.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-034"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «عَطَن» بالفلسطيني؟",
+        "answer": "قطعة أرض خصبة",
+        "acceptableAnswers": [
+          "قطعة أرض خصبة",
+          "أرض خصبة"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-028"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو المقصود بتعبير «بغناوي»؟",
+        "answer": "بأغانٍ",
+        "acceptableAnswers": [
+          "بأغانٍ",
+          "بالأغاني"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-P-015"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "القصريّة",
+        "acceptableAnswers": [
+          "القصريّة",
+          "قصرية",
+          "مصفاة المفتول"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/30d09d17-5d04-4750-8635-9fc1afe781a7.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-035"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «الصليبة» بالفلسطيني؟",
+        "answer": "كومة كبيرة من القمح في البيدر",
+        "acceptableAnswers": [
+          "كومة كبيرة من القمح في البيدر",
+          "كومة القمح الكبيرة"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-029"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المخباط",
+        "acceptableAnswers": [
+          "المخباط",
+          "مغرفة مخباط",
+          "مغرفة خشبية كبيرة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/936962fa-9278-49d2-998e-cc25c5e50e57.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-036"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «الغَمِر» بالفلسطيني؟",
+        "answer": "كومة سنابل قمح",
+        "acceptableAnswers": [
+          "كومة سنابل قمح",
+          "حزمة أو كومة السنابل"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-030"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الجاروشة",
+        "acceptableAnswers": [
+          "الجاروشة",
+          "رحى",
+          "طاحونة حجرية"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/73717a40-6f60-4efd-9530-702be1f2f513.jpeg",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-037"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «الفرمشية» بالفلسطيني؟",
+        "answer": "الصيدلية",
+        "acceptableAnswers": [
+          "الصيدلية",
+          "الأجزخانة"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-031"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الجونة",
+        "acceptableAnswers": [
+          "الجونة",
+          "جونة القش"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/032dc27f-97a2-4d69-8f36-20f7ad3db89a.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-038"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «عَنفَص» بالفلسطيني؟",
+        "answer": "رفع قوائمه الخلفية",
+        "acceptableAnswers": [
+          "رفع قوائمه الخلفية",
+          "رفس بقوائمه الخلفية",
+          "قمص"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-032"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "القبعة",
+        "acceptableAnswers": [
+          "القبعة",
+          "قبعة القش",
+          "وعاء القش"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/5d3abc52-1c3f-4550-8412-f3aceff1848b.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-039"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «صِنتها» بالفلسطيني؟",
+        "answer": "رائحتها الكريهة",
+        "acceptableAnswers": [
+          "رائحتها الكريهة",
+          "نتنها"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-033"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "القرطلة",
+        "acceptableAnswers": [
+          "القرطلة",
+          "قرطلّة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/6b114262-a7a4-4260-bf8c-ffebf6239bb1.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-040"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «مَصّيص» بالفلسطيني؟",
+        "answer": "خيط القنب",
+        "acceptableAnswers": [
+          "خيط القنب",
+          "خيط مصنوع من القنب"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-034"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المعلاط",
+        "acceptableAnswers": [
+          "المعلاط",
+          "معلاط"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/46981889-1c8c-4a33-97a7-a23f33498c26.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-041"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو يعني «عذال» بالفلسطيني؟",
+        "answer": "حاجز",
+        "acceptableAnswers": [
+          "حاجز",
+          "ساتر"
+        ],
+        "status": "approved",
+        "sourceRef": "https://www.safahat.org/books/19363759/33/",
+        "id": "PALD-W-035"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الشاعوب",
+        "acceptableAnswers": [
+          "الشاعوب",
+          "شاعوب"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/d5c08504-c72c-47c5-9ed2-35fb50eeb575.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-042"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المذراة",
+        "acceptableAnswers": [
+          "المذراة",
+          "مذراة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/5fc8c9f6-3e40-4b94-b9b8-2c268d7b816a.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-043"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الكربال",
+        "acceptableAnswers": [
+          "الكربال",
+          "كربال",
+          "غربال الحبوب"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/ded27bb2-9d77-4739-849b-ce738e5ee001.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-044"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المدراس",
+        "acceptableAnswers": [
+          "المدراس",
+          "لوح الدراس",
+          "لوح الدرس"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/d87f5dfa-76ac-485d-930a-4158062a1cdc.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-045"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "البردعة",
+        "acceptableAnswers": [
+          "البردعة",
+          "بردعة",
+          "حلس",
+          "رحل"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/e9f6c747-2b86-4a19-9792-b8f26cf8b73a.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-046"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المغطاس",
+        "acceptableAnswers": [
+          "المغطاس",
+          "مغطاس اللبن"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/26e5f073-89fd-4422-9c89-2431c0b3f32d.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-047"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "الصاع",
+        "acceptableAnswers": [
+          "الصاع",
+          "مكيال الصاع"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/4a05d94e-7b3c-4f44-9f50-eb72f3bac591.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-048"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "البقلولة",
+        "acceptableAnswers": [
+          "البقلولة",
+          "بقلولة اللبن"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/6ade463d-dbbc-4637-98dc-c151741cdbec.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-049"
+      },
+      {
+        "categoryId": "cat_palestinian_dialect",
+        "categoryName": "شو يعني بالفلسطيني؟",
+        "points": 600,
+        "difficulty": "hard",
+        "questionType": "direct_qa",
+        "prompt": "شو بنسمّي هاد بالفلسطيني؟",
+        "answer": "المحماسة",
+        "acceptableAnswers": [
+          "المحماسة",
+          "محماسة",
+          "محمصة القهوة"
+        ],
+        "status": "approved",
+        "imageUrl": "https://info.wafa.ps/image/NewsContentImg/31b0ec1c-469d-4270-8df7-419098a99b98.gif",
+        "imageSourceUrl": "https://info.wafa.ps/Pages/Details/29722",
+        "sourceRef": "https://info.wafa.ps/Pages/Details/29722",
+        "imageDisplay": "before_reveal",
+        "imageCaption": "صورة من التراث الفلسطيني",
+        "id": "PALD-I-050"
+      }
+    ]
+  }
+}
