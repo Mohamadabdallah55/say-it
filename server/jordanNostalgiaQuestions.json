@@ -5,18 +5,18 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
-  "questionCount": 89,
-  "total_source_questions": 89,
-  "verified_playable_count": 89,
+  "questionCount": 86,
+  "total_source_questions": 86,
+  "verified_playable_count": 86,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 29,
-    "400": 39,
+    "200": 27,
+    "400": 38,
     "600": 21
   },
   "points_distribution_playable": {
-    "200": 29,
-    "400": 39,
+    "200": 27,
+    "400": 38,
     "600": 21
   },
   "questions": [
@@ -3818,105 +3818,6 @@
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
       ]
-    },
-    {
-      "id": "JONOS-CLIP-popeye",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "points": 200,
-      "difficulty": 200,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
-      "answer": "باباي",
-      "acceptedAnswers": [
-        "باباي",
-        "باباي البحار",
-        "Popeye"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Popeye_The_Sailor_-_67_A_Date_to_Skate.webm#t=209,219",
-      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:Popeye_The_Sailor_-_67_A_Date_to_Skate.webm",
-      "videoReviewStatus": "existing_focus_source_playback_unverified",
-      "evidenceUrls": [
-        "https://commons.wikimedia.org/wiki/File:Popeye_The_Sailor_-_67_A_Date_to_Skate.webm"
-      ],
-      "rightsStatus": "public_domain_source",
-      "contentStatus": "approved",
-      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
-      "questionType": "الفيديو والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون",
-        "فيديو"
-      ]
-    },
-    {
-      "id": "JONOS-CLIP-casper",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "points": 400,
-      "difficulty": 400,
-      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
-      "answer": "كاسبر",
-      "acceptedAnswers": [
-        "كاسبر",
-        "كاسبر الشبح",
-        "Casper",
-        "Casper the Friendly Ghost"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/The_Friendly_Ghost_(1945).webm#t=246,256",
-      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:The_Friendly_Ghost_(1945).webm",
-      "videoReviewStatus": "existing_focus_source_playback_unverified",
-      "evidenceUrls": [
-        "https://commons.wikimedia.org/wiki/File:The_Friendly_Ghost_(1945).webm"
-      ],
-      "rightsStatus": "public_domain_source",
-      "contentStatus": "approved",
-      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
-      "questionType": "الفيديو والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون",
-        "فيديو"
-      ]
-    },
-    {
-      "id": "JONOS-CLIP-mickey",
-      "category": "زمن الطيبين",
-      "region": "الأردن وبلاد الشام",
-      "subCategory": "كرتون",
-      "points": 200,
-      "difficulty": 200,
-      "question": "شو كان ميكي ماوس يتحكم فيه بالمشهد؟",
-      "answer": "عجلة قيادة المركب",
-      "acceptedAnswers": [
-        "عجلة قيادة المركب",
-        "الدفة",
-        "عجلة القيادة",
-        "مقود السفينة",
-        "دفة السفينة"
-      ],
-      "imageRequired": false,
-      "image": null,
-      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Steamboat_Willie_%281928%29_by_Walt_Disney.webm#t=27,37",
-      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm",
-      "videoReviewStatus": "existing_focus_source_playback_unverified",
-      "evidenceUrls": [
-        "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm"
-      ],
-      "rightsStatus": "public_domain_source",
-      "contentStatus": "approved",
-      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
-      "questionType": "الفيديو والتخمين",
-      "tags": [
-        "زمن الطيبين",
-        "كرتون",
-        "فيديو"
-      ]
     }
   ],
   "pendingVideoReferences": [
@@ -3933,6 +3834,21 @@
       "answer": "المحقق كونان",
       "sourceUrl": "https://www.youtube.com/watch?v=2xTnqudNah8",
       "status": "needs_scene_time_and_permission_check"
+    },
+    {
+      "answer": "باباي",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Popeye_The_Sailor_-_67_A_Date_to_Skate.webm",
+      "status": "disabled_until_short_standalone_clip_is_verified"
+    },
+    {
+      "answer": "كاسبر",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Friendly_Ghost_(1945).webm",
+      "status": "disabled_until_short_standalone_clip_is_verified"
+    },
+    {
+      "answer": "عجلة قيادة المركب",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm",
+      "status": "disabled_until_short_standalone_clip_is_verified"
     }
   ]
 }
