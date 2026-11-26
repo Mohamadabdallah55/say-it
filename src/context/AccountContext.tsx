@@ -177,25 +177,51 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     return initial;
   });
 
+  const [serverOfficialCategories, setServerOfficialCategories] = useState<DeckCategory[]>(() => SERVER_CURATED_CATEGORIES.map(({ category }) => category));
   const [customCategories, setCustomCategories] = useState<DeckCategory[]>([]);
   const [customQuestions, setCustomQuestions] = useState<QuizQuestion[]>([]);
   const [catalogLoaded, setCatalogLoaded] = useState(false);
   const [progressByCategory, setProgressByCategory] = useState<Record<string, CategoryProgressRecord>>({});
   const [profileTotalPlayed, setProfileTotalPlayed] = useState<number>(0);
 
-  // Test Firestore connectivity once on boot + load built-in server question IDs (e.g. 200 Prophet Stories IDs)
+  // Fetch current official catalog independently of account and local recovery cache.
   useEffect(() => {
     testFirestoreConnection();
-    fetch('/api/catalog/builtin-ids')
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
+    let disposed = false;
+    let running = false;
+    let lastCheck = 0;
+    const refresh = async () => {
+      if (disposed || running || Date.now() - lastCheck < 15000) return;
+      running = true;
+      lastCheck = Date.now();
+      try {
+        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (disposed) return;
         if (data?.questionIdsByCategory && typeof data.questionIdsByCategory === 'object') {
           setBuiltinIdsByCategory(data.questionIdsByCategory);
         }
-      })
-      .catch(() => {
-        // Fallback to client CURATED_QUESTIONS IDs already initialized
-      });
+        if (Array.isArray(data?.categories)) {
+          setServerOfficialCategories(data.categories);
+        }
+      } catch {
+        // Preserve the last working catalog if offline.
+      } finally { running = false; }
+    };
+    const onVisible = () => { if (document.visibilityState === 'visible') void refresh(); };
+    void refresh();
+    const timer = window.setInterval(onVisible, 60000);
+    window.addEventListener('focus', onVisible);
+    window.addEventListener('online', onVisible);
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      disposed = true;
+      window.clearInterval(timer);
+      window.removeEventListener('focus', onVisible);
+      window.removeEventListener('online', onVisible);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, []);
 
   const syncControllerAuthorization = useCallback(
@@ -880,18 +906,19 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const allCategoriesForLobby = useMemo(() => {
     const activeCustom = customCategories.filter((c) => c.isActive !== false);
     const mergedMap = new Map<string, DeckCategory>();
-    for (const { category } of SERVER_CURATED_CATEGORIES) mergedMap.set(category.id, category);
-    for (const c of activeCustom) mergedMap.set(c.id, c);
+    for (const category of serverOfficialCategories) mergedMap.set(category.id, { ...category, isCustom: false });
+    for (const c of activeCustom) if (!mergedMap.has(c.id)) mergedMap.set(c.id, c);
     return Array.from(mergedMap.values());
-  }, [customCategories]);
+  }, [customCategories, serverOfficialCategories]);
 
   // All built-in + all custom (including hidden/inactive) for Admin Panel
   const allCategoriesForAdmin = useMemo(() => {
     const mergedMap = new Map<string, DeckCategory>();
     for (const c of ALL_CURATED_CATEGORIES) mergedMap.set(c.id, { ...c, isCustom: false, isActive: true });
-    for (const c of customCategories) mergedMap.set(c.id, c);
+    for (const c of serverOfficialCategories) mergedMap.set(c.id, { ...c, isCustom: false, isActive: true });
+    for (const c of customCategories) if (!mergedMap.has(c.id)) mergedMap.set(c.id, c);
     return Array.from(mergedMap.values());
-  }, [customCategories]);
+  }, [customCategories, serverOfficialCategories]);
 
   const questionIdsByCategory = useMemo(() => {
     const map: Record<string, Set<string>> = {};
