@@ -63,12 +63,26 @@ function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet
   const urls = [...new Set(parts.flatMap(part => part.match(/https?:\/\/[^\s]+/g) ?? []))].filter(url => /^https:\/\/(?:quran\.com|sunnah\.com)\//.test(url));
   const labels = parts.filter(part => !/^https?:\/\//.test(part));
   if (!snippet && !reference) return null;
+  const blocks = (snippet || '').split(/\n\s*\n/).filter(Boolean);
+  const quranOnly = urls.length > 0 && urls.every(url => url.startsWith('https://quran.com/'));
+  const renderText = (block: string, i: number) => {
+    const isQuran = quranOnly || (blocks.length === urls.length && urls[i]?.startsWith('https://quran.com/')) || /﴿[^﴾]+﴾/.test(block);
+    return <p key={i} className={isQuran ? 'ayah !text-lg md:!text-xl !leading-relaxed whitespace-pre-wrap' : 'text-sm leading-relaxed whitespace-pre-wrap'}>{block}</p>;
+  };
+  const compact = Boolean(snippet && snippet.length <= 190 && blocks.length <= 1);
   return (
-    <section dir="rtl" data-testid="religious-evidence" className="mt-3 rounded-xl border border-white/25 bg-black/15 p-3 text-right text-white">
-      <h3 className="font-display font-black text-sm md:text-base mb-2">{snippet ? 'الدليل من المصدر' : 'مرجع الإجابة'}</h3>
-      {snippet && (snippet.length > 550 ? <details><summary className="cursor-pointer font-bold text-sm">عرض النص الموثق</summary><div className="mt-2 whitespace-pre-wrap leading-relaxed text-sm md:text-base">{snippet}</div></details> : <div className="whitespace-pre-wrap leading-relaxed text-sm md:text-base">{snippet}</div>)}
-      {labels.length > 0 && <div className="mt-2 font-bold text-xs md:text-sm text-white/90">{labels.join(' · ')}</div>}
-      {urls.length > 0 && <div className="mt-2 flex flex-wrap gap-2">{urls.map((url, i) => <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="underline text-xs md:text-sm font-bold">المصدر {urls.length > 1 ? i + 1 : ''}</a>)}</div>}
+    <section dir="rtl" data-testid="religious-evidence" className="mt-2 rounded-lg border border-white/25 bg-black/15 px-3 py-2 text-right text-white">
+      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs md:text-sm">
+        <span className="font-display font-black">الدليل:</span>
+        {labels.length > 0 && <span className="font-bold text-white/90">{labels.join(' · ')}</span>}
+        {urls.map((url, i) => <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="underline font-bold">المصدر {urls.length > 1 ? i + 1 : ''}</a>)}
+      </div>
+      {compact ? <div className="mt-1">{blocks.map(renderText)}</div> : snippet && (
+        <details className="mt-1">
+          <summary className="cursor-pointer font-bold text-xs">عرض نص الدليل</summary>
+          <div className="mt-2 space-y-2">{blocks.map(renderText)}</div>
+        </details>
+      )}
     </section>
   );
 }
