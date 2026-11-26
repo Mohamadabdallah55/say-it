@@ -27,6 +27,7 @@ import {
   undoLastScoreAction,
   parkQuestion,
   skipLifelinePick,
+  syncRoomLifelines,
   submitOrder,
 } from '../src/game/engine';
 import { WORLD_FOOD_CATEGORY } from '../src/game/curatedBanks';
@@ -69,7 +70,7 @@ class RoomManager {
   constructor() {
     this.rooms = loadSavedRooms();
     for (const [code, room] of Object.entries(this.rooms)) {
-      this.rooms[code] = refreshChampionsLeagueMedia(refreshElClasicoPhotos(refreshJuzAmmaAnswers(room)));
+      this.rooms[code] = syncRoomLifelines(refreshChampionsLeagueMedia(refreshElClasicoPhotos(refreshJuzAmmaAnswers(room))));
     }
   }
 
@@ -571,7 +572,9 @@ class RoomManager {
         result = advanceMemoryToQuestion(room, actionId, now);
         break;
       case 'APPLY_LIFELINE':
-        result = applyLifeline(room, payload.lifeline as LifelineType, actionId, now);
+        result = payload.roundId && payload.roundId !== room.activeRound?.roundId
+          ? { ok: false, state: room, error: 'انتهى السؤال الذي اخترت البطاقة له.' }
+          : applyLifeline(room, payload.lifeline as LifelineType, actionId, now);
         break;
       case 'SWAP_BACKUP':
         result = swapActiveWithBackup(room, actionId, now);
@@ -647,11 +650,11 @@ class RoomManager {
         }
         result = {
           ok: true,
-          state: {
+          state: syncRoomLifelines({
             ...room,
             settings: nextSettings,
             updatedAt: new Date(now).toISOString(),
-          },
+          }),
         };
         break;
       }
