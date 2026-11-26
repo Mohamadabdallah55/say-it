@@ -10,7 +10,7 @@ import { RASHIDUN_QUESTIONS } from './rashidunQuestions';
 import { WORLD_CUP_2026_QUESTIONS } from './worldCup2026Questions';
 import { PROPHET_STORIES_QUESTIONS } from './prophetStories';
 import { PROPHETIC_BIOGRAPHY_QUESTIONS } from './propheticBiography';
-import { JUZ_AMMA_QUESTIONS, JUZ_TABARAK_QUESTIONS, QURAN_VERSE_MEANINGS_QUESTIONS } from './quranQuestionBanks';
+import { JUZ_AMMA_QUESTIONS, JUZ_TABARAK_QUESTIONS, RUB_YASIN_QUESTIONS, QURAN_VERSE_MEANINGS_QUESTIONS } from './quranQuestionBanks';
 import { WORLD_WARS_QUESTIONS } from './worldWars';
 import { HADITH_QUESTIONS } from './hadithQuestions';
 import { STORY_LOGIC_QUESTIONS } from './storyLogic';
@@ -55,13 +55,17 @@ const religiousEvidence = religiousEvidenceData as unknown as {
 const sourceRequiredCategories = new Set([
   'cat_prophetic_biography', 'cat_rashidun', 'cat_prophet_stories',
   'cat_hadith', 'cat_islamic_ordering', 'cat_islamic_letters',
-  'cat_juz_amma', 'cat_juz_tabarak', 'cat_quran_verse_meanings',
+  'cat_juz_amma', 'cat_juz_tabarak', 'cat_rub_yasin', 'cat_quran_verse_meanings',
 ]);
 
 // Missing exact primary-source references are retained in the original JSON for
 // editorial repair, but excluded from new curated matches. Never invent a text.
 function attachReligiousEvidence(question: QuizQuestion): QuizQuestion[] {
   if (!sourceRequiredCategories.has(question.categoryId)) return [question];
+  // Rub Yasin ships exact per-question Quran passages in its own bank.
+  if (question.categoryId === 'cat_rub_yasin') {
+    return question.sourceSnippet && /https:\/\/quran\.com\//.test(question.sourceRef || '') ? [question] : [];
+  }
   const keys = religiousEvidence.byQuestion[question.id];
   if (!keys?.length) return [];
   const references = keys.map(key => religiousEvidence.texts[key]);
@@ -90,6 +94,7 @@ export const SERVER_CURATED_QUESTIONS = [
   ...CHAMPIONS_LEAGUE_QUESTIONS,
   ...JUZ_AMMA_QUESTIONS,
   ...JUZ_TABARAK_QUESTIONS,
+  ...RUB_YASIN_QUESTIONS,
   ...EL_CLASICO_QUESTIONS,
   ...CLUB_LOGOS_QUESTIONS,
   ...QURAN_MEDIA_QUESTIONS,
