@@ -5,19 +5,19 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
-  "questionCount": 109,
-  "total_source_questions": 109,
-  "verified_playable_count": 109,
+  "questionCount": 119,
+  "total_source_questions": 119,
+  "verified_playable_count": 119,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 38,
-    "400": 46,
-    "600": 25
+    "200": 42,
+    "400": 50,
+    "600": 27
   },
   "points_distribution_playable": {
-    "200": 38,
-    "400": 46,
-    "600": 25
+    "200": 42,
+    "400": 50,
+    "600": 27
   },
   "questions": [
     {
@@ -2893,14 +2893,14 @@
       "subCategory": "ألعاب الكمبيوتر",
       "points": 400,
       "difficulty": 400,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "شو اسم جزء نيد فور سبيد الشهير اللي نزل سنة 2005؟",
       "answer": "Need for Speed: Most Wanted",
       "acceptedAnswers": [
         "Need for Speed: Most Wanted",
-        "Need for Speed",
-        "نيد فور سبيد",
+        "Need for Speed Most Wanted",
         "نيد فور سبيد موست وانتد",
         "موست وانتد",
+        "موست ونتد",
         "NFS Most Wanted"
       ],
       "imageRequired": true,
@@ -4883,6 +4883,483 @@
         "ألعاب الكمبيوتر",
         "طفولة 2010–2016",
         "2010"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-pes2013",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 200,
+      "difficulty": 200,
+      "question": "شو اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
+      "answer": "بيس 2013",
+      "acceptedAnswers": [
+        "بيس 2013",
+        "بيس",
+        "PES",
+        "PES 2013",
+        "Pro Evolution Soccer 2013",
+        "برو إيفولوشن سوكر",
+        "بيس 13",
+        "ويننغ إليفن"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.launchbox-app.com/552ce51e-4ac0-4468-8252-153f483806c6.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "بيس 2013",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "بيس 2013",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://gamesdb.launchbox-app.com/games/images/15727-pes-2013-pro-evolution-soccer",
+        "sourcePublisher": "gamesdb.launchbox-app.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://gamesdb.launchbox-app.com/games/images/15727-pes-2013-pro-evolution-soccer"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-fifa12",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 200,
+      "difficulty": 200,
+      "question": "شو اسم سلسلة ألعاب كرة القدم الظاهرة بالصورة؟",
+      "answer": "فيفا 12",
+      "acceptedAnswers": [
+        "فيفا 12",
+        "فيفا",
+        "FIFA",
+        "FIFA 12",
+        "فيفا 2012",
+        "فيفا ١٢"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.video-games-museum.com/en/screenshots/Playstation%202/4/54781-ingame-FIFA-12.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "فيفا 12",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "فيفا 12",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.video-games-museum.com/en/game/FIFA-12/80/2/54781",
+        "sourcePublisher": "www.video-games-museum.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.video-games-museum.com/en/game/FIFA-12/80/2/54781"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-tekken5",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 200,
+      "difficulty": 200,
+      "question": "شو اسم سلسلة ألعاب البلايستيشن اللي منها شاشة اختيار الشخصيات هاي؟",
+      "answer": "تكن 5",
+      "acceptedAnswers": [
+        "تكن 5",
+        "تكن",
+        "تيكن",
+        "Tekken",
+        "Tekken 5",
+        "تكن خمسة",
+        "تيكن 5"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://m.media-amazon.com/images/M/MV5BNDU3YzkyYTktYTEzNC00NzYyLTk5OWQtNjdiMWQxM2RiMTk4XkEyXkFqcGc%40._V1_.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "تكن 5",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "تكن 5",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.imdb.com/title/tt0441522/",
+        "sourcePublisher": "www.imdb.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.imdb.com/title/tt0441522/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-fifastreet",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم لعبة كرة القدم بالشوارع هاي؟",
+      "answer": "FIFA Street 2",
+      "acceptedAnswers": [
+        "FIFA Street 2",
+        "فيفا ستريت",
+        "فيفا ستريت 2",
+        "FIFA Street",
+        "فيفا الشوارع",
+        "فيفا ستريت تو"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://assets.indogamers.com/media/images/2024/09/04/maxresdefault_2024_09_04t143107767.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "FIFA Street 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "FIFA Street 2",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://indogamers.com/console/43461/04092024/7-game-ps2-multiplayer-yang-wajib-kamu-mainkan-pas-banget-buat-nostalgia",
+        "sourcePublisher": "indogamers.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://indogamers.com/console/43461/04092024/7-game-ps2-multiplayer-yang-wajib-kamu-mainkan-pas-banget-buat-nostalgia"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-underground2",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 600,
+      "difficulty": 600,
+      "question": "شو اسم جزء نيد فور سبيد اللي كنا نلعبه بالمدينة الليلية، قبل Most Wanted؟",
+      "answer": "Need for Speed: Underground 2",
+      "acceptedAnswers": [
+        "Need for Speed: Underground 2",
+        "Underground 2",
+        "NFS Underground 2",
+        "نيد فور سبيد أندرغراوند 2",
+        "اندرغراوند 2",
+        "اندر جراوند 2",
+        "أندرقراوند 2"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.whichcar.com.au/uploads/2025/02/ec2e69a6-PS2-games-nfsu2.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Need for Speed: Underground 2",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Need for Speed: Underground 2",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.whichcar.com.au/advice/playstation-2-turns-20-the-best-ps2-driving-games",
+        "sourcePublisher": "www.whichcar.com.au",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.whichcar.com.au/advice/playstation-2-turns-20-the-best-ps2-driving-games"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-downhill",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم لعبة البلايستيشن 2 الظاهرة بالصورة؟",
+      "answer": "Downhill Domination",
+      "acceptedAnswers": [
+        "Downhill Domination",
+        "داون هيل",
+        "داونهيل",
+        "Downhill",
+        "داون هيل دومينيشن",
+        "دراجات الجبال",
+        "لعبة البسكليتات"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.launchbox-app.com/a6ad8024-cae2-4bfd-9d8b-3f6e5f70a7ca.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Downhill Domination",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Downhill Domination",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://gamesdb.launchbox-app.com/games/images/20483-downhill-domination",
+        "sourcePublisher": "gamesdb.launchbox-app.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://gamesdb.launchbox-app.com/games/images/20483-downhill-domination"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-gran",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 600,
+      "difficulty": 600,
+      "question": "ما اسم سلسلة ألعاب السيارات الظاهرة بالصورة؟",
+      "answer": "Gran Turismo 4",
+      "acceptedAnswers": [
+        "Gran Turismo 4",
+        "غران توريزمو",
+        "جران توريزمو",
+        "Gran Turismo",
+        "غران توريزمو 4",
+        "جران توريزمو 4",
+        "GT4"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/10570235-gran-turismo-4-playstation-2-rooftop-view.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Gran Turismo 4",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Gran Turismo 4",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.mobygames.com/game/17689/gran-turismo-4/screenshots/ps2/186490/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/17689/gran-turismo-4/screenshots/ps2/186490/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-ben10",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم لعبة البلايستيشن الظاهرة بالصورة؟",
+      "answer": "Ben 10: Protector of Earth",
+      "acceptedAnswers": [
+        "Ben 10: Protector of Earth",
+        "بن تن",
+        "بن 10",
+        "Ben 10",
+        "بن تن حامي الأرض",
+        "بن تن بروتكتور أوف إيرث"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://retroislandny.com/cdn/shop/files/ben-10-protector-of-earth-greatest-hits-playstation-2-575255.png?v=1764305114",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Ben 10: Protector of Earth",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Ben 10: Protector of Earth",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://retroislandny.com/products/ben-10-protector-of-earth-greatest-hits-playstation-2",
+        "sourcePublisher": "retroislandny.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://retroislandny.com/products/ben-10-protector-of-earth-greatest-hits-playstation-2"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-cars",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم لعبة البلايستيشن الظاهرة بالصورة؟",
+      "answer": "Cars",
+      "acceptedAnswers": [
+        "Cars",
+        "كارز",
+        "سيارات",
+        "السيارات",
+        "لعبة برق بنزين",
+        "لعبة ماكوين",
+        "Disney Pixar Cars"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.gamershouse.cz/user/documents/upload/dal%C5%A1%C3%AD/1/1Nov%C3%A1%20slo%C5%BEka/5_78.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Cars",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Cars",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.gamershouse.cz/en/ps2-racing-games/ps2-cars-2/",
+        "sourcePublisher": "www.gamershouse.cz",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gamershouse.cz/en/ps2-racing-games/ps2-cars-2/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-PS2-sponge",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "ألعاب البلايستيشن",
+      "points": 400,
+      "difficulty": 400,
+      "question": "شو اسم لعبة البلايستيشن القديمة اللي منها هاللقطة؟",
+      "answer": "SpongeBob SquarePants: Battle for Bikini Bottom",
+      "acceptedAnswers": [
+        "SpongeBob SquarePants: Battle for Bikini Bottom",
+        "Battle for Bikini Bottom",
+        "سبونج بوب معركة قاع الهامور",
+        "معركة قاع الهامور",
+        "سبونج بوب باتل فور بيكيني بوتوم",
+        "سبونج بوب"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://m.media-amazon.com/images/M/MV5BOTlhMjg5OTktOTFhNy00ODg2LWI3NTQtNzkzNzg2NTRiMjVlXkEyXkFqcGc%40._V1_.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "SpongeBob SquarePants: Battle for Bikini Bottom",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "SpongeBob SquarePants: Battle for Bikini Bottom",
+        "imageSelectionInstructions": "لقطة شاشة من اللعبة أو شاشة اختيار الشخصيات، لا غلاف",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء اسم الإجابة إذا ظهر",
+        "sourcePage": "https://www.imdb.com/title/tt0395770/",
+        "sourcePublisher": "www.imdb.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.imdb.com/title/tt0395770/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "صورة مرجعية من بحث الصور؛ لم يُختبر تحميلها في اللعبة، وحقوق إعادة الاستخدام غير مؤكدة.",
+      "questionType": "الصورة والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "ألعاب البلايستيشن",
+        "PS2",
+        "طفولة 2010–2016"
       ]
     }
   ],
