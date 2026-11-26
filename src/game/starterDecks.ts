@@ -275,6 +275,21 @@ export const CURATED_QUESTIONS: QuizQuestion[] = [
     },
   ),
 
+  q("his_extra_01", "cat_history", "تاريخ وحضارة", 'easy', 200, 'direct_qa', "ما الدولة التي تقع فيها قناة السويس؟", "مصر", {"sourceRef":"https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx"}),
+  q("his_extra_02", "cat_history", "تاريخ وحضارة", 'easy', 200, 'direct_qa', "ما الحضارة العربية القديمة التي اتخذت البتراء عاصمة لها؟", "الأنباط", {"sourceRef":"https://whc.unesco.org/en/list/326"}),
+  q("his_extra_03", "cat_history", "تاريخ وحضارة", 'easy', 200, 'direct_qa', "في أي مدينة أندلسية يقع قصر الحمراء؟", "غرناطة", {"sourceRef":"https://whc.unesco.org/en/list/314/"}),
+  q("his_extra_04", "cat_history", "تاريخ وحضارة", 'easy', 200, 'direct_qa', "في أي دولة يقع سور الصين العظيم؟", "الصين", {"sourceRef":"https://whc.unesco.org/en/list/438"}),
+  q("his_extra_05", "cat_history", "تاريخ وحضارة", 'medium', 400, 'direct_qa', "أي دولة إسلامية اتخذت القاهرة التي تأسست عام 969 عاصمة لها؟", "الدولة الفاطمية", {"sourceRef":"https://whc.unesco.org/en/list/89"}),
+  q("his_extra_06", "cat_history", "تاريخ وحضارة", 'medium', 400, 'direct_qa', "أي ملك بابلي ارتبط اسمه بمسلّة شهيرة من القوانين القديمة؟", "حمورابي", {"sourceRef":"https://www.louvre.fr/en/the-code-of-hammurabi"}),
+  q("his_extra_07", "cat_history", "تاريخ وحضارة", 'medium', 400, 'direct_qa', "ما المدينة الأندلسية التي شهدت قيام خلافة بين عامي 929 و1031م؟", "قرطبة", {"sourceRef":"https://whc.unesco.org/en/list/313/"}),
+  q("his_extra_08", "cat_history", "تاريخ وحضارة", 'medium', 400, 'direct_qa', "ما اسم الطرق التجارية التاريخية التي ربطت شرق آسيا بوسطها وغربها؟", "طرق الحرير", {"sourceRef":"https://www.unesco.org/en/silk-roads/about-silk-roads"}),
+  q("his_extra_09", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "من الإمبراطور الصيني الذي جمع أجزاء التحصينات القديمة لتشكيل نظام دفاعي موحّد نحو 220 ق.م؟", "تشين شي هوانغ", {"sourceRef":"https://whc.unesco.org/en/list/438"}),
+  q("his_extra_10", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "ما الدولة الأندلسية التي ازدهرت العمارة في غرناطة خلال حكمها وعرفت ببني نصر؟", "الدولة النصرية (بنو نصر / بنو الأحمر)", {"sourceRef":"https://whc.unesco.org/en/list/314"}),
+  q("his_extra_11", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "ما العاصمة التي كانت قائمة جنوب القاهرة قبل تأسيس العاصمة الفاطمية، وكانت أول عاصمة إسلامية لمصر؟", "الفسطاط", {"sourceRef":"https://egymonuments.gov.eg/en/collections/historical-cairo/"}),
+  q("his_extra_12", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "ما المدينة الواقعة في مالي التي ضمت مساجد سنكوري وسيدي يحيى وجينغريبر؟", "تمبكتو", {"sourceRef":"https://whc.unesco.org/en/canopy/timbuktu/"}),
+  q("his_extra_13", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "في أي دولة حديثة تقع سمرقند، المدينة التي اشتهرت بكونها ملتقى ثقافات على طرق الحرير؟", "أوزبكستان", {"sourceRef":"https://whc.unesco.org/en/urban-heritage-atlas/samarkand/"}),
+  q("his_extra_14", "cat_history", "تاريخ وحضارة", 'hard', 600, 'direct_qa', "بأي لغة كُتب الجزء السفلي من حجر رشيد، إلى جانب النصين المصريين؟", "اليونانية القديمة", {"sourceRef":"https://smarthistory.org/the-rosetta-stone/"}),
+
   // 4. اللغة العربية
   q(
     'arb_200',
@@ -454,6 +469,12 @@ export const CURATED_QUESTIONS: QuizQuestion[] = [
   q('isl_bak', 'cat_islamic', 'ثقافة إسلامية', 'easy', 200, 'direct_qa',
     'كم عدد أركان الإسلام؟', 'خمسة',
     { isBackup: true, isSensitiveReligious: true, sourceRef: 'صحيح البخاري، 8 · https://sunnah.com/bukhari:8' }),
+  q("isl_extra_01", "cat_islamic", "ثقافة إسلامية", 'easy', 200, 'direct_qa', "بماذا وصف النبي ﷺ الطهور في الحديث: «الطهور شطر ...»؟", "الإيمان", {"sourceRef":"صحيح مسلم، 223 · https://sunnah.com/muslim:223","isSensitiveReligious":true}),
+  q("isl_extra_02", "cat_islamic", "ثقافة إسلامية", 'easy', 200, 'direct_qa', "ما الذي ترتبط به قيمة الأعمال في الحديث المشهور الذي رواه عمر بن الخطاب؟", "النيات", {"sourceRef":"صحيح البخاري، 1 · https://sunnah.com/bukhari:1","isSensitiveReligious":true}),
+  q("isl_extra_03", "cat_islamic", "ثقافة إسلامية", 'medium', 400, 'direct_qa', "ما الذكر الذي وصفه النبي ﷺ بأنه يملأ الميزان؟", "الحمد لله", {"sourceRef":"صحيح مسلم، 223 · https://sunnah.com/muslim:223","isSensitiveReligious":true}),
+  q("isl_extra_04", "cat_islamic", "ثقافة إسلامية", 'medium', 400, 'direct_qa', "ما المعيار الذي ذكره النبي ﷺ لمحبة الإنسان الخير لأخيه؟", "أن يحب له ما يحب لنفسه", {"sourceRef":"صحيح البخاري، 13 · https://sunnah.com/bukhari:13","isSensitiveReligious":true}),
+  q("isl_extra_05", "cat_islamic", "ثقافة إسلامية", 'hard', 600, 'direct_qa', "في الحديث الذي يصف الصلاة بالنور، بماذا وصف النبي ﷺ الصدقة والصبر؟", "الصدقة برهان والصبر ضياء", {"sourceRef":"صحيح مسلم، 223 · https://sunnah.com/muslim:223","isSensitiveReligious":true}),
+  q("isl_extra_06", "cat_islamic", "ثقافة إسلامية", 'hard', 600, 'direct_qa', "ما الموانع الأربعة التي ذكرها الحديث عند الحديث عن الرجل الذي يطيل السفر ويدعو الله؟", "مطعمه حرام، ومشربه حرام، وملبسه حرام، وغُذّي بالحرام", {"sourceRef":"صحيح مسلم، 1015 · https://sunnah.com/muslim:1015","isSensitiveReligious":true}),
 ];
 
 export const STARTER_DEMO_DECK: QuizDeck = {
