@@ -56,7 +56,7 @@ import { CornerStarMascot } from './CornerStarMascot';
 import { GameAssistantBot } from './GameAssistantBot';
 import { useAccount } from '../context/AccountContext';
 
-const RELIGIOUS_EVIDENCE_CATEGORIES = new Set(['cat_islamic','cat_prophet_stories','cat_prophetic_biography','cat_rashidun','cat_hadith','cat_islamic_ordering','cat_islamic_letters','cat_juz_amma','cat_juz_tabarak','cat_rub_yasin','cat_quran_verse_meanings','cat_quran_media','cat_quran_reciter']);
+const RELIGIOUS_EVIDENCE_CATEGORIES = new Set(['cat_islamic','cat_prophet_stories','cat_prophetic_biography','cat_who_sahabi','cat_rashidun','cat_hadith','cat_islamic_ordering','cat_islamic_letters','cat_juz_amma','cat_juz_tabarak','cat_rub_yasin','cat_quran_verse_meanings','cat_quran_media','cat_quran_reciter']);
 
 function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
   const parts = (reference || '').split(/\s*[·\n]\s*/).filter(Boolean);
