@@ -53,6 +53,7 @@ import {
   isQuotaError,
   isServiceUnavailableError,
 } from './server/geminiHelpers';
+import { OFFICIAL_CATEGORIES } from './server/officialRemoteBanks';
 import { SERVER_CURATED_QUESTIONS } from './server/curatedQuestionBanks';
 import { serveClubLogoPreview } from './server/clubLogoPreview';
 import { serveHashemiteUniversityPreview } from './server/hashemiteUniversityPreview';
@@ -172,7 +173,8 @@ async function startServer() {
       }
       questionIdsByCategory[q.categoryId].push(q.id);
     }
-    res.json({ questionIdsByCategory });
+    res.setHeader('Cache-Control', 'no-store');
+    res.json({ questionIdsByCategory, categories: OFFICIAL_CATEGORIES });
   });
 
   app.use('/api/pdf', requirePaidPdfStaff);
@@ -855,10 +857,13 @@ async function startServer() {
       if (req.query.room || req.query.role) res.setHeader('X-Robots-Tag', 'noindex');
       next();
     });
-    app.use(express.static(distDir));
+    app.use(express.static(distDir, { setHeaders: (res, file) => {
+      if (file.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    }}));
     // Do not return the SPA home page for missing game guides or sitemap files.
     app.get(['/games/*', '/sitemap.xml', '/robots.txt'], (_req, res) => res.status(404).send('Not found'));
     app.get('*', (_req, res) => {
+      res.setHeader('Cache-Control', 'no-cache, must-revalidate');
       res.sendFile(path.join(distDir, 'index.html'));
     });
   } else {
