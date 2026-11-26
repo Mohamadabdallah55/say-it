@@ -1,0 +1,29 @@
+{
+  "version": "4",
+  "total": 45,
+  "tiers": [
+    15,
+    15,
+    15
+  ],
+  "hardAnswers": [
+    "وزن",
+    "عرض",
+    "أصل",
+    "مقام",
+    "رصيد",
+    "عقد",
+    "صرف",
+    "قيد",
+    "وتر",
+    "رسم",
+    "دور",
+    "قيمة",
+    "حد",
+    "مد",
+    "طرح"
+  ],
+  "newOriginalIllustrations": 60,
+  "remoteMediaReferences": 0,
+  "warning": "Original scene illustrations rather than newly sourced photographs. Semantics reviewed editorially, no browser or runtime tests, server outage cause not verified."
+}

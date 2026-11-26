@@ -739,7 +739,7 @@
     "points": 400,
     "question": "ما الكلمة التي تربط الصور الأربع؟",
     "answer": "ثنائي",
-    "explanation": "كفتان وعصا تحكم مزدوجة وحقيبتان وسماعتان.",
+    "explanation": "كفتا الميزان، عصا التحكم المزدوجة، والحقيبة ذات الحمالتين، وسماعتا الرأس.",
     "images": [
       "/assets/jordan_nostalgia/JONOS-106.jpg",
       "/assets/jordan_nostalgia/JONOS-081.jpg",
@@ -987,8 +987,8 @@
     "images": [
       "/images/guess-price/JP-152.webp",
       "/images/guess-price/JP-173.webp",
-      "https://openmoji.org/data/color/svg/1F9CA.svg",
-      "https://openmoji.org/data/color/svg/1F321.svg"
+      "/assets/questions/four-pictures/v4/ice.svg",
+      "/assets/questions/four-pictures/v4/thermometer.svg"
     ],
     "credits": [
       {
@@ -1002,14 +1002,14 @@
         "source": "https://smartbuy-me.com/products/sda0611st0039"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F9CA.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:ice"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F321.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:thermometer"
       }
     ],
     "id": "V3-029"
@@ -1050,528 +1050,528 @@
     "id": "V3-030"
   },
   {
+    "id": "V4-031",
     "points": 600,
-    "answer": "عين",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "عين الإنسان، وعين الإبرة، وعين الماء، وعين الغاز.",
+    "answer": "وزن",
+    "explanation": "وزن المنتجات في المصنع، وزن الشعر، وزن الذهب، ووزن حمولة الشاحنة.",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8b/Eye_%2811774111985%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1c/Sewing_needle_eye_with_thread.jpg",
-      "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Fresh_water_from_natural_spring.jpg/1280px-Fresh_water_from_natural_spring.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/6f/Gas_Stove_Burners.jpg"
+      "/assets/questions/four-pictures/v4/factory.svg",
+      "/assets/questions/four-pictures/v4/poetry.svg",
+      "/assets/questions/four-pictures/v4/jewelry.svg",
+      "/assets/questions/four-pictures/v4/truck.svg"
     ],
     "credits": [
       {
-        "author": "William Warby",
-        "license": "CC BY 2.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Eye_(11774111985).jpg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:factory"
       },
       {
-        "author": "Dmeranda",
-        "license": "CC BY-SA 3.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Sewing_needle_eye_with_thread.jpg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:poetry"
       },
       {
-        "author": "Jonathan Wilkins",
-        "license": "CC BY-SA 3.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Fresh_water_from_natural_spring.jpg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:jewelry"
       },
       {
-        "author": "Tony Webster",
-        "license": "CC BY 2.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Gas_Stove_Burners.jpg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:truck"
       }
-    ],
-    "id": "V3-031"
+    ]
   },
   {
+    "id": "V4-032",
     "points": 600,
-    "answer": "خط",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "خط الهاتف، وخطوط القياس، وخط مرسوم بالطباشير، وخط سير الحافلة.",
+    "answer": "عرض",
+    "explanation": "عرض مسرحي، عرض تخفيضات، عرض تقديمي، وفي عرض البحر.",
     "images": [
-      "/assets/jordan_nostalgia/JONOS-072.jpg",
-      "/assets/jordan_nostalgia/JONOS-064.jpg",
-      "/assets/jordan_nostalgia/JONOS-052.jpg",
-      "/assets/jordan_nostalgia/JONOS-102.jpg"
+      "/assets/questions/four-pictures/v4/stage.svg",
+      "/assets/questions/four-pictures/v4/discount.svg",
+      "/assets/questions/four-pictures/v4/presentation.svg",
+      "/assets/questions/four-pictures/v4/offshore.svg"
     ],
     "credits": [
       {
-        "author": "Steve Snodgrass (Flickr)",
-        "license": "CC BY 2.0",
-        "source": "https://www.flickr.com/photos/stevensnodgrass/5548201373/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:stage"
       },
       {
-        "author": "Scott Akerman (Flickr)",
-        "license": "CC BY 2.0",
-        "source": "https://www.flickr.com/photos/sterlic/4299631538/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:discount"
       },
       {
-        "author": "Jacqui Brown (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/120600995@N07/14076729649/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:presentation"
       },
       {
-        "author": "Jerry Michalski (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/sociate/4188947922/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:offshore"
       }
-    ],
-    "id": "V3-032"
+    ]
   },
   {
+    "id": "V4-033",
     "points": 600,
-    "answer": "ورقة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "ورقة شجر، وورقة كتابة، وورقة نقدية، وبطاقة لعب.",
+    "answer": "أصل",
+    "explanation": "أصل العائلة، أصل الوثيقة، أصل المبلغ قبل الأرباح، والأصل التاريخي للأثر.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F343.svg",
-      "https://openmoji.org/data/color/svg/1F4C4.svg",
-      "https://openmoji.org/data/color/svg/1F4B5.svg",
-      "/images/guess-price/JP-032.jpg"
+      "/assets/questions/four-pictures/v4/genealogy.svg",
+      "/assets/questions/four-pictures/v4/signed_original.svg",
+      "/assets/questions/four-pictures/v4/bank_principal.svg",
+      "/assets/questions/four-pictures/v4/ancient_artifact.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F343.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:genealogy"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4C4.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:signed_original"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4B5.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:bank_principal"
       },
       {
-        "author": "Cozmo",
-        "license": "Existing project photo; reuse rights not independently verified",
-        "source": "https://cozmo.jo/toys/lifestyle/collectables/panini-fifa-365-2027-adrenalyn-trading-cards"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:ancient_artifact"
       }
-    ],
-    "id": "V3-033"
+    ]
   },
   {
+    "id": "V4-034",
     "points": 600,
-    "answer": "مفتاح",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "مفتاح باب، ومفاتيح البيانو، ومفتاح ربط، ومفاتيح لوحة المفاتيح.",
+    "answer": "مقام",
+    "explanation": "مقام موسيقي، مقام الكسر، مقام أو ضريح، ومقام الشخص أو منزلته.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F511.svg",
-      "https://openmoji.org/data/color/svg/1F3B9.svg",
-      "https://openmoji.org/data/color/svg/1F527.svg",
-      "/images/guess-price/JP-179.webp"
+      "/assets/questions/four-pictures/v4/music.svg",
+      "/assets/questions/four-pictures/v4/fraction.svg",
+      "/assets/questions/four-pictures/v4/shrine.svg",
+      "/assets/questions/four-pictures/v4/podium.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F511.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:music"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F3B9.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:fraction"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F527.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:shrine"
       },
       {
-        "author": "DNA Jordan",
-        "license": "Existing project photo; reuse rights not independently verified",
-        "source": "https://dna.jo/products/belkin-pro-keyboard-case-with-magnetic-stand-for-ipad-arabic-english-keyboard"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:podium"
       }
-    ],
-    "id": "V3-034"
+    ]
   },
   {
+    "id": "V4-035",
     "points": 600,
-    "answer": "لسان",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "لسان الإنسان، ولسان الحذاء، ولسان الجرس، واللسان بمعنى اللغة.",
+    "answer": "رصيد",
+    "explanation": "رصيد البنك، رصيد النقاط أو الأهداف، رصيد الهاتف، ورصيد المخزون.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F445.svg",
-      "https://openmoji.org/data/color/svg/1F45F.svg",
-      "/assets/jordan_nostalgia/JONOS-069.jpg",
-      "https://openmoji.org/data/color/svg/1F5E3.svg"
+      "/assets/questions/four-pictures/v4/bank_balance.svg",
+      "/assets/questions/four-pictures/v4/scoreboard.svg",
+      "/assets/questions/four-pictures/v4/mobile_balance.svg",
+      "/assets/questions/four-pictures/v4/inventory.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F445.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:bank_balance"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F45F.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:scoreboard"
       },
       {
-        "author": "Keith Williamson (Flickr)",
-        "license": "CC BY 2.0",
-        "source": "https://www.flickr.com/photos/elwillo/4723805860/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:mobile_balance"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F5E3.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:inventory"
       }
-    ],
-    "id": "V3-035"
+    ]
   },
   {
+    "id": "V4-036",
     "points": 600,
-    "answer": "وجه",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "وجه الإنسان، ووجه الساعة، ووجه العملة، وأوجه المكعب.",
+    "answer": "عقد",
+    "explanation": "عقد الزواج، عقد الاتفاق، عقد الحبل، وعقد من الزمن.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F642.svg",
-      "https://openmoji.org/data/color/svg/1F552.svg",
-      "https://openmoji.org/data/color/svg/1FA99.svg",
-      "https://openmoji.org/data/color/svg/1F3B2.svg"
+      "/assets/questions/four-pictures/v4/wedding.svg",
+      "/assets/questions/four-pictures/v4/contract.svg",
+      "/assets/questions/four-pictures/v4/rope.svg",
+      "/assets/questions/four-pictures/v4/decade.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F642.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:wedding"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F552.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:contract"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1FA99.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:rope"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F3B2.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:decade"
       }
-    ],
-    "id": "V3-036"
+    ]
   },
   {
+    "id": "V4-037",
     "points": 600,
-    "answer": "برج",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "برج مرتفع، وبرج العقرب، وبرج الشطرنج، وأبراج القلعة.",
+    "answer": "صرف",
+    "explanation": "صرف العملات، صرف المياه، صرف الأفعال، وصرف الدواء.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F5FC.svg",
-      "https://openmoji.org/data/color/svg/264F.svg",
-      "https://openmoji.org/data/color/svg/265C.svg",
-      "/assets/jordan_nostalgia/JONOS-118.jpg"
+      "/assets/questions/four-pictures/v4/exchange.svg",
+      "/assets/questions/four-pictures/v4/drain.svg",
+      "/assets/questions/four-pictures/v4/verbs.svg",
+      "/assets/questions/four-pictures/v4/prescription.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F5FC.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:exchange"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/264F.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:drain"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/265C.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:verbs"
       },
       {
-        "author": "Dennis Jarvis (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/archer10/2217629808/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:prescription"
       }
-    ],
-    "id": "V3-037"
+    ]
   },
   {
+    "id": "V4-038",
     "points": 600,
-    "answer": "حلقة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "حلقة الخاتم، وحلقات السلسلة، وحلقة العجين، وحلقة تلفزيونية.",
+    "answer": "قيد",
+    "explanation": "قيد محاسبي، قيد مادي، قيد الطالب، وقيد رياضي.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F48D.svg",
-      "https://openmoji.org/data/color/svg/26D3.svg",
-      "https://openmoji.org/data/color/svg/1F369.svg",
-      "https://openmoji.org/data/color/svg/1F4FA.svg"
+      "/assets/questions/four-pictures/v4/ledger.svg",
+      "/assets/questions/four-pictures/v4/chain.svg",
+      "/assets/questions/four-pictures/v4/registration.svg",
+      "/assets/questions/four-pictures/v4/constraint.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F48D.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:ledger"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/26D3.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:chain"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F369.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:registration"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4FA.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:constraint"
       }
-    ],
-    "id": "V3-038"
+    ]
   },
   {
+    "id": "V4-039",
     "points": 600,
-    "answer": "درجة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "درجة الحرارة، ودرجة الاختبار، ودرجة الزاوية، ودرجات السلم.",
+    "answer": "وتر",
+    "explanation": "وتر المثلث، وتر العود، وتر العرقوب، وصلاة الوتر.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F321.svg",
-      "https://openmoji.org/data/color/svg/1F4AF.svg",
-      "https://openmoji.org/data/color/svg/1F4D0.svg",
-      "/assets/jordan_nostalgia/JONOS-112.jpg"
+      "/assets/questions/four-pictures/v4/triangle.svg",
+      "/assets/questions/four-pictures/v4/oud.svg",
+      "/assets/questions/four-pictures/v4/tendon.svg",
+      "/assets/questions/four-pictures/v4/odd_prayer.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F321.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:triangle"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4AF.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:oud"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4D0.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:tendon"
       },
       {
-        "author": "David Stanley (Flickr)",
-        "license": "CC BY 2.0",
-        "source": "https://www.flickr.com/photos/davidstanleytravel/36157248180/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:odd_prayer"
       }
-    ],
-    "id": "V3-039"
+    ]
   },
   {
+    "id": "V4-040",
     "points": 600,
-    "answer": "موجة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "موجة البحر، وموجات الراديو، والموجات الدقيقة، والموجات الصوتية.",
+    "answer": "رسم",
+    "explanation": "رسم لوحة، رسم جمركي، رسم بياني، ورسم الحروف.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F30A.svg",
-      "/assets/jordan_nostalgia/JONOS-076.jpg",
-      "/images/guess-price/JP-159.webp",
-      "/images/guess-price/JP-086.webp"
+      "/assets/questions/four-pictures/v4/drawing.svg",
+      "/assets/questions/four-pictures/v4/customs.svg",
+      "/assets/questions/four-pictures/v4/chart.svg",
+      "/assets/questions/four-pictures/v4/calligraphy.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F30A.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:drawing"
       },
       {
-        "author": "Joe Haupt (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/51764518@N02/51391297266/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:customs"
       },
       {
-        "author": "SmartBuy",
-        "license": "Existing project photo; reuse rights not independently verified",
-        "source": "https://smartbuy-me.com/products/sce0135st0002"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:chart"
       },
       {
-        "author": "DNA Jordan",
-        "license": "Existing project photo; reuse rights not independently verified",
-        "source": "https://dna.jo/products/jbl-tune-110-wi-red-in-ear-headphones-white"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:calligraphy"
       }
-    ],
-    "id": "V3-040"
+    ]
   },
   {
+    "id": "V4-041",
     "points": 600,
-    "answer": "نقطة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "نقاط المكعب، ونقطة ماء، ونقطة على الخريطة، ونقاط الاختبار.",
+    "answer": "دور",
+    "explanation": "دور الانتظار، دور مسرحي، دور في مبنى، ودور في بطولة.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F3B2.svg",
-      "https://openmoji.org/data/color/svg/1F4A7.svg",
-      "https://openmoji.org/data/color/svg/1F4CD.svg",
-      "https://openmoji.org/data/color/svg/1F4AF.svg"
+      "/assets/questions/four-pictures/v4/queue.svg",
+      "/assets/questions/four-pictures/v4/stage.svg",
+      "/assets/questions/four-pictures/v4/floors.svg",
+      "/assets/questions/four-pictures/v4/bracket.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F3B2.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:queue"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4A7.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:stage"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4CD.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:floors"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4AF.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:bracket"
       }
-    ],
-    "id": "V3-041"
+    ]
   },
   {
+    "id": "V4-042",
     "points": 600,
-    "answer": "جناح",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "جناح الطائر، وجناح الطائرة، وجناح الفراشة، وجناح الفندق.",
+    "answer": "قيمة",
+    "explanation": "قيمة مطلقة، قيمة غذائية، قيمة مالية، وقيمة أخلاقية كالأمانة.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F426.svg",
-      "https://openmoji.org/data/color/svg/2708.svg",
-      "https://openmoji.org/data/color/svg/1F98B.svg",
-      "https://openmoji.org/data/color/svg/1F6CF.svg"
+      "/assets/questions/four-pictures/v4/absolute.svg",
+      "/assets/questions/four-pictures/v4/nutrition.svg",
+      "/assets/questions/four-pictures/v4/bank_principal.svg",
+      "/assets/questions/four-pictures/v4/returned_wallet.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F426.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:absolute"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/2708.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:nutrition"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F98B.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:bank_principal"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F6CF.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:returned_wallet"
       }
-    ],
-    "id": "V3-042"
+    ]
   },
   {
+    "id": "V4-043",
     "points": 600,
-    "answer": "محطة",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "محطة القطار، ومحطة الوقود، ومحطة الحافلة، ومحطة الإذاعة.",
+    "answer": "حد",
+    "explanation": "حد السرعة، حد الدولة، الحد الائتماني، وحد الدالة في الرياضيات.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F689.svg",
-      "https://openmoji.org/data/color/svg/26FD.svg",
-      "https://openmoji.org/data/color/svg/1F68F.svg",
-      "https://openmoji.org/data/color/svg/1F4FB.svg"
+      "/assets/questions/four-pictures/v4/speed_limit.svg",
+      "/assets/questions/four-pictures/v4/border.svg",
+      "/assets/questions/four-pictures/v4/credit_limit.svg",
+      "/assets/questions/four-pictures/v4/limit_graph.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F689.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:speed_limit"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/26FD.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:border"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F68F.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:credit_limit"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4FB.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:limit_graph"
       }
-    ],
-    "id": "V3-043"
+    ]
   },
   {
+    "id": "V4-044",
     "points": 600,
-    "answer": "شحن",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "شحن البطارية بالكهرباء، وشحن البضائع بالسفن والشاحنات.",
+    "answer": "مد",
+    "explanation": "مد البحر، مد سلك الكهرباء، مد الحروف، ومد يد العون.",
     "images": [
-      "https://openmoji.org/data/color/svg/1F50B.svg",
-      "/images/guess-price/JP-114.webp",
-      "https://openmoji.org/data/color/svg/1F6A2.svg",
-      "https://openmoji.org/data/color/svg/1F69A.svg"
+      "/assets/questions/four-pictures/v4/tide.svg",
+      "/assets/questions/four-pictures/v4/extension.svg",
+      "/assets/questions/four-pictures/v4/long_vowel.svg",
+      "/assets/questions/four-pictures/v4/helping_hand.svg"
     ],
     "credits": [
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F50B.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:tide"
       },
       {
-        "author": "DNA Jordan",
-        "license": "Existing project photo; reuse rights not independently verified",
-        "source": "https://dna.jo/products/anker-charger-20w-1c-black"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:extension"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F6A2.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:long_vowel"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F69A.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:helping_hand"
       }
-    ],
-    "id": "V3-044"
+    ]
   },
   {
+    "id": "V4-045",
     "points": 600,
-    "answer": "قرص",
     "question": "ما الكلمة التي تربط الصور الأربع؟",
-    "explanation": "قرص تخزين، وقرص بسكويت، وقرص الهاتف، وقرص الشمس.",
+    "answer": "طرح",
+    "explanation": "طرح الأعداد، طرح مشروع، طرح منتج في السوق، وطرح النفايات.",
     "images": [
-      "/assets/jordan_nostalgia/JONOS-083.jpg",
-      "/assets/jordan_nostalgia/JONOS-011.jpg",
-      "/assets/jordan_nostalgia/JONOS-071.jpg",
-      "https://openmoji.org/data/color/svg/2600.svg"
+      "/assets/questions/four-pictures/v4/subtraction.svg",
+      "/assets/questions/four-pictures/v4/proposal.svg",
+      "/assets/questions/four-pictures/v4/launch.svg",
+      "/assets/questions/four-pictures/v4/waste.svg"
     ],
     "credits": [
       {
-        "author": "Jean-Etienne Minh-Duy Poirrier (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/jepoirrier/9120429846/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:subtraction"
       },
       {
-        "author": "Dick Thomas Johnson (Flickr)",
-        "license": "CC BY 2.0",
-        "source": "https://www.flickr.com/photos/31029865@N06/6194515031/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:proposal"
       },
       {
-        "author": "Joe Haupt (Flickr)",
-        "license": "CC BY-SA 2.0",
-        "source": "https://www.flickr.com/photos/51764518@N02/15105041327/"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:launch"
       },
       {
-        "author": "OpenMoji",
-        "license": "CC BY-SA 4.0",
-        "source": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/2600.svg"
+        "author": "Original illustration for Yemken Hay",
+        "license": "Project-created",
+        "source": "local:waste"
       }
-    ],
-    "id": "V3-045"
+    ]
   }
 ]

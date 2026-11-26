@@ -4,12 +4,13 @@ import { Maximize2, X } from 'lucide-react';
 
 export function FourPicturesPuzzle({images, letters, wordLength, compact = false}: {images: string[]; letters: string[]; wordLength?: number; compact?: boolean}) {
   const [zoom, setZoom] = useState<number | null>(null);
+  const [failed, setFailed] = useState<Record<number, boolean>>({});
   return (
     <section dir="rtl" data-testid="four-pictures-puzzle" className="mx-auto mb-3 flex w-full flex-col items-center gap-3">
       <div className={`grid grid-cols-2 gap-2 w-full ${compact ? 'max-w-[min(52vh,22rem)]' : 'max-w-[min(48vh,28rem)]'}`}>
         {images.map((src, i) => (
-          <button key={src} type="button" aria-label={`تكبير الصورة ${i+1}`} onClick={() => setZoom(i)} className="relative aspect-square overflow-hidden rounded-xl border-2 border-[#1F112E] bg-white shadow-[0_2px_0_#1F112E] cursor-zoom-in">
-            <img src={src} alt={`الصورة ${i+1}`} className="h-full w-full object-contain" loading="eager" draggable={false} />
+          <button key={src} type="button" aria-label={`تكبير الصورة ${i+1}`} onClick={() => { if (failed[i]) setFailed(v => ({...v, [i]: false})); else setZoom(i); }} className="relative aspect-square overflow-hidden rounded-xl border-2 border-[#1F112E] bg-white shadow-[0_2px_0_#1F112E] cursor-zoom-in">
+            {failed[i] ? <span className="grid h-full w-full place-items-center bg-slate-100 px-2 text-sm text-slate-600">تعذر تحميل الصورة</span> : <img src={src} alt={`الصورة ${i+1}`} className="h-full w-full object-contain" loading="eager" decoding="async" draggable={false} onError={() => setFailed(v => ({...v, [i]: true}))} />}
             <span className="absolute left-1.5 top-1.5 rounded-full border border-[#1F112E] bg-[#5C2E91] p-1.5 text-white"><Maximize2 size={14}/></span>
           </button>
         ))}

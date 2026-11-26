@@ -8,12 +8,12 @@ test('New four-picture bank has independent assets and stable 14 letter clues', 
   assert.equal(FOUR_PICTURES_QUESTIONS.length, 45);
   assert.deepEqual([200,400,600].map(p => FOUR_PICTURES_QUESTIONS.filter(q=>q.points===p).length), [15,15,15]);
   for (const q of FOUR_PICTURES_QUESTIONS) {
-    assert.match(q.id, /^FOUR-PICS-V3-/);
+    assert.match(q.id, /^FOUR-PICS-V[34]-/);
     assert.equal(q.imageUrl, undefined);
     assert.equal(new Set(q.beforeImageUrls).size, 4);
     for(const url of q.beforeImageUrls ?? []) {
-      if (url.startsWith('/')) assert.ok(fs.existsSync(path.join(process.cwd(), 'public', url.slice(1))));
-      else assert.match(url, /^https:\/\/(?:(upload|thumb)\.wikimedia\.org|openmoji\.org)\//);
+      assert.ok(url.startsWith('/'));
+      assert.ok(fs.existsSync(path.join(process.cwd(), 'public', url.slice(1))));
     }
     assert.equal(q.wordLetters?.length, 14);
     assert.equal(q.wordLength, fourPictureWordLength(q.answer));
