@@ -253,6 +253,7 @@ export function GameArena({
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const [memoryReviewVisible, setMemoryReviewVisible] = useState(true);
   const [mediaOrientation, setMediaOrientation] = useState<MediaOrientation>('landscape');
+  const [failedNostalgiaVideoRound, setFailedNostalgiaVideoRound] = useState<string | null>(null);
   const [actingQr, setActingQr] = useState<{ actingPath: string; actingUrl: string; qrDataUrl: string } | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const [smallScreen, setSmallScreen] = useState(() => window.matchMedia('(max-width: 767px)').matches);
@@ -1033,6 +1034,7 @@ export function GameArena({
                       !isMemoryRound &&
                       roundMeta.categoryId !== 'cat_general' &&
                       roundMeta.imageDisplay !== 'after_reveal' &&
+                      !(roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id && roundMeta.videoUrl && state.phase !== 'REVEAL' && failedNostalgiaVideoRound !== roundMeta.roundId) &&
                       !(isFirstNameRound && state.phase === 'REVEAL')
                         ? getQuestionImageSrc(roundMeta)
                         : undefined;
@@ -1201,7 +1203,31 @@ export function GameArena({
                         )
                       ) : null}
                       {!isMemoryRound && roundMeta.videoUrl && state.phase !== 'REVEAL' && (
-                        ['cat_el_clasico', 'cat_champions_league'].includes(roundMeta.categoryId) ? (
+                        roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id ? (
+                          failedNostalgiaVideoRound === roundMeta.roundId ? (
+                            <div className="text-center text-sm font-bold mt-3">
+                              {roundMeta.imageUrl ? 'تعذر تشغيل المقطع — تم عرض صورة بديلة.' : 'تعذر تشغيل المقطع.'}
+                              <button type="button" onClick={() => setFailedNostalgiaVideoRound(null)} className="mx-2 underline">إعادة المحاولة</button>
+                            </div>
+                          ) : (
+                            <video
+                              key={roundMeta.roundId + roundMeta.videoUrl}
+                              className="mx-auto mt-4 max-h-[52vh] w-full max-w-3xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black"
+                              src={roundMeta.videoUrl}
+                              controls playsInline preload="metadata"
+                              aria-label="مقطع زمن الطيبين"
+                              onError={() => setFailedNostalgiaVideoRound(roundMeta.roundId)}
+                              onTimeUpdate={(event) => {
+                                const media = event.currentTarget;
+                                const segment = /#t=(\d+(?:\.\d+)?),(\d+(?:\.\d+)?)/.exec(media.getAttribute('src') || '');
+                                const start = segment ? Number(segment[1]) : 0;
+                                const end = segment ? Math.min(Number(segment[2]), start + 10) : 10;
+                                if (media.currentTime < start) media.currentTime = start;
+                                if (media.currentTime >= end) media.pause();
+                              }}
+                            />
+                          )
+                        ) : ['cat_el_clasico', 'cat_champions_league'].includes(roundMeta.categoryId) ? (
                           <ClasicoVideoPlayer key={roundMeta.roundId + roundMeta.videoUrl} src={roundMeta.videoUrl} soundEnabled={state.settings.soundEnabled && (isHost || localAudio)} />
                         ) : (
                           <video key={`q-video-${roundMeta.questionId}`} className="mx-auto mt-4 max-h-[42vh] w-full max-w-2xl rounded-2xl border-[2.5px] border-[#1F112E] bg-black" src={roundMeta.videoUrl} controls playsInline preload="metadata" />
