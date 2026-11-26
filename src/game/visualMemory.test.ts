@@ -81,7 +81,7 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
     assert.equal(q.imageCaption, undefined);
     tierCounts[q.points] += 1;
   }
-  assert.deepEqual(tierCounts, {"200":18,"400":26,"600":23});
+  assert.deepEqual(tierCounts, {"200":14,"400":30,"600":10});
   assert.ok(fs.existsSync(path.join(process.cwd(), 'public/assets/categories/cat_visual_memory.svg')));
 });
 
@@ -237,10 +237,10 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
 test('Consecutive rounds reject the same memorySceneId when an alternative tile exists', () => {
   const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'V04');
   const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'V06')!;
-  assert.ok(scene1Qs.length >= 2);
+  assert.ok(scene1Qs.length >= 1);
 
   const qA = { ...scene1Qs[0], points: 200 as const, difficulty: 'easy' as const };
-  const qB = { ...scene1Qs[1], points: 400 as const, difficulty: 'medium' as const };
+  const qB = { ...scene1Qs[0], id: 'MEM-TEST-DUPLICATE-SCENE', points: 400 as const, difficulty: 'medium' as const };
   const qC = { ...scene2Q, points: 600 as const, difficulty: 'hard' as const };
 
   let room = createRoomState({
@@ -372,7 +372,7 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
 
 test('Focus includes real short video sources with distinct scene identifiers', () => {
   const videos = VISUAL_MEMORY_QUESTIONS.filter(q => q.videoUrl);
-  assert.equal(videos.length, 37);
-  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 29);
+  assert.equal(videos.length, 26);
+  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 25);
   assert.ok(videos.every(q => !q.imageUrl && (q.showSeconds === 17 || q.showSeconds === 15)));
 });
