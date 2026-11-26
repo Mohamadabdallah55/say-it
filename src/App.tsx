@@ -26,8 +26,11 @@ const AdminPanel = lazy(() => import('./components/AdminPanel').then(m => ({ def
 const PdfStudio = lazy(() => import('./components/PdfStudio').then(m => ({ default: m.PdfStudio })));
 const SavedLibrary = lazy(() => import('./components/SavedLibrary').then(m => ({ default: m.SavedLibrary })));
 
+const DrawingImpostor = lazy(() => import('./components/DrawingImpostor').then(m => ({ default: m.DrawingImpostor })));
+
 type ViewScreen =
   | { name: 'title' }
+  | { name: 'drawing' }
   | { name: 'lobby'; preselectDeckId?: string; approvedLesson?: QuizDeck; initialCategoryId?: string; initialClassic?: boolean }
   | { name: 'pdf_studio'; editDeck?: QuizDeck | null }
   | { name: 'library'; mode: 'decks' | 'matches' }
@@ -136,6 +139,8 @@ function AppContent() {
           token,
         });
       }
+    } else if (params.get('drawing') === '1') {
+      setScreen({ name: 'drawing' });
     } else if (autostart === '1') {
       setScreen({ name: 'lobby' });
     }
@@ -255,6 +260,8 @@ function AppContent() {
     refreshDecksAndRooms();
     setScreen({ name: 'title' });
   };
+
+  if (screen.name === 'drawing') return <DrawingImpostor onBack={exitToHome} />;
 
   if (screen.name === 'admin') {
     return (
