@@ -236,16 +236,17 @@
       "subCategory": "كرتون",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم الشرير الأساسي في غريندايزر اللي بيقود قوات فيغا؟",
-      "answer": "فيغا الكبير",
+      "question": "في أبطال الديجيتال الجزء الأول، شو اسم التطور التالي لرعد بعد شكله الأول المعروف عند أمجد؟",
+      "answer": "صنديد",
       "acceptedAnswers": [
-        "فيغا الكبير",
-        "فيغا",
-        "King Vega"
+        "صنديد",
+        "Greymon"
       ],
       "imageRequired": false,
       "image": null,
-      "evidenceUrls": [],
+      "evidenceUrls": [
+        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
+      ],
       "rightsStatus": "not_applicable",
       "contentStatus": "approved",
       "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
@@ -441,7 +442,7 @@
       "subCategory": "ألعاب الطفولة",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة الخشبية اللي بتلف على رأسها، زي اللي بالصورة؟",
+      "question": "شو اسم اللعبة الدوّارة الخشبية هاي اللي كنا نلعب فيها؟",
       "answer": "البلبل",
       "acceptedAnswers": [
         "البلبل",
@@ -494,11 +495,11 @@
       "subCategory": "سبيستون",
       "difficulty": 600,
       "points": 600,
-      "question": "مين الملحن والمغني المعروف بعمله في شارات رسوم سبيستون واسمه طارق؟",
+      "question": "مين ملحن ومغني شارات سبيستون المعروف بتعاونه مع مركز الزهرة؟",
       "answer": "طارق العربي طرقان",
       "acceptedAnswers": [
-        "طارق العربي طرقان",
-        "طارق طرقان"
+        "طارق طرقان",
+        "طارق العربي طرقان"
       ],
       "imageRequired": false,
       "image": null,
@@ -572,13 +573,13 @@
       "subCategory": "تقنية",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم جهاز الألعاب الأسود القديم الظاهر بالصورة، اللي كان يشغل أشرطة الألعاب بدل الأسطوانات؟",
+      "question": "شو اسم موديل جهاز الألعاب القديم هذا؟",
       "answer": "سيجا ميغا درايف 2",
       "acceptedAnswers": [
         "سيجا ميغا درايف 2",
         "Sega Mega Drive II",
-        "سيجا ميجا درايف",
-        "سيجا"
+        "سيجا ميجا درايف 2",
+        "Mega Drive II"
       ],
       "imageRequired": true,
       "image": {
@@ -1329,7 +1330,7 @@
       "subCategory": "تقنية",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم جهاز سماع الكاسيت المحمول اللي عليه سماعات سلكية؟",
+      "question": "شو الاسم المعروف لهذا الجهاز المحمول اللي كان يشغّل أشرطة الكاسيت؟",
       "answer": "ووكمان",
       "acceptedAnswers": [
         "ووكمان",
@@ -1668,7 +1669,7 @@
       "subCategory": "تقنية",
       "difficulty": 400,
       "points": 400,
-      "question": "شو رقم موديل نوكيا القديم المشهور بمتانته، الظاهر بالصورة؟",
+      "question": "شو رقم موديل هذا التلفون؟",
       "answer": "3310",
       "acceptedAnswers": [
         "3310",
@@ -2131,11 +2132,11 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "في Captain Claw، شو نوع الحيوان اللي بيمثله بطل اللعبة؟",
-      "answer": "قط",
+      "question": "شو اسم لعبة الكمبيوتر القديمة اللي بطلها أرنب أخضر سريع اسمه Jazz ومعه مسدس كرتوني؟",
+      "answer": "Jazz Jackrabbit",
       "acceptedAnswers": [
-        "قط",
-        "قطة"
+        "جاز جاك رابيت",
+        "Jazz Jackrabbit"
       ],
       "imageRequired": false,
       "image": null,
@@ -2234,7 +2235,7 @@
       "subCategory": "ألعاب الحارة",
       "difficulty": 200,
       "points": 200,
-      "question": "إذا ضربنا كرات الزجاج الصغيرة ببعض بالساحة، شو بنسميها بالأردن؟",
+      "question": "شو بنسمي هالكرات الزجاجية اللي كنا نجمعها ونلعب فيها بالحارة؟",
       "answer": "القلول",
       "acceptedAnswers": [
         "القلول",
@@ -2316,12 +2317,13 @@
       "subCategory": "كرتون",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم الشخصية اللي كانت تُعرف بالفتاة الصغيرة هايبرا في المحقق كونان؟",
-      "answer": "آي هايبرا",
+      "question": "في المحقق كونان، شو اسم الفتاة التي كانت تعمل على العقار APTX 4869 وأصبحت طفلة مثله؟",
+      "answer": "هيبارا",
       "acceptedAnswers": [
+        "هيبارا",
         "آي هايبرا",
         "هايبرا",
-        "Ai Haibara"
+        "شيهو ميانو"
       ],
       "imageRequired": false,
       "image": null,
@@ -2370,12 +2372,12 @@
       "subCategory": "ذكريات التلفزيون",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم قناة الأطفال اللي اشتهرت بعرض أفلام ومسلسلات ديزني باللغة العربية واسمها مرتبط بكلمة ديزني؟",
-      "answer": "ديزني تشانل",
+      "question": "شو اسم قناة الأطفال العربية اللي كانت معروفة قبل تغيير اسمها إلى تلفزيون ج؟",
+      "answer": "قناة الجزيرة للأطفال",
       "acceptedAnswers": [
-        "ديزني تشانل",
-        "Disney Channel",
-        "قناة ديزني"
+        "الجزيرة للأطفال",
+        "JCC",
+        "الجزيرة للاطفال"
       ],
       "imageRequired": false,
       "image": null,
@@ -2654,12 +2656,11 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة السمك الثانية من سلسلة Feeding Frenzy اللي كان عنوانها الفرعي Shipwreck Showdown؟",
-      "answer": "Feeding Frenzy 2",
+      "question": "شو اسم لعبة الكمبيوتر اللي بتتحكم فيها بسفينة فضائية من أسفل الشاشة وبتواجه صفوفًا من المخلوقات الفضائية بتنزل تدريجيًا؟",
+      "answer": "Space Invaders",
       "acceptedAnswers": [
-        "Feeding Frenzy 2",
-        "فيدينغ فرينزي 2",
-        "لعبة السمكة 2"
+        "سبيس إنفيدرز",
+        "Space Invaders"
       ],
       "imageRequired": false,
       "image": null,
@@ -2757,16 +2758,17 @@
       "subCategory": "كرتون",
       "difficulty": 600,
       "points": 600,
-      "question": "في النسخة اليابانية من أبطال الديجيتال، شو اسم المخلوق الرقمي الذي يرافق تايتشي (أمجد)؟",
-      "answer": "أغومون",
+      "question": "في أبطال الديجيتال الجزء الأول، شو اسم أخو يامن الصغير؟",
+      "answer": "وسيم",
       "acceptedAnswers": [
-        "أغومون",
-        "Agumon",
-        "رعد"
+        "وسيم",
+        "T.K."
       ],
       "imageRequired": false,
       "image": null,
-      "evidenceUrls": [],
+      "evidenceUrls": [
+        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
+      ],
       "rightsStatus": "not_applicable",
       "contentStatus": "approved",
       "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
@@ -2811,12 +2813,12 @@
       "subCategory": "تقنية",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم وسيط التخزين الصغير اللي كنا نركبه في البلايستيشن 2 عشان نحفظ تقدم اللعبة؟",
-      "answer": "Memory Card",
+      "question": "شو اسم الجهاز المحمول القديم من نينتندو اللي كان فيه شاشتان، إحداهما تعمل باللمس؟",
+      "answer": "Nintendo DS",
       "acceptedAnswers": [
-        "Memory Card",
-        "ميموري كارد",
-        "كرت الذاكرة"
+        "نينتندو دي إس",
+        "Nintendo DS",
+        "DS"
       ],
       "imageRequired": false,
       "image": null,
@@ -2863,13 +2865,11 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم نسخة بيس التي صدرت بعنوان Winning Eleven في اليابان؟",
-      "answer": "Pro Evolution Soccer",
+      "question": "بأي اسم كانت سلسلة PES معروفة في اليابان؟",
+      "answer": "Winning Eleven",
       "acceptedAnswers": [
-        "Pro Evolution Soccer",
-        "PES",
-        "بيس",
-        "ويننغ إليفن"
+        "ويننغ إليفن",
+        "Winning Eleven"
       ],
       "imageRequired": false,
       "image": null,
@@ -3125,16 +3125,18 @@
       "subCategory": "كرتون",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم القرد المرافق لدورا المستكشفة؟",
-      "answer": "بوتس",
+      "question": "في أبطال الديجيتال الجزء الأول، شو اسم أخت أمجد الصغيرة؟",
+      "answer": "هند",
       "acceptedAnswers": [
-        "بوتس",
-        "Boots",
-        "موزو"
+        "هند",
+        "Hikari",
+        "Kari"
       ],
       "imageRequired": false,
       "image": null,
-      "evidenceUrls": [],
+      "evidenceUrls": [
+        "https://fiction.ahlamontada.com/t332-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%B9%D9%86-%D8%A7%D8%A8%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AF%D9%8A%D8%AC%D9%8A%D8%AA%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%88%D9%84"
+      ],
       "rightsStatus": "not_applicable",
       "contentStatus": "approved",
       "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
