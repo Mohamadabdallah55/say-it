@@ -528,6 +528,7 @@ export function GameArena({
         pageNumber: ar.question.pageNumber,
         basePoints: ar.basePoints,
         effectivePoints: ar.effectivePoints,
+        clarificationCount: ar.clarificationCount,
         activeLifeline: ar.activeLifeline,
         hintRevealed: ar.hintRevealed,
         twoAnswersActive: ar.twoAnswersActive,
@@ -1070,7 +1071,7 @@ export function GameArena({
                     </div>
 
                     <span className="font-display font-black text-lg md:text-2xl text-[#1F112E] tabular-nums">
-                      {roundMeta.basePoints} نقطة
+                      {roundMeta.categoryId === 'cat_clarify_image' ? roundMeta.effectivePoints : roundMeta.basePoints} نقطة
                     </span>
                   </div>
 
@@ -1181,9 +1182,12 @@ export function GameArena({
                               roundMeta.categoryId === FOUR_PICTURES_CATEGORY.id
                             }
                             obscured={
-                              roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
+                              (roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id || roundMeta.categoryId === 'cat_clarify_image') &&
                               state.phase !== 'REVEAL'
                             }
+                            progressiveBlurPx={roundMeta.categoryId === 'cat_clarify_image' && state.phase !== 'REVEAL'
+                              ? (roundMeta.difficulty === 'easy' ? [32, 24, 16, 9] : roundMeta.difficulty === 'medium' ? [40, 31, 22, 12] : [48, 38, 28, 16])[Math.min(3, roundMeta.clarificationCount ?? 0)]
+                              : undefined}
                             obscuredDifficulty={roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id ? roundMeta.difficulty : undefined}
                             answerMasks={state.phase !== 'REVEAL' && roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id ? JORDAN_NOSTALGIA_ANSWER_MASKS[roundMeta.questionId] : undefined}
                             planetCell={roundMeta.categoryId === JORDAN_NOSTALGIA_CATEGORY.id ? JORDAN_NOSTALGIA_PLANET_CELLS[roundMeta.questionId] : undefined}
@@ -1666,6 +1670,19 @@ export function GameArena({
                     </div>
                   )}
 
+                  {roundMeta.categoryId === 'cat_clarify_image' && state.phase !== 'REVEAL' && (
+                    <div className="flex flex-col items-center gap-1.5 py-2" dir="rtl">
+                      {isHost && (
+                        <button type="button" data-testid="clarify-image"
+                          disabled={(roundMeta.clarificationCount ?? 0) >= 3}
+                          onClick={() => sendCommand('CLARIFY_IMAGE')}
+                          className="game-btn-3d rounded-xl border-2 border-[#1F112E] bg-[#FFE047] px-5 py-2.5 font-black disabled:opacity-50 disabled:cursor-not-allowed">
+                          وضّح شوي (−50 نقطة)
+                        </button>
+                      )}
+                      <span className="font-bold text-sm">التوضيحات المتبقية: {3 - (roundMeta.clarificationCount ?? 0)} / 3</span>
+                    </div>
+                  )}
                   {/* HOST CONTROLS INSIDE QUESTION CARD */}
                   {isHost && state.phase !== 'REVEAL' && isMemorizeStage && (
                     <div className="flex flex-col items-center gap-3 pt-1">
