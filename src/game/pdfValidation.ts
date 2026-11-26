@@ -672,6 +672,35 @@ export function selectActiveBoardForDeck(
           selected.push(next);
           remaining.splice(remaining.indexOf(next), 1);
         }
+      } else if (deck.sourceType === 'curated' && (
+        cat.id === 'cat_prophet_stories' || cat.id === 'cat_prophetic_biography' ||
+        cat.id === 'cat_rashidun' || cat.id === 'cat_quran_verse_meanings' ||
+        cat.id === 'cat_islamic' || cat.id === 'cat_quran_media'
+      )) {
+        // Prefer unrelated sources and different answers across the board.
+        // Keep the same tier, and fall back to the remaining questions if the pool is small.
+        const remaining = [...available];
+        const refs = (q: QuizQuestion) => (q.sourceRef || '').match(/https?:\/\/[^\s·]+/g) || [];
+        const answerKey = (q: QuizQuestion) => normalizeArabicText(q.answer || '')
+          .replace(/عليهما السلام|عليه السلام|رضي الله عنهما|رضي الله عنه|صلى الله عليه وسلم/g, '').trim();
+        while (remaining.length && selected.length < (perTeam ? teamCount : 1)) {
+          const prior = [...pickedQuestions, ...selected].filter(q => q.isSensitiveReligious);
+          const score = (q: QuizQuestion) => {
+            const urls = refs(q);
+            const key = answerKey(q);
+            return prior.reduce((sum, previous) => sum +
+              (urls.some(url => refs(previous).includes(url)) ? 3 : 0) +
+              (key.length > 2 && key === answerKey(previous) ? 5 : 0), 0);
+          };
+          let best = 0;
+          let bestScore = score(remaining[0]);
+          for (let i = 1; i < remaining.length; i++) {
+            const candidateScore = score(remaining[i]);
+            if (candidateScore < bestScore) { best = i; bestScore = candidateScore; }
+            if (bestScore === 0) break;
+          }
+          selected.push(remaining.splice(best, 1)[0]);
+        }
       } else if (perTeam) {
         for (const candidate of available) {
           if (
