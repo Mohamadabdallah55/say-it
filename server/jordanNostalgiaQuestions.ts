@@ -62,6 +62,12 @@ export const JORDAN_NOSTALGIA_ALL_ROWS: JordanNostalgiaQuestionRow[] = [...typed
 
 function isVerifiedPlayableRow(row: JordanNostalgiaQuestionRow): boolean {
   if (row.contentStatus === 'approved' && !row.imageRequired && !row.image) return true;
+  if (row.contentStatus === 'approved' &&
+      row.rightsStatus === 'external_reference_unconfirmed' &&
+      row.image?.status === 'external_reference' &&
+      typeof row.image.url === 'string' &&
+      /^https:\/\/(?:shared\.akamai\.steamstatic\.com|www\.macgamestore\.com|lassaho\.weebly\.com|cdn\.mobygames\.com|images\.igdb\.com|images\.squarespace-cdn\.com|i0\.wp\.com|images\.steamusercontent\.com|www\.pomu\.com|m\.media-amazon\.com)\//.test(row.image.url) &&
+      row.image.sourcePage?.startsWith('https://')) return true;
   return (
     row.contentStatus === 'approved' &&
     row.rightsStatus === 'verified_for_publication' &&
@@ -104,13 +110,13 @@ export const JORDAN_NOSTALGIA_QUESTIONS: QuizQuestion[] = JORDAN_NOSTALGIA_ALL_R
       prompt: row.question,
       answer: row.answer,
       acceptableAnswers: uniqueAcceptedAnswers,
-      imageUrl: row.image?.localFile ?? undefined,
+      imageUrl: row.image?.localFile ?? row.image?.url ?? undefined,
       imageDisplay: row.image ? 'before_reveal' : undefined,
       imageSourceUrl: row.image?.sourcePage ?? undefined,
       subtopic: row.subCategory,
       explanation: explanationParts.join(' — '),
       sourceRef: row.image?.sourcePage ?? row.evidenceUrls?.[0],
-      verificationStatus: row.image ? 'verified' : undefined,
+      verificationStatus: row.image?.status === 'verified_and_licensed' ? 'verified' : undefined,
       status: 'approved',
     };
   });
