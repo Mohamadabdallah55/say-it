@@ -4,19 +4,19 @@
   "title": "زمن الطيبين — ذكريات جيل الألفينات",
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
-  "importPolicy": "الأسئلة المفعلة مصورة فقط. روابط خارجية مع مصدر معلوم، الترخيص غير مؤكد.",
-  "questionCount": 86,
-  "total_source_questions": 86,
-  "verified_playable_count": 86,
+  "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
+  "questionCount": 89,
+  "total_source_questions": 89,
+  "verified_playable_count": 89,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 27,
-    "400": 38,
+    "200": 29,
+    "400": 39,
     "600": 21
   },
   "points_distribution_playable": {
-    "200": 27,
-    "400": 38,
+    "200": 29,
+    "400": 39,
     "600": 21
   },
   "questions": [
@@ -659,7 +659,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم اللعبة الظاهرة في المقطع؟",
       "answer": "Chicken Invaders",
       "acceptedAnswers": [
         "Chicken Invaders",
@@ -685,16 +685,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/"
+        "https://www.macgamestore.com/product/8196/Chicken-Invaders-2/",
+        "https://store.steampowered.com/app/449550/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "رابط العرض القصير من متجر اللعبة؛ الصورة الأصلية احتياط عند فشل تحميل المقطع. لم تُفحص إطارات الفيديو بعد.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/449550/53399/abca76fb9011518b0b42e6b5c8362c5269c8074f/1751286989/microtrailer.mp4",
+      "videoSourceUrl": "https://store.steampowered.com/app/449550/",
+      "videoReviewStatus": "source_confirmed_playback_unverified"
     },
     {
       "id": "JONOS-BAL-016",
@@ -1785,7 +1789,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم اللعبة الظاهرة في المقطع؟",
       "answer": "Plants vs. Zombies",
       "acceptedAnswers": [
         "Plants vs. Zombies",
@@ -1809,16 +1813,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://backloggd.com/games/plants-vs-zombies/"
+        "https://backloggd.com/games/plants-vs-zombies/",
+        "https://store.steampowered.com/app/3590/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "رابط العرض القصير من متجر اللعبة؛ الصورة الأصلية احتياط عند فشل تحميل المقطع. لم تُفحص إطارات الفيديو بعد.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/3590/1872/82d45bb1a27d4352d0d0dc2c360c790e6d396b1e/1750483994/microtrailer.mp4",
+      "videoSourceUrl": "https://store.steampowered.com/app/3590/",
+      "videoReviewStatus": "source_confirmed_playback_unverified"
     },
     {
       "id": "JONOS-V2-600-37",
@@ -2798,7 +2806,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم اللعبة الظاهرة في المقطع؟",
       "answer": "Ballance",
       "acceptedAnswers": [
         "Ballance",
@@ -2822,16 +2830,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/"
+        "https://thegamingoutsider.com/2024/01/15/ballance-pc-review/mszymanski/",
+        "https://store.steampowered.com/app/2000770/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "رابط العرض القصير من متجر اللعبة؛ الصورة الأصلية احتياط عند فشل تحميل المقطع. لم تُفحص إطارات الفيديو بعد.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/2000770/600862/daa61a43a3f84abe2005c17e2aee0f8e5cdcbc6a/1751066005/microtrailer.mp4",
+      "videoSourceUrl": "https://store.steampowered.com/app/2000770/",
+      "videoReviewStatus": "source_confirmed_playback_unverified"
     },
     {
       "id": "JONOS-BAL-020",
@@ -3806,6 +3818,121 @@
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
       ]
+    },
+    {
+      "id": "JONOS-CLIP-popeye",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "باباي",
+      "acceptedAnswers": [
+        "باباي",
+        "باباي البحار",
+        "Popeye"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Popeye_The_Sailor_-_67_A_Date_to_Skate.webm#t=209,219",
+      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:Popeye_The_Sailor_-_67_A_Date_to_Skate.webm",
+      "videoReviewStatus": "existing_focus_source_playback_unverified",
+      "evidenceUrls": [
+        "https://commons.wikimedia.org/wiki/File:Popeye_The_Sailor_-_67_A_Date_to_Skate.webm"
+      ],
+      "rightsStatus": "public_domain_source",
+      "contentStatus": "approved",
+      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "فيديو"
+      ]
+    },
+    {
+      "id": "JONOS-CLIP-casper",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "كاسبر",
+      "acceptedAnswers": [
+        "كاسبر",
+        "كاسبر الشبح",
+        "Casper",
+        "Casper the Friendly Ghost"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/The_Friendly_Ghost_(1945).webm#t=246,256",
+      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:The_Friendly_Ghost_(1945).webm",
+      "videoReviewStatus": "existing_focus_source_playback_unverified",
+      "evidenceUrls": [
+        "https://commons.wikimedia.org/wiki/File:The_Friendly_Ghost_(1945).webm"
+      ],
+      "rightsStatus": "public_domain_source",
+      "contentStatus": "approved",
+      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "فيديو"
+      ]
+    },
+    {
+      "id": "JONOS-CLIP-mickey",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "شو كان ميكي ماوس يتحكم فيه بالمشهد؟",
+      "answer": "عجلة قيادة المركب",
+      "acceptedAnswers": [
+        "عجلة قيادة المركب",
+        "الدفة",
+        "عجلة القيادة",
+        "مقود السفينة",
+        "دفة السفينة"
+      ],
+      "imageRequired": false,
+      "image": null,
+      "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Steamboat_Willie_%281928%29_by_Walt_Disney.webm#t=27,37",
+      "videoSourceUrl": "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm",
+      "videoReviewStatus": "existing_focus_source_playback_unverified",
+      "evidenceUrls": [
+        "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm"
+      ],
+      "rightsStatus": "public_domain_source",
+      "contentStatus": "approved",
+      "reviewNotes": "مرجع من مقاطع الذاكرة البصرية الموجودة بالمشروع؛ لم يُختبر التشغيل في زمن الطيبين، تحقق من الحقوق حسب بلد العرض.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "فيديو"
+      ]
+    }
+  ],
+  "pendingVideoReferences": [
+    {
+      "category": "ذكريات التلفزيون",
+      "answer": "افتح يا سمسم",
+      "sourceUrl": "https://www.youtube.com/watch?v=8EdkVl27Ix0",
+      "questionIdea": "شو المناسبة اللي كان أهل الحي يحتفلوا فيها؟",
+      "answerIdea": "العيد",
+      "status": "needs_scene_time_and_permission_check"
+    },
+    {
+      "category": "كرتون",
+      "answer": "المحقق كونان",
+      "sourceUrl": "https://www.youtube.com/watch?v=2xTnqudNah8",
+      "status": "needs_scene_time_and_permission_check"
     }
   ]
 }
