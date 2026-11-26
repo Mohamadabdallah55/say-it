@@ -673,7 +673,7 @@ export function selectActiveBoardForDeck(
           remaining.splice(remaining.indexOf(next), 1);
         }
       } else if (deck.sourceType === 'curated' && (
-        cat.id === 'cat_prophet_stories' || cat.id === 'cat_prophetic_biography' ||
+        cat.id === 'cat_prophet_stories' || cat.id === 'cat_prophetic_biography' || cat.id === 'cat_who_sahabi' ||
         cat.id === 'cat_rashidun' || cat.id === 'cat_quran_verse_meanings' ||
         cat.id === 'cat_islamic' || cat.id === 'cat_quran_media' || cat.id === 'cat_rub_yasin'
       )) {
