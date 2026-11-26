@@ -1,0 +1,134 @@
+{
+  "note": "New media review queue. Images were inspected in web preview; exact original rendering/download not confirmed. Do not activate until the original has been opened and the answer verified in the game. All video sources are candidates only: do not invent clip timestamps or answers. User requires a single genuinely difficult incidental detail or selective count, not multiple easy facts.",
+  "target": 100,
+  "active_count": 37,
+  "needed": 63,
+  "photo_questions": [
+    {
+      "scene_id": "N01",
+      "scene": "دراجات في الشارع",
+      "media_type": "image",
+      "image": "https://images.unsplash.com/photo-1662040883460-86a0dcd3afe5?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "source_url": "https://unsplash.com/photos/a-group-of-bicycles-parked-on-a-sidewalk-BwU7d0DcARQ",
+      "credit": "Shalev Cohen / Unsplash License https://unsplash.com/license",
+      "points": 200,
+      "question": "ما لون الهيكل الرئيسي للدراجة الموجودة في المقدمة؟",
+      "answer": "أصفر",
+      "show_seconds": 10,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    },
+    {
+      "scene_id": "N01",
+      "scene": "دراجات في الشارع",
+      "media_type": "image",
+      "image": "https://images.unsplash.com/photo-1662040883460-86a0dcd3afe5?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "source_url": "https://unsplash.com/photos/a-group-of-bicycles-parked-on-a-sidewalk-BwU7d0DcARQ",
+      "credit": "Shalev Cohen / Unsplash License https://unsplash.com/license",
+      "points": 400,
+      "question": "ما لون الشوكة الأمامية التي تصل العجلة الأمامية بهيكل الدراجة الصفراء؟",
+      "answer": "أحمر",
+      "show_seconds": 8,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    },
+    {
+      "scene_id": "N01",
+      "scene": "دراجات في الشارع",
+      "media_type": "image",
+      "image": "https://images.unsplash.com/photo-1662040883460-86a0dcd3afe5?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "source_url": "https://unsplash.com/photos/a-group-of-bicycles-parked-on-a-sidewalk-BwU7d0DcARQ",
+      "credit": "Shalev Cohen / Unsplash License https://unsplash.com/license",
+      "points": 600,
+      "question": "ما لون القطعة العاكسة الصغيرة المثبتة على أسلاك العجلة الأمامية للدراجة الصفراء؟",
+      "answer": "برتقالي",
+      "show_seconds": 6,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    },
+    {
+      "scene_id": "N02",
+      "scene": "غرفة التحكم",
+      "media_type": "image",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "credit": "NASA / public domain",
+      "points": 200,
+      "question": "ما لون الشاشة الكبيرة التي تحمل شعار البعثة؟",
+      "answer": "أزرق",
+      "show_seconds": 10,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    },
+    {
+      "scene_id": "N02",
+      "scene": "غرفة التحكم",
+      "media_type": "image",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "credit": "NASA / public domain",
+      "points": 400,
+      "question": "ما الرقم المكتوب داخل شعار البعثة على الشاشة الكبيرة؟",
+      "answer": "11",
+      "show_seconds": 8,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    },
+    {
+      "scene_id": "N02",
+      "scene": "غرفة التحكم",
+      "media_type": "image",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg",
+      "credit": "NASA / public domain",
+      "points": 600,
+      "question": "ما الشكل الهندسي للفتحات الداكنة الظاهرة على سقف غرفة التحكم؟",
+      "answer": "مستطيلات",
+      "show_seconds": 6,
+      "review_status": "preview_visually_checked_original_playback_pending"
+    }
+  ],
+  "additional_photo_sources": [
+    {
+      "url": "https://www.pexels.com/photo/vintage-style-brass-key-collection-on-display-33388008/",
+      "focus": "اتجاه رؤوس المفاتيح أو عدد مفاتيح تحقق شرطًا مكانيًا"
+    },
+    {
+      "url": "https://www.pexels.com/photo/yellow-and-orange-plastic-keys-on-yellow-background-7123553/",
+      "focus": "اتجاه المفاتيح وعدّ انتقائي"
+    },
+    {
+      "url": "https://www.pexels.com/photo/aerial-view-of-cars-on-the-parking-lot-9083321/",
+      "focus": "سيارات ذات اتجاه معين في صف محدد"
+    },
+    {
+      "url": "https://www.pexels.com/photo/colorful-paperclips-scattered-on-desk-with-white-notebook-and-keyboard-12954767/",
+      "focus": "عد مشابك بلون واتجاه محدد"
+    },
+    {
+      "url": "https://unsplash.com/photos/an-overhead-view-of-a-parking-lot-with-cars-parked-in-it-aQv4MbaKKEs",
+      "focus": "اتجاهات السيارات أو تفاصيل مساحة الوقوف"
+    }
+  ],
+  "video_sources": [
+    {
+      "title": "Coffee Run",
+      "url": "https://www.youtube.com/watch?v=PVGeM40dABA",
+      "license": "Blender Studio open movie; confirm attribution on source",
+      "status": "full_clip_review_pending"
+    },
+    {
+      "title": "Spring",
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "license": "CC BY 4.0",
+      "status": "full_clip_review_pending"
+    },
+    {
+      "title": "Glass Half",
+      "url": "https://studio.blender.org/films/",
+      "license": "Blender Studio open movie; confirm per-film license",
+      "status": "full_clip_review_pending"
+    },
+    {
+      "title": "Big Buck Bunny",
+      "url": "https://studio.blender.org/films/",
+      "license": "CC BY 3.0",
+      "status": "full_clip_review_pending"
+    }
+  ]
+}
