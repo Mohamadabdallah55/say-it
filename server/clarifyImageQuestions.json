@@ -1,0 +1,794 @@
+[
+  {
+    "id": "CLARIFY-001",
+    "originalId": "ZOOM-001",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "بصل أحمر",
+    "acceptableAnswers": [
+      "بصل أحمر",
+      "بصل"
+    ],
+    "imageUrl": "/images/guess-price/JP-001.jpg",
+    "sourceUrl": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-red-onion-1kg-per-pack",
+    "credit": "Cozmo · Bustan Red Onion 1kg · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-002",
+    "originalId": "ZOOM-002",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "بروكلي",
+    "acceptableAnswers": [
+      "بروكلي",
+      "بروكولي"
+    ],
+    "imageUrl": "/images/guess-price/JP-002.jpg",
+    "sourceUrl": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-fresh-broccoli-approx-700-800g-for-1-piece",
+    "credit": "Cozmo · Bustan Fresh Broccoli 700-800g · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-003",
+    "originalId": "ZOOM-004",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "كيوي",
+    "acceptableAnswers": [
+      "كيوي",
+      "فاكهة الكيوي"
+    ],
+    "imageUrl": "/images/guess-price/JP-006.jpg",
+    "sourceUrl": "https://cozmo.jo/fruits-vegetables/fruits/bustan-kiwi-approx-500g-per-pack",
+    "credit": "Cozmo · Bustan Kiwi 500g · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-004",
+    "originalId": "ZOOM-006",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "جزر",
+    "acceptableAnswers": [
+      "جزر",
+      "جزرة"
+    ],
+    "imageUrl": "/images/guess-price/JP-029.jpg",
+    "sourceUrl": "https://cozmo.jo/fruits-vegetables/vegetables/bustan-fresh-carrots-500-600g",
+    "credit": "Cozmo · Bustan Fresh Carrots 500-600g · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-005",
+    "originalId": "ZOOM-014",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "أقلام تلوين خشبية",
+    "acceptableAnswers": [
+      "أقلام تلوين خشبية",
+      "ألوان خشب",
+      "أقلام ألوان"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-066.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/h_elise/3185511250/",
+    "credit": "H_Elise (Flickr) · Worlds most expensive set of Colored Pencils · CC BY 2.0 · cropped view"
+  },
+  {
+    "id": "CLARIFY-006",
+    "originalId": "ZOOM-016",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "يد تحكم بلايستيشن",
+    "acceptableAnswers": [
+      "يد تحكم بلايستيشن",
+      "يد سوني",
+      "يد تحكم",
+      "كنترولر"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-081.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/79157069@N03/18967317081/",
+    "credit": "Matthew Paul  Argall (Flickr) · PS1 (Playstation 1) controller, in black and white · CC BY 2.0 · cropped view"
+  },
+  {
+    "id": "CLARIFY-007",
+    "originalId": "ZOOM-018",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "مكواة ملابس",
+    "acceptableAnswers": [
+      "مكواة ملابس",
+      "مكواة",
+      "كواية"
+    ],
+    "imageUrl": "/images/guess-price/JP-088.webp",
+    "sourceUrl": "https://smartbuy-me.com/products/samix-steam-iron-non-stick-soleplate-button-for-steam-water-spray-1800watts-blue",
+    "credit": "SmartBuy · Samix Steam Iron 1800W Blue · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-008",
+    "originalId": "ZOOM-020",
+    "points": 200,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "إسفنجة جلي",
+    "acceptableAnswers": [
+      "إسفنجة جلي",
+      "ليفة جلي",
+      "اسفنجة",
+      "سفنجة"
+    ],
+    "imageUrl": "/images/guess-price/JP-042.jpg",
+    "sourceUrl": "https://cozmo.jo/laundry-household/cleaning-materials/sponges-cloths-scourers-brushes/vileda-tip-top-sponge-5pcs",
+    "credit": "Cozmo · Vileda Tip Top Sponge 5 Pcs · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-009",
+    "originalId": "ZOOM-021",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "مبراة أقلام",
+    "acceptableAnswers": [
+      "مبراة أقلام",
+      "مبراة",
+      "براية"
+    ],
+    "imageUrl": "/images/guess-price/JP-014.webp",
+    "sourceUrl": "https://dna.jo/products/mideer-mideer-three-hole-pencil-sharpener-turmeric-yellow",
+    "credit": "DNA Jordan · Mideer Three-Hole Pencil Sharpener · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-010",
+    "originalId": "ZOOM-024",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "غلاية كهربائية",
+    "acceptableAnswers": [
+      "غلاية كهربائية",
+      "غلاية",
+      "كتل",
+      "إبريق كهربائي"
+    ],
+    "imageUrl": "/images/guess-price/JP-070.webp",
+    "sourceUrl": "https://smartbuy-me.com/products/samix-electric-kettle-1-8lit-1800watts-stainless-steel",
+    "credit": "SmartBuy · Samix Electric Kettle 1.8L 1800W · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-011",
+    "originalId": "ZOOM-025",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "مكنسة كهربائية",
+    "acceptableAnswers": [
+      "مكنسة كهربائية",
+      "مكنسة"
+    ],
+    "imageUrl": "/images/guess-price/JP-074.webp",
+    "sourceUrl": "https://smartbuy-me.com/products/dsh0616st0008",
+    "credit": "SmartBuy · RAF Upright Vacuum Cleaner 600W · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-012",
+    "originalId": "ZOOM-030",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "محمصة خبز",
+    "acceptableAnswers": [
+      "محمصة خبز",
+      "توستر",
+      "محمصة"
+    ],
+    "imageUrl": "/images/guess-price/JP-132.webp",
+    "sourceUrl": "https://smartbuy-me.com/products/sbh0618st0004",
+    "credit": "SmartBuy · Mega Toaster 750W Black · existing project reference photo"
+  },
+  {
+    "id": "CLARIFY-013",
+    "originalId": "ZOOM-035",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "دحاحيل زجاجية",
+    "acceptableAnswers": [
+      "دحاحيل زجاجية",
+      "دحاحيل",
+      "قلول",
+      "جلل"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-031.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/calliope/411893883/",
+    "credit": "liz west (Flickr) · wet glass marbles · CC BY 2.0 · cropped view"
+  },
+  {
+    "id": "CLARIFY-014",
+    "originalId": "ZOOM-036",
+    "points": 400,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "هاتف أرضي بقرص دوار",
+    "acceptableAnswers": [
+      "هاتف أرضي بقرص دوار",
+      "تلفون قديم",
+      "تلفون أرضي"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-071.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/51764518@N02/15105041327/",
+    "credit": "Joe Haupt (Flickr) · Vintage Dutch PTT Rotary Dial Telephone, Made In The Netherlands · CC BY-SA 2.0 · cropped view"
+  },
+  {
+    "id": "CLARIFY-015",
+    "originalId": "ZOOM-063",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "عملات معدنية قديمة",
+    "acceptableAnswers": [
+      "عملات معدنية قديمة",
+      "عملات معدنية",
+      "نقود معدنية",
+      "عملة قديمة",
+      "عملات قديمة",
+      "مصاري معدنية"
+    ],
+    "imageUrl": "/assets/questions/zoomed-image/ZOOM-063.png",
+    "sourceUrl": "https://github.com/scikit-image/scikit-image/blob/v0.19.3/skimage/data/coins.png",
+    "credit": "Brooklyn Museum Collection · no known copyright restrictions"
+  },
+  {
+    "id": "CLARIFY-016",
+    "originalId": "ZOOM-065",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "بدلة رائد فضاء",
+    "acceptableAnswers": [
+      "بدلة رائد فضاء",
+      "بدلة فضاء",
+      "رائد فضاء",
+      "لباس رائد الفضاء"
+    ],
+    "imageUrl": "/assets/questions/zoomed-image/ZOOM-065.png",
+    "sourceUrl": "https://github.com/scikit-image/scikit-image/blob/v0.19.3/skimage/data/astronaut.png",
+    "credit": "NASA · public domain"
+  },
+  {
+    "id": "CLARIFY-017",
+    "originalId": "ZOOM-070",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "لعبة المنقلة",
+    "acceptableAnswers": [
+      "لعبة المنقلة",
+      "المنقلة",
+      "منقلة",
+      "مانكالا"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-039.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/places_lost/38641185732/",
+    "credit": "lost places (Flickr) · CC BY 2.0"
+  },
+  {
+    "id": "CLARIFY-018",
+    "originalId": "ZOOM-075",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "بابور الكاز",
+    "acceptableAnswers": [
+      "بابور الكاز",
+      "بابور",
+      "موقد كاز",
+      "موقد كيروسين",
+      "بريموس"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-086.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/9228131@N07/31246155203/",
+    "credit": "fishfish_01 (Flickr) · Public Domain Mark 1.0"
+  },
+  {
+    "id": "CLARIFY-019",
+    "originalId": "ZOOM-077",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "ووكمان",
+    "acceptableAnswers": [
+      "ووكمان",
+      "ووك مان",
+      "وكمان",
+      "Walkman",
+      "مشغل كاسيت محمول"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-077.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/beleaveme/3116717772/",
+    "credit": "Bob B. Brown (Flickr) · CC BY 2.0"
+  },
+  {
+    "id": "CLARIFY-020",
+    "originalId": "ZOOM-078",
+    "points": 600,
+    "prompt": "شو الشيء الموجود بالصورة؟",
+    "answer": "جهاز سيجا",
+    "acceptableAnswers": [
+      "جهاز سيجا",
+      "سيجا",
+      "سيغا",
+      "Sega",
+      "ميغا درايف",
+      "Sega Mega Drive",
+      "جهاز ألعاب قديم"
+    ],
+    "imageUrl": "/assets/jordan_nostalgia/JONOS-082.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/kibyegon/8671024135/",
+    "credit": "Kibet Yegon (Flickr) · CC BY-SA 2.0"
+  },
+  {
+    "id": "CLARIFY-021",
+    "originalId": "FN-025",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "كريستيانو رونالدو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/664a0f8a39ed4ddd7928390b.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-022",
+    "originalId": "FN-029",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "كيليان مبابي",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/7b3c79d1a2facc51e84bf720.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-023",
+    "originalId": "FN-032",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "ليونيل ميسي",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/e060ca186507497ba449c2b0.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-024",
+    "originalId": "FN-033",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "محمد صلاح",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/478a262231f3c23b469e7f12.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_(cropped).jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-025",
+    "originalId": "FN-016",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "زين الدين زيدان",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/e3b5d66a61b29465bd6df5f8.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg",
+    "credit": "Hadi Abyar · CC BY 4.0 · https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "id": "CLARIFY-026",
+    "originalId": "FN-005",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "إيرلينغ هالاند",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/180c864989ca8fa0d433a943.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-027",
+    "originalId": "FN-060",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "لوكا مودريتش",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/4170ff456958e5c24762e6a5.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+    "credit": "Bryan Berlin · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-028",
+    "originalId": "FN-015",
+    "points": 200,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "زلاتان إبراهيموفيتش",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/32259123b9cc71babea5ab7f.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zlatan_Ibrahimovi%C4%87_nyc.jpg",
+    "credit": "Colleen Sturtevant · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-029",
+    "originalId": "FN-002",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "أندريا بيرلو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/1ce89a722d30f33221c9b47f.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Andrea_Pirlo_(cropped).jpg",
+    "credit": "Clément Bucco-Lechat · CC BY-SA 3.0 · https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "CLARIFY-030",
+    "originalId": "FN-012",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "ديدييه دروغبا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/4000b4752876beebd373d1d2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Didier_Drogba_(2019)_(cropped2).jpg",
+    "credit": "Y.Leclercq© · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-031",
+    "originalId": "FN-035",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "آريين روبن",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/2fe07bcb7b8439ba5bb5e508.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_(cropped).jpg",
+    "credit": "Sven Mandel · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "CLARIFY-032",
+    "originalId": "FN-044",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "تييري هنري",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/c6490b31618e3d72e7131ad4.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_(51649035951)_(cropped).jpg",
+    "credit": "Web Summit · CC BY 2.0 · https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "CLARIFY-033",
+    "originalId": "FN-055",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "سيرخيو أغويرو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/8ce1ca6423d5c7b8a03fd985.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ag%C3%BCero_in_2018.jpg",
+    "credit": "Кирилл Венедиктов · CC BY-SA 3.0 · https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "CLARIFY-034",
+    "originalId": "FN-069",
+    "points": 400,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "أليكسيس سانشيز",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/football-first-name/532b9ae9aa938ee27ff2af9a.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alexis_S%C3%A1nchez_2017.jpg",
+    "credit": "Кирилл Венедиктов · CC BY-SA 3.0 · https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "CLARIFY-035",
+    "originalId": "FN-046-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "كاليب يرنكي",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/caleb_yirenkyi.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Caleb_Yirenkyi_England_v_Ghana_23_June_2026-012.jpg/960px-Caleb_Yirenkyi_England_v_Ghana_23_June_2026-012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Caleb_Yirenkyi"
+  },
+  {
+    "id": "CLARIFY-036",
+    "originalId": "FN-058-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "تابيلو ماسيكو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/thapelo_maseko.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Go_Ahead_Eagles_-_Mamelodi_Sundowns_FC_-_53066145739.jpg/960px-Go_Ahead_Eagles_-_Mamelodi_Sundowns_FC_-_53066145739.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Thapelo_Maseko"
+  },
+  {
+    "id": "CLARIFY-037",
+    "originalId": "FN-083-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "دايتشي كامادا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/daichi_kamada.jpg.webp",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/2022128173756_2022-05-08_Fussball_Eintracht_Frankfurt_vs_Borussia_M%C3%B6nchengladbach_-_Sven_-_1D_X_MK_II_-_0725_-_AK8I7460_%28Daichi_Kamada_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Daichi_Kamada"
+  },
+  {
+    "id": "CLARIFY-038",
+    "originalId": "FN-087-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "دينيز أونداف",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/deniz_undav.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Deniz_Undav_Ecuador_v_Germany_25_June_2026-203_%28cropped%29.jpg/960px-Deniz_Undav_Ecuador_v_Germany_25_June_2026-203_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Deniz_Undav"
+  },
+  {
+    "id": "CLARIFY-039",
+    "originalId": "FN-091-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "فولارين بالوغون",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/folarin_balogun.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Folarin_Balogun_Australia_v_USA_19_June_2026-64.jpg/960px-Folarin_Balogun_Australia_v_USA_19_June_2026-64.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Folarin_Balogun"
+  },
+  {
+    "id": "CLARIFY-040",
+    "originalId": "FN-095-R4",
+    "points": 600,
+    "prompt": "مين اللاعب بالصورة؟",
+    "answer": "خوليو إنسيسو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/world_cup_2026/players/julio_enciso.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Julio_Enciso_France_v_Paraguay_4_July_2026-039.jpg/960px-Julio_Enciso_France_v_Paraguay_4_July_2026-039.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "مكتبة الصور المحلية · ترخيص الصورة الأصلية بحاجة للتحقق · https://en.wikipedia.org/wiki/Julio_Enciso_(footballer,_born_2004)"
+  },
+  {
+    "id": "CLARIFY-041",
+    "originalId": "FLAG-200-01",
+    "points": 200,
+    "prompt": "علم أي دولة؟",
+    "answer": "الأردن",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-01.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-042",
+    "originalId": "FLAG-200-05",
+    "points": 200,
+    "prompt": "علم أي دولة؟",
+    "answer": "فلسطين",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-05.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-043",
+    "originalId": "FLAG-200-07",
+    "points": 200,
+    "prompt": "علم أي دولة؟",
+    "answer": "اليابان",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-07.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-044",
+    "originalId": "FLAG-200-13",
+    "points": 200,
+    "prompt": "علم أي دولة؟",
+    "answer": "إيطاليا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-13.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-045",
+    "originalId": "FLAG-200-22",
+    "points": 400,
+    "prompt": "علم أي دولة؟",
+    "answer": "سويسرا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-22.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-046",
+    "originalId": "FLAG-200-25",
+    "points": 400,
+    "prompt": "علم أي دولة؟",
+    "answer": "جنوب أفريقيا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-200-25.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-047",
+    "originalId": "FLAG-600-01",
+    "points": 600,
+    "prompt": "علم أي دولة؟",
+    "answer": "كيريباتي",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-600-01.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-048",
+    "originalId": "FLAG-600-05",
+    "points": 600,
+    "prompt": "علم أي دولة؟",
+    "answer": "جزر مارشال",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-600-05.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-049",
+    "originalId": "FLAG-600-13",
+    "points": 600,
+    "prompt": "علم أي دولة؟",
+    "answer": "سانت لوسيا",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-600-13.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-050",
+    "originalId": "FLAG-600-21",
+    "points": 600,
+    "prompt": "علم أي دولة؟",
+    "answer": "ليسوتو",
+    "acceptableAnswers": [],
+    "imageUrl": "/assets/questions/flags/FLAG-600-21.png",
+    "sourceUrl": "",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-051",
+    "originalId": "world_food_v3_016",
+    "points": 200,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "دونات",
+    "acceptableAnswers": [
+      "دونت",
+      "دونتس",
+      "دونتز"
+    ],
+    "imageUrl": "https://www.themealdb.com/images/media/meals/4i5cnx1587672171.jpg/large",
+    "sourceUrl": "https://www.themealdb.com/images/media/meals/4i5cnx1587672171.jpg/large",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-052",
+    "originalId": "world_food_v3_007",
+    "points": 200,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "برغر",
+    "acceptableAnswers": [
+      "برجر",
+      "همبرغر",
+      "هامبرغر"
+    ],
+    "imageUrl": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg",
+    "sourceUrl": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-053",
+    "originalId": "world_food_v3_019",
+    "points": 200,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "شاورما",
+    "acceptableAnswers": [
+      "شاورما دجاج",
+      "شاورما لحم"
+    ],
+    "imageUrl": "https://static.wixstatic.com/media/1eb3f6_bcfd1e17a66f41b09ea03fd29accb49c~mv2.jpg/v1/fill/w_588%2Ch_441%2Cq_90%2Cenc_avif%2Cquality_auto/1eb3f6_bcfd1e17a66f41b09ea03fd29accb49c~mv2.jpg",
+    "sourceUrl": "https://www.theshawafel.com/home",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-054",
+    "originalId": "world_food_v3_001",
+    "points": 200,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "بيتزا",
+    "acceptableAnswers": [
+      "البيتزا"
+    ],
+    "imageUrl": "https://www.delonghi.com/Global/recipes/multifry/97.jpg",
+    "sourceUrl": "https://www.delonghi.com/Global/recipes/multifry/97.jpg",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-055",
+    "originalId": "world_food_v4_040",
+    "points": 400,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "بسبوسة",
+    "acceptableAnswers": [
+      "البسبوسة",
+      "بسبوسه",
+      "هريسة",
+      "الهريسة",
+      "نمورة",
+      "النمورة"
+    ],
+    "imageUrl": "https://foodhub.scene7.com/is/image/woolworthsltdprod/1212_nammoura%3ASquare-1300x1300",
+    "sourceUrl": "https://getrecipecart.com/recipe/basbousa-recipe-woolworths/6806bf6c9711a4d1fc061a71",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-056",
+    "originalId": "world_food_v3_026",
+    "points": 400,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "كبة",
+    "acceptableAnswers": [
+      "كبة مقلية",
+      "الكبة",
+      "كبه"
+    ],
+    "imageUrl": "https://images.deliveryhero.io/image/talabat/MenuItems/mmw_638231238038811727",
+    "sourceUrl": "https://www.talabat.com/ar/oman/nofarah-restaurant",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-057",
+    "originalId": "world_food_v3_029",
+    "points": 400,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "كشري",
+    "acceptableAnswers": [
+      "الكشري",
+      "كشري مصري",
+      "كوشري"
+    ],
+    "imageUrl": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/d4/85/02.jpg",
+    "sourceUrl": "https://www.aaa.com/tripcanvas/thing-to-do/5-hour-visit-to-cairo-khan-elkhalili-with-egyptians-koshary-dish-463212P55",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-058",
+    "originalId": "world_food_v6_001",
+    "points": 400,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "فريكة",
+    "acceptableAnswers": [
+      "فريكة بالدجاج",
+      "فريك",
+      "فريك بالدجاج"
+    ],
+    "imageUrl": "https://www.albawaba.com/sites/default/files/styles/d08_standard/public/im/Nadien_healthbeauty_/freeki-chiken.jpg?itok=MX3LXWKl",
+    "sourceUrl": "https://www.albawaba.com/ar/رمضانيات/فريكة-بالدّجاج-1136110",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-059",
+    "originalId": "world_food_v4_041",
+    "points": 600,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "مفتول",
+    "acceptableAnswers": [
+      "المفتول",
+      "مفتول فلسطيني"
+    ],
+    "imageUrl": "https://img-global.cpcdn.com/recipes/a20df049f4a4ca0f/1502x1064cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%88%D9%84.jpg",
+    "sourceUrl": "https://cookpad.com/sa/%D9%88%D8%B5%D9%81%D8%A7%D8%AA/3814600-%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%88%D9%84",
+    "credit": ""
+  },
+  {
+    "id": "CLARIFY-060",
+    "originalId": "world_food_v6_004",
+    "points": 600,
+    "prompt": "شو اسم الأكلة بالصورة؟",
+    "answer": "مكمورة",
+    "acceptableAnswers": [
+      "المكمورة",
+      "مكموره",
+      "مكمورة أردنية",
+      "مكمورة إربدية"
+    ],
+    "imageUrl": "https://alwasat.ly/uploads/articles/cms-image-000138106.jpg",
+    "sourceUrl": "https://alwasat.ly/news/kitchen/93661",
+    "credit": ""
+  }
+]
