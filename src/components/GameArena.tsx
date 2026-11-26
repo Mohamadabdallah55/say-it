@@ -69,7 +69,7 @@ function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet
     const isQuran = quranOnly || (blocks.length === urls.length && urls[i]?.startsWith('https://quran.com/')) || /﴿[^﴾]+﴾/.test(block);
     return <p key={i} className={isQuran ? 'ayah !text-lg md:!text-xl !leading-relaxed whitespace-pre-wrap' : 'text-sm leading-relaxed whitespace-pre-wrap'}>{block}</p>;
   };
-  const compact = Boolean(snippet && snippet.length <= 190 && blocks.length <= 1);
+  const compact = Boolean(quranOnly && snippet && snippet.length <= 120 && blocks.length <= 1);
   return (
     <section dir="rtl" data-testid="religious-evidence" className="mt-2 rounded-lg border border-white/25 bg-black/15 px-3 py-2 text-right text-white">
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs md:text-sm">
@@ -300,6 +300,13 @@ function isAyahText(text?: string, categoryId?: string): boolean {
     return /قوله تعالى|قال تعالى|آية|سورة|[\u064E-\u0652].{4,}/.test(text);
   }
   return false;
+}
+
+// Preserve the exact Arabic text, but keep the question instruction in the game font.
+function renderMixedAyah(text: string) {
+  return text.split(/(﴿[^﴾]+﴾)/g).map((part, index) =>
+    part.startsWith('﴿') ? <span key={index} className="ayah inline-block max-w-full align-middle" dir="rtl">{part}</span> : part
+  );
 }
 
 function renderGeometryText(text: string) {
@@ -1261,7 +1268,7 @@ export function GameArena({
 
                           <p
                             className={`${
-                              isPromptAyah ? 'ayah' : 'font-display font-black'
+                              isPromptAyah && !roundMeta.prompt.includes('﴿') ? 'ayah' : 'font-display font-black'
                             } text-[#1F112E] whitespace-pre-line w-full`}
                             lang={isEnglishRound ? 'en' : 'ar'}
                             dir={isEnglishRound ? 'ltr' : 'rtl'}
@@ -1291,7 +1298,7 @@ export function GameArena({
                                   ))}
                                 </span>
                               </>
-                            ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : roundMeta.prompt}
+                            ) : isGeometryRound ? renderGeometryText(roundMeta.prompt) : isPromptAyah && roundMeta.prompt.includes('﴿') ? renderMixedAyah(roundMeta.prompt) : roundMeta.prompt}
                           </p>
                         </div>
                       </div>
@@ -1520,13 +1527,13 @@ export function GameArena({
                         </div>
                       )}
                       <p
-                        className={isAnswerAyah ? 'ayah' : 'font-display font-black'}
+                        className={isAnswerAyah && !roundMeta.answer.includes('﴿') ? 'ayah' : 'font-display font-black'}
                         lang={isEnglishRound ? 'en' : 'ar'}
                         dir={isEnglishRound ? 'ltr' : 'rtl'}
                         data-grammar={isGrammarRound || undefined}
                         data-multiline={roundMeta.answer.includes('\n') ? true : undefined}
                       >
-                        {isGeometryRound ? renderGeometryText(roundMeta.answer) : roundMeta.answer}
+                        {isGeometryRound ? renderGeometryText(roundMeta.answer) : isAnswerAyah && roundMeta.answer.includes('﴿') ? renderMixedAyah(roundMeta.answer) : roundMeta.answer}
                       </p>
                       {Boolean(alternatePlurals?.length) && (
                         <p className="font-bold text-sm md:text-base">
@@ -1580,9 +1587,9 @@ export function GameArena({
                       {RELIGIOUS_EVIDENCE_CATEGORIES.has(roundMeta.categoryId) && (
                         <ReligiousEvidence reference={roundMeta.sourceRef} snippet={roundMeta.sourceSnippet} />
                       )}
-                      {(roundMeta.explanation || roundMeta.pageNumber) && (
+                      {((roundMeta.explanation && !(RELIGIOUS_EVIDENCE_CATEGORIES.has(roundMeta.categoryId) && roundMeta.sourceRef)) || roundMeta.pageNumber) && (
                         <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
-                          {roundMeta.explanation && (
+                          {roundMeta.explanation && !(RELIGIOUS_EVIDENCE_CATEGORIES.has(roundMeta.categoryId) && roundMeta.sourceRef) && (
                             <p
                               dir="rtl"
                               className={`${
