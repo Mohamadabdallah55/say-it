@@ -56,6 +56,23 @@ import { CornerStarMascot } from './CornerStarMascot';
 import { GameAssistantBot } from './GameAssistantBot';
 import { useAccount } from '../context/AccountContext';
 
+const RELIGIOUS_EVIDENCE_CATEGORIES = new Set(['cat_islamic','cat_prophet_stories','cat_prophetic_biography','cat_rashidun','cat_hadith','cat_islamic_ordering','cat_islamic_letters','cat_juz_amma','cat_juz_tabarak','cat_quran_verse_meanings','cat_quran_media','cat_quran_reciter']);
+
+function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
+  const parts = (reference || '').split(/\s*[·\n]\s*/).filter(Boolean);
+  const urls = [...new Set(parts.flatMap(part => part.match(/https?:\/\/[^\s]+/g) ?? []))].filter(url => /^https:\/\/(?:quran\.com|sunnah\.com)\//.test(url));
+  const labels = parts.filter(part => !/^https?:\/\//.test(part));
+  if (!snippet && !reference) return null;
+  return (
+    <section dir="rtl" data-testid="religious-evidence" className="mt-3 rounded-xl border border-white/25 bg-black/15 p-3 text-right text-white">
+      <h3 className="font-display font-black text-sm md:text-base mb-2">{snippet ? 'الدليل من المصدر' : 'مرجع الإجابة'}</h3>
+      {snippet && (snippet.length > 550 ? <details><summary className="cursor-pointer font-bold text-sm">عرض النص الموثق</summary><div className="mt-2 whitespace-pre-wrap leading-relaxed text-sm md:text-base">{snippet}</div></details> : <div className="whitespace-pre-wrap leading-relaxed text-sm md:text-base">{snippet}</div>)}
+      {labels.length > 0 && <div className="mt-2 font-bold text-xs md:text-sm text-white/90">{labels.join(' · ')}</div>}
+      {urls.length > 0 && <div className="mt-2 flex flex-wrap gap-2">{urls.map((url, i) => <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="underline text-xs md:text-sm font-bold">المصدر {urls.length > 1 ? i + 1 : ''}</a>)}</div>}
+    </section>
+  );
+}
+
 // Only reversed-word prompts are slowed and amplified; answer audio stays natural.
 function ReversedWordPlayer({ src }: { src: string }) {
   const contextRef = useRef<AudioContext | null>(null);
@@ -450,7 +467,7 @@ export function GameArena({
         questionId: ar.question.id,
         categoryId: ar.question.categoryId,
         categoryName: ar.question.categoryName,
-        subtopic: (general || ar.question.imageDisplay === 'after_reveal') && !revealed
+        subtopic: (general || RELIGIOUS_EVIDENCE_CATEGORIES.has(ar.question.categoryId) || ar.question.isSensitiveReligious || ar.question.imageDisplay === 'after_reveal') && !revealed
           ? undefined
           : ar.question.subtopic || (ar.question.startingLetter ? undefined : ar.question.sourceRef),
         difficulty: ar.question.difficulty,
@@ -485,6 +502,7 @@ export function GameArena({
         acceptableAnswers: ar.question.acceptableAnswers,
         explanation: ar.question.explanation,
         sourceRef: ar.question.sourceRef,
+        sourceSnippet: ar.question.sourceSnippet,
         pageNumber: ar.question.pageNumber,
         basePoints: ar.basePoints,
         effectivePoints: ar.effectivePoints,
@@ -509,7 +527,7 @@ export function GameArena({
     return {
       ...sr,
       ...(general ? { imageDisplay: 'after_reveal' as const, beforeImageUrls: undefined, memorySecondImageUrl: undefined, ...(!revealed ? { imageUrl: undefined, imageBase64: undefined, imageCaption: undefined, imageSourceUrl: undefined, answerImageUrl: undefined, afterImageUrl: undefined, videoUrl: undefined } : {}) } : {}),
-      subtopic: general && !revealed ? undefined : sr.subtopic || (sr.startingLetter ? undefined : sr.sourceRef),
+      subtopic: (general || RELIGIOUS_EVIDENCE_CATEGORIES.has(sr.categoryId)) && !revealed ? undefined : sr.subtopic || (sr.startingLetter ? undefined : sr.sourceRef),
       correctOptionIndex: undefined as number | undefined,
     };
   }, [state]);
@@ -1544,6 +1562,9 @@ export function GameArena({
                           caption="صورة اللاعب"
                           variant="answer"
                         />
+                      )}
+                      {RELIGIOUS_EVIDENCE_CATEGORIES.has(roundMeta.categoryId) && (
+                        <ReligiousEvidence reference={roundMeta.sourceRef} snippet={roundMeta.sourceSnippet} />
                       )}
                       {(roundMeta.explanation || roundMeta.pageNumber) && (
                         <div className="pt-1 flex flex-wrap items-center justify-center gap-2">
