@@ -106,6 +106,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_rashidun: 'islamic',
   cat_prophet_stories: 'islamic',
   cat_prophetic_biography: 'islamic',
+  cat_who_sahabi: 'islamic',
   cat_hadith: 'islamic',
   cat_islamic_ordering: 'islamic',
   cat_islamic_letters: 'islamic',
@@ -116,6 +117,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_quran_media: 'quran',
   cat_quran_verse_meanings: 'quran',
   cat_juz_tabarak: 'quran',
+  cat_rub_yasin: 'quran',
   cat_juz_amma: 'quran',
 
   // 4. اللغة والكلمات
@@ -126,6 +128,8 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_english_letters: 'language',
   cat_palestinian_proverbs: 'language',
   cat_arabic_dialects: 'language',
+  cat_palestinian_dialect: 'language',
+  cat_riddle_proverb_mix: 'language',
   cat_arabic: 'language',
 
   // 5. العلوم والذكاء
@@ -138,6 +142,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
 
   // 6. العالم والتاريخ
   cat_flags: 'world',
+  world_country_maps: 'world',
   cat_capitals_currencies: 'world',
   cat_world_wars: 'world',
   world_food: 'world',
@@ -157,6 +162,7 @@ const CATEGORY_TO_GROUP: Record<string, CategoryMenuId> = {
   cat_silent_acting: 'visual',
   cat_guess_sound: 'visual',
   cat_zoomed_image: 'visual',
+  cat_clarify_image: 'visual',
 };
 
 const ICON_TO_GROUP: Partial<Record<CategoryIconKey, CategoryMenuId>> = {
