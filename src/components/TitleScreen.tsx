@@ -179,7 +179,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
           </article>
           <article className="platform-drawing">
             <div className="platform-thirty-copy"><span className="platform-kicker">رسم · تخمين · 3–10 لاعبين</span>
-              <h2>برا الرسمة</h2><p>كل خطّ ممكن يكشف السر!</p>
+              <h2>خط مشبوه</h2><p>خطّك بفضحك!</p>
               <div className="platform-rounds"><span><Users size={14}/> جهاز واحد أو عدة أجهزة</span><span><Eye size={14}/> تصويت سري</span></div>
               <div className="platform-actions"><a href="/?drawing=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div>
             </div>
@@ -195,7 +195,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
           </section>
         </section>
       </main>
-      <ChallengeArena {...challenge} onStartQuick={()=>click(onStartQuick)} onOpenPdfStudio={()=>click(onOpenPdfStudio)} onOpenSavedMatches={()=>click(onOpenSavedMatches)} onJoin={()=>click(()=>{setJoinError('');setShowJoin(true);})} gameUrls={{thirty:THIRTY_URL,khalf:KHALF_URL,codenames:CODENAMES_URL,horouf:HOROUF_URL}}/>
+      <ChallengeArena {...challenge} onStartQuick={()=>click(onStartQuick)} onOpenPdfStudio={()=>click(onOpenPdfStudio)} onOpenSavedMatches={()=>click(onOpenSavedMatches)} onJoin={()=>click(()=>{setJoinError('');setShowJoin(true);})} gameUrls={{thirty:THIRTY_URL,khalf:KHALF_URL,codenames:CODENAMES_URL,horouf:HOROUF_URL,drawing:'/?drawing=1'}}/>
       <footer className="platform-footer"><span>يمكن هاي · ألعاب وتحديات جماعية</span><nav aria-label="أدلة الألعاب" style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'12px',marginTop:'10px'}}><a href="/games/quiz/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب يمكن هاي</a><a href="/games/30-seconds/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب تحدي الثلاثين</a><a href="/games/khalf-khilaf/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب خلف خلاف</a><a href="/games/codenames/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب كود نيمز</a><a href="/games/horouf/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب حروف النخبة</a></nav></footer>
       {showJoin && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="الانضمام لغرفة" onClick={() => setShowJoin(false)}>
         <form className="game-card-frame rounded-3xl p-6 w-full max-w-sm space-y-4" onClick={e => e.stopPropagation()} onSubmit={e => {e.preventDefault();join();}}>
