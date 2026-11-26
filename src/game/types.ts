@@ -309,6 +309,7 @@ export interface TeamState {
 }
 
 export interface ScoreHistoryEntry {
+  clarificationCount?: number;
   ownerTeamId?: string;
   lifeline?: LifelineType | null;
   scoreChanges?: Record<string, number>;
@@ -380,6 +381,7 @@ export interface ActiveRound {
   question: QuizQuestion;
   basePoints: PointValue;
   effectivePoints: number;
+  clarificationCount?: number;
   activeLifeline: LifelineType | null;
   hintRevealed: boolean;
   twoAnswersActive: boolean;
@@ -497,6 +499,7 @@ export interface SanitizedActiveRound {
   pageNumber?: number;
   basePoints: PointValue;
   effectivePoints: number;
+  clarificationCount?: number;
   activeLifeline: LifelineType | null;
   hintRevealed: boolean;
   twoAnswersActive: boolean;
