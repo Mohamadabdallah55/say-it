@@ -1,8 +1,9 @@
 import foodDeck from '../decks/world-food-images/deck.json';
 import type { QuizQuestion } from '../src/game/types';
-import { WHO_SAHABI_CATEGORY } from '../src/game/curatedBanks';
+import { WHO_SAHABI_CATEGORY, CLARIFY_IMAGE_CATEGORY } from '../src/game/curatedBanks';
 import { difficultyForPoints } from '../src/game/pdfValidation';
 import type { PointValue } from '../src/game/types';
+import clarifyImageRows from './clarifyImageQuestions.json';
 import whoSahabiRows from './whoSahabi.json';
 import religiousEvidenceData from './religiousEvidence.json';
 import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
@@ -99,7 +100,25 @@ const WHO_SAHABI_QUESTIONS: QuizQuestion[] = whoSahabiRows.map(row => ({
   isSensitiveReligious: true,
 }));
 
+const CLARIFY_IMAGE_QUESTIONS: QuizQuestion[] = clarifyImageRows.map(row => ({
+  id: row.id,
+  categoryId: CLARIFY_IMAGE_CATEGORY.id,
+  categoryName: CLARIFY_IMAGE_CATEGORY.name,
+  points: row.points as PointValue,
+  difficulty: difficultyForPoints(row.points as PointValue),
+  questionType: 'direct_qa',
+  prompt: row.prompt,
+  answer: row.answer,
+  acceptableAnswers: [row.answer, ...row.acceptableAnswers],
+  imageUrl: row.imageUrl,
+  imageSourceUrl: row.sourceUrl || undefined,
+  explanation: row.credit || undefined,
+  imageDisplay: 'before_reveal',
+  status: 'approved',
+}));
+
 export const SERVER_CURATED_QUESTIONS = [
+  ...CLARIFY_IMAGE_QUESTIONS,
   ...WORLD_FOOD_QUESTIONS,
   ...APPS_QUESTIONS,
   ...ZOOMED_IMAGE_QUESTIONS,
