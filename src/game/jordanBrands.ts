@@ -8,4 +8,4 @@ export const JORDAN_BRANDS_CATEGORY: DeckCategory = {
   accentColor: '#C82942',
 };
 
-export const JORDAN_BRANDS_TOTAL_SOURCE_COUNT = 65;
+export const JORDAN_BRANDS_TOTAL_SOURCE_COUNT = 100;
