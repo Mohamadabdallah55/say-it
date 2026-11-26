@@ -19,11 +19,13 @@ export function SpecialCards({
   categoryColor,
   host,
   used,
+  remaining,
   allowed,
   choose,
   skip,
 }: {
   used: LifelineType[];
+  remaining?: number;
   allowed?: LifelineType[];
   team: string;
   categoryName?: string;
@@ -59,7 +61,7 @@ export function SpecialCards({
             هل تريد استخدام بطاقة خاصة؟
           </h1>
           <p className="text-xs font-bold text-[#1F112E]/65">
-            صاحب الدور · {team}
+            صاحب الدور · {team}{remaining !== undefined ? ` · متبقي ${remaining} بطاقات` : ''}
           </p>
         </div>
 
@@ -73,7 +75,7 @@ export function SpecialCards({
           }`}
         >
           {visibleCards.map((card) => {
-            const spent = used.includes(card.key);
+            const spent = used.includes(card.key) || remaining === 0;
             return (
               <button
                 type="button"
@@ -93,7 +95,7 @@ export function SpecialCards({
                   {card.title}
                 </strong>
                 <small className="text-xs font-bold text-[#1F112E]/70 leading-snug">
-                  {spent ? 'استخدمها الفريق' : card.rule}
+                  {used.includes(card.key) ? 'استخدمها الفريق' : remaining === 0 ? 'استُنفدت البطاقات' : card.rule}
                 </small>
               </button>
             );
