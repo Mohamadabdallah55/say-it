@@ -5,18 +5,18 @@
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
   "importPolicy": "صور ومقاطع قصيرة مرتبطة بمصادر خارجية؛ الصور احتياط للمقاطع التي لها صور. المراجع قيد المراجعة لا تدخل اللعب.",
-  "questionCount": 92,
-  "total_source_questions": 92,
-  "verified_playable_count": 92,
+  "questionCount": 97,
+  "total_source_questions": 97,
+  "verified_playable_count": 97,
   "needs_manual_asset_count": 0,
   "levels": {
-    "200": 30,
-    "400": 40,
+    "200": 34,
+    "400": 41,
     "600": 22
   },
   "points_distribution_playable": {
-    "200": 30,
-    "400": 40,
+    "200": 34,
+    "400": 41,
     "600": 22
   },
   "questions": [
@@ -518,11 +518,13 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 200,
       "points": 200,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
       "answer": "زوما",
       "acceptedAnswers": [
         "زوما",
-        "Zuma"
+        "Zuma",
+        "Zuma's Revenge",
+        "زوما ريفينج"
       ],
       "imageRequired": true,
       "image": {
@@ -541,16 +543,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://store.steampowered.com/app/3330/"
+        "https://store.steampowered.com/app/3330/",
+        "https://steamdb.info/app/3620/screenshots/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "عرض مختصر منشور للعبة من السلسلة نفسها، قد يكون من نسخة أحدث؛ لم يُختبر تشغيله. الصورة احتياط.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/3620/2459/69f7600726b94b8bc2248514ab571a0d2cf041b2/1750483995/microtrailer.mp4",
+      "videoSourceUrl": "https://steamdb.info/app/3620/screenshots/",
+      "videoReviewStatus": "published_preview_reference_playback_unverified"
     },
     {
       "id": "JONOS-V2-200-22",
@@ -2098,12 +2104,12 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
       "answer": "Fireboy and Watergirl",
       "acceptedAnswers": [
         "Fireboy and Watergirl",
-        "فاير بوي ووتر غيرل",
-        "ولد النار وبنت الماء"
+        "ولد النار وبنت الماء",
+        "فاير بوي ووتر غيرل"
       ],
       "imageRequired": true,
       "image": {
@@ -2122,16 +2128,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html"
+        "https://www.pomu.nl/spelen/fireboy-and-watergirl-in-the-forest-temple.html",
+        "https://steamdb.info/app/5084260/screenshots/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "عرض مختصر منشور للعبة من السلسلة نفسها، قد يكون من نسخة أحدث؛ لم يُختبر تشغيله. الصورة احتياط.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/5084260/385944442/7ca4975f22c785ca9c726b5008bfe608f38faa96/1786274659/microtrailer.mp4",
+      "videoSourceUrl": "https://steamdb.info/app/5084260/screenshots/",
+      "videoReviewStatus": "published_preview_reference_playback_unverified"
     },
     {
       "id": "JONOS-V2-400-35",
@@ -2317,11 +2327,13 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "ما اسم اللعبة الظاهرة بالصورة؟",
+      "question": "ما اسم سلسلة الألعاب الظاهرة في المقطع؟",
       "answer": "Farm Frenzy",
       "acceptedAnswers": [
         "Farm Frenzy",
-        "فارم فرينزي"
+        "Farm Frenzy 4",
+        "فارم فرينزي",
+        "لعبة المزرعة"
       ],
       "imageRequired": true,
       "image": {
@@ -2340,16 +2352,20 @@
         "license": null
       },
       "evidenceUrls": [
-        "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/"
+        "https://www.imdb.com/title/tt12670808/mediaviewer/rm4254247169/",
+        "https://steamdb.info/app/296220/screenshots/"
       ],
       "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "رابط خارجي للّقطة، لم يتم التحقق من ترخيص إعادة استخدامها",
-      "questionType": "الصورة والتخمين",
+      "reviewNotes": "عرض مختصر منشور للعبة من السلسلة نفسها، قد يكون من نسخة أحدث؛ لم يُختبر تشغيله. الصورة احتياط.",
+      "questionType": "الفيديو والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
-      ]
+      ],
+      "videoUrl": "https://video.fastly.steamstatic.com/store_trailers/296220/20379/b4e406faebf0eeb2f406febd1dce3b539209de28/1751262702/microtrailer.mp4",
+      "videoSourceUrl": "https://steamdb.info/app/296220/screenshots/",
+      "videoReviewStatus": "published_preview_reference_playback_unverified"
     },
     {
       "id": "JONOS-V2-400-36",
@@ -4077,6 +4093,243 @@
         "زمن الطيبين",
         "تقنية"
       ]
+    },
+    {
+      "id": "JONOS-2010-CLIP-shaun",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "شون ذا شيب",
+      "acceptedAnswers": [
+        "شون ذا شيب",
+        "شون الخروف",
+        "Shaun the Sheep",
+        "الخروف شون"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.giphy.com/media/xT8qBepJQzUjXpeWU8/giphy_s.gif",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "شون ذا شيب",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "شون ذا شيب",
+        "imageSelectionInstructions": "إطار احتياطي من اللقطة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "مرجع رسمي منشور للمشاركة",
+        "sourcePage": "https://giphy.com/gifs/olympics-shaun-the-sheep-aardman-xT8qBepJQzUjXpeWU8",
+        "sourcePublisher": "Aardman Animations",
+        "license": null
+      },
+      "videoUrl": "https://media.giphy.com/media/xT8qBepJQzUjXpeWU8/giphy.mp4",
+      "videoSourceUrl": "https://giphy.com/gifs/olympics-shaun-the-sheep-aardman-xT8qBepJQzUjXpeWU8",
+      "videoReviewStatus": "official_publisher_gif_mp4_variant_unverified",
+      "evidenceUrls": [
+        "https://giphy.com/gifs/olympics-shaun-the-sheep-aardman-xT8qBepJQzUjXpeWU8"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة متحركة صامتة من حساب الناشر؛ رابط نسخة MP4 مبني على معرف GIF المعروف، التشغيل والترخيص غير مؤكدين؛ صورة احتياطية.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-2010-CLIP-sponge",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "سبونج بوب",
+      "acceptedAnswers": [
+        "سبونج بوب",
+        "سبونجبوب",
+        "سبونج بوب سكوير بانتس",
+        "SpongeBob SquarePants"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.giphy.com/media/xTdAjtZS0iOvW61QXe/giphy_s.gif",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "سبونج بوب",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "سبونج بوب",
+        "imageSelectionInstructions": "إطار احتياطي من اللقطة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "مرجع رسمي منشور للمشاركة",
+        "sourcePage": "https://giphy.com/gifs/spongebob-nickelodeon-xTdAjtZS0iOvW61QXe",
+        "sourcePublisher": "SpongeBob SquarePants",
+        "license": null
+      },
+      "videoUrl": "https://media.giphy.com/media/xTdAjtZS0iOvW61QXe/giphy.mp4",
+      "videoSourceUrl": "https://giphy.com/gifs/spongebob-nickelodeon-xTdAjtZS0iOvW61QXe",
+      "videoReviewStatus": "official_publisher_gif_mp4_variant_unverified",
+      "evidenceUrls": [
+        "https://giphy.com/gifs/spongebob-nickelodeon-xTdAjtZS0iOvW61QXe"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة متحركة صامتة من حساب الناشر؛ رابط نسخة MP4 مبني على معرف GIF المعروف، التشغيل والترخيص غير مؤكدين؛ صورة احتياطية.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-2010-CLIP-gumball",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "عالم غامبول المدهش",
+      "acceptedAnswers": [
+        "عالم غامبول المدهش",
+        "غامبول",
+        "غامبل",
+        "غومبول",
+        "عالم غامبول",
+        "The Amazing World of Gumball"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.giphy.com/media/dxIISjfo4wUktWQfVE/giphy_s.gif",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "عالم غامبول المدهش",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "عالم غامبول المدهش",
+        "imageSelectionInstructions": "إطار احتياطي من اللقطة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "مرجع رسمي منشور للمشاركة",
+        "sourcePage": "https://giphy.com/gifs/cartoon-network-emea-cartoon-network-gumball-darwin-dxIISjfo4wUktWQfVE",
+        "sourcePublisher": "Cartoon Network EMEA",
+        "license": null
+      },
+      "videoUrl": "https://media.giphy.com/media/dxIISjfo4wUktWQfVE/giphy.mp4",
+      "videoSourceUrl": "https://giphy.com/gifs/cartoon-network-emea-cartoon-network-gumball-darwin-dxIISjfo4wUktWQfVE",
+      "videoReviewStatus": "official_publisher_gif_mp4_variant_unverified",
+      "evidenceUrls": [
+        "https://giphy.com/gifs/cartoon-network-emea-cartoon-network-gumball-darwin-dxIISjfo4wUktWQfVE"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة متحركة صامتة من حساب الناشر؛ رابط نسخة MP4 مبني على معرف GIF المعروف، التشغيل والترخيص غير مؤكدين؛ صورة احتياطية.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-2010-CLIP-regular",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 400,
+      "difficulty": 400,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "العرض العادي",
+      "acceptedAnswers": [
+        "العرض العادي",
+        "Regular Show",
+        "ريغولار شو",
+        "ريجولار شو"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.giphy.com/media/NsaNGmbk9gOUguKj4R/giphy_s.gif",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "العرض العادي",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "العرض العادي",
+        "imageSelectionInstructions": "إطار احتياطي من اللقطة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "مرجع رسمي منشور للمشاركة",
+        "sourcePage": "https://giphy.com/gifs/cartoonnetwork-cartoon-network-regular-show-rigby-NsaNGmbk9gOUguKj4R",
+        "sourcePublisher": "Cartoon Network",
+        "license": null
+      },
+      "videoUrl": "https://media.giphy.com/media/NsaNGmbk9gOUguKj4R/giphy.mp4",
+      "videoSourceUrl": "https://giphy.com/gifs/cartoonnetwork-cartoon-network-regular-show-rigby-NsaNGmbk9gOUguKj4R",
+      "videoReviewStatus": "official_publisher_gif_mp4_variant_unverified",
+      "evidenceUrls": [
+        "https://giphy.com/gifs/cartoonnetwork-cartoon-network-regular-show-rigby-NsaNGmbk9gOUguKj4R"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة متحركة صامتة من حساب الناشر؛ رابط نسخة MP4 مبني على معرف GIF المعروف، التشغيل والترخيص غير مؤكدين؛ صورة احتياطية.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "طفولة 2010–2016"
+      ]
+    },
+    {
+      "id": "JONOS-2010-CLIP-adventure",
+      "category": "زمن الطيبين",
+      "region": "الأردن وبلاد الشام",
+      "subCategory": "كرتون",
+      "points": 200,
+      "difficulty": 200,
+      "question": "ما اسم المسلسل الكرتوني الظاهر في المقطع؟",
+      "answer": "وقت المغامرة",
+      "acceptedAnswers": [
+        "وقت المغامرة",
+        "Adventure Time",
+        "ادفنتشر تايم",
+        "وقت مغامرة"
+      ],
+      "imageRequired": true,
+      "image": {
+        "url": "https://media.giphy.com/media/XjGJcSwrONTZsM9abb/giphy_s.gif",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "وقت المغامرة",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "وقت المغامرة",
+        "imageSelectionInstructions": "إطار احتياطي من اللقطة",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "مرجع رسمي منشور للمشاركة",
+        "sourcePage": "https://giphy.com/gifs/cartoonnetwork-adventure-time-jake-finn-XjGJcSwrONTZsM9abb",
+        "sourcePublisher": "Cartoon Network",
+        "license": null
+      },
+      "videoUrl": "https://media.giphy.com/media/XjGJcSwrONTZsM9abb/giphy.mp4",
+      "videoSourceUrl": "https://giphy.com/gifs/cartoonnetwork-adventure-time-jake-finn-XjGJcSwrONTZsM9abb",
+      "videoReviewStatus": "official_publisher_gif_mp4_variant_unverified",
+      "evidenceUrls": [
+        "https://giphy.com/gifs/cartoonnetwork-adventure-time-jake-finn-XjGJcSwrONTZsM9abb"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
+      "contentStatus": "approved",
+      "reviewNotes": "لقطة متحركة صامتة من حساب الناشر؛ رابط نسخة MP4 مبني على معرف GIF المعروف، التشغيل والترخيص غير مؤكدين؛ صورة احتياطية.",
+      "questionType": "الفيديو والتخمين",
+      "tags": [
+        "زمن الطيبين",
+        "كرتون",
+        "طفولة 2010–2016"
+      ]
     }
   ],
   "pendingVideoReferences": [
@@ -4108,6 +4361,12 @@
       "answer": "عجلة قيادة المركب",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm",
       "status": "disabled_until_short_standalone_clip_is_verified"
+    },
+    {
+      "category": "كرتون",
+      "answer": "شون ذا شيب — مشاهد بصوت",
+      "sourceUrl": "https://www.shaunthesheep.com/watch/",
+      "status": "needs_short_audio_clip_permission_and_playback_check"
     }
   ]
 }
