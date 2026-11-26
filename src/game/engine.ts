@@ -1398,7 +1398,7 @@ export function sanitizeStateForRole(
           categoryName: state.activeRound.question.categoryName,
           subtopic: canRevealAnswer || state.activeRound.question.categoryId === SILENT_ACTING_CATEGORY.id || (
             !isMemorizing && !isMemoryQuestionOnly && canShowImage &&
-            !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
+            !state.activeRound.question.isSensitiveReligious && !PRIVATE_REFERENCE_CATEGORY_IDS.includes(state.activeRound.question.categoryId)
           )
             ? state.activeRound.question.subtopic || state.activeRound.question.sourceRef
             : undefined,
@@ -1441,6 +1441,7 @@ export function sanitizeStateForRole(
           careerClubs: canShowImage && !isMemorizing ? state.activeRound.question.careerClubs : undefined,
           afterImageUrl: canRevealAnswer ? state.activeRound.question.afterImageUrl : undefined,
           sourceRef: canRevealAnswer ? state.activeRound.question.sourceRef : undefined,
+          sourceSnippet: canRevealAnswer ? state.activeRound.question.sourceSnippet : undefined,
           pageNumber: canRevealAnswer ? state.activeRound.question.pageNumber : undefined,
           ownerTeamId: state.activeRound.ownerTeamId,
           basePoints: state.activeRound.basePoints,
