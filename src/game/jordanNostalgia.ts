@@ -8,11 +8,12 @@ export const JORDAN_NOSTALGIA_CATEGORY: DeckCategory = {
   accentColor: '#A15C2A',
 };
 
-export const JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT = 59;
-export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 59;
+export const JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT = 71;
+export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 71;
 
 /** Normalized regions inspected against original photo pixels. Only applied before reveal. */
 export const JORDAN_NOSTALGIA_ANSWER_MASKS: Readonly<Record<string, readonly { x: number; y: number; w: number; h: number }[]>> = {
+  'JONOS-BAL-026': [{ x: 0.29, y: 0.32, w: 0.38, h: 0.13 }], // country lettering on album cover
   'JONOS-V2-400-12': [{ x: 0.54, y: 0.06, w: 0.43, h: 0.23 }], // Tamagotchi brand text
   'JONOS-BAL-007': [{ x: 0.34, y: 0.07, w: 0.13, h: 0.07 }], // Nokia N73 model text
   'JONOS-V2-400-01': [{ x: 0, y: 0, w: 0.42, h: 0.06 }], // Icy Tower title bar
