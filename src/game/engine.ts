@@ -1,3 +1,4 @@
+import { cardsForTeam } from './cardSettings';
 import { pickCommentary } from './commentary';
 import { clubLogoRoundImageUrl, PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORY_IDS, SILENT_ACTING_CATEGORY } from './curatedBanks';
 import {
@@ -40,19 +41,19 @@ export const DEFAULT_SETTINGS: MatchSettings = {
 };
 
 // An explicitly selected card is a single-use entitlement for each team.
-export function remainingLifelines(settings: MatchSettings, team: Pick<TeamState, 'usedLifelines' | 'lifelinesRemaining'>): number {
+export function remainingLifelines(settings: MatchSettings, team: Pick<TeamState, 'usedLifelines' | 'lifelinesRemaining'> & { id?: string }): number {
   if (!settings.lifelinesEnabled) return 0;
-  if (Array.isArray(settings.cards)) {
-    return [...new Set(settings.cards)].filter(card => !team.usedLifelines.includes(card)).length;
+  const selected = cardsForTeam(settings, team.id);
+  if (Array.isArray(selected)) {
+    return [...new Set(selected)].filter(card => !team.usedLifelines.includes(card)).length;
   }
   // Legacy rooms without an explicit selection retain their original allowance.
   return Math.max(0, team.lifelinesRemaining);
 }
 
 export function syncRoomLifelines(state: RoomState): RoomState {
-  const cards = state.settings.cards;
-  if (!Array.isArray(cards)) return state;
-  const settings = { ...state.settings, maxLifelinesPerTeam: new Set(cards).size };
+  if (!state.settings.teamCards && !Array.isArray(state.settings.cards)) return state;
+  const settings = { ...state.settings, maxLifelinesPerTeam: Math.max(0, ...state.teams.map(team => new Set(cardsForTeam(state.settings, team.id) ?? []).size)) };
   return { ...state, settings, teams: state.teams.map(team => ({
     ...team, lifelinesRemaining: remainingLifelines(settings, team),
   })) };
@@ -201,7 +202,9 @@ export function createRoomState(params: {
     ...params.settings,
   };
 
-  if (Array.isArray(settings.cards)) settings.maxLifelinesPerTeam = new Set(settings.cards).size;
+  if (settings.teamCards || Array.isArray(settings.cards)) {
+    settings.maxLifelinesPerTeam = Math.max(0, ...params.teams.map((_, i) => new Set(cardsForTeam(settings, `team_${i + 1}`) ?? []).size));
+  }
 
   const matrixMode = isCategoryTeamMatrixDeck(params.deck);
   const teamBundlesMode = !matrixMode && isTeamBundleDeck(params.deck);
@@ -220,7 +223,7 @@ export function createRoomState(params: {
     score: 0,
     participantsCount: t.participantsCount ?? 4,
     correctCount: 0,
-    lifelinesRemaining: settings.lifelinesEnabled ? settings.maxLifelinesPerTeam : 0,
+    lifelinesRemaining: settings.lifelinesEnabled ? (cardsForTeam(settings, `team_${idx + 1}`)?.length ?? settings.maxLifelinesPerTeam) : 0,
     usedLifelines: [],
   }));
 
@@ -366,9 +369,9 @@ export function selectBoardTile(
     ...createActingFields(question, nowMs),
   };
 
-  const configuredCards =
-    state.settings.cards ?? ['double_points', 'pit', 'second_chance', 'swap_question', 'hint'];
   const currentTeam = state.teams[state.currentTurnTeamIndex];
+  const configuredCards =
+    cardsForTeam(state.settings, currentTeam.id) ?? ['double_points', 'pit', 'second_chance', 'swap_question', 'hint'];
   const hasAvailablePreQuestionCard = configuredCards.some(
     (card) =>
       PRE_QUESTION_LIFELINES.includes(card as LifelineType) &&
@@ -438,7 +441,8 @@ export function applyLifeline(
   if (remainingLifelines(state.settings, currentTeam) <= 0) {
     return { ok: false, error: `استنفد فريق «${currentTeam.name}» جميع وسائل المساعدة المتاحة.`, state };
   }
-  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit','silence','show_cards'].includes(lifeline) || (state.settings.cards && !state.settings.cards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
+  const allowedCards = cardsForTeam(state.settings, currentTeam.id);
+  if (!['double_points','second_chance','swap_question','two_answers','hint','buzzer_challenge','pit','silence','show_cards'].includes(lifeline) || (allowedCards && !allowedCards.includes(lifeline)) || currentTeam.usedLifelines.includes(lifeline)) {
     return { ok: false, error: 'البطاقة غير متاحة.', state };
   }
   if (isPreQuestionLifeline(lifeline) && state.phase !== 'LIFELINE_PICK') {
