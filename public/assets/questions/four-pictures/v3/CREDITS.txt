@@ -1,0 +1,5 @@
+OpenMoji — https://openmoji.org/ — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/ — unmodified SVG assets linked from source.
+eye: William Warby; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Eye_(11774111985).jpg; unchanged
+needle: Dmeranda; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Sewing_needle_eye_with_thread.jpg; unchanged
+spring: Jonathan Wilkins; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Fresh_water_from_natural_spring.jpg; unchanged
+stove: Tony Webster; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Gas_Stove_Burners.jpg; unchanged

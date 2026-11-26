@@ -1,0 +1,28 @@
+{
+  "count": 45,
+  "tiers": [
+    15,
+    15,
+    15
+  ],
+  "hardAnswers": [
+    "عين",
+    "خط",
+    "ورقة",
+    "مفتاح",
+    "لسان",
+    "وجه",
+    "برج",
+    "حلقة",
+    "درجة",
+    "موجة",
+    "نقطة",
+    "جناح",
+    "محطة",
+    "شحن",
+    "قرص"
+  ],
+  "newRemoteIllustrations": 39,
+  "externalPhotos": 4,
+  "policy": "Difficulty uses semantic leaps, not duplicate object categories. This pass mixes photographs and open-source illustrations. Source photo pixels reviewed for عين, icon file names checked in source repository. Existing asset metadata used for other photos. No browser/runtime or human difficulty testing performed. Remote asset loading and retail photo reuse rights not independently verified."
+}
