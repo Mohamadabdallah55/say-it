@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
-import { ArrowRight, Check, Copy, Pencil, Plus, Users, X } from 'lucide-react';
+import { ArrowRight, Copy, Pencil, Plus, Users, X } from 'lucide-react';
 import { COLORS, DEFAULT_CONFIG, WORD_CATEGORIES, drawingAction, drawingView, startDrawing, type DrawingConfig, type DrawingGame, type DrawingView, type Point } from '../game/drawingImpostor';
 
 type RoomView = {code:string;player:number;host:boolean;names:string[];config:DrawingConfig;revision:number;game:DrawingView|null};
@@ -68,13 +68,13 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     const update=async()=>{if(stop||fetching||pending.current)return;fetching=true;try{const data=await api('/'+session.code,'GET',undefined,session);if(!stop)receive(data);}catch(e){if(!stop)setError(e instanceof Error?e.message:'فُقد الاتصال.');}finally{fetching=false;}};
     void update();const timer=window.setInterval(update,1100);return()=>{stop=true;window.clearInterval(timer);};
   },[session]);
-  useEffect(()=>{const timer=window.setInterval(()=>setNow(Date.now()),250);return()=>window.clearInterval(timer);},[]);
   const localPlayer=local?(local.phase==='secret'?local.names.findIndex((_,i)=>!local.ready.includes(i)):local.phase==='vote'?local.names.findIndex((_,i)=>local.votes[i]===undefined):local.phase==='guess'?local.outsider:local.order[local.cursor%local.names.length]):-1;
   const player=room?.player??Math.max(0,localPlayer);
   const host=room?.host??true;
   const view=local?drawingView(local,player):room?.game;
   const waiting=!!room&&!view;
   const canDraw=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&!busy;
+  useEffect(()=>{if(view?.phase!=='discussion')return;setNow(Date.now());const timer=window.setInterval(()=>setNow(Date.now()),250);return()=>window.clearInterval(timer);},[view?.phase,view?.deadline]);
   const seconds=view?.deadline?Math.max(0,Math.ceil((view.deadline-now)/1000)):null;
   useEffect(()=>{setSecret(false);setGuess('');},[view?.round,view?.phase,player]);
   async function action(type:string,value?:unknown){
@@ -113,7 +113,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     <main className="max-w-5xl mx-auto space-y-5">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3"><span className="grid place-items-center rounded-2xl border-2 border-[#251d36] bg-[#ffdf62] w-14 h-14 shadow-[0_4px_0_#251d36]"><Pencil size={28}/></span><div><p className="text-xs font-bold">ساحة الألعاب</p><h1 className="font-black text-3xl sm:text-4xl">برا الرسمة</h1><p className="text-sm font-bold">كل خطّ ممكن يكشف السر!</p></div></div>
-        <div className="flex gap-2"><button className={secondary} onClick={()=>setShowRules(v=>!v)}>كيف تلعب؟</button><button className={secondary} onClick={()=>{if(!view&&!room||window.confirm('تغادر اللعبة الحالية؟'))onBack();}}><ArrowRight size={18}/></button></div>
+        <div className="flex gap-2"><button className={secondary} onClick={()=>setShowRules(v=>!v)}>كيف تلعب؟</button><button className={secondary} onClick={()=>{if((!view&&!room)||window.confirm('تغادر اللعبة الحالية؟'))onBack();}}><ArrowRight size={18}/></button></div>
       </header>
       {showRules&&<section className={panel+' space-y-3'}><h2 className="font-black text-xl">طريقة اللعب</h2><p>من 3 إلى 10 لاعبين. الجميع يعرف الكلمة إلا لاعب واحد؛ في المموّه يستلم كلمة مشابهة ولا يعرف دوره.</p><p>ارسموا على نفس اللوحة. لكل لاعب لون وخط واحد متصل في كل دورة، بدون حروف أو أرقام مكتوبة. دورتان، والمضيف يقدر يضيف ثالثة.</p><p>ناقشوا الرسمة ثم صوّتوا بالسر. إذا اكتشفتم المختلف، عنده محاولة لتخمين الكلمة. إذا نجح أو لم يُكشف، يأخذ نقطتين؛ إذا فشل يأخذ كل لاعب آخر نقطة. التعادل في التصويت يحسب لصالح المختلف.</p><p className="text-sm">الغرف الإلكترونية خاصة برمز دعوة فقط. النقاش بين أصحابك وجهًا لوجه؛ لا توجد دردشة عامة.</p></section>}
       {error&&<div role="alert" className="rounded-xl border-2 border-red-800 bg-red-50 px-4 py-3 font-bold text-red-900">{error}<button onClick={()=>setError('')} className="float-left" aria-label="إغلاق"><X size={18}/></button></div>}
