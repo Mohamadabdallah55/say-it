@@ -1076,6 +1076,7 @@ export function GameArena({
                               roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id &&
                               state.phase !== 'REVEAL'
                             }
+                            obscuredDifficulty={roundMeta.categoryId === JORDAN_BRANDS_CATEGORY.id ? roundMeta.difficulty : undefined}
                             onOrientationDetected={setMediaOrientation}
                           />
                         ) : singleBeforeImage ? (
