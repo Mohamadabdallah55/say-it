@@ -594,7 +594,9 @@ class RoomManager {
         result = recordBuzzerPress(room, String(payload.teamId || ''), now);
         break;
       case 'CLARIFY_IMAGE':
-        result = clarifyRoundImage(room, actionId, now);
+        result = payload.roundId === room.activeRound?.roundId
+          ? clarifyRoundImage(room, actionId, now)
+          : { ok: false, state: room, error: 'انتهى السؤال الذي طلبت توضيحه.' };
         break;
       case 'REVEAL_HINT':
         result = revealRoundHint(room, actionId, now);
