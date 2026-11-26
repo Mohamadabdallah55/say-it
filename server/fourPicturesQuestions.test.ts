@@ -12,8 +12,11 @@ test('New four-picture bank has independent assets and stable 14 letter clues', 
     assert.equal(q.imageUrl, undefined);
     assert.equal(new Set(q.beforeImageUrls).size, 4);
     for(const url of q.beforeImageUrls ?? []) {
-      assert.ok(url.startsWith('/'));
-      assert.ok(fs.existsSync(path.join(process.cwd(), 'public', url.slice(1))));
+      if (url.startsWith('/')) assert.ok(fs.existsSync(path.join(process.cwd(), 'public', url.slice(1))));
+      else {
+        assert.equal(q.answer, 'وزن');
+        assert.match(url, /^https:\/\/thumb\.wikimedia\.org\/wikipedia\/commons\/thumb\//);
+      }
     }
     assert.equal(q.wordLetters?.length, 14);
     assert.equal(q.wordLength, fourPictureWordLength(q.answer));

@@ -1,0 +1,23 @@
+{
+  "photoReady": [
+    "وزن"
+  ],
+  "remainingIllustrated": [
+    "تبريد",
+    "عرض",
+    "أصل",
+    "مقام",
+    "رصيد",
+    "عقد",
+    "صرف",
+    "قيد",
+    "وتر",
+    "رسم",
+    "دور",
+    "قيمة",
+    "حد",
+    "مد",
+    "طرح"
+  ],
+  "notes": "Four photo previews reviewed visually; author and license checked. External photos are remote because local download failed (DNS). In-game load not confirmed. Other questions still contain illustrations; no claim of completion. TypeScript diagnostics in the two stale tests were addressed, pending CI."
+}

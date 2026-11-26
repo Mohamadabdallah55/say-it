@@ -1054,33 +1054,33 @@
     "points": 600,
     "question": "ما الكلمة التي تربط الصور الأربع؟",
     "answer": "وزن",
-    "explanation": "وزن المنتجات في المصنع، وزن الشعر، وزن الذهب، ووزن حمولة الشاحنة.",
+    "explanation": "وزن المنتجات في المصنع، وزن الشعر، وزن الذهب، ووزن حمولة الشاحنة. الصور: Streetsoda (CC0)؛ Khalili Collections (CC BY-SA 3.0 IGO)؛ A S M Jobaer (CC BY-SA 4.0)؛ futureatlas.com (CC BY 2.0).",
     "images": [
-      "/assets/questions/four-pictures/v4/factory.svg",
-      "/assets/questions/four-pictures/v4/poetry.svg",
-      "/assets/questions/four-pictures/v4/jewelry.svg",
-      "/assets/questions/four-pictures/v4/truck.svg"
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Corrugated_cardboard_on_conveyor.jpg/500px-Corrugated_cardboard_on_conveyor.jpg",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Khalili_Collection_Islamic_Art_MSS_0902-61b-62a.jpg/960px-Khalili_Collection_Islamic_Art_MSS_0902-61b-62a.jpg",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Gold_bangles_with_intricate_patterns_in_a_jewelry_display_Bangladesh_02.jpg/1280px-Gold_bangles_with_intricate_patterns_in_a_jewelry_display_Bangladesh_02.jpg",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Container_trucks_on_an_American_highway.jpg/960px-Container_trucks_on_an_American_highway.jpg"
     ],
     "credits": [
       {
-        "author": "Original illustration for Yemken Hay",
-        "license": "Project-created",
-        "source": "local:factory"
+        "author": "Streetsoda",
+        "license": "CC0 1.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Corrugated_cardboard_on_conveyor.jpg"
       },
       {
-        "author": "Original illustration for Yemken Hay",
-        "license": "Project-created",
-        "source": "local:poetry"
+        "author": "Khalili Collections",
+        "license": "CC BY-SA 3.0 IGO",
+        "source": "https://www.khalilicollections.org/collections/islamic-art/khalili-collection-islamic-art-the-diwan-of-al-mutanabbi-mss902/"
       },
       {
-        "author": "Original illustration for Yemken Hay",
-        "license": "Project-created",
-        "source": "local:jewelry"
+        "author": "A S M Jobaer",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gold_bangles_with_intricate_patterns_in_a_jewelry_display_Bangladesh_02.jpg"
       },
       {
-        "author": "Original illustration for Yemken Hay",
-        "license": "Project-created",
-        "source": "local:truck"
+        "author": "futureatlas.com",
+        "license": "CC BY 2.0",
+        "source": "https://www.flickr.com/photos/87913776@N00/422603859/"
       }
     ]
   },

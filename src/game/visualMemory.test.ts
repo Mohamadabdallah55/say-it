@@ -66,6 +66,7 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
     assert.equal(q.status, 'approved');
     assert.ok(Boolean(q.videoUrl) !== Boolean(q.imageUrl));
     assert.ok(!q.memorySecondImageUrl);
+    assert.ok(q.points === 200 || q.points === 400 || q.points === 600, `Unexpected Focus tier: ${q.points}`);
     if (q.videoUrl) {
       assert.ok(q.showSeconds === 15 || q.showSeconds === 17);
       assert.match(q.memorySceneId ?? '', /^V\d{2}$/);

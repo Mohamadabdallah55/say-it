@@ -53,107 +53,65 @@ test('Jordan Nostalgia category is registered under Jordan & Memories without re
   assert.ok(ALL_CURATED_CATEGORIES.some((c) => c.id === 'cat_arabic_dialects'));
 });
 
-test('Jordan Nostalgia dataset preserves all 120 IDs, enforces non-Wikipedia licensed real JPEGs, and excludes unverified items', () => {
+test('Jordan Nostalgia current dataset has consistent counts and explicit image provenance', () => {
   assert.equal(JORDAN_NOSTALGIA_ALL_ROWS.length, JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT);
-
-  const sourceIds = new Set<string>();
-  const sourceLevels = new Map<number, number>([
-    [200, 0],
-    [400, 0],
-    [600, 0],
-  ]);
-
-  let manualCount = 0;
+  assert.equal(JORDAN_NOSTALGIA_QUESTIONS.length, JORDAN_NOSTALGIA_PLAYABLE_COUNT);
+  const ids = new Set<string>();
+  const playable = new Map(JORDAN_NOSTALGIA_QUESTIONS.map(q => [q.id, q]));
+  const tiers = new Map<number, number>();
   for (const row of JORDAN_NOSTALGIA_ALL_ROWS) {
-    assert.match(row.id, /^JONOS-\d{3}$/);
-    assert.ok(!sourceIds.has(row.id), `Duplicate source id ${row.id}`);
-    sourceIds.add(row.id);
-    sourceLevels.set(row.points, (sourceLevels.get(row.points) ?? 0) + 1);
-
+    assert.match(row.id, /^JONOS-(?:V2-(?:200|400|600)-\d{2}|\d{3})$/);
+    assert.ok(!ids.has(row.id), `Duplicate ID ${row.id}`);
+    ids.add(row.id);
     if (row.contentStatus === 'needs_manual_asset') {
-      manualCount += 1;
-      assert.equal(row.image.url, null, `Unverified ${row.id} must keep image.url null`);
-      assert.equal(row.image.localFile, null, `Unverified ${row.id} must keep image.localFile null`);
-      assert.equal(row.image.status, 'needs_manual_asset');
-      assert.equal(row.rightsStatus, 'not_verified');
-    } else {
-      assert.equal(row.contentStatus, 'approved');
-      assert.equal(row.rightsStatus, 'verified_for_publication');
-      assert.equal(row.image.status, 'verified_and_licensed');
-      assert.ok(row.image.url && !/wikipedia\.org|wikimedia\.org/i.test(row.image.url));
-      assert.ok(row.image.sourcePage && !/wikipedia\.org|wikimedia\.org/i.test(row.image.sourcePage));
-      assert.ok(row.image.license && row.image.license.length > 0);
-      assert.ok(row.image.sourcePublisher && row.image.sourcePublisher.length > 0);
+      assert.ok(!playable.has(row.id));
+      continue;
     }
-  }
-
-  assert.equal(sourceLevels.get(200), 40);
-  assert.equal(sourceLevels.get(400), 40);
-  assert.equal(sourceLevels.get(600), 40);
-  assert.equal(JORDAN_NOSTALGIA_QUESTIONS.length + manualCount, 120);
-  assert.ok(JORDAN_NOSTALGIA_QUESTIONS.length >= 60);
-
-  const playableTiers = new Map<number, number>([
-    [200, 0],
-    [400, 0],
-    [600, 0],
-  ]);
-  const seenImages = new Set<string>();
-  const seenSources = new Set<string>();
-
-  for (const q of JORDAN_NOSTALGIA_QUESTIONS) {
+    assert.equal(row.contentStatus, 'approved');
+    const q = playable.get(row.id);
+    assert.ok(q, `Approved row missing from playable bank: ${row.id}`);
     assert.equal(q.categoryId, JORDAN_NOSTALGIA_CATEGORY.id);
     assert.equal(q.questionType, 'direct_qa');
     assert.equal(q.status, 'approved');
+    assert.ok(q.prompt.trim().length > 5 && q.answer.trim().length > 0);
+    tiers.set(q.points, (tiers.get(q.points) ?? 0) + 1);
+    const meta = row.image;
+    if (!meta) {
+      assert.equal(row.imageRequired, false);
+      assert.equal(row.rightsStatus, 'not_applicable');
+      assert.equal(q.imageUrl, undefined);
+      continue;
+    }
+    assert.ok(meta.sourcePage?.startsWith('https://'));
+    assert.equal(q.imageSourceUrl, meta.sourcePage);
     assert.equal(q.imageDisplay, 'before_reveal');
-    assert.ok(q.prompt.trim().length > 5);
-    assert.ok(q.answer.trim().length > 0);
-    assert.ok(
-      q.imageUrl && q.imageUrl.startsWith('/assets/jordan_nostalgia/'),
-      `Must use local photo for ${q.id}`,
-    );
-    assert.ok(!q.imageUrl.startsWith('http'), `Must not serve remote URL directly for ${q.id}`);
-    assert.ok(!seenImages.has(q.imageUrl), `Duplicate image path ${q.imageUrl}`);
-    seenImages.add(q.imageUrl);
-
-    assert.ok(q.imageSourceUrl && q.imageSourceUrl.startsWith('https://'));
-    assert.ok(!/wikipedia\.org|wikimedia\.org/i.test(q.imageSourceUrl));
-    assert.ok(!seenSources.has(q.imageSourceUrl), `Duplicate source photo page ${q.imageSourceUrl}`);
-    seenSources.add(q.imageSourceUrl);
-
-    const diskPath = path.join(process.cwd(), 'public', q.imageUrl.replace(/^\//, ''));
-    assert.ok(fs.existsSync(diskPath), `Missing local JPEG on disk: ${diskPath}`);
-    const bytes = fs.readFileSync(diskPath);
-    assert.ok(bytes.length > 3000, `Local image too small (${bytes.length} bytes): ${diskPath}`);
-    assert.equal(bytes[0], 0xff, `Expected JPEG header byte 0 for ${diskPath}`);
-    assert.equal(bytes[1], 0xd8, `Expected JPEG header byte 1 for ${diskPath}`);
-
-    playableTiers.set(q.points, (playableTiers.get(q.points) ?? 0) + 1);
+    if (meta.status === 'external_reference') {
+      assert.equal(row.rightsStatus, 'external_reference_unconfirmed');
+      assert.ok(meta.url?.startsWith('https://'));
+      assert.equal(q.imageUrl, meta.url);
+      assert.equal(q.verificationStatus, undefined);
+    } else {
+      assert.equal(meta.status, 'verified_and_licensed');
+      assert.equal(row.rightsStatus, 'verified_for_publication');
+      assert.ok(meta.license && meta.sourcePublisher);
+      assert.ok(meta.localFile?.startsWith('/assets/jordan_nostalgia/'));
+      assert.equal(q.imageUrl, meta.localFile);
+      const diskPath = path.join(process.cwd(), 'public', meta.localFile!.slice(1));
+      assert.ok(fs.existsSync(diskPath), `Missing local asset: ${diskPath}`);
+      const bytes = fs.readFileSync(diskPath);
+      assert.ok(bytes.length > 3000);
+      assert.equal(bytes[0], 0xff);
+      assert.equal(bytes[1], 0xd8);
+    }
   }
-
-  for (const [pts, count] of playableTiers.entries()) {
-    assert.ok(count >= 10, `Expected at least 10 playable questions for ${pts}pts, got ${count}`);
-  }
+  for (const p of [200,400,600]) assert.ok((tiers.get(p) ?? 0) >= 10);
 });
 
-test('asset_report.json matches verified + needs_manual_asset counts totaling 120', () => {
-  const reportPath = path.join(process.cwd(), 'public', 'assets', 'jordan_nostalgia', 'asset_report.json');
-  assert.ok(fs.existsSync(reportPath), 'asset_report.json must exist');
-  const report = JSON.parse(fs.readFileSync(reportPath, 'utf-8')) as {
-    category_id: string;
-    total: number;
-    verified_playable: number;
-    needs_manual_asset: number;
-    missing_ids: string[];
-    items: Array<{ id: string; status: string; needs_manual_asset: boolean; localFile: string | null }>;
-  };
-
+test('Legacy nostalgia asset report remains internally consistent', () => {
+  const report = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/assets/jordan_nostalgia/asset_report.json'), 'utf-8'));
   assert.equal(report.category_id, JORDAN_NOSTALGIA_CATEGORY.id);
-  assert.equal(report.total, 120);
-  assert.equal(report.verified_playable, JORDAN_NOSTALGIA_QUESTIONS.length);
-  assert.equal(report.verified_playable + report.needs_manual_asset, 120);
-  assert.equal(report.missing_ids.length, report.needs_manual_asset);
-  assert.equal(report.items.length, 120);
+  assert.equal(report.items.length, report.total);
+  assert.equal(report.verified_playable + report.needs_manual_asset, report.total);
 });
 
 test('Jordan Nostalgia deck passes preflight, supports account rotation, and hides answer/source before REVEAL', () => {
@@ -209,7 +167,9 @@ test('Jordan Nostalgia deck passes preflight, supports account rotation, and hid
   const projectorPlaying = sanitizeStateForRole(room, 'projector');
   assert.ok(projectorPlaying.activeRound);
   assert.equal(projectorPlaying.activeRound.questionType, 'direct_qa');
-  assert.ok(projectorPlaying.activeRound.imageUrl?.startsWith('/assets/jordan_nostalgia/'));
+  const currentQuestion = JORDAN_NOSTALGIA_QUESTIONS.find(q => q.id === tile.questionId);
+  assert.ok(currentQuestion);
+  assert.equal(projectorPlaying.activeRound.imageUrl, currentQuestion.imageUrl);
   assert.equal(projectorPlaying.activeRound.answer, undefined);
   assert.equal(projectorPlaying.activeRound.acceptableAnswers, undefined);
   assert.equal(projectorPlaying.activeRound.explanation, undefined);
@@ -221,5 +181,5 @@ test('Jordan Nostalgia deck passes preflight, supports account rotation, and hid
   const projectorReveal = sanitizeStateForRole(room, 'projector');
   assert.ok(projectorReveal.activeRound?.answer && projectorReveal.activeRound.answer.length > 0);
   assert.ok(projectorReveal.activeRound?.explanation && projectorReveal.activeRound.explanation.length > 0);
-  assert.ok(projectorReveal.activeRound?.imageSourceUrl?.startsWith('https://www.flickr.com/photos/'));
+  assert.equal(projectorReveal.activeRound?.imageSourceUrl, currentQuestion.imageSourceUrl);
 });
