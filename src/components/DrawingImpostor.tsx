@@ -1,3 +1,4 @@
+import { KhattBrandArtwork } from './KhattBrandArtwork';
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { ArrowRight, Copy, Pencil, Plus, Users, X, Search, LockKeyhole, Trophy, Play, Check } from 'lucide-react';
 import { COLORS, DEFAULT_CONFIG, WORD_CATEGORIES, drawingAction, drawingView, startDrawing, type DrawingConfig, type DrawingGame, type DrawingView, type Point } from '../game/drawingImpostor';
@@ -148,7 +149,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   return <div dir="rtl" className="khatt-game min-h-screen text-[#251d36] p-3 sm:p-6">
     <main className={"khatt-main mx-auto space-y-5 "+(view?"khatt-playing":"max-w-5xl")}>
       <header className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-3"><span className="grid place-items-center rounded-2xl border-2 border-[#251d36] bg-[#ffdf62] w-14 h-14 shadow-[0_4px_0_#251d36]"><Pencil size={28}/></span><div><p className="text-xs font-bold">ساحة الألعاب</p><h1 className="font-black text-3xl sm:text-4xl">خط مشبوه</h1><p className="text-sm font-bold">خطّك بفضحك!</p></div></div>
+        <div className="flex items-center gap-3"><span className="grid place-items-center rounded-2xl border-2 border-[#251d36] bg-[#ffdf62] w-14 h-14 shadow-[0_4px_0_#251d36]"><KhattBrandArtwork compact className="khatt-header-art"/></span><div><p className="text-xs font-bold">ساحة الألعاب</p><h1 className="font-black text-3xl sm:text-4xl">خط مشبوه</h1><p className="text-sm font-bold">خطّك بفضحك!</p></div></div>
         <div className="flex gap-2"><button className={secondary} onClick={()=>setShowRules(v=>!v)}>كيف تلعب؟</button><button className={secondary} onClick={()=>{if((!view&&!room)||window.confirm('تغادر اللعبة الحالية؟'))onBack();}}><ArrowRight size={18}/></button></div>
       </header>
       {showRules&&<section className={panel+' space-y-3'}><h2 className="font-black text-xl">طريقة اللعب</h2><p>من 3 إلى 10 لاعبين. الجميع يعرف الكلمة إلا لاعب واحد؛ في المموّه يستلم كلمة مشابهة ولا يعرف دوره.</p><p>ارسموا على نفس اللوحة. لكل لاعب لون وخط واحد متصل في كل دورة، بدون حروف أو أرقام مكتوبة. دورتان، والمضيف يقدر يضيف ثالثة.</p><p>ناقشوا الرسمة ثم صوّتوا بالسر. إذا اكتشفتم المختلف، عنده محاولة لتخمين الكلمة. إذا نجح أو لم يُكشف، يأخذ نقطتين؛ إذا فشل يأخذ كل لاعب آخر نقطة. عند التعادل، نعيد التصويت بين المتعادلين مرة واحدة. وإذا استمر التعادل يفوز المختلف.</p><p className="text-sm">الغرف الإلكترونية خاصة برمز دعوة فقط. النقاش بين أصحابك وجهًا لوجه؛ لا توجد دردشة عامة.</p></section>}
