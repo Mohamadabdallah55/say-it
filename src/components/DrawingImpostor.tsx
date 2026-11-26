@@ -53,7 +53,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const [config,setConfig]=useState<DrawingConfig>(DEFAULT_CONFIG);
   const [name,setName]=useState('');
   const [joinCode,setJoinCode]=useState(initialCode);
-  const [local,setLocal]=useState<DrawingGame|null>(()=>initialCode?null:saved<DrawingGame>(LOCAL_KEY));
+  const [local,setLocal]=useState<DrawingGame|null>(()=>initialCode||saved<Session>(SESSION_KEY)?null:saved<DrawingGame>(LOCAL_KEY));
   const [room,setRoom]=useState<RoomView|null>(null);
   const [session,setSession]=useState<Session|null>(()=>{const s=saved<Session>(SESSION_KEY);return s&&(!initialCode||s.code===initialCode.toUpperCase())?s:null;});
   const [connected,setConnected]=useState(true);
@@ -95,10 +95,10 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
       try{setLocal(drawingAction(local,player,type,value,true));}catch(e){setError(e instanceof Error?e.message:'تعذر الإجراء.');}
       return;
     }
-    if(!session||!room)return;
+    if(!session||!room||!connected)return;
     pending.current=true;setBusy(true);
     try{
-      const body={action:type,value,revision:room.revision,actionId:crypto.randomUUID(),round:room.game?.round,phase:room.game?.phase};
+      const body={action:type,value,revision:room.revision,actionId:crypto.randomUUID(),round:room.game?.round,phase:room.game?.phase,cursor:room.game?.cursor};
       let data;try{data=await api('/'+session.code+'/action','POST',body,session);}catch(e){if(e instanceof DrawingApiError)throw e;data=await api('/'+session.code+'/action','POST',body,session);}
       if(mounted.current)receive(data);
     }catch(e){if(mounted.current){setError(e instanceof Error?e.message:'تعذر الاتصال.');try{receive(await api('/'+session.code,'GET',undefined,session));}catch{setConnected(false);}}}finally{pending.current=false;if(mounted.current)setBusy(false);}
@@ -119,7 +119,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     }
     if(!name.trim()){setError('اكتب اسمك المستعار.');return;}
     pending.current=true;setBusy(true);
-    try{const data=await api(onlineMode==='create'?'/create':'/join','POST',{name,code:joinCode.trim().toUpperCase(),config});if(!mounted.current)return;setRoom(data);setSession({code:data.code,token:data.token});}
+    try{const data=await api(onlineMode==='create'?'/create':'/join','POST',{name,code:joinCode.trim().toUpperCase(),config});if(!mounted.current)return;store(LOCAL_KEY,null);setLocal(null);setRoom(data);setSession({code:data.code,token:data.token});}
     catch(e){setError(e instanceof Error?e.message:'تعذر إنشاء الغرفة.');}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
   function leave(){store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
