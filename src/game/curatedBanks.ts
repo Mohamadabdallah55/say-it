@@ -345,7 +345,16 @@ export const SILENT_ACTING_CATEGORY: DeckCategory = {
 };
 export const SILENT_ACTING_COUNT = 100;
 
+export const CLARIFY_IMAGE_CATEGORY: DeckCategory = {
+  id: 'cat_clarify_image',
+  name: 'وضّح شوي',
+  description: 'خمن الصورة المغبشة؛ ثلاث مساعدات للتوضيح مقابل 50 نقطة لكل مساعدة',
+  iconKey: 'islamic',
+  accentColor: '#7351A4',
+};
+
 export const PRIVATE_REFERENCE_CATEGORY_IDS = [
+  CLARIFY_IMAGE_CATEGORY.id,
   APPS_CATEGORY.id,
   ZOOMED_IMAGE_CATEGORY.id,
   SILENT_ACTING_CATEGORY.id,
@@ -426,6 +435,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: ARABIC_DIALECTS_CATEGORY, questionCount: ARABIC_DIALECTS_COUNT },
   { category: SILENT_ACTING_CATEGORY, questionCount: SILENT_ACTING_COUNT },
   { category: ZOOMED_IMAGE_CATEGORY, questionCount: ZOOMED_IMAGE_COUNT },
+  { category: CLARIFY_IMAGE_CATEGORY, questionCount: 60 },
   { category: GUESS_SOUND_CATEGORY, questionCount: GUESS_SOUND_COUNT },
 ];
 
