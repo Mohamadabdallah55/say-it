@@ -4,20 +4,20 @@
   "title": "زمن الطيبين — ذكريات جيل الألفينات",
   "locale": "ar-JO",
   "copyrightPolicy": "لا تستخدم الصورة في اللعبة حتى التحقق من صحتها والترخيص",
-  "importPolicy": "أسئلة نصية وصور محلية مرخصة وروابط خارجية للقطات ألعاب؛ الترخيص الخارجي غير مؤكد.",
+  "importPolicy": "فئة مصورة فقط في اللعب؛ النصوص المحفوظة تنتظر صورًا مناسبة. الروابط الخارجية غير مؤكدة الترخيص.",
   "questionCount": 112,
   "total_source_questions": 112,
-  "verified_playable_count": 112,
-  "needs_manual_asset_count": 0,
+  "verified_playable_count": 40,
+  "needs_manual_asset_count": 72,
   "levels": {
     "200": 25,
     "400": 45,
     "600": 42
   },
   "points_distribution_playable": {
-    "200": 25,
-    "400": 45,
-    "600": 42
+    "200": 9,
+    "400": 19,
+    "600": 12
   },
   "questions": [
     {
