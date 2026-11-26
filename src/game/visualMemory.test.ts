@@ -53,7 +53,7 @@ test('Visual Memory category is registered alongside the existing categories', (
   }
 });
 
-test('Focus exposes video only and uses appropriate tier counts', () => {
+test('Focus exposes exactly one image or video and uses appropriate tier counts', () => {
   assert.equal(VISUAL_MEMORY_QUESTIONS.length, VISUAL_MEMORY_PLAYABLE_COUNT);
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
@@ -64,16 +64,24 @@ test('Focus exposes video only and uses appropriate tier counts', () => {
     assert.equal(q.categoryId, VISUAL_MEMORY_CATEGORY.id);
     assert.equal(q.questionType, 'direct_qa');
     assert.equal(q.status, 'approved');
-    assert.ok(q.videoUrl && !q.imageUrl && !q.memorySecondImageUrl);
-    assert.ok(q.showSeconds === 15 || q.showSeconds === 17);
-    assert.match(q.memorySceneId ?? '', /^V\d{2}$/);
+    assert.ok(Boolean(q.videoUrl) !== Boolean(q.imageUrl));
+    assert.ok(!q.memorySecondImageUrl);
+    if (q.videoUrl) {
+      assert.ok(q.showSeconds === 15 || q.showSeconds === 17);
+      assert.match(q.memorySceneId ?? '', /^V\d{2}$/);
+    } else {
+      assert.equal(q.showSeconds, {200: 10, 400: 8, 600: 6}[q.points]);
+      assert.match(q.memorySceneId ?? '', /^P\d{3}$/);
+      assert.ok(q.imageUrl?.startsWith('/assets/jordan_nostalgia/'));
+      assert.ok(fs.existsSync(path.join(process.cwd(), 'public', q.imageUrl!.slice(1))));
+    }
     assert.ok(q.prompt.trim() && q.answer.trim());
     assert.equal(q.subtopic, undefined);
     assert.equal(q.sourceRef, undefined);
     assert.equal(q.imageCaption, undefined);
     tierCounts[q.points] += 1;
   }
-  assert.deepEqual(tierCounts, {"200":12,"400":15,"600":10});
+  assert.deepEqual(tierCounts, {"200":18,"400":26,"600":23});
   assert.ok(fs.existsSync(path.join(process.cwd(), 'public/assets/categories/cat_visual_memory.svg')));
 });
 
@@ -176,6 +184,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   const projMemorize = sanitizeStateForRole(room, 'projector', baseNow);
   assert.equal(projMemorize.activeRound?.memoryStage, 'MEMORIZE');
   assert.equal(projMemorize.activeRound?.videoUrl, firstQuestion.videoUrl);
+  assert.equal(projMemorize.activeRound?.imageUrl, firstQuestion.imageUrl);
   assert.equal(projMemorize.activeRound?.prompt, '', 'Question prompt must stay hidden during MEMORIZE');
   assert.equal(projMemorize.activeRound?.answer, undefined);
   assert.equal(projMemorize.activeRound?.subtopic, undefined);
@@ -212,6 +221,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   assert.equal(projReveal.activeRound?.answer, firstQuestion.answer);
   assert.equal(projReveal.activeRound?.explanation, firstQuestion.explanation);
   assert.equal(projReveal.activeRound?.videoUrl, firstQuestion.videoUrl);
+  assert.equal(projReveal.activeRound?.imageUrl, firstQuestion.imageUrl);
 
   // Award & check reopen correction preserves Visual Memory metadata
   const awarded = awardRoundAndReturnToBoard(room, ['team_1'], 'act_award', advNow + 5000);

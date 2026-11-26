@@ -1,0 +1,3 @@
+# Focus — inspected photo batch
+
+Added 30 questions using 15 individually visually inspected local JPEGs from another category, not old Focus photos. The image credit and source are kept in each explanation and reference. The assets are about 800 px wide; selected details are large enough in the stored JPEG, but projector testing is pending. These are a supplemental reuse batch, not newly downloaded HD images. 37 legacy video questions remain; their full playback was not independently confirmed. No new video clip was approved in this pass. Source licensing is from the existing asset report. Automated test source updated; suite not run in this environment.
