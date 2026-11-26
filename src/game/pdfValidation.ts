@@ -1,4 +1,5 @@
 import { PROPHET_STORIES_CATEGORY } from './prophetStories';
+import { JORDAN_NOSTALGIA_CATEGORY, JORDAN_NOSTALGIA_PLANET_CELLS } from './jordanNostalgia';
 import { isFootballQuestion, pickDiverseFootballQuestion } from './footballQuestionDiversity';
 import type {
   BoardTileState,
@@ -145,6 +146,12 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const image = question.imageDisplay === 'after_reveal'
     ? undefined
     : getQuestionImageSrc(question);
+  // Planet questions use different visible cells of the same archived image.
+  // Include the actual crop coordinates rather than the answer or arbitrary question ID.
+  const planetCell = image && question.categoryId === JORDAN_NOSTALGIA_CATEGORY.id && question.id
+    ? JORDAN_NOSTALGIA_PLANET_CELLS[question.id]
+    : undefined;
+  const visibleImage = planetCell ? `${image}#planet-cell=${planetCell.join(',')}` : image;
   // Multi-image puzzles share a prompt, but are distinct by their visible clue set.
   // Sort a copy so shuffling the same four images cannot bypass duplicate detection.
   const beforeImages = question.imageDisplay !== 'after_reveal' && Array.isArray(question.beforeImageUrls)
@@ -159,7 +166,7 @@ export function questionUniquenessKey(question: Partial<QuizQuestion>): string {
   const orderItems = question.questionType === 'order_steps'
     ? question.orderItems?.map(normalizeArabicText).sort().join('\n')
     : undefined;
-  return [prompt, actingTarget, image, imageGroup, question.memorySecondImageUrl, audio, audioTracks, video, orderItems].filter(Boolean).join('\n');
+  return [prompt, actingTarget, visibleImage, imageGroup, question.memorySecondImageUrl, audio, audioTracks, video, orderItems].filter(Boolean).join('\n');
 }
 
 const SACRED_PANTOMIME_GUARD_TERMS = [
