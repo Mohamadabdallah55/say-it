@@ -14,6 +14,7 @@ interface QuestionMediaProps {
   pageNumber?: number;
   compact?: boolean;
   obscured?: boolean;
+  obscuredDifficulty?: 'easy' | 'medium' | 'hard';
   wide?: boolean;
   variant?: 'question' | 'answer';
   onOrientationDetected?: (orientation: MediaOrientation) => void;
@@ -29,6 +30,7 @@ export const QuestionMedia = memo(function QuestionMedia({
   pageNumber,
   compact = false,
   obscured = false,
+  obscuredDifficulty,
   wide = false,
   variant = 'question',
   onOrientationDetected,
@@ -160,7 +162,9 @@ export const QuestionMedia = memo(function QuestionMedia({
           : 'max-h-[64vh]';
 
   const imgClasses = `mx-auto w-auto h-auto max-w-full rounded-xl object-contain transition-opacity duration-200 ${heightConstraint} ${
-    obscured ? 'blur-[14px] scale-110 select-none pointer-events-none' : 'blur-0 scale-100'
+    obscured
+      ? `${obscuredDifficulty === 'easy' ? 'blur-[10px]' : obscuredDifficulty === 'hard' ? 'blur-[16px]' : 'blur-[13px]'} scale-105 select-none pointer-events-none`
+      : 'blur-0 scale-100'
   } ${!isLoaded && !isFailed ? 'opacity-0' : 'opacity-100'}`;
 
   return (
@@ -205,6 +209,7 @@ export const QuestionMedia = memo(function QuestionMedia({
               sizes={sizes}
               loading="eager"
               decoding="async"
+              referrerPolicy="no-referrer"
               alt={altText}
               draggable={false}
               onLoad={handleImageLoad}
