@@ -1,5 +1,9 @@
 import foodDeck from '../decks/world-food-images/deck.json';
 import type { QuizQuestion } from '../src/game/types';
+import { WHO_SAHABI_CATEGORY } from '../src/game/curatedBanks';
+import { difficultyForPoints } from '../src/game/pdfValidation';
+import type { PointValue } from '../src/game/types';
+import whoSahabiRows from './whoSahabi.json';
 import religiousEvidenceData from './religiousEvidence.json';
 import { PALESTINIAN_PROVERBS_QUESTIONS } from './palestinianProverbsQuestions';
 import { VISUAL_MEMORY_QUESTIONS } from './visualMemoryQuestions';
@@ -53,7 +57,7 @@ const religiousEvidence = religiousEvidenceData as unknown as {
   byQuestion: Record<string, string[]>;
 };
 const sourceRequiredCategories = new Set([
-  'cat_prophetic_biography', 'cat_rashidun', 'cat_prophet_stories',
+  'cat_prophetic_biography', 'cat_rashidun', 'cat_prophet_stories', 'cat_who_sahabi',
   'cat_hadith', 'cat_islamic_ordering', 'cat_islamic_letters',
   'cat_juz_amma', 'cat_juz_tabarak', 'cat_rub_yasin', 'cat_quran_verse_meanings',
 ]);
@@ -66,7 +70,9 @@ function attachReligiousEvidence(question: QuizQuestion): QuizQuestion[] {
   if (question.categoryId === 'cat_rub_yasin') {
     return question.sourceSnippet && /https:\/\/quran\.com\//.test(question.sourceRef || '') ? [question] : [];
   }
-  const keys = religiousEvidence.byQuestion[question.id];
+  const keys = question.categoryId === WHO_SAHABI_CATEGORY.id
+    ? whoSahabiEvidenceKeys.get(question.id)
+    : religiousEvidence.byQuestion[question.id];
   if (!keys?.length) return [];
   const references = keys.map(key => religiousEvidence.texts[key]);
   if (references.some(ref => !ref?.text || !/^https:\/\/(?:quran\.com\/|sunnah\.com\/(?:bukhari|muslim):)/.test(ref.url))) return [];
@@ -77,6 +83,21 @@ function attachReligiousEvidence(question: QuizQuestion): QuizQuestion[] {
     sourceSnippet: references.map(ref => ref.text).join('\n\n'),
   }];
 }
+
+const whoSahabiEvidenceKeys = new Map(whoSahabiRows.map(row => [row.id, row.evidence_keys]));
+const WHO_SAHABI_QUESTIONS: QuizQuestion[] = whoSahabiRows.map(row => ({
+  id: row.id,
+  categoryId: WHO_SAHABI_CATEGORY.id,
+  categoryName: WHO_SAHABI_CATEGORY.name,
+  points: row.points as PointValue,
+  difficulty: difficultyForPoints(row.points as PointValue),
+  questionType: 'direct_qa',
+  prompt: row.prompt,
+  answer: row.answer,
+  subtopic: row.subtopic,
+  status: 'approved',
+  isSensitiveReligious: true,
+}));
 
 export const SERVER_CURATED_QUESTIONS = [
   ...WORLD_FOOD_QUESTIONS,
@@ -100,6 +121,7 @@ export const SERVER_CURATED_QUESTIONS = [
   ...QURAN_MEDIA_QUESTIONS,
   ...CAPITALS_CURRENCIES_QUESTIONS,
   ...PROPHETIC_BIOGRAPHY_QUESTIONS,
+  ...WHO_SAHABI_QUESTIONS,
   ...QURAN_VERSE_MEANINGS_QUESTIONS,
   ...WORLD_WARS_QUESTIONS,
   ...HADITH_QUESTIONS,
