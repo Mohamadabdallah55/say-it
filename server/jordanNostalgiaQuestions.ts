@@ -61,7 +61,8 @@ const typedDataset = dataset as JordanNostalgiaDataset;
 export const JORDAN_NOSTALGIA_ALL_ROWS: JordanNostalgiaQuestionRow[] = [...typedDataset.questions];
 
 function isVerifiedPlayableRow(row: JordanNostalgiaQuestionRow): boolean {
-  if (row.contentStatus === 'approved' && !row.imageRequired && !row.image) return true;
+  // Nostalgia is a visual category. Keep text-only rows in the source bank until they have a matching image.
+  if (!row.imageRequired || !row.image || !(row.image.localFile || row.image.url)) return false;
   if (row.contentStatus === 'approved' &&
       row.rightsStatus === 'external_reference_unconfirmed' &&
       row.image?.status === 'external_reference' &&
