@@ -217,9 +217,10 @@ export const QuestionMedia = memo(function QuestionMedia({
                 className="absolute max-w-none select-none pointer-events-none"
                 style={{ width: '300%', height: '300%', maxWidth: 'none', left: `${-100 * planetCell[0]}%`, top: `${-100 * planetCell[1]}%`, opacity: isLoaded ? 1 : 0 }}
               />
-              {hidePlanetLabel && (
-                <span aria-hidden="true" className="absolute pointer-events-none backdrop-blur-[24px] bg-[#080F26]/95" style={{ right: 0, bottom: 0, width: '46%', height: '18%' }} />
-              )}
+              {hidePlanetLabel && isLoaded && answerMasks?.map((mask, index) => (
+                <span key={index} aria-hidden="true" className="absolute pointer-events-none backdrop-blur-[18px] bg-[#080F26]/75"
+                  style={{ left: `${mask.x * 100}%`, top: `${mask.y * 100}%`, width: `${mask.w * 100}%`, height: `${mask.h * 100}%` }} />
+              ))}
             </div>
           </div>
         ) : answerMasks?.length ? (
@@ -244,7 +245,7 @@ export const QuestionMedia = memo(function QuestionMedia({
                 <span
                   key={index}
                   aria-hidden="true"
-                  className="pointer-events-none absolute backdrop-blur-[20px] bg-[#1F112E]/85"
+                  className="pointer-events-none absolute backdrop-blur-[16px] bg-[#1F112E]/65"
                   style={{ left: `${mask.x * 100}%`, top: `${mask.y * 100}%`, width: `${mask.w * 100}%`, height: `${mask.h * 100}%` }}
                 />
               ))}
