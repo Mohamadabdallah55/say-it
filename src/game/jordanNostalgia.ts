@@ -9,7 +9,7 @@ export const JORDAN_NOSTALGIA_CATEGORY: DeckCategory = {
 };
 
 export const JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT = 112;
-export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 112;
+export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 40;
 
 /** Normalized regions inspected against original photo pixels. Only applied before reveal. */
 export const JORDAN_NOSTALGIA_ANSWER_MASKS: Readonly<Record<string, readonly { x: number; y: number; w: number; h: number }[]>> = {
