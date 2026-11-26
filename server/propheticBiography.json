@@ -41,17 +41,17 @@
   },
   {
     "id": "SAH-006",
-    "difficulty": 400,
-    "question": "من الصحابي الذي أخذ الراية في مؤتة بعد القادة الثلاثة؟",
-    "answer": "خالد بن الوليد",
+    "difficulty": 200,
+    "question": "من الصحابي الذي حمل الراية في مؤتة بعد القادة الثلاثة؟",
+    "answer": "خالد بن الوليد.",
     "reference": "https://sunnah.com/bukhari/64",
     "note": "لقّب بسيف من سيوف الله."
   },
   {
     "id": "SAH-007",
-    "difficulty": 400,
-    "question": "من الصحابي الذي سبق الهجرة إلى يثرب ليعلّم أهلها القرآن والإسلام؟",
-    "answer": "مصعب بن عمير",
+    "difficulty": 200,
+    "question": "من الصحابي الذي أرسله النبي ﷺ إلى المدينة معلّمًا قبل الهجرة؟",
+    "answer": "مصعب بن عمير.",
     "reference": "https://sunnah.com/bukhari/63",
     "note": "من أوائل سفراء الدعوة إلى المدينة."
   },
@@ -73,7 +73,7 @@
   },
   {
     "id": "SAH-010",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "كم ليلة مكث النبي ﷺ وصاحبه في غار ثور قبل مواصلة الهجرة؟",
     "answer": "ثلاث ليال",
     "reference": "https://sunnah.com/bukhari:3905",
@@ -113,17 +113,17 @@
   },
   {
     "id": "SAH-015",
-    "difficulty": 400,
-    "question": "ما الطلب الذي عبّر عنه أبو بكر حين علم أن النبي ﷺ أُذن له بالهجرة؟",
-    "answer": "أن يصحبه في الرحلة",
+    "difficulty": 200,
+    "question": "ماذا طلب أبو بكر من النبي ﷺ عندما علم بإذنه له بالهجرة؟",
+    "answer": "أن يصحبه.",
     "reference": "https://sunnah.com/bukhari:3905",
     "note": "فرح أبو بكر بالإذن له بالصحبة."
   },
   {
     "id": "SAH-016",
-    "difficulty": 400,
-    "question": "من الصحابي الذي دعا له النبي ﷺ بقوله: اللهم علّمه الكتاب؟",
-    "answer": "عبد الله بن عباس",
+    "difficulty": 200,
+    "question": "من ابن عم النبي ﷺ الذي دعا له أن يعلّمه الكتاب؟",
+    "answer": "عبد الله بن عباس.",
     "reference": "https://sunnah.com/bukhari:3756",
     "note": "ورد دعاء النبي له في الصحيح."
   },
@@ -137,7 +137,7 @@
   },
   {
     "id": "SAH-018",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من شاعر النبي ﷺ الذي دعا له بالتأييد بروح القدس؟",
     "answer": "حسان بن ثابت",
     "reference": "https://sunnah.com/muslim:2486a",
@@ -145,9 +145,9 @@
   },
   {
     "id": "SAH-019",
-    "difficulty": 400,
-    "question": "من كتب وثيقة الصلح بين النبي ﷺ وقريش في الحديبية؟",
-    "answer": "علي بن أبي طالب",
+    "difficulty": 200,
+    "question": "من الصحابي الذي كتب وثيقة صلح الحديبية؟",
+    "answer": "علي بن أبي طالب.",
     "reference": "https://sunnah.com/bukhari:2731",
     "note": "أُمر بكتابة شروط الصلح."
   },
@@ -169,9 +169,9 @@
   },
   {
     "id": "SAH-022",
-    "difficulty": 400,
-    "question": "أي سورة افتتحت بقوله تعالى: ﴿إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا﴾ بعد الحديبية؟",
-    "answer": "سورة الفتح",
+    "difficulty": 200,
+    "question": "أي سورة تبدأ بقوله تعالى: ﴿إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا﴾؟",
+    "answer": "سورة الفتح.",
     "reference": "https://quran.com/48/1",
     "note": "افتتحت السورة بالبشارة بالفتح."
   },
@@ -193,7 +193,7 @@
   },
   {
     "id": "SAH-025",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من أم المؤمنين التي أشارت على النبي ﷺ أن يبدأ بنحر هديه والحلق يوم الحديبية؟",
     "answer": "أم سلمة",
     "reference": "https://sunnah.com/bukhari:2731",
@@ -241,7 +241,7 @@
   },
   {
     "id": "SAH-031",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من حمل راية المسلمين في مؤتة بعد زيد بن حارثة مباشرة؟",
     "answer": "جعفر بن أبي طالب",
     "reference": "https://sunnah.com/bukhari/64",
@@ -257,9 +257,9 @@
   },
   {
     "id": "SAH-033",
-    "difficulty": 400,
-    "question": "بأي اسم ذُكرت المدينة المنورة على لسان بعض أهلها في سورة الأحزاب؟",
-    "answer": "يثرب",
+    "difficulty": 200,
+    "question": "ما الاسم القديم للمدينة المنورة الذي ورد في سورة الأحزاب؟",
+    "answer": "يثرب.",
     "reference": "https://quran.com/33/13",
     "note": "ورد الاسم في الآية."
   },
@@ -353,7 +353,7 @@
   },
   {
     "id": "SAH-045",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابي الذي وصفه النبي ﷺ بأنه حواريّه؟",
     "answer": "الزبير بن العوام",
     "reference": "https://sunnah.com/bukhari:3719",
@@ -377,7 +377,7 @@
   },
   {
     "id": "SAH-048",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابي الذي قال للنبي ﷺ إنه أحب إليه من كل شيء إلا نفسه، ثم راجع قوله؟",
     "answer": "عمر بن الخطاب",
     "reference": "https://sunnah.com/bukhari:6632",
@@ -385,9 +385,9 @@
   },
   {
     "id": "SAH-049",
-    "difficulty": 400,
-    "question": "ما اسم البيعة التي أشار إليها قوله تعالى: ﴿إِذْ يُبَايِعُونَكَ تَحْتَ الشَّجَرَةِ﴾؟",
-    "answer": "بيعة الرضوان",
+    "difficulty": 200,
+    "question": "بأي اسم عُرفت بيعة المسلمين للنبي ﷺ تحت الشجرة؟",
+    "answer": "بيعة الرضوان.",
     "reference": "https://quran.com/48/18",
     "note": "وقعت البيعة في الحديبية."
   },
@@ -409,7 +409,7 @@
   },
   {
     "id": "SAH-052",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابي الذي بعثه النبي ﷺ إلى اليمن وأوصاه أن يبدأ بدعوة أهل الكتاب إلى التوحيد؟",
     "answer": "معاذ بن جبل",
     "reference": "https://sunnah.com/bukhari:1395",
@@ -537,9 +537,9 @@
   },
   {
     "id": "SAH-068",
-    "difficulty": 400,
-    "question": "من الصحابي الشاب ابن زيد بن حارثة الذي أمّره النبي ﷺ على بعث؟",
-    "answer": "أسامة بن زيد",
+    "difficulty": 200,
+    "question": "ما اسم ابن زيد بن حارثة الذي أمّره النبي ﷺ على جيش؟",
+    "answer": "أسامة بن زيد.",
     "reference": "https://sunnah.com/muslim/44",
     "note": "ثبت دفاع النبي عن إمارته."
   },
@@ -577,7 +577,7 @@
   },
   {
     "id": "SAH-073",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من أم المؤمنين التي كان ضياع عقدها سببًا لنزول آية التيمم؟",
     "answer": "عائشة بنت أبي بكر",
     "reference": "https://sunnah.com/bukhari:334",
@@ -601,7 +601,7 @@
   },
   {
     "id": "SAH-076",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "في أي غزوة تخلف الثلاثة الذين تاب الله عليهم؟",
     "answer": "تبوك",
     "reference": "https://quran.com/9/118",
@@ -617,7 +617,7 @@
   },
   {
     "id": "SAH-078",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من ذكر النبي ﷺ بعد أبي بكر عندما سأله عمرو بن العاص عن أحب الرجال إليه؟",
     "answer": "عمر بن الخطاب.",
     "reference": "https://sunnah.com/muslim:2384",
@@ -649,9 +649,9 @@
   },
   {
     "id": "SAH-082",
-    "difficulty": 400,
-    "question": "من قيل له: أنت مني بمنزلة هارون من موسى إلا أنه لا نبي بعدي؟",
-    "answer": "علي بن أبي طالب",
+    "difficulty": 200,
+    "question": "أي صحابي شبّه النبي ﷺ منزلته منه بمنزلة هارون من موسى؟",
+    "answer": "علي بن أبي طالب.",
     "reference": "https://sunnah.com/muslim:2404a",
     "note": "وردت المناسبة عند استخلافه في تبوك."
   },
@@ -689,7 +689,7 @@
   },
   {
     "id": "SAH-087",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "في أي غزوة أخذ أبو دجانة سيف النبي ﷺ بحقه؟",
     "answer": "أُحد",
     "reference": "https://sunnah.com/muslim:2470",
@@ -713,9 +713,9 @@
   },
   {
     "id": "SAH-090",
-    "difficulty": 400,
-    "question": "ما الاسم الذي وافق النبي ﷺ على كتابته بدل «محمد رسول الله» في وثيقة الحديبية؟",
-    "answer": "محمد بن عبد الله",
+    "difficulty": 200,
+    "question": "ما اسم والد النبي محمد ﷺ؟",
+    "answer": "عبد الله.",
     "reference": "https://sunnah.com/bukhari:2731",
     "note": "أتم الصلح رغم الاعتراض على الصيغة."
   },
@@ -753,7 +753,7 @@
   },
   {
     "id": "SAH-095",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابية التي جاءت بأنس ليخدم النبي ﷺ؟",
     "answer": "أم سليم",
     "reference": "https://sunnah.com/muslim/44",
@@ -769,9 +769,9 @@
   },
   {
     "id": "SAH-097",
-    "difficulty": 400,
-    "question": "إلى من ذهبت خديجة بالنبي ﷺ بعد نزول الوحي عليه في حراء؟",
-    "answer": "ورقة بن نوفل",
+    "difficulty": 200,
+    "question": "ما اسم الرجل الذي ذهبت إليه خديجة لتسأله عن نزول الوحي؟",
+    "answer": "ورقة بن نوفل.",
     "reference": "https://sunnah.com/bukhari:3",
     "note": "حديث بدء الوحي."
   },
@@ -801,7 +801,7 @@
   },
   {
     "id": "SAH-101",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "في أي غزوة أعجبت المسلمين كثرتهم فلم تغن عنهم شيئًا؟",
     "answer": "حنين",
     "reference": "https://quran.com/9/25",
@@ -849,9 +849,9 @@
   },
   {
     "id": "SAH-107",
-    "difficulty": 400,
-    "question": "أي فتح وقع عقب صلح الحديبية واشتهر بفتح الحصون؟",
-    "answer": "خيبر",
+    "difficulty": 200,
+    "question": "أي فتح اشتهر بحصون اليهود بعد صلح الحديبية؟",
+    "answer": "خيبر.",
     "reference": "https://sunnah.com/bukhari/64",
     "note": "خيبر من أحداث العهد المدني بعد الحديبية."
   },
@@ -865,7 +865,7 @@
   },
   {
     "id": "SAH-109",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابي الذي كان أحب أسمائه إليه لقب أبي تراب؟",
     "answer": "علي بن أبي طالب",
     "reference": "https://sunnah.com/bukhari/62",
@@ -897,7 +897,7 @@
   },
   {
     "id": "SAH-113",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "أي سورة بدأت بسماع الله قول المرأة التي تجادل النبي ﷺ في زوجها؟",
     "answer": "المجادلة",
     "reference": "https://quran.com/58/1",
@@ -905,15 +905,15 @@
   },
   {
     "id": "SAH-114",
-    "difficulty": 400,
-    "question": "ماذا توقع ورقة بن نوفل أن يفعل قوم النبي ﷺ به في المستقبل؟",
-    "answer": "سيخرجونه من بلده",
+    "difficulty": 200,
+    "question": "ماذا توقع ورقة بن نوفل أن يفعل قوم النبي ﷺ به: أن يخرجوه من مكة أم يتركوه؟",
+    "answer": "أن يخرجوه من مكة.",
     "reference": "https://sunnah.com/bukhari:3",
     "note": "أخبره أن الرسل يواجهون عداوة أقوامهم."
   },
   {
     "id": "SAH-115",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من أم المؤمنين التي روت غيرتها من كثرة ذكر النبي ﷺ لخديجة؟",
     "answer": "عائشة بنت أبي بكر",
     "reference": "https://sunnah.com/muslim:2435b",
@@ -937,7 +937,7 @@
   },
   {
     "id": "SAH-118",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابية التي لُقبت بذات النطاقين؟",
     "answer": "أسماء بنت أبي بكر",
     "reference": "https://sunnah.com/bukhari/63",
@@ -945,7 +945,7 @@
   },
   {
     "id": "SAH-119",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "ما الاسم الآخر لبيعة الرضوان؟",
     "answer": "بيعة الشجرة",
     "reference": "https://quran.com/48/18",
@@ -993,9 +993,9 @@
   },
   {
     "id": "SAH-125",
-    "difficulty": 400,
-    "question": "من الصحابي الذي وصفه النبي ﷺ بأنه أمين هذه الأمة؟",
-    "answer": "أبو عبيدة بن الجراح",
+    "difficulty": 200,
+    "question": "من الصحابي المعروف بلقب أمين الأمة؟",
+    "answer": "أبو عبيدة بن الجراح.",
     "reference": "https://sunnah.com/bukhari:3744",
     "note": "ورد لقبه في الحديث الصحيح."
   },
@@ -1041,7 +1041,7 @@
   },
   {
     "id": "SAH-131",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "لأي صحابي دعا النبي ﷺ بكثرة المال والولد والبركة؟",
     "answer": "أنس بن مالك",
     "reference": "https://sunnah.com/muslim/44",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "SAH-133",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "بأي موقف نجا كعب بن مالك في قصة تخلفه عن تبوك؟",
     "answer": "الصدق والاعتراف بالحق",
     "reference": "https://sunnah.com/bukhari:4418",
@@ -1097,7 +1097,7 @@
   },
   {
     "id": "SAH-138",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "في أي غزوة قال النبي ﷺ لسعد بن أبي وقاص: فداك أبي وأمي؟",
     "answer": "أحد",
     "reference": "https://sunnah.com/bukhari:3725",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "SAH-141",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من الصحابي الذي اهتز عرش الرحمن لموته؟",
     "answer": "سعد بن معاذ",
     "reference": "https://sunnah.com/bukhari:3803",
@@ -1137,7 +1137,7 @@
   },
   {
     "id": "SAH-143",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من أم المؤمنين التي بشّرها جبريل ببيت في الجنة لا صخب فيه ولا نصب؟",
     "answer": "خديجة بنت خويلد",
     "reference": "https://sunnah.com/muslim:2432a",
@@ -1185,7 +1185,7 @@
   },
   {
     "id": "SAH-149",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من والد أول مولود للمهاجرين في المدينة بعد الهجرة؟",
     "answer": "الزبير بن العوام",
     "reference": "https://sunnah.com/bukhari/63",
@@ -1193,7 +1193,7 @@
   },
   {
     "id": "SAH-150",
-    "difficulty": 400,
+    "difficulty": 200,
     "question": "من أم المؤمنين التي آثرت عمر بموضع الدفن بجوار النبي ﷺ وأبي بكر؟",
     "answer": "عائشة بنت أبي بكر",
     "reference": "https://sunnah.com/bukhari:3700",
