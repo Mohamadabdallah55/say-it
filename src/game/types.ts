@@ -328,6 +328,8 @@ export interface ScoreHistoryEntry {
 export interface MatchSettings {
   countUp?: boolean;
   cards?: LifelineType[];
+  /** When set, each team has its own selection (including an empty selection). */
+  teamCards?: Record<string, LifelineType[]>;
   categoryCount: number;
   timerSeconds: number;
   lifelinesEnabled: boolean;
