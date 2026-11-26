@@ -66,7 +66,7 @@ function isVerifiedPlayableRow(row: JordanNostalgiaQuestionRow): boolean {
       row.rightsStatus === 'external_reference_unconfirmed' &&
       row.image?.status === 'external_reference' &&
       typeof row.image.url === 'string' &&
-      /^https:\/\/(?:shared\.akamai\.steamstatic\.com|www\.macgamestore\.com|lassaho\.weebly\.com|cdn\.mobygames\.com|images\.igdb\.com|images\.squarespace-cdn\.com|i0\.wp\.com|images\.steamusercontent\.com|www\.pomu\.com|m\.media-amazon\.com)\//.test(row.image.url) &&
+      /^https:\/\/(?:shared\.akamai\.steamstatic\.com|www\.macgamestore\.com|lassaho\.weebly\.com|cdn\.mobygames\.com|images\.igdb\.com|images\.squarespace-cdn\.com|i0\.wp\.com|images\.steamusercontent\.com|www\.pomu\.com|m\.media-amazon\.com|assets\.funnygames\.org|s3-eu-west-1\.amazonaws\.com|www\.myabandonware\.com|www\.gamekarma\.com|images\.pling\.com|www\.cdgameclub\.com|img\.utdstc\.com|www\.sify\.com|static\.toiimg\.com|2\.bp\.blogspot\.com|imgix\.bustle\.com)\//.test(row.image.url) &&
       row.image.sourcePage?.startsWith('https://')) return true;
   return (
     row.contentStatus === 'approved' &&
