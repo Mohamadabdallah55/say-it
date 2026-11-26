@@ -2,21 +2,26 @@ import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { ArrowRight, Copy, Pencil, Plus, Users, X } from 'lucide-react';
 import { COLORS, DEFAULT_CONFIG, WORD_CATEGORIES, drawingAction, drawingView, startDrawing, type DrawingConfig, type DrawingGame, type DrawingView, type Point } from '../game/drawingImpostor';
 
-type RoomView = {code:string;player:number;host:boolean;names:string[];config:DrawingConfig;revision:number;game:DrawingView|null};
+type RoomView = {code:string;player:number;host:boolean;names:string[];config:DrawingConfig;revision:number;hostPlayer?:number;online?:boolean[];game:DrawingView|null};
 type Session = {code:string;token:string};
 const panel='rounded-3xl border-2 border-[#251d36] bg-[#fffdf5] p-5 shadow-[0_4px_0_#251d36]';
 const btn='rounded-xl border-2 border-[#251d36] px-4 py-3 font-black shadow-[0_3px_0_#251d36] disabled:opacity-40 disabled:shadow-none';
 const yellow=btn+' bg-[#ffdf62]';
 const secondary=btn+' bg-white';
 const field='rounded-xl border-2 border-[#251d36] bg-white px-3 py-3 font-bold min-w-0 w-full';
+const SESSION_KEY='yh-drawing-session-v2';
+const LOCAL_KEY='yh-drawing-local-v2';
+function saved<T>(key:string):T|null {try{return JSON.parse(sessionStorage.getItem(key)||'null') as T|null;}catch{return null;}}
+function store(key:string,value:unknown){try{if(value===null)sessionStorage.removeItem(key);else sessionStorage.setItem(key,JSON.stringify(value));}catch{}}
+class DrawingApiError extends Error {constructor(message:string,public status:number){super(message);}}
 const emptyNames=['اللاعب الأول','اللاعب الثاني','اللاعب الثالث'];
 function Option({selected,label,onClick}:{selected:boolean;label:string;onClick:()=>void}){
   return <button type="button" aria-pressed={selected} className={btn+(selected?' bg-[#ffdf62]':' bg-[#fffdf5]')} onClick={onClick}>{label}</button>;
 }
 async function api(path:string,method='GET',body?:unknown,session?:Session){
-  const res=await fetch('/api/drawing'+path,{method,cache:'no-store',headers:{'Content-Type':'application/json',...(session?{'X-Drawing-Token':session.token}:{})},...(body!==undefined?{body:JSON.stringify(body)}:{})});
+  const res=await fetch('/api/drawing'+path,{signal:AbortSignal.timeout(12000),method,cache:'no-store',headers:{'Content-Type':'application/json',...(session?{'X-Drawing-Token':session.token}:{})},...(body!==undefined?{body:JSON.stringify(body)}:{})});
   const data=await res.json();
-  if(!res.ok)throw new Error(data.error||'تعذر الاتصال بالغرفة.');
+  if(!res.ok)throw new DrawingApiError(data.error||'تعذر الاتصال بالغرفة.',res.status);
   return data;
 }
 function Board({view,enabled,onStroke}:{view:DrawingView;enabled:boolean;onStroke:(points:Point[])=>void}){
@@ -48,9 +53,10 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const [config,setConfig]=useState<DrawingConfig>(DEFAULT_CONFIG);
   const [name,setName]=useState('');
   const [joinCode,setJoinCode]=useState(initialCode);
-  const [local,setLocal]=useState<DrawingGame|null>(null);
+  const [local,setLocal]=useState<DrawingGame|null>(()=>initialCode?null:saved<DrawingGame>(LOCAL_KEY));
   const [room,setRoom]=useState<RoomView|null>(null);
-  const [session,setSession]=useState<Session|null>(null);
+  const [session,setSession]=useState<Session|null>(()=>{const s=saved<Session>(SESSION_KEY);return s&&(!initialCode||s.code===initialCode.toUpperCase())?s:null;});
+  const [connected,setConnected]=useState(true);
   const [busy,setBusy]=useState(false);
   const [error,setError]=useState('');
   const [secret,setSecret]=useState(false);
@@ -61,19 +67,24 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const pending=useRef(false);
   const mounted=useRef(true);
   useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
-  const receive=(data:RoomView)=>setRoom(old=>!old||old.code!==data.code||data.revision>=old.revision?data:old);
+  const receive=(data:RoomView)=>{setConnected(true);setRoom(old=>!old||old.code!==data.code||data.revision>=old.revision?data:old);};
+  useEffect(()=>{store(SESSION_KEY,session);},[session]);
+  useEffect(()=>{store(LOCAL_KEY,local);},[local]);
   useEffect(()=>{
     if(!session)return;
     let stop=false,fetching=false;
-    const update=async()=>{if(stop||fetching||pending.current)return;fetching=true;try{const data=await api('/'+session.code,'GET',undefined,session);if(!stop)receive(data);}catch(e){if(!stop)setError(e instanceof Error?e.message:'فُقد الاتصال.');}finally{fetching=false;}};
-    void update();const timer=window.setInterval(update,1100);return()=>{stop=true;window.clearInterval(timer);};
+    const update=async()=>{if(stop||fetching||pending.current)return;fetching=true;try{const data=await api('/'+session.code,'GET',undefined,session);if(!stop)receive(data);}catch(e){if(!stop){setConnected(false);if(e instanceof DrawingApiError&&[403,404].includes(e.status)){setError(e.message);setSession(null);setRoom(null);}}}finally{fetching=false;}};
+    void update();const timer=window.setInterval(()=>{if(!document.hidden)void update();},1800);
+    window.addEventListener('online',update);document.addEventListener('visibilitychange',update);
+    return()=>{stop=true;window.clearInterval(timer);window.removeEventListener('online',update);document.removeEventListener('visibilitychange',update);};
   },[session]);
   const localPlayer=local?(local.phase==='secret'?local.names.findIndex((_,i)=>!local.ready.includes(i)):local.phase==='vote'?local.names.findIndex((_,i)=>local.votes[i]===undefined):local.phase==='guess'?local.outsider:local.order[local.cursor%local.names.length]):-1;
   const player=room?.player??Math.max(0,localPlayer);
   const host=room?.host??true;
   const view=local?drawingView(local,player):room?.game;
   const waiting=!!room&&!view;
-  const canDraw=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&!busy;
+  const restoring=!!session&&!room;
+  const canDraw=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&!busy&&(!session||connected);
   useEffect(()=>{if(view?.phase!=='discussion')return;setNow(Date.now());const timer=window.setInterval(()=>setNow(Date.now()),250);return()=>window.clearInterval(timer);},[view?.phase,view?.deadline]);
   const seconds=view?.deadline?Math.max(0,Math.ceil((view.deadline-now)/1000)):null;
   useEffect(()=>{setSecret(false);setGuess('');},[view?.round,view?.phase,player]);
@@ -86,15 +97,20 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     }
     if(!session||!room)return;
     pending.current=true;setBusy(true);
-    try{const data=await api('/'+session.code+'/action','POST',{action:type,value,revision:room.revision},session);if(mounted.current)receive(data);}catch(e){if(mounted.current)setError(e instanceof Error?e.message:'تعذر الاتصال.');}finally{pending.current=false;if(mounted.current)setBusy(false);}
+    try{
+      const body={action:type,value,revision:room.revision,actionId:crypto.randomUUID(),round:room.game?.round,phase:room.game?.phase};
+      let data;try{data=await api('/'+session.code+'/action','POST',body,session);}catch(e){if(e instanceof DrawingApiError)throw e;data=await api('/'+session.code+'/action','POST',body,session);}
+      if(mounted.current)receive(data);
+    }catch(e){if(mounted.current){setError(e instanceof Error?e.message:'تعذر الاتصال.');try{receive(await api('/'+session.code,'GET',undefined,session));}catch{setConnected(false);}}}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
   const autoVoteRef=useRef<string>('');
   useEffect(()=>{
-    if(!host||view?.phase!=='discussion'||seconds!==0||!view.deadline)return;
+    if(!local||!host||view?.phase!=='discussion'||seconds!==0||!view.deadline)return;
     const key=view.round+':'+view.cycles+':'+view.deadline;if(autoVoteRef.current===key)return;
     autoVoteRef.current=key;void action('voting');
-  },[host,view?.phase,view?.deadline,view?.round,view?.cycles,seconds]);
+  },[local,host,view?.phase,view?.deadline,view?.round,view?.cycles,seconds]);
   async function start(){
+    if(pending.current)return;
     setError('');
     if(mode==='local'){
       const clean=names.map(n=>n.trim());
@@ -106,7 +122,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     try{const data=await api(onlineMode==='create'?'/create':'/join','POST',{name,code:joinCode.trim().toUpperCase(),config});if(!mounted.current)return;setRoom(data);setSession({code:data.code,token:data.token});}
     catch(e){setError(e instanceof Error?e.message:'تعذر إنشاء الغرفة.');}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
-  function leave(){setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
+  function leave(){store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
   const invite=room?window.location.origin+'/?drawing=1&join='+encodeURIComponent(room.code):'';
   const share=async()=>{try{await navigator.clipboard.writeText(invite);setCopied(true);}catch{setCopied(false);setError('انسخ الرابط الظاهر يدويًا.');}};
   return <div dir="rtl" className="min-h-screen bg-[#f5ecdc] text-[#251d36] p-3 sm:p-6">
@@ -117,7 +133,9 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
       </header>
       {showRules&&<section className={panel+' space-y-3'}><h2 className="font-black text-xl">طريقة اللعب</h2><p>من 3 إلى 10 لاعبين. الجميع يعرف الكلمة إلا لاعب واحد؛ في المموّه يستلم كلمة مشابهة ولا يعرف دوره.</p><p>ارسموا على نفس اللوحة. لكل لاعب لون وخط واحد متصل في كل دورة، بدون حروف أو أرقام مكتوبة. دورتان، والمضيف يقدر يضيف ثالثة.</p><p>ناقشوا الرسمة ثم صوّتوا بالسر. إذا اكتشفتم المختلف، عنده محاولة لتخمين الكلمة. إذا نجح أو لم يُكشف، يأخذ نقطتين؛ إذا فشل يأخذ كل لاعب آخر نقطة. التعادل في التصويت يحسب لصالح المختلف.</p><p className="text-sm">الغرف الإلكترونية خاصة برمز دعوة فقط. النقاش بين أصحابك وجهًا لوجه؛ لا توجد دردشة عامة.</p></section>}
       {error&&<div role="alert" className="rounded-xl border-2 border-red-800 bg-red-50 px-4 py-3 font-bold text-red-900">{error}<button onClick={()=>setError('')} className="float-left" aria-label="إغلاق"><X size={18}/></button></div>}
-      {!view&&!waiting&&<div className="grid gap-4 md:grid-cols-2">
+      {restoring&&<section className={panel+' space-y-3'}><p role="status">جاري استعادة اتصال الغرفة…</p><button className={secondary} onClick={leave}>إلغاء الاستعادة</button></section>}
+      {session&&!connected&&!restoring&&<p role="status" className="rounded-xl bg-amber-100 p-3 font-bold">انقطع الاتصال، نحاول استعادته تلقائيًا. لا تغلق الصفحة.</p>}
+      {!view&&!waiting&&!restoring&&<div className="grid gap-4 md:grid-cols-2">
         <section className={panel+' space-y-4'}><h2 className="text-xl font-black">طريقة اللعب</h2><div className="grid grid-cols-2 gap-2"><Option selected={mode==='local'} label="جهاز واحد" onClick={()=>setMode('local')}/><Option selected={mode==='online'} label="أجهزة متعددة" onClick={()=>setMode('online')}/></div>
           {mode==='local'?<><div className="flex items-center justify-between"><h3 className="font-black">اللاعبون ({names.length}/10)</h3><button className={secondary} disabled={names.length>=10} onClick={()=>setNames([...names,'اللاعب '+(names.length+1)])}><Plus size={16}/></button></div>
           {names.map((n,i)=><div className="flex items-center gap-2" key={i}><span className="w-4 h-4 rounded-full shrink-0" style={{background:COLORS[i]}}/><input className={field} aria-label={'اسم اللاعب '+(i+1)} maxLength={24} value={n} onChange={e=>setNames(names.map((v,j)=>i===j?e.target.value:v))}/><button className={secondary} disabled={names.length<=3} aria-label="حذف لاعب" onClick={()=>setNames(names.filter((_,j)=>j!==i))}><X size={16}/></button></div>)}</>:<><div className="grid grid-cols-2 gap-2"><Option selected={onlineMode==='create'} label="غرفة خاصة" onClick={()=>setOnlineMode('create')}/><Option selected={onlineMode==='join'} label="انضم برمز" onClick={()=>setOnlineMode('join')}/></div><input className={field} placeholder="اسمك المستعار" maxLength={24} value={name} onChange={e=>setName(e.target.value)}/>{onlineMode==='join'&&<input className={field} placeholder="رمز الغرفة" dir="ltr" maxLength={10} value={joinCode} onChange={e=>setJoinCode(e.target.value.toUpperCase())}/>}<p className="text-sm font-bold">شارك الرمز فقط مع الأشخاص الذين تعرفهم.</p></>}
@@ -128,8 +146,9 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
         <h3 className="font-black">ملف الكلمات</h3><div className="grid grid-cols-2 gap-2">{WORD_CATEGORIES.map(c=><Option key={c.name} selected={config.category===c.name} label={c.name} onClick={()=>setConfig({...config,category:c.name})}/>)}</div></section>}
         <button className={yellow+' md:col-span-2 text-xl'} disabled={busy} onClick={start}>{busy?'جاري الاتصال…':mode==='local'?'ابدأ اللعبة':onlineMode==='create'?'أنشئ غرفة خاصة':'انضم للغرفة'}</button>
       </div>}
-      {waiting&&room&&<section className={panel+' space-y-4'}><h2 className="text-2xl font-black">غرفة خاصة</h2><div className="bg-[#f5ecdc] rounded-xl p-4 text-center"><p>رمز الغرفة</p><strong dir="ltr" className="text-3xl tracking-widest">{room.code}</strong></div><input readOnly dir="ltr" className={field} value={invite}/><button className={secondary+' flex gap-2 items-center'} onClick={share}><Copy size={18}/>{copied?'تم النسخ':'انسخ رابط الدعوة'}</button><h3 className="font-black flex gap-2 items-center"><Users size={18}/> اللاعبون ({room.names.length}/10)</h3><div className="flex flex-wrap gap-2">{room.names.map((n,i)=><span key={i} className="rounded-xl border-2 px-3 py-2 font-bold" style={{borderColor:COLORS[i]}}>{n}{i===0?' · المضيف':''}</span>)}</div>{room.host?<button disabled={busy||room.names.length<3} className={yellow+' w-full'} onClick={()=>action('start')}>ابدأ اللعبة (3 لاعبين على الأقل)</button>:<p>بانتظار المضيف لبدء اللعبة.</p>}<button className={secondary} onClick={leave}>مغادرة الغرفة</button></section>}
+      {waiting&&room&&<section className={panel+' space-y-4'}><h2 className="text-2xl font-black">غرفة خاصة</h2><div className="bg-[#f5ecdc] rounded-xl p-4 text-center"><p>رمز الغرفة</p><strong dir="ltr" className="text-3xl tracking-widest">{room.code}</strong></div><input readOnly dir="ltr" className={field} value={invite}/><button className={secondary+' flex gap-2 items-center'} onClick={share}><Copy size={18}/>{copied?'تم النسخ':'انسخ رابط الدعوة'}</button><h3 className="font-black flex gap-2 items-center"><Users size={18}/> اللاعبون ({room.names.length}/10)</h3><div className="flex flex-wrap gap-2">{room.names.map((n,i)=><span key={i} className="rounded-xl border-2 px-3 py-2 font-bold" style={{borderColor:COLORS[i]}}>{n}{i===(room.hostPlayer??0)?' · المضيف':''}</span>)}</div>{room.host?<button disabled={busy||room.names.length<3} className={yellow+' w-full'} onClick={()=>action('start')}>ابدأ اللعبة (3 لاعبين على الأقل)</button>:<p>بانتظار المضيف لبدء اللعبة.</p>}<button className={secondary} onClick={leave}>مغادرة الغرفة</button></section>}
       {view&&<>
+        {room&&host&&room.online&&['secret','draw','vote','guess'].includes(view.phase)&&<div className="flex flex-wrap gap-2">{view.names.map((n,i)=>!room.online?.[i]&&((view.phase==='secret'&&!view.ready.includes(i))||(view.phase==='draw'&&i===view.order[view.cursor%view.names.length])||(view.phase==='vote'&&!view.voted.includes(i))||(view.phase==='guess'&&i===view.outsider))?<button key={i} className={secondary} disabled={busy||!connected} onClick={()=>{if(window.confirm('تخطي دور '+n+' بسبب انقطاع الاتصال؟'))void action('skip_disconnected',i);}}>تخطي دور {n} (غير متصل)</button>:null)}</div>}
         <div className="flex flex-wrap gap-2 justify-between font-black"><span className="rounded-xl bg-[#251d36] px-4 py-2 text-white">الجولة {view.round} / {view.config.rounds}</span><span className="rounded-xl border-2 border-[#251d36] px-4 py-2 bg-white">{view.config.category}</span></div>
         {view.phase==='secret'&&<section className={panel+' text-center space-y-4'}><h2 className="text-2xl font-black">{local?'مرّر الجهاز إلى '+view.names[player]:'بطاقتك السرية · '+view.names[player]}</h2>{view.ready.includes(player)?<p>بانتظار بقية اللاعبين ({view.ready.length}/{view.names.length})</p>:!secret?<><p>لا تخلي أي لاعب ثاني يشوف بطاقتك.</p><button className={yellow+' w-full'} onClick={()=>setSecret(true)}>اكشف بطاقتي</button></>:<><div className="rounded-2xl bg-[#251d36] p-8 text-white text-3xl font-black">{view.clue}</div><button className={yellow+' w-full'} disabled={busy} onClick={()=>{setSecret(false);void action('ready');}}>فهمت، أخفِ البطاقة</button></>}<p className="text-sm font-bold">جاهزون: {view.ready.length} / {view.names.length}</p></section>}
         {['draw','discussion','vote','guess','result','final'].includes(view.phase)&&<section className={panel+' space-y-3'}>
