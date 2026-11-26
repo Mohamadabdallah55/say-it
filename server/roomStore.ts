@@ -18,6 +18,7 @@ import {
   resumeChallengeTimer,
   revealAnswer,
   revealRoundHint,
+  clarifyRoundImage,
   sanitizeStateForRole,
   selectBoardTile,
   skipActiveQuestion,
@@ -591,6 +592,9 @@ class RoomManager {
         break;
       case 'TEAM_BUZZ':
         result = recordBuzzerPress(room, String(payload.teamId || ''), now);
+        break;
+      case 'CLARIFY_IMAGE':
+        result = clarifyRoundImage(room, actionId, now);
         break;
       case 'REVEAL_HINT':
         result = revealRoundHint(room, actionId, now);
