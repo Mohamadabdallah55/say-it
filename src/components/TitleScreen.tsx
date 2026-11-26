@@ -177,6 +177,14 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
             <div className="platform-thirty-copy"><span className="platform-kicker">حروف · سرعة · ذكاء</span><h2>حروف النخبة</h2><p>حرف بيفرق… ومسار بيفوز!</p><div className="platform-rounds"><span><Users size={14}/> فريقان</span><span><Brain size={14}/> 25 خلية</span><span><Bell size={14}/> 3 أوضاع</span></div>
             <div className="platform-actions">{HOROUF_URL?<a href={HOROUF_URL} className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a>:<button type="button" className="platform-btn platform-btn-yellow" disabled>بانتظار رابط النشر</button>}<button type="button" className="platform-btn platform-btn-cream" onClick={()=>click(()=>setShowHoroufRules(true))}>كيف تلعب؟</button></div></div>
           </article>
+          <article className="platform-drawing">
+            <div className="platform-thirty-copy"><span className="platform-kicker">رسم · تخمين · 3–10 لاعبين</span>
+              <h2>برا الرسمة</h2><p>كل خطّ ممكن يكشف السر!</p>
+              <div className="platform-rounds"><span><Users size={14}/> جهاز واحد أو عدة أجهزة</span><span><Eye size={14}/> تصويت سري</span></div>
+              <div className="platform-actions"><a href="/?drawing=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div>
+            </div>
+            <svg viewBox="0 0 220 145" aria-hidden="true" className="platform-drawing-art"><rect x="10" y="10" width="200" height="125" rx="15" fill="#fffdf5" stroke="#251d36" strokeWidth="4"/><path d="M47 93 L105 38 L163 93" fill="none" stroke="#bd365e" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M61 82 V119 H149 V82" fill="none" stroke="#2773b6" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M95 119 V95 H116 V119" fill="none" stroke="#15936b" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/><path d="M176 30 l14 13 -25 29 -14 4 1 -14z" fill="#ffdc53" stroke="#251d36" strokeWidth="3"/></svg>
+          </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
             <button type="button" disabled={warmingGames} onClick={() => click(() => { void prepareGames(); })}><Zap size={21}/><span>{warmingGames ? 'جاري تجهيز الألعاب…' : 'جهّز الألعاب للجلسة'}</span><ArrowLeft size={16}/></button>
