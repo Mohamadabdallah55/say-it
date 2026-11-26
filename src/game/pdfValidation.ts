@@ -386,6 +386,8 @@ export function validateQuizQuestion(
                 /^data:image\/(?:png|jpeg|jpg|webp|gif|avif);base64,/i.test(raw)),
           )
       : undefined,
+    wordLetters: Array.isArray(question.wordLetters) && question.wordLetters.length === 14 && question.wordLetters.every(c => typeof c === 'string' && Array.from(c).length === 1) ? question.wordLetters : undefined,
+    wordLength: Number.isInteger(question.wordLength) && question.wordLength! > 0 && question.wordLength! <= 14 ? question.wordLength : undefined,
     audioUrl: typeof question.audioUrl === 'string' ? question.audioUrl.trim() || undefined : undefined,
     audioUrls: Array.isArray(question.audioUrls)
       ? question.audioUrls

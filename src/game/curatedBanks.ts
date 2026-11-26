@@ -295,7 +295,7 @@ export const HASHEMITE_UNIVERSITY_CATEGORY: DeckCategory = {
 
 export const FOUR_PICTURES_CATEGORY: DeckCategory = {
   id: 'cat_four_pictures',
-  name: 'أربع صور',
+  name: 'أربع صور وكلمة',
   description: 'خمن الكلمة التي تربط الصور الأربع',
   iconKey: 'puzzles',
   accentColor: '#E36652',
@@ -391,7 +391,7 @@ export const SERVER_CURATED_CATEGORIES = [
   { category: GEOMETRY_CATEGORY, questionCount: 100 },
   { category: FOOTBALL_ORDERING_CATEGORY, questionCount: 130 },
   { category: HASHEMITE_UNIVERSITY_CATEGORY, questionCount: 100 },
-  { category: FOUR_PICTURES_CATEGORY, questionCount: 38 },
+  { category: FOUR_PICTURES_CATEGORY, questionCount: 9 },
   { category: ARABIC_DIALECTS_CATEGORY, questionCount: ARABIC_DIALECTS_COUNT },
   { category: SILENT_ACTING_CATEGORY, questionCount: SILENT_ACTING_COUNT },
   { category: ZOOMED_IMAGE_CATEGORY, questionCount: ZOOMED_IMAGE_COUNT },

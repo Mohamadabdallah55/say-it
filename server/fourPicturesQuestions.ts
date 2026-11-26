@@ -1,6 +1,7 @@
 import { FOUR_PICTURES_CATEGORY } from '../src/game/curatedBanks';
 import { difficultyForPoints, pointsForDifficulty } from '../src/game/pdfValidation';
 import type { QuizQuestion } from '../src/game/types';
+import { fourPictureLetterBank, fourPictureWordLength } from '../src/game/fourPictures';
 import rows from './fourPicturesQuestions.json';
 
 export const FOUR_PICTURES_QUESTIONS = rows.map((row): QuizQuestion => {
@@ -15,8 +16,9 @@ export const FOUR_PICTURES_QUESTIONS = rows.map((row): QuizQuestion => {
     prompt: row.question,
     answer: row.answer,
     explanation: row.explanation,
-    imageUrl: `/assets/questions/four-pictures/${row.id}.jpg`,
-    imageCaption: 'الصور الأربع',
+    beforeImageUrls: row.images,
+    wordLetters: fourPictureLetterBank(row.answer, row.id),
+    wordLength: fourPictureWordLength(row.answer),
     imageDisplay: 'before_reveal',
     status: 'approved',
   };

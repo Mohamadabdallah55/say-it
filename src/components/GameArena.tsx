@@ -42,6 +42,7 @@ import { PowerCardIcon } from './PowerCardIcon';
 import { soundFX } from '../utils/sound';
 import { OrderAttempt } from './OrderAttempt';
 import { QuestionMedia, type MediaOrientation } from './QuestionMedia';
+import { FourPicturesPuzzle } from './FourPicturesPuzzle';
 import { CareerTimeline } from './CareerTimeline';
 import { GuessSoundPlayer } from './GuessSoundPlayer';
 import { JORDAN_BRANDS_CATEGORY } from '../game/jordanBrands';
@@ -399,6 +400,8 @@ export function GameArena({
         imageCaption: showGeneralMedia ? ar.question.imageCaption : undefined,
         memorySecondImageUrl: general ? undefined : ar.question.memorySecondImageUrl,
         beforeImageUrls: general ? undefined : ar.question.beforeImageUrls,
+        wordLetters: general ? undefined : ar.question.wordLetters,
+        wordLength: general ? undefined : ar.question.wordLength,
         careerClubs: general ? undefined : ar.question.careerClubs,
         afterImageUrl: showGeneralMedia ? ar.question.afterImageUrl : undefined,
         imageDisplay: general ? 'after_reveal' as const : ar.question.imageDisplay,
@@ -1089,6 +1092,9 @@ export function GameArena({
                         ) : null}
 
                         <div className="question-stage-copy flex flex-col items-center justify-center min-w-0">
+                          {roundMeta.categoryId === FOUR_PICTURES_CATEGORY.id && roundMeta.beforeImageUrls?.length === 4 && (
+                            <FourPicturesPuzzle key={roundMeta.questionId} images={roundMeta.beforeImageUrls} letters={roundMeta.wordLetters ?? []} wordLength={roundMeta.wordLength} compact={state.phase === 'REVEAL'} />
+                          )}
                           {roundMeta.startingLetter && (
                             <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">
                               <span>يبدأ الجواب بحرف</span>
