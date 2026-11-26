@@ -8,8 +8,8 @@ export const JORDAN_NOSTALGIA_CATEGORY: DeckCategory = {
   accentColor: '#A15C2A',
 };
 
-export const JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT = 92;
-export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 92;
+export const JORDAN_NOSTALGIA_TOTAL_SOURCE_COUNT = 97;
+export const JORDAN_NOSTALGIA_PLAYABLE_COUNT = 97;
 
 /** Normalized regions inspected against original photo pixels. Only applied before reveal. */
 export const JORDAN_NOSTALGIA_ANSWER_MASKS: Readonly<Record<string, readonly { x: number; y: number; w: number; h: number }[]>> = {
