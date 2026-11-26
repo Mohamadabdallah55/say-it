@@ -1131,19 +1131,35 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 200,
       "points": 200,
-      "question": "شو اسم لعبة تقطيع الفواكه على شاشة اللمس؟",
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
       "answer": "Fruit Ninja",
       "acceptedAnswers": [
         "Fruit Ninja",
         "فروت نينجا"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.cdgameclub.com/games/images/com_Eliminate_Leisure_fruit_ninja_free/1ced1ab253e9f4850d2508e9bd5c0afe.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Fruit Ninja",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Fruit Ninja",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.cdgameclub.com/game/fruit_ninja_free.html",
+        "sourcePublisher": "www.cdgameclub.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.cdgameclub.com/game/fruit_ninja_free.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -1276,7 +1292,7 @@
       "subCategory": "تقنية",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم هاتف نوكيا المعروف بين الناس بالباندا، اللي كان شكل أزراره دائري؟",
+      "question": "شو رقم موديل تلفون نوكيا الظاهر بالصورة؟",
       "answer": "نوكيا 6600",
       "acceptedAnswers": [
         "نوكيا 6600",
@@ -1284,13 +1300,29 @@
         "الباندا",
         "Nokia 6600"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-53787374%2Cwidth-1200%2Cheight-900/53787374.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Nokia 6600",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Nokia 6600",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms",
+        "sourcePublisher": "gadgetsnow.indiatimes.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://gadgetsnow.indiatimes.com/slideshows/15-most-iconic-mobile-phones-of-the-past/nokia-6600/photolist/53787374.cms"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "تقنية"
@@ -1586,7 +1618,9 @@
       "acceptedAnswers": [
         "Chicken Invaders",
         "تشيكن إنفيدرز",
-        "لعبة الفراخ"
+        "لعبة الفراخ",
+        "Chicken Invaders 2",
+        "تشيكن إنفيدرز 2"
       ],
       "imageRequired": true,
       "image": {
@@ -1649,20 +1683,36 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الموبايل القديمة اللي فيها كرة حمراء بنحرّكها عبر حلقات ومراحل على أجهزة نوكيا؟",
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
       "answer": "Bounce",
       "acceptedAnswers": [
         "Bounce",
         "باونس",
         "لعبة الكرة"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.sify.com/wp-content/uploads/2023/02/bounce_game_level4.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Bounce",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Bounce",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/",
+        "sourcePublisher": "www.sify.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.sify.com/gaming/bounce-reminiscing-the-game-of-three-keys/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -1885,19 +1935,35 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة اللي بنط فيها بشخصية صغيرة فوق منصات وبتتحكم فيها بإمالة التلفون؟",
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
       "answer": "Doodle Jump",
       "acceptedAnswers": [
         "Doodle Jump",
         "دودل جمب"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://img.utdstc.com/screen/a54/a60/a54a60762864b06842c3c90746f2798b2234e8fe0675ebe5a2a9d67bf732433e%3A600",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Doodle Jump",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Doodle Jump",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://doodle-jump.kr.uptodown.com/windows",
+        "sourcePublisher": "doodle-jump.kr.uptodown.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://doodle-jump.kr.uptodown.com/windows"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -2319,20 +2385,36 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 200,
       "points": 200,
-      "question": "شو اسم لعبة الطيور اللي بنقذفها بالمقلاع على أبراج الخنازير؟",
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
       "answer": "Angry Birds",
       "acceptedAnswers": [
         "Angry Birds",
         "الطيور الغاضبة",
         "أنغري بيردز"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/screenshots/11783709-angry-birds-ipad-failed-to-topple-this-structure.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Angry Birds",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Angry Birds",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/46396/angry-birds/screenshots/ipad/541889/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -2637,20 +2719,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي فيها كرة حمراء وبتنط بين الحواجز على منصات؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Red Ball",
       "acceptedAnswers": [
         "Red Ball",
         "ريد بول",
         "الكرة الحمراء"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.pling.com/img/00/00/56/42/80/2014623/3.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Red Ball",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Red Ball",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.appimagehub.com/p/2014623",
+        "sourcePublisher": "www.appimagehub.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.appimagehub.com/p/2014623"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -2895,19 +2993,35 @@
       "subCategory": "ألعاب الهاتف",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم اللعبة اللي فيها مخلوق أخضر صغير بدنا نوصل الحلوى لفمه بقص الحبال؟",
+      "question": "شو اسم لعبة الموبايل اللي بالصورة؟",
       "answer": "Cut the Rope",
       "acceptedAnswers": [
         "Cut the Rope",
         "كت ذا روب"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://cdn.mobygames.com/f985abd2-c377-11ed-9226-02420a000121.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Cut the Rope",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Cut the Rope",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.mobygames.com/game/49034/cut-the-rope/screenshots/",
+        "sourcePublisher": "www.mobygames.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mobygames.com/game/49034/cut-the-rope/screenshots/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الهاتف"
@@ -3027,20 +3141,36 @@
       "subCategory": "تقنية",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم الجهاز المحمول القديم من نينتندو اللي كان فيه شاشتان، إحداهما تعمل باللمس؟",
+      "question": "شو اسم جهاز الألعاب المحمول هذا؟",
       "answer": "Nintendo DS",
       "acceptedAnswers": [
         "نينتندو دي إس",
         "Nintendo DS",
         "DS"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://2.bp.blogspot.com/-gflSEQw5Bfw/UMt-K4_5r2I/AAAAAAAACaI/zpnN-m1ZDko/s1600/ds.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Nintendo DS",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Nintendo DS",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html",
+        "sourcePublisher": "www.reinodocogumelo.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.reinodocogumelo.com/2012/12/nintendo-ds-ultrapassa-playstation-2-e.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "تقنية"
@@ -3539,20 +3669,36 @@
       "subCategory": "تقنية",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم خلفية ويندوز إكس بي المشهورة بتلة خضراء وسما زرقاء؟",
+      "question": "شو اسم خلفية ويندوز XP الأصلية هاي؟",
       "answer": "Bliss",
       "acceptedAnswers": [
         "Bliss",
         "بليس",
         "خلفية بليس"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://imgix.bustle.com/mic/a7c71a3466116ca302c8bccd356f7e10abdaf33bd77be56dafd4a92bf87c7f6b.jpg?crop=faces&fit=crop&fm=jpg&h=1200&w=1200",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Bliss",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Bliss",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.mic.com/articles/87481/a-billion-people-have-seen-this-famous-desktop-photo-but-who-snapped-the-picture",
+        "sourcePublisher": "www.mic.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.mic.com/articles/87481/a-billion-people-have-seen-this-famous-desktop-photo-but-who-snapped-the-picture"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي؛ لا يعتمد على صورة غير متحققة",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "تقنية"
@@ -3590,7 +3736,7 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة الكمبيوتر اللي بتسحب فيها الذهب من تحت الأرض بخطاف متأرجح؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Gold Miner",
       "acceptedAnswers": [
         "Gold Miner",
@@ -3598,13 +3744,29 @@
         "عامل المنجم",
         "لعبة الذهب"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://assets.funnygames.org/3/303/53097/gold-miner-screenshot-1.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Gold Miner",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Gold Miner",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.funnygames.org/game/gold_miner.html",
+        "sourcePublisher": "www.funnygames.org",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.funnygames.org/game/gold_miner.html"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -3737,20 +3899,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الألغاز اللي فيها حلزون اسمه بوب وبنفتح له الطريق بتشغيل أزرار وآليات؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Snail Bob",
       "acceptedAnswers": [
         "Snail Bob",
         "سنيل بوب",
         "الحلزون بوب"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.gamekarma.com/images/screenshots/906/1.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Snail Bob",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Snail Bob",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.gamekarma.com/g/snail-bob-1/",
+        "sourcePublisher": "www.gamekarma.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.gamekarma.com/g/snail-bob-1/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -3814,20 +3992,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة الكرات الملونة الشبيهة بزوما لكن بتدور أحداثها في مصر القديمة وبنطلق الكرات من أسفل الشاشة؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Luxor",
       "acceptedAnswers": [
         "Luxor",
         "لوكسور",
         "لعبة الأقصر"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://s3-eu-west-1.amazonaws.com/games.snapshot/10518/184451-Luxor.jpg",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Luxor",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Luxor",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.squakenet.com/game/luxor/",
+        "sourcePublisher": "www.squakenet.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.squakenet.com/game/luxor/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -3840,20 +4034,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 600,
       "points": 600,
-      "question": "شو اسم لعبة الكمبيوتر اللي بتدير فيها حوض أسماك وبتجمع العملات من السمك؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Insaniquarium",
       "acceptedAnswers": [
         "Insaniquarium",
         "إنسانيكواريوم",
         "Insaniquarium Deluxe"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://images.igdb.com/igdb/image/upload/t_1080p_2x/vbgooaoc76mwdyuerjun.webp",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Insaniquarium",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Insaniquarium",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://backloggd.com/games/insaniquarium-deluxe--1/",
+        "sourcePublisher": "backloggd.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://backloggd.com/games/insaniquarium-deluxe--1/"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
@@ -3866,20 +4076,36 @@
       "subCategory": "ألعاب الكمبيوتر",
       "difficulty": 400,
       "points": 400,
-      "question": "شو اسم لعبة المطاعم القديمة اللي فيها نادلة اسمها Flo بتجلس الزبائن وتقدم الطلبات؟",
+      "question": "شو اسم اللعبة اللي بالصورة؟",
       "answer": "Diner Dash",
       "acceptedAnswers": [
         "Diner Dash",
         "داينر داش",
         "دينر داش"
       ],
-      "imageRequired": false,
-      "image": null,
-      "evidenceUrls": [],
-      "rightsStatus": "not_applicable",
+      "imageRequired": true,
+      "image": {
+        "url": "https://www.myabandonware.com/media/screenshots/d/diner-dash-p3u/diner-dash_18.png",
+        "localFile": null,
+        "status": "external_reference",
+        "searchQueryAr": "Diner Dash",
+        "googleImagesSearchUrl": "",
+        "visualTarget": "Diner Dash",
+        "imageSelectionInstructions": "لقطة لعب أو صورة جهاز",
+        "mustBeRealPhoto": false,
+        "rejectIf": [],
+        "displayGuidance": "إخفاء الإجابة في الصورة عند الحاجة",
+        "sourcePage": "https://www.myabandonware.com/game/diner-dash-g41",
+        "sourcePublisher": "www.myabandonware.com",
+        "license": null
+      },
+      "evidenceUrls": [
+        "https://www.myabandonware.com/game/diner-dash-g41"
+      ],
+      "rightsStatus": "external_reference_unconfirmed",
       "contentStatus": "approved",
-      "reviewNotes": "سؤال نصي",
-      "questionType": "ذكريات الطفولة",
+      "reviewNotes": "رابط خارجي؛ ترخيص إعادة الاستخدام غير مؤكد",
+      "questionType": "الصورة والتخمين",
       "tags": [
         "زمن الطيبين",
         "ألعاب الكمبيوتر"
