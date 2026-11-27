@@ -1,0 +1,55 @@
+name: Review existing focus clips
+on:
+  push:
+    branches: [quality/focus-video-difficulty-fix]
+    paths: ['.github/workflows/focus-existing-video-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: quality/focus-video-difficulty-fix
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Extract frames for outstanding video questions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,pathlib,subprocess,concurrent.futures
+          out=pathlib.Path('quality-audit/focus-existing-frames')
+          out.mkdir(parents=True,exist_ok=True)
+          data=json.loads(pathlib.Path('server/visualMemoryQuestions.json').read_text())
+          ids={117,122,124,125,126,129,134,135,137,140,142,143,144,145,146,147,148,149}
+          def work(q):
+              id=q['id']; url,frag=q['video_url'].split('#t=')
+              start,end=map(int,frag.split(','))
+              p=pathlib.Path('/tmp')/(id+'.webm')
+              row={'id':id,'url':url,'start':start,'end':end}
+              try:
+                  subprocess.run(['curl','-fLsS','--max-time','35','--user-agent','VisualMemoryQuizReview/1.0',url,'-o',str(p)],check=True)
+                  duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(p)]))
+                  if duration<end: raise ValueError('clip shorter than interval')
+                  subprocess.run(['ffmpeg','-nostdin','-loglevel','error','-threads','1','-ss',str(start),'-i',str(p),'-t','17','-vf','fps=1,scale=320:-2,tile=4x5:padding=3:margin=3','-frames:v','1','-q:v','3','-y',str(out/(id+'.jpg'))],check=True,timeout=30)
+                  row.update(status='frames_ready',duration=duration)
+              except Exception as e: row.update(status='failed',error=str(e))
+              finally: p.unlink(missing_ok=True)
+              return row
+          selected=[q for q in data['questions'] if int(q['id'].split('-')[1]) in ids]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              results=list(pool.map(work,selected))
+          (out/'results.json').write_text(json.dumps(results,indent=2))
+          print(json.dumps(results,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add quality-audit/focus-existing-frames
+          git commit -m 'Extract review frames for outstanding existing clips'
+          git push origin HEAD:quality/focus-video-difficulty-fix
