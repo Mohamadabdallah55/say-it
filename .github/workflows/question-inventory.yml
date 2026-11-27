@@ -1,0 +1,27 @@
+name: Question inventory (read only)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/auditQuestionInventory.ts'
+      - '.github/workflows/question-inventory.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Generate official bank inventory
+        run: bunx tsx scripts/auditQuestionInventory.ts /tmp/question-inventory
+      - name: Publish summary
+        run: cat /tmp/question-inventory/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-question-inventory
+          path: /tmp/question-inventory
+          retention-days: 14
