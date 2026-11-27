@@ -194,7 +194,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       running = true;
       lastCheck = Date.now();
       try {
-        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-store', signal: AbortSignal.timeout(12000) });
+        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-cache', signal: AbortSignal.timeout(12000) });
         if (!res.ok) return;
         const data = await res.json();
         if (disposed) return;
