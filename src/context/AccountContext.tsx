@@ -442,13 +442,18 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             typeof data.totalPlayedQuestions === 'number' ? data.totalPlayedQuestions : 0;
           if (!isCurrent()) return;
           setProfileTotalPlayed(currentTotal);
-          await updateDoc(userRef, {
-            displayName,
-            email: email || nextUser.email || '',
-            photoURL,
-            totalPlayedQuestions: currentTotal,
-            updatedAt: serverTimestamp(),
-          });
+          const profileEmail = email || nextUser.email || '';
+          // Do not spend a write on unchanged profile fields or overwrite a
+          // counter that another active device may have incremented meanwhile.
+          if (data.displayName !== displayName || data.email !== profileEmail ||
+              (data.photoURL ?? '') !== photoURL) {
+            await updateDoc(userRef, {
+              displayName,
+              email: profileEmail,
+              photoURL,
+              updatedAt: serverTimestamp(),
+            });
+          }
         }
       } catch (err) {
         console.error('[AccountContext] User profile sync warning:', err);
