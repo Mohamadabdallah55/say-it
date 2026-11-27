@@ -621,24 +621,28 @@ export function GameArena({
     };
   }, [roomCode, actingQrToken]);
 
-  // Preload at most one upcoming image after the main question has had time
-  // to paint; avoid competing with the active video, audio or visible image.
+  // Preload a single host-only answer image; never send speculative requests
+  // for answer media from a public projector, or compete with active clips.
+  const answerPreloadSrc = isHost && roundMeta &&
+    ['QUESTION_READY', 'PLAYING'].includes(state?.phase ?? '') &&
+    !roundMeta.videoUrl && !roundMeta.audioUrl && !roundMeta.audioUrls?.length &&
+    roundMeta.memoryStage !== 'MEMORIZE'
+    ? roundMeta.afterImageUrl || roundMeta.answerImageUrl : undefined;
+  const answerPreloadRound = roundMeta?.roundId;
+  const visibleQuestionImage = roundMeta?.imageUrl;
   useEffect(() => {
-    if (!roundMeta || !['QUESTION_READY', 'PLAYING'].includes(state?.phase ?? '') ||
-        roundMeta.videoUrl || roundMeta.audioUrl || roundMeta.audioUrls?.length ||
-        roundMeta.memoryStage === 'MEMORIZE') return;
-    const src = roundMeta.afterImageUrl || roundMeta.answerImageUrl;
-    if (!src || src === roundMeta.imageUrl || !(/^(\/|https?:\/\/)/.test(src))) return;
+    if (!answerPreloadSrc || answerPreloadSrc === visibleQuestionImage ||
+        !(/^(\/|https?:\/\/)/.test(answerPreloadSrc)) ||
+        document.hidden) return;
     const timer = window.setTimeout(() => {
+      if (document.hidden) return;
       const image = new Image();
       image.decoding = 'async';
       image.fetchPriority = 'low';
-      image.src = src;
+      image.src = answerPreloadSrc;
     }, 1200);
     return () => window.clearTimeout(timer);
-  }, [state?.phase, roundMeta?.roundId, roundMeta?.afterImageUrl,
-      roundMeta?.answerImageUrl, roundMeta?.imageUrl, roundMeta?.videoUrl,
-      roundMeta?.audioUrl, roundMeta?.audioUrls, roundMeta?.memoryStage]);
+  }, [answerPreloadRound, answerPreloadSrc, visibleQuestionImage]);
 
   // Automatically track displayed questions in the host's account progress for non-repetition
   useEffect(() => {
