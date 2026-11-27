@@ -1,0 +1,146 @@
+[
+  {
+    "id": "MEM-117",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/The_Friendly_Ghost_(1945).webm",
+    "start": 246,
+    "end": 263,
+    "status": "frames_ready",
+    "duration": 507.808
+  },
+  {
+    "id": "MEM-122",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/The_Gallopin'_Gaucho_(1928).webm",
+    "start": 185,
+    "end": 202,
+    "status": "frames_ready",
+    "duration": 387.12
+  },
+  {
+    "id": "MEM-124",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Popeye_the_Sailor_Meets_Sindbad_the_Sailor_HD.webm",
+    "start": 472,
+    "end": 489,
+    "status": "frames_ready",
+    "duration": 960.841
+  },
+  {
+    "id": "MEM-125",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Shuteye_Popeye_(1952).webm",
+    "start": 183,
+    "end": 200,
+    "status": "frames_ready",
+    "duration": 382.883
+  },
+  {
+    "id": "MEM-126",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Private_Eye_Popeye_(1954).webm",
+    "start": 189,
+    "end": 206,
+    "status": "frames_ready",
+    "duration": 394.504
+  },
+  {
+    "id": "MEM-129",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Patriotic_Popeye.webm",
+    "start": 175,
+    "end": 192,
+    "status": "frames_ready",
+    "duration": 366.266
+  },
+  {
+    "id": "MEM-134",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Matinee_Idol_Popeye_(1960).webm",
+    "start": 165,
+    "end": 182,
+    "status": "frames_ready",
+    "duration": 345.915
+  },
+  {
+    "id": "MEM-135",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Boo_Moon_(1954).webm",
+    "start": 706,
+    "end": 723,
+    "status": "frames_ready",
+    "duration": 1428.581
+  },
+  {
+    "id": "MEM-137",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Felix_In_The_Swim_(1922).webm",
+    "start": 190,
+    "end": 207,
+    "status": "frames_ready",
+    "duration": 396.78
+  },
+  {
+    "id": "MEM-140",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Felix_the_Cat_in_Astronomeous_(1928).webm",
+    "start": 191,
+    "end": 208,
+    "status": "frames_ready",
+    "duration": 399.251
+  },
+  {
+    "id": "MEM-142",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Patriotic_Popeye_(1957).webm",
+    "start": 171,
+    "end": 188,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Patriotic_Popeye_(1957).webm', '-o', '/tmp/MEM-142.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-143",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/The_Mummy_Strikes_(1943).webm",
+    "start": 216,
+    "end": 233,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/6/65/The_Mummy_Strikes_(1943).webm', '-o', '/tmp/MEM-143.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-144",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Billion_Dollar_Limited_(1942).webm",
+    "start": 238,
+    "end": 255,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/2/28/Billion_Dollar_Limited_(1942).webm', '-o', '/tmp/MEM-144.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-145",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/The_Magnetic_Telescope_(1942).webm",
+    "start": 211,
+    "end": 228,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/0/0f/The_Magnetic_Telescope_(1942).webm', '-o', '/tmp/MEM-145.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-146",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/The_Arctic_Giant_(1942).webm",
+    "start": 238,
+    "end": 255,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/c/c5/The_Arctic_Giant_(1942).webm', '-o', '/tmp/MEM-146.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-147",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Felix_Revolts_(1923).webm",
+    "start": 248,
+    "end": 265,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/9/94/Felix_Revolts_(1923).webm', '-o', '/tmp/MEM-147.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-148",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Felix_the_Cat_-_Felix_Minds_the_Kid_(1922).webm",
+    "start": 240,
+    "end": 257,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/8/87/Felix_the_Cat_-_Felix_Minds_the_Kid_(1922).webm', '-o', '/tmp/MEM-148.webm']' returned non-zero exit status 22."
+  },
+  {
+    "id": "MEM-149",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Felix_Goes_A_Hunting_(1923).webm",
+    "start": 115,
+    "end": 132,
+    "status": "failed",
+    "error": "Command '['curl', '-fLsS', '--max-time', '35', '--user-agent', 'VisualMemoryQuizReview/1.0', 'https://upload.wikimedia.org/wikipedia/commons/8/85/Felix_Goes_A_Hunting_(1923).webm', '-o', '/tmp/MEM-149.webm']' returned non-zero exit status 22."
+  }
+]
