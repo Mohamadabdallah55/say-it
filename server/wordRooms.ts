@@ -23,7 +23,7 @@ function advance(r:Room,player:Member){
 }
 function view(r:Room,p:Member){
  const g=r.game, review=!!g&&['review','scores','final'].includes(g.phase);
- const players=r.players.map(({id,name,score,removed,seen})=>({id,name,score,removed,online:Date.now()-seen<60000,filled:g?.rows[id]?.filter(Boolean).length??0,finished:g?.finished.includes(id)??false}));
+ const players=r.players.map(({id,name,score,removed,seen})=>{const a=g?.away?.[id],duration=a?.since==null?0:Math.max(0,Date.now()-a.since),away=duration>=3000,awayMs=(a?.ms??0)+(away?duration:0);return {id,name,score,removed,online:Date.now()-seen<60000,filled:g?.rows[id]?.filter(Boolean).length??0,finished:g?.finished.includes(id)??false,away,awayMs,awayCount:(a?.count??0)+(away?1:0)};});
  return {code:r.code,me:p.id,host:r.host,players,config:r.config,revision:r.revision,serverNow:Date.now(),game:g?{phase:g.phase,index:g.index,total:g.total,letter:g.letter,deadline:g.deadline,stopper:g.stopper,selector:selector(g,r.players),available:availableLetters(r.config,g.used),own:g.rows[p.id]??r.config.columns.map(()=>''),ownSeq:g.seq[p.id]??0,column:g.column,cells:review?g.cells:undefined,objections:review?g.objections:undefined,detail:review?scoreWords(g,r.config).detail:undefined,points:review?scoreWords(g,r.config).points:undefined,roundPoints:review?g.roundPoints:undefined,penalty:review?g.penalty:undefined}:null};
 }
 export const wordRouter=Router();
@@ -48,6 +48,16 @@ wordRouter.get('/:code',(req,res)=>{
  const p=r.players.find(x=>x.token===req.header('X-Word-Token')&&!x.removed);if(!p)return res.status(403).json({error:'العضوية غير صالحة أو انتهت.'});
  try{advance(r,p);res.json(view(r,p));}catch{res.status(503).json({error:'تعذر تحديث الغرفة.'});}
 });
+wordRouter.post('/:code/presence',(req,res)=>{
+ const r=lookup(req.params.code),p=r?.players.find(x=>x.token===req.header('X-Word-Token')&&!x.removed);
+ if(!r||!p)return res.sendStatus(403);
+ try{advance(r,p);const g=r.game;if(!g||g.phase!=='write'||req.body?.index!==g.index||g.finished.includes(p.id)||typeof req.body?.visible!=='boolean')return res.sendStatus(204);
+ const now=Date.now(),away=g.away??(g.away={}),a=away[p.id]??{since:null,count:0,ms:0};
+ if(!req.body.visible&&a.since===null)a.since=now;
+ if(req.body.visible&&a.since!==null){const d=now-a.since;if(d>=3000){a.count++;a.ms+=d;}a.since=null;}
+ away[p.id]=a;r.revision++;persist(r);res.sendStatus(204);
+ }catch{res.sendStatus(503);}
+});
 wordRouter.post('/:code/action',(req,res)=>{
  const r=lookup(req.params.code);if(!r)return res.status(404).json({error:'الغرفة غير موجودة أو انتهت.'});
  const p=r.players.find(x=>x.token===req.header('X-Word-Token')&&!x.removed);if(!p)return res.status(403).json({error:'العضوية غير صالحة.'});
@@ -71,7 +81,7 @@ wordRouter.post('/:code/action',(req,res)=>{
    const row=cleanRow(b.row,c.columns.length);
    if(action==='finish'&&!row.every(t=>validAnswer(t,g!.letter)))throw Error('أكمل كل الخانات بكلمات تبدأ بالحرف المطلوب.');
    g.rows[me.id]=row;g.seq[me.id]=b.seq;
-   if(action==='finish'){g.finished.push(me.id);if(!g.stopper){g.stopper=me.id;g.deadline=Math.min(g.deadline??Infinity,Date.now()+5000);}if(active(next).every(x=>g!.finished.includes(x.id)))g=beginReview(g,c,next.players);}
+   if(action==='finish'){const a=g.away?.[me.id];if(a?.since!=null){const d=Date.now()-a.since;if(d>=3000){a.count++;a.ms+=d;}a.since=null;}g.finished.push(me.id);if(!g.stopper){g.stopper=me.id;g.deadline=Math.min(g.deadline??Infinity,Date.now()+5000);}if(active(next).every(x=>g!.finished.includes(x.id)))g=beginReview(g,c,next.players);}
  }else if(action==='stop'&&host&&g.phase==='write')g=beginReview(g,c,next.players);
  else if(action==='object'&&g.phase==='review'){
    const col=Number(b.column),target=String(b.target);if(!Number.isInteger(col)||col<0||col>=c.columns.length||!g.cells[target]||target===me.id)throw Error('اعتراض غير صالح.');
