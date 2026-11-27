@@ -22,6 +22,7 @@ export function GuessSoundPlayer({
   const tracksRef = useRef<HTMLAudioElement[]>([]);
   const rafRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
+  const playbackRef = useRef<AbortController | null>(null);
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'playing' | 'ended' | 'error'>('idle');
   const [progress, setProgress] = useState(0);
@@ -35,17 +36,18 @@ export function GuessSoundPlayer({
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     }
-    for (const audio of tracksRef.current) {
+    playbackRef.current?.abort();
+    playbackRef.current = null;
+    const tracks = tracksRef.current;
+    tracksRef.current = [];
+    for (const audio of tracks) {
       audio.onended = null;
       audio.onerror = null;
       audio.pause();
-      try {
-        audio.currentTime = 0;
-      } catch {
-        // Ignore seek errors on unloaded media
-      }
+      // Release the old media resource; replay creates fresh elements anyway.
+      audio.removeAttribute('src');
+      audio.load();
     }
-    tracksRef.current = [];
     if (resetToIdle) {
       setStatus('idle');
       setProgress(0);
@@ -71,6 +73,8 @@ export function GuessSoundPlayer({
     }
 
     stopTracks(false);
+    const playback = new AbortController();
+    playbackRef.current = playback;
     setStatus('loading');
     setErrorMessage(null);
     setProgress(0);
@@ -80,10 +84,11 @@ export function GuessSoundPlayer({
     try {
       const volume = isMix ? 0.83 : 1;
       const tracks = audioUrls.map((url) => {
-        const audio = new Audio(url);
+        const audio = new Audio();
         audio.preload = 'auto';
         audio.crossOrigin = 'anonymous';
         audio.volume = volume;
+        audio.src = url;
         return audio;
       });
       tracksRef.current = tracks;
@@ -93,7 +98,7 @@ export function GuessSoundPlayer({
         tracks.map(
           (audio) =>
             new Promise<void>((resolve, reject) => {
-              if (audio.readyState >= 2) {
+              if (playback.signal.aborted || audio.readyState >= 2) {
                 resolve();
                 return;
               }
@@ -114,10 +119,12 @@ export function GuessSoundPlayer({
                 audio.removeEventListener('canplay', onReady);
                 audio.removeEventListener('loadeddata', onReady);
                 audio.removeEventListener('error', onErr);
+                playback.signal.removeEventListener('abort', onReady);
               };
               audio.addEventListener('canplay', onReady, { once: true });
               audio.addEventListener('loadeddata', onReady, { once: true });
               audio.addEventListener('error', onErr, { once: true });
+              playback.signal.addEventListener('abort', onReady, { once: true });
               audio.load();
             }),
         ),
@@ -143,6 +150,7 @@ export function GuessSoundPlayer({
               cancelAnimationFrame(rafRef.current);
               rafRef.current = null;
             }
+            stopTracks(false);
             setProgress(100);
             setElapsedSec(resolvedDuration);
             setStatus('ended');
@@ -159,6 +167,7 @@ export function GuessSoundPlayer({
       setStatus('playing');
       setPlayCount((c) => c + 1);
 
+      let lastPaint = -Infinity;
       const tick = () => {
         if (tracksRef.current !== tracks) return;
         const lead = tracks[0];
@@ -168,12 +177,17 @@ export function GuessSoundPlayer({
             ? lead.currentTime
             : (performance.now() - startTimeRef.current) / 1000;
         const clamped = Math.min(duration, Math.max(0, current));
-        setElapsedSec(clamped);
-        setProgress(Math.min(100, Math.max(0, (clamped / duration) * 100)));
+        // Keep the frame-level duration guard, but update React UI at most 10 times/sec.
+        const now = performance.now();
+        if (now - lastPaint >= 100) {
+          lastPaint = now;
+          setElapsedSec(clamped);
+          setProgress(Math.min(100, Math.max(0, (clamped / duration) * 100)));
+        }
         if (clamped < duration && tracks.some((t) => !t.ended && !t.paused)) {
           rafRef.current = requestAnimationFrame(tick);
         } else {
-          for (const track of tracks) track.pause();
+          stopTracks(false);
           setProgress(100);
           setElapsedSec(duration);
           setStatus('ended');
@@ -182,6 +196,8 @@ export function GuessSoundPlayer({
       };
       rafRef.current = requestAnimationFrame(tick);
     } catch {
+      // An older play() can reject after the next question or replay starts.
+      if (playback.signal.aborted || playbackRef.current !== playback) return;
       stopTracks(false);
       setStatus('error');
       setErrorMessage('تعذّر تشغيل الصوت. تأكد من الاتصال بالإنترنت ثم حاول مرة أخرى.');
