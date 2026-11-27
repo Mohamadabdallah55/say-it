@@ -50,7 +50,7 @@
   {
     "id": "BAR-004",
     "points": 200,
-    "question": "مين لاعب الوسط الكرواتي إيفان اللي سجل أول هدف لبرشلونة في نهائي دوري الأبطال 2015؟",
+    "question": "مين سجل أول هدف لبرشلونة في نهائي دوري الأبطال 2015 أمام يوفنتوس؟",
     "answer": "إيفان راكيتيتش",
     "explanation": "سجل في الدقيقة الرابعة.",
     "sourceUrl": "https://www.fcbarcelona.com/en/matches/10444/juventus-fc-barcelona-ucl-2014-15",
@@ -110,7 +110,7 @@
   {
     "id": "BAR-010",
     "points": 200,
-    "question": "مين المهاجم الإسباني دافيد اللي سجل ثالث أهداف برشلونة في نهائي 2011؟",
+    "question": "مين المهاجم الإسباني اللي سجل هدف برشلونة الثالث في نهائي دوري الأبطال 2011 أمام مانشستر يونايتد؟",
     "answer": "دافيد فيا",
     "explanation": "كان فيا أحد مسجلي الأهداف الثلاثة في ويمبلي.",
     "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
@@ -199,7 +199,7 @@
   },
   {
     "id": "BAR-N-005",
-    "points": 200,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص جوردي ألبا مع برشلونة بموسم 2014-15؟",
     "answer": "18",
@@ -359,7 +359,7 @@
   },
   {
     "id": "BAR-N-014",
-    "points": 200,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص خافيير ماسكيرانو مع برشلونة بموسم 2014-15؟",
     "answer": "14",
@@ -377,7 +377,7 @@
   },
   {
     "id": "BAR-N-015",
-    "points": 200,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص سيسك فابريغاس مع برشلونة بموسم 2013-14؟",
     "answer": "4",
@@ -633,7 +633,7 @@
   },
   {
     "id": "BAR-N-026",
-    "points": 600,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص هنريك لارسون مع برشلونة بموسم 2005-06؟",
     "answer": "7",
@@ -651,7 +651,7 @@
   },
   {
     "id": "BAR-N-027",
-    "points": 600,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص ألكسندر هليب مع برشلونة بموسم 2008-09؟",
     "answer": "21",
@@ -705,7 +705,7 @@
   },
   {
     "id": "BAR-N-030",
-    "points": 600,
+    "points": 400,
     "kind": "number",
     "question": "شو كان رقم قميص أليكس سونغ مع برشلونة بموسم 2013-14؟",
     "answer": "17",
@@ -833,5 +833,184 @@
     "imageUrl": "https://assets.goal.com/images/v3/blt3d23107bdff5db12/33ca853a963799c92659cbf4b7201364472b75cc.jpg?format=jpg",
     "imageSourceUrl": "https://www.goal.com/it/notizie/juliano-belletti-goal-finale-arsenal-unico-barcellona/1eaidjt9qwczf1bmcwjzfzugd5",
     "imageDisplay": "before_reveal"
+  },
+  {
+    "id": "BAR-QC-001",
+    "points": 600,
+    "question": "أي لاعب سجّل هدفي برشلونة في ذهاب مواجهة كايزرسلاوترن خلال مشوار أول لقب أوروبي للنادي؟",
+    "answer": "تشيكي بيغريستين",
+    "explanation": "فاز برشلونة ذهابًا 2–0 بفضل هدفي بيغريستين، ثم تأهل بهدف باكيرو في الإياب.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/814322/25-years-since-bakeros-legendary-goal-against-kaiserslautern",
+    "acceptableAnswers": [
+      "تكسيكي بيغيريستين",
+      "تشيكي بيغيريستين",
+      "Txiki Begiristain"
+    ]
+  },
+  {
+    "id": "BAR-QC-002",
+    "points": 600,
+    "question": "مين المهاجم اللي سجل ثلاثية بمرمى برشلونة في مباراة بدوري الأبطال موسم 2024-25، وانتهت بخسارة فريقه 4–5؟",
+    "answer": "فانغيليس بافليديس",
+    "explanation": "سجل بافليديس ثلاثة أهداف لبنفيكا في المباراة التي قلبها برشلونة في لشبونة.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/4202150/benfica-4-5-fc-barcelona-incredible-comeback",
+    "acceptableAnswers": [
+      "فانجيليس بافليديس",
+      "بافليديس",
+      "Vangelis Pavlidis"
+    ]
+  },
+  {
+    "id": "BAR-QC-003",
+    "points": 600,
+    "question": "قبل الوصول إلى نهائي كأس الملك 2021، مين سجل هدف التأهل لبرشلونة في الوقت الإضافي من إياب نصف النهائي أمام إشبيلية؟",
+    "answer": "مارتن برايثوايت",
+    "explanation": "سجل برايثوايت بالرأس بعد هدف بيكيه الذي فرض الوقت الإضافي.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/2052917/barca-3-0-sevilla-dramatic-victory-and-into-the-final/featured",
+    "acceptableAnswers": [
+      "مارتن برايتوايت",
+      "برايثوايت",
+      "Martin Braithwaite"
+    ]
+  },
+  {
+    "id": "BAR-QC-004",
+    "points": 600,
+    "question": "أي فريق واجه برشلونة في كأس العالم للأندية 2015 في المباراة التي سجل فيها لويس سواريز ثلاثية؟",
+    "answer": "غوانغجو إيفرغراند",
+    "explanation": "فاز برشلونة في نصف النهائي 3–0 على غوانغجو إيفرغراند.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://players.fcbarcelona.com/en/match/f838204-barcelona-guangzhou-evergrande",
+    "acceptableAnswers": [
+      "غوانزو إيفرغراند",
+      "غوانغتشو إيفرغراند",
+      "غوانغجو",
+      "Guangzhou Evergrande"
+    ]
+  },
+  {
+    "id": "BAR-QC-005",
+    "points": 600,
+    "question": "في مشوار السداسية موسم 2008-09، ما الأندية الثلاثة التي واجهها برشلونة في دور مجموعات دوري أبطال أوروبا؟",
+    "answer": "سبورتينغ لشبونة، شاختار دونيتسك، بازل",
+    "explanation": "هذه أندية المجموعة التي سبقت الأدوار الإقصائية وصولًا إلى نهائي روما.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "acceptableAnswers": [
+      "سبورتينغ وشاختار وبازل",
+      "Sporting CP, Shakhtar Donetsk, Basel"
+    ]
+  },
+  {
+    "id": "BAR-QC-006",
+    "points": 600,
+    "question": "في نهائي كأس الكؤوس الأوروبية 1989، مين سجّل هدف برشلونة الثاني بعد افتتاح خوليو ساليناس للتسجيل؟",
+    "answer": "لوبيز ريكارتي",
+    "explanation": "سجل لوبيز ريكارتي الهدف الثاني في الفوز 2–0 على سامبدوريا.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://players.fcbarcelona.com/en/match/420318-barcelona-sampdoria",
+    "acceptableAnswers": [
+      "لويس ماريا لوبيز ريكارتي",
+      "لويس ماريا لوبيز ريكارته",
+      "Luis María López Rekarte"
+    ]
+  },
+  {
+    "id": "BAR-QC-007",
+    "points": 600,
+    "question": "مين أول خصمين واجههما برشلونة خارج ملعبه في طريقه للتتويج بكأس الملك موسم 2020-21؟",
+    "answer": "كورنيّا ورايو فاييكانو",
+    "explanation": "تجاوز برشلونة كورنيّا 2–0 ثم رايو فاييكانو 2–1 قبل مواجهة غرناطة.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/2052894",
+    "acceptableAnswers": [
+      "كورنيا ورايو فاليكانو",
+      "Cornellà and Rayo Vallecano"
+    ]
+  },
+  {
+    "id": "BAR-QC-008",
+    "points": 400,
+    "question": "مين اللاعب اللي صنع هدفي برشلونة في نهائي دوري الأبطال 2006 أمام أرسنال، من دون أن يسجل أيًا منهما؟",
+    "answer": "هنريك لارسون",
+    "explanation": "صنع لارسون هدفي إيتو وبيليتي في الفوز على أرسنال.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1669587/paris-was-blaugrana-14-years-ago-today",
+    "acceptableAnswers": [
+      "هنريك لارسن",
+      "لارسون",
+      "Henrik Larsson"
+    ],
+    "imageUrl": "https://pliki.meczyki.pl/big700/344/5f466f68ee9b8.jpg",
+    "imageSourceUrl": "https://www.meczyki.pl/newsy/plus/zmienil-bieg-historii-klubu-teraz-wraca-na-camp-nou-szwedzki-joker-wraca-by-budowac-nowa-fc-barcelone/150235",
+    "imageCaption": "لارسون — رقم 7 على الشورت، صورة أرشيفية"
+  },
+  {
+    "id": "BAR-QC-009",
+    "points": 600,
+    "question": "أي نادٍ ألماني واجهه برشلونة في أول مباراة ارتدى فيها القميص البرتقالي خلال مشوار لقبه الأوروبي الأول؟",
+    "answer": "هانزا روستوك",
+    "explanation": "ظهر القميص البرتقالي لأول مرة في إياب دور الـ32 في أكتوبر 1991.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4343542/orange-is-back-a-very-special-colour-for-fc-barcelona",
+    "acceptableAnswers": [
+      "هانسا روستوك",
+      "Hansa Rostock"
+    ]
+  },
+  {
+    "id": "BAR-QC-010",
+    "points": 400,
+    "question": "مين اللاعب اللي سجّل هدف برشلونة الحاسم في السوبر الأوروبي أمام شاختار عام 2009، قبل تحقيق السداسية؟",
+    "answer": "بيدرو رودريغيز",
+    "explanation": "سجل بيدرو في الوقت الإضافي، ليحقق برشلونة لقبه الخامس في ذلك العام.",
+    "isPlayer": true,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/noticias/1121027/cinco-aos-de-la-tercera-supercopa-de-europa",
+    "acceptableAnswers": [
+      "بيدرو",
+      "Pedro Rodríguez"
+    ]
+  },
+  {
+    "id": "BAR-QC-011",
+    "points": 200,
+    "question": "شو اسم المدرب الذي قاد برشلونة لتحقيق السداسية التاريخية عام 2009؟",
+    "answer": "بيب غوارديولا",
+    "explanation": "أحرز الفريق بقيادته ستة ألقاب خلال عام 2009.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/champions-league",
+    "acceptableAnswers": [
+      "غوارديولا",
+      "Pep Guardiola"
+    ]
+  },
+  {
+    "id": "BAR-QC-012",
+    "points": 200,
+    "question": "أي فريق واجه برشلونة في الريمونتادا الشهيرة 6–1 بدوري أبطال أوروبا سنة 2017؟",
+    "answer": "باريس سان جيرمان",
+    "explanation": "عوض برشلونة خسارته ذهابًا 4–0 وتأهل بمجموع 6–5.",
+    "isPlayer": false,
+    "kind": "history",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/1088764/psg2",
+    "acceptableAnswers": [
+      "باريس",
+      "PSG",
+      "Paris Saint-Germain"
+    ]
   }
 ]
