@@ -9,7 +9,7 @@ permissions:
 jobs:
   frames:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -18,20 +18,54 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
-          ffprobe -version | head -n 1
-      - name: Download licensed source and extract contact sheets
+      - name: Fetch and review ten distinct sources
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p quality-audit/focus-video-frames
-          curl --fail --location --retry 2 --max-time 90 --user-agent 'VisualMemoryQuizReview/1.0 (GitHub media review)' 'https://upload.wikimedia.org/wikipedia/commons/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm' -o /tmp/wing-it.webm
-          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 /tmp/wing-it.webm
-          for start in 20 45 70 95 120 145 170; do
-            ffmpeg -nostdin -hide_banner -loglevel error -ss "$start" -i /tmp/wing-it.webm -t 17 -vf 'fps=1,scale=320:-2,tile=4x5:padding=3:margin=3' -frames:v 1 -q:v 3 "quality-audit/focus-video-frames/wing-it-$start.jpg"
-          done
-          printf '%s\n' 'Source: Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ — https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm — excerpts sampled at one frame per second for review, not approved questions.' > quality-audit/focus-video-frames/README.txt
+          mkdir -p /tmp/focus-review
+          cat > /tmp/focus-review/sources.tsv <<'SOURCES'
+          glass	Glass Half - 3D animation with OpenGL cartoon rendering.webm	45
+          bunny	Big Buck Bunny alt.webm	90
+          llama	Caminandes - Gran Dillama - Blender Foundation's new Open Movie.webm	35
+          coffee	Coffee Run - Blender Open Movie-full movie.webm	35
+          hero	HERO - Blender Open Movie-full movie.webm	30
+          dweebs	The Daily Dweebs - Blender Open Movie-full movie.webm	12
+          carousel	Geelong Carousel ride - July 2024.webm	5
+          balloon	Hot air balloon takeoff.webm	20
+          train	Darjeeling toy train.webm	3
+          floating-market	Traditional floating fruits market.webm	2
+          SOURCES
+          python3 - <<'PY'
+          import hashlib, json, urllib.parse, pathlib, subprocess, concurrent.futures
+          out=pathlib.Path('quality-audit/focus-video-frames')
+          def process(line):
+              slug, name, start=line.split('\t'); start=int(start)
+              fname=name.replace(' ','_')
+              h=hashlib.md5(fname.encode()).hexdigest()
+              url=f'https://upload.wikimedia.org/wikipedia/commons/{h[0]}/{h[:2]}/'+urllib.parse.quote(fname)
+              p=pathlib.Path('/tmp/focus-review')/(slug+'.webm')
+              source='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fname)
+              row={'slug':slug,'source':source,'url':url,'start':start,'end':start+17}
+              try:
+                  subprocess.run(['curl','-fLsS','--retry','1','--max-time','120','--user-agent','VisualMemoryQuizReview/1.0 (GitHub media review)',url,'-o',str(p)],check=True)
+                  info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration:stream=width,height','-of','json',str(p)]))
+                  duration=float(info['format']['duration'])
+                  if duration<start+17: raise ValueError('clip shorter than requested interval')
+                  subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-ss',str(start),'-i',str(p),'-t','17','-vf','fps=1,scale=320:-2,tile=4x5:padding=3:margin=3','-frames:v','1','-q:v','3','-y',str(out/(slug+'.jpg'))],check=True)
+                  row.update(status='frames_ready',duration=duration)
+              except Exception as e:
+                  row.update(status='failed',error=str(e))
+              finally:
+                  p.unlink(missing_ok=True)
+              return row
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+              results=list(pool.map(process,pathlib.Path('/tmp/focus-review/sources.tsv').read_text().splitlines()))
+          (out/'batch-two.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+          print(json.dumps(results,ensure_ascii=False,indent=2))
+          PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add quality-audit/focus-video-frames
-          git commit -m 'Add contact sheets from licensed animation for review'
+          git commit -m 'Review contact sheets from ten distinct video sources'
           git push origin HEAD:quality/visual-memory-pass-1
