@@ -380,13 +380,17 @@ export function GameArena({
     let mounted = true;
     let refreshing = false;
     let hasSnapshot = false;
+    let request: AbortController | undefined;
     const loadState = async () => {
-      if (!mounted || refreshing) return;
+      if (!mounted || refreshing || navigator.onLine === false) return;
       refreshing = true;
+      const controller = new AbortController();
+      request = controller;
+      const timeout = window.setTimeout(() => controller.abort(), 10000);
       try {
         const qs = new URLSearchParams({ role });
         if (token) qs.set('token', token);
-        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`, {cache:'no-store',signal:AbortSignal.timeout(10000)});
+        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`, {cache:'no-store',signal:controller.signal});
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
         if (mounted) {
@@ -397,7 +401,11 @@ export function GameArena({
         }
       } catch (err) {
         if (mounted && !hasSnapshot) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
-      } finally { refreshing = false; }
+      } finally {
+        window.clearTimeout(timeout);
+        if (request === controller) request = undefined;
+        refreshing = false;
+      }
     };
     void loadState();
     const reconnect = () => { if (!document.hidden) void loadState(); };
@@ -427,6 +435,7 @@ export function GameArena({
 
     return () => {
       mounted = false;
+      request?.abort();
       window.clearInterval(fallbackTimer);
       window.removeEventListener('online', reconnect);
       document.removeEventListener('visibilitychange', reconnect);
