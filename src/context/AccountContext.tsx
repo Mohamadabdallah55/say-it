@@ -52,7 +52,6 @@ import {
   VALID_HEX_COLOR_REGEX,
   VALID_ID_REGEX,
 } from '../game/categoryProgress';
-import { SERVER_CURATED_CATEGORIES } from '../game/curatedBanks';
 import { ALL_CURATED_CATEGORIES, CURATED_QUESTIONS } from '../game/starterDecks';
 import type {
   CategoryConsumptionStats,
