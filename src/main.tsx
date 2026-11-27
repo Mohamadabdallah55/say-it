@@ -8,6 +8,11 @@ import { installApiSessionFetch } from './utils/clientSession';
 
 installApiSessionFetch();
 
+// Load diagnostics only when explicitly requested in the current browser.
+if (new URLSearchParams(window.location.search).get('perf') === '1') {
+  void import('./utils/performanceDiagnostics').then(m => m.installPerformanceDiagnostics()).catch(() => {});
+}
+
 createRoot(document.getElementById('root')!).render(
   <ErrorBoundary>
     <AccountProvider>
