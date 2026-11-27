@@ -1,6 +1,7 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
-import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { SCORE_INTRO_MS, SCORE_CARD_MS, scoreDuration } from '../game/scorePresentation';
 import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
@@ -588,6 +589,23 @@ export function GameArena({
     state?.phase !== 'REVEAL' && state?.phase !== 'AWARD' && state?.phase !== 'FINAL'
     ? roundMeta.memorizeEndsAtMs ?? undefined : undefined;
   const awardAt = state?.lastAward?.at;
+  const awardPhase = state?.phase;
+  const awardCount = Object.values(state?.lastAward?.changes ?? {}).filter(n => n !== 0).length;
+  const [scorePlaybackAt, setScorePlaybackAt] = useState<number | null>(null);
+  const presentationSeen = useRef<{ room: string; award?: number } | null>(null);
+  useLayoutEffect(() => {
+    if (!awardPhase) return;
+    const previous = presentationSeen.current;
+    presentationSeen.current = { room: roomCode, award: awardAt };
+    if (awardPhase !== 'BOARD' || !previous || previous.room !== roomCode || awardAt === undefined ||
+        previous.award === awardAt || !awardCount || Math.abs(Date.now() - awardAt) > 2000) {
+      setScorePlaybackAt(null);
+      return;
+    }
+    setScorePlaybackAt(awardAt);
+    const timer = window.setTimeout(() => setScorePlaybackAt(null), scoreDuration(awardCount));
+    return () => window.clearTimeout(timer);
+  }, [roomCode, awardAt, awardCount, awardPhase]);
   const commentaryAt = state?.settings.commentaryMode !== 'off' && state?.phase !== 'FINAL' && state?.commentary
     ? Date.parse(state.commentary.timestamp) : undefined;
   useEffect(() => {
@@ -827,6 +845,10 @@ export function GameArena({
   const previousAnswer = state.role === 'host' && state.phase === 'BOARD' && isClassicBoard
     ? state.scoreHistory.find(entry => !entry.undone && entry.questionId)
     : undefined;
+  const scoreScenes = state.lastAward ? state.teams.map(team => ({ team, change: state.lastAward!.changes[team.id] ?? 0 }))
+    .filter(x => x.change !== 0).sort((a, b) => Number(b.change > 0) - Number(a.change > 0)).slice(0, 4) : [];
+  const showScoreMoment = state.phase === 'BOARD' && scorePlaybackAt !== null &&
+    scorePlaybackAt === state.lastAward?.at && scoreScenes.length > 0 && !correction && animateRound;
   const confirmedChoice = correction?.teamId;
   const correctionOptions = previousAnswer?.lifeline === 'silence'
     ? state.teams.filter(team => team.id === previousAnswer.ownerTeamId)
@@ -888,6 +910,17 @@ export function GameArena({
       <div className="arena-layout relative z-10">
         {/* MAIN STAGE */}
         <div className="arena-main space-y-3">
+          {showScoreMoment && (
+            <div className="yh-score-show" key={scorePlaybackAt} role="status" aria-label={scoreScenes.map(({team,change})=>team.name+' '+(change>0?'+':'')+change+' نقطة').join('، ')} style={{'--score-duration':scoreDuration(scoreScenes.length)+'ms'} as CSSProperties}>
+              <div className="yh-score-veil" aria-hidden="true"/>
+              {scoreScenes.map(({team,change},index)=><div className="yh-score-card" key={team.id} data-result={change<0?'loss':'gain'} style={{'--team-color':team.color,animationDelay:(SCORE_INTRO_MS+index*SCORE_CARD_MS)+'ms'} as CSSProperties} aria-hidden="true">
+                <span className="yh-score-stars"><i/><i/><i/></span>
+                <h2><i/>{team.name}</h2>
+                <div className="yh-score-amount"><b dir="ltr">{change>0?'+':''}{change}</b><span>نقطة</span></div>
+                <div className="yh-score-dots">{scoreScenes.map((_,dot)=><i key={dot} data-active={dot===index}/>)}</div>
+              </div>)}
+            </div>
+          )}
           {state.phase !== 'BOARD' && state.phase !== 'FINAL' && (
             <div className="round-edges" aria-label="متابعة الجولة">
               <div className="round-edge-step" key={state.phase} data-clock={state.phase === 'TIME_UP' ? 'ended' : undefined}>
@@ -930,7 +963,7 @@ export function GameArena({
                   <h1 id="board-title">لوحة الفئات</h1>
                   <span className="board-heading-sub">{roundCue}</span>
                 </div>
-                {recentAward && (
+                {recentAward && !showScoreMoment && (
                   <div className="round-edge-award" role="status" key={recentAward.at}>
                     {awardChanges.length ? awardChanges.map(({ team, change }) => (
                       <span key={team.id} className="round-edge-change" data-negative={change < 0}>
