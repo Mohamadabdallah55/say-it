@@ -1,0 +1,262 @@
+{
+  "status": "candidate_sources_only_not_playable",
+  "target": {
+    "images": 50,
+    "videos": 50,
+    "total": 100
+  },
+  "current": {
+    "imageQuestions": 74,
+    "videoQuestions": 26
+  },
+  "rules": [
+    "Use distinct scenes, preferably distinct works, not repeated questions from one clip.",
+    "Preview all frames and verify 17-second window, source license and actual playback before replacing any row.",
+    "Questions about visible colors, reasonable counts, and background objects. No event sequences or tiny text. Preserve tiers and memory scene deduplication.",
+    "Reject clips with insufficient duration, unsuitable framing or rights, and do not count as approved until checked."
+  ],
+  "candidates": [
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-1",
+      "type": "animation",
+      "title": "Wing It!",
+      "source": "https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm",
+      "license": "CC BY 4.0",
+      "direct": "https://upload.wikimedia.org/wikipedia/commons/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-2",
+      "type": "animation",
+      "title": "Big Buck Bunny",
+      "source": "https://commons.wikimedia.org/wiki/File:Big_Buck_Bunny_alt.webm",
+      "license": "CC BY 3.0",
+      "direct": "https://upload.wikimedia.org/wikipedia/commons/8/88/Big_Buck_Bunny_alt.webm",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-3",
+      "type": "animation",
+      "title": "Glass Half",
+      "source": "https://commons.wikimedia.org/wiki/File:Glass_Half_-_Blender_Open_Movie-full_movie.webm",
+      "license": "CC BY 4.0",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-4",
+      "type": "animation",
+      "title": "Gran Dillama",
+      "source": "https://commons.wikimedia.org/wiki/File:Caminandes_-_Gran_Dillama_-_Blender_Foundation%27s_new_Open_Movie.webm",
+      "license": "CC BY 3.0",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-5",
+      "type": "animation",
+      "title": "Llama Drama",
+      "source": "https://commons.wikimedia.org/wiki/File:Caminandes-_Llama_Drama_-_Short_Movie.ogv",
+      "license": "CC license; confirm exact version",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-6",
+      "type": "ride",
+      "title": "Bumper cars",
+      "source": "https://www.pexels.com/video/people-riding-bumper-cars-8883048/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-7",
+      "type": "ride",
+      "title": "Dragon train",
+      "source": "https://www.pexels.com/video/colorful-amusement-park-ride-with-families-40802090/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-8",
+      "type": "ride",
+      "title": "Carousel",
+      "source": "https://www.pexels.com/video/colorful-carousel-at-city-amusement-park-36097833/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-9",
+      "type": "ride",
+      "title": "Bumper cars night",
+      "source": "https://www.pexels.com/video/people-driving-bumper-cars-10771432/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-10",
+      "type": "balloons",
+      "title": "Inflating balloons",
+      "source": "https://www.pexels.com/video/hot-air-balloons-preparing-for-takeoff-at-festival-34795986/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-11",
+      "type": "balloons",
+      "title": "Character balloons",
+      "source": "https://www.pexels.com/video/colorful-hot-air-balloons-against-blue-sky-38876123/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-12",
+      "type": "balloons",
+      "title": "Outdoor festival",
+      "source": "https://www.pexels.com/video/colorful-balloons-at-a-vibrant-outdoor-festival-40802222/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-13",
+      "type": "balloons",
+      "title": "Night balloons",
+      "source": "https://www.pexels.com/video/an-aerial-footage-of-hot-air-balloons-at-night-14955682/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-14",
+      "type": "market",
+      "title": "Fruit stall",
+      "source": "https://www.pexels.com/video/vibrant-market-stall-with-fresh-fruits-and-vegetables-35675125/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-15",
+      "type": "market",
+      "title": "Outdoor fruit market",
+      "source": "https://www.pexels.com/video/colorful-street-fruit-market-stall-41130861/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-16",
+      "type": "market",
+      "title": "Food stall",
+      "source": "https://www.pexels.com/video/vibrant-food-stall-at-a-bustling-market-40802139/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-17",
+      "type": "market",
+      "title": "Busy produce stall",
+      "source": "https://www.pexels.com/video/busy-market-stall-selling-fresh-produce-36108514/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-18",
+      "type": "toys",
+      "title": "Model railway",
+      "source": "https://www.pexels.com/video/realistic-model-train-journey-through-scenic-layout-35681041/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-19",
+      "type": "toys",
+      "title": "Toy train in garden",
+      "source": "https://www.pexels.com/video/colorful-flowers-and-toy-train-12781234/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-20",
+      "type": "toys",
+      "title": "Wooden train set",
+      "source": "https://www.pexels.com/video/a-boy-playing-with-wooden-toy-cars-8612258/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-21",
+      "type": "toys",
+      "title": "Toy train bridge",
+      "source": "https://www.pexels.com/video/close-up-shot-of-a-train-4474947/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-22",
+      "type": "transport",
+      "title": "Colorful train",
+      "source": "https://www.pexels.com/video/colorful-train-approaching-on-railway-tracks-36721080/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-23",
+      "type": "toys",
+      "title": "Toy train snow landscape",
+      "source": "https://www.pexels.com/video/miniature-toy-train-in-scenic-snowy-landscape-30170998/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    },
+    {
+      "id": "FOCUS-VIDEO-CANDIDATE-24",
+      "type": "toys",
+      "title": "Colorful train track",
+      "source": "https://www.pexels.com/video/a-kid-playing-car-track-toy-8747233/",
+      "license": "Pexels license; confirm asset terms",
+      "status": "pending_visual_and_playback_review",
+      "question": null,
+      "answer": null
+    }
+  ]
+}
