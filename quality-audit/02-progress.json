@@ -284,6 +284,54 @@
       "acceptedQuestions": 0,
       "contentEdits": 1,
       "lastReviewedId": "WC26-200-49"
+    },
+    "cat_brain_teasers": {
+      "status": "content_first_pass_complete",
+      "originalTierCounts": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "textReviewedByOriginalTier": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 0,
+      "factsLogicallyVerified": 50,
+      "newQuestionsLogicallyVerified": 25,
+      "replacementsAppliedPendingSecondReview": [
+        "ST-200-02-QA1",
+        "ST-200-08-QA1",
+        "ST-200-14-QA1",
+        "ST-400-04-QA1",
+        "ST-400-06-QA1",
+        "ST-400-08-QA1",
+        "ST-400-11-QA1",
+        "ST-400-12-QA1",
+        "ST-400-13-QA1",
+        "ST-400-20-QA1",
+        "ST-600-01-QA1",
+        "ST-600-02-QA1",
+        "ST-600-03-QA1",
+        "ST-600-04-QA1",
+        "ST-600-06-QA1",
+        "ST-600-08-QA1",
+        "ST-600-09-QA1",
+        "ST-600-10-QA1",
+        "ST-600-17-QA1",
+        "ST-600-18-QA1",
+        "ST-600-20-QA1",
+        "ST-600-21-QA1",
+        "ST-600-22-QA1",
+        "ST-600-23-QA1",
+        "ST-600-24-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 3,
+      "lastReviewedId": "ST-600-25"
     }
   },
   "defaultCategoryStatus": "screened_content_pending",
@@ -296,9 +344,10 @@
       "candidateGroups": "content-candidates.jsonl"
     },
     "latestBatch": {
-      "originalsReviewed": 128,
-      "replacementsAppliedPendingSecondReview": 42,
-      "categories": 10
+      "originalsReviewed": 75,
+      "replacementsAppliedPendingSecondReview": 25,
+      "categories": 1,
+      "reviewStartedAtCommit": "e5c922103dc9b1f37e754767751a5885b8244798"
     },
     "media": "deferred",
     "mediaFixList": "media-fix-list.md"

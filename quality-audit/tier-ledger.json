@@ -271,6 +271,33 @@
       "uncompensated600": 0,
       "hardReplacementsPendingAcceptance": 0,
       "status": "in_review"
+    },
+    "cat_brain_teasers": {
+      "before": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "after": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "reviewedByOriginalTier": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "originalsWithEdits": 3,
+      "originalsRetainedWithoutEdits": 47,
+      "originalsRetired": 25,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 25,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 15,
+      "status": "in_review"
     }
   }
 }
