@@ -1,6 +1,6 @@
 {
   "title": "ركّز — صور ومقاطع",
-  "version": "5.4.2",
+  "version": "5.4.3",
   "image_count": 43,
   "question_count": 100,
   "images_are": "Real photographs. Newly replaced scenes use source-attributed licensed previews checked visually; full-size in-game display and remote playback pending.",
@@ -1224,24 +1224,22 @@
       "height": 2000
     },
     {
-      "id": "MEM-192",
+      "id": "MEM-192-VID1",
       "category": "ركّز",
       "level": 600,
       "points": 600,
-      "scene_id": "N03",
-      "scene": "مجموعة مفاتيح أثرية",
-      "media_type": "image",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Keys_%284601980551%29.jpg",
-      "show_seconds": 6,
-      "question": "كم مفتاحًا داخل صفّي العلبة المفتوحة كان رأسه الحلقي باتجاه أعلى الصورة؟",
-      "answer": "9",
-      "explanation": "9 · الصورة: plenty.r. · CC BY-SA 2.0 · https://commons.wikimedia.org/wiki/File:Keys_(4601980551).jpg",
+      "scene_id": "VQC-WING-070",
+      "scene": "Wing It! — قمرة المركبة",
+      "media_type": "video",
+      "image": "",
+      "video_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm#t=70,87",
+      "show_seconds": 17,
+      "question": "ما لون المقعد الموجود أمام لوحة التحكم داخل المركبة؟",
+      "answer": "أخضر",
+      "explanation": "أخضر · Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm",
       "answer_visible_only_after_reveal": true,
-      "reference": "plenty.r. · CC BY-SA 2.0 · https://commons.wikimedia.org/wiki/File:Keys_(4601980551).jpg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Keys_(4601980551).jpg",
-      "review_status": "source_image_visually_checked_game_loading_pending",
-      "width": 3008,
-      "height": 2000
+      "reference": "Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm · one-frame-per-second contact sheet reviewed; browser playback pending",
+      "review_status": "contact_sheet_reviewed_playback_pending"
     },
     {
       "id": "MEM-193",
@@ -2024,5 +2022,5 @@
       "height": 2177
     }
   ],
-  "video_count": 25
+  "video_count": 26
 }
