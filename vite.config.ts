@@ -50,6 +50,8 @@ export default defineConfig(() => {
         },
       },
     ],
+    // Build manifest lets CI distinguish initial downloads from lazy chunks.
+    build: { manifest: true },
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
