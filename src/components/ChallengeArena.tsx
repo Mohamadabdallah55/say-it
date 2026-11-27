@@ -7,7 +7,7 @@ import { getCategoryCardArt, getUploadedCategoryArt } from '../utils/gameAssets'
 import { soundFX } from '../utils/sound';
 import { ChallengeGameLogo } from './ChallengeGameLogo';
 
-type GameId = 'quiz'|'thirty'|'khalf'|'codenames'|'horouf'|'drawing';
+type GameId = 'quiz'|'thirty'|'khalf'|'codenames'|'horouf'|'drawing'|'words';
 export interface ChallengeArenaProps {
   decks: QuizDeck[];
   recoveredMetaById: Record<string,RecoveredDeckRecord>;
@@ -27,6 +27,7 @@ const GAMES = [
   {id:'codenames',name:'كود نيمز',color:'#385681',desc:'كلمة واحدة تقرّب فريقك من الفوز.'},
   {id:'horouf',name:'حروف النخبة',color:'#985a27',desc:'جاوب صح ووصّل طرفي اللوحة.'},
   {id:'drawing',name:'خط مشبوه',color:'#a23c80',desc:'ارسم خطك واكشف اللاعب المختلف.'},
+  {id:'words',name:'هات كلمة',color:'#2864C7',desc:'حرف واحد… عبّي السطر قبل الجميع!'},
 ] as const;
 const AMMAN_OFFSET=3*3600000;
 const DAY=86400000;
@@ -77,7 +78,7 @@ export function ChallengeArena({decks,recoveredMetaById,savedMatchCount,onPickCa
         <section className="ca-panel ca-categories"><div className="ca-panel-head"><h3><span className="ca-panel-icon"><Grid2X2 size={17}/></span> جولة بين الفئات</h3><button type="button" className="ca-small-btn" onClick={onStartQuick}>كل الفئات ({categories.length})</button></div>{upper.length>0?<div className="ca-rails"><CategoryRail categories={upper} onPick={pick}/>{lower.length>0&&<CategoryRail categories={lower} reverse onPick={pick}/>}</div>:<p className="ca-empty">تظهر الفئات عند تحميل مكتبة الأسئلة.</p>}</section>
         <section className="ca-panel ca-modes"><div className="ca-panel-head"><h3><span className="ca-panel-icon"><Trophy size={17}/></span> طرق اللعب</h3></div><div className="ca-mode-grid"><button type="button" onClick={()=>{soundFX.playClick();onStartClassic();}}><span style={{background:'#7046ad'}}><Grid2X2 size={26}/></span><b>كلاسيكي</b><small>5 فئات جاهزة</small></button><button type="button" onClick={onStartQuick}><span style={{background:'#ca593f'}}><Zap size={26}/></span><b>تشكيلة حرة</b><small>اختار فئاتك</small></button><button type="button" onClick={onOpenPdfStudio}><span style={{background:'#286a91'}}><FileText size={26}/></span><b>من درس PDF</b><small>اصنع تحديك</small></button></div></section>
         <section className="ca-panel ca-profile"><div className="ca-panel-head"><h3><span className="ca-panel-icon"><UserRound size={17}/></span> بطاقة المتسابق</h3></div><div className="ca-profile-body"><div className="ca-profile-name"><span className="ca-avatar"><UserRound size={23}/></span><div><b>{user?.displayName?.split(' ')[0]||'لاعب ضيف'}</b><small>{user?'حسابك في يمكن هاي':'العب بدون تسجيل دخول'}</small></div></div><div className="ca-profile-stats"><div><b>{user?totalPlayedCount:'—'}</b><small>أسئلة لعبتها</small></div><div><b>{savedMatchCount}</b><small>مباراة محفوظة</small></div></div><button type="button" className="ca-small-btn" onClick={onOpenSavedMatches}>مبارياتي <ArrowLeft size={15}/></button></div></section>
-      </div>:<div className="ca-game-focus" style={{background:game.color}}><div className="ca-other-stage"><div className="ca-light ca-light-one"/><div className="ca-light ca-light-two"/><div className="ca-float ca-game-logo"><ChallengeGameLogo game={selected}/></div><div className="ca-stage-shadow"/></div><div className="ca-other-copy"><span>من ألعاب ساحة التحدي</span><h3>{game.name}</h3><p>{game.desc}</p>{href?<a className="ca-small-btn ca-yellow" href={href} onClick={()=>soundFX.playClick()}>ابدأ اللعب <Play size={15} fill="currentColor"/></a>:<span>رابط اللعبة غير متاح حاليًا</span>}<small>{selected==='drawing'?'العب على جهاز واحد أو مع أصدقائك في غرفة خاصة.':'تفتح اللعبة على سيرفرها المستقل.'}</small></div></div>}
+      </div>:<div className="ca-game-focus" style={{background:game.color}}><div className="ca-other-stage"><div className="ca-light ca-light-one"/><div className="ca-light ca-light-two"/><div className="ca-float ca-game-logo"><ChallengeGameLogo game={selected}/></div><div className="ca-stage-shadow"/></div><div className="ca-other-copy"><span>من ألعاب ساحة التحدي</span><h3>{game.name}</h3><p>{game.desc}</p>{href?<a className="ca-small-btn ca-yellow" href={href} onClick={()=>soundFX.playClick()}>ابدأ اللعب <Play size={15} fill="currentColor"/></a>:<span>رابط اللعبة غير متاح حاليًا</span>}<small>{selected==='words'?'كل لاعب من جهازه، في غرفة خاصة.':selected==='drawing'?'العب على جهاز واحد أو مع أصدقائك في غرفة خاصة.':'تفتح اللعبة على سيرفرها المستقل.'}</small></div></div>}
     </div>
   </section>;
 }
