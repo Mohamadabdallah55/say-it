@@ -13,6 +13,7 @@ import { applyAccountProgressToDeck } from './categoryProgress';
 import { reserveCuratedQuestions } from '../../server/curatedQuestionRotation';
 import {
   advanceMemoryToQuestion,
+  beginMemoryVideo,
   awardRoundAndReturnToBoard,
   createRoomState,
   reopenQuestionForCorrection,
@@ -58,7 +59,7 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
   const ids = new Set<string>();
   const tierCounts = { 200: 0, 400: 0, 600: 0 };
   for (const q of VISUAL_MEMORY_QUESTIONS) {
-    assert.match(q.id, /^MEM-\d{3}$/);
+    assert.match(q.id, /^MEM-\d{3}(?:-(?:R[1-9]\d*|VID[1-9]\d*|QC\d*|V))*$/);
     assert.ok(!ids.has(q.id));
     ids.add(q.id);
     assert.equal(q.categoryId, VISUAL_MEMORY_CATEGORY.id);
@@ -69,10 +70,10 @@ test('Focus exposes exactly one image or video and uses appropriate tier counts'
     assert.ok(q.points === 200 || q.points === 400 || q.points === 600, `Unexpected Focus tier: ${q.points}`);
     if (q.videoUrl) {
       assert.ok(q.showSeconds === 15 || q.showSeconds === 17);
-      assert.match(q.memorySceneId ?? '', /^V\d{2}$/);
+      assert.match(q.memorySceneId ?? '', /^(?:V\d{2}|VQC-[a-z\d-]+)$/i);
     } else {
       assert.equal(q.showSeconds, {200: 10, 400: 8, 600: 6}[q.points]);
-      assert.match(q.memorySceneId ?? '', /^(P\d{3}|N\d{2})$/);
+      assert.match(q.memorySceneId ?? '', /^(?:P\d{3}|N\d{2}|PQC-[a-z\d-]+)$/i);
       if (q.imageUrl?.startsWith('/')) {
         assert.ok(q.imageUrl.startsWith('/assets/jordan_nostalgia/'));
         assert.ok(fs.existsSync(path.join(process.cwd(), 'public', q.imageUrl.slice(1))));
@@ -182,7 +183,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   assert.equal(room.activeRound?.memorizeDurationSeconds, firstQuestion.showSeconds);
   assert.equal(
     room.activeRound?.memorizeEndsAtMs,
-    baseNow + firstQuestion.showSeconds! * 1000,
+    firstQuestion.videoUrl ? null : baseNow + firstQuestion.showSeconds! * 1000,
   );
   assert.equal(room.timer.running, false, 'Challenge timer stays paused during MEMORIZE');
 
@@ -240,13 +241,14 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
 });
 
 test('Consecutive rounds reject the same memorySceneId when an alternative tile exists', () => {
-  const scene1Qs = VISUAL_MEMORY_QUESTIONS.filter((q) => q.memorySceneId === 'V04');
-  const scene2Q = VISUAL_MEMORY_QUESTIONS.find((q) => q.memorySceneId === 'V06')!;
-  assert.ok(scene1Qs.length >= 1);
+  const firstScene = VISUAL_MEMORY_QUESTIONS.find((q) => q.videoUrl && q.memorySceneId);
+  assert.ok(firstScene);
+  const alternateScene = VISUAL_MEMORY_QUESTIONS.find((q) => q.videoUrl && q.memorySceneId && q.memorySceneId !== firstScene.memorySceneId);
+  assert.ok(alternateScene);
 
-  const qA = { ...scene1Qs[0], points: 200 as const, difficulty: 'easy' as const };
-  const qB = { ...scene1Qs[0], id: 'MEM-TEST-DUPLICATE-SCENE', points: 400 as const, difficulty: 'medium' as const };
-  const qC = { ...scene2Q, points: 600 as const, difficulty: 'hard' as const };
+  const qA = { ...firstScene, points: 200 as const, difficulty: 'easy' as const };
+  const qB = { ...firstScene, id: 'MEM-TEST-DUPLICATE-SCENE', points: 400 as const, difficulty: 'medium' as const };
+  const qC = { ...alternateScene, points: 600 as const, difficulty: 'hard' as const };
 
   let room = createRoomState({
     roomCode: 'VM03',
@@ -272,27 +274,29 @@ test('Consecutive rounds reject the same memorySceneId when an alternative tile 
     selectedCategoryIds: [VISUAL_MEMORY_CATEGORY.id],
   });
 
-  // Play qA (V04)
-  room = selectBoardTile(room, qA.id, 's1').state;
+  const first = selectBoardTile(room, qA.id, 's1');
+  assert.ok(first.ok, first.error);
+  room = first.state;
   if (room.phase === 'LIFELINE_PICK') room = skipLifelinePick(room, 'sk1').state;
   room = advanceMemoryToQuestion(room, 'a1').state;
   room = revealAnswer(room, 'r1').state;
   room = awardRoundAndReturnToBoard(room, ['team_1'], 'w1').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'V04');
+  assert.equal(room.lastPlayedMemorySceneId, firstScene.memorySceneId);
 
-  // Selecting qB (also V04) immediately after must be blocked because qC (V06) is available
+  // The alternative must be on the board for a consecutive repeat to be blocked.
+  assert.ok(room.boardTiles.some(tile => tile.questionId === qC.id && !tile.used));
   const blocked = selectBoardTile(room, qB.id, 's2_blocked');
   assert.equal(blocked.ok, false);
   assert.ok(blocked.error?.includes('المشهد البصري'));
 
-  // Play qC (V06) instead
-  room = selectBoardTile(room, qC.id, 's2_ok').state;
+  const alternative = selectBoardTile(room, qC.id, 's2_ok');
+  assert.ok(alternative.ok, alternative.error);
+  room = alternative.state;
   room = advanceMemoryToQuestion(room, 'a2').state;
   room = revealAnswer(room, 'r2').state;
   room = awardRoundAndReturnToBoard(room, ['team_2'], 'w2').state;
-  assert.equal(room.lastPlayedMemorySceneId, 'V06');
+  assert.equal(room.lastPlayedMemorySceneId, alternateScene.memorySceneId);
 
-  // Now qB (V04) is allowed again
   const unblocked = selectBoardTile(room, qB.id, 's3_ok');
   assert.equal(unblocked.ok, true);
 });
@@ -362,13 +366,18 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
   assert.equal(projMemorize?.videoUrl, videoQuestion.videoUrl);
   assert.equal(projMemorize?.prompt, '');
 
-  const opened = advanceMemoryToQuestion(selected.state, 'vid_open', now + 5_000);
+  assert.equal(selected.state.activeRound?.memorizeEndsAtMs, null, 'Video must not count down while loading');
+  const started = beginMemoryVideo(selected.state, 'vid_playing', now + 12_000);
+  assert.equal(started.ok, true);
+  assert.equal(started.state.activeRound?.memorizeEndsAtMs, now + 17_000);
+  assert.equal(beginMemoryVideo(started.state, 'vid_retry', now + 13_000).state.activeRound?.memorizeEndsAtMs, now + 17_000);
+  const opened = advanceMemoryToQuestion(started.state, 'vid_open', now + 17_000);
   const projQuestion = sanitizeStateForRole(opened.state, 'projector', now + 5_000).activeRound;
   assert.equal(projQuestion?.memoryStage, 'QUESTION');
   assert.equal(projQuestion?.videoUrl, undefined);
   assert.equal(projQuestion?.prompt, videoQuestion.prompt);
 
-  const revealed = revealAnswer(opened.state, 'vid_rev', now + 8_000);
+  const revealed = revealAnswer(opened.state, 'vid_rev', now + 20_000);
   const projReveal = sanitizeStateForRole(revealed.state, 'projector', now + 8_000).activeRound;
   assert.equal(projReveal?.videoUrl, videoQuestion.videoUrl);
   assert.equal(projReveal?.answer, videoQuestion.answer);
@@ -377,7 +386,9 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
 
 test('Focus includes real short video sources with distinct scene identifiers', () => {
   const videos = VISUAL_MEMORY_QUESTIONS.filter(q => q.videoUrl);
-  assert.equal(videos.length, 26);
-  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, 25);
+  assert.equal(videos.length, 33);
+  assert.equal(new Set(videos.map(q => q.memorySceneId)).size, videos.length);
+  assert.equal(new Set(videos.map(q => q.videoUrl)).size, videos.length);
+  assert.ok(videos.every(q => q.videoUrl?.startsWith('https://')));
   assert.ok(videos.every(q => !q.imageUrl && (q.showSeconds === 17 || q.showSeconds === 15)));
 });

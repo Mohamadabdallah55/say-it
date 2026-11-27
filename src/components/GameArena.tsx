@@ -178,45 +178,118 @@ type ArenaState = HostViewState | PublicProjectorState;
 /** Play the original audio when permitted, while respecting the shared game sound switch.
  * Browsers may deny audible autoplay; the clip then plays muted until the viewer enables sound.
  */
-const FocusClip = memo(function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
+// Prefer a smaller Wikimedia transcode of the same clip, never a different scene.
+function focusLightSource(src: string): string {
+  const match = src.match(/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/([a-f0-9]\/[a-f0-9]{2})\/([^/#?]+\.webm)(#t=.*)?$/i);
+  if (!match) return src;
+  const [, folder, name, fragment = ''] = match;
+  return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' + folder + '/' + name + '/' + name + '.480p.vp9.webm' + fragment;
+}
+
+const FocusClip = memo(function FocusClip({ src, duration, soundEnabled, preferAudio, onRemaining, onFinished }: { src: string; duration: number; soundEnabled: boolean; preferAudio: boolean; onRemaining: (seconds: number) => void; onFinished?: () => Promise<boolean> }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [silent, setSilent] = useState(!soundEnabled || !preferAudio);
+  const callbacks = useRef({ onRemaining, onFinished });
+  callbacks.current = { onRemaining, onFinished };
+  const clipStart = Number(src.match(/#t=(\d+(?:\.\d+)?)/)?.[1] ?? 0);
+  const clipEnd = clipStart + duration;
+  const [source, setSource] = useState(() => focusLightSource(src));
+  const [silent, setSilent] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [needsPlay, setNeedsPlay] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const progressed = useRef(false);
+  const finishing = useRef(false);
+  const finished = useRef(false);
+  const lastSecond = useRef(duration);
+  const retryTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => { if (retryTimer.current !== undefined) clearTimeout(retryTimer.current); }, []);
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     let active = true;
-    video.muted = !soundEnabled || !preferAudio;
-    setSilent(video.muted);
+    setLoading(true);
+    setFailed(false);
     setNeedsPlay(false);
-    video.play().catch(() => {
-      if (!active) return;
-      video.muted = true;
+    video.muted = true;
+    video.defaultMuted = true;
+    setSilent(true);
+    const timer = setTimeout(() => {
+      if (active && !progressed.current && source !== src) setSource(src);
+    }, 7000);
+    video.play().catch(() => { if (active) setNeedsPlay(true); });
+    return () => { active = false; clearTimeout(timer); video.pause(); };
+  }, [source, src]);
+  useEffect(() => {
+    if ((!soundEnabled || !preferAudio) && videoRef.current) {
+      videoRef.current.muted = true;
       setSilent(true);
-      video.play().catch(() => { if (active) setNeedsPlay(true); });
+    }
+  }, [soundEnabled, preferAudio]);
+  const finish = () => {
+    if (finishing.current || finished.current || !callbacks.current.onFinished) return;
+    finishing.current = true;
+    void callbacks.current.onFinished().then(ok => {
+      finishing.current = false;
+      finished.current = ok;
+      if (!ok) retryTimer.current = setTimeout(finish, 700);
+    }).catch(() => {
+      finishing.current = false;
+      retryTimer.current = setTimeout(finish, 700);
     });
-    return () => { active = false; video.pause(); };
-  }, [src, soundEnabled, preferAudio]);
-  const playWithSound = () => {
+  };
+  const update = () => {
     const video = videoRef.current;
-    if (!video) return;
-    video.muted = !soundEnabled;
+    if (!video || video.seeking || video.readyState < 2 || video.currentTime < clipStart - 0.05) return;
+    const remaining = Math.max(0, Math.ceil(clipEnd - video.currentTime));
+    if (video.currentTime > clipStart + 0.05) progressed.current = true;
+    if (!video.paused) { setLoading(false); setNeedsPlay(false); }
+    if (lastSecond.current !== remaining) {
+      lastSecond.current = remaining;
+      callbacks.current.onRemaining(remaining);
+    }
+    if (video.currentTime >= clipEnd - 0.08) {
+      video.pause();
+      setLoading(false);
+      callbacks.current.onRemaining(0);
+      finish();
+    }
+  };
+  const failure = () => {
+    if (!progressed.current && source !== src) { setSource(src); return; }
+    setFailed(true); setLoading(false); setNeedsPlay(true);
+  };
+  const play = () => {
+    const video = videoRef.current;
+    if (!video || finished.current || finishing.current) return;
+    if (failed) {
+      progressed.current = false;
+      lastSecond.current = duration;
+      callbacks.current.onRemaining(duration);
+      setFailed(false); setLoading(true); video.load();
+    }
+    video.muted = !(soundEnabled && preferAudio);
     setSilent(video.muted);
     video.play().then(() => setNeedsPlay(false)).catch(() => {
       video.muted = true;
       setSilent(true);
-      setNeedsPlay(true);
+      video.play().catch(() => setNeedsPlay(true));
     });
   };
   return (
-    <div className="relative">
-      <video ref={videoRef} data-testid="visual-memory-video" src={src}
-        playsInline disablePictureInPicture disableRemotePlayback preload="auto"
+    <div className="relative min-h-[180px] min-w-[min(70vw,480px)]">
+      <video key={source} ref={videoRef} data-testid="visual-memory-video" src={source}
+        muted={silent} autoPlay playsInline disablePictureInPicture disableRemotePlayback preload="auto"
+        onPlaying={update} onTimeUpdate={update} onPause={update}
+        onEnded={() => { const video = videoRef.current; if (video && video.currentTime >= clipEnd - 0.35) { callbacks.current.onRemaining(0); finish(); } else failure(); }}
+        onWaiting={() => setLoading(true)}
+        onError={failure}
         className="block w-full max-w-[1400px] max-h-[66vh] h-auto object-contain select-none" />
-      {(needsPlay || (silent && soundEnabled)) && (
-        <button type="button" onClick={playWithSound}
+      {loading && !failed && <div className="absolute inset-0 grid place-items-center text-white text-sm font-bold pointer-events-none">جارٍ تحميل المقطع…</div>}
+      {failed && <div className="absolute inset-0 grid place-items-center text-white text-sm font-bold pointer-events-none">تعذر تحميل المقطع — حاول مرة أخرى</div>}
+      {(needsPlay || (silent && soundEnabled && preferAudio)) && (
+        <button type="button" onClick={play}
           className="absolute bottom-3 right-3 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#1F112E] shadow">
-          {soundEnabled ? 'تشغيل صوت المقطع' : 'تشغيل المقطع'}
+          {failed ? 'إعادة المحاولة' : needsPlay ? 'تشغيل المقطع' : 'تشغيل صوت المقطع'}
         </button>
       )}
     </div>
@@ -358,6 +431,7 @@ export function GameArena({
   const [shareBundle, setShareBundle] = useState<ShareBundle | null>(null);
   const [multiSelectedTeams, setMultiSelectedTeams] = useState<string[]>([]);
   const [memoryReviewVisible, setMemoryReviewVisible] = useState(true);
+  const [clipClock, setClipClock] = useState<{ key: string; seconds: number } | null>(null);
   const [mediaOrientation, setMediaOrientation] = useState<MediaOrientation>('landscape');
   const [failedNostalgiaVideoRound, setFailedNostalgiaVideoRound] = useState<string | null>(null);
   const [actingQr, setActingQr] = useState<{ actingPath: string; actingUrl: string; qrDataUrl: string } | null>(null);
@@ -585,7 +659,7 @@ export function GameArena({
   // No periodic updates on an idle board. Only schedule a tick for a visible
   // running clock, memory preview or a short-lived award/commentary effect.
   const timerRunning = Boolean(state?.timer.running);
-  const memoryDeadline = roundMeta?.memoryStage === 'MEMORIZE' &&
+  const memoryDeadline = !roundMeta?.videoUrl && roundMeta?.memoryStage === 'MEMORIZE' &&
     state?.phase !== 'REVEAL' && state?.phase !== 'AWARD' && state?.phase !== 'FINAL'
     ? roundMeta.memorizeEndsAtMs ?? undefined : undefined;
   const awardAt = state?.lastAward?.at;
@@ -869,7 +943,10 @@ export function GameArena({
     state.phase !== 'REVEAL' &&
     state.phase !== 'AWARD' &&
     state.phase !== 'FINAL';
-  const rawMemorizeSec = roundMeta?.memorizeEndsAtMs
+  const clipKey = roundMeta ? roundMeta.roundId + roundMeta.questionId + (roundMeta.videoUrl ?? '') : '';
+  const rawMemorizeSec = roundMeta?.videoUrl && isMemorizeStage
+    ? clipClock?.key === clipKey ? clipClock.seconds : roundMeta.memorizeDurationSeconds ?? 17
+    : roundMeta?.memorizeEndsAtMs
     ? Math.max(0, Math.ceil((roundMeta.memorizeEndsAtMs - nowMs) / 1000))
     : roundMeta?.memorizeDurationSeconds ?? 0;
   const memorizeRemainingSec = isMemorizeStage
@@ -1210,7 +1287,7 @@ export function GameArena({
                           <Eye className="w-4 h-4 shrink-0" />
                           <span>
                             {roundMeta.videoUrl
-                              ? 'شاهد المقطع جيدًا — سيختفي خلال'
+                              ? 'شاهد المقطع جيدًا — المتبقي من المشاهدة'
                               : memorySecondImageUrl
                                 ? showingSecondMemoryImage ? 'الصورة الثانية تختفي خلال' : 'الصورة الأولى تختفي خلال'
                                 : 'تأمل المشهد جيدًا — سيختفي خلال'}
@@ -1234,7 +1311,10 @@ export function GameArena({
                             data-testid="visual-memory-video-box"
                             className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
                           >
-                            <FocusClip key={roundMeta.roundId} src={roundMeta.videoUrl}
+                            <FocusClip key={clipKey} src={roundMeta.videoUrl}
+                              duration={roundMeta.memorizeDurationSeconds ?? 17}
+                              onRemaining={seconds => setClipClock(current => current?.key === clipKey && current.seconds === seconds ? current : { key: clipKey, seconds })}
+                              onFinished={isHost ? () => sendCommand('SKIP_MEMORY_PREVIEW') : undefined}
                               soundEnabled={state.settings.soundEnabled}
                               preferAudio={isHost || localAudio} />
                           </div>

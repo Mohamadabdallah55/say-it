@@ -1,0 +1,84 @@
+name: Focus video review frames
+on:
+  push:
+    branches: [quality/visual-memory-pass-1]
+    paths: ['.github/workflows/focus-video-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: quality/visual-memory-pass-1
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Fetch and review 23 distinct sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p quality-audit/focus-video-frames
+          mkdir -p /tmp/focus-review
+          cat > /tmp/focus-review/sources.tsv <<'SOURCES'
+          spring	Spring - Blender Open Movie.webm	40
+          birdy	Clement Masson - Bye Bye Birdy (2017).webm	12
+          bumper	Autoscooter (bumper cars) - Pützchens Markt 2016.webm	12
+          inflation	Hot air balloon inflating (timelapse).webm	4
+          balloon-spain	Hot air balloon in Spain.webm	10
+          balloon-fest	Nebosvod Belogorya 2021 fest - Balloons flying over Zvonnitsa and Prokhorovka field.webm	10
+          balloon-fiesta	Balloon Fiesta Albuquerque mass ascension 2023-10-14 07-53-12 1.crf23.3840x2160.webm	20
+          christmas-train	Kindereisenbahn am Steyrer Christkindlmarkt - Video 1.webm	10
+          luna	Luna Park Cais 8, Funchal, Madeira - Natal 2023 - 20231216 221125.webm	3
+          phanta	2010 12 25 december Richard en Bert in Phantsialand.webm	20
+          tivoli	Tivoli4.ogv	8
+          aquarium	Aquário com plantas aquáticas.webm	3
+          guppy	Guppies (Poecilia reticulata) in an aquarium.webm	10
+          monterey	Fish at Monterey Bay Aquarium 4 2024-01-11.webm	2
+          fish06	Fish06.webm	0
+          flagfish	Flagfish.webm	8
+          football	Football training video.webm	10
+          football2	Football training.webm	5
+          band	Bando.webm	8
+          icecream	Running an ice cream cart- Mr. Ong's Traditional Ice Cream.webm	20
+          streetfestival	H street festival (37366897252)-video.webm	5
+          santa-festa	Santa Marija Festa.webm	0
+          springs	SpringForest.webm	0
+          SOURCES
+          python3 - <<'PY'
+          import hashlib, json, urllib.parse, pathlib, subprocess, concurrent.futures
+          out=pathlib.Path('quality-audit/focus-video-frames')
+          def process(line):
+              slug, name, start=line.split('\t'); start=int(start)
+              fname=name.replace(' ','_')
+              h=hashlib.md5(fname.encode()).hexdigest()
+              url=f'https://upload.wikimedia.org/wikipedia/commons/{h[0]}/{h[:2]}/'+urllib.parse.quote(fname)
+              p=pathlib.Path('/tmp/focus-review')/(slug+'.webm')
+              source='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fname)
+              row={'slug':slug,'source':source,'url':url,'start':start,'end':start+17}
+              try:
+                  subprocess.run(['curl','-fLsS','--retry','1','--max-time','120','--user-agent','VisualMemoryQuizReview/1.0 (GitHub media review)',url,'-o',str(p)],check=True)
+                  info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration:stream=width,height','-of','json',str(p)]))
+                  duration=float(info['format']['duration'])
+                  if duration<start+17: raise ValueError('clip shorter than requested interval')
+                  subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-ss',str(start),'-i',str(p),'-t','17','-vf','fps=1,scale=320:-2,tile=4x5:padding=3:margin=3','-frames:v','1','-q:v','3','-y',str(out/(slug+'.jpg'))],check=True)
+                  row.update(status='frames_ready',duration=duration)
+              except Exception as e:
+                  row.update(status='failed',error=str(e))
+              finally:
+                  p.unlink(missing_ok=True)
+              return row
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+              results=list(pool.map(process,pathlib.Path('/tmp/focus-review/sources.tsv').read_text().splitlines()))
+          (out/'batch-three.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+          print(json.dumps(results,ensure_ascii=False,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add quality-audit/focus-video-frames
+          git commit -m 'Review contact sheets from 23 distinct video sources'
+          git push origin HEAD:quality/visual-memory-pass-1

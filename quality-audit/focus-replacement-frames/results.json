@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "spring",
+    "source": "https://commons.wikimedia.org/wiki/File:Spring_-_Blender_Open_Movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Spring_-_Blender_Open_Movie.webm",
+    "start": 125,
+    "end": 142,
+    "status": "frames_ready",
+    "duration": 464.134
+  },
+  {
+    "slug": "birdy",
+    "source": "https://commons.wikimedia.org/wiki/File:Clement_Masson_-_Bye_Bye_Birdy_%282017%29.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Clement_Masson_-_Bye_Bye_Birdy_%282017%29.webm",
+    "start": 12,
+    "end": 29,
+    "status": "frames_ready",
+    "duration": 84.366
+  },
+  {
+    "slug": "oo",
+    "source": "https://commons.wikimedia.org/wiki/File:%28OO%29_-_Animation_Short_Film_%282017%29.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/%28OO%29_-_Animation_Short_Film_%282017%29.webm",
+    "start": 55,
+    "end": 72,
+    "status": "frames_ready",
+    "duration": 369.1
+  },
+  {
+    "slug": "commander",
+    "source": "https://commons.wikimedia.org/wiki/File:Fahrgesch%C3%A4ft_Commander_-_P%C3%BCtzchens_Markt_2016.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Fahrgesch%C3%A4ft_Commander_-_P%C3%BCtzchens_Markt_2016.webm",
+    "start": 5,
+    "end": 22,
+    "status": "frames_ready",
+    "duration": 31.2
+  },
+  {
+    "slug": "fish",
+    "source": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_amapaensis_in_the_tank.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hyphessobrycon_amapaensis_in_the_tank.webm",
+    "start": 1,
+    "end": 18,
+    "status": "frames_ready",
+    "duration": 20.008
+  },
+  {
+    "slug": "aq",
+    "source": "https://commons.wikimedia.org/wiki/File:Aqu%C3%A1rio_com_plantas_aqu%C3%A1ticas.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Aqu%C3%A1rio_com_plantas_aqu%C3%A1ticas.webm",
+    "start": 4,
+    "end": 21,
+    "status": "frames_ready",
+    "duration": 30.169
+  },
+  {
+    "slug": "traincolors",
+    "source": "https://commons.wikimedia.org/wiki/File:Train_of_Many_Colors_video_vc.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Train_of_Many_Colors_video_vc.webm",
+    "start": 2,
+    "end": 19,
+    "status": "frames_ready",
+    "duration": 32.104
+  },
+  {
+    "slug": "carousels",
+    "source": "https://commons.wikimedia.org/wiki/File:2009-07-30-Kinderkarussells.ogv",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/2009-07-30-Kinderkarussells.ogv",
+    "start": 3,
+    "end": 20,
+    "status": "frames_ready",
+    "duration": 28.289
+  },
+  {
+    "slug": "amman",
+    "source": "https://commons.wikimedia.org/wiki/File:Vegetable_Market_%28Amman%29.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Vegetable_Market_%28Amman%29.webm",
+    "start": 4,
+    "end": 21,
+    "status": "frames_ready",
+    "duration": 26.707
+  },
+  {
+    "slug": "soccer",
+    "source": "https://commons.wikimedia.org/wiki/File:This_is_soccer.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/This_is_soccer.webm",
+    "start": 5,
+    "end": 22,
+    "status": "frames_ready",
+    "duration": 37.616
+  },
+  {
+    "slug": "football",
+    "source": "https://commons.wikimedia.org/wiki/File:Football_training.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Football_training.webm",
+    "start": 0,
+    "end": 17,
+    "status": "frames_ready",
+    "duration": 18.521
+  },
+  {
+    "slug": "supermarket",
+    "source": "https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_%2813083756734%29.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Supermarket_Grocery_Products_%2813083756734%29.webm",
+    "start": 25,
+    "end": 42,
+    "status": "frames_ready",
+    "duration": 142.81
+  },
+  {
+    "slug": "ferris",
+    "source": "https://commons.wikimedia.org/wiki/File:2011-07-30-Riesenrad.ogv",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/2011-07-30-Riesenrad.ogv",
+    "start": 3,
+    "end": 20,
+    "status": "frames_ready",
+    "duration": 29.543
+  },
+  {
+    "slug": "camden",
+    "source": "https://commons.wikimedia.org/wiki/File:Camden_Park_-_July_6%2C_2010-78704586.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Camden_Park_-_July_6%2C_2010-78704586.webm",
+    "start": 45,
+    "end": 62,
+    "status": "frames_ready",
+    "duration": 203.188
+  },
+  {
+    "slug": "singularity",
+    "source": "https://commons.wikimedia.org/wiki/File:SINGULARITY_-_Blender_Open_Movie-full_movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/SINGULARITY_-_Blender_Open_Movie-full_movie.webm",
+    "start": 30,
+    "end": 47,
+    "status": "frames_ready",
+    "duration": 390.984
+  }
+]
