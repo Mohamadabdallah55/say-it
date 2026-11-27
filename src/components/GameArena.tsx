@@ -719,6 +719,21 @@ export function GameArena({
     await sendCommand('AWARD_ROUND', { winningTeamIds: teamIds });
   };
 
+  // Build the category index once per board snapshot, not on every UI clock tick.
+  const boardTilesByCategory = useMemo(() => {
+    const groups = new Map<string, NonNullable<ArenaState['boardTiles']>>();
+    for (const tile of state?.boardTiles ?? []) {
+      const group = groups.get(tile.categoryId);
+      if (group) group.push(tile);
+      else groups.set(tile.categoryId, [tile]);
+    }
+    return groups;
+  }, [state?.boardTiles]);
+  const sortedStandings = useMemo(
+    () => [...(state?.teams ?? [])].sort((a, b) => b.score - a.score),
+    [state?.teams],
+  );
+
   if (error) {
     return (
       <div className="min-h-screen game-pattern-bg flex items-center justify-center p-4">
@@ -762,7 +777,7 @@ export function GameArena({
       (state.categories.length >= 2 &&
         state.categories.length <= 4 &&
         state.categories.every((c) => /^team_\d+$/.test(c.id))));
-  const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
+
 
   const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
     ? state.lastAward : null;
@@ -897,7 +912,7 @@ export function GameArena({
 
                 <div className="category-grid" data-count={state.categories.length}>
                 {state.categories.map((cat, index) => {
-                  const categoryTiles = state.boardTiles.filter(tile => tile.categoryId === cat.id);
+                  const categoryTiles = boardTilesByCategory.get(cat.id) ?? [];
                   const catTiles = categoryTiles.filter(tile => isTeamBundlesBoard || !tile.ownerTeamId || tile.ownerTeamId === currentTeam.id)
                     .sort((a, b) => a.points - b.points);
                   const previousTiles = isMatrixBoard && isHost
