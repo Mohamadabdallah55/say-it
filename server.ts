@@ -1,3 +1,4 @@
+import { wordRouter } from './server/wordRooms';
 import { drawingRouter } from './server/drawingRooms';
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
 import 'dotenv/config';
@@ -90,6 +91,7 @@ const upload = multer({
 
 async function startServer() {
   const app = express();
+  app.use('/api/words', express.json({limit:'32kb'}), wordRouter);
   app.use('/api/drawing', express.json({limit:'128kb'}), drawingRouter);
   app.use(express.json({ limit: '25mb' }));
 
