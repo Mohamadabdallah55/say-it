@@ -7,7 +7,6 @@ import path from 'node:path';
 import { networkInterfaces } from 'node:os';
 import express from 'express';
 import multer from 'multer';
-import { createServer as createViteServer } from 'vite';
 import { WebSocketServer } from 'ws';
 import { sanitizeStateForRole } from './src/game/engine';
 import {
@@ -884,6 +883,8 @@ async function startServer() {
       res.sendFile(path.join(distDir, 'index.html'));
     });
   } else {
+    // Production serves the built assets and does not need the development toolchain.
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: {
         middlewareMode: true,
