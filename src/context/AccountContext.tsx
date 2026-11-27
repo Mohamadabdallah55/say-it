@@ -177,7 +177,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     return initial;
   });
 
-  const [serverOfficialCategories, setServerOfficialCategories] = useState<DeckCategory[]>(() => SERVER_CURATED_CATEGORIES.map(({ category }) => category));
+  const [serverOfficialCategories, setServerOfficialCategories] = useState<DeckCategory[]>(() => ALL_CURATED_CATEGORIES);
   const [customCategories, setCustomCategories] = useState<DeckCategory[]>([]);
   const [customQuestions, setCustomQuestions] = useState<QuizQuestion[]>([]);
   const [catalogLoaded, setCatalogLoaded] = useState(false);
@@ -186,7 +186,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   // Fetch current official catalog independently of account and local recovery cache.
   useEffect(() => {
-    testFirestoreConnection();
+    void Promise.resolve().then(() => testFirestoreConnection()).catch(() => {});
     let disposed = false;
     let running = false;
     let lastCheck = 0;
@@ -195,15 +195,15 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       running = true;
       lastCheck = Date.now();
       try {
-        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-store' });
+        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-store', signal: AbortSignal.timeout(12000) });
         if (!res.ok) return;
         const data = await res.json();
         if (disposed) return;
         if (data?.questionIdsByCategory && typeof data.questionIdsByCategory === 'object') {
-          setBuiltinIdsByCategory(data.questionIdsByCategory);
+          setBuiltinIdsByCategory(previous => JSON.stringify(previous) === JSON.stringify(data.questionIdsByCategory) ? previous : data.questionIdsByCategory);
         }
         if (Array.isArray(data?.categories)) {
-          setServerOfficialCategories(data.categories);
+          setServerOfficialCategories(previous => JSON.stringify(previous) === JSON.stringify(data.categories) ? previous : data.categories);
         }
       } catch {
         // Preserve the last working catalog if offline.
@@ -906,6 +906,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const allCategoriesForLobby = useMemo(() => {
     const activeCustom = customCategories.filter((c) => c.isActive !== false);
     const mergedMap = new Map<string, DeckCategory>();
+    for (const category of ALL_CURATED_CATEGORIES) mergedMap.set(category.id, { ...category, isCustom: false });
     for (const category of serverOfficialCategories) mergedMap.set(category.id, { ...category, isCustom: false });
     for (const c of activeCustom) if (!mergedMap.has(c.id)) mergedMap.set(c.id, c);
     return Array.from(mergedMap.values());
