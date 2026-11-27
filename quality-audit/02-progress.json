@@ -105,12 +105,12 @@
         "600": 30
       },
       "textReviewedByOriginalTier": {
-        "200": 3,
-        "400": 15,
+        "200": 13,
+        "400": 25,
         "600": 0
       },
       "factsSourceVerified": 0,
-      "newQuestionsSourceVerified": 18,
+      "newQuestionsSourceVerified": 38,
       "replacementsAppliedPendingSecondReview": [
         "RUBYASIN-100-QA1",
         "RUBYASIN-101-QA1",
@@ -129,12 +129,32 @@
         "RUBYASIN-076-QA1",
         "RUBYASIN-079-QA1",
         "RUBYASIN-082-QA1",
-        "RUBYASIN-089-QA1"
+        "RUBYASIN-089-QA1",
+        "RUBYASIN-103-QA1",
+        "RUBYASIN-105-QA1",
+        "RUBYASIN-106-QA1",
+        "RUBYASIN-111-QA1",
+        "RUBYASIN-112-QA1",
+        "RUBYASIN-115-QA1",
+        "RUBYASIN-116-QA1",
+        "RUBYASIN-117-QA1",
+        "RUBYASIN-118-QA1",
+        "RUBYASIN-008-QA1",
+        "RUBYASIN-011-QA1",
+        "RUBYASIN-015-QA1",
+        "RUBYASIN-016-QA1",
+        "RUBYASIN-025-QA1",
+        "RUBYASIN-029-QA1",
+        "RUBYASIN-036-QA1",
+        "RUBYASIN-038-QA1",
+        "RUBYASIN-039-QA1",
+        "RUBYASIN-070-QA1",
+        "RUBYASIN-090-QA1"
       ],
       "secondReviewCompleted": 0,
       "acceptedQuestions": 0,
       "contentEdits": 0,
-      "lastReviewedId": "RUBYASIN-089"
+      "lastReviewedId": "RUBYASIN-090"
     },
     "cat_football_letters": {
       "status": "in_review",
@@ -191,17 +211,18 @@
       "textReviewedByOriginalTier": {
         "200": 0,
         "400": 0,
-        "600": 1
+        "600": 2
       },
       "factsSourceVerified": 0,
-      "newQuestionsSourceVerified": 1,
+      "newQuestionsSourceVerified": 2,
       "replacementsAppliedPendingSecondReview": [
-        "QURAN-MEDIA-120-QA1"
+        "QURAN-MEDIA-120-QA1",
+        "QURAN-MEDIA-130-QA1"
       ],
       "secondReviewCompleted": 0,
       "acceptedQuestions": 0,
       "contentEdits": 0,
-      "lastReviewedId": "QURAN-MEDIA-120"
+      "lastReviewedId": "QURAN-MEDIA-130"
     },
     "cat_science_quiz": {
       "status": "in_review",
@@ -344,10 +365,13 @@
       "candidateGroups": "content-candidates.jsonl"
     },
     "latestBatch": {
-      "originalsReviewed": 75,
-      "replacementsAppliedPendingSecondReview": 25,
-      "categories": 1,
-      "reviewStartedAtCommit": "e5c922103dc9b1f37e754767751a5885b8244798"
+      "originalsReviewed": 21,
+      "replacementsAppliedPendingSecondReview": 21,
+      "categories": 2,
+      "duplicateGroupsAdjudicated": 54,
+      "duplicateGroupsResolved": 20,
+      "duplicateGroupsPartiallyResolved": 1,
+      "reviewStartedAtCommit": "33352d9"
     },
     "media": "deferred",
     "mediaFixList": "media-fix-list.md"

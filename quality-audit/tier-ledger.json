@@ -68,16 +68,16 @@
         "600": 30
       },
       "reviewedByOriginalTier": {
-        "200": 3,
-        "400": 15,
+        "200": 13,
+        "400": 25,
         "600": 0
       },
       "originalsWithEdits": 0,
       "originalsRetainedWithoutEdits": 0,
-      "originalsRetired": 18,
+      "originalsRetired": 38,
       "demotionsApplied": 0,
       "promotionsApplied": 0,
-      "replacementsAppliedPendingSecondReview": 18,
+      "replacementsAppliedPendingSecondReview": 38,
       "replacementsAccepted": 0,
       "uncompensated600": 0,
       "hardReplacementsPendingAcceptance": 0,
@@ -151,17 +151,17 @@
       "reviewedByOriginalTier": {
         "200": 0,
         "400": 0,
-        "600": 1
+        "600": 2
       },
       "originalsWithEdits": 0,
       "originalsRetainedWithoutEdits": 0,
-      "originalsRetired": 1,
+      "originalsRetired": 2,
       "demotionsApplied": 0,
       "promotionsApplied": 0,
-      "replacementsAppliedPendingSecondReview": 1,
+      "replacementsAppliedPendingSecondReview": 2,
       "replacementsAccepted": 0,
       "uncompensated600": 0,
-      "hardReplacementsPendingAcceptance": 1,
+      "hardReplacementsPendingAcceptance": 2,
       "status": "in_review"
     },
     "cat_science_quiz": {

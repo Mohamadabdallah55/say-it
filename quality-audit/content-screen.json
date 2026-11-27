@@ -1,9 +1,9 @@
 {
-  "bankDigest": "da71fc2003de642a3bc4c991d6446e82e9141f3efe1bf1d099f930920d84740f",
+  "bankDigest": "a364a654b6b9d24bfb7f1ed113596a1602ee2b0fd121d993517a3006f3fb2eb2",
   "scope": "Automated screening of the effective official catalog. Flags require review. Counts are not factual, difficulty, or media approvals.",
   "questions": 5792,
   "categoryCount": 54,
-  "contentCandidateGroups": 60,
+  "contentCandidateGroups": 40,
   "automatedMediaCases": 129,
   "categories": {
     "world_food": {
@@ -37,7 +37,7 @@
       },
       "screened": 400,
       "candidates": {
-        "same_quran_reference_and_answer": 10
+        "same_quran_reference_and_answer": 9
       },
       "mediaRows": 0
     },
@@ -149,7 +149,7 @@
       },
       "screened": 150,
       "candidates": {
-        "same_quran_reference_and_answer": 11
+        "same_quran_reference_and_answer": 5
       },
       "mediaRows": 0
     },
@@ -162,7 +162,7 @@
       },
       "screened": 150,
       "candidates": {
-        "same_quran_reference_and_answer": 8
+        "same_quran_reference_and_answer": 5
       },
       "mediaRows": 0
     },
@@ -175,7 +175,7 @@
       },
       "screened": 150,
       "candidates": {
-        "same_quran_reference_and_answer": 38
+        "same_quran_reference_and_answer": 17
       },
       "mediaRows": 0
     },
@@ -210,7 +210,7 @@
       },
       "screened": 150,
       "candidates": {
-        "same_quran_reference_and_answer": 4
+        "same_quran_reference_and_answer": 3
       },
       "mediaRows": 125
     },
@@ -262,7 +262,7 @@
       },
       "screened": 150,
       "candidates": {
-        "same_quran_reference_and_answer": 18
+        "same_quran_reference_and_answer": 9
       },
       "mediaRows": 0
     },
