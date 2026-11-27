@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { WebSocket } from 'ws';
 import {
   advanceMemoryToQuestion,
+  beginMemoryVideo,
   applyLifeline,
   awardRoundAndReturnToBoard,
   computeRemainingMs,
@@ -560,7 +561,7 @@ class RoomManager {
     const payload = params.payload ?? {};
     // Network retries reuse the same action ID, including after a round closes.
     if (room.processedActionIds.includes(actionId)) return { ok: true, state: sanitizeStateForRole(room, 'host', now) };
-    const roundCommands = ['APPLY_LIFELINE','SKIP_CARD_PICK','SUBMIT_ORDER','SKIP_MEMORY_PREVIEW','SWAP_BACKUP','PARK_QUESTION','SKIP_QUESTION','START_TIMER','PAUSE_TIMER','RESUME_TIMER','CLARIFY_IMAGE','REVEAL_HINT','REVEAL_ANSWER','AWARD_ROUND'];
+    const roundCommands = ['APPLY_LIFELINE','SKIP_CARD_PICK','SUBMIT_ORDER','SKIP_MEMORY_PREVIEW','BEGIN_MEMORY_VIDEO','SWAP_BACKUP','PARK_QUESTION','SKIP_QUESTION','START_TIMER','PAUSE_TIMER','RESUME_TIMER','CLARIFY_IMAGE','REVEAL_HINT','REVEAL_ANSWER','AWARD_ROUND'];
     if (roundCommands.includes(params.command) && payload.roundId && payload.roundId !== room.activeRound?.roundId) {
       return { ok: false, error: 'انتهى السؤال الذي أُرسل الأمر له.' };
     }
@@ -581,6 +582,11 @@ class RoomManager {
         result = payload.roundId && payload.roundId !== room.activeRound?.roundId
           ? { ok: false, state: room, error: 'انتهت مرحلة اختيار البطاقة لهذا السؤال.' }
           : skipLifelinePick(room, actionId, now);
+        break;
+      case 'BEGIN_MEMORY_VIDEO':
+        result = payload.roundId === room.activeRound?.roundId
+          ? beginMemoryVideo(room, actionId, now)
+          : { ok: false, state: room, error: 'انتهى المقطع.' };
         break;
       case 'SKIP_MEMORY_PREVIEW':
         result = advanceMemoryToQuestion(room, actionId, now);

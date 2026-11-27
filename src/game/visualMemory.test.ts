@@ -13,6 +13,7 @@ import { applyAccountProgressToDeck } from './categoryProgress';
 import { reserveCuratedQuestions } from '../../server/curatedQuestionRotation';
 import {
   advanceMemoryToQuestion,
+  beginMemoryVideo,
   awardRoundAndReturnToBoard,
   createRoomState,
   reopenQuestionForCorrection,
@@ -182,7 +183,7 @@ test('3-stage Visual Memory flow hides question during MEMORIZE, hides scene dur
   assert.equal(room.activeRound?.memorizeDurationSeconds, firstQuestion.showSeconds);
   assert.equal(
     room.activeRound?.memorizeEndsAtMs,
-    baseNow + firstQuestion.showSeconds! * 1000,
+    firstQuestion.videoUrl ? null : baseNow + firstQuestion.showSeconds! * 1000,
   );
   assert.equal(room.timer.running, false, 'Challenge timer stays paused during MEMORIZE');
 
@@ -362,13 +363,18 @@ test('A video-clip Visual Memory question exposes videoUrl during MEMORIZE and R
   assert.equal(projMemorize?.videoUrl, videoQuestion.videoUrl);
   assert.equal(projMemorize?.prompt, '');
 
-  const opened = advanceMemoryToQuestion(selected.state, 'vid_open', now + 5_000);
+  assert.equal(selected.state.activeRound?.memorizeEndsAtMs, null, 'Video must not count down while loading');
+  const started = beginMemoryVideo(selected.state, 'vid_playing', now + 12_000);
+  assert.equal(started.ok, true);
+  assert.equal(started.state.activeRound?.memorizeEndsAtMs, now + 17_000);
+  assert.equal(beginMemoryVideo(started.state, 'vid_retry', now + 13_000).state.activeRound?.memorizeEndsAtMs, now + 17_000);
+  const opened = advanceMemoryToQuestion(started.state, 'vid_open', now + 17_000);
   const projQuestion = sanitizeStateForRole(opened.state, 'projector', now + 5_000).activeRound;
   assert.equal(projQuestion?.memoryStage, 'QUESTION');
   assert.equal(projQuestion?.videoUrl, undefined);
   assert.equal(projQuestion?.prompt, videoQuestion.prompt);
 
-  const revealed = revealAnswer(opened.state, 'vid_rev', now + 8_000);
+  const revealed = revealAnswer(opened.state, 'vid_rev', now + 20_000);
   const projReveal = sanitizeStateForRole(revealed.state, 'projector', now + 8_000).activeRound;
   assert.equal(projReveal?.videoUrl, videoQuestion.videoUrl);
   assert.equal(projReveal?.answer, videoQuestion.answer);

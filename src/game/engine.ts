@@ -119,7 +119,7 @@ function openQuestion(state: RoomState, nowMs: number): RoomState {
       phase: state.settings.countUp ? 'PLAYING' : 'QUESTION_READY',
       activeRound: {
         ...state.activeRound,
-        memorizeEndsAtMs: state.activeRound.memorizeEndsAtMs ?? nowMs + durSec * 1000,
+        memorizeEndsAtMs: state.activeRound.question.videoUrl ? null : state.activeRound.memorizeEndsAtMs ?? nowMs + durSec * 1000,
       },
       timer: {
         ...state.timer,
@@ -328,7 +328,7 @@ export function selectBoardTile(
       parked.round.memoryStage === 'MEMORIZE'
         ? {
             ...parked.round,
-            memorizeEndsAtMs:
+            memorizeEndsAtMs: parked.round.question.videoUrl ? null :
               nowMs +
               (parked.round.memorizeDurationSeconds ||
                 parked.round.question.showSeconds ||
@@ -526,7 +526,7 @@ export function applyLifeline(
     };
     if (nextRound.memoryStage === 'MEMORIZE' && state.phase !== 'LIFELINE_PICK') {
       const durSec = nextRound.memorizeDurationSeconds || backup.showSeconds || 4;
-      nextRound.memorizeEndsAtMs = nowMs + durSec * 1000;
+      nextRound.memorizeEndsAtMs = backup.videoUrl ? null : nowMs + durSec * 1000;
       nextTimer = {
         ...nextTimer,
         ...(state.settings.countUp ? { elapsedMs: 0 } : {}),
@@ -601,7 +601,7 @@ export function swapActiveWithBackup(
   const swappedMemory = createMemoryFields(backup);
   if (swappedMemory.memoryStage === 'MEMORIZE') {
     const durSec = swappedMemory.memorizeDurationSeconds || backup.showSeconds || 4;
-    swappedMemory.memorizeEndsAtMs = nowMs + durSec * 1000;
+    swappedMemory.memorizeEndsAtMs = backup.videoUrl ? null : nowMs + durSec * 1000;
   }
 
   return {
@@ -640,6 +640,14 @@ export function swapActiveWithBackup(
       updatedAt: new Date(nowMs).toISOString(),
     },
   };
+}
+
+export function beginMemoryVideo(state: RoomState, actionId: string, nowMs = Date.now()): { ok: boolean; error?: string; state: RoomState } {
+  const round = state.activeRound;
+  if (!round || round.memoryStage !== 'MEMORIZE' || !round.question.videoUrl || !['PLAYING', 'QUESTION_READY'].includes(state.phase)) return { ok: false, error: 'لا يوجد مقطع قيد العرض.', state };
+  if (round.memorizeEndsAtMs != null) return { ok: true, state };
+  const duration = round.memorizeDurationSeconds || round.question.showSeconds || 17;
+  return { ok: true, state: { ...state, activeRound: { ...round, memorizeEndsAtMs: nowMs + duration * 1000 }, processedActionIds: [...state.processedActionIds, actionId].slice(-200), updatedAt: new Date(nowMs).toISOString() } };
 }
 
 export function advanceMemoryToQuestion(

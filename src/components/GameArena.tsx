@@ -178,45 +178,66 @@ type ArenaState = HostViewState | PublicProjectorState;
 /** Play the original audio when permitted, while respecting the shared game sound switch.
  * Browsers may deny audible autoplay; the clip then plays muted until the viewer enables sound.
  */
-const FocusClip = memo(function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
+const FocusClip = memo(function FocusClip({ src, soundEnabled, preferAudio, onStarted }: { src: string; soundEnabled: boolean; preferAudio: boolean; onStarted?: () => Promise<boolean> }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [silent, setSilent] = useState(!soundEnabled || !preferAudio);
+  const notified = useRef(false);
+  const notifying = useRef(false);
+  const [silent, setSilent] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [needsPlay, setNeedsPlay] = useState(false);
+  const [failed, setFailed] = useState(false);
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     let active = true;
-    video.muted = !soundEnabled || !preferAudio;
-    setSilent(video.muted);
-    setNeedsPlay(false);
-    video.play().catch(() => {
-      if (!active) return;
-      video.muted = true;
-      setSilent(true);
-      video.play().catch(() => { if (active) setNeedsPlay(true); });
-    });
+    video.muted = true;
+    video.defaultMuted = true;
+    video.play().catch(() => { if (active) setNeedsPlay(true); });
     return () => { active = false; video.pause(); };
-  }, [src, soundEnabled, preferAudio]);
-  const playWithSound = () => {
+  }, [src]);
+  useEffect(() => {
+    if ((!soundEnabled || !preferAudio) && videoRef.current) {
+      videoRef.current.muted = true;
+      setSilent(true);
+    }
+  }, [soundEnabled, preferAudio]);
+  const play = () => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = !soundEnabled;
+    if (failed) { setFailed(false); setLoading(true); video.load(); }
+    video.muted = !(soundEnabled && preferAudio);
     setSilent(video.muted);
     video.play().then(() => setNeedsPlay(false)).catch(() => {
       video.muted = true;
       setSilent(true);
-      setNeedsPlay(true);
+      video.play().catch(() => setNeedsPlay(true));
     });
   };
+  const handleProgress = () => {
+    const video = videoRef.current;
+    if (!video || video.seeking || video.readyState < 2 || video.paused) return;
+    const start = Number(src.match(/#t=(\d+(?:\.\d+)?)/)?.[1] ?? 0);
+    if (video.currentTime < start - 0.05) return;
+    setLoading(false);
+    setNeedsPlay(false);
+    if (!onStarted || notified.current || notifying.current) return;
+    notifying.current = true;
+    void onStarted().then(ok => { notified.current = ok; }).finally(() => { notifying.current = false; });
+  };
   return (
-    <div className="relative">
+    <div className="relative min-h-[180px] min-w-[min(70vw,480px)]">
       <video ref={videoRef} data-testid="visual-memory-video" src={src}
-        playsInline disablePictureInPicture disableRemotePlayback preload="auto"
+        muted={silent} autoPlay playsInline disablePictureInPicture disableRemotePlayback preload="auto"
+        onPlaying={handleProgress} onTimeUpdate={handleProgress}
+        onWaiting={() => setLoading(true)}
+        onError={() => { setFailed(true); setLoading(false); setNeedsPlay(true); }}
         className="block w-full max-w-[1400px] max-h-[66vh] h-auto object-contain select-none" />
-      {(needsPlay || (silent && soundEnabled)) && (
-        <button type="button" onClick={playWithSound}
+      {loading && !failed && <div className="absolute inset-0 grid place-items-center text-white text-sm font-bold pointer-events-none">جارٍ تحميل المقطع…</div>}
+      {failed && <div className="absolute inset-0 grid place-items-center text-white text-sm font-bold pointer-events-none">تعذر تحميل المقطع — حاول مرة أخرى</div>}
+      {(needsPlay || (silent && soundEnabled && preferAudio)) && (
+        <button type="button" onClick={play}
           className="absolute bottom-3 right-3 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#1F112E] shadow">
-          {soundEnabled ? 'تشغيل صوت المقطع' : 'تشغيل المقطع'}
+          {failed ? 'إعادة المحاولة' : needsPlay ? 'تشغيل المقطع' : 'تشغيل صوت المقطع'}
         </button>
       )}
     </div>
@@ -1210,7 +1231,7 @@ export function GameArena({
                           <Eye className="w-4 h-4 shrink-0" />
                           <span>
                             {roundMeta.videoUrl
-                              ? 'شاهد المقطع جيدًا — سيختفي خلال'
+                              ? roundMeta.memorizeEndsAtMs ? 'شاهد المقطع جيدًا — سيختفي خلال' : 'بانتظار تشغيل المقطع — مدة المشاهدة'
                               : memorySecondImageUrl
                                 ? showingSecondMemoryImage ? 'الصورة الثانية تختفي خلال' : 'الصورة الأولى تختفي خلال'
                                 : 'تأمل المشهد جيدًا — سيختفي خلال'}
@@ -1234,7 +1255,8 @@ export function GameArena({
                             data-testid="visual-memory-video-box"
                             className="w-fit max-w-full overflow-hidden rounded-2xl border-[2.5px] border-[#1F112E] bg-black shadow-[0_4px_0_#1F112E]"
                           >
-                            <FocusClip key={roundMeta.roundId} src={roundMeta.videoUrl}
+                            <FocusClip key={roundMeta.roundId + roundMeta.questionId + roundMeta.videoUrl} src={roundMeta.videoUrl}
+                              onStarted={isHost && !roundMeta.memorizeEndsAtMs ? () => sendCommand('BEGIN_MEMORY_VIDEO') : undefined}
                               soundEnabled={state.settings.soundEnabled}
                               preferAudio={isHost || localAudio} />
                           </div>
