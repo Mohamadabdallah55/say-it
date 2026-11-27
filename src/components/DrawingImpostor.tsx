@@ -67,7 +67,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const [passDraw,setPassDraw]=useState(false);
   const [blindKey,setBlindKey]=useState('');
   const [now,setNow]=useState(Date.now());
-  const [showRules,setShowRules]=useState(false);
+  const [showRules,setShowRules]=useState(()=>new URLSearchParams(window.location.search).get('rules')==='1');
   const [copied,setCopied]=useState(false);
   const pending=useRef(false);
   const mounted=useRef(true);
