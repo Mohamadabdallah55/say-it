@@ -1,7 +1,6 @@
 import { wordRouter } from './server/wordRooms';
 import { drawingRouter } from './server/drawingRooms';
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
-import { servePrecompressedAssets, fingerprintedAsset } from './server/staticCompression';
 import 'dotenv/config';
 import http from 'node:http';
 import path from 'node:path';
@@ -882,14 +881,8 @@ async function startServer() {
       if (req.query.room || req.query.role) res.setHeader('X-Robots-Tag', 'noindex');
       next();
     });
-    app.use(servePrecompressedAssets(distDir));
     app.use(express.static(distDir, { setHeaders: (res, file) => {
       if (file.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-      // Vite's fingerprinted JS/CSS URLs change whenever the content changes.
-      // Never apply immutable caching to HTML, decks or stable media URLs.
-      else if (path.dirname(file) === path.join(distDir, 'assets') && fingerprintedAsset.test(path.basename(file))) {
-        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-      }
     }}));
     // Do not return the SPA home page for missing game guides or sitemap files.
     app.get(['/games/*', '/sitemap.xml', '/robots.txt'], (_req, res) => res.status(404).send('Not found'));

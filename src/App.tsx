@@ -1,4 +1,8 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { BuzzerScreen } from './components/BuzzerScreen';
+import { GameArena } from './components/GameArena';
+import { LobbySetup } from './components/LobbySetup';
+import { SilentActingScreen } from './components/SilentActingScreen';
 import { TitleScreen } from './components/TitleScreen';
 import {
   DEFAULT_REMOTE_DECKS_BASE_URL,
@@ -21,11 +25,6 @@ import { soundFX } from './utils/sound';
 const AdminPanel = lazy(() => import('./components/AdminPanel').then(m => ({ default: m.AdminPanel })));
 const PdfStudio = lazy(() => import('./components/PdfStudio').then(m => ({ default: m.PdfStudio })));
 const SavedLibrary = lazy(() => import('./components/SavedLibrary').then(m => ({ default: m.SavedLibrary })));
-
-const BuzzerScreen = lazy(() => import('./components/BuzzerScreen').then(m => ({ default: m.BuzzerScreen })));
-const GameArena = lazy(() => import('./components/GameArena').then(m => ({ default: m.GameArena })));
-const LobbySetup = lazy(() => import('./components/LobbySetup').then(m => ({ default: m.LobbySetup })));
-const SilentActingScreen = lazy(() => import('./components/SilentActingScreen').then(m => ({ default: m.SilentActingScreen })));
 
 const WordRace = lazy(() => import('./components/WordRace').then(m => ({ default: m.WordRace })));
 const DrawingImpostor = lazy(() => import('./components/DrawingImpostor').then(m => ({ default: m.DrawingImpostor })));
@@ -91,40 +90,22 @@ function AppContent() {
     [],
   );
 
-  const refreshController = useRef<AbortController | null>(null);
   const refreshDecksAndRooms = useCallback(async () => {
-    // A newer refresh supersedes an older one (e.g. after saving a room).
-    refreshController.current?.abort();
-    const controller = new AbortController();
-    refreshController.current = controller;
-    const timeout = window.setTimeout(() => controller.abort(), 90_000);
-    const fetchJson = async (url: string) => {
-      const response = await fetch(url, { signal: controller.signal });
-      if (!response.ok) throw new Error('Unable to refresh ' + url);
-      return response.json();
-    };
-
-    // Update each independent result as soon as it arrives. A slow or failed
-    // room request must not block the category catalog, or vice versa.
     try {
-      await Promise.allSettled([
-        fetchJson('/api/decks').then(data => {
-          if (!controller.signal.aborted && Array.isArray(data.decks)) {
-            setServerDecks(data.decks);
-          }
-        }),
-        fetchJson('/api/rooms').then(data => {
-          if (!controller.signal.aborted && Array.isArray(data.rooms)) {
-            setRooms(data.rooms.flatMap((room: SavedRoomSummary) => {
-              const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
-              return hostToken ? [{ ...room, hostToken }] : [];
-            }));
-          }
-        }),
-      ]);
-    } finally {
-      window.clearTimeout(timeout);
-      if (refreshController.current === controller) refreshController.current = null;
+      const [dRes, rRes] = await Promise.all([fetch('/api/decks'), fetch('/api/rooms')]);
+      const dData = await dRes.json();
+      const rData = await rRes.json();
+      if (dData.decks) setServerDecks(dData.decks);
+      if (rData.rooms) {
+        setRooms(
+          rData.rooms.flatMap((room: SavedRoomSummary) => {
+            const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
+            return hostToken ? [{ ...room, hostToken }] : [];
+          }),
+        );
+      }
+    } catch {
+      // ignore initial offline error
     }
   }, []);
 

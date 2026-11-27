@@ -14,7 +14,7 @@ import {
 import { ALL_CURATED_CATEGORIES, buildBoardDeckFromCategories } from './starterDecks';
 import { PRIVATE_REFERENCE_CATEGORY_IDS, SERVER_CURATED_CATEGORIES } from './curatedBanks';
 import { resolveCategoryMenuGroup } from './categoryGroups';
-import { CATEGORY_REAL_ART } from '../utils/gameAssets';
+import { CATEGORY_REAL_ART } from '../utils/gameAssetsFallback';
 import { runBoardPreflightCheck } from './pdfValidation';
 import { applyAccountProgressToDeck } from './categoryProgress';
 import {

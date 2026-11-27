@@ -1,5 +1,4 @@
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
-import { precompressAssets } from './server/staticCompression';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
@@ -30,13 +29,6 @@ export default defineConfig(() => {
             if (req.method === 'HEAD') return res.end();
             fs.createReadStream(file).pipe(res);
           });
-        },
-      },
-      {
-        name: 'precompress-public-assets',
-        apply: 'build',
-        async closeBundle(error?: Error) {
-          if (!error) await precompressAssets(path.resolve(import.meta.dirname, 'dist'));
         },
       },
       // Copies src/assets into dist/ so root-relative URLs like
