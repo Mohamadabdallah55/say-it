@@ -34,6 +34,36 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Build
         run: bun run build
+      - name: Measure initial JavaScript and lazy chunks
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { gzipSync } from 'node:zlib';
+          const manifest = JSON.parse(fs.readFileSync('dist/.vite/manifest.json', 'utf8'));
+          const visited = new Set();
+          const initial = new Set();
+          function visit(key) {
+            if (visited.has(key)) return;
+            visited.add(key);
+            const chunk = manifest[key];
+            if (!chunk) throw new Error('Unknown manifest key: ' + key);
+            if (/\.(m?js)$/.test(chunk.file)) initial.add(chunk.file);
+            for (const dependency of chunk.imports || []) visit(dependency);
+          }
+          for (const [key, chunk] of Object.entries(manifest)) if (chunk.isEntry) visit(key);
+          if (!initial.size) throw new Error('No initial JavaScript entries found');
+          const size = file => {
+            const data = fs.readFileSync('dist/' + file);
+            return { raw: data.length, gzip: gzipSync(data).length };
+          };
+          const files = [...initial].map(file => ({ file, ...size(file) }));
+          const totals = files.reduce((total, file) => ({
+            raw: total.raw + file.raw, gzip: total.gzip + file.gzip,
+          }), { raw: 0, gzip: 0 });
+          console.log('Initial JS files:', JSON.stringify(files, null, 2));
+          console.log('Initial JS totals (bytes):', JSON.stringify(totals));
+          console.log('Lazy JS files:', JSON.stringify([...new Set(Object.values(manifest).map(c => c.file).filter(f => /\.(m?js)$/.test(f) && !initial.has(f)))].map(file => ({ file, ...size(file) })).sort((a,b) => b.raw-a.raw), null, 2));
+          NODE
       - name: TypeScript
         run: bun run lint
       - name: Four-picture regression tests
