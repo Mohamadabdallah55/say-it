@@ -1,4 +1,4 @@
-import { KhattBrandArtwork } from './KhattBrandArtwork';
+import { PlatformGameMascot } from './PlatformGameMascot';
 import { useMemo, useState } from 'react';
 import { useAccount } from '../context/AccountContext';
 import { getUploadedCategoryArt, getCategoryCardArt } from '../utils/gameAssets';
@@ -182,13 +182,13 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
             <div className="platform-thirty-copy"><span className="platform-kicker">رسم · تخمين · 3–10 لاعبين</span>
               <h2>خط مشبوه</h2><p>خطّك بفضحك!</p>
               <div className="platform-rounds"><span><Users size={14}/> جهاز واحد أو عدة أجهزة</span><span><Eye size={14}/> تصويت سري</span></div>
-              <div className="platform-actions"><a href="/?drawing=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div>
+              <div className="platform-actions"><a href="/?drawing=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a><a href="/?drawing=1&rules=1" className="platform-btn platform-btn-cream">كيف تلعب؟</a></div>
             </div>
-            <KhattBrandArtwork className="platform-drawing-art khatt-cover-art"/>
+            <PlatformGameMascot game="drawing"/>
           </article>
           <article className="platform-words">
-            <div className="platform-thirty-copy"><span className="platform-kicker">حروف · سرعة · 2–12 لاعبين</span><h2>هات كلمة</h2><p>حرف واحد… والكل مستعجل!</p><div className="platform-rounds"><span><Users size={14}/> غرف خاصة</span><span><Zap size={14}/> خلصت!</span></div><div className="platform-actions"><a href="/?words=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div></div>
-            <div className="word-platform-art" aria-hidden="true"><div className="word-mark">؟</div><div className="word-art-tiles"><b>أ</b><b>ب</b><b>م</b></div></div>
+            <div className="platform-thirty-copy"><span className="platform-kicker">حروف · سرعة · 2–12 لاعبين</span><h2>هات كلمة</h2><p>حرف واحد… والكل مستعجل!</p><div className="platform-rounds"><span><Users size={14}/> غرف خاصة</span><span><Zap size={14}/> خلصت!</span></div><div className="platform-actions"><a href="/?words=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a><a href="/?words=1&rules=1" className="platform-btn platform-btn-cream">كيف تلعب؟</a></div></div>
+            <PlatformGameMascot game="words"/>
           </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
