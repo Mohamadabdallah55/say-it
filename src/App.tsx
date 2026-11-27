@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { TitleScreen } from './components/TitleScreen';
 import {
   DEFAULT_REMOTE_DECKS_BASE_URL,
@@ -91,22 +91,40 @@ function AppContent() {
     [],
   );
 
+  const refreshController = useRef<AbortController | null>(null);
   const refreshDecksAndRooms = useCallback(async () => {
+    // A newer refresh supersedes an older one (e.g. after saving a room).
+    refreshController.current?.abort();
+    const controller = new AbortController();
+    refreshController.current = controller;
+    const timeout = window.setTimeout(() => controller.abort(), 90_000);
+    const fetchJson = async (url: string) => {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw new Error('Unable to refresh ' + url);
+      return response.json();
+    };
+
+    // Update each independent result as soon as it arrives. A slow or failed
+    // room request must not block the category catalog, or vice versa.
     try {
-      const [dRes, rRes] = await Promise.all([fetch('/api/decks'), fetch('/api/rooms')]);
-      const dData = await dRes.json();
-      const rData = await rRes.json();
-      if (dData.decks) setServerDecks(dData.decks);
-      if (rData.rooms) {
-        setRooms(
-          rData.rooms.flatMap((room: SavedRoomSummary) => {
-            const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
-            return hostToken ? [{ ...room, hostToken }] : [];
-          }),
-        );
-      }
-    } catch {
-      // ignore initial offline error
+      await Promise.allSettled([
+        fetchJson('/api/decks').then(data => {
+          if (!controller.signal.aborted && Array.isArray(data.decks)) {
+            setServerDecks(data.decks);
+          }
+        }),
+        fetchJson('/api/rooms').then(data => {
+          if (!controller.signal.aborted && Array.isArray(data.rooms)) {
+            setRooms(data.rooms.flatMap((room: SavedRoomSummary) => {
+              const hostToken = room.hostToken || localStorage.getItem('yh-host-' + room.roomCode);
+              return hostToken ? [{ ...room, hostToken }] : [];
+            }));
+          }
+        }),
+      ]);
+    } finally {
+      window.clearTimeout(timeout);
+      if (refreshController.current === controller) refreshController.current = null;
     }
   }, []);
 
