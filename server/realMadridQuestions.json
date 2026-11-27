@@ -674,13 +674,13 @@
     "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
-    "id": "RM-055",
+    "id": "RM-055-QC1",
     "points": 400,
-    "question": "في ذهاب ربع نهائي الأبطال 2018 ضد يوفنتوس، من حل بديلًا لبنزيما قبل الهدف المقصي الشهير لرونالدو؟",
+    "question": "أي لاعب من خريجي أكاديمية ريال مدريد قضى موسمًا معارًا لإسبانيول قبل أول ظهور له مع الفريق الأول في سبتمبر 2015، وحقق 23 لقبًا مع النادي؟",
     "answer": "لوكاس فاسكيز",
     "answer_english": "Lucas Vázquez",
-    "explanation": "دخل فاسكيز بدل بنزيما قبل الهدف المقصي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
+    "explanation": "عاد لوكاس فاسكيز من إسبانيول وظهر مع الفريق الأول في سبتمبر 2015، وأنهى مسيرته مع ريال مدريد برصيد 23 لقبًا.",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/lucas-vazquez-iglesias",
     "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
     "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35"
   },
