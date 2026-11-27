@@ -8,6 +8,15 @@ on:
       - 'package.json'
       - 'bun.lock'
       - '.github/workflows/verify-challenge.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'server.ts'
+      - 'server/**'
+      - 'package.json'
+      - 'bun.lock'
+      - '.github/workflows/verify-challenge.yml'
   workflow_dispatch:
 permissions:
   contents: read
