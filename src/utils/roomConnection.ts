@@ -13,20 +13,60 @@ export function resolveRoomSocketUrl(url: string): string {
 // A new connection receives a full server snapshot, including any missed commands.
 export function subscribeRoom(url: string, receive: (event: MessageEvent) => void) {
   let closed = false;
+  let denied = false;
   let attempts = 0;
-  let timer: ReturnType<typeof setTimeout>;
-  let socket: WebSocket;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let socket: WebSocket | undefined;
+  const clearRetry = () => { clearTimeout(timer); timer = undefined; };
+  const isOffline = () => typeof navigator !== 'undefined' && navigator.onLine === false;
+  function schedule() {
+    if (closed || denied || isOffline() || timer !== undefined) return;
+    const delay = Math.min(500 * 2 ** Math.min(attempts++, 4), 8000);
+    // Small jitter avoids reconnecting all audience screens at the same instant.
+    timer = setTimeout(() => { timer = undefined; connect(); }, delay + Math.random() * 250);
+  }
   function connect() {
-    socket = new WebSocket(resolveRoomSocketUrl(url));
-    socket.onmessage = event => {
-      if (!closed) { attempts = 0; receive(event); }
+    if (closed || denied || isOffline() || socket) return;
+    clearRetry();
+    let current: WebSocket;
+    try {
+      current = new WebSocket(resolveRoomSocketUrl(url));
+    } catch {
+      schedule();
+      return;
+    }
+    socket = current;
+    current.onmessage = event => {
+      if (!closed && socket === current) { attempts = 0; receive(event); }
     };
-    socket.onclose = event => {
-      if (!closed && event.code !== 4003) {
-        timer = setTimeout(connect, Math.min(500 * 2 ** attempts++, 8000));
-      }
+    current.onclose = event => {
+      if (socket !== current) return;
+      socket = undefined;
+      if (event.code === 4003) denied = true;
+      schedule();
     };
   }
+  const online = () => {
+    if (closed || denied || socket) return;
+    attempts = 0;
+    clearRetry();
+    connect();
+  };
+  const offline = () => clearRetry();
+  if (typeof window !== 'undefined') {
+    window.addEventListener('online', online);
+    window.addEventListener('offline', offline);
+  }
   connect();
-  return () => { closed = true; clearTimeout(timer); socket.close(); };
+  return () => {
+    closed = true;
+    clearRetry();
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('online', online);
+      window.removeEventListener('offline', offline);
+    }
+    const current = socket;
+    socket = undefined;
+    current?.close();
+  };
 }
