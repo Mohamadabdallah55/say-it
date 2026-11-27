@@ -1,8 +1,4 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
-import { BuzzerScreen } from './components/BuzzerScreen';
-import { GameArena } from './components/GameArena';
-import { LobbySetup } from './components/LobbySetup';
-import { SilentActingScreen } from './components/SilentActingScreen';
 import { TitleScreen } from './components/TitleScreen';
 import {
   DEFAULT_REMOTE_DECKS_BASE_URL,
@@ -25,6 +21,11 @@ import { soundFX } from './utils/sound';
 const AdminPanel = lazy(() => import('./components/AdminPanel').then(m => ({ default: m.AdminPanel })));
 const PdfStudio = lazy(() => import('./components/PdfStudio').then(m => ({ default: m.PdfStudio })));
 const SavedLibrary = lazy(() => import('./components/SavedLibrary').then(m => ({ default: m.SavedLibrary })));
+
+const BuzzerScreen = lazy(() => import('./components/BuzzerScreen').then(m => ({ default: m.BuzzerScreen })));
+const GameArena = lazy(() => import('./components/GameArena').then(m => ({ default: m.GameArena })));
+const LobbySetup = lazy(() => import('./components/LobbySetup').then(m => ({ default: m.LobbySetup })));
+const SilentActingScreen = lazy(() => import('./components/SilentActingScreen').then(m => ({ default: m.SilentActingScreen })));
 
 const WordRace = lazy(() => import('./components/WordRace').then(m => ({ default: m.WordRace })));
 const DrawingImpostor = lazy(() => import('./components/DrawingImpostor').then(m => ({ default: m.DrawingImpostor })));
