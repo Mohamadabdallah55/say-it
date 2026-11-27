@@ -1,0 +1,1 @@
+Source: Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ — https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm — excerpts sampled at one frame per second for review, not approved questions.
