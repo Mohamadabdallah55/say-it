@@ -963,7 +963,7 @@ export function GameArena({
                   <h1 id="board-title">لوحة الفئات</h1>
                   <span className="board-heading-sub">{roundCue}</span>
                 </div>
-                {recentAward && !showScoreMoment && (
+                {recentAward && (!animateRound || scoreScenes.length === 0) && (
                   <div className="round-edge-award" role="status" key={recentAward.at}>
                     {awardChanges.length ? awardChanges.map(({ team, change }) => (
                       <span key={team.id} className="round-edge-change" data-negative={change < 0}>
