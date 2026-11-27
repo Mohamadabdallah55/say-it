@@ -186,7 +186,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   // Fetch current official catalog independently of account and local recovery cache.
   useEffect(() => {
-    void Promise.resolve().then(() => testFirestoreConnection()).catch(() => {});
+    // The synthetic Firestore probe is diagnostic only; actual listeners report their own errors.
+    if (import.meta.env.DEV) void Promise.resolve().then(() => testFirestoreConnection()).catch(() => {});
     let disposed = false;
     let running = false;
     let lastCheck = 0;
