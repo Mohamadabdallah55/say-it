@@ -614,20 +614,48 @@ export function GameArena({
   useEffect(() => {
     setActingQr(null);
     if (!actingQrToken) return;
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 10000);
-    fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(actingQrToken)}`, {
-      signal: controller.signal,
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (!controller.signal.aborted && data?.qrDataUrl) setActingQr(data);
-      })
-      .catch(() => {})
-      .finally(() => window.clearTimeout(timeout));
+    let disposed = false;
+    let pending: AbortController | undefined;
+    let retry: number | undefined;
+    let attempts = 0;
+    let loaded = false;
+    const load = async () => {
+      if (disposed || pending || loaded || navigator.onLine === false) return;
+      if (retry !== undefined) window.clearTimeout(retry);
+      retry = undefined;
+      const controller = new AbortController();
+      pending = controller;
+      const timeout = window.setTimeout(() => controller.abort(), 10000);
+      let retryable = true;
+      try {
+        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(actingQrToken)}`, {
+          signal: controller.signal, cache: 'no-store',
+        });
+        retryable = res.status >= 500 || res.status === 429;
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!disposed && !controller.signal.aborted && data?.qrDataUrl) {
+          loaded = true;
+          setActingQr(data);
+        }
+      } catch {
+        retryable = true;
+      } finally {
+        window.clearTimeout(timeout);
+        if (pending === controller) pending = undefined;
+        if (!disposed && !loaded && retryable && navigator.onLine !== false && attempts < 2) {
+          retry = window.setTimeout(() => { retry = undefined; void load(); }, 1000 * 2 ** attempts++);
+        }
+      }
+    };
+    const online = () => { attempts = 0; void load(); };
+    window.addEventListener('online', online);
+    void load();
     return () => {
-      controller.abort();
-      window.clearTimeout(timeout);
+      disposed = true;
+      pending?.abort();
+      if (retry !== undefined) window.clearTimeout(retry);
+      window.removeEventListener('online', online);
     };
   }, [roomCode, actingQrToken]);
 
