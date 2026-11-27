@@ -1,0 +1,32 @@
+name: Focus video review frames
+on:
+  push:
+    branches: [quality/visual-memory-pass-1]
+    paths: ['.github/workflows/focus-video-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: quality/visual-memory-pass-1
+      - name: Download licensed source and extract contact sheets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p quality-audit/focus-video-frames
+          curl --fail --location --retry 2 --max-time 90 --user-agent 'VisualMemoryQuizReview/1.0 (GitHub media review)' 'https://upload.wikimedia.org/wikipedia/commons/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm' -o /tmp/wing-it.webm
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 /tmp/wing-it.webm
+          for start in 20 45 70 95 120 145 170; do
+            ffmpeg -nostdin -hide_banner -loglevel error -ss "$start" -i /tmp/wing-it.webm -t 17 -vf 'fps=1,scale=320:-2,tile=4x5:padding=3:margin=3' -frames:v 1 -q:v 3 "quality-audit/focus-video-frames/wing-it-$start.jpg"
+          done
+          printf '%s\n' 'Source: Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ — https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm — excerpts sampled at one frame per second for review, not approved questions.' > quality-audit/focus-video-frames/README.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add quality-audit/focus-video-frames
+          git commit -m 'Add contact sheets from licensed animation for review'
+          git push origin HEAD:quality/visual-memory-pass-1
