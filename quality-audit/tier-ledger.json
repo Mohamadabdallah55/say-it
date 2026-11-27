@@ -68,16 +68,16 @@
         "600": 30
       },
       "reviewedByOriginalTier": {
-        "200": 3,
-        "400": 15,
+        "200": 13,
+        "400": 25,
         "600": 0
       },
       "originalsWithEdits": 0,
       "originalsRetainedWithoutEdits": 0,
-      "originalsRetired": 18,
+      "originalsRetired": 38,
       "demotionsApplied": 0,
       "promotionsApplied": 0,
-      "replacementsAppliedPendingSecondReview": 18,
+      "replacementsAppliedPendingSecondReview": 38,
       "replacementsAccepted": 0,
       "uncompensated600": 0,
       "hardReplacementsPendingAcceptance": 0,
@@ -149,19 +149,19 @@
         "600": 46
       },
       "reviewedByOriginalTier": {
-        "200": 0,
-        "400": 0,
-        "600": 1
+        "200": 3,
+        "400": 3,
+        "600": 2
       },
-      "originalsWithEdits": 0,
+      "originalsWithEdits": 6,
       "originalsRetainedWithoutEdits": 0,
-      "originalsRetired": 1,
-      "demotionsApplied": 0,
-      "promotionsApplied": 0,
-      "replacementsAppliedPendingSecondReview": 1,
+      "originalsRetired": 2,
+      "demotionsApplied": 3,
+      "promotionsApplied": 3,
+      "replacementsAppliedPendingSecondReview": 2,
       "replacementsAccepted": 0,
       "uncompensated600": 0,
-      "hardReplacementsPendingAcceptance": 1,
+      "hardReplacementsPendingAcceptance": 2,
       "status": "in_review"
     },
     "cat_science_quiz": {
@@ -270,6 +270,59 @@
       "replacementsAccepted": 0,
       "uncompensated600": 0,
       "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    },
+    "cat_brain_teasers": {
+      "before": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "after": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "reviewedByOriginalTier": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "originalsWithEdits": 3,
+      "originalsRetainedWithoutEdits": 47,
+      "originalsRetired": 25,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 25,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 15,
+      "status": "in_review"
+    },
+    "cat_barcelona": {
+      "before": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "after": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "reviewedByOriginalTier": {
+        "200": 14,
+        "400": 2,
+        "600": 5
+      },
+      "originalsWithEdits": 10,
+      "originalsRetainedWithoutEdits": 3,
+      "originalsRetired": 8,
+      "promotionsApplied": 1,
+      "demotionsApplied": 1,
+      "replacementsAppliedPendingSecondReview": 8,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
       "status": "in_review"
     }
   }

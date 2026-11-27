@@ -1,7 +1,7 @@
 [
   {
     "id": "BAR-001-R2",
-    "points": 600,
+    "points": 400,
     "question": "أي لاعب برازيلي شارك مع برشلونة في نسخة دوري الأبطال 2018-19، ثم فاز بالبطولة مع بايرن في الموسم التالي؟",
     "answer": "فيليب كوتينيو",
     "explanation": "فاز كوتينيو بدوري الأبطال مع بايرن موسم 2019-20.",
@@ -33,7 +33,7 @@
   },
   {
     "id": "BAR-003",
-    "points": 400,
+    "points": 600,
     "question": "أي نادٍ واجه برشلونة في السوبر الأوروبي سنة 2009، قبل أن تكتمل السداسية؟",
     "answer": "شاختار دونيتسك",
     "explanation": "فاز برشلونة بالسوبر الأوروبي في موناكو.",
@@ -147,73 +147,73 @@
     "id": "BAR-N-002",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص رونالدينيو مع برشلونة بموسم 2005-06؟",
+    "question": "شو رقم قميص رونالدينيو المعروف مع برشلونة؟",
     "answer": "10",
     "acceptableAnswers": [
       "١٠",
       "رقم 10",
       "رقم ١٠"
     ],
-    "explanation": "ارتدى رونالدينيو القميص رقم 10 في ذلك الموسم.",
+    "explanation": "اشتهر رونالدينيو بالرقم 10 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://pbs.twimg.com/media/FOWtyf5XoAM9vPh.jpg",
     "imageSourceUrl": "https://x.com/sportbible/status/1505800735514148864",
-    "imageCaption": "رونالدينيو بقميص النادي رقم 10 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+    "imageCaption": "رونالدينيو بقميص برشلونة رقم 10 في صورة أرشيفية"
   },
   {
     "id": "BAR-N-003",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص كارليس بويول مع برشلونة بموسم 2008-09؟",
+    "question": "شو رقم قميص كارليس بويول المعروف مع برشلونة؟",
     "answer": "5",
     "acceptableAnswers": [
       "٥",
       "رقم 5",
       "رقم ٥"
     ],
-    "explanation": "ارتدى كارليس بويول القميص رقم 5 في ذلك الموسم.",
+    "explanation": "اشتهر كارليس بويول بالرقم 5 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://total.kz/storage/ff/ff63732e9f8301cba09b0d3f0a20be1c_resize_w_1140_h_696.jpg",
     "imageSourceUrl": "https://total.kz/ru/news/sport/karles_puyol_uhodit_iz_barselony",
-    "imageCaption": "بويول بقميص النادي رقم 5 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
+    "imageCaption": "كارليس بويول بقميص برشلونة رقم 5 في صورة أرشيفية"
   },
   {
     "id": "BAR-N-004",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص نيمار مع برشلونة بموسم 2014-15؟",
+    "question": "شو رقم قميص نيمار المعروف مع برشلونة؟",
     "answer": "11",
     "acceptableAnswers": [
       "١١",
       "رقم 11",
       "رقم ١١"
     ],
-    "explanation": "ارتدى نيمار القميص رقم 11 في ذلك الموسم.",
+    "explanation": "اشتهر نيمار بالرقم 11 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uR31jb52TBKnp.5mKlytuQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xNTk4O2NmPXdlYnA-/https%3A/media.zenfs.com/en/homerun/feed_manager_auto_publish_494/97ae94c7320da8639b02e1ef5e4dfccd",
     "imageSourceUrl": "https://sports.yahoo.com/barcelona-receives-neymar-buyout-money-clearing-way-sign-psg-172112219.html",
-    "imageCaption": "نيمار بقميص النادي رقم 11 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
+    "imageCaption": "نيمار بقميص برشلونة رقم 11 في صورة أرشيفية"
   },
   {
-    "id": "BAR-N-005",
+    "id": "BAR-N-005-QA1",
+    "kind": "history",
     "points": 200,
-    "kind": "number",
-    "question": "شو كان رقم قميص جوردي ألبا مع برشلونة بموسم 2014-15؟",
-    "answer": "18",
+    "question": "مين الظهير الأيسر الإسباني اللي رجع لبرشلونة من فالنسيا عام 2012؟",
+    "answer": "جوردي ألبا",
     "acceptableAnswers": [
-      "١٨",
-      "رقم 18",
-      "رقم ١٨"
+      "جوردي ألبا",
+      "جوردي البا",
+      "Jordi Alba"
     ],
-    "explanation": "ارتدى جوردي ألبا القميص رقم 18 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://www.fussballeuropa.com/images/huge/jordi-alba-2021-3.jpg",
-    "imageSourceUrl": "https://www.fussballeuropa.com/news/fc-barcelona-jordi-alba-verkundet-abschied-von-barca-letzter-tanz-im-camp-nou-2023-05",
-    "imageCaption": "جوردي ألبا بقميص النادي رقم 18 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
+    "explanation": "رجع جوردي ألبا لبرشلونة عام 2012 بعد ما لعب مع فالنسيا.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/card/3802481/jordi-alba",
+    "isPlayer": true,
+    "imageUrl": "/assets/questions/football-first-name/3a3c0543c9bf60067ca5ced2.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Jordi_Alba_NE_Revolution_Inter_Miami_7.9.25-047_(cropped).jpg",
+    "imageCaption": "جوردي ألبا في صورة أرشيفية · Bryan Berlin · CC BY-SA 4.0"
   },
   {
     "id": "BAR-N-006",
@@ -237,81 +237,78 @@
     "id": "BAR-N-007",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص لويس سواريز مع برشلونة بموسم 2014-15؟",
+    "question": "شو رقم قميص لويس سواريز المعروف مع برشلونة؟",
     "answer": "9",
     "acceptableAnswers": [
       "٩",
       "رقم 9",
       "رقم ٩"
     ],
-    "explanation": "ارتدى لويس سواريز القميص رقم 9 في ذلك الموسم.",
+    "explanation": "اشتهر لويس سواريز بالرقم 9 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://assets.calciomercato.com/images/v3/cm_134041/Luis.Suarez.Barcellona.esultanza.2019.20.jpg?upscale=true&width=1400",
     "imageSourceUrl": "https://www.calciomercato.com/notizie/la-juve-copia-il-pagamento-di-monchi-per-il-colpo-luis-suarez-co/1180980",
-    "imageCaption": "سواريز بقميص النادي رقم 9 — صورة توضيحية للرقم، وقد تكون من موسم آخر"
+    "imageCaption": "لويس سواريز بقميص برشلونة رقم 9 في صورة أرشيفية"
   },
   {
     "id": "BAR-N-008",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص تشافي هيرنانديز مع برشلونة بموسم 2014-15؟",
+    "question": "شو رقم قميص تشافي هيرنانديز المعروف مع برشلونة؟",
     "answer": "6",
     "acceptableAnswers": [
       "٦",
       "رقم 6",
       "رقم ٦"
     ],
-    "explanation": "ارتدى تشافي هيرنانديز القميص رقم 6 في ذلك الموسم.",
+    "explanation": "اشتهر تشافي هيرنانديز بالرقم 6 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://cdn0.celebritax.com/sites/default/files/styles/watermark_100/public/1561571377-dorsales-grandes-deporte-numero-6.jpg",
     "imageSourceUrl": "https://www.cibercuba.com/noticias/2019-06-26-u192379-e192379-s27066-dorsales-grandes-deporte-numero-6",
-    "imageCaption": "تشافي بقميص النادي رقم 6 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
+    "imageCaption": "تشافي هيرنانديز بقميص برشلونة رقم 6 في صورة أرشيفية"
   },
   {
     "id": "BAR-N-009",
     "points": 200,
     "kind": "number",
-    "question": "شو كان رقم قميص صامويل إيتو مع برشلونة بموسم 2005-06؟",
+    "question": "شو رقم قميص صامويل إيتو المعروف مع برشلونة؟",
     "answer": "9",
     "acceptableAnswers": [
       "٩",
       "رقم 9",
       "رقم ٩"
     ],
-    "explanation": "ارتدى صامويل إيتو القميص رقم 9 في ذلك الموسم.",
+    "explanation": "اشتهر صامويل إيتو بالرقم 9 مع برشلونة.",
     "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
     "isPlayer": false,
     "imageUrl": "https://www.n-tv.de/img/4022829/1353198690/Img_16_9/1200/eto.jpg",
     "imageSourceUrl": "https://www.n-tv.de/sport/fussball/Eto-o-mit-Inter-einig-article430961.html",
-    "imageCaption": "إيتو بقميص النادي رقم 9 — صورة للرقم من موسم آخر أو غير مؤرخ بدقة"
+    "imageCaption": "صامويل إيتو بقميص برشلونة رقم 9 في صورة أرشيفية"
   },
   {
-    "id": "BAR-N-010",
+    "id": "BAR-N-010-QA1",
+    "kind": "history",
     "points": 200,
-    "kind": "number",
-    "question": "شو كان رقم قميص دافيد فيا مع برشلونة بموسم 2010-11؟",
-    "answer": "7",
+    "question": "مين المدرب اللي قاد برشلونة للثلاثية عام 2015؟",
+    "answer": "لويس إنريكي",
     "acceptableAnswers": [
-      "٧",
-      "رقم 7",
-      "رقم ٧"
+      "لويس إنريكي",
+      "لويس انريكي",
+      "Luis Enrique"
     ],
-    "explanation": "ارتدى دافيد فيا القميص رقم 7 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://img2.rtve.es/i/?crop=yes&i=1291071040613.jpg&w=800",
-    "imageSourceUrl": "https://www.rtve.es/fotogalerias/las-mejores-imagenes-del-clasico/62995/f-c-barcelona-real-madrid/14/",
-    "imageCaption": "دافيد فيا بقميص النادي رقم 7 — الموسم المذكور في السؤال"
+    "explanation": "فاز برشلونة بالدوري الإسباني وكأس الملك ودوري الأبطال في موسم 2014–15 بقيادة لويس إنريكي.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/ficha/648461/luis-enrique-martinez-2014-2017",
+    "isPlayer": false
   },
   {
     "id": "BAR-014",
     "points": 200,
-    "question": "مين المهاجم الكاميروني اللي شكّل ثلاثيًا هجوميًا مع ميسي وهنري وسجل بنهائي 2006؟",
+    "question": "مين المهاجم الكاميروني اللي سجّل هدف التعادل لبرشلونة أمام أرسنال في نهائي الأبطال 2006؟",
     "answer": "صامويل إيتو",
-    "explanation": "عادل النتيجة بعد تقدم أرسنال.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/club/news/4498096/20-years-ago",
+    "explanation": "سجّل إيتو هدف التعادل، وفاز برشلونة 2–1 على أرسنال.",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/match/84101--barcelona-vs-arsenal/",
     "isPlayer": true,
     "acceptableAnswers": [
       "إيتو",
@@ -358,40 +355,35 @@
     "imageCaption": "بوسكيتس بقميص النادي رقم 16 — صورة توضيحية للرقم وقد تكون من موسم آخر"
   },
   {
-    "id": "BAR-N-014",
+    "id": "BAR-N-014-QA1",
+    "kind": "history",
     "points": 200,
-    "kind": "number",
-    "question": "شو كان رقم قميص خافيير ماسكيرانو مع برشلونة بموسم 2014-15؟",
-    "answer": "14",
+    "question": "خافيير ماسكيرانو مثّل أي منتخب في نهائي كأس العالم 2014؟",
+    "answer": "الأرجنتين",
     "acceptableAnswers": [
-      "١٤",
-      "رقم 14",
-      "رقم ١٤"
+      "الأرجنتين",
+      "منتخب الأرجنتين",
+      "Argentina"
     ],
-    "explanation": "ارتدى خافيير ماسكيرانو القميص رقم 14 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://dobleamarilla-assets.tadevel-cdn.com/photo_5a54c7f23f0522647ed188b8_720.jpeg",
-    "imageSourceUrl": "https://www.dobleamarilla.com.ar/por-el-mundo/coutinho-heredaria-el-numero-14-de-mascherano_a5a54c81e3f0522647ed188bf",
-    "imageCaption": "ماسكيرانو بقميص النادي رقم 14 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+    "explanation": "ماسكيرانو لعب نهائي مونديال 2014 مع الأرجنتين أمام ألمانيا.",
+    "sourceUrl": "https://www.fifa.com/es/articles/mascherano-y-la-copa-mundial-de-la-fifa-con-la-seleccion-argentina-cuantas",
+    "isPlayer": false
   },
   {
-    "id": "BAR-N-015",
+    "id": "BAR-N-015-QA1",
+    "kind": "history",
     "points": 200,
-    "kind": "number",
-    "question": "شو كان رقم قميص سيسك فابريغاس مع برشلونة بموسم 2013-14؟",
-    "answer": "4",
+    "question": "شو اسم ملعب برشلونة التاريخي اللي افتتحه النادي سنة 1957؟",
+    "answer": "كامب نو",
     "acceptableAnswers": [
-      "٤",
-      "رقم 4",
-      "رقم ٤"
+      "كامب نو",
+      "كامب نيو",
+      "سبوتيفاي كامب نو",
+      "Camp Nou"
     ],
-    "explanation": "ارتدى سيسك فابريغاس القميص رقم 4 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://3.bp.blogspot.com/-4rmIsxXC744/XD3bi0mAcqI/AAAAAAAByd4/8-f9kBGwM6k-He7kSo3sakSRAOyudLltgCLcBGAs/s1600/0-here-is-why-cesc-fabregas-is-wearing-shirt-no-44-for-monaco%2B%25285%2529.jpg",
-    "imageSourceUrl": "https://www.footyheadlines.com/2019/01/here-is-why-cesc-fabregas-is-wearing-shirt-no-44-for-monaco.html",
-    "imageCaption": "فابريغاس بقميص النادي رقم 4 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
+    "explanation": "افتتح النادي كامب نو عام 1957، وانتقل إليه من ملعب ليس كورتس.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/club/facilities",
+    "isPlayer": false
   },
   {
     "id": "BAR-N-016",
@@ -430,22 +422,19 @@
     "imageCaption": "أرتورو فيدال بقميص النادي رقم 22 — صورة للرقم، وليس بالضرورة من الموسم المذكور"
   },
   {
-    "id": "BAR-N-018",
+    "id": "BAR-N-018-QA1",
+    "kind": "history",
     "points": 600,
-    "kind": "number",
-    "question": "شو كان رقم قميص بويان كركيتش مع برشلونة بموسم 2010-11؟",
-    "answer": "9",
+    "question": "أمام أي فريق تعادل برشلونة ذهابًا من دون أهداف في ربع نهائي الأبطال 2005–06، ثم تأهل بهدفي رونالدينيو وإيتو في الإياب؟",
+    "answer": "بنفيكا",
     "acceptableAnswers": [
-      "٩",
-      "رقم 9",
-      "رقم ٩"
+      "بنفيكا",
+      "SL Benfica",
+      "Benfica"
     ],
-    "explanation": "ارتدى بويان كركيتش القميص رقم 9 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://isport.ua/i/71/98/21/6/7198216/image_main/1551841743244bcc58b4ca06559d17cd-quality_70Xresize_1Xallow_enlarge_0Xw_835Xh_0.jpg",
-    "imageSourceUrl": "https://isport.ua/football/europe/7198216-krkich-obyavil-o-zavershenii-karery",
-    "imageCaption": "بويان — رقم 9 ظاهر على الشورت"
+    "explanation": "تعادل برشلونة مع بنفيكا 0–0 في لشبونة، وفاز 2–0 في الإياب.",
+    "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/01b4-0e6d7bf5c785-a2a58290b646-1000--striking-talent-sees-barca-through/",
+    "isPlayer": false
   },
   {
     "id": "BAR-N-019",
@@ -650,22 +639,24 @@
     "imageCaption": "لارسون — رقم 7 على الشورت، صورة أرشيفية"
   },
   {
-    "id": "BAR-N-027",
+    "id": "BAR-N-027-QA1",
+    "kind": "history",
     "points": 600,
-    "kind": "number",
-    "question": "شو كان رقم قميص ألكسندر هليب مع برشلونة بموسم 2008-09؟",
-    "answer": "21",
+    "question": "في كأس السوبر الأوروبي 2009، مين سجّل هدف برشلونة الوحيد في الشوط الإضافي الثاني؟",
+    "answer": "بيدرو رودريغيز",
     "acceptableAnswers": [
-      "٢١",
-      "رقم 21",
-      "رقم ٢١"
+      "بيدرو رودريغيز",
+      "بيدرو رودريغس",
+      "بيدرو",
+      "Pedro Rodríguez",
+      "Pedro Rodriguez"
     ],
-    "explanation": "ارتدى ألكسندر هليب القميص رقم 21 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://media.tycsports.com/files/2020/10/27/130188/alexander-hleb.jpg",
-    "imageSourceUrl": "https://www.tycsports.com/espana/la-liga/alexander-hleb-el-jugador-que-se-arrepiente-de-haber-jugado-en-barcelona-id278931.html",
-    "imageCaption": "ألكسندر هليب — الرقم 21 على الشورت (2008-09)"
+    "explanation": "سجّل بيدرو في الدقيقة 115 ليفوز برشلونة على شاختار 1–0.",
+    "sourceUrl": "https://www.uefa.com/uefasupercup/news/0250-0c50f2341217-05fc7b75cf99-1000--pedro-pounces-to-add-to-barca-glory/",
+    "isPlayer": true,
+    "imageUrl": "/assets/questions/football-audit/pedro.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bar%C3%A7a_-_Napoli_-_20140806_-_Pedro_Rodriguez_(cropped).jpg",
+    "imageCaption": "بيدرو بقميص برشلونة في صورة أرشيفية من 2014 · Clément Bucco-Lechat · CC BY-SA 3.0"
   },
   {
     "id": "BAR-N-028",
@@ -686,40 +677,35 @@
     "imageCaption": "سيدو كيتا — رقم 15 ظاهر على ظهر القميص"
   },
   {
-    "id": "BAR-N-029",
+    "id": "BAR-N-029-QA1",
+    "kind": "history",
     "points": 600,
-    "kind": "number",
-    "question": "شو كان رقم قميص خوسيه مانويل بينتو مع برشلونة بموسم 2010-11؟",
-    "answer": "13",
+    "question": "أي فريق أقصاه برشلونة في طريقه إلى لقبه الأول في كأس الأندية الأوروبية البطلة بعدما سجّل باكيرو هدفًا متأخرًا حسم التأهل بقاعدة الأهداف خارج الأرض؟",
+    "answer": "كايزرسلاوترن",
     "acceptableAnswers": [
-      "١٣",
-      "رقم 13",
-      "رقم ١٣"
+      "كايزرسلاوترن",
+      "كايزرسلاوتيرن",
+      "Kaiserslautern",
+      "1. FC Kaiserslautern"
     ],
-    "explanation": "ارتدى خوسيه مانويل بينتو القميص رقم 13 في ذلك الموسم.",
-    "sourceUrl": "https://www.footballshirtandprint.co.uk/squad-numbers/fc-barcelona/",
-    "isPlayer": false,
-    "imageUrl": "https://cadenaser.com/resizer/v2/RNMHQCJJNNO4DA5HFRGPCNAMBM.jpg?auth=0e3f9b921c4f43c14f2a4c371121eafde6f5292eb20d95eb4318ba7fa89b08fd",
-    "imageSourceUrl": "https://cadenaser.com/ser/2010/10/21/deportes/1287617289_850215.html",
-    "imageCaption": "بينتو — رقم 13 على الشورت، أكتوبر 2010"
+    "explanation": "تعادل الفريقان 3–3 في مجموع المباراتين، وتأهل برشلونة بهدف باكيرو في الإياب خارج أرضه عام 1991.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/814322/25-years-since-bakeros-legendary-goal-against-kaiserslautern",
+    "isPlayer": false
   },
   {
-    "id": "BAR-N-030",
+    "id": "BAR-N-030-QA1",
+    "kind": "history",
     "points": 600,
-    "kind": "number",
-    "question": "شو كان رقم قميص أليكس سونغ مع برشلونة بموسم 2013-14؟",
-    "answer": "17",
+    "question": "مين المدرب اللي قاد برشلونة للفوز بكأس الكؤوس الأوروبية 1997 أمام باريس سان جيرمان، بهدف رونالدو من ركلة جزاء؟",
+    "answer": "بوبي روبسون",
     "acceptableAnswers": [
-      "١٧",
-      "رقم 17",
-      "رقم ١٧"
+      "بوبي روبسون",
+      "السير بوبي روبسون",
+      "Bobby Robson"
     ],
-    "explanation": "ارتدى أليكس سونغ القميص رقم 17 في ذلك الموسم.",
-    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/958720/17/featured",
-    "isPlayer": false,
-    "imageUrl": "https://d.ibtimes.co.uk/en/full/1396362/alex-song.jpg",
-    "imageSourceUrl": "https://www.ibtimes.co.uk/west-ham-united-close-completing-loan-move-barcelona-midfielder-alex-song-1463245",
-    "imageCaption": "أليكس سونغ — الرقم 17 ظاهر على الشورت في موسم 2013-14"
+    "explanation": "فاز برشلونة بنهائي كأس الكؤوس 1–0 بهدف رونالدو من ركلة جزاء تحت قيادة بوبي روبسون.",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/763989/twenty-years-on-from-robsons-cup-winners-cup-victory/amp",
+    "isPlayer": false
   },
   {
     "id": "BAR-P-005",
@@ -809,11 +795,12 @@
       "Sylvinho"
     ],
     "explanation": "لاعب برازيلي من فترة 2004-2009 مع برشلونة.",
-    "sourceUrl": "https://www.playmakerstats.com/player/sylvinho/814",
+    "sourceUrl": "https://www.fcbarcelona.com/en/news/1147024/fc-barcelona-to-acknowledge-deco-sylvinho-and-keitas-contribution-to-the-club",
     "isPlayer": true,
-    "imageUrl": "https://cdn-img.zerozero.pt/img/planteis/new/94/45/299445_sylvinho_20250505190722.jpg",
-    "imageSourceUrl": "https://www.playmakerstats.com/player/sylvinho/814",
-    "imageDisplay": "before_reveal"
+    "imageUrl": "/assets/questions/football-audit/sylvinho.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sylvinho.jpg",
+    "imageDisplay": "before_reveal",
+    "imageCaption": "صورة أرشيفية من 1999 · Burlands In Brasil · CC BY-SA 2.0"
   },
   {
     "id": "BAR-P-010",

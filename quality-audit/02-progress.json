@@ -20,10 +20,8 @@
       "factsSourceVerified": 64,
       "newQuestionsSourceVerified": 3,
       "mediaViewedInGame": 49,
-      "activeMediaRightsPending": 48,
-      "mediaBlocked": [
-        "RM-061"
-      ],
+      "activeMediaRightsPending": 46,
+      "mediaBlocked": [],
       "secondReviewCompleted": 0,
       "acceptedQuestions": 0,
       "contentEdits": 33,
@@ -49,11 +47,8 @@
         ]
       ],
       "lastReviewedId": "RM-E-057-E6",
-      "notes": "استُبدل التكرار بين ريال مدريد والحروف الكروية. حُذفت صورة خاطئة من سؤال فاسكيز بانتظار البديل. الحقوق والمراجعة الثانية وفحص كامل بنك ريال مدريد معلقة.",
-      "mediaContextFollowUp": [
-        "RM-065",
-        "RM-066"
-      ]
+      "notes": "استُبدل التكرار بين ريال مدريد والحروف الكروية. عُوّضت الصور الثلاث غير المناسبة بصور أرشيفية موثقة للاعبين بقميص النادي. مراجعة بقية الحقوق والمراجعة الثانية وكامل بنك ريال مدريد معلقة.",
+      "mediaContextFollowUp": []
     },
     "cat_geometry": {
       "status": "content_first_pass_complete",
@@ -105,12 +100,12 @@
         "600": 30
       },
       "textReviewedByOriginalTier": {
-        "200": 3,
-        "400": 15,
+        "200": 13,
+        "400": 25,
         "600": 0
       },
       "factsSourceVerified": 0,
-      "newQuestionsSourceVerified": 18,
+      "newQuestionsSourceVerified": 38,
       "replacementsAppliedPendingSecondReview": [
         "RUBYASIN-100-QA1",
         "RUBYASIN-101-QA1",
@@ -129,12 +124,32 @@
         "RUBYASIN-076-QA1",
         "RUBYASIN-079-QA1",
         "RUBYASIN-082-QA1",
-        "RUBYASIN-089-QA1"
+        "RUBYASIN-089-QA1",
+        "RUBYASIN-103-QA1",
+        "RUBYASIN-105-QA1",
+        "RUBYASIN-106-QA1",
+        "RUBYASIN-111-QA1",
+        "RUBYASIN-112-QA1",
+        "RUBYASIN-115-QA1",
+        "RUBYASIN-116-QA1",
+        "RUBYASIN-117-QA1",
+        "RUBYASIN-118-QA1",
+        "RUBYASIN-008-QA1",
+        "RUBYASIN-011-QA1",
+        "RUBYASIN-015-QA1",
+        "RUBYASIN-016-QA1",
+        "RUBYASIN-025-QA1",
+        "RUBYASIN-029-QA1",
+        "RUBYASIN-036-QA1",
+        "RUBYASIN-038-QA1",
+        "RUBYASIN-039-QA1",
+        "RUBYASIN-070-QA1",
+        "RUBYASIN-090-QA1"
       ],
       "secondReviewCompleted": 0,
       "acceptedQuestions": 0,
       "contentEdits": 0,
-      "lastReviewedId": "RUBYASIN-089"
+      "lastReviewedId": "RUBYASIN-090"
     },
     "cat_football_letters": {
       "status": "in_review",
@@ -189,19 +204,23 @@
         "600": 46
       },
       "textReviewedByOriginalTier": {
-        "200": 0,
-        "400": 0,
-        "600": 1
+        "200": 3,
+        "400": 3,
+        "600": 2
       },
-      "factsSourceVerified": 0,
-      "newQuestionsSourceVerified": 1,
+      "factsSourceVerified": 6,
+      "newQuestionsSourceVerified": 2,
       "replacementsAppliedPendingSecondReview": [
-        "QURAN-MEDIA-120-QA1"
+        "QURAN-MEDIA-120-QA1",
+        "QURAN-MEDIA-130-QA1"
       ],
       "secondReviewCompleted": 0,
       "acceptedQuestions": 0,
-      "contentEdits": 0,
-      "lastReviewedId": "QURAN-MEDIA-120"
+      "contentEdits": 6,
+      "lastReviewedId": "QURAN-MEDIA-087",
+      "promotionsApplied": 3,
+      "demotionsApplied": 3,
+      "additionalImagesViewedInGame": 4
     },
     "cat_science_quiz": {
       "status": "in_review",
@@ -284,6 +303,88 @@
       "acceptedQuestions": 0,
       "contentEdits": 1,
       "lastReviewedId": "WC26-200-49"
+    },
+    "cat_brain_teasers": {
+      "status": "content_first_pass_complete",
+      "originalTierCounts": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "textReviewedByOriginalTier": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 0,
+      "factsLogicallyVerified": 50,
+      "newQuestionsLogicallyVerified": 25,
+      "replacementsAppliedPendingSecondReview": [
+        "ST-200-02-QA1",
+        "ST-200-08-QA1",
+        "ST-200-14-QA1",
+        "ST-400-04-QA1",
+        "ST-400-06-QA1",
+        "ST-400-08-QA1",
+        "ST-400-11-QA1",
+        "ST-400-12-QA1",
+        "ST-400-13-QA1",
+        "ST-400-20-QA1",
+        "ST-600-01-QA1",
+        "ST-600-02-QA1",
+        "ST-600-03-QA1",
+        "ST-600-04-QA1",
+        "ST-600-06-QA1",
+        "ST-600-08-QA1",
+        "ST-600-09-QA1",
+        "ST-600-10-QA1",
+        "ST-600-17-QA1",
+        "ST-600-18-QA1",
+        "ST-600-20-QA1",
+        "ST-600-21-QA1",
+        "ST-600-22-QA1",
+        "ST-600-23-QA1",
+        "ST-600-24-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 3,
+      "lastReviewedId": "ST-600-25"
+    },
+    "cat_barcelona": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "textReviewedByOriginalTier": {
+        "200": 14,
+        "400": 2,
+        "600": 5
+      },
+      "factsSourceVerified": 7,
+      "newQuestionsSourceVerified": 8,
+      "mediaViewedInGame": 15,
+      "activeMediaRightsPending": 12,
+      "mediaBlocked": [],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 10,
+      "promotionsApplied": 1,
+      "demotionsApplied": 1,
+      "replacementsAppliedPendingSecondReview": [
+        "BAR-N-005-QA1",
+        "BAR-N-010-QA1",
+        "BAR-N-014-QA1",
+        "BAR-N-015-QA1",
+        "BAR-N-018-QA1",
+        "BAR-N-027-QA1",
+        "BAR-N-029-QA1",
+        "BAR-N-030-QA1"
+      ],
+      "lastReviewedId": "BAR-P-009"
     }
   },
   "defaultCategoryStatus": "screened_content_pending",
@@ -296,11 +397,14 @@
       "candidateGroups": "content-candidates.jsonl"
     },
     "latestBatch": {
-      "originalsReviewed": 128,
-      "replacementsAppliedPendingSecondReview": 42,
-      "categories": 10
+      "originalsReviewed": 27,
+      "categories": 3,
+      "difficultyReclassifications": 8,
+      "replacementsAppliedPendingSecondReview": 8,
+      "imagesReplacedOrAdded": 6,
+      "reviewStartedAtCommit": "a6a4b34"
     },
-    "media": "deferred",
+    "media": "focused_image_repairs_with_content",
     "mediaFixList": "media-fix-list.md"
   }
 }

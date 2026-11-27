@@ -28,6 +28,7 @@ export const QURAN_MEDIA_QUESTIONS = rows.map((row): QuizQuestion => {
     answer: row.answer,
     explanation: row.explanation,
     sourceRef: [row.source_url, row.hadith_url].filter(Boolean).join(' · '),
+    sourceSnippet: 'source_snippet' in row ? row.source_snippet : undefined,
     audioUrl: row.audio_url ? `/api/quran-audio/${row.id}` : undefined,
     imageUrl: row.hasImage ? `/assets/questions/quran-media/${row.id}.png` : undefined,
     imageDisplay: row.hasImage ? 'before_reveal' : undefined,
