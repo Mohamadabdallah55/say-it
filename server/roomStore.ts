@@ -532,6 +532,10 @@ class RoomManager {
       if (!auth.allowed) return { ok: false, error: auth.error };
 
       if (params.command === 'TEAM_BUZZ') {
+        // Reject delayed presses from an earlier round; older clients may omit roundId.
+        if (params.payload?.roundId !== undefined && params.payload.roundId !== room.activeRound?.roundId) {
+          return { ok: false, error: 'انتهى السؤال الذي أُرسلت ضغطة الجرس له.' };
+        }
         const res = recordBuzzerPress(room, String(params.payload?.teamId || ''), now);
         if (!res.ok) return { ok: false, error: res.error };
         this.rooms[code] = res.state;
