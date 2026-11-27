@@ -60,7 +60,7 @@ import { SERVER_CURATED_QUESTIONS } from './server/curatedQuestionBanks';
 import { serveClubLogoPreview } from './server/clubLogoPreview';
 import { serveHashemiteUniversityPreview } from './server/hashemiteUniversityPreview';
 import { serveZoomedImagePreview } from './server/zoomedImagePreview';
-import { CURATED_QUESTIONS } from './src/game/starterDecks';
+import {  CURATED_QUESTIONS , ALL_CURATED_CATEGORIES } from './src/game/starterDecks';
 import { roomManager } from './server/roomStore';
 import { serveQuranRecitation } from './server/quranRecitation';
 import {
@@ -178,7 +178,9 @@ async function startServer() {
       questionIdsByCategory[q.categoryId].push(q.id);
     }
     res.setHeader('Cache-Control', 'no-store');
-    res.json({ questionIdsByCategory, categories: OFFICIAL_CATEGORIES });
+    for (const id of Object.keys(questionIdsByCategory)) questionIdsByCategory[id] = [...new Set(questionIdsByCategory[id])];
+    const categories = [...new Map([...ALL_CURATED_CATEGORIES, ...OFFICIAL_CATEGORIES].map(c => [c.id, c])).values()].filter(c => (questionIdsByCategory[c.id]?.length ?? 0) > 0);
+    res.json({ questionIdsByCategory, categories });
   });
 
   app.use('/api/pdf', requirePaidPdfStaff);
