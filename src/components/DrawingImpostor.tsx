@@ -60,11 +60,11 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const [connected,setConnected]=useState(true);
   const [busy,setBusy]=useState(false);
   const [error,setError]=useState('');
-  const [secret,setSecret]=useState(false);
+  const [secretKey,setSecretKey]=useState('');
   const [guess,setGuess]=useState('');
   const [selectedVote,setSelectedVote]=useState<number|null>(null);
   const [replay,setReplay]=useState<number|null>(null);
-  const [passDraw,setPassDraw]=useState(false);
+  const [passDrawKey,setPassDrawKey]=useState('');
   const [blindKey,setBlindKey]=useState('');
   const [now,setNow]=useState(Date.now());
   const [showRules,setShowRules]=useState(()=>new URLSearchParams(window.location.search).get('rules')==='1');
@@ -87,11 +87,16 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
   const player=room?.player??Math.max(0,localPlayer);
   const host=room?.host??true;
   const view=local?drawingView(local,player):room?.game;
+  const identityKey=view?view.round+':'+view.phase+':'+(view.votePass??1)+':'+player:'';
+  const secret=!!identityKey&&secretKey===identityKey;
+  const setSecret=(v:boolean)=>setSecretKey(v?identityKey:'');
   const waiting=!!room&&!view;
   const restoring=!!session&&!room;
+  const turnKey=view?view.round+':'+view.cursor:'';
+  const passDraw=!!turnKey&&passDrawKey===turnKey;
+  const setPassDraw=(v:boolean)=>setPassDrawKey(v?turnKey:'');
   const myDrawingTurn=!!view&&view.phase==='draw'&&view.order[view.cursor%view.names.length]===player&&(!local||passDraw);
   const blindTurn=myDrawingTurn&&view?.config.drawingStyle==='blind';
-  const turnKey=view?view.round+':'+view.cursor:'';
   const blindHidden=blindTurn&&blindKey===turnKey;
   const canDraw=myDrawingTurn&&!busy&&(!session||connected)&&(!blindTurn||blindHidden);
   useEffect(()=>{if(!blindTurn)return;const timer=window.setTimeout(()=>setBlindKey(turnKey),3000);return()=>window.clearTimeout(timer);},[blindTurn,turnKey]);
@@ -113,8 +118,8 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     try{
       const body={action:type,value,revision:room.revision,actionId:crypto.randomUUID(),round:room.game?.round,phase:room.game?.phase,cursor:room.game?.cursor,votePass:room.game?.votePass??1};
       let data;try{data=await api('/'+session.code+'/action','POST',body,session);}catch(e){if(e instanceof DrawingApiError)throw e;data=await api('/'+session.code+'/action','POST',body,session);}
-      if(mounted.current)receive(data);
-    }catch(e){if(mounted.current){setError(e instanceof Error?e.message:'تعذر الاتصال.');try{receive(await api('/'+session.code,'GET',undefined,session));}catch{setConnected(false);}}}finally{pending.current=false;if(mounted.current)setBusy(false);}
+      if(mounted.current&&saved<Session>(SESSION_KEY)?.code===session.code)receive(data);
+    }catch(e){if(mounted.current){setError(e instanceof Error?e.message:'تعذر الاتصال.');try{const latest=await api('/'+session.code,'GET',undefined,session);if(mounted.current&&saved<Session>(SESSION_KEY)?.code===session.code)receive(latest);}catch{setConnected(false);}}}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
   const autoVoteRef=useRef<string>('');
   useEffect(()=>{
@@ -135,7 +140,7 @@ export function DrawingImpostor({onBack}:{onBack:()=>void}){
     try{const data=await api(onlineMode==='create'?'/create':'/join','POST',{name,code:joinCode.trim().toUpperCase(),config});if(!mounted.current)return;store(LOCAL_KEY,null);setLocal(null);setRoom(data);setSession({code:data.code,token:data.token});}
     catch(e){setError(e instanceof Error?e.message:'تعذر إنشاء الغرفة.');}finally{pending.current=false;if(mounted.current)setBusy(false);}
   }
-  function leave(){setBlindKey('');store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
+  function leave(){setBlindKey('');setPassDrawKey('');setSecretKey('');store(SESSION_KEY,null);store(LOCAL_KEY,null);setConnected(true);setLocal(null);setRoom(null);setSession(null);setError('');setSecret(false);setGuess('');autoVoteRef.current='';}
   function saveDrawing(){
     if(!view||!['result','final'].includes(view.phase))return;
     const canvas=document.createElement('canvas');canvas.width=1600;canvas.height=1000;
