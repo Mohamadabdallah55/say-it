@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   DEFAULT_REMOTE_DECKS_BASE_URL,
   hydrateDeckImagesFromCache,
+  recoveredDeckImageKeys,
   isPlaceholderRemoteBaseUrl,
   isSafeRasterImageMime,
   isSafeRenderableImageUrl,
@@ -292,4 +293,29 @@ test('mergeDecksWithRecovered preserves manual imports, prevents duplicates, and
       ['deck_official_1', 'رسمي ظاهر'],
     ],
   );
+});
+
+test('recovered image lookup includes every question media slot without duplicate or inline keys', () => {
+  const validated = validateRemoteDeckV2(makeValidDeckPayload(), 'https://example.org/decks/geo/deck.json');
+  assert.ok(validated.deck);
+  const original = validated.deck.questions[0];
+  const deck: QuizDeck = {
+    ...validated.deck,
+    questions: [{
+      ...original,
+      imageUrl: 'https://example.org/q.webp',
+      answerImageUrl: 'https://example.org/a.webp',
+      afterImageUrl: 'https://example.org/after.webp',
+      memorySecondImageUrl: 'https://example.org/memory.webp',
+      beforeImageUrls: ['https://example.org/q.webp', 'https://example.org/before.webp', 'data:image/png;base64,AAAA'],
+    }],
+  };
+  assert.deepEqual(recoveredDeckImageKeys([deck, deck]), [
+    'https://example.org/q.webp',
+    'https://example.org/a.webp',
+    'https://example.org/after.webp',
+    'https://example.org/memory.webp',
+    'https://example.org/before.webp',
+  ]);
+  assert.deepEqual(recoveredDeckImageKeys([]), []);
 });

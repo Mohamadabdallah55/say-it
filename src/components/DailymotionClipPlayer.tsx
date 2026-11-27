@@ -48,6 +48,7 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
       return()=>{window.clearTimeout(stopTimer);};
     }
     let disposed=false, poll=0, watchdog=0;
+    let stateRequestPending=false;
     const fail=()=>{if(disposed)return; done.current=true;setStatus('failed'); const instance=p.current;p.current=null;if(instance)void Promise.resolve(instance.destroy()).catch(()=>{});window.clearInterval(poll);window.clearTimeout(watchdog);};
     const arm=(ms:number)=>{window.clearTimeout(watchdog);watchdog=window.setTimeout(fail,ms);};
     arm(18000);
@@ -61,7 +62,7 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
         if(state.playerError){fail();return;}
         if(typeof state.videoDuration==='number'&&state.videoDuration>0&&state.videoDuration<start+17){fail();return;}
         if(typeof state.videoTime==='number'&&state.videoTime>=start+17){
-          done.current=true;window.clearTimeout(watchdog);
+          done.current=true;window.clearTimeout(watchdog);window.clearInterval(poll);
           void instance.pause().catch(()=>{});setStatus('ended');
         }
       };
@@ -70,8 +71,12 @@ export function DailymotionClipPlayer({src,soundEnabled}: {src:string;soundEnabl
       instance.on(api.events.PLAYER_ERROR,fail);
       instance.on(api.events.VIDEO_PLAYING,playing);
       instance.on(api.events.VIDEO_TIMECHANGE,time);
-      instance.on(api.events.VIDEO_END,()=>{if(!disposed&&!done.current){done.current=true;setStatus('ended');window.clearTimeout(watchdog);}});
-      poll=window.setInterval(()=>{if(!done.current&&!disposed)void instance.getState().then(check).catch(()=>{});},200);
+      instance.on(api.events.VIDEO_END,()=>{if(!disposed&&!done.current){done.current=true;setStatus('ended');window.clearTimeout(watchdog);window.clearInterval(poll);}});
+      poll=window.setInterval(()=>{
+        if(done.current||disposed||stateRequestPending)return;
+        stateRequestPending=true;
+        void instance.getState().then(check).catch(()=>{}).finally(()=>{stateRequestPending=false;});
+      },200);
       try {await instance.setVolume(sound.current?1:0);await instance.play();}
       catch {if(!disposed&&!done.current){setStatus('manual');window.clearTimeout(watchdog);}}
     }).catch(fail);

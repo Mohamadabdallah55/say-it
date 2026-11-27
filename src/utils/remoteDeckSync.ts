@@ -1,6 +1,7 @@
 import {
   appendCacheBuster,
   hydrateDeckImagesFromCache,
+  recoveredDeckImageKeys,
   isPlaceholderRemoteBaseUrl,
   isSafeRasterImageMime,
   normalizeRemoteBaseUrl,
@@ -11,7 +12,7 @@ import {
   type RecoveredDeckRecord,
 } from '../game/remoteDecks';
 import {
-  getAllCachedRemoteImages,
+  getCachedRemoteImagesByUrl,
   getAllRecoveredDeckRecords,
   getRemoteSyncSettings,
   markRecoveredDeckSeen,
@@ -24,6 +25,8 @@ import {
 
 export const SESSION_REMOTE_SYNC_KEY = 'yh_remote_decks_checked_v1';
 const MAX_REMOTE_IMAGE_BYTES = 5 * 1024 * 1024;
+const REMOTE_INDEX_TIMEOUT_MS = 90_000;
+const REMOTE_IMAGE_TIMEOUT_MS = 30_000;
 
 export interface RemoteSyncProgress {
   completed: number;
@@ -73,7 +76,7 @@ async function fetchAndCacheImage(
     return null;
   }
   try {
-    const res = await fetch(imageUrl, { cache: 'no-store' });
+    const res = await fetch(imageUrl, { cache: 'no-store', signal: AbortSignal.timeout(REMOTE_IMAGE_TIMEOUT_MS) });
     if (!res.ok) return null;
     const blob = await res.blob();
     if (blob.size <= 0 || blob.size > MAX_REMOTE_IMAGE_BYTES) return null;
@@ -95,11 +98,11 @@ async function fetchAndCacheImage(
 }
 
 export async function loadHydratedRecoveredState(): Promise<HydratedRemoteState> {
-  const [settings, records, imageCache] = await Promise.all([
+  const [settings, records] = await Promise.all([
     getRemoteSyncSettings(),
     getAllRecoveredDeckRecords(),
-    getAllCachedRemoteImages(),
   ]);
+  const imageCache = await getCachedRemoteImagesByUrl(recoveredDeckImageKeys(records.map(rec => rec.deck)));
 
   const hydratedRecords = records.map((rec) => ({
     ...rec,
@@ -214,7 +217,7 @@ export async function syncRemoteDecks(options?: {
 
   let indexJson: unknown;
   try {
-    const res = await fetch(indexUrl, { cache: 'no-store' });
+    const res = await fetch(indexUrl, { cache: 'no-store', signal: AbortSignal.timeout(REMOTE_INDEX_TIMEOUT_MS) });
     if (!res.ok) {
       throw new Error(`تعذر تحميل فهرس البنوك (رمز ${res.status}).`);
     }
@@ -290,7 +293,6 @@ export async function syncRemoteDecks(options?: {
     };
   }
 
-  const cachedImagesMap = await getAllCachedRemoteImages();
   let addedCount = 0;
   let updatedCount = 0;
   let skippedInvalidQuestionsCount = 0;
@@ -317,7 +319,7 @@ export async function syncRemoteDecks(options?: {
 
     try {
       const deckUrl = appendCacheBuster(resolvedFile.url);
-      const res = await fetch(deckUrl, { cache: 'no-store' });
+      const res = await fetch(deckUrl, { cache: 'no-store', signal: AbortSignal.timeout(REMOTE_INDEX_TIMEOUT_MS) });
       if (!res.ok) {
         failedDecksCount += 1;
         continue;
@@ -336,6 +338,9 @@ export async function syncRemoteDecks(options?: {
       // Bounded parallel downloads keep illustrated banks with 100+ questions
       // practical without flooding the CDN or browser connection pool.
       const imageUrls = validation.imageUrlsToFetch;
+      // Cache lookup stays scoped to this bank, so sync does not keep unrelated
+      // base64 images from previous banks in memory.
+      const cachedImagesMap = await getCachedRemoteImagesByUrl(imageUrls);
       const IMAGE_BATCH_SIZE = 6;
       for (let start = 0; start < imageUrls.length; start += IMAGE_BATCH_SIZE) {
         const batch = imageUrls.slice(start, start + IMAGE_BATCH_SIZE);

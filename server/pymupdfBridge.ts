@@ -60,6 +60,7 @@ export interface PyMuPdfProbeResult {
 
 let cachedProbe: { value: PyMuPdfProbeResult; checkedAt: number } | null = null;
 const PROBE_CACHE_MS = 30_000;
+let pendingProbe: Promise<PyMuPdfProbeResult> | null = null;
 
 function candidatePythonBins(): string[] {
   const fromEnv = process.env.PYTHON_BIN?.trim();
@@ -81,6 +82,14 @@ export async function probePyMuPdf(force = false): Promise<PyMuPdfProbeResult> {
     return cachedProbe.value;
   }
 
+  if (pendingProbe) return pendingProbe;
+  const task = runPyMuPdfProbe();
+  pendingProbe = task;
+  try { return await task; }
+  finally { if (pendingProbe === task) pendingProbe = null; }
+}
+
+async function runPyMuPdfProbe(): Promise<PyMuPdfProbeResult> {
   for (const bin of candidatePythonBins()) {
     try {
       const { stdout } = await execFileAsync(bin, [PYMUPDF_SCRIPT_PATH, 'probe'], {

@@ -19,6 +19,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
   onSnapshot,
   query,
   serverTimestamp,
@@ -185,7 +186,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   // Fetch current official catalog independently of account and local recovery cache.
   useEffect(() => {
-    void Promise.resolve().then(() => testFirestoreConnection()).catch(() => {});
+    // The synthetic Firestore probe is diagnostic only; actual listeners report their own errors.
+    if (import.meta.env.DEV) void Promise.resolve().then(() => testFirestoreConnection()).catch(() => {});
     let disposed = false;
     let running = false;
     let lastCheck = 0;
@@ -194,7 +196,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       running = true;
       lastCheck = Date.now();
       try {
-        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-store', signal: AbortSignal.timeout(12000) });
+        const res = await fetch('/api/catalog/builtin-ids', { cache: 'no-cache', signal: AbortSignal.timeout(12000) });
         if (!res.ok) return;
         const data = await res.json();
         if (disposed) return;
@@ -305,7 +307,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         if (!matchingInvite) {
           try {
             const inviteSnap = await getDocs(
-              query(collection(db, 'adminInvites'), where('email', '==', email)),
+              query(collection(db, 'adminInvites'), where('email', '==', email), limit(1)),
             );
             const firstDoc = inviteSnap.docs[0];
             if (firstDoc) {
@@ -442,13 +444,18 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             typeof data.totalPlayedQuestions === 'number' ? data.totalPlayedQuestions : 0;
           if (!isCurrent()) return;
           setProfileTotalPlayed(currentTotal);
-          await updateDoc(userRef, {
-            displayName,
-            email: email || nextUser.email || '',
-            photoURL,
-            totalPlayedQuestions: currentTotal,
-            updatedAt: serverTimestamp(),
-          });
+          const profileEmail = email || nextUser.email || '';
+          // Do not spend a write on unchanged profile fields or overwrite a
+          // counter that another active device may have incremented meanwhile.
+          if (data.displayName !== displayName || data.email !== profileEmail ||
+              (data.photoURL ?? '') !== photoURL) {
+            await updateDoc(userRef, {
+              displayName,
+              email: profileEmail,
+              photoURL,
+              updatedAt: serverTimestamp(),
+            });
+          }
         }
       } catch (err) {
         console.error('[AccountContext] User profile sync warning:', err);

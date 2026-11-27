@@ -1,4 +1,5 @@
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
+import { precompressAssets } from './server/staticCompression';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
@@ -31,6 +32,13 @@ export default defineConfig(() => {
           });
         },
       },
+      {
+        name: 'precompress-public-assets',
+        apply: 'build',
+        async closeBundle(error?: Error) {
+          if (!error) await precompressAssets(path.resolve(import.meta.dirname, 'dist'));
+        },
+      },
       // Copies src/assets into dist/ so root-relative URLs like
       // "/src/assets/images/..." (e.g. generate_image output) still resolve
       // in production builds. Do not remove.
@@ -50,6 +58,8 @@ export default defineConfig(() => {
         },
       },
     ],
+    // Build manifest lets CI distinguish initial downloads from lazy chunks.
+    build: { manifest: true },
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),

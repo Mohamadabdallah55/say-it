@@ -680,7 +680,7 @@ export function selectActiveBoardForDeck(
         // Prefer unrelated sources and different answers across the board.
         // Keep the same tier, and fall back to the remaining questions if the pool is small.
         const remaining = [...available];
-        const refs = (q: QuizQuestion) => (q.sourceRef || '').match(/https?:\/\/[^\s·]+/g) || [];
+        const refs = (q: QuizQuestion): string[] => (q.sourceRef || '').match(/https?:\/\/[^\s·]+/g) || [];
         const answerKey = (q: QuizQuestion) => normalizeArabicText(q.answer || '')
           .replace(/عليهما السلام|عليه السلام|رضي الله عنهما|رضي الله عنه|صلى الله عليه وسلم/g, '').trim();
         while (remaining.length && selected.length < (perTeam ? teamCount : 1)) {

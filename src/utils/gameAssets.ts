@@ -130,10 +130,18 @@ export const CATEGORY_TILE_ART: Record<CategoryIconKey, string> = {
 
 // Uploaded square covers use stable category IDs as filenames. Vite includes
 // only files actually present, so the previous art remains a safe fallback.
-const uploadedCategoryCovers = import.meta.glob<string>(
-  '../assets/category-covers/*.webp',
-  { eager: true, query: '?url', import: 'default' },
-);
+let uploadedCategoryCovers: Record<string, string>;
+try {
+  // Vite replaces this literal glob at build time. Plain Node regression
+  // tests have no Vite transform and may use the existing static art map.
+  uploadedCategoryCovers = import.meta.glob<string>(
+    '../assets/category-covers/*.webp',
+    { eager: true, query: '?url', import: 'default' },
+  );
+} catch (error) {
+  if (typeof window !== 'undefined' || !(error instanceof TypeError)) throw error;
+  uploadedCategoryCovers = {};
+}
 
 export function getUploadedCategoryArt(categoryId: string): string | undefined {
   const direct = uploadedCategoryCovers[`../assets/category-covers/${categoryId}.webp`];

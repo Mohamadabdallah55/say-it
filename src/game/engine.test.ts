@@ -301,8 +301,11 @@ test('400 point card selection survives a reload and applies exactly once', () =
   assert.equal(sanitizeStateForRole(selected, 'buzzer').activeRound, null);
   assert.equal(startChallengeTimer(selected, 'early').ok, false);
   for (const card of ['double_points', 'second_chance', 'swap_question'] as const) {
-    const result = applyLifeline(selected, card, 'pick', 3000);
-    assert.equal(result.ok, true);
+    // شنص is an in-question card; the other two are pre-question cards.
+    if (card === 'swap_question') assert.equal(applyLifeline(selected, card, 'too-early', 2800).ok, false);
+    const cardState = card === 'swap_question' ? skipLifelinePick(selected, 'open-for-swap', 2900).state : selected;
+    const result = applyLifeline(cardState, card, 'pick', 3000);
+    assert.equal(result.ok, true, result.error);
     const resumed = JSON.parse(JSON.stringify(result.state)) as typeof board;
     assert.equal(resumed.phase, 'QUESTION_READY');
     assert.equal(resumed.teams[0].lifelinesRemaining, selected.teams[0].lifelinesRemaining - 1);
@@ -349,10 +352,14 @@ test('A rich bank gives teams distinct questions for the same point tile', () =>
   const first=STARTER_DEMO_DECK.questions.find(q=>!q.isBackup)!;
   const deck={...STARTER_DEMO_DECK,questions:[...STARTER_DEMO_DECK.questions,...[2,3].map(i=>({...first,id:first.id+i,prompt:'سؤال مستقل '+i}))]};
   const board=createRoomState({roomCode:'RICH',hostToken:'h',buzzerToken:'b',deck,teams:TEAMS});
-  const owned=board.boardTiles.filter(t=>t.ownerTeamId);
+  const owned=board.boardTiles.filter(t=>t.ownerTeamId && t.categoryId===first.categoryId && t.points===first.points);
   assert.equal(owned.length,3);
-  assert.equal(selectBoardTile(board,owned[1].questionId,'wrongteam').ok,false);
-  assert.equal(selectBoardTile(board,owned[0].questionId,'own').ok,true);
+  assert.equal(new Set(owned.map(t=>t.questionId)).size,3);
+  assert.equal(new Set(owned.map(t=>t.ownerTeamId)).size,3);
+  const own=owned.find(t=>t.ownerTeamId===board.teams[0].id)!;
+  const other=owned.find(t=>t.ownerTeamId!==board.teams[0].id)!;
+  assert.equal(selectBoardTile(board,other.questionId,'wrongteam').ok,false);
+  assert.equal(selectBoardTile(board,own.questionId,'own').ok,true);
 });
 
 test('Team bundle PDF deck assigns 200/400/600 per team, enforces team count, and exposes subtopic before REVEAL without leaking answers', () => {
@@ -688,8 +695,10 @@ test('Question schema imageBase64/imageUrl/imageCaption survive validation and p
   state = skipLifelinePick(state, 'skip_vis', 2500).state;
 
   const proj = sanitizeStateForRole(state, 'projector', 2600);
-  assert.equal(proj.activeRound?.imageBase64, sampleImg);
-  assert.equal(proj.activeRound?.imageCaption, 'مخطط دورة الماء في الطبيعة');
+  // General knowledge deliberately shows its imagery only after answer reveal.
+  assert.equal(proj.activeRound?.imageDisplay, 'after_reveal');
+  assert.equal(proj.activeRound?.imageBase64, undefined);
+  assert.equal(proj.activeRound?.imageCaption, undefined);
   assert.equal(proj.activeRound?.answer, undefined);
   assert.equal(proj.activeRound?.explanation, undefined);
 
@@ -700,6 +709,7 @@ test('Question schema imageBase64/imageUrl/imageCaption survive validation and p
   state = revealAnswer(state, 'rev_vis', 2900).state;
   const projRevealed = sanitizeStateForRole(state, 'projector', 3000);
   assert.equal(projRevealed.activeRound?.imageBase64, sampleImg);
+  assert.equal(projRevealed.activeRound?.imageCaption, 'مخطط دورة الماء في الطبيعة');
   assert.equal(projRevealed.activeRound?.pageNumber, 3);
 });
 

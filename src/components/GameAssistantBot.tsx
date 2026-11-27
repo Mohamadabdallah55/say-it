@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, Loader2, RotateCcw, Scale, Send, X, XCircle } from 'lucide-react';
 import type { JudgeVerdict } from '../game/answerJudge';
@@ -53,7 +53,7 @@ const INITIAL_GREETING: ChatMessage = {
   text: 'هلا بالنشامى! أنا يزن، مساعد ألعاب يمكن هاي. اسألوني عن القوانين والبطاقات، وإذا اختلفتوا على إجابة بساعدكم بتحكيمها!',
 };
 
-export function GameAssistantBot({
+export const GameAssistantBot = memo(function GameAssistantBot({
   roomCode,
   role,
   token,
@@ -79,6 +79,8 @@ export function GameAssistantBot({
   const [judgeVerdict, setJudgeVerdict] = useState<JudgeVerdict | null>(null);
   const [judgeProvider, setJudgeProvider] = useState<'nashmi_gemini' | 'local_judge' | null>(null);
 
+  const chatPending = useRef(false);
+  const judgePending = useRef(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -121,7 +123,8 @@ export function GameAssistantBot({
 
   const sendMessage = async (textOverride?: string) => {
     const text = (textOverride ?? input).trim();
-    if (!text || sending) return;
+    if (!text || chatPending.current) return;
+    chatPending.current = true;
 
     setError(null);
     const userMsg: ChatMessage = {
@@ -166,12 +169,14 @@ export function GameAssistantBot({
     } catch (err) {
       setError(err instanceof Error ? err.message : 'تعذر التواصل مع المساعد.');
     } finally {
+      chatPending.current = false;
       setSending(false);
     }
   };
 
   const submitJudgeAnswers = async () => {
-    if (!turnOwnerAnswer || judging) return;
+    if (!turnOwnerAnswer || judgePending.current) return;
+    judgePending.current = true;
     setJudgeError(null);
     setJudging(true);
     try {
@@ -208,6 +213,7 @@ export function GameAssistantBot({
     } catch (err) {
       setJudgeError(err instanceof Error ? err.message : 'تعذر تحكيم الإجابة.');
     } finally {
+      judgePending.current = false;
       setJudging(false);
     }
   };
@@ -618,4 +624,4 @@ export function GameAssistantBot({
         )}
     </>
   );
-}
+});

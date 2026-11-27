@@ -299,7 +299,8 @@ test('El Clásico photos are available to saved matches and hidden from the proj
 });
 
 test('Quran recordings and verse images are visible for the question while the answer stays hidden', () => {
-  assert.deepEqual([200, 400, 600].map(points => QURAN_MEDIA_QUESTIONS.filter(q => q.points === points).length), [50, 50, 50]);
+  // Current source bank was re-tiered; preserve its actual counts.
+  assert.deepEqual([200, 400, 600].map(points => QURAN_MEDIA_QUESTIONS.filter(q => q.points === points).length), [52, 52, 46]);
   assert.equal(QURAN_MEDIA_QUESTIONS.filter(q => q.imageUrl).length, 55);
   const surahQuestions = QURAN_MEDIA_QUESTIONS.filter(q => q.audioUrl);
   assert.equal(new Set(surahQuestions.map(q => getQuranRecitationSource(q.id))).size, 70);

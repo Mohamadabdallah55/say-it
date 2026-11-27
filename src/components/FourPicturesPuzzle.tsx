@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Maximize2, X } from 'lucide-react';
 
-export function FourPicturesPuzzle({images, letters, wordLength, compact = false}: {images: string[]; letters: string[]; wordLength?: number; compact?: boolean}) {
+export const FourPicturesPuzzle = memo(function FourPicturesPuzzle({images, letters, wordLength, compact = false}: {images: string[]; letters: string[]; wordLength?: number; compact?: boolean}) {
   const [zoom, setZoom] = useState<number | null>(null);
   const [failed, setFailed] = useState<Record<string, boolean>>({});
   return (
@@ -30,4 +30,4 @@ export function FourPicturesPuzzle({images, letters, wordLength, compact = false
         </dialog>, document.body)}
     </section>
   );
-}
+});

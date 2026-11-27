@@ -1,5 +1,5 @@
 import { subscribeRoom } from '../utils/roomConnection';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { BellRing, CheckCircle2, Clock, Sparkles, Trophy } from 'lucide-react';
 import { QUESTION_TYPE_LABELS } from '../game/pdfValidation';
 import type { BuzzerViewState } from '../game/types';
@@ -22,19 +22,26 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
   });
   const [error, setError] = useState<string | null>(null);
   const [buzzing, setBuzzing] = useState(false);
+  const buzzPending = useRef(false);
 
   useEffect(() => {
     let active = true;
+    let liveSnapshot = false;
+    const initialRequest = new AbortController();
+    const initialTimeout = window.setTimeout(() => initialRequest.abort(), 12000);
     const loadInitial = async () => {
       try {
         const res = await fetch(
           `/api/rooms/${encodeURIComponent(roomCode)}/state?role=buzzer&token=${encodeURIComponent(token)}`,
+          { cache: 'no-store', signal: initialRequest.signal },
         );
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر الاتصال بالغرفة.');
-        if (active) setState(data.state);
+        if (active && !liveSnapshot) { setError(null); setState(data.state); }
       } catch (err) {
-        if (active) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
+        if (active && !liveSnapshot) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
+      } finally {
+        window.clearTimeout(initialTimeout);
       }
     };
     loadInitial();
@@ -43,7 +50,12 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
     const disconnect = subscribeRoom(`${proto}//${window.location.host}/ws?room=${encodeURIComponent(roomCode)}&role=buzzer&token=${encodeURIComponent(token)}`, (ev) => {
       try {
         const msg = JSON.parse(ev.data);
-        if (msg.type === 'STATE_SYNC') { setError(null); setState(msg.payload); }
+        if (msg.type === 'STATE_SYNC') {
+          liveSnapshot = true;
+          initialRequest.abort();
+          setError(null);
+          setState(msg.payload);
+        }
         if (msg.type === 'ERROR') setError(msg.error);
       } catch {
         // ignore
@@ -52,6 +64,8 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
 
     return () => {
       active = false;
+      initialRequest.abort();
+      window.clearTimeout(initialTimeout);
       disconnect();
     };
   }, [roomCode, token]);
@@ -76,18 +90,20 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
   }, [state, selectedTeamId]);
 
   const handleBuzz = async () => {
-    if (!selectedTeamId || buzzing) return;
+    if (!selectedTeamId || buzzPending.current || !state?.activeRound) return;
+    buzzPending.current = true;
     setBuzzing(true);
     setError(null);
     try {
       const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/command`, {
         method: 'POST',
+        signal: AbortSignal.timeout(12000),
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           role: 'buzzer',
           token,
           command: 'TEAM_BUZZ',
-          payload: { teamId: selectedTeamId },
+          payload: { teamId: selectedTeamId, roundId: state.activeRound.roundId },
         }),
       });
       const data = await res.json();
@@ -96,6 +112,7 @@ export function BuzzerScreen({ roomCode, token }: BuzzerScreenProps) {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'تعذر الإرسال.');
     } finally {
+      buzzPending.current = false;
       setBuzzing(false);
     }
   };

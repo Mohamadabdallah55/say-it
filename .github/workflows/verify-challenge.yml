@@ -4,7 +4,19 @@ on:
     branches: [main]
     paths:
       - 'src/**'
-      - 'server/fourPicturesQuestions*'
+      - 'server.ts'
+      - 'server/**'
+      - 'vite.config.ts'
+      - 'package.json'
+      - 'bun.lock'
+      - '.github/workflows/verify-challenge.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'server.ts'
+      - 'server/**'
+      - 'vite.config.ts'
       - 'package.json'
       - 'bun.lock'
       - '.github/workflows/verify-challenge.yml'
@@ -25,7 +37,81 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Build
         run: bun run build
+      - name: Measure initial JavaScript and lazy chunks
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { gzipSync } from 'node:zlib';
+          const manifest = JSON.parse(fs.readFileSync('dist/.vite/manifest.json', 'utf8'));
+          const visited = new Set();
+          const initial = new Set();
+          function visit(key) {
+            if (visited.has(key)) return;
+            visited.add(key);
+            const chunk = manifest[key];
+            if (!chunk) throw new Error('Unknown manifest key: ' + key);
+            if (/\.(m?js)$/.test(chunk.file)) initial.add(chunk.file);
+            for (const dependency of chunk.imports || []) visit(dependency);
+          }
+          for (const [key, chunk] of Object.entries(manifest)) if (chunk.isEntry) visit(key);
+          if (!initial.size) throw new Error('No initial JavaScript entries found');
+          const size = file => {
+            const data = fs.readFileSync('dist/' + file);
+            return { raw: data.length, gzip: gzipSync(data).length };
+          };
+          const files = [...initial].map(file => ({ file, ...size(file) }));
+          const totals = files.reduce((total, file) => ({
+            raw: total.raw + file.raw, gzip: total.gzip + file.gzip,
+          }), { raw: 0, gzip: 0 });
+          console.log('Initial JS files:', JSON.stringify(files, null, 2));
+          console.log('Initial JS totals (bytes):', JSON.stringify(totals));
+          const compressedTotals = ['.br', '.gz'].map(suffix => ({
+            encoding: suffix,
+            bytes: [...initial].reduce((total, file) => {
+              const compressed = 'dist/' + file + suffix;
+              return total + fs.statSync(fs.existsSync(compressed) ? compressed : 'dist/' + file).size;
+            }, 0),
+          }));
+          console.log('Precompressed initial JS transfer (bytes):', JSON.stringify(compressedTotals));
+          const brBytes = compressedTotals.find(item => item.encoding === '.br').bytes;
+          if (brBytes > 350000) console.log('::warning::Initial Brotli JavaScript exceeds the 350 KB review budget: ' + brBytes + ' bytes');
+          console.log('Lazy JS files:', JSON.stringify([...new Set(Object.values(manifest).map(c => c.file).filter(f => /\.(m?js)$/.test(f) && !initial.has(f)))].map(file => ({ file, ...size(file) })).sort((a,b) => b.raw-a.raw), null, 2));
+          NODE
       - name: TypeScript
         run: bun run lint
       - name: Four-picture regression tests
         run: bunx tsx --test server/fourPicturesQuestions.test.ts
+      - name: Remote deck recovery regression tests
+        run: bunx tsx --test src/game/remoteDecks.test.ts
+      - name: Static compression and HTTP regression tests
+        run: bunx tsx --test server/staticCompression.test.ts
+      - name: Production startup smoke test (isolated data)
+        shell: bash
+        run: |
+          set -eu
+          tmp="$(mktemp -d)"
+          NODE_ENV=production YEMKEN_DATA_DIR="$tmp/data" PORT=39127 bun run start >"$tmp/server.log" 2>&1 &
+          pid=$!
+          cleanup() {
+            kill "$pid" 2>/dev/null || true
+            wait "$pid" 2>/dev/null || true
+            rm -rf "$tmp"
+          }
+          trap cleanup EXIT
+          ready=0
+          for attempt in $(seq 1 45); do
+            if curl -fsS --max-time 2 http://127.0.0.1:39127/api/health >"$tmp/health.json"; then
+              ready=1
+              break
+            fi
+            if ! kill -0 "$pid" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          if [ "$ready" != 1 ]; then cat "$tmp/server.log"; exit 1; fi
+          node -e 'if (!JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).ok) process.exit(1)' "$tmp/health.json"
+          curl -fsS --max-time 5 http://127.0.0.1:39127/ >"$tmp/home.html"
+          grep -q 'id="root"' "$tmp/home.html"
+          curl -fsS --max-time 5 http://127.0.0.1:39127/api/catalog/builtin-ids >"$tmp/catalog.json"
+          node -e 'const x=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); if (!x || typeof x!=="object") process.exit(1)' "$tmp/catalog.json"
+      - name: Media and room regression tests
+        run: bunx tsx --test src/game/guessSound.test.ts src/game/visualMemory.test.ts src/game/jordanNostalgia.test.ts src/game/arenaClock.test.ts src/game/engine.test.ts src/game/categoryProgress.test.ts src/utils/roomConnection.test.ts

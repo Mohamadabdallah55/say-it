@@ -1,6 +1,6 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
@@ -57,9 +57,10 @@ import { CornerStarMascot } from './CornerStarMascot';
 import { GameAssistantBot } from './GameAssistantBot';
 import { useAccount } from '../context/AccountContext';
 
+const EMPTY_WORD_LETTERS: string[] = [];
 const RELIGIOUS_EVIDENCE_CATEGORIES = new Set(['cat_islamic','cat_prophet_stories','cat_prophetic_biography','cat_who_sahabi','cat_rashidun','cat_hadith','cat_islamic_ordering','cat_islamic_letters','cat_juz_amma','cat_juz_tabarak','cat_rub_yasin','cat_quran_verse_meanings','cat_quran_media','cat_quran_reciter']);
 
-function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
+const ReligiousEvidence = memo(function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
   const parts = (reference || '').split(/\s*[·\n]\s*/).filter(Boolean);
   const urls = [...new Set(parts.flatMap(part => part.match(/https?:\/\/[^\s]+/g) ?? []))].filter(url => /^https:\/\/(?:quran\.com|sunnah\.com)\//.test(url));
   const labels = parts.filter(part => !/^https?:\/\//.test(part));
@@ -86,7 +87,7 @@ function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet
       )}
     </section>
   );
-}
+});
 
 // Only reversed-word prompts are slowed and amplified; answer audio stays natural.
 function ReversedWordPlayer({ src }: { src: string }) {
@@ -176,7 +177,7 @@ type ArenaState = HostViewState | PublicProjectorState;
 /** Play the original audio when permitted, while respecting the shared game sound switch.
  * Browsers may deny audible autoplay; the clip then plays muted until the viewer enables sound.
  */
-function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
+const FocusClip = memo(function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [silent, setSilent] = useState(!soundEnabled || !preferAudio);
   const [needsPlay, setNeedsPlay] = useState(false);
@@ -219,7 +220,7 @@ function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabl
       )}
     </div>
   );
-}
+});
 
 
 /** Short preview only: never show the source video's full duration or seek controls. */
@@ -379,13 +380,17 @@ export function GameArena({
     let mounted = true;
     let refreshing = false;
     let hasSnapshot = false;
+    let request: AbortController | undefined;
     const loadState = async () => {
-      if (!mounted || refreshing) return;
+      if (!mounted || refreshing || navigator.onLine === false) return;
       refreshing = true;
+      const controller = new AbortController();
+      request = controller;
+      const timeout = window.setTimeout(() => controller.abort(), 10000);
       try {
         const qs = new URLSearchParams({ role });
         if (token) qs.set('token', token);
-        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`, {cache:'no-store',signal:AbortSignal.timeout(10000)});
+        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`, {cache:'no-store',signal:controller.signal});
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
         if (mounted) {
@@ -396,7 +401,11 @@ export function GameArena({
         }
       } catch (err) {
         if (mounted && !hasSnapshot) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
-      } finally { refreshing = false; }
+      } finally {
+        window.clearTimeout(timeout);
+        if (request === controller) request = undefined;
+        refreshing = false;
+      }
     };
     void loadState();
     const reconnect = () => { if (!document.hidden) void loadState(); };
@@ -426,6 +435,7 @@ export function GameArena({
 
     return () => {
       mounted = false;
+      request?.abort();
       window.clearInterval(fallbackTimer);
       window.removeEventListener('online', reconnect);
       document.removeEventListener('visibilitychange', reconnect);
@@ -598,43 +608,80 @@ export function GameArena({
 
   const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
 
+  // The QR is tied to the room and acting token, not each clock/phase update.
+  const actingQrToken = isSilentActingRound && state?.phase !== 'REVEAL'
+    ? roundMeta?.actingToken : undefined;
   useEffect(() => {
-    if (!isSilentActingRound || !roundMeta?.actingToken || state?.phase === 'REVEAL') {
-      setActingQr(null);
-      return;
-    }
-    let active = true;
-    fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(roundMeta.actingToken)}`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (active && data?.qrDataUrl) {
+    setActingQr(null);
+    if (!actingQrToken) return;
+    let disposed = false;
+    let pending: AbortController | undefined;
+    let retry: number | undefined;
+    let attempts = 0;
+    let loaded = false;
+    const isOnline = () => navigator.onLine !== false;
+    const load = async () => {
+      if (disposed || pending || loaded || !isOnline()) return;
+      if (retry !== undefined) window.clearTimeout(retry);
+      retry = undefined;
+      const controller = new AbortController();
+      pending = controller;
+      const timeout = window.setTimeout(() => controller.abort(), 10000);
+      let retryable = true;
+      try {
+        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(actingQrToken)}`, {
+          signal: controller.signal, cache: 'no-store',
+        });
+        retryable = res.status >= 500 || res.status === 429;
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!disposed && !controller.signal.aborted && data?.qrDataUrl) {
+          loaded = true;
           setActingQr(data);
         }
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
+      } catch {
+        retryable = true;
+      } finally {
+        window.clearTimeout(timeout);
+        if (pending === controller) pending = undefined;
+        if (!disposed && !loaded && retryable && isOnline() && attempts < 2) {
+          retry = window.setTimeout(() => { retry = undefined; void load(); }, 1000 * 2 ** attempts++);
+        }
+      }
     };
-  }, [roomCode, isSilentActingRound, roundMeta?.actingToken, state?.phase]);
+    const online = () => { attempts = 0; void load(); };
+    window.addEventListener('online', online);
+    void load();
+    return () => {
+      disposed = true;
+      pending?.abort();
+      if (retry !== undefined) window.clearTimeout(retry);
+      window.removeEventListener('online', online);
+    };
+  }, [roomCode, actingQrToken]);
 
-  // Preload at most one upcoming image after the main question has had time
-  // to paint; avoid competing with the active video, audio or visible image.
+  // Preload a single host-only answer image; never send speculative requests
+  // for answer media from a public projector, or compete with active clips.
+  const answerPreloadSrc = isHost && roundMeta &&
+    ['QUESTION_READY', 'PLAYING'].includes(state?.phase ?? '') &&
+    !roundMeta.videoUrl && !roundMeta.audioUrl && !roundMeta.audioUrls?.length &&
+    roundMeta.memoryStage !== 'MEMORIZE'
+    ? roundMeta.afterImageUrl || roundMeta.answerImageUrl : undefined;
+  const answerPreloadRound = roundMeta?.roundId;
+  const visibleQuestionImage = roundMeta?.imageUrl;
   useEffect(() => {
-    if (!roundMeta || !['QUESTION_READY', 'PLAYING'].includes(state?.phase ?? '') ||
-        roundMeta.videoUrl || roundMeta.audioUrl || roundMeta.audioUrls?.length ||
-        roundMeta.memoryStage === 'MEMORIZE') return;
-    const src = roundMeta.afterImageUrl || roundMeta.answerImageUrl;
-    if (!src || src === roundMeta.imageUrl || !(/^(\/|https?:\/\/)/.test(src))) return;
+    if (!answerPreloadSrc || answerPreloadSrc === visibleQuestionImage ||
+        !(/^(\/|https?:\/\/)/.test(answerPreloadSrc)) ||
+        document.hidden) return;
     const timer = window.setTimeout(() => {
+      if (document.hidden) return;
       const image = new Image();
       image.decoding = 'async';
       image.fetchPriority = 'low';
-      image.src = src;
+      image.src = answerPreloadSrc;
     }, 1200);
     return () => window.clearTimeout(timer);
-  }, [state?.phase, roundMeta?.roundId, roundMeta?.afterImageUrl,
-      roundMeta?.answerImageUrl, roundMeta?.imageUrl, roundMeta?.videoUrl,
-      roundMeta?.audioUrl, roundMeta?.audioUrls, roundMeta?.memoryStage]);
+  }, [answerPreloadRound, answerPreloadSrc, visibleQuestionImage]);
 
   // Automatically track displayed questions in the host's account progress for non-repetition
   useEffect(() => {
@@ -711,6 +758,21 @@ export function GameArena({
     await sendCommand('AWARD_ROUND', { winningTeamIds: teamIds });
   };
 
+  // Build the category index once per board snapshot, not on every UI clock tick.
+  const boardTilesByCategory = useMemo(() => {
+    const groups = new Map<string, NonNullable<ArenaState['boardTiles']>>();
+    for (const tile of state?.boardTiles ?? []) {
+      const group = groups.get(tile.categoryId);
+      if (group) group.push(tile);
+      else groups.set(tile.categoryId, [tile]);
+    }
+    return groups;
+  }, [state?.boardTiles]);
+  const sortedStandings = useMemo(
+    () => [...(state?.teams ?? [])].sort((a, b) => b.score - a.score),
+    [state?.teams],
+  );
+
   if (error) {
     return (
       <div className="min-h-screen game-pattern-bg flex items-center justify-center p-4">
@@ -754,7 +816,7 @@ export function GameArena({
       (state.categories.length >= 2 &&
         state.categories.length <= 4 &&
         state.categories.every((c) => /^team_\d+$/.test(c.id))));
-  const sortedStandings = [...state.teams].sort((a, b) => b.score - a.score);
+
 
   const recentAward = (state.phase === 'BOARD' || state.phase === 'FINAL') && state.lastAward && nowMs - state.lastAward.at < 3600
     ? state.lastAward : null;
@@ -889,7 +951,7 @@ export function GameArena({
 
                 <div className="category-grid" data-count={state.categories.length}>
                 {state.categories.map((cat, index) => {
-                  const categoryTiles = state.boardTiles.filter(tile => tile.categoryId === cat.id);
+                  const categoryTiles = boardTilesByCategory.get(cat.id) ?? [];
                   const catTiles = categoryTiles.filter(tile => isTeamBundlesBoard || !tile.ownerTeamId || tile.ownerTeamId === currentTeam.id)
                     .sort((a, b) => a.points - b.points);
                   const previousTiles = isMatrixBoard && isHost
@@ -1233,7 +1295,7 @@ export function GameArena({
 
                         <div className="question-stage-copy flex flex-col items-center justify-center min-w-0">
                           {roundMeta.categoryId === FOUR_PICTURES_CATEGORY.id && roundMeta.beforeImageUrls?.length === 4 && (
-                            <FourPicturesPuzzle key={roundMeta.questionId} images={roundMeta.beforeImageUrls} letters={roundMeta.wordLetters ?? []} wordLength={roundMeta.wordLength} compact={state.phase === 'REVEAL'} />
+                            <FourPicturesPuzzle key={roundMeta.questionId} images={roundMeta.beforeImageUrls} letters={roundMeta.wordLetters ?? EMPTY_WORD_LETTERS} wordLength={roundMeta.wordLength} compact={state.phase === 'REVEAL'} />
                           )}
                           {roundMeta.startingLetter && (
                             <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">

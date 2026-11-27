@@ -1,13 +1,13 @@
 import { wordRouter } from './server/wordRooms';
 import { drawingRouter } from './server/drawingRooms';
 import { legacyArtworkWebp } from './server/legacyArtworkWebp';
+import { servePrecompressedAssets, fingerprintedAsset } from './server/staticCompression';
 import 'dotenv/config';
 import http from 'node:http';
 import path from 'node:path';
 import { networkInterfaces } from 'node:os';
 import express from 'express';
 import multer from 'multer';
-import { createServer as createViteServer } from 'vite';
 import { WebSocketServer } from 'ws';
 import { sanitizeStateForRole } from './src/game/engine';
 import {
@@ -168,7 +168,10 @@ async function startServer() {
   app.get('/api/pdf/ai-status', pdfAiStatus);
   app.get('/api/local-ai/status', pdfAiStatus); // Older cached clients can still read status.
 
+  // Official banks are bundled at process startup; reuse their serialized index.
+  let builtinCatalogJson: string | undefined;
   app.get('/api/catalog/builtin-ids', (_req, res) => {
+    if (builtinCatalogJson === undefined) {
     const questionIdsByCategory: Record<string, string[]> = {};
     for (const q of [...CURATED_QUESTIONS, ...SERVER_CURATED_QUESTIONS]) {
       if (q.status !== 'approved') continue;
@@ -177,10 +180,13 @@ async function startServer() {
       }
       questionIdsByCategory[q.categoryId].push(q.id);
     }
-    res.setHeader('Cache-Control', 'no-store');
     for (const id of Object.keys(questionIdsByCategory)) questionIdsByCategory[id] = [...new Set(questionIdsByCategory[id])];
     const categories = [...new Map([...ALL_CURATED_CATEGORIES, ...OFFICIAL_CATEGORIES].map(c => [c.id, c])).values()].filter(c => (questionIdsByCategory[c.id]?.length ?? 0) > 0);
-    res.json({ questionIdsByCategory, categories });
+    builtinCatalogJson = JSON.stringify({ questionIdsByCategory, categories });
+    }
+    // Revalidate on every check; Express can answer unchanged ETags with 304.
+    res.setHeader('Cache-Control', 'private, no-cache');
+    res.type('application/json').send(builtinCatalogJson);
   });
 
   app.use('/api/pdf', requirePaidPdfStaff);
@@ -578,8 +584,18 @@ async function startServer() {
       res.setHeader('Connection', 'keep-alive');
       res.flushHeaders?.();
 
+      // Keep the progress stream alive during slow AI calls, but never buffer
+      // further updates for a disconnected client. Checkpoints remain active.
+      const streamOpen = () => !res.destroyed && !res.writableEnded;
+      const heartbeat = setInterval(() => {
+        if (streamOpen() && !res.writableNeedDrain) res.write(': heartbeat\n\n');
+      }, 15000);
+      const stopHeartbeat = () => clearInterval(heartbeat);
+      res.once('close', stopHeartbeat);
+
       const writeEvent = (event: string, data: unknown) => {
-        if (!res.writableEnded) {
+        if (streamOpen()) {
+          if (event === 'progress' && res.writableNeedDrain) return;
           res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
         }
       };
@@ -604,7 +620,7 @@ async function startServer() {
           },
         });
         writeEvent('done', result);
-        res.end();
+        if (streamOpen()) res.end();
       } catch (err) {
         const errorMsg = formatGeminiError(err) || 'تعذر توليد أسئلة اللوحة من الملف.';
         writeEvent('error', {
@@ -612,7 +628,10 @@ async function startServer() {
           jobId: latestJobId,
           status: isQuotaError(err) ? 429 : isServiceUnavailableError(err) ? 503 : 500,
         });
-        res.end();
+        if (streamOpen()) res.end();
+      } finally {
+        stopHeartbeat();
+        res.removeListener('close', stopHeartbeat);
       }
       return;
     }
@@ -863,8 +882,14 @@ async function startServer() {
       if (req.query.room || req.query.role) res.setHeader('X-Robots-Tag', 'noindex');
       next();
     });
+    app.use(servePrecompressedAssets(distDir));
     app.use(express.static(distDir, { setHeaders: (res, file) => {
       if (file.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+      // Vite's fingerprinted JS/CSS URLs change whenever the content changes.
+      // Never apply immutable caching to HTML, decks or stable media URLs.
+      else if (path.dirname(file) === path.join(distDir, 'assets') && fingerprintedAsset.test(path.basename(file))) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
     }}));
     // Do not return the SPA home page for missing game guides or sitemap files.
     app.get(['/games/*', '/sitemap.xml', '/robots.txt'], (_req, res) => res.status(404).send('Not found'));
@@ -873,6 +898,8 @@ async function startServer() {
       res.sendFile(path.join(distDir, 'index.html'));
     });
   } else {
+    // Production serves the built assets and does not need the development toolchain.
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: {
         middlewareMode: true,

@@ -39,10 +39,6 @@ import type {
   QuizDeck,
   QuizQuestion,
 } from '../game/types';
-import {
-  extractAndCropBatchVisuals,
-  renderPdfPagesForServerOcr,
-} from '../utils/pdfImageExtractor';
 import { soundFX } from '../utils/sound';
 import { QuestionMedia } from './QuestionMedia';
 import { TopNavHeader } from './TopNavHeader';
@@ -280,6 +276,7 @@ export function PdfStudio({
       const pdfFiles = filesInput.filter(isPdfBatchFile);
       if (pdfFiles.length > 0 && localStatus && !localStatus.pymupdfAvailable) {
         setBusyMessage('جارٍ تجهيز معاينة صفحات PDF للقراءة البصرية عند الحاجة...');
+        const { renderPdfPagesForServerOcr } = await import('../utils/pdfImageExtractor');
         const preRendered = await renderPdfPagesForServerOcr(pdfFiles, 6);
         if (preRendered.length > 0) {
           formData.append('clientRenderedPages', JSON.stringify(preRendered));
@@ -303,6 +300,7 @@ export function PdfStudio({
       let visuals = Array.isArray(data.extractedVisuals) ? data.extractedVisuals : [];
       if (pdfFiles.length > 0 && !visuals.some((v) => !v.isStandaloneImage)) {
         try {
+          const { extractAndCropBatchVisuals } = await import('../utils/pdfImageExtractor');
           const visualResult = await extractAndCropBatchVisuals(filesInput, {
             subjectHint: data.report.title,
             onProgress: (msg) => setBusyMessage(msg),
