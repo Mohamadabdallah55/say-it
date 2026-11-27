@@ -19,6 +19,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
   onSnapshot,
   query,
   serverTimestamp,
@@ -305,7 +306,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         if (!matchingInvite) {
           try {
             const inviteSnap = await getDocs(
-              query(collection(db, 'adminInvites'), where('email', '==', email)),
+              query(collection(db, 'adminInvites'), where('email', '==', email), limit(1)),
             );
             const firstDoc = inviteSnap.docs[0];
             if (firstDoc) {
