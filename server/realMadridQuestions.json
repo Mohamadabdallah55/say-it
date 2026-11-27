@@ -752,7 +752,10 @@
     "answer": "لوكاس فاسكيز",
     "answer_english": "Lucas Vazquez",
     "explanation": "حسم فاسكيز المباراة بعد أن عاد دورتموند للتعادل.",
-    "source_url": "https://www.uefa.com/newsfiles/UCL/2018/2021681_FR.pdf"
+    "source_url": "https://www.uefa.com/newsfiles/UCL/2018/2021681_FR.pdf",
+    "imageUrl": "/assets/questions/football-audit/vasquez.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Lucas_V%C3%A1zquez.jpg",
+    "imageCaption": "لوكاس فاسكيز بقميص ريال مدريد في صورة أرشيفية من 2018 · Anton Zaitsev · CC BY-SA 3.0"
   },
   {
     "id": "RM-062",
@@ -801,9 +804,9 @@
     "answer_english": "Arjen Robben",
     "explanation": "سجل روبن قبل أن يأتي هدف الفوز.",
     "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/15-years-since-31st-laliga-crown",
-    "imageUrl": "/assets/questions/football-first-name/2fe07bcb7b8439ba5bb5e508.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2019147183036_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0196_-_B70I8495_(cropped).jpg",
-    "imageCaption": "صورة آريين روبن · Sven Mandel · CC BY-SA 4.0"
+    "imageUrl": "/assets/questions/football-audit/robben.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Robben_Real_Madrid.jpg",
+    "imageCaption": "آريين روبن بقميص ريال مدريد في صورة أرشيفية من 2009 · Alejandro Ramos · CC BY-SA 2.0"
   },
   {
     "id": "RM-066",
@@ -813,9 +816,9 @@
     "answer_english": "Gonzalo Higuain",
     "explanation": "أحرز هيغواين هدف الانتصار الذي حسم اللقب.",
     "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/15-years-since-31st-laliga-crown",
-    "imageUrl": "/assets/questions/football-first-name/fc15b50bb69345889e54282f.jpg",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:NIG-ARG_(22).jpg",
-    "imageCaption": "صورة غونزالو هيغواين · Кирилл Венедиктов · CC BY-SA 3.0"
+    "imageUrl": "/assets/questions/football-audit/higuain.jpg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:GHiguain.jpg",
+    "imageCaption": "غونزالو هيغواين بقميص ريال مدريد في صورة أرشيفية من 2009 · Elemaki · CC BY 3.0"
   },
   {
     "id": "RM-067",

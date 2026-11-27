@@ -149,15 +149,15 @@
         "600": 46
       },
       "reviewedByOriginalTier": {
-        "200": 0,
-        "400": 0,
+        "200": 3,
+        "400": 3,
         "600": 2
       },
-      "originalsWithEdits": 0,
+      "originalsWithEdits": 6,
       "originalsRetainedWithoutEdits": 0,
       "originalsRetired": 2,
-      "demotionsApplied": 0,
-      "promotionsApplied": 0,
+      "demotionsApplied": 3,
+      "promotionsApplied": 3,
       "replacementsAppliedPendingSecondReview": 2,
       "replacementsAccepted": 0,
       "uncompensated600": 0,
@@ -297,6 +297,32 @@
       "replacementsAccepted": 0,
       "uncompensated600": 0,
       "hardReplacementsPendingAcceptance": 15,
+      "status": "in_review"
+    },
+    "cat_barcelona": {
+      "before": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "after": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "reviewedByOriginalTier": {
+        "200": 14,
+        "400": 2,
+        "600": 5
+      },
+      "originalsWithEdits": 10,
+      "originalsRetainedWithoutEdits": 3,
+      "originalsRetired": 8,
+      "promotionsApplied": 1,
+      "demotionsApplied": 1,
+      "replacementsAppliedPendingSecondReview": 8,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
       "status": "in_review"
     }
   }

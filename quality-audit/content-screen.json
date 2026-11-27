@@ -1,5 +1,5 @@
 {
-  "bankDigest": "a364a654b6b9d24bfb7f1ed113596a1602ee2b0fd121d993517a3006f3fb2eb2",
+  "bankDigest": "7136f95d603d5a0d7d1294c8ce3006b5e38398dbe25ce162a8eb9381da724af3",
   "scope": "Automated screening of the effective official catalog. Flags require review. Counts are not factual, difficulty, or media approvals.",
   "questions": 5792,
   "categoryCount": 54,
@@ -310,7 +310,7 @@
       },
       "screened": 142,
       "candidates": {},
-      "mediaRows": 113
+      "mediaRows": 114
     },
     "cat_barcelona": {
       "name": "برشلونة",
@@ -321,7 +321,7 @@
       },
       "screened": 47,
       "candidates": {},
-      "mediaRows": 45
+      "mediaRows": 39
     },
     "cat_reversed_words": {
       "name": "كلمات معكوسة",
