@@ -466,7 +466,7 @@ export function applyLifeline(
     return { ok: false, error: 'تم تبديل السؤال بالفعل في هذه الجولة.', state };
   }
   if (isInQuestionLifeline(lifeline) && state.phase === 'LIFELINE_PICK') {
-    // Allow direct calls in tests or transitions while defaulting to keeping active scoring card
+    return { ok: false, error: 'هذه البطاقة تُستخدم بعد ظهور السؤال.', state };
   }
 
   let nextRound: ActiveRound = {
@@ -1267,6 +1267,7 @@ export function manualAdjustScore(
   nowMs = Date.now(),
 ): { ok: boolean; error?: string; state: RoomState } {
   if (state.processedActionIds.includes(actionId)) return { ok: true, state };
+  if (!Number.isSafeInteger(delta) || Math.abs(delta) > 100000) return { ok: false, error: 'قيمة تعديل النقاط غير صالحة.', state };
   const target = state.teams.find((t) => t.id === teamId);
   if (!target) return { ok: false, error: 'الفريق المطلوب غير موجود.', state };
 
