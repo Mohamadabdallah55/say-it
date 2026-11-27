@@ -1,5 +1,6 @@
 import { KhattBrandArtwork } from './KhattBrandArtwork';
-export function ChallengeGameLogo({game}:{game:'thirty'|'khalf'|'codenames'|'horouf'|'drawing'}) {
+export function ChallengeGameLogo({game}:{game:'thirty'|'khalf'|'codenames'|'horouf'|'drawing'|'words'}) {
+  if(game==='words')return <div className="word-logo"><div className="word-mark">؟</div><strong>هات كلمة</strong></div>;
   if(game==='drawing')return <KhattBrandArtwork className="khatt-stage-art"/>;
   if(game==='thirty')return <div className="ca-brand-logo ca-brand-thirty-mascot"><img src="/brand/games/30s-stopwatch.svg" alt="شعار تحدي الثلاثين" width={520} height={500} decoding="async"/></div>;
   if(game==='khalf')return <div className="ca-brand-logo ca-brand-khalf"><img src="/brand/games/khalf-mascot.svg" alt="" width={280} height={260} decoding="async"/><strong>خلف خلاف!</strong></div>;
