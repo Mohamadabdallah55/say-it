@@ -785,12 +785,12 @@
     {
       "id": "SCI-034",
       "points": 300,
-      "question": "ما الذي يحدد هوية العنصر الكيميائي: عدد البروتونات أم عدد النيوترونات؟",
-      "answer": "عدد البروتونات",
+      "question": "أي عدد في النواة يميّز ذرتين لعنصرين مختلفين حتى لو تساوى عدد النيوترونات فيهما؟",
+      "answer": "عدد البروتونات (العدد الذري)",
       "explanation": "العدد الذري هو عدد البروتونات في النواة.",
       "topic": "الكيمياء",
       "level": "ناشئة",
-      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
+      "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism"
     },
     {
       "id": "SCI-035",
@@ -1033,14 +1033,14 @@
       "referenceUrl": "https://openstax.org/books/chemistry-2e/pages/12-introduction"
     },
     {
-      "id": "SCI-059",
+      "id": "SCI-059-QA1",
       "points": 300,
-      "question": "هل السنة الضوئية وحدة زمن أم مسافة؟",
-      "answer": "مسافة",
-      "explanation": "هي المسافة التي يقطعها الضوء في الفراغ خلال سنة.",
+      "question": "يبعد نجم عن الأرض 12 سنة ضوئية. وصلنا ضوء ومضة منه قبل 3 سنوات. قبل كم سنة انطلقت الومضة من النجم؟",
+      "answer": "قبل 15 سنة",
+      "explanation": "استغرق الضوء 12 سنة حتى وصل، ثم مضت 3 سنوات منذ وصوله. مجموع المدتين 15 سنة.",
       "topic": "الفلك والفضاء",
       "level": "ناشئة",
-      "referenceUrl": "https://science.nasa.gov/solar-system/solar-system-facts/"
+      "referenceUrl": "https://science.nasa.gov/exoplanets/what-is-a-light-year/"
     },
     {
       "id": "SCI-060",

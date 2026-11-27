@@ -1,0 +1,5112 @@
+{
+  "head": "a376c77af578bcf1ee750e27156e9d0bd3897ada",
+  "generatedAt": "2026-11-27T13:50:28.518Z",
+  "banks": [
+    {
+      "file": "decks/apps-color-icons/deck.json",
+      "sha256": "0ae7545cd80698ef729e913486d772fe3dbfcb59470be05b52047551dc43f5a7"
+    },
+    {
+      "file": "decks/general-knowledge-mix/deck.json",
+      "sha256": "d2982c60d9da1c4b1cb10a5b4e8f3ef294d67114e3866b07e2264054b8278ba4"
+    },
+    {
+      "file": "decks/index.json",
+      "sha256": "cb6703db771aced27e4c73671a9558a18473b4b394bb0a53b00da7380aeae5b7"
+    },
+    {
+      "file": "decks/palestinian-dialect/deck.json",
+      "sha256": "4eff5c68cddf836f30613d1353382ae36fd1abd1317c4d655abe446d11ada2b3"
+    },
+    {
+      "file": "decks/riddle-proverb-mix/deck.json",
+      "sha256": "7a78471483af396dfff964ffab76acc7394d2a6d8937cf9050b7fc91784e3d1f"
+    },
+    {
+      "file": "decks/world-country-maps/deck.json",
+      "sha256": "6d3877d7c33a25b6aae8980e6178bbb3169b60ea8f27612fdefddf7205489794"
+    },
+    {
+      "file": "decks/world-food-images/deck.json",
+      "sha256": "49ebd800480e2382b93faee14dd2e372a1b9a9497ff26ba89dc5d4c034302239"
+    },
+    {
+      "file": "server/appsQuestions.json",
+      "sha256": "00a9552e98c8513c3fa87662b33033094166f6b993e20f3757ab09d4c2d62072"
+    },
+    {
+      "file": "server/arabicDialects.json",
+      "sha256": "894a7eb6e00a5be9200b382e9b9229427e96fb0489524d82561578efa45e3c35"
+    },
+    {
+      "file": "server/barcelonaQuestions.json",
+      "sha256": "34961d7c42c9b2618a336f5db01523088d73307def8135ed393f1863fba35443"
+    },
+    {
+      "file": "server/capitalsCurrencies.json",
+      "sha256": "3c06499559ebf1c5b877e6ebddfc84e1b74151c07da2ec7a11848f92fbf8a7c4"
+    },
+    {
+      "file": "server/championsLeagueQuestions.json",
+      "sha256": "3000ff64d78875a1983a4506512861bb36c00f5274cadd2da45c32b15a059e7d"
+    },
+    {
+      "file": "server/clarifyImageQuestions.json",
+      "sha256": "076beee7590e42f5ca88abb1ff313873dfe083058454bc5872bd29227ea1bfc1"
+    },
+    {
+      "file": "server/clubLogoQuestions.json",
+      "sha256": "0aee9563e937df3b6736106753e9ef46c7e0ae4e7be15751971f003ed37e4a21"
+    },
+    {
+      "file": "server/elClasico.json",
+      "sha256": "b4fc49868cf3a33450750b4bcbf6194e46bacd9b318a13f8267b9b8904e858ea"
+    },
+    {
+      "file": "server/flagQuestions.json",
+      "sha256": "196eda34d7a3972291ced9ce297152ba3b7425b4d8965e30a1eb873c321dfc7f"
+    },
+    {
+      "file": "server/footballCareerClubLogos.json",
+      "sha256": "d7099c9afbee92c3de0cb41aca442147ca1c112b4a4b988b2bb8767febef70ec"
+    },
+    {
+      "file": "server/footballCareerQuestions.json",
+      "sha256": "7f889008692895208294876b68f85446f3d50f3c30aa32483ee971a9aeedee10"
+    },
+    {
+      "file": "server/footballFirstNameQuestions.json",
+      "sha256": "7a0943cef0ac7b149c6e0e4d8cb2b67ab587f525554f4e441a075107fd8db1fd"
+    },
+    {
+      "file": "server/footballOrderingQuestions.json",
+      "sha256": "0bc384305f8186ecce18cc2c62d3ac74a4fdb72eacba91c35e205563e56d6d48"
+    },
+    {
+      "file": "server/fourPicturesQuestions.json",
+      "sha256": "ff734e340aa6b1d369dcf3ad4350b6e67bb5c11cb45481231bf730134830ef03"
+    },
+    {
+      "file": "server/geometryQuestions.json",
+      "sha256": "a32f6eb6a18f09f305105060829a3326c9929e54d098608cbc273e97b46e2576"
+    },
+    {
+      "file": "server/guessPriceProducts.json",
+      "sha256": "cff38eb8ddbf24ed29c7114aab7b618516a9a46845de0a797696de63feec5b8f"
+    },
+    {
+      "file": "server/guessSoundQuestions.json",
+      "sha256": "3e22c339369f80be4faa47a52a67bd36b1d2ed8b3f2aba20a437ca5485b95511"
+    },
+    {
+      "file": "server/hadithQuestions.json",
+      "sha256": "2ddd9505667ff28c1e98b970bb6f5f5f7e62bc3f57bd6f33723df504f8b2b8e4"
+    },
+    {
+      "file": "server/hashemiteUniversityQuestions.json",
+      "sha256": "95570c05201135ceb74dd00438488da65cf07fbf0ad81070cd2573f9c1a161e7"
+    },
+    {
+      "file": "server/islamicOrderingQuestions.json",
+      "sha256": "5ef56376b302ed6044d222f39699139917d5af79b63ad7534b684ab24b4ee717"
+    },
+    {
+      "file": "server/jordanBrandsQuestions.json",
+      "sha256": "e441fe495f5df6375928c0c13605995e40c19333b508f46269f6fbb58f6b2eff"
+    },
+    {
+      "file": "server/jordanBrandsRaw.json",
+      "sha256": "a8fe55a6cae06bcb016f0fa4cdf5dd35aa75189db8c4246de65e78405a1d9bd3"
+    },
+    {
+      "file": "server/jordanNostalgiaQuestions.json",
+      "sha256": "55c94f9365ac9f7ba3d50e90c47a4f513db93de73d93e99ef561aedad8bf9958"
+    },
+    {
+      "file": "server/juzAmma.json",
+      "sha256": "115a1032ab5c7ec36fffabb4e007fc68ba4c5410c01665cbbdcac777f8ed75cc"
+    },
+    {
+      "file": "server/juzTabarak.json",
+      "sha256": "aca85a8f1910e487f789b91c97583361aecc2ccf32c2c3e29439d613b0786219"
+    },
+    {
+      "file": "server/languageQuestions.json",
+      "sha256": "f08ba82f14af3c08660d669fe37f748e38f0ebc12e41d1d495a2256a79dadd03"
+    },
+    {
+      "file": "server/letterQuestions.json",
+      "sha256": "50482ee20935c44ef30646d33e2e4ace63f21ee01d2e6a21d0c357248c3b6691"
+    },
+    {
+      "file": "server/medicalScienceQuestions.json",
+      "sha256": "df4b48ae0b30849752b082e02c5b9b7fa4ce6a2b8eb058a874d2de3020a55300"
+    },
+    {
+      "file": "server/palestinianProverbsQuestions.json",
+      "sha256": "67582febe4f183e94f24ec36441033f56a86bf3f069b7aeb76a7a9dfcf46cfe9"
+    },
+    {
+      "file": "server/prophetStories.json",
+      "sha256": "4430dad7982fb2e2f48208012bcbc45bbb3e51ff63dec45093ba3e96872a580d"
+    },
+    {
+      "file": "server/propheticBiography.json",
+      "sha256": "5f942e443f40d93f2a354106fe89a504fbc7a45078f24acea8aef02415ccc3b0"
+    },
+    {
+      "file": "server/quranLegacyRecitations.json",
+      "sha256": "8c9770c6901fdeb39aaba60566f7f2a152ba7f6f50e21d601964a244bf76a193"
+    },
+    {
+      "file": "server/quranMediaQuestions.json",
+      "sha256": "dd1fb99dd61cadb4daaa2a612022d040b99ad1e31acaead4941a1821078b2b61"
+    },
+    {
+      "file": "server/quranVerseMeanings.json",
+      "sha256": "9a5ad0002db81229404863de1d0ea6133c0099bc457da3fe94122b28f62a58e6"
+    },
+    {
+      "file": "server/rashidunQuestions.json",
+      "sha256": "266dad6c1b815c2acc4e22fcfd4debf8531a2321c4e93cbf3ccc1b882ff68016"
+    },
+    {
+      "file": "server/realMadridQuestions.json",
+      "sha256": "2921959100874248c9fb0845765aa5bdae8381e268dfa900a71c04b57e817d45"
+    },
+    {
+      "file": "server/reciterQuestions.json",
+      "sha256": "11060bc6f74ceb9e89a184bf1e1a0fe12282b421255298d505218664292254df"
+    },
+    {
+      "file": "server/religiousEvidence.json",
+      "sha256": "db2a1780eb8730e2db8d86e0e540b01f473769c843cbe337d4685e09da7d4770"
+    },
+    {
+      "file": "server/reversedWords.json",
+      "sha256": "c5c340661c5cc4e99e82addf6ff60df3128a8d8a0adae21c87dae0d63839c0f5"
+    },
+    {
+      "file": "server/rubYasin.json",
+      "sha256": "afeb338ecad7b70eb25b23f6ecbe7b67afcf4946a2126f3aee993bf186fced7a"
+    },
+    {
+      "file": "server/silentActing.json",
+      "sha256": "3e940aa7f9db079bc877573ec0774ddf79111d375c64e9102c9c9ce63a42d002"
+    },
+    {
+      "file": "server/storyLogic.json",
+      "sha256": "a00fc2f6a8e876d485da0e8f210e96ef498ef1dc09ca614345f1d7ff07b27acb"
+    },
+    {
+      "file": "server/visualMemoryQuestions.json",
+      "sha256": "9aa0d9b19da28abbf29c7df0c63b85e3d1974396e2a6952c3405f10d93a6e0a9"
+    },
+    {
+      "file": "server/whoSahabi.json",
+      "sha256": "eecdd218364a6f6ed3bac872b70e4a7839d19a306caf07cb16a76212ff6265dd"
+    },
+    {
+      "file": "server/worldCup2026Questions.json",
+      "sha256": "3a86d576d49838e1524727443170657c0a05adb78dac3114063d3b61984d206b"
+    },
+    {
+      "file": "server/worldFootballQuestions.json",
+      "sha256": "d626bac3a7d44011f07b3101187a1ca932a5f24a95cfaff4aed377ed5a1a38b7"
+    },
+    {
+      "file": "server/worldWars.json",
+      "sha256": "72247b200d928d2727c83dbbb5b87868c9bcecc233170d7d5902e88be5034fc4"
+    },
+    {
+      "file": "server/zoomedImageQuestions.json",
+      "sha256": "e9900bc83365bc5fb70555a7e13477796b726427b63c179934042455ceea6a06"
+    }
+  ],
+  "scope": "Checked-in official banks after loader validation; no private/user-generated decks or live usage data; media presence not availability; duplicate candidates require human review.",
+  "totalCategories": 54,
+  "totalApprovedRows": 5792,
+  "totalUniqueIds": 5792,
+  "nonApproved": 0,
+  "groups": [
+    {
+      "id": "football",
+      "name": "عالم كرة القدم",
+      "categories": [
+        {
+          "id": "cat_world_cup_2026",
+          "name": "كأس العالم 2026",
+          "group": "football",
+          "total": 150,
+          "counts": {
+            "200": 58,
+            "400": 64,
+            "600": 28
+          },
+          "backup": 0,
+          "images": 112,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_champions_league",
+          "name": "دوري أبطال أوروبا",
+          "group": "football",
+          "total": 100,
+          "counts": {
+            "200": 35,
+            "400": 40,
+            "600": 25
+          },
+          "backup": 0,
+          "images": 46,
+          "audio": 0,
+          "video": 14,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_el_clasico",
+          "name": "كلاسيكو",
+          "group": "football",
+          "total": 100,
+          "counts": {
+            "200": 32,
+            "400": 39,
+            "600": 29
+          },
+          "backup": 0,
+          "images": 90,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_club_logos",
+          "name": "شعارات كروية",
+          "group": "football",
+          "total": 102,
+          "counts": {
+            "200": 54,
+            "400": 36,
+            "600": 12
+          },
+          "backup": 0,
+          "images": 102,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_real_madrid",
+          "name": "ريال مدريد",
+          "group": "football",
+          "total": 142,
+          "counts": {
+            "200": 51,
+            "400": 50,
+            "600": 41
+          },
+          "backup": 0,
+          "images": 116,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_barcelona",
+          "name": "برشلونة",
+          "group": "football",
+          "total": 47,
+          "counts": {
+            "200": 14,
+            "400": 22,
+            "600": 11
+          },
+          "backup": 0,
+          "images": 45,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_football_letters",
+          "name": "حروف كروية",
+          "group": "football",
+          "total": 130,
+          "counts": {
+            "200": 46,
+            "400": 46,
+            "600": 38
+          },
+          "backup": 0,
+          "images": 1,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_football_career",
+          "name": "مسيرة لاعب",
+          "group": "football",
+          "total": 90,
+          "counts": {
+            "200": 38,
+            "400": 31,
+            "600": 21
+          },
+          "backup": 0,
+          "images": 90,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_world_football",
+          "name": "كرة قدم عالمية",
+          "group": "football",
+          "total": 100,
+          "counts": {
+            "200": 33,
+            "400": 35,
+            "600": 32
+          },
+          "backup": 0,
+          "images": 8,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_football_first_name",
+          "name": "الاسم الأول للاعب",
+          "group": "football",
+          "total": 100,
+          "counts": {
+            "200": 79,
+            "400": 13,
+            "600": 8
+          },
+          "backup": 0,
+          "images": 100,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_football_ordering",
+          "name": "ترتيب كروي",
+          "group": "football",
+          "total": 130,
+          "counts": {
+            "200": 27,
+            "400": 65,
+            "600": 38
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "islamic",
+      "name": "التاريخ والثقافة الإسلامية",
+      "categories": [
+        {
+          "id": "cat_prophet_stories",
+          "name": "قصص الأنبياء",
+          "group": "islamic",
+          "total": 400,
+          "counts": {
+            "200": 170,
+            "400": 116,
+            "600": 114
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_rashidun",
+          "name": "الخلفاء الراشدون",
+          "group": "islamic",
+          "total": 55,
+          "counts": {
+            "200": 19,
+            "400": 15,
+            "600": 21
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_prophetic_biography",
+          "name": "السيرة النبوية",
+          "group": "islamic",
+          "total": 140,
+          "counts": {
+            "200": 58,
+            "400": 38,
+            "600": 44
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_who_sahabi",
+          "name": "من الصحابي؟",
+          "group": "islamic",
+          "total": 70,
+          "counts": {
+            "200": 30,
+            "400": 20,
+            "600": 20
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_hadith",
+          "name": "أحاديث",
+          "group": "islamic",
+          "total": 49,
+          "counts": {
+            "200": 15,
+            "400": 16,
+            "600": 18
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_islamic_letters",
+          "name": "حروف إسلامي",
+          "group": "islamic",
+          "total": 137,
+          "counts": {
+            "200": 72,
+            "400": 40,
+            "600": 25
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_islamic_ordering",
+          "name": "ترتيب إسلامي",
+          "group": "islamic",
+          "total": 87,
+          "counts": {
+            "200": 26,
+            "400": 15,
+            "600": 46
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "quran",
+      "name": "القرآن الكريم",
+      "categories": [
+        {
+          "id": "cat_juz_amma",
+          "name": "جزء عمّ",
+          "group": "quran",
+          "total": 150,
+          "counts": {
+            "200": 50,
+            "400": 50,
+            "600": 50
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_juz_tabarak",
+          "name": "جزء تبارك",
+          "group": "quran",
+          "total": 150,
+          "counts": {
+            "200": 50,
+            "400": 50,
+            "600": 50
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_rub_yasin",
+          "name": "ربع يس",
+          "group": "quran",
+          "total": 150,
+          "counts": {
+            "200": 75,
+            "400": 45,
+            "600": 30
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_quran_media",
+          "name": "قرآن كريم",
+          "group": "quran",
+          "total": 150,
+          "counts": {
+            "200": 52,
+            "400": 52,
+            "600": 46
+          },
+          "backup": 0,
+          "images": 55,
+          "audio": 70,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": [
+            "QURAN-MEDIA-001-SURAH",
+            "QURAN-MEDIA-002",
+            "QURAN-MEDIA-003-SURAH",
+            "QURAN-MEDIA-004",
+            "QURAN-MEDIA-005",
+            "QURAN-MEDIA-006-SURAH",
+            "QURAN-MEDIA-007",
+            "QURAN-MEDIA-008-SURAH",
+            "QURAN-MEDIA-009",
+            "QURAN-MEDIA-010",
+            "QURAN-MEDIA-011-SURAH",
+            "QURAN-MEDIA-012",
+            "QURAN-MEDIA-013-SURAH",
+            "QURAN-MEDIA-014",
+            "QURAN-MEDIA-015",
+            "QURAN-MEDIA-016-SURAH",
+            "QURAN-MEDIA-017",
+            "QURAN-MEDIA-018-SURAH",
+            "QURAN-MEDIA-019",
+            "QURAN-MEDIA-020",
+            "QURAN-MEDIA-021-SURAH",
+            "QURAN-MEDIA-022",
+            "QURAN-MEDIA-023-SURAH",
+            "QURAN-MEDIA-024",
+            "QURAN-MEDIA-025",
+            "QURAN-MEDIA-026-SURAH",
+            "QURAN-MEDIA-027",
+            "QURAN-MEDIA-028-SURAH",
+            "QURAN-MEDIA-029",
+            "QURAN-MEDIA-030",
+            "QURAN-MEDIA-031-SURAH",
+            "QURAN-MEDIA-032",
+            "QURAN-MEDIA-033-SURAH",
+            "QURAN-MEDIA-034",
+            "QURAN-MEDIA-035",
+            "QURAN-MEDIA-036-SURAH",
+            "QURAN-MEDIA-037",
+            "QURAN-MEDIA-038-SURAH",
+            "QURAN-MEDIA-039",
+            "QURAN-MEDIA-040-SURAH",
+            "QURAN-MEDIA-041",
+            "QURAN-MEDIA-042-SURAH",
+            "QURAN-MEDIA-043-SURAH",
+            "QURAN-MEDIA-044",
+            "QURAN-MEDIA-045-SURAH",
+            "QURAN-MEDIA-046-SURAH",
+            "QURAN-MEDIA-047",
+            "QURAN-MEDIA-048-SURAH",
+            "QURAN-MEDIA-049-SURAH",
+            "QURAN-MEDIA-050",
+            "QURAN-MEDIA-051-SURAH",
+            "QURAN-MEDIA-052",
+            "QURAN-MEDIA-053-SURAH",
+            "QURAN-MEDIA-054",
+            "QURAN-MEDIA-055",
+            "QURAN-MEDIA-056-SURAH",
+            "QURAN-MEDIA-057",
+            "QURAN-MEDIA-058-SURAH",
+            "QURAN-MEDIA-059",
+            "QURAN-MEDIA-060",
+            "QURAN-MEDIA-061-SURAH",
+            "QURAN-MEDIA-062",
+            "QURAN-MEDIA-063-SURAH",
+            "QURAN-MEDIA-064",
+            "QURAN-MEDIA-065",
+            "QURAN-MEDIA-066-SURAH",
+            "QURAN-MEDIA-067",
+            "QURAN-MEDIA-068-SURAH",
+            "QURAN-MEDIA-069",
+            "QURAN-MEDIA-070",
+            "QURAN-MEDIA-071-SURAH",
+            "QURAN-MEDIA-072",
+            "QURAN-MEDIA-073-SURAH",
+            "QURAN-MEDIA-074",
+            "QURAN-MEDIA-075",
+            "QURAN-MEDIA-076-SURAH",
+            "QURAN-MEDIA-077",
+            "QURAN-MEDIA-078-SURAH",
+            "QURAN-MEDIA-079",
+            "QURAN-MEDIA-080",
+            "QURAN-MEDIA-081-SURAH",
+            "QURAN-MEDIA-082",
+            "QURAN-MEDIA-083-SURAH",
+            "QURAN-MEDIA-084",
+            "QURAN-MEDIA-085",
+            "QURAN-MEDIA-086-SURAH",
+            "QURAN-MEDIA-087",
+            "QURAN-MEDIA-088-SURAH",
+            "QURAN-MEDIA-089",
+            "QURAN-MEDIA-090-SURAH",
+            "QURAN-MEDIA-091",
+            "QURAN-MEDIA-092-SURAH",
+            "QURAN-MEDIA-093-SURAH",
+            "QURAN-MEDIA-094",
+            "QURAN-MEDIA-095-SURAH",
+            "QURAN-MEDIA-096-SURAH",
+            "QURAN-MEDIA-097",
+            "QURAN-MEDIA-098-SURAH",
+            "QURAN-MEDIA-099-SURAH",
+            "QURAN-MEDIA-100",
+            "QURAN-MEDIA-101-SURAH",
+            "QURAN-MEDIA-102",
+            "QURAN-MEDIA-103-SURAH",
+            "QURAN-MEDIA-104",
+            "QURAN-MEDIA-105",
+            "QURAN-MEDIA-106-SURAH",
+            "QURAN-MEDIA-107",
+            "QURAN-MEDIA-108-SURAH",
+            "QURAN-MEDIA-109",
+            "QURAN-MEDIA-110",
+            "QURAN-MEDIA-111-SURAH",
+            "QURAN-MEDIA-112",
+            "QURAN-MEDIA-113-SURAH",
+            "QURAN-MEDIA-114",
+            "QURAN-MEDIA-115",
+            "QURAN-MEDIA-116-SURAH",
+            "QURAN-MEDIA-117",
+            "QURAN-MEDIA-118-SURAH",
+            "QURAN-MEDIA-119",
+            "QURAN-MEDIA-120",
+            "QURAN-MEDIA-121-SURAH",
+            "QURAN-MEDIA-122",
+            "QURAN-MEDIA-123-SURAH",
+            "QURAN-MEDIA-124",
+            "QURAN-MEDIA-125",
+            "QURAN-MEDIA-126-SURAH",
+            "QURAN-MEDIA-127",
+            "QURAN-MEDIA-128-SURAH",
+            "QURAN-MEDIA-129",
+            "QURAN-MEDIA-130",
+            "QURAN-MEDIA-131-SURAH",
+            "QURAN-MEDIA-132",
+            "QURAN-MEDIA-133-SURAH",
+            "QURAN-MEDIA-134",
+            "QURAN-MEDIA-135-SURAH",
+            "QURAN-MEDIA-136",
+            "QURAN-MEDIA-137-SURAH",
+            "QURAN-MEDIA-138",
+            "QURAN-MEDIA-139-SURAH",
+            "QURAN-MEDIA-140",
+            "QURAN-MEDIA-141-SURAH",
+            "QURAN-MEDIA-142",
+            "QURAN-MEDIA-143-SURAH",
+            "QURAN-MEDIA-144",
+            "QURAN-MEDIA-145-SURAH",
+            "QURAN-MEDIA-146-SURAH",
+            "QURAN-MEDIA-147",
+            "QURAN-MEDIA-148-SURAH",
+            "QURAN-MEDIA-149-SURAH",
+            "QURAN-MEDIA-150-SURAH"
+          ]
+        },
+        {
+          "id": "cat_quran_verse_meanings",
+          "name": "آيات القرآن ومعانيها",
+          "group": "quran",
+          "total": 150,
+          "counts": {
+            "200": 75,
+            "400": 45,
+            "600": 30
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_quran_reciter",
+          "name": "من القارئ؟",
+          "group": "quran",
+          "total": 200,
+          "counts": {
+            "200": 67,
+            "400": 66,
+            "600": 67
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 200,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": [
+            "RECITER-V2-103",
+            "RECITER-V2-002",
+            "RECITER-V2-058",
+            "RECITER-V2-067",
+            "RECITER-V2-107",
+            "RECITER-V2-071",
+            "RECITER-V2-127",
+            "RECITER-V2-042",
+            "RECITER-V2-046",
+            "RECITER-V2-112",
+            "RECITER-V2-069",
+            "RECITER-V2-044",
+            "RECITER-009",
+            "RECITER-027",
+            "RECITER-011",
+            "RECITER-029",
+            "RECITER-047",
+            "RECITER-065",
+            "RECITER-083",
+            "RECITER-V2-073",
+            "RECITER-V2-129",
+            "RECITER-V2-040",
+            "RECITER-V2-005",
+            "RECITER-V2-061",
+            "RECITER-V2-110",
+            "RECITER-V2-003",
+            "RECITER-V2-059",
+            "RECITER-V2-008",
+            "RECITER-V2-064",
+            "RECITER-V2-120",
+            "RECITER-V2-108",
+            "RECITER-V2-001",
+            "RECITER-V2-057",
+            "RECITER-V2-111",
+            "RECITER-006",
+            "RECITER-024",
+            "RECITER-042",
+            "RECITER-060",
+            "RECITER-078",
+            "RECITER-V2-104",
+            "RECITER-V2-066",
+            "RECITER-V2-007",
+            "RECITER-V2-063",
+            "RECITER-V2-119",
+            "RECITER-V2-109",
+            "RECITER-004",
+            "RECITER-022",
+            "RECITER-040",
+            "RECITER-V2-009",
+            "RECITER-V2-065",
+            "RECITER-V2-121",
+            "RECITER-016",
+            "RECITER-034",
+            "RECITER-052",
+            "RECITER-070",
+            "RECITER-088",
+            "RECITER-V2-006",
+            "RECITER-V2-062",
+            "RECITER-V2-004",
+            "RECITER-V2-060",
+            "RECITER-V2-105",
+            "RECITER-001",
+            "RECITER-019",
+            "RECITER-037",
+            "RECITER-055",
+            "RECITER-073",
+            "RECITER-V2-106",
+            "RECITER-V2-047",
+            "RECITER-005",
+            "RECITER-023",
+            "RECITER-041",
+            "RECITER-059",
+            "RECITER-077",
+            "RECITER-V2-030",
+            "RECITER-V2-114",
+            "RECITER-V2-011",
+            "RECITER-V2-095",
+            "RECITER-V2-051",
+            "RECITER-V2-015",
+            "RECITER-V2-099",
+            "RECITER-V2-014",
+            "RECITER-V2-098",
+            "RECITER-018",
+            "RECITER-036",
+            "RECITER-054",
+            "RECITER-072",
+            "RECITER-090",
+            "RECITER-015",
+            "RECITER-033",
+            "RECITER-051",
+            "RECITER-069",
+            "RECITER-087",
+            "RECITER-V2-018",
+            "RECITER-V2-102",
+            "RECITER-V2-056",
+            "RECITER-V2-013",
+            "RECITER-V2-097",
+            "RECITER-V2-016",
+            "RECITER-V2-100",
+            "RECITER-012",
+            "RECITER-030",
+            "RECITER-048",
+            "RECITER-V2-017",
+            "RECITER-V2-101",
+            "RECITER-V2-012",
+            "RECITER-V2-096",
+            "RECITER-V2-033",
+            "RECITER-V2-117",
+            "RECITER-V2-054",
+            "RECITER-V2-031",
+            "RECITER-V2-115",
+            "RECITER-V2-036",
+            "RECITER-V2-052",
+            "RECITER-V2-029",
+            "RECITER-V2-113",
+            "RECITER-V2-055",
+            "RECITER-V2-048",
+            "RECITER-V2-010",
+            "RECITER-V2-094",
+            "RECITER-V2-035",
+            "RECITER-007",
+            "RECITER-014",
+            "RECITER-025",
+            "RECITER-032",
+            "RECITER-043",
+            "RECITER-V2-053",
+            "RECITER-V2-037",
+            "RECITER-V2-034",
+            "RECITER-V2-118",
+            "RECITER-V2-032",
+            "RECITER-V2-116",
+            "RECITER-V2-049",
+            "RECITER-V2-050",
+            "RECITER-V2-019",
+            "RECITER-V2-075",
+            "RECITER-V2-086",
+            "RECITER-003",
+            "RECITER-021",
+            "RECITER-039",
+            "RECITER-057",
+            "RECITER-075",
+            "RECITER-V2-039",
+            "RECITER-V2-123",
+            "RECITER-V2-023",
+            "RECITER-V2-079",
+            "RECITER-V2-043",
+            "RECITER-V2-070",
+            "RECITER-V2-126",
+            "RECITER-013",
+            "RECITER-031",
+            "RECITER-049",
+            "RECITER-067",
+            "RECITER-085",
+            "RECITER-V2-074",
+            "RECITER-V2-130",
+            "RECITER-V2-028",
+            "RECITER-V2-084",
+            "RECITER-V2-041",
+            "RECITER-V2-125",
+            "RECITER-V2-072",
+            "RECITER-V2-128",
+            "RECITER-V2-045",
+            "RECITER-V2-068",
+            "RECITER-V2-124",
+            "RECITER-V2-089",
+            "RECITER-V2-026",
+            "RECITER-V2-082",
+            "RECITER-V2-087",
+            "RECITER-V2-092",
+            "RECITER-V2-024",
+            "RECITER-V2-080",
+            "RECITER-V2-085",
+            "RECITER-V2-027",
+            "RECITER-V2-083",
+            "RECITER-V2-020",
+            "RECITER-V2-076",
+            "RECITER-V2-038",
+            "RECITER-V2-122",
+            "RECITER-V2-091",
+            "RECITER-V2-025",
+            "RECITER-V2-081",
+            "RECITER-002",
+            "RECITER-020",
+            "RECITER-038",
+            "RECITER-056",
+            "RECITER-074",
+            "RECITER-008",
+            "RECITER-017",
+            "RECITER-V2-093",
+            "RECITER-V2-090",
+            "RECITER-V2-088",
+            "RECITER-V2-021",
+            "RECITER-V2-077",
+            "RECITER-010",
+            "RECITER-028",
+            "RECITER-046",
+            "RECITER-064",
+            "RECITER-082",
+            "RECITER-V2-022",
+            "RECITER-V2-078"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "اللغة والكلمات",
+      "categories": [
+        {
+          "id": "cat_palestinian_proverbs",
+          "name": "تركيب أمثال فلسطينية",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 34,
+            "400": 33,
+            "600": 33
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_reversed_words",
+          "name": "كلمات معكوسة",
+          "group": "language",
+          "total": 60,
+          "counts": {
+            "200": 20,
+            "400": 20,
+            "600": 20
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 60,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_english_letters",
+          "name": "حروف إنجليزي",
+          "group": "language",
+          "total": 50,
+          "counts": {
+            "200": 15,
+            "400": 17,
+            "600": 18
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_arabic_roots",
+          "name": "اللغة العربية - جذر",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 35,
+            "600": 35
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_arabic_plurals",
+          "name": "اللغة العربية - جمع",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 35,
+            "600": 35
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_arabic_grammar",
+          "name": "اللغة العربية - إعراب",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 35,
+            "600": 35
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_arabic_dialects",
+          "name": "اللهجات",
+          "group": "language",
+          "total": 60,
+          "counts": {
+            "200": 20,
+            "400": 20,
+            "600": 20
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_riddle_proverb_mix",
+          "name": "لغز ومثل",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 25,
+            "400": 35,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_palestinian_dialect",
+          "name": "شو يعني بالفلسطيني؟",
+          "group": "language",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 35,
+            "600": 35
+          },
+          "backup": 0,
+          "images": 50,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "العلوم والذكاء",
+      "categories": [
+        {
+          "id": "cat_brain_teasers",
+          "name": "ألغاز ذكاء",
+          "group": "science",
+          "total": 75,
+          "counts": {
+            "200": 25,
+            "400": 25,
+            "600": 25
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_medical",
+          "name": "طبي",
+          "group": "science",
+          "total": 50,
+          "counts": {
+            "200": 12,
+            "400": 18,
+            "600": 20
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_science_quiz",
+          "name": "علوم",
+          "group": "science",
+          "total": 150,
+          "counts": {
+            "200": 30,
+            "400": 60,
+            "600": 60
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_geometry",
+          "name": "هندسة رياضية",
+          "group": "science",
+          "total": 100,
+          "counts": {
+            "200": 34,
+            "400": 33,
+            "600": 33
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "name": "العالم والتاريخ",
+      "categories": [
+        {
+          "id": "world_food",
+          "name": "أكلات العالم",
+          "group": "world",
+          "total": 45,
+          "counts": {
+            "200": 15,
+            "400": 15,
+            "600": 15
+          },
+          "backup": 0,
+          "images": 45,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_flags",
+          "name": "الأعلام",
+          "group": "world",
+          "total": 100,
+          "counts": {
+            "200": 25,
+            "400": 35,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 100,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_capitals_currencies",
+          "name": "عواصم وعملات",
+          "group": "world",
+          "total": 75,
+          "counts": {
+            "200": 25,
+            "400": 25,
+            "600": 25
+          },
+          "backup": 0,
+          "images": 75,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_world_wars",
+          "name": "الحرب العالمية",
+          "group": "world",
+          "total": 75,
+          "counts": {
+            "200": 15,
+            "400": 24,
+            "600": 36
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "world_country_maps",
+          "name": "خمن الدولة المظللة",
+          "group": "world",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 30,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 100,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_general",
+          "name": "معلومات عامة",
+          "group": "world",
+          "total": 104,
+          "counts": {
+            "200": 26,
+            "400": 37,
+            "600": 41
+          },
+          "backup": 1,
+          "images": 84,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "jordan",
+      "name": "الأردن والذكريات",
+      "categories": [
+        {
+          "id": "cat_guess_price",
+          "name": "خمّن سعر المنتج",
+          "group": "jordan",
+          "total": 190,
+          "counts": {
+            "200": 64,
+            "400": 64,
+            "600": 62
+          },
+          "backup": 0,
+          "images": 190,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "jordan_brands_nostalgia",
+          "name": "شعارات الأردن",
+          "group": "jordan",
+          "total": 100,
+          "counts": {
+            "200": 25,
+            "400": 35,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 100,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_jordan_nostalgia",
+          "name": "زمن الطيبين",
+          "group": "jordan",
+          "total": 114,
+          "counts": {
+            "200": 51,
+            "400": 40,
+            "600": 23
+          },
+          "backup": 0,
+          "images": 114,
+          "audio": 0,
+          "video": 12,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_hashemite_university",
+          "name": "الجامعة الهاشمية",
+          "group": "jordan",
+          "total": 100,
+          "counts": {
+            "200": 25,
+            "400": 35,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 41,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    },
+    {
+      "id": "visual",
+      "name": "التحديات البصرية والأدائية",
+      "categories": [
+        {
+          "id": "cat_apps",
+          "name": "التطبيقات",
+          "group": "visual",
+          "total": 100,
+          "counts": {
+            "200": 25,
+            "400": 35,
+            "600": 40
+          },
+          "backup": 0,
+          "images": 100,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_visual_memory",
+          "name": "ركّز",
+          "group": "visual",
+          "total": 100,
+          "counts": {
+            "200": 23,
+            "400": 48,
+            "600": 29
+          },
+          "backup": 0,
+          "images": 74,
+          "audio": 0,
+          "video": 26,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_four_pictures",
+          "name": "أربع صور وكلمة",
+          "group": "visual",
+          "total": 45,
+          "counts": {
+            "200": 15,
+            "400": 15,
+            "600": 15
+          },
+          "backup": 0,
+          "images": 45,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_silent_acting",
+          "name": "تمثيل صامت",
+          "group": "visual",
+          "total": 100,
+          "counts": {
+            "200": 24,
+            "400": 42,
+            "600": 34
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_zoomed_image",
+          "name": "خمن الصورة المقربة",
+          "group": "visual",
+          "total": 60,
+          "counts": {
+            "200": 20,
+            "400": 20,
+            "600": 20
+          },
+          "backup": 0,
+          "images": 60,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_clarify_image",
+          "name": "وضّح شوي",
+          "group": "visual",
+          "total": 60,
+          "counts": {
+            "200": 24,
+            "400": 18,
+            "600": 18
+          },
+          "backup": 0,
+          "images": 60,
+          "audio": 0,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        },
+        {
+          "id": "cat_guess_sound",
+          "name": "خمن الصوت",
+          "group": "visual",
+          "total": 100,
+          "counts": {
+            "200": 30,
+            "400": 40,
+            "600": 30
+          },
+          "backup": 0,
+          "images": 0,
+          "audio": 100,
+          "video": 0,
+          "invalidTier": [],
+          "emptyContent": [],
+          "missingSource": []
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "world_food",
+      "name": "أكلات العالم",
+      "group": "world",
+      "total": 45,
+      "counts": {
+        "200": 15,
+        "400": 15,
+        "600": 15
+      },
+      "backup": 0,
+      "images": 45,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_apps",
+      "name": "التطبيقات",
+      "group": "visual",
+      "total": 100,
+      "counts": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 100,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_prophet_stories",
+      "name": "قصص الأنبياء",
+      "group": "islamic",
+      "total": 400,
+      "counts": {
+        "200": 170,
+        "400": 116,
+        "600": 114
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_guess_price",
+      "name": "خمّن سعر المنتج",
+      "group": "jordan",
+      "total": 190,
+      "counts": {
+        "200": 64,
+        "400": 64,
+        "600": 62
+      },
+      "backup": 0,
+      "images": 190,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_rashidun",
+      "name": "الخلفاء الراشدون",
+      "group": "islamic",
+      "total": 55,
+      "counts": {
+        "200": 19,
+        "400": 15,
+        "600": 21
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "jordan_brands_nostalgia",
+      "name": "شعارات الأردن",
+      "group": "jordan",
+      "total": 100,
+      "counts": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 100,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_jordan_nostalgia",
+      "name": "زمن الطيبين",
+      "group": "jordan",
+      "total": 114,
+      "counts": {
+        "200": 51,
+        "400": 40,
+        "600": 23
+      },
+      "backup": 0,
+      "images": 114,
+      "audio": 0,
+      "video": 12,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_world_cup_2026",
+      "name": "كأس العالم 2026",
+      "group": "football",
+      "total": 150,
+      "counts": {
+        "200": 58,
+        "400": 64,
+        "600": 28
+      },
+      "backup": 0,
+      "images": 112,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_palestinian_proverbs",
+      "name": "تركيب أمثال فلسطينية",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_visual_memory",
+      "name": "ركّز",
+      "group": "visual",
+      "total": 100,
+      "counts": {
+        "200": 23,
+        "400": 48,
+        "600": 29
+      },
+      "backup": 0,
+      "images": 74,
+      "audio": 0,
+      "video": 26,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_flags",
+      "name": "الأعلام",
+      "group": "world",
+      "total": 100,
+      "counts": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 100,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_champions_league",
+      "name": "دوري أبطال أوروبا",
+      "group": "football",
+      "total": 100,
+      "counts": {
+        "200": 35,
+        "400": 40,
+        "600": 25
+      },
+      "backup": 0,
+      "images": 46,
+      "audio": 0,
+      "video": 14,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_juz_amma",
+      "name": "جزء عمّ",
+      "group": "quran",
+      "total": 150,
+      "counts": {
+        "200": 50,
+        "400": 50,
+        "600": 50
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_juz_tabarak",
+      "name": "جزء تبارك",
+      "group": "quran",
+      "total": 150,
+      "counts": {
+        "200": 50,
+        "400": 50,
+        "600": 50
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_rub_yasin",
+      "name": "ربع يس",
+      "group": "quran",
+      "total": 150,
+      "counts": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_el_clasico",
+      "name": "كلاسيكو",
+      "group": "football",
+      "total": 100,
+      "counts": {
+        "200": 32,
+        "400": 39,
+        "600": 29
+      },
+      "backup": 0,
+      "images": 90,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_club_logos",
+      "name": "شعارات كروية",
+      "group": "football",
+      "total": 102,
+      "counts": {
+        "200": 54,
+        "400": 36,
+        "600": 12
+      },
+      "backup": 0,
+      "images": 102,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_quran_media",
+      "name": "قرآن كريم",
+      "group": "quran",
+      "total": 150,
+      "counts": {
+        "200": 52,
+        "400": 52,
+        "600": 46
+      },
+      "backup": 0,
+      "images": 55,
+      "audio": 70,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": [
+        "QURAN-MEDIA-001-SURAH",
+        "QURAN-MEDIA-002",
+        "QURAN-MEDIA-003-SURAH",
+        "QURAN-MEDIA-004",
+        "QURAN-MEDIA-005",
+        "QURAN-MEDIA-006-SURAH",
+        "QURAN-MEDIA-007",
+        "QURAN-MEDIA-008-SURAH",
+        "QURAN-MEDIA-009",
+        "QURAN-MEDIA-010",
+        "QURAN-MEDIA-011-SURAH",
+        "QURAN-MEDIA-012",
+        "QURAN-MEDIA-013-SURAH",
+        "QURAN-MEDIA-014",
+        "QURAN-MEDIA-015",
+        "QURAN-MEDIA-016-SURAH",
+        "QURAN-MEDIA-017",
+        "QURAN-MEDIA-018-SURAH",
+        "QURAN-MEDIA-019",
+        "QURAN-MEDIA-020",
+        "QURAN-MEDIA-021-SURAH",
+        "QURAN-MEDIA-022",
+        "QURAN-MEDIA-023-SURAH",
+        "QURAN-MEDIA-024",
+        "QURAN-MEDIA-025",
+        "QURAN-MEDIA-026-SURAH",
+        "QURAN-MEDIA-027",
+        "QURAN-MEDIA-028-SURAH",
+        "QURAN-MEDIA-029",
+        "QURAN-MEDIA-030",
+        "QURAN-MEDIA-031-SURAH",
+        "QURAN-MEDIA-032",
+        "QURAN-MEDIA-033-SURAH",
+        "QURAN-MEDIA-034",
+        "QURAN-MEDIA-035",
+        "QURAN-MEDIA-036-SURAH",
+        "QURAN-MEDIA-037",
+        "QURAN-MEDIA-038-SURAH",
+        "QURAN-MEDIA-039",
+        "QURAN-MEDIA-040-SURAH",
+        "QURAN-MEDIA-041",
+        "QURAN-MEDIA-042-SURAH",
+        "QURAN-MEDIA-043-SURAH",
+        "QURAN-MEDIA-044",
+        "QURAN-MEDIA-045-SURAH",
+        "QURAN-MEDIA-046-SURAH",
+        "QURAN-MEDIA-047",
+        "QURAN-MEDIA-048-SURAH",
+        "QURAN-MEDIA-049-SURAH",
+        "QURAN-MEDIA-050",
+        "QURAN-MEDIA-051-SURAH",
+        "QURAN-MEDIA-052",
+        "QURAN-MEDIA-053-SURAH",
+        "QURAN-MEDIA-054",
+        "QURAN-MEDIA-055",
+        "QURAN-MEDIA-056-SURAH",
+        "QURAN-MEDIA-057",
+        "QURAN-MEDIA-058-SURAH",
+        "QURAN-MEDIA-059",
+        "QURAN-MEDIA-060",
+        "QURAN-MEDIA-061-SURAH",
+        "QURAN-MEDIA-062",
+        "QURAN-MEDIA-063-SURAH",
+        "QURAN-MEDIA-064",
+        "QURAN-MEDIA-065",
+        "QURAN-MEDIA-066-SURAH",
+        "QURAN-MEDIA-067",
+        "QURAN-MEDIA-068-SURAH",
+        "QURAN-MEDIA-069",
+        "QURAN-MEDIA-070",
+        "QURAN-MEDIA-071-SURAH",
+        "QURAN-MEDIA-072",
+        "QURAN-MEDIA-073-SURAH",
+        "QURAN-MEDIA-074",
+        "QURAN-MEDIA-075",
+        "QURAN-MEDIA-076-SURAH",
+        "QURAN-MEDIA-077",
+        "QURAN-MEDIA-078-SURAH",
+        "QURAN-MEDIA-079",
+        "QURAN-MEDIA-080",
+        "QURAN-MEDIA-081-SURAH",
+        "QURAN-MEDIA-082",
+        "QURAN-MEDIA-083-SURAH",
+        "QURAN-MEDIA-084",
+        "QURAN-MEDIA-085",
+        "QURAN-MEDIA-086-SURAH",
+        "QURAN-MEDIA-087",
+        "QURAN-MEDIA-088-SURAH",
+        "QURAN-MEDIA-089",
+        "QURAN-MEDIA-090-SURAH",
+        "QURAN-MEDIA-091",
+        "QURAN-MEDIA-092-SURAH",
+        "QURAN-MEDIA-093-SURAH",
+        "QURAN-MEDIA-094",
+        "QURAN-MEDIA-095-SURAH",
+        "QURAN-MEDIA-096-SURAH",
+        "QURAN-MEDIA-097",
+        "QURAN-MEDIA-098-SURAH",
+        "QURAN-MEDIA-099-SURAH",
+        "QURAN-MEDIA-100",
+        "QURAN-MEDIA-101-SURAH",
+        "QURAN-MEDIA-102",
+        "QURAN-MEDIA-103-SURAH",
+        "QURAN-MEDIA-104",
+        "QURAN-MEDIA-105",
+        "QURAN-MEDIA-106-SURAH",
+        "QURAN-MEDIA-107",
+        "QURAN-MEDIA-108-SURAH",
+        "QURAN-MEDIA-109",
+        "QURAN-MEDIA-110",
+        "QURAN-MEDIA-111-SURAH",
+        "QURAN-MEDIA-112",
+        "QURAN-MEDIA-113-SURAH",
+        "QURAN-MEDIA-114",
+        "QURAN-MEDIA-115",
+        "QURAN-MEDIA-116-SURAH",
+        "QURAN-MEDIA-117",
+        "QURAN-MEDIA-118-SURAH",
+        "QURAN-MEDIA-119",
+        "QURAN-MEDIA-120",
+        "QURAN-MEDIA-121-SURAH",
+        "QURAN-MEDIA-122",
+        "QURAN-MEDIA-123-SURAH",
+        "QURAN-MEDIA-124",
+        "QURAN-MEDIA-125",
+        "QURAN-MEDIA-126-SURAH",
+        "QURAN-MEDIA-127",
+        "QURAN-MEDIA-128-SURAH",
+        "QURAN-MEDIA-129",
+        "QURAN-MEDIA-130",
+        "QURAN-MEDIA-131-SURAH",
+        "QURAN-MEDIA-132",
+        "QURAN-MEDIA-133-SURAH",
+        "QURAN-MEDIA-134",
+        "QURAN-MEDIA-135-SURAH",
+        "QURAN-MEDIA-136",
+        "QURAN-MEDIA-137-SURAH",
+        "QURAN-MEDIA-138",
+        "QURAN-MEDIA-139-SURAH",
+        "QURAN-MEDIA-140",
+        "QURAN-MEDIA-141-SURAH",
+        "QURAN-MEDIA-142",
+        "QURAN-MEDIA-143-SURAH",
+        "QURAN-MEDIA-144",
+        "QURAN-MEDIA-145-SURAH",
+        "QURAN-MEDIA-146-SURAH",
+        "QURAN-MEDIA-147",
+        "QURAN-MEDIA-148-SURAH",
+        "QURAN-MEDIA-149-SURAH",
+        "QURAN-MEDIA-150-SURAH"
+      ]
+    },
+    {
+      "id": "cat_capitals_currencies",
+      "name": "عواصم وعملات",
+      "group": "world",
+      "total": 75,
+      "counts": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "backup": 0,
+      "images": 75,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_prophetic_biography",
+      "name": "السيرة النبوية",
+      "group": "islamic",
+      "total": 140,
+      "counts": {
+        "200": 58,
+        "400": 38,
+        "600": 44
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_who_sahabi",
+      "name": "من الصحابي؟",
+      "group": "islamic",
+      "total": 70,
+      "counts": {
+        "200": 30,
+        "400": 20,
+        "600": 20
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_quran_verse_meanings",
+      "name": "آيات القرآن ومعانيها",
+      "group": "quran",
+      "total": 150,
+      "counts": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_world_wars",
+      "name": "الحرب العالمية",
+      "group": "world",
+      "total": 75,
+      "counts": {
+        "200": 15,
+        "400": 24,
+        "600": 36
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_hadith",
+      "name": "أحاديث",
+      "group": "islamic",
+      "total": 49,
+      "counts": {
+        "200": 15,
+        "400": 16,
+        "600": 18
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_brain_teasers",
+      "name": "ألغاز ذكاء",
+      "group": "science",
+      "total": 75,
+      "counts": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_real_madrid",
+      "name": "ريال مدريد",
+      "group": "football",
+      "total": 142,
+      "counts": {
+        "200": 51,
+        "400": 50,
+        "600": 41
+      },
+      "backup": 0,
+      "images": 116,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_barcelona",
+      "name": "برشلونة",
+      "group": "football",
+      "total": 47,
+      "counts": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "backup": 0,
+      "images": 45,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_reversed_words",
+      "name": "كلمات معكوسة",
+      "group": "language",
+      "total": 60,
+      "counts": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 60,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_football_letters",
+      "name": "حروف كروية",
+      "group": "football",
+      "total": 130,
+      "counts": {
+        "200": 46,
+        "400": 46,
+        "600": 38
+      },
+      "backup": 0,
+      "images": 1,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_islamic_letters",
+      "name": "حروف إسلامي",
+      "group": "islamic",
+      "total": 137,
+      "counts": {
+        "200": 72,
+        "400": 40,
+        "600": 25
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_medical",
+      "name": "طبي",
+      "group": "science",
+      "total": 50,
+      "counts": {
+        "200": 12,
+        "400": 18,
+        "600": 20
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_science_quiz",
+      "name": "علوم",
+      "group": "science",
+      "total": 150,
+      "counts": {
+        "200": 30,
+        "400": 60,
+        "600": 60
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_english_letters",
+      "name": "حروف إنجليزي",
+      "group": "language",
+      "total": 50,
+      "counts": {
+        "200": 15,
+        "400": 17,
+        "600": 18
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_arabic_roots",
+      "name": "اللغة العربية - جذر",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_arabic_plurals",
+      "name": "اللغة العربية - جمع",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_arabic_grammar",
+      "name": "اللغة العربية - إعراب",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_football_career",
+      "name": "مسيرة لاعب",
+      "group": "football",
+      "total": 90,
+      "counts": {
+        "200": 38,
+        "400": 31,
+        "600": 21
+      },
+      "backup": 0,
+      "images": 90,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_quran_reciter",
+      "name": "من القارئ؟",
+      "group": "quran",
+      "total": 200,
+      "counts": {
+        "200": 67,
+        "400": 66,
+        "600": 67
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 200,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": [
+        "RECITER-V2-103",
+        "RECITER-V2-002",
+        "RECITER-V2-058",
+        "RECITER-V2-067",
+        "RECITER-V2-107",
+        "RECITER-V2-071",
+        "RECITER-V2-127",
+        "RECITER-V2-042",
+        "RECITER-V2-046",
+        "RECITER-V2-112",
+        "RECITER-V2-069",
+        "RECITER-V2-044",
+        "RECITER-009",
+        "RECITER-027",
+        "RECITER-011",
+        "RECITER-029",
+        "RECITER-047",
+        "RECITER-065",
+        "RECITER-083",
+        "RECITER-V2-073",
+        "RECITER-V2-129",
+        "RECITER-V2-040",
+        "RECITER-V2-005",
+        "RECITER-V2-061",
+        "RECITER-V2-110",
+        "RECITER-V2-003",
+        "RECITER-V2-059",
+        "RECITER-V2-008",
+        "RECITER-V2-064",
+        "RECITER-V2-120",
+        "RECITER-V2-108",
+        "RECITER-V2-001",
+        "RECITER-V2-057",
+        "RECITER-V2-111",
+        "RECITER-006",
+        "RECITER-024",
+        "RECITER-042",
+        "RECITER-060",
+        "RECITER-078",
+        "RECITER-V2-104",
+        "RECITER-V2-066",
+        "RECITER-V2-007",
+        "RECITER-V2-063",
+        "RECITER-V2-119",
+        "RECITER-V2-109",
+        "RECITER-004",
+        "RECITER-022",
+        "RECITER-040",
+        "RECITER-V2-009",
+        "RECITER-V2-065",
+        "RECITER-V2-121",
+        "RECITER-016",
+        "RECITER-034",
+        "RECITER-052",
+        "RECITER-070",
+        "RECITER-088",
+        "RECITER-V2-006",
+        "RECITER-V2-062",
+        "RECITER-V2-004",
+        "RECITER-V2-060",
+        "RECITER-V2-105",
+        "RECITER-001",
+        "RECITER-019",
+        "RECITER-037",
+        "RECITER-055",
+        "RECITER-073",
+        "RECITER-V2-106",
+        "RECITER-V2-047",
+        "RECITER-005",
+        "RECITER-023",
+        "RECITER-041",
+        "RECITER-059",
+        "RECITER-077",
+        "RECITER-V2-030",
+        "RECITER-V2-114",
+        "RECITER-V2-011",
+        "RECITER-V2-095",
+        "RECITER-V2-051",
+        "RECITER-V2-015",
+        "RECITER-V2-099",
+        "RECITER-V2-014",
+        "RECITER-V2-098",
+        "RECITER-018",
+        "RECITER-036",
+        "RECITER-054",
+        "RECITER-072",
+        "RECITER-090",
+        "RECITER-015",
+        "RECITER-033",
+        "RECITER-051",
+        "RECITER-069",
+        "RECITER-087",
+        "RECITER-V2-018",
+        "RECITER-V2-102",
+        "RECITER-V2-056",
+        "RECITER-V2-013",
+        "RECITER-V2-097",
+        "RECITER-V2-016",
+        "RECITER-V2-100",
+        "RECITER-012",
+        "RECITER-030",
+        "RECITER-048",
+        "RECITER-V2-017",
+        "RECITER-V2-101",
+        "RECITER-V2-012",
+        "RECITER-V2-096",
+        "RECITER-V2-033",
+        "RECITER-V2-117",
+        "RECITER-V2-054",
+        "RECITER-V2-031",
+        "RECITER-V2-115",
+        "RECITER-V2-036",
+        "RECITER-V2-052",
+        "RECITER-V2-029",
+        "RECITER-V2-113",
+        "RECITER-V2-055",
+        "RECITER-V2-048",
+        "RECITER-V2-010",
+        "RECITER-V2-094",
+        "RECITER-V2-035",
+        "RECITER-007",
+        "RECITER-014",
+        "RECITER-025",
+        "RECITER-032",
+        "RECITER-043",
+        "RECITER-V2-053",
+        "RECITER-V2-037",
+        "RECITER-V2-034",
+        "RECITER-V2-118",
+        "RECITER-V2-032",
+        "RECITER-V2-116",
+        "RECITER-V2-049",
+        "RECITER-V2-050",
+        "RECITER-V2-019",
+        "RECITER-V2-075",
+        "RECITER-V2-086",
+        "RECITER-003",
+        "RECITER-021",
+        "RECITER-039",
+        "RECITER-057",
+        "RECITER-075",
+        "RECITER-V2-039",
+        "RECITER-V2-123",
+        "RECITER-V2-023",
+        "RECITER-V2-079",
+        "RECITER-V2-043",
+        "RECITER-V2-070",
+        "RECITER-V2-126",
+        "RECITER-013",
+        "RECITER-031",
+        "RECITER-049",
+        "RECITER-067",
+        "RECITER-085",
+        "RECITER-V2-074",
+        "RECITER-V2-130",
+        "RECITER-V2-028",
+        "RECITER-V2-084",
+        "RECITER-V2-041",
+        "RECITER-V2-125",
+        "RECITER-V2-072",
+        "RECITER-V2-128",
+        "RECITER-V2-045",
+        "RECITER-V2-068",
+        "RECITER-V2-124",
+        "RECITER-V2-089",
+        "RECITER-V2-026",
+        "RECITER-V2-082",
+        "RECITER-V2-087",
+        "RECITER-V2-092",
+        "RECITER-V2-024",
+        "RECITER-V2-080",
+        "RECITER-V2-085",
+        "RECITER-V2-027",
+        "RECITER-V2-083",
+        "RECITER-V2-020",
+        "RECITER-V2-076",
+        "RECITER-V2-038",
+        "RECITER-V2-122",
+        "RECITER-V2-091",
+        "RECITER-V2-025",
+        "RECITER-V2-081",
+        "RECITER-002",
+        "RECITER-020",
+        "RECITER-038",
+        "RECITER-056",
+        "RECITER-074",
+        "RECITER-008",
+        "RECITER-017",
+        "RECITER-V2-093",
+        "RECITER-V2-090",
+        "RECITER-V2-088",
+        "RECITER-V2-021",
+        "RECITER-V2-077",
+        "RECITER-010",
+        "RECITER-028",
+        "RECITER-046",
+        "RECITER-064",
+        "RECITER-082",
+        "RECITER-V2-022",
+        "RECITER-V2-078"
+      ]
+    },
+    {
+      "id": "cat_islamic_ordering",
+      "name": "ترتيب إسلامي",
+      "group": "islamic",
+      "total": 87,
+      "counts": {
+        "200": 26,
+        "400": 15,
+        "600": 46
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_world_football",
+      "name": "كرة قدم عالمية",
+      "group": "football",
+      "total": 100,
+      "counts": {
+        "200": 33,
+        "400": 35,
+        "600": 32
+      },
+      "backup": 0,
+      "images": 8,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_football_first_name",
+      "name": "الاسم الأول للاعب",
+      "group": "football",
+      "total": 100,
+      "counts": {
+        "200": 79,
+        "400": 13,
+        "600": 8
+      },
+      "backup": 0,
+      "images": 100,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_geometry",
+      "name": "هندسة رياضية",
+      "group": "science",
+      "total": 100,
+      "counts": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_football_ordering",
+      "name": "ترتيب كروي",
+      "group": "football",
+      "total": 130,
+      "counts": {
+        "200": 27,
+        "400": 65,
+        "600": 38
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_hashemite_university",
+      "name": "الجامعة الهاشمية",
+      "group": "jordan",
+      "total": 100,
+      "counts": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 41,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_four_pictures",
+      "name": "أربع صور وكلمة",
+      "group": "visual",
+      "total": 45,
+      "counts": {
+        "200": 15,
+        "400": 15,
+        "600": 15
+      },
+      "backup": 0,
+      "images": 45,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_arabic_dialects",
+      "name": "اللهجات",
+      "group": "language",
+      "total": 60,
+      "counts": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_silent_acting",
+      "name": "تمثيل صامت",
+      "group": "visual",
+      "total": 100,
+      "counts": {
+        "200": 24,
+        "400": 42,
+        "600": 34
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_zoomed_image",
+      "name": "خمن الصورة المقربة",
+      "group": "visual",
+      "total": 60,
+      "counts": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "backup": 0,
+      "images": 60,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_clarify_image",
+      "name": "وضّح شوي",
+      "group": "visual",
+      "total": 60,
+      "counts": {
+        "200": 24,
+        "400": 18,
+        "600": 18
+      },
+      "backup": 0,
+      "images": 60,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_guess_sound",
+      "name": "خمن الصوت",
+      "group": "visual",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 40,
+        "600": 30
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 100,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "world_country_maps",
+      "name": "خمن الدولة المظللة",
+      "group": "world",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 30,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 100,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_general",
+      "name": "معلومات عامة",
+      "group": "world",
+      "total": 104,
+      "counts": {
+        "200": 26,
+        "400": 37,
+        "600": 41
+      },
+      "backup": 1,
+      "images": 84,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_riddle_proverb_mix",
+      "name": "لغز ومثل",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "backup": 0,
+      "images": 0,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    },
+    {
+      "id": "cat_palestinian_dialect",
+      "name": "شو يعني بالفلسطيني؟",
+      "group": "language",
+      "total": 100,
+      "counts": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "backup": 0,
+      "images": 50,
+      "audio": 0,
+      "video": 0,
+      "invalidTier": [],
+      "emptyContent": [],
+      "missingSource": []
+    }
+  ],
+  "duplicateIdsBeforeMerge": [
+    {
+      "id": "gen_mix_001",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_002",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_003",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_004",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_005",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_006",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_007",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_008",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_009",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_010",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_011",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_012",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_013",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_014",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_015",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_016",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_017",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_018",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_019",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_020",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_021",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_022",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_023",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_024",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_025",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_026",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_027",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_028",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_029",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_030",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_031",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_032",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_033",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_034",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_035",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_036",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_037",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_038",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_039",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_040",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_041",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_042",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_043",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_044",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_045",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_046",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_047",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_048",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_049",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_050",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_051",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_052",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_053",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_054",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_055",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_056",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_057",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_058",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_059",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_060",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_061",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_062",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_063",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_064",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_065",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_066",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_067",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_068",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_069",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_070",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_071",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_072",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_073",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_074",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_075",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_076",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_077",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_078",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_079",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_080",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_081",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_082",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_083",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_084",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_085",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_086",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_087",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_088",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_089",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_090",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_091",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_092",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_093",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_094",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_095",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_096",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_097",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_098",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_099",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    },
+    {
+      "id": "gen_mix_100",
+      "categoryIds": [
+        "cat_general"
+      ],
+      "occurrences": 2,
+      "distinctPayloads": 2
+    }
+  ],
+  "crossCategoryIds": [],
+  "duplicateCandidates": [],
+  "textCandidates": [
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_016",
+        "CLARIFY-051"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v4_040",
+        "CLARIFY-055"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_026",
+        "CLARIFY-056"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v6_001",
+        "CLARIFY-058"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v6_004",
+        "CLARIFY-060"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v4_041",
+        "CLARIFY-059"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_007",
+        "CLARIFY-052"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_019",
+        "CLARIFY-053"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_029",
+        "CLARIFY-057"
+      ]
+    },
+    {
+      "categoryIds": [
+        "world_food",
+        "cat_clarify_image"
+      ],
+      "ids": [
+        "world_food_v3_001",
+        "CLARIFY-054"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-003",
+        "JP-056"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-005",
+        "JP-008",
+        "JP-015",
+        "JP-021",
+        "JP-033",
+        "JP-039",
+        "JP-060"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-006",
+        "JP-007"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-010",
+        "JP-019",
+        "JP-022",
+        "JP-025",
+        "JP-030",
+        "JP-035",
+        "JP-045",
+        "JP-059"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-011",
+        "JP-057"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-012",
+        "JP-041",
+        "JP-064"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-017",
+        "JP-038",
+        "JP-043",
+        "JP-049",
+        "JP-050",
+        "JP-063"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-018",
+        "JP-053",
+        "JP-055"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-020",
+        "JP-024",
+        "JP-026",
+        "JP-054"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-023",
+        "JP-048"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-034",
+        "JP-052"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-044",
+        "JP-058"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-069",
+        "JP-135"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-070",
+        "JP-133"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-072",
+        "JP-105"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-074",
+        "JP-095",
+        "JP-167"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-076",
+        "JP-086",
+        "JP-118"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-080",
+        "JP-096",
+        "JP-123",
+        "JP-164"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-082",
+        "JP-088"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-083",
+        "JP-113"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-084",
+        "JP-128"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-090",
+        "JP-120",
+        "JP-121",
+        "JP-122",
+        "JP-149"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-093",
+        "JP-108"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-100",
+        "JP-107",
+        "JP-132"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-101",
+        "JP-124"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-104",
+        "JP-145"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-112",
+        "JP-125"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-130",
+        "JP-134"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-137",
+        "JP-185"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-138",
+        "JP-163"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-146",
+        "JP-169"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-151",
+        "JP-175"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-155",
+        "JP-184"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-156",
+        "JP-160",
+        "JP-182"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-158",
+        "JP-196"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-159",
+        "JP-173"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-172",
+        "JP-199"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-178",
+        "JP-195"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_price"
+      ],
+      "ids": [
+        "JP-180",
+        "JP-193"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_rub_yasin",
+        "cat_quran_verse_meanings"
+      ],
+      "ids": [
+        "RUBYASIN-007",
+        "QURAN-AYAT-113"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_rub_yasin",
+        "cat_quran_verse_meanings"
+      ],
+      "ids": [
+        "RUBYASIN-013",
+        "QURAN-AYAT-133"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_rub_yasin",
+        "cat_quran_verse_meanings"
+      ],
+      "ids": [
+        "RUBYASIN-021",
+        "QURAN-AYAT-145"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-003-SURAH",
+        "QURAN-MEDIA-121-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-006-SURAH",
+        "QURAN-MEDIA-078-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-008-SURAH",
+        "QURAN-MEDIA-031-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-011-SURAH",
+        "QURAN-MEDIA-149-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-013-SURAH",
+        "QURAN-MEDIA-048-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-016-SURAH",
+        "QURAN-MEDIA-023-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-021-SURAH",
+        "QURAN-MEDIA-088-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-026-SURAH",
+        "QURAN-MEDIA-103-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-028-SURAH",
+        "QURAN-MEDIA-068-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-038-SURAH",
+        "QURAN-MEDIA-126-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-040-SURAH",
+        "QURAN-MEDIA-095-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-046-SURAH",
+        "QURAN-MEDIA-086-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-061-SURAH",
+        "QURAN-MEDIA-131-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-066-SURAH",
+        "QURAN-MEDIA-145-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-073-SURAH",
+        "QURAN-MEDIA-128-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-090-SURAH",
+        "QURAN-MEDIA-141-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-092-SURAH",
+        "QURAN-MEDIA-118-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-099-SURAH",
+        "QURAN-MEDIA-106-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-101-SURAH",
+        "QURAN-MEDIA-150-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-108-SURAH",
+        "QURAN-MEDIA-148-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-116-SURAH",
+        "QURAN-MEDIA-143-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_media"
+      ],
+      "ids": [
+        "QURAN-MEDIA-139-SURAH",
+        "QURAN-MEDIA-146-SURAH"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_capitals_currencies"
+      ],
+      "ids": [
+        "GEO-200-20",
+        "GEO-600-02"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_prophetic_biography",
+        "cat_who_sahabi"
+      ],
+      "ids": [
+        "SAH-018",
+        "WHO-SAHABI-018"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_prophetic_biography",
+        "cat_who_sahabi"
+      ],
+      "ids": [
+        "SAH-045",
+        "WHO-SAHABI-020"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_prophetic_biography",
+        "cat_who_sahabi"
+      ],
+      "ids": [
+        "SAH-141",
+        "WHO-SAHABI-019"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-103",
+        "RECITER-V2-047",
+        "RECITER-V2-019",
+        "RECITER-V2-075"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-002",
+        "RECITER-V2-058",
+        "RECITER-V2-030",
+        "RECITER-V2-114",
+        "RECITER-V2-086"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-067",
+        "RECITER-V2-011",
+        "RECITER-V2-095",
+        "RECITER-V2-039",
+        "RECITER-V2-123"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-107",
+        "RECITER-V2-051",
+        "RECITER-V2-023",
+        "RECITER-V2-079"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-071",
+        "RECITER-V2-127",
+        "RECITER-V2-015",
+        "RECITER-V2-099",
+        "RECITER-V2-043"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-042",
+        "RECITER-V2-014",
+        "RECITER-V2-098",
+        "RECITER-V2-070",
+        "RECITER-V2-126"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-046",
+        "RECITER-V2-018",
+        "RECITER-V2-102",
+        "RECITER-V2-074",
+        "RECITER-V2-130"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-112",
+        "RECITER-V2-056",
+        "RECITER-V2-028",
+        "RECITER-V2-084"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-069",
+        "RECITER-V2-013",
+        "RECITER-V2-097",
+        "RECITER-V2-041",
+        "RECITER-V2-125"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-044",
+        "RECITER-V2-016",
+        "RECITER-V2-100",
+        "RECITER-V2-072",
+        "RECITER-V2-128"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-009",
+        "RECITER-027",
+        "RECITER-012",
+        "RECITER-030",
+        "RECITER-048"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-011",
+        "RECITER-029",
+        "RECITER-047",
+        "RECITER-065",
+        "RECITER-083"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-073",
+        "RECITER-V2-129",
+        "RECITER-V2-017",
+        "RECITER-V2-101",
+        "RECITER-V2-045"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-040",
+        "RECITER-V2-012",
+        "RECITER-V2-096",
+        "RECITER-V2-068",
+        "RECITER-V2-124"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-005",
+        "RECITER-V2-061",
+        "RECITER-V2-033",
+        "RECITER-V2-117",
+        "RECITER-V2-089"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-110",
+        "RECITER-V2-054",
+        "RECITER-V2-026",
+        "RECITER-V2-082"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-003",
+        "RECITER-V2-059",
+        "RECITER-V2-031",
+        "RECITER-V2-115",
+        "RECITER-V2-087"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-008",
+        "RECITER-V2-064",
+        "RECITER-V2-120",
+        "RECITER-V2-036",
+        "RECITER-V2-092"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-108",
+        "RECITER-V2-052",
+        "RECITER-V2-024",
+        "RECITER-V2-080"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-001",
+        "RECITER-V2-057",
+        "RECITER-V2-029",
+        "RECITER-V2-113",
+        "RECITER-V2-085"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-111",
+        "RECITER-V2-055",
+        "RECITER-V2-027",
+        "RECITER-V2-083"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-006",
+        "RECITER-024",
+        "RECITER-042",
+        "RECITER-060",
+        "RECITER-078"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-104",
+        "RECITER-V2-048",
+        "RECITER-V2-020",
+        "RECITER-V2-076"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-066",
+        "RECITER-V2-010",
+        "RECITER-V2-094",
+        "RECITER-V2-038",
+        "RECITER-V2-122"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-007",
+        "RECITER-V2-063",
+        "RECITER-V2-119",
+        "RECITER-V2-035",
+        "RECITER-V2-091"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-109",
+        "RECITER-V2-053",
+        "RECITER-V2-025",
+        "RECITER-V2-081"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-004",
+        "RECITER-022",
+        "RECITER-040",
+        "RECITER-008",
+        "RECITER-017"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-009",
+        "RECITER-V2-065",
+        "RECITER-V2-121",
+        "RECITER-V2-037",
+        "RECITER-V2-093"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-016",
+        "RECITER-034",
+        "RECITER-052",
+        "RECITER-070",
+        "RECITER-088"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-006",
+        "RECITER-V2-062",
+        "RECITER-V2-034",
+        "RECITER-V2-118",
+        "RECITER-V2-090"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-004",
+        "RECITER-V2-060",
+        "RECITER-V2-032",
+        "RECITER-V2-116",
+        "RECITER-V2-088"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-105",
+        "RECITER-V2-049",
+        "RECITER-V2-021",
+        "RECITER-V2-077"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-001",
+        "RECITER-019",
+        "RECITER-037",
+        "RECITER-055",
+        "RECITER-073"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-V2-106",
+        "RECITER-V2-050",
+        "RECITER-V2-022",
+        "RECITER-V2-078"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-005",
+        "RECITER-023",
+        "RECITER-041",
+        "RECITER-059",
+        "RECITER-077"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-018",
+        "RECITER-036",
+        "RECITER-054",
+        "RECITER-072",
+        "RECITER-090"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-015",
+        "RECITER-033",
+        "RECITER-051",
+        "RECITER-069",
+        "RECITER-087"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-007",
+        "RECITER-014",
+        "RECITER-025",
+        "RECITER-032",
+        "RECITER-043"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-003",
+        "RECITER-021",
+        "RECITER-039",
+        "RECITER-057",
+        "RECITER-075"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-013",
+        "RECITER-031",
+        "RECITER-049",
+        "RECITER-067",
+        "RECITER-085"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-002",
+        "RECITER-020",
+        "RECITER-038",
+        "RECITER-056",
+        "RECITER-074"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_quran_reciter"
+      ],
+      "ids": [
+        "RECITER-010",
+        "RECITER-028",
+        "RECITER-046",
+        "RECITER-064",
+        "RECITER-082"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-031",
+        "SOUND-074"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-033",
+        "SOUND-076"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-034",
+        "SOUND-080"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-035",
+        "SOUND-079"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-036",
+        "SOUND-077"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-037",
+        "SOUND-078"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-038",
+        "SOUND-075"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-041",
+        "SOUND-073"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-042",
+        "SOUND-071"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-043",
+        "SOUND-072"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-050",
+        "SOUND-084"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-051",
+        "SOUND-081"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-052",
+        "SOUND-082"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-053",
+        "SOUND-083"
+      ]
+    },
+    {
+      "categoryIds": [
+        "cat_guess_sound"
+      ],
+      "ids": [
+        "SOUND-054",
+        "SOUND-085"
+      ]
+    }
+  ]
+}

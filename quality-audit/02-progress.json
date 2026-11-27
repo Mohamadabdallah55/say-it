@@ -1,0 +1,306 @@
+{
+  "baselineCommit": "a376c77af578bcf1ee750e27156e9d0bd3897ada",
+  "baselineInventory": "baseline/inventory.json",
+  "officialCategories": 54,
+  "originalQuestions": 5792,
+  "releasedCategories": 0,
+  "categoryProgress": {
+    "cat_real_madrid": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 51,
+        "400": 50,
+        "600": 41
+      },
+      "textReviewedByOriginalTier": {
+        "200": 27,
+        "400": 19,
+        "600": 18
+      },
+      "factsSourceVerified": 64,
+      "newQuestionsSourceVerified": 3,
+      "mediaViewedInGame": 49,
+      "activeMediaRightsPending": 48,
+      "mediaBlocked": [
+        "RM-061"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 33,
+      "replacementsAppliedPendingSecondReview": [
+        "RM-039-QA1",
+        "RM-055-QA1",
+        "RM-053-QA1"
+      ],
+      "pendingDemotions": [
+        "RM-007-R2",
+        "RM-015-R2-R4",
+        "RM-034-R3",
+        "RM-060",
+        "RM-058"
+      ],
+      "pendingReplacements": [
+        "RM-018-R3"
+      ],
+      "confirmedDuplicatePairs": [
+        [
+          "RM-053",
+          "FK-E-007"
+        ]
+      ],
+      "lastReviewedId": "RM-E-057-E6",
+      "notes": "استُبدل التكرار بين ريال مدريد والحروف الكروية. حُذفت صورة خاطئة من سؤال فاسكيز بانتظار البديل. الحقوق والمراجعة الثانية وفحص كامل بنك ريال مدريد معلقة.",
+      "mediaContextFollowUp": [
+        "RM-065",
+        "RM-066"
+      ]
+    },
+    "cat_geometry": {
+      "status": "content_first_pass_complete",
+      "originalTierCounts": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "textReviewedByOriginalTier": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 0,
+      "factsMathematicallyVerified": 100,
+      "newQuestionsMathematicallyVerified": 19,
+      "replacementsAppliedPendingSecondReview": [
+        "GEO-036-QA1",
+        "GEO-051-QA1",
+        "GEO-052-QA1",
+        "GEO-069-QA1",
+        "GEO-070-QA1",
+        "GEO-071-QA1",
+        "GEO-072-QA1",
+        "GEO-075-QA1",
+        "GEO-077-QA1",
+        "GEO-080-QA1",
+        "GEO-085-QA1",
+        "GEO-087-QA1",
+        "GEO-088-QA1",
+        "GEO-089-QA1",
+        "GEO-090-QA1",
+        "GEO-093-QA1",
+        "GEO-096-QA1",
+        "GEO-098-QA1",
+        "GEO-099-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 10,
+      "lastReviewedId": "GEO-100"
+    },
+    "cat_rub_yasin": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "textReviewedByOriginalTier": {
+        "200": 3,
+        "400": 15,
+        "600": 0
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 18,
+      "replacementsAppliedPendingSecondReview": [
+        "RUBYASIN-100-QA1",
+        "RUBYASIN-101-QA1",
+        "RUBYASIN-102-QA1",
+        "RUBYASIN-107-QA1",
+        "RUBYASIN-108-QA1",
+        "RUBYASIN-109-QA1",
+        "RUBYASIN-110-QA1",
+        "RUBYASIN-113-QA1",
+        "RUBYASIN-114-QA1",
+        "RUBYASIN-119-QA1",
+        "RUBYASIN-120-QA1",
+        "RUBYASIN-007-QA1",
+        "RUBYASIN-013-QA1",
+        "RUBYASIN-021-QA1",
+        "RUBYASIN-076-QA1",
+        "RUBYASIN-079-QA1",
+        "RUBYASIN-082-QA1",
+        "RUBYASIN-089-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 0,
+      "lastReviewedId": "RUBYASIN-089"
+    },
+    "cat_football_letters": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 46,
+        "400": 46,
+        "600": 38
+      },
+      "textReviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 2
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 2,
+      "replacementsAppliedPendingSecondReview": [
+        "FK-006-QA1",
+        "FK-022-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 0,
+      "lastReviewedId": "FK-022"
+    },
+    "cat_general": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 26,
+        "400": 37,
+        "600": 41
+      },
+      "textReviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 1
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 1,
+      "replacementsAppliedPendingSecondReview": [
+        "gen_600_qa1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 0,
+      "lastReviewedId": "gen_600"
+    },
+    "cat_quran_media": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 52,
+        "400": 52,
+        "600": 46
+      },
+      "textReviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 1
+      },
+      "factsSourceVerified": 0,
+      "newQuestionsSourceVerified": 1,
+      "replacementsAppliedPendingSecondReview": [
+        "QURAN-MEDIA-120-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 0,
+      "lastReviewedId": "QURAN-MEDIA-120"
+    },
+    "cat_science_quiz": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 30,
+        "400": 60,
+        "600": 60
+      },
+      "textReviewedByOriginalTier": {
+        "200": 0,
+        "400": 2,
+        "600": 0
+      },
+      "factsSourceVerified": 2,
+      "newQuestionsSourceVerified": 1,
+      "replacementsAppliedPendingSecondReview": [
+        "SCI-059-QA1"
+      ],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 1,
+      "lastReviewedId": "SCI-034"
+    },
+    "cat_quran_verse_meanings": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "textReviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "factsSourceVerified": 1,
+      "newQuestionsSourceVerified": 0,
+      "replacementsAppliedPendingSecondReview": [],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 1,
+      "lastReviewedId": "QURAN-AYAT-088"
+    },
+    "cat_prophetic_biography": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 58,
+        "400": 38,
+        "600": 44
+      },
+      "textReviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "factsSourceVerified": 1,
+      "newQuestionsSourceVerified": 0,
+      "replacementsAppliedPendingSecondReview": [],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 1,
+      "lastReviewedId": "SAH-114"
+    },
+    "cat_world_cup_2026": {
+      "status": "in_review",
+      "originalTierCounts": {
+        "200": 58,
+        "400": 64,
+        "600": 28
+      },
+      "textReviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "factsSourceVerified": 1,
+      "newQuestionsSourceVerified": 0,
+      "replacementsAppliedPendingSecondReview": [],
+      "secondReviewCompleted": 0,
+      "acceptedQuestions": 0,
+      "contentEdits": 1,
+      "lastReviewedId": "WC26-200-49"
+    }
+  },
+  "defaultCategoryStatus": "screened_content_pending",
+  "contentPhase": {
+    "priority": "content_and_difficulty_first",
+    "automatedScreen": {
+      "questions": 5792,
+      "categories": 54,
+      "report": "content-screen.json",
+      "candidateGroups": "content-candidates.jsonl"
+    },
+    "latestBatch": {
+      "originalsReviewed": 128,
+      "replacementsAppliedPendingSecondReview": 42,
+      "categories": 10
+    },
+    "media": "deferred",
+    "mediaFixList": "media-fix-list.md"
+  }
+}

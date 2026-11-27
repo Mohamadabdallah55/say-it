@@ -1,0 +1,276 @@
+{
+  "baselineByCategory": "baseline/inventory.json",
+  "categories": {
+    "cat_real_madrid": {
+      "before": {
+        "200": 51,
+        "400": 50,
+        "600": 41
+      },
+      "after": {
+        "200": 51,
+        "400": 50,
+        "600": 41
+      },
+      "reviewedByOriginalTier": {
+        "200": 27,
+        "400": 19,
+        "600": 18
+      },
+      "originalsWithEdits": 33,
+      "originalsRetainedWithoutEdits": 28,
+      "originalsRetired": 3,
+      "pendingDemotions": 5,
+      "pendingReplacements": 1,
+      "pendingDeduplication": 0,
+      "demotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 3,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "status": "in_review"
+    },
+    "cat_geometry": {
+      "before": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "after": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "reviewedByOriginalTier": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "originalsWithEdits": 10,
+      "originalsRetainedWithoutEdits": 71,
+      "originalsRetired": 19,
+      "demotionsApplied": 2,
+      "promotionsApplied": 2,
+      "replacementsAppliedPendingSecondReview": 19,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 16,
+      "status": "in_review"
+    },
+    "cat_rub_yasin": {
+      "before": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "after": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "reviewedByOriginalTier": {
+        "200": 3,
+        "400": 15,
+        "600": 0
+      },
+      "originalsWithEdits": 0,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 18,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 18,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    },
+    "cat_football_letters": {
+      "before": {
+        "200": 46,
+        "400": 46,
+        "600": 38
+      },
+      "after": {
+        "200": 46,
+        "400": 46,
+        "600": 38
+      },
+      "reviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 2
+      },
+      "originalsWithEdits": 0,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 2,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 2,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 2,
+      "status": "in_review"
+    },
+    "cat_general": {
+      "before": {
+        "200": 26,
+        "400": 37,
+        "600": 41
+      },
+      "after": {
+        "200": 26,
+        "400": 37,
+        "600": 41
+      },
+      "reviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 1
+      },
+      "originalsWithEdits": 0,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 1,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 1,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 1,
+      "status": "in_review"
+    },
+    "cat_quran_media": {
+      "before": {
+        "200": 52,
+        "400": 52,
+        "600": 46
+      },
+      "after": {
+        "200": 52,
+        "400": 52,
+        "600": 46
+      },
+      "reviewedByOriginalTier": {
+        "200": 0,
+        "400": 0,
+        "600": 1
+      },
+      "originalsWithEdits": 0,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 1,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 1,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 1,
+      "status": "in_review"
+    },
+    "cat_science_quiz": {
+      "before": {
+        "200": 30,
+        "400": 60,
+        "600": 60
+      },
+      "after": {
+        "200": 30,
+        "400": 60,
+        "600": 60
+      },
+      "reviewedByOriginalTier": {
+        "200": 0,
+        "400": 2,
+        "600": 0
+      },
+      "originalsWithEdits": 1,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 1,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 1,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    },
+    "cat_quran_verse_meanings": {
+      "before": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "after": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "reviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "originalsWithEdits": 1,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 0,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 0,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    },
+    "cat_prophetic_biography": {
+      "before": {
+        "200": 58,
+        "400": 38,
+        "600": 44
+      },
+      "after": {
+        "200": 58,
+        "400": 38,
+        "600": 44
+      },
+      "reviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "originalsWithEdits": 1,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 0,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 0,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    },
+    "cat_world_cup_2026": {
+      "before": {
+        "200": 58,
+        "400": 64,
+        "600": 28
+      },
+      "after": {
+        "200": 58,
+        "400": 64,
+        "600": 28
+      },
+      "reviewedByOriginalTier": {
+        "200": 1,
+        "400": 0,
+        "600": 0
+      },
+      "originalsWithEdits": 1,
+      "originalsRetainedWithoutEdits": 0,
+      "originalsRetired": 0,
+      "demotionsApplied": 0,
+      "promotionsApplied": 0,
+      "replacementsAppliedPendingSecondReview": 0,
+      "replacementsAccepted": 0,
+      "uncompensated600": 0,
+      "hardReplacementsPendingAcceptance": 0,
+      "status": "in_review"
+    }
+  }
+}

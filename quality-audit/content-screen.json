@@ -1,0 +1,630 @@
+{
+  "bankDigest": "8646153899938057ec810695b6fbf34ed88ef6c739dfebebb84a90db46897d03",
+  "scope": "Automated screening of the effective official catalog. Flags require review. Counts are not factual, difficulty, or media approvals.",
+  "questions": 5792,
+  "categoryCount": 54,
+  "contentCandidateGroups": 60,
+  "automatedMediaCases": 129,
+  "categories": {
+    "world_food": {
+      "name": "أكلات العالم",
+      "tiers": {
+        "200": 15,
+        "400": 15,
+        "600": 15
+      },
+      "screened": 45,
+      "candidates": {},
+      "mediaRows": 45
+    },
+    "cat_apps": {
+      "name": "التطبيقات",
+      "tiers": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_prophet_stories": {
+      "name": "قصص الأنبياء",
+      "tiers": {
+        "200": 170,
+        "400": 116,
+        "600": 114
+      },
+      "screened": 400,
+      "candidates": {
+        "same_quran_reference_and_answer": 10
+      },
+      "mediaRows": 0
+    },
+    "cat_guess_price": {
+      "name": "خمّن سعر المنتج",
+      "tiers": {
+        "200": 64,
+        "400": 64,
+        "600": 62
+      },
+      "screened": 190,
+      "candidates": {},
+      "mediaRows": 190
+    },
+    "cat_rashidun": {
+      "name": "الخلفاء الراشدون",
+      "tiers": {
+        "200": 19,
+        "400": 15,
+        "600": 21
+      },
+      "screened": 55,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "jordan_brands_nostalgia": {
+      "name": "شعارات الأردن",
+      "tiers": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_jordan_nostalgia": {
+      "name": "زمن الطيبين",
+      "tiers": {
+        "200": 51,
+        "400": 40,
+        "600": 23
+      },
+      "screened": 114,
+      "candidates": {},
+      "mediaRows": 114
+    },
+    "cat_world_cup_2026": {
+      "name": "كأس العالم 2026",
+      "tiers": {
+        "200": 58,
+        "400": 64,
+        "600": 28
+      },
+      "screened": 150,
+      "candidates": {},
+      "mediaRows": 112
+    },
+    "cat_palestinian_proverbs": {
+      "name": "تركيب أمثال فلسطينية",
+      "tiers": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_visual_memory": {
+      "name": "ركّز",
+      "tiers": {
+        "200": 23,
+        "400": 48,
+        "600": 29
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_flags": {
+      "name": "الأعلام",
+      "tiers": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_champions_league": {
+      "name": "دوري أبطال أوروبا",
+      "tiers": {
+        "200": 35,
+        "400": 40,
+        "600": 25
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 58
+    },
+    "cat_juz_amma": {
+      "name": "جزء عمّ",
+      "tiers": {
+        "200": 50,
+        "400": 50,
+        "600": 50
+      },
+      "screened": 150,
+      "candidates": {
+        "same_quran_reference_and_answer": 11
+      },
+      "mediaRows": 0
+    },
+    "cat_juz_tabarak": {
+      "name": "جزء تبارك",
+      "tiers": {
+        "200": 50,
+        "400": 50,
+        "600": 50
+      },
+      "screened": 150,
+      "candidates": {
+        "same_quran_reference_and_answer": 8
+      },
+      "mediaRows": 0
+    },
+    "cat_rub_yasin": {
+      "name": "ربع يس",
+      "tiers": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "screened": 150,
+      "candidates": {
+        "same_quran_reference_and_answer": 38
+      },
+      "mediaRows": 0
+    },
+    "cat_el_clasico": {
+      "name": "كلاسيكو",
+      "tiers": {
+        "200": 32,
+        "400": 39,
+        "600": 29
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 90
+    },
+    "cat_club_logos": {
+      "name": "شعارات كروية",
+      "tiers": {
+        "200": 54,
+        "400": 36,
+        "600": 12
+      },
+      "screened": 102,
+      "candidates": {},
+      "mediaRows": 102
+    },
+    "cat_quran_media": {
+      "name": "قرآن كريم",
+      "tiers": {
+        "200": 52,
+        "400": 52,
+        "600": 46
+      },
+      "screened": 150,
+      "candidates": {
+        "same_quran_reference_and_answer": 4
+      },
+      "mediaRows": 125
+    },
+    "cat_capitals_currencies": {
+      "name": "عواصم وعملات",
+      "tiers": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "screened": 75,
+      "candidates": {},
+      "mediaRows": 75
+    },
+    "cat_prophetic_biography": {
+      "name": "السيرة النبوية",
+      "tiers": {
+        "200": 58,
+        "400": 38,
+        "600": 44
+      },
+      "screened": 140,
+      "candidates": {
+        "same_prompt_and_answer": 3,
+        "same_quran_reference_and_answer": 8
+      },
+      "mediaRows": 0
+    },
+    "cat_who_sahabi": {
+      "name": "من الصحابي؟",
+      "tiers": {
+        "200": 30,
+        "400": 20,
+        "600": 20
+      },
+      "screened": 70,
+      "candidates": {
+        "same_prompt_and_answer": 3,
+        "same_quran_reference_and_answer": 1
+      },
+      "mediaRows": 0
+    },
+    "cat_quran_verse_meanings": {
+      "name": "آيات القرآن ومعانيها",
+      "tiers": {
+        "200": 75,
+        "400": 45,
+        "600": 30
+      },
+      "screened": 150,
+      "candidates": {
+        "same_quran_reference_and_answer": 18
+      },
+      "mediaRows": 0
+    },
+    "cat_world_wars": {
+      "name": "الحرب العالمية",
+      "tiers": {
+        "200": 15,
+        "400": 24,
+        "600": 36
+      },
+      "screened": 75,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_hadith": {
+      "name": "أحاديث",
+      "tiers": {
+        "200": 15,
+        "400": 16,
+        "600": 18
+      },
+      "screened": 49,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_brain_teasers": {
+      "name": "ألغاز ذكاء",
+      "tiers": {
+        "200": 25,
+        "400": 25,
+        "600": 25
+      },
+      "screened": 75,
+      "candidates": {
+        "answer_in_prompt": 1
+      },
+      "mediaRows": 0
+    },
+    "cat_real_madrid": {
+      "name": "ريال مدريد",
+      "tiers": {
+        "200": 51,
+        "400": 50,
+        "600": 41
+      },
+      "screened": 142,
+      "candidates": {},
+      "mediaRows": 113
+    },
+    "cat_barcelona": {
+      "name": "برشلونة",
+      "tiers": {
+        "200": 14,
+        "400": 22,
+        "600": 11
+      },
+      "screened": 47,
+      "candidates": {},
+      "mediaRows": 45
+    },
+    "cat_reversed_words": {
+      "name": "كلمات معكوسة",
+      "tiers": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "screened": 60,
+      "candidates": {},
+      "mediaRows": 60
+    },
+    "cat_football_letters": {
+      "name": "حروف كروية",
+      "tiers": {
+        "200": 46,
+        "400": 46,
+        "600": 38
+      },
+      "screened": 130,
+      "candidates": {},
+      "mediaRows": 1
+    },
+    "cat_islamic_letters": {
+      "name": "حروف إسلامي",
+      "tiers": {
+        "200": 72,
+        "400": 40,
+        "600": 25
+      },
+      "screened": 137,
+      "candidates": {
+        "same_quran_reference_and_answer": 7
+      },
+      "mediaRows": 0
+    },
+    "cat_medical": {
+      "name": "طبي",
+      "tiers": {
+        "200": 12,
+        "400": 18,
+        "600": 20
+      },
+      "screened": 50,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_science_quiz": {
+      "name": "علوم",
+      "tiers": {
+        "200": 30,
+        "400": 60,
+        "600": 60
+      },
+      "screened": 150,
+      "candidates": {
+        "answer_in_prompt": 4
+      },
+      "mediaRows": 0
+    },
+    "cat_english_letters": {
+      "name": "حروف إنجليزي",
+      "tiers": {
+        "200": 15,
+        "400": 17,
+        "600": 18
+      },
+      "screened": 50,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_arabic_roots": {
+      "name": "اللغة العربية - جذر",
+      "tiers": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_arabic_plurals": {
+      "name": "اللغة العربية - جمع",
+      "tiers": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_arabic_grammar": {
+      "name": "اللغة العربية - إعراب",
+      "tiers": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_football_career": {
+      "name": "مسيرة لاعب",
+      "tiers": {
+        "200": 38,
+        "400": 31,
+        "600": 21
+      },
+      "screened": 90,
+      "candidates": {},
+      "mediaRows": 90
+    },
+    "cat_quran_reciter": {
+      "name": "من القارئ؟",
+      "tiers": {
+        "200": 67,
+        "400": 66,
+        "600": 67
+      },
+      "screened": 200,
+      "candidates": {},
+      "mediaRows": 200
+    },
+    "cat_islamic_ordering": {
+      "name": "ترتيب إسلامي",
+      "tiers": {
+        "200": 26,
+        "400": 15,
+        "600": 46
+      },
+      "screened": 87,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_world_football": {
+      "name": "كرة قدم عالمية",
+      "tiers": {
+        "200": 33,
+        "400": 35,
+        "600": 32
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 8
+    },
+    "cat_football_first_name": {
+      "name": "الاسم الأول للاعب",
+      "tiers": {
+        "200": 79,
+        "400": 13,
+        "600": 8
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_geometry": {
+      "name": "هندسة رياضية",
+      "tiers": {
+        "200": 34,
+        "400": 33,
+        "600": 33
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_football_ordering": {
+      "name": "ترتيب كروي",
+      "tiers": {
+        "200": 27,
+        "400": 65,
+        "600": 38
+      },
+      "screened": 130,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_hashemite_university": {
+      "name": "الجامعة الهاشمية",
+      "tiers": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 41
+    },
+    "cat_four_pictures": {
+      "name": "أربع صور وكلمة",
+      "tiers": {
+        "200": 15,
+        "400": 15,
+        "600": 15
+      },
+      "screened": 45,
+      "candidates": {},
+      "mediaRows": 45
+    },
+    "cat_arabic_dialects": {
+      "name": "اللهجات",
+      "tiers": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "screened": 60,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_silent_acting": {
+      "name": "تمثيل صامت",
+      "tiers": {
+        "200": 24,
+        "400": 42,
+        "600": 34
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 0
+    },
+    "cat_zoomed_image": {
+      "name": "خمن الصورة المقربة",
+      "tiers": {
+        "200": 20,
+        "400": 20,
+        "600": 20
+      },
+      "screened": 60,
+      "candidates": {},
+      "mediaRows": 60
+    },
+    "cat_clarify_image": {
+      "name": "وضّح شوي",
+      "tiers": {
+        "200": 24,
+        "400": 18,
+        "600": 18
+      },
+      "screened": 60,
+      "candidates": {},
+      "mediaRows": 60
+    },
+    "cat_guess_sound": {
+      "name": "خمن الصوت",
+      "tiers": {
+        "200": 30,
+        "400": 40,
+        "600": 30
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "world_country_maps": {
+      "name": "خمن الدولة المظللة",
+      "tiers": {
+        "200": 30,
+        "400": 30,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 100
+    },
+    "cat_general": {
+      "name": "معلومات عامة",
+      "tiers": {
+        "200": 26,
+        "400": 37,
+        "600": 41
+      },
+      "screened": 104,
+      "candidates": {},
+      "mediaRows": 84
+    },
+    "cat_riddle_proverb_mix": {
+      "name": "لغز ومثل",
+      "tiers": {
+        "200": 25,
+        "400": 35,
+        "600": 40
+      },
+      "screened": 100,
+      "candidates": {
+        "answer_in_prompt": 1
+      },
+      "mediaRows": 0
+    },
+    "cat_palestinian_dialect": {
+      "name": "شو يعني بالفلسطيني؟",
+      "tiers": {
+        "200": 30,
+        "400": 35,
+        "600": 35
+      },
+      "screened": 100,
+      "candidates": {},
+      "mediaRows": 50
+    }
+  }
+}

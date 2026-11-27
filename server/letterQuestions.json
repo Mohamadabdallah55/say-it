@@ -41,11 +41,14 @@
       "points": 400
     },
     {
-      "id": "FK-006",
-      "letter": "ض",
-      "question": "أي نادٍ سعودي من خميس مشيط يلعب في دوري المحترفين؟",
-      "answer": "ضمك",
-      "points": 600
+      "id": "FK-006-QA1",
+      "letter": "ر",
+      "question": "من اللاعب الذي سجّل ليوغوسلافيا في كأس العالم 1990 ثم سجّل لكرواتيا في كأس العالم 1998؟",
+      "answer": "روبرت بروسينيتشكي",
+      "points": 600,
+      "acceptedAnswers": ["روبرت بروزينيتشكي", "روبرت بروسينيتسكي", "Robert Prosinečki"],
+      "explanation": "سجّل روبرت بروسينيتشكي في نهائيات كأس العالم مع يوغوسلافيا عام 1990 ومع كرواتيا عام 1998.",
+      "referenceUrl": "https://www.uefa.com/MultimediaFiles/Download/competitions/Draws/02/58/59/46/2585946_DOWNLOAD.pdf"
     },
     {
       "id": "FK-007",
@@ -157,11 +160,14 @@
       "points": 200
     },
     {
-      "id": "FK-022",
-      "letter": "غ",
-      "question": "أي منتخب أقصى غينيا الاستوائية بهدف محمد بايو في الوقت بدل الضائع من ثمن نهائي أمم أفريقيا 2023؟",
-      "answer": "غينيا",
-      "points": 600
+      "id": "FK-022-QA1",
+      "letter": "م",
+      "question": "أي منتخب تقدّم بهدف نيني دورجيليس في ربع نهائي كأس أمم أفريقيا 2023، قبل أن يقلب ساحل العاج النتيجة ويفوز بعد التمديد؟",
+      "answer": "مالي",
+      "points": 600,
+      "acceptedAnswers": ["منتخب مالي", "Mali"],
+      "explanation": "تقدمت مالي بهدف دورجيليس، ثم عادل ساحل العاج وفاز 2–1 بعد التمديد.",
+      "referenceUrl": "https://www.cafonline.com/caf-africa-cup-of-nations/news/late-drama-as-cote-d-ivoire-come-back-from-behind-to-beat-mali/"
     },
     {
       "id": "FK-023",
