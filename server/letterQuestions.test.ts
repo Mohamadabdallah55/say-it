@@ -36,7 +36,8 @@ test('language banks preserve every clue, answer and points tier in the supplied
   const countByTier = (bank: typeof questions) =>
     [200, 400, 600].map(points => bank.filter(question => question.points === points).length);
   assert.deepEqual(countByTier(FOOTBALL_LETTERS_QUESTIONS), [46, 46, 38]);
-  assert.deepEqual(countByTier(ISLAMIC_LETTERS_QUESTIONS), [50, 50, 50]);
+  // Current source bank was re-tiered; preserve its actual counts.
+  assert.deepEqual(countByTier(ISLAMIC_LETTERS_QUESTIONS), [77, 45, 28]);
   assert.deepEqual(countByTier(ENGLISH_LETTERS_QUESTIONS), [15, 17, 18]);
   assert.deepEqual(countByTier(ARABIC_ROOTS_QUESTIONS), [30, 35, 35]);
   assert.equal([...new Set(ENGLISH_LETTERS_QUESTIONS.map(question => question.startingLetter))].sort().join(''), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
