@@ -378,6 +378,7 @@ export function GameArena({
   useEffect(() => {
     let mounted = true;
     let refreshing = false;
+    let hasSnapshot = false;
     const loadState = async () => {
       if (!mounted || refreshing) return;
       refreshing = true;
@@ -389,11 +390,12 @@ export function GameArena({
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
         if (mounted) {
           setNowMs(Date.now());
+          hasSnapshot = true;
           setError(null);
           setState(current => current && current.updatedAt > data.state.updatedAt ? current : data.state);
         }
       } catch (err) {
-        if (mounted) setState(current => { if (!current) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.'); return current; });
+        if (mounted && !hasSnapshot) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
       } finally { refreshing = false; }
     };
     void loadState();
@@ -409,6 +411,7 @@ export function GameArena({
       try {
         const msg = JSON.parse(ev.data);
         if (msg.type === 'STATE_SYNC') {
+          hasSnapshot = true;
           setError(null);
           setNowMs(Date.now());
           const next = msg.payload as ArenaState;
