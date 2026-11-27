@@ -865,6 +865,11 @@ async function startServer() {
     });
     app.use(express.static(distDir, { setHeaders: (res, file) => {
       if (file.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+      // Vite's fingerprinted JS/CSS URLs change whenever the content changes.
+      // Never apply immutable caching to HTML, decks or stable media URLs.
+      else if (/^assets[\\/][^\\/]+-[A-Za-z0-9_-]{8,}\.(?:js|css)$/.test(path.relative(distDir, file))) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
     }}));
     // Do not return the SPA home page for missing game guides or sitemap files.
     app.get(['/games/*', '/sitemap.xml', '/robots.txt'], (_req, res) => res.status(404).send('Not found'));
