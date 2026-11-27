@@ -12,7 +12,6 @@ import {
   type RecoveredDeckRecord,
 } from '../game/remoteDecks';
 import {
-  getAllCachedRemoteImages,
   getCachedRemoteImagesByUrl,
   getAllRecoveredDeckRecords,
   getRemoteSyncSettings,
@@ -294,7 +293,6 @@ export async function syncRemoteDecks(options?: {
     };
   }
 
-  const cachedImagesMap = await getAllCachedRemoteImages();
   let addedCount = 0;
   let updatedCount = 0;
   let skippedInvalidQuestionsCount = 0;
@@ -340,6 +338,9 @@ export async function syncRemoteDecks(options?: {
       // Bounded parallel downloads keep illustrated banks with 100+ questions
       // practical without flooding the CDN or browser connection pool.
       const imageUrls = validation.imageUrlsToFetch;
+      // Cache lookup stays scoped to this bank, so sync does not keep unrelated
+      // base64 images from previous banks in memory.
+      const cachedImagesMap = await getCachedRemoteImagesByUrl(imageUrls);
       const IMAGE_BATCH_SIZE = 6;
       for (let start = 0; start < imageUrls.length; start += IMAGE_BATCH_SIZE) {
         const batch = imageUrls.slice(start, start + IMAGE_BATCH_SIZE);
