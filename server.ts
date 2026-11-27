@@ -584,8 +584,18 @@ async function startServer() {
       res.setHeader('Connection', 'keep-alive');
       res.flushHeaders?.();
 
+      // Keep the progress stream alive during slow AI calls, but never buffer
+      // further updates for a disconnected client. Checkpoints remain active.
+      const streamOpen = () => !res.destroyed && !res.writableEnded;
+      const heartbeat = setInterval(() => {
+        if (streamOpen() && !res.writableNeedDrain) res.write(': heartbeat\n\n');
+      }, 15000);
+      const stopHeartbeat = () => clearInterval(heartbeat);
+      res.once('close', stopHeartbeat);
+
       const writeEvent = (event: string, data: unknown) => {
-        if (!res.writableEnded) {
+        if (streamOpen()) {
+          if (event === 'progress' && res.writableNeedDrain) return;
           res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
         }
       };
@@ -610,7 +620,7 @@ async function startServer() {
           },
         });
         writeEvent('done', result);
-        res.end();
+        if (streamOpen()) res.end();
       } catch (err) {
         const errorMsg = formatGeminiError(err) || 'تعذر توليد أسئلة اللوحة من الملف.';
         writeEvent('error', {
@@ -618,7 +628,10 @@ async function startServer() {
           jobId: latestJobId,
           status: isQuotaError(err) ? 429 : isServiceUnavailableError(err) ? 503 : 500,
         });
-        res.end();
+        if (streamOpen()) res.end();
+      } finally {
+        stopHeartbeat();
+        res.removeListener('close', stopHeartbeat);
       }
       return;
     }
