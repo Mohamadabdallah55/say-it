@@ -33,7 +33,7 @@ export function servePrecompressedAssets(distDir: string): RequestHandler {
     if (!match || !fingerprintedAsset.test(match[1])) return next();
     res.vary('Accept-Encoding');
     // Range requests must keep the original file's normal byte semantics.
-    if (req.headers.range) return next();
+    if (req.headers.range || !req.headers['accept-encoding']) return next();
     const file = path.join(distDir, 'assets', match[1]);
     const available: string[] = [];
     for (const [encoding, suffix] of [['br', '.br'], ['gzip', '.gz']]) {
