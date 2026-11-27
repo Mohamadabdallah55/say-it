@@ -186,6 +186,10 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
             </div>
             <KhattBrandArtwork className="platform-drawing-art khatt-cover-art"/>
           </article>
+          <article className="platform-words">
+            <div className="platform-thirty-copy"><span className="platform-kicker">حروف · سرعة · 2–12 لاعبين</span><h2>هات كلمة</h2><p>حرف واحد… والكل مستعجل!</p><div className="platform-rounds"><span><Users size={14}/> غرف خاصة</span><span><Zap size={14}/> خلصت!</span></div><div className="platform-actions"><a href="/?words=1" className="platform-btn platform-btn-yellow" onClick={()=>soundFX.playClick()}><Play size={16} fill="currentColor"/> ابدأ اللعب</a></div></div>
+            <div className="word-platform-art" aria-hidden="true"><div className="word-mark">؟</div><div className="word-art-tiles"><b>أ</b><b>ب</b><b>م</b></div></div>
+          </article>
           <section className="platform-tools" aria-label="أدوات يمكن هاي">
             <h2>أدوات يمكن هاي</h2>
             <button type="button" disabled={warmingGames} onClick={() => click(() => { void prepareGames(); })}><Zap size={21}/><span>{warmingGames ? 'جاري تجهيز الألعاب…' : 'جهّز الألعاب للجلسة'}</span><ArrowLeft size={16}/></button>
@@ -196,7 +200,7 @@ export function TitleScreen({ challenge, onStartQuick, onOpenPdfStudio, onOpenLi
           </section>
         </section>
       </main>
-      <ChallengeArena {...challenge} onStartQuick={()=>click(onStartQuick)} onOpenPdfStudio={()=>click(onOpenPdfStudio)} onOpenSavedMatches={()=>click(onOpenSavedMatches)} onJoin={()=>click(()=>{setJoinError('');setShowJoin(true);})} gameUrls={{thirty:THIRTY_URL,khalf:KHALF_URL,codenames:CODENAMES_URL,horouf:HOROUF_URL,drawing:'/?drawing=1'}}/>
+      <ChallengeArena {...challenge} onStartQuick={()=>click(onStartQuick)} onOpenPdfStudio={()=>click(onOpenPdfStudio)} onOpenSavedMatches={()=>click(onOpenSavedMatches)} onJoin={()=>click(()=>{setJoinError('');setShowJoin(true);})} gameUrls={{thirty:THIRTY_URL,khalf:KHALF_URL,codenames:CODENAMES_URL,horouf:HOROUF_URL,drawing:'/?drawing=1',words:'/?words=1'}}/>
       <footer className="platform-footer"><span>يمكن هاي · ألعاب وتحديات جماعية</span><nav aria-label="أدلة الألعاب" style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'12px',marginTop:'10px'}}><a href="/games/quiz/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب يمكن هاي</a><a href="/games/30-seconds/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب تحدي الثلاثين</a><a href="/games/khalf-khilaf/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب خلف خلاف</a><a href="/games/codenames/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب كود نيمز</a><a href="/games/horouf/" style={{color:'inherit',textDecoration:'underline'}}>طريقة لعب حروف النخبة</a></nav></footer>
       {showJoin && <div className="platform-modal" role="dialog" aria-modal="true" aria-label="الانضمام لغرفة" onClick={() => setShowJoin(false)}>
         <form className="game-card-frame rounded-3xl p-6 w-full max-w-sm space-y-4" onClick={e => e.stopPropagation()} onSubmit={e => {e.preventDefault();join();}}>
