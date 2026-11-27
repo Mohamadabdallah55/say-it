@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, Loader2, RotateCcw, Scale, Send, X, XCircle } from 'lucide-react';
 import type { JudgeVerdict } from '../game/answerJudge';
@@ -53,7 +53,7 @@ const INITIAL_GREETING: ChatMessage = {
   text: 'هلا بالنشامى! أنا يزن، مساعد ألعاب يمكن هاي. اسألوني عن القوانين والبطاقات، وإذا اختلفتوا على إجابة بساعدكم بتحكيمها!',
 };
 
-export function GameAssistantBot({
+export const GameAssistantBot = memo(function GameAssistantBot({
   roomCode,
   role,
   token,
@@ -618,4 +618,4 @@ export function GameAssistantBot({
         )}
     </>
   );
-}
+});
