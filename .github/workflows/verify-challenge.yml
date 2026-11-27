@@ -38,3 +38,5 @@ jobs:
         run: bun run lint
       - name: Four-picture regression tests
         run: bunx tsx --test server/fourPicturesQuestions.test.ts
+      - name: Media and room regression tests
+        run: bunx tsx --test src/game/guessSound.test.ts src/game/visualMemory.test.ts src/game/jordanNostalgia.test.ts src/game/arenaClock.test.ts src/game/engine.test.ts src/game/categoryProgress.test.ts src/utils/roomConnection.test.ts
