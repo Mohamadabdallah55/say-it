@@ -60,7 +60,8 @@ test('Jordan Nostalgia current dataset has consistent counts and explicit image 
   const playable = new Map(JORDAN_NOSTALGIA_QUESTIONS.map(q => [q.id, q]));
   const tiers = new Map<number, number>();
   for (const row of JORDAN_NOSTALGIA_ALL_ROWS) {
-    assert.match(row.id, /^JONOS-(?:V2-(?:200|400|600)-\d{2}|\d{3})$/);
+    // Preserve stable IDs of all released generations; never rename a played ID.
+    assert.match(row.id, /^JONOS-(?:V2-(?:200|400|600)-\d{2}|(?:BAL|RETRO)-\d{3}|\d{3}|(?:PLANET|NAME|2026|2010-CLIP|2010-GAME|PS2)-[a-z0-9]+)$/);
     assert.ok(!ids.has(row.id), `Duplicate ID ${row.id}`);
     ids.add(row.id);
     if (row.contentStatus === 'needs_manual_asset') {
