@@ -9,11 +9,16 @@ permissions:
 jobs:
   frames:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
           ref: quality/visual-memory-pass-1
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          ffprobe -version | head -n 1
       - name: Download licensed source and extract contact sheets
         shell: bash
         run: |
