@@ -92,6 +92,7 @@ class RoomManager {
         if (
           (room.phase === 'PLAYING' || room.phase === 'QUESTION_READY') &&
           room.activeRound?.memoryStage === 'MEMORIZE' &&
+          !room.activeRound.question.videoUrl &&
           room.activeRound.memorizeEndsAtMs &&
           now >= room.activeRound.memorizeEndsAtMs
         ) {
