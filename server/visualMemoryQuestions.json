@@ -1,6 +1,6 @@
 {
   "title": "ركّز — صور ومقاطع",
-  "version": "5.4.8",
+  "version": "5.4.9",
   "image_count": 47,
   "question_count": 100,
   "images_are": "Real photographs. Newly replaced scenes use source-attributed licensed previews checked visually; full-size in-game display and remote playback pending.",
@@ -23,21 +23,22 @@
       "reference": "Caminandes 3: Llamigos — Blender, CC BY 3.0; 17-second excerpt; https://commons.wikimedia.org/wiki/File:Caminandes_3_-_Llamigos_-_Blender_Animated_Short.webm; checked representative preview frame, full playback not verified"
     },
     {
-      "id": "MEM-114",
-      "scene_id": "V06",
-      "points": 200,
-      "video_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Steamboat_Willie_%281928%29_by_Walt_Disney.webm#t=27,44",
-      "question": "بماذا كان ميكي ماوس يتحكم أثناء قيادة المركب؟",
-      "answer": "عجلة القيادة (الدفة)",
-      "reference": "https://commons.wikimedia.org/wiki/File:Steamboat_Willie_(1928)_by_Walt_Disney.webm | https://commons.wikimedia.org/wiki/TimedText:Steamboat_Willie_(1928)_by_Walt_Disney.webm.en.srt | https://www.intanibase.com/iad_entries/entry?shortID=96",
+      "id": "MEM-114-R3",
       "category": "ركّز",
       "level": 200,
-      "scene": "V06",
+      "points": 200,
+      "scene_id": "VQC-R3-glass",
+      "scene": "معرض اللوحات",
       "media_type": "video",
       "image": "",
+      "video_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Glass_Half_-_3D_animation_with_OpenGL_cartoon_rendering.webm#t=45,62",
       "show_seconds": 17,
-      "explanation": "عجلة القيادة (الدفة) · Steamboat Willie (1928), Walt Disney & Ub Iwerks; public-domain source in the US; excerpt linked, timing and answer supported by transcript/scene descriptions; playback not tested.",
-      "answer_visible_only_after_reveal": true
+      "question": "ما لون ملابس الرجل الطويل في المقطع؟",
+      "answer": "أسود",
+      "explanation": "أسود · Blender Foundation · CC BY 3.0 · https://creativecommons.org/licenses/by/3.0/ · https://commons.wikimedia.org/wiki/File:Glass_Half_-_3D_animation_with_OpenGL_cartoon_rendering.webm · excerpt 45–62s",
+      "answer_visible_only_after_reveal": true,
+      "reference": "Blender Foundation · CC BY 3.0 · https://creativecommons.org/licenses/by/3.0/ · https://commons.wikimedia.org/wiki/File:Glass_Half_-_3D_animation_with_OpenGL_cartoon_rendering.webm · excerpt 45–62s",
+      "review_status": "contact_sheet_reviewed_playback_pending"
     },
     {
       "id": "MEM-117",
@@ -124,25 +125,22 @@
       "clip_end_seconds": 222
     },
     {
-      "id": "MEM-121",
+      "id": "MEM-121-R3",
       "category": "ركّز",
       "level": 200,
       "points": 200,
-      "scene_id": "V12",
-      "scene": "بيتي بوب",
+      "scene_id": "VQC-R3-carousel",
+      "scene": "لعبة الخيول الدوارة",
       "media_type": "video",
       "image": "",
-      "video_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Betty_Boop_-_Betty_in_Blunderland_(1934).webm#t=193,210",
+      "video_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Geelong_Carousel_ride_-_July_2024.webm#t=5,22",
       "show_seconds": 17,
-      "question": "على ماذا كانت موضوعة القبعة الكبيرة؟",
-      "answer": "فطر عملاق",
-      "explanation": "فطر عملاق",
+      "question": "أي حيوان كانت تمثله المجسمات التي يركبها الزوار في اللعبة؟",
+      "answer": "خيول / أحصنة",
+      "explanation": "خيول / أحصنة · Marshelec · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Geelong_Carousel_ride_-_July_2024.webm · excerpt 5–22s",
       "answer_visible_only_after_reveal": true,
-      "reference": "https://commons.wikimedia.org/wiki/File:Betty_Boop_-_Betty_in_Blunderland_(1934).webm | Wikimedia default midpoint preview visually inspected; 17-second interval around midpoint; full playback not tested.",
-      "review_status": "preview_frame_checked_playback_pending",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Betty_Boop_-_Betty_in_Blunderland_(1934).webm",
-      "clip_start_seconds": 193,
-      "clip_end_seconds": 210
+      "reference": "Marshelec · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Geelong_Carousel_ride_-_July_2024.webm · excerpt 5–22s",
+      "review_status": "contact_sheet_reviewed_playback_pending"
     },
     {
       "id": "MEM-122",
@@ -334,25 +332,22 @@
       "clip_end_seconds": 207
     },
     {
-      "id": "MEM-139",
+      "id": "MEM-139-R3",
       "category": "ركّز",
       "level": 600,
       "points": 600,
-      "scene_id": "V25",
-      "scene": "فيليكس",
+      "scene_id": "VQC-R3-hero",
+      "scene": "مدينة الرسوم المتحركة",
       "media_type": "video",
       "image": "",
-      "video_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Felix_the_Cat_in_Astronomeous_(1928).webm#t=191,208",
+      "video_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/HERO_-_Blender_Open_Movie-full_movie.webm#t=30,47",
       "show_seconds": 17,
-      "question": "ما الحرف المكتوب على الورقة الموجودة أعلى يسار المشهد ذي الصندوق؟",
-      "answer": "B",
-      "explanation": "B · https://commons.wikimedia.org/wiki/File:Felix_the_Cat_in_Astronomeous_(1928).webm",
+      "question": "ما لون الشريط المثبّت فوق الميدالية على صدر الرجل ذي الشعر الأحمر؟",
+      "answer": "برتقالي",
+      "explanation": "برتقالي · Blender Foundation · CC BY 4.0 · https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:HERO_-_Blender_Open_Movie-full_movie.webm · excerpt 30–47s",
       "answer_visible_only_after_reveal": true,
-      "reference": "https://commons.wikimedia.org/wiki/File:Felix_the_Cat_in_Astronomeous_(1928).webm | Wikimedia preview frame visually inspected; 17-second interval around nominal midpoint; full playback and exact preview timestamp pending.",
-      "review_status": "preview_frame_checked_playback_pending",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Felix_the_Cat_in_Astronomeous_(1928).webm",
-      "clip_start_seconds": 191,
-      "clip_end_seconds": 208
+      "reference": "Blender Foundation · CC BY 4.0 · https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:HERO_-_Blender_Open_Movie-full_movie.webm · excerpt 30–47s",
+      "review_status": "contact_sheet_reviewed_playback_pending"
     },
     {
       "id": "MEM-140",
@@ -624,7 +619,7 @@
       "height": 600
     },
     {
-      "id": "MEM-156-VID2",
+      "id": "MEM-156-VID2-R3",
       "category": "ركّز",
       "level": 400,
       "points": 400,
@@ -634,12 +629,12 @@
       "image": "",
       "video_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Big_Buck_Bunny_alt.webm#t=90,107",
       "show_seconds": 17,
-      "question": "ما لون الفراشة التي ظهرت قرب رأس الأرنب؟",
-      "answer": "بنفسجي",
-      "explanation": "بنفسجي · Blender Foundation, Big Buck Bunny (2008) · CC BY 3.0 https://creativecommons.org/licenses/by/3.0/ · https://commons.wikimedia.org/wiki/File:Big_Buck_Bunny_alt.webm · excerpt 90–107s",
+      "question": "ما لون الزهرة الصغيرة التي ظهرت على يسار الأرنب عند حافة العشب في بداية المقطع؟",
+      "answer": "أحمر",
+      "explanation": "أحمر · Blender Foundation, Big Buck Bunny (2008) · CC BY 3.0 https://creativecommons.org/licenses/by/3.0/ · https://commons.wikimedia.org/wiki/File:Big_Buck_Bunny_alt.webm · excerpt 90–107s",
       "answer_visible_only_after_reveal": true,
       "reference": "Blender Foundation, Big Buck Bunny (2008) · CC BY 3.0 https://creativecommons.org/licenses/by/3.0/ · https://commons.wikimedia.org/wiki/File:Big_Buck_Bunny_alt.webm · excerpt 90–107s",
-      "review_status": "contact_sheet_reviewed_playback_pending"
+      "review_status": "contact_sheet_rechecked_playback_pending"
     },
     {
       "id": "MEM-157-R3",
@@ -2010,5 +2005,5 @@
       "height": 639
     }
   ],
-  "video_count": 32
+  "video_count": 33
 }
