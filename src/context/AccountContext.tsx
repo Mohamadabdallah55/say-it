@@ -54,6 +54,7 @@ import {
   VALID_ID_REGEX,
 } from '../game/categoryProgress';
 import { ALL_CURATED_CATEGORIES, CURATED_QUESTIONS } from '../game/starterDecks';
+import { SERVER_CURATED_CATEGORIES } from '../game/curatedBanks';
 import type {
   CategoryConsumptionStats,
   CategoryIconKey,
@@ -912,8 +913,16 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const allCategoriesForLobby = useMemo(() => {
     const activeCustom = customCategories.filter((c) => c.isActive !== false);
     const mergedMap = new Map<string, DeckCategory>();
-    for (const category of ALL_CURATED_CATEGORIES) mergedMap.set(category.id, { ...category, isCustom: false });
-    for (const category of serverOfficialCategories) mergedMap.set(category.id, { ...category, isCustom: false });
+    // Preserve the established picker order and keep demo-only starter categories
+    // in the starter deck/library, not the official category picker.
+    const officialIds = new Set(SERVER_CURATED_CATEGORIES.map(({ category }) => category.id));
+    const demoOnlyIds = new Set(ALL_CURATED_CATEGORIES.filter(category => !officialIds.has(category.id)).map(category => category.id));
+    for (const { category } of SERVER_CURATED_CATEGORIES) mergedMap.set(category.id, { ...category, isCustom: false });
+    for (const category of serverOfficialCategories) {
+      if (demoOnlyIds.has(category.id)) continue;
+      const local = mergedMap.get(category.id);
+      mergedMap.set(category.id, { ...local, ...category, isCustom: false });
+    }
     for (const c of activeCustom) if (!mergedMap.has(c.id)) mergedMap.set(c.id, c);
     return Array.from(mergedMap.values());
   }, [customCategories, serverOfficialCategories]);
