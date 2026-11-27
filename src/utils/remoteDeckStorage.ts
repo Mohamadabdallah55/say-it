@@ -198,6 +198,32 @@ export async function getAllCachedRemoteImages(): Promise<Record<string, string>
   return map;
 }
 
+/** Read only the referenced images in a single IndexedDB transaction. */
+export async function getCachedRemoteImagesByUrl(urls: readonly string[]): Promise<Record<string, string>> {
+  const result: Record<string, string> = Object.create(null);
+  if (!urls.length) return result;
+  const db = await openDatabase();
+  if (!db) return result;
+  return new Promise(resolve => {
+    try {
+      const tx = db.transaction(STORE_IMAGES, 'readonly');
+      const store = tx.objectStore(STORE_IMAGES);
+      for (const url of new Set(urls)) {
+        const request = store.get(url);
+        request.onsuccess = () => {
+          const row = request.result as CachedRemoteImageRecord | undefined;
+          if (row?.url === url && row.dataUrl) result[url] = row.dataUrl;
+        };
+      }
+      tx.oncomplete = () => { db.close(); resolve(result); };
+      tx.onabort = tx.onerror = () => { db.close(); resolve(Object.create(null)); };
+    } catch {
+      db.close();
+      resolve(Object.create(null));
+    }
+  });
+}
+
 export async function saveCachedRemoteImages(
   entries: CachedRemoteImageRecord[],
 ): Promise<void> {
