@@ -1,0 +1,79 @@
+name: Focus replacement clips review
+on:
+  push:
+    branches: [quality/focus-video-difficulty-fix]
+    paths: ['.github/workflows/focus-replacements-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: quality/focus-video-difficulty-fix
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Download smaller previews and extract frames
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/focus-replacements.tsv <<'SOURCES'
+          spring	Spring - Blender Open Movie.webm	125
+          birdy	Clement Masson - Bye Bye Birdy (2017).webm	12
+          oo	(OO) - Animation Short Film (2017).webm	55
+          commander	Fahrgeschäft Commander - Pützchens Markt 2016.webm	5
+          fish	Hyphessobrycon amapaensis in the tank.webm	1
+          aq	Aquário com plantas aquáticas.webm	4
+          traincolors	Train of Many Colors video vc.webm	2
+          carousels	2009-07-30-Kinderkarussells.ogv	3
+          amman	Vegetable Market (Amman).webm	4
+          soccer	This is soccer.webm	5
+          football	Football training.webm	0
+          supermarket	Supermarket Grocery Products (13083756734).webm	25
+          ferris	2011-07-30-Riesenrad.ogv	3
+          camden	Camden Park - July 6, 2010-78704586.webm	45
+          singularity	SINGULARITY - Blender Open Movie-full movie.webm	30
+          SOURCES
+          python3 - <<'PY'
+          import hashlib,json,urllib.parse,pathlib,subprocess,concurrent.futures
+          out=pathlib.Path('quality-audit/focus-replacement-frames')
+          out.mkdir(parents=True,exist_ok=True)
+          def work(line):
+              slug,name,start=line.split('\t'); start=int(start)
+              name=name.replace(' ','_'); encoded=urllib.parse.quote(name)
+              h=hashlib.md5(name.encode()).hexdigest()
+              base='https://upload.wikimedia.org/wikipedia/commons/'
+              url=base+f'{h[0]}/{h[:2]}/'+encoded
+              trans=base+f'transcoded/{h[0]}/{h[:2]}/'+encoded+'/'+encoded+'.480p.vp9.webm'
+              source='https://commons.wikimedia.org/wiki/File:'+encoded
+              p=pathlib.Path('/tmp')/(slug+'.video')
+              row={'slug':slug,'source':source,'url':url,'start':start,'end':start+17}
+              try:
+                  for candidate in [trans,url]:
+                      try:
+                          subprocess.run(['curl','-fLsS','--max-time','20','--max-filesize','180000000','--user-agent','VisualMemoryQuizReview/1.0',candidate,'-o',str(p)],check=True)
+                          break
+                      except subprocess.CalledProcessError:
+                          p.unlink(missing_ok=True)
+                  duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(p)]))
+                  if duration<start+17: raise ValueError('short interval')
+                  subprocess.run(['ffmpeg','-nostdin','-loglevel','error','-threads','1','-ss',str(start),'-i',str(p),'-t','17','-vf','fps=1,scale=320:-2,tile=4x5:padding=3:margin=3','-frames:v','1','-q:v','3','-y',str(out/(slug+'.jpg'))],check=True,timeout=30)
+                  row.update(status='frames_ready',duration=duration)
+              except Exception as e: row.update(status='failed',error=str(e))
+              finally: p.unlink(missing_ok=True)
+              return row
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              results=list(pool.map(work,pathlib.Path('/tmp/focus-replacements.tsv').read_text().splitlines()))
+          (out/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+          print(json.dumps(results,ensure_ascii=False,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add quality-audit/focus-replacement-frames
+          git commit -m 'Extract replacement video review frames'
+          git push origin HEAD:quality/focus-video-difficulty-fix
