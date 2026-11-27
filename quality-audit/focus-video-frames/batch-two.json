@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "glass",
+    "source": "https://commons.wikimedia.org/wiki/File:Glass_Half_-_3D_animation_with_OpenGL_cartoon_rendering.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Glass_Half_-_3D_animation_with_OpenGL_cartoon_rendering.webm",
+    "start": 45,
+    "end": 62,
+    "status": "frames_ready",
+    "duration": 193.223
+  },
+  {
+    "slug": "bunny",
+    "source": "https://commons.wikimedia.org/wiki/File:Big_Buck_Bunny_alt.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Big_Buck_Bunny_alt.webm",
+    "start": 90,
+    "end": 107,
+    "status": "frames_ready",
+    "duration": 596.501
+  },
+  {
+    "slug": "llama",
+    "source": "https://commons.wikimedia.org/wiki/File:Caminandes_-_Gran_Dillama_-_Blender_Foundation%27s_new_Open_Movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Caminandes_-_Gran_Dillama_-_Blender_Foundation%27s_new_Open_Movie.webm",
+    "start": 35,
+    "end": 52,
+    "status": "frames_ready",
+    "duration": 146.126
+  },
+  {
+    "slug": "coffee",
+    "source": "https://commons.wikimedia.org/wiki/File:Coffee_Run_-_Blender_Open_Movie-full_movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Coffee_Run_-_Blender_Open_Movie-full_movie.webm",
+    "start": 35,
+    "end": 52,
+    "status": "frames_ready",
+    "duration": 184.641
+  },
+  {
+    "slug": "hero",
+    "source": "https://commons.wikimedia.org/wiki/File:HERO_-_Blender_Open_Movie-full_movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/HERO_-_Blender_Open_Movie-full_movie.webm",
+    "start": 30,
+    "end": 47,
+    "status": "frames_ready",
+    "duration": 236.681
+  },
+  {
+    "slug": "dweebs",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm",
+    "start": 12,
+    "end": 29,
+    "status": "frames_ready",
+    "duration": 60.041
+  },
+  {
+    "slug": "carousel",
+    "source": "https://commons.wikimedia.org/wiki/File:Geelong_Carousel_ride_-_July_2024.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Geelong_Carousel_ride_-_July_2024.webm",
+    "start": 5,
+    "end": 22,
+    "status": "frames_ready",
+    "duration": 38.946
+  },
+  {
+    "slug": "balloon",
+    "source": "https://commons.wikimedia.org/wiki/File:Hot_air_balloon_takeoff.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Hot_air_balloon_takeoff.webm",
+    "start": 20,
+    "end": 37,
+    "status": "frames_ready",
+    "duration": 111.94
+  },
+  {
+    "slug": "train",
+    "source": "https://commons.wikimedia.org/wiki/File:Darjeeling_toy_train.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Darjeeling_toy_train.webm",
+    "start": 3,
+    "end": 20,
+    "status": "frames_ready",
+    "duration": 23.568
+  },
+  {
+    "slug": "floating-market",
+    "source": "https://commons.wikimedia.org/wiki/File:Traditional_floating_fruits_market.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Traditional_floating_fruits_market.webm",
+    "start": 2,
+    "end": 19,
+    "status": "frames_ready",
+    "duration": 259.995
+  }
+]
