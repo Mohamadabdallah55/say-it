@@ -28,7 +28,7 @@ export function WordRace({onBack}:{onBack:()=>void}){
  const [session,setSession]=useState<Session|null>(()=>{const s=cached();return s&&(!initial||s.code===initial.toUpperCase())?s:null;});
  const [room,setRoom]=useState<Room|null>(null),[mode,setMode]=useState<'create'|'join'>(initial?'join':'create'),[name,setName]=useState(''),[code,setCode]=useState(initial);
  const [config,setConfig]=useState<WordConfig>(()=>({...DEFAULT_WORD_CONFIG,columns:[...DEFAULT_COLUMNS]}));
- const [custom,setCustom]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false),[saving,setSaving]=useState(false),[connected,setConnected]=useState(true),[rules,setRules]=useState(false);
+ const [custom,setCustom]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false),[saving,setSaving]=useState(false),[connected,setConnected]=useState(true),[rules,setRules]=useState(()=>new URLSearchParams(window.location.search).get('rules')==='1');
  const [draft,setDraft]=useState<string[]>([]),[saved,setSaved]=useState(true),[clock,setClock]=useState(Date.now()),[offset,setOffset]=useState(0),[merge,setMerge]=useState<string|null>(null),[qr,setQr]=useState(''),[copied,setCopied]=useState(false);
  const pending=useRef(false),draftRef=useRef<string[]>([]),seq=useRef(0),dirty=useRef(false),keyRef=useRef(''),live=useRef<Room|null>(null),fields=useRef<(HTMLInputElement|null)[]>([]);
  const game=room?.game,host=room?.host===room?.me,me=room?.players.find(p=>p.id===room.me);
