@@ -39,7 +39,7 @@ wordRouter.post('/create',(req,res)=>{
 });
 wordRouter.post('/join',(req,res)=>{
  const r=lookup(req.body?.code);if(!r)return res.status(404).json({error:'الغرفة غير موجودة.'});
- const name=nameOf(req.body?.name);if(r.game||r.players.length>=12||!name||r.players.some(p=>normalizeWord(p.name)===normalizeWord(name)))return res.status(400).json({error:'الغرفة بدأت أو ممتلئة أو الاسم مستخدم.'});
+ const name=nameOf(req.body?.name);if(r.game||active(r).length>=12||!name||r.players.some(p=>normalizeWord(p.name)===normalizeWord(name)))return res.status(400).json({error:'الغرفة بدأت أو ممتلئة أو الاسم مستخدم.'});
  const p:Member={id:random(8),token:random(24),name,score:0,removed:false,seen:Date.now()};
  try{const next={...r,players:[...r.players,p],revision:r.revision+1,touched:Date.now()};commit(next);res.json({...view(next,p),token:p.token});}catch{res.status(503).json({error:'تعذر حفظ الانضمام.'});}
 });
@@ -69,12 +69,12 @@ wordRouter.post('/:code/action',(req,res)=>{
  const next:Room=structuredClone(r);const me=next.players.find(x=>x.id===p.id)!;const host=next.host===p.id,c=next.config;let g=next.game;
  if(action==='start'&&host&&!g){if(active(next).length<2)throw Error('تحتاج لاعبين على الأقل.');g=startWords(next.players,c);}
  else if(action==='remove'&&host&&(!g||['letter','write','scores'].includes(g.phase))){
-   const target=next.players.find(x=>x.id===b.target&&!x.removed&&x.id!==me.id);if(!target)throw Error('لا يمكن إخراج اللاعب.');
+   const target=next.players.find(x=>x.id===b.target&&!x.removed&&x.id!==me.id&&Date.now()-x.seen>=60000);if(!target)throw Error('لا يمكن إخراج اللاعب.');
    if(active(next).length<=2)throw Error('يجب أن يبقى لاعبان على الأقل.');target.removed=true;
    if(g?.phase==='write'&&active(next).every(x=>g!.finished.includes(x.id)))g=beginReview(g,c,next.players);
  }else{
  if(!g||b.index!==g.index||b.phase!==g.phase)throw Error('تغيرت المرحلة؛ حاول مرة أخرى.');
- if(action==='letter'&&g.phase==='letter'&&(host||selector(g,next.players)===me.id))g=selectWordLetter(g,c,String(b.letter));
+ if(action==='letter'&&g.phase==='letter'&&(selector(g,next.players)===me.id||(host&&!next.players.some(x=>x.id===selector(g!,next.players)&&Date.now()-x.seen<60000))))g=selectWordLetter(g,c,String(b.letter));
  else if((action==='save'||action==='finish')&&g.phase==='write'){
    if(g.finished.includes(me.id))throw Error('إجاباتك مغلقة.');
    if(!Number.isSafeInteger(b.seq)||b.seq<1||b.seq<=(g.seq[me.id]??0))throw Error('وصلت نسخة أحدث من الإجابات.');
