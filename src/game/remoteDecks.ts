@@ -538,6 +538,20 @@ export function validateRemoteDeckV2(
   };
 }
 
+/** Collect only the image keys actually used by recovered questions. */
+export function recoveredDeckImageKeys(decks: readonly QuizDeck[]): string[] {
+  const keys = new Set<string>();
+  for (const deck of decks) {
+    for (const q of deck.questions) {
+      for (const url of [q.imageUrl, q.answerImageUrl, q.afterImageUrl,
+        q.memorySecondImageUrl, ...(q.beforeImageUrls ?? [])]) {
+        if (url && /^https?:\/\//i.test(url)) keys.add(url);
+      }
+    }
+  }
+  return [...keys];
+}
+
 export function hydrateDeckImagesFromCache(
   deck: QuizDeck,
   imageCacheMap: Record<string, string>,
