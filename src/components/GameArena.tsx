@@ -598,24 +598,28 @@ export function GameArena({
 
   const isSilentActingRound = roundMeta?.categoryId === SILENT_ACTING_CATEGORY.id;
 
+  // The QR is tied to the room and acting token, not each clock/phase update.
+  const actingQrToken = isSilentActingRound && state?.phase !== 'REVEAL'
+    ? roundMeta?.actingToken : undefined;
   useEffect(() => {
-    if (!isSilentActingRound || !roundMeta?.actingToken || state?.phase === 'REVEAL') {
-      setActingQr(null);
-      return;
-    }
-    let active = true;
-    fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(roundMeta.actingToken)}`)
+    setActingQr(null);
+    if (!actingQrToken) return;
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 10000);
+    fetch(`/api/rooms/${encodeURIComponent(roomCode)}/acting-qr?token=${encodeURIComponent(actingQrToken)}`, {
+      signal: controller.signal,
+    })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (active && data?.qrDataUrl) {
-          setActingQr(data);
-        }
+        if (!controller.signal.aborted && data?.qrDataUrl) setActingQr(data);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => window.clearTimeout(timeout));
     return () => {
-      active = false;
+      controller.abort();
+      window.clearTimeout(timeout);
     };
-  }, [roomCode, isSilentActingRound, roundMeta?.actingToken, state?.phase]);
+  }, [roomCode, actingQrToken]);
 
   // Preload at most one upcoming image after the main question has had time
   // to paint; avoid competing with the active video, audio or visible image.
