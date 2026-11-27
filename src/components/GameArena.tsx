@@ -377,22 +377,30 @@ export function GameArena({
 
   useEffect(() => {
     let mounted = true;
+    let refreshing = false;
     const loadState = async () => {
+      if (!mounted || refreshing) return;
+      refreshing = true;
       try {
         const qs = new URLSearchParams({ role });
         if (token) qs.set('token', token);
-        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`);
+        const res = await fetch(`/api/rooms/${encodeURIComponent(roomCode)}/state?${qs.toString()}`, {cache:'no-store',signal:AbortSignal.timeout(10000)});
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'تعذر تحميل حالة الغرفة.');
         if (mounted) {
           setNowMs(Date.now());
-          setState(current => current ?? data.state);
+          setError(null);
+          setState(current => current && current.updatedAt > data.state.updatedAt ? current : data.state);
         }
       } catch (err) {
-        if (mounted) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.');
-      }
+        if (mounted) setState(current => { if (!current) setError(err instanceof Error ? err.message : 'خطأ في الاتصال.'); return current; });
+      } finally { refreshing = false; }
     };
-    loadState();
+    void loadState();
+    const reconnect = () => { if (!document.hidden) void loadState(); };
+    const fallbackTimer = window.setInterval(reconnect, 12000);
+    window.addEventListener('online', reconnect);
+    document.addEventListener('visibilitychange', reconnect);
 
     const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const wsQs = new URLSearchParams({ room: roomCode, role });
@@ -415,6 +423,9 @@ export function GameArena({
 
     return () => {
       mounted = false;
+      window.clearInterval(fallbackTimer);
+      window.removeEventListener('online', reconnect);
+      document.removeEventListener('visibilitychange', reconnect);
       disconnect();
     };
   }, [roomCode, role, token]);
