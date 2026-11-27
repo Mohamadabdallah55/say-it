@@ -619,8 +619,9 @@ export function GameArena({
     let retry: number | undefined;
     let attempts = 0;
     let loaded = false;
+    const isOnline = () => navigator.onLine !== false;
     const load = async () => {
-      if (disposed || pending || loaded || navigator.onLine === false) return;
+      if (disposed || pending || loaded || !isOnline()) return;
       if (retry !== undefined) window.clearTimeout(retry);
       retry = undefined;
       const controller = new AbortController();
@@ -643,7 +644,7 @@ export function GameArena({
       } finally {
         window.clearTimeout(timeout);
         if (pending === controller) pending = undefined;
-        if (!disposed && !loaded && retryable && navigator.onLine !== false && attempts < 2) {
+        if (!disposed && !loaded && retryable && isOnline() && attempts < 2) {
           retry = window.setTimeout(() => { retry = undefined; void load(); }, 1000 * 2 ** attempts++);
         }
       }
