@@ -1,6 +1,6 @@
 {
   "title": "ركّز — صور ومقاطع",
-  "version": "5.4.4",
+  "version": "5.4.5",
   "image_count": 41,
   "question_count": 100,
   "images_are": "Real photographs. Newly replaced scenes use source-attributed licensed previews checked visually; full-size in-game display and remote playback pending.",
@@ -1000,7 +1000,7 @@
       "height": 600
     },
     {
-      "id": "MEM-177-VID2",
+      "id": "MEM-177-VID2-QC",
       "category": "ركّز",
       "level": 400,
       "points": 400,
@@ -1010,12 +1010,12 @@
       "image": "",
       "video_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Darjeeling_toy_train.webm#t=3,20",
       "show_seconds": 17,
-      "question": "ما لون قميص سائق الدراجة النارية الذي توقف أمام القطار أولًا؟",
-      "answer": "وردي / زهري",
-      "explanation": "وردي / زهري · Gannu03, Darjeeling toy train · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Darjeeling_toy_train.webm · excerpt 3–20s",
+      "question": "ما لون قميص سائق الدراجة النارية الواقع إلى يمين سائق الدراجة الآخر أمام القطار؟",
+      "answer": "زهري / وردي",
+      "explanation": "زهري / وردي · Gannu03, Darjeeling toy train · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Darjeeling_toy_train.webm · excerpt 3–20s",
       "answer_visible_only_after_reveal": true,
       "reference": "Gannu03, Darjeeling toy train · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Darjeeling_toy_train.webm · excerpt 3–20s",
-      "review_status": "contact_sheet_reviewed_playback_pending"
+      "review_status": "contact_sheet_rechecked_playback_pending"
     },
     {
       "id": "MEM-178",
@@ -1158,7 +1158,7 @@
       "height": 527
     },
     {
-      "id": "MEM-189-VID2",
+      "id": "MEM-189-VID2-QC",
       "category": "ركّز",
       "level": 400,
       "points": 400,
@@ -1168,12 +1168,12 @@
       "image": "",
       "video_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Traditional_floating_fruits_market.webm#t=2,19",
       "show_seconds": 17,
-      "question": "كم قاربًا ظهر في اللقطة الجوية الأخيرة قبل عودة المشهد إلى السوق المزدحم؟",
-      "answer": "3",
-      "explanation": "3 · Azimronnie, Traditional floating fruits market · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Traditional_floating_fruits_market.webm · excerpt 2–19s",
+      "question": "في اللقطة التي ظهرت فيها ثلاثة قوارب معًا في الماء المفتوح، كم قاربًا كان محمّلًا بالفواكه الصفراء؟",
+      "answer": "قاربين (2)",
+      "explanation": "قاربين (2) · Azimronnie, Traditional floating fruits market · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Traditional_floating_fruits_market.webm · excerpt 2–19s",
       "answer_visible_only_after_reveal": true,
       "reference": "Azimronnie, Traditional floating fruits market · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ · https://commons.wikimedia.org/wiki/File:Traditional_floating_fruits_market.webm · excerpt 2–19s",
-      "review_status": "contact_sheet_reviewed_playback_pending"
+      "review_status": "contact_sheet_rechecked_playback_pending"
     },
     {
       "id": "MEM-190-VID2",
@@ -1214,7 +1214,7 @@
       "height": 2000
     },
     {
-      "id": "MEM-192-VID1",
+      "id": "MEM-192-VID1-QC",
       "category": "ركّز",
       "level": 600,
       "points": 600,
@@ -1224,12 +1224,12 @@
       "image": "",
       "video_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm#t=70,87",
       "show_seconds": 17,
-      "question": "ما لون المقعد الموجود أمام لوحة التحكم داخل المركبة؟",
-      "answer": "أخضر",
-      "explanation": "أخضر · Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm",
+      "question": "ما اللعبة الصغيرة التي كانت معلقة من سقف قمرة المركبة قرب النافذة؟",
+      "answer": "صاروخ صغير",
+      "explanation": "صاروخ صغير · Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm · one-frame-per-second contact sheet reviewed; browser playback pending",
       "answer_visible_only_after_reveal": true,
       "reference": "Blender Studio, Wing It! (2023), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm · one-frame-per-second contact sheet reviewed; browser playback pending",
-      "review_status": "contact_sheet_reviewed_playback_pending"
+      "review_status": "contact_sheet_rechecked_playback_pending"
     },
     {
       "id": "MEM-193",
@@ -1272,7 +1272,7 @@
       "height": 807
     },
     {
-      "id": "MEM-195-VID2",
+      "id": "MEM-195-VID2-QC",
       "category": "ركّز",
       "level": 600,
       "points": 600,
@@ -1282,12 +1282,12 @@
       "image": "",
       "video_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm#t=12,29",
       "show_seconds": 17,
-      "question": "ما لون الهيكل المعدني للأرجوحة في خلفية الحديقة؟",
-      "answer": "أزرق",
-      "explanation": "أزرق · Blender Foundation, The Daily Dweebs (2017) · CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm · excerpt 12–29s",
+      "question": "ما نوع اللعبة ذات العجلات التي ظهرت قرب السياج في خلفية الحديقة؟",
+      "answer": "دراجة بثلاث عجلات",
+      "explanation": "دراجة بثلاث عجلات · Blender Foundation, The Daily Dweebs (2017) · CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm · excerpt 12–29s",
       "answer_visible_only_after_reveal": true,
       "reference": "Blender Foundation, The Daily Dweebs (2017) · CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · https://commons.wikimedia.org/wiki/File:The_Daily_Dweebs_-_Blender_Open_Movie-full_movie.webm · excerpt 12–29s",
-      "review_status": "contact_sheet_reviewed_playback_pending"
+      "review_status": "contact_sheet_rechecked_playback_pending"
     },
     {
       "id": "MEM-196",
