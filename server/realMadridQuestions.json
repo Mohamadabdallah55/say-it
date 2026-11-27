@@ -29,7 +29,7 @@
   {
     "id": "RM-003-R2",
     "points": 600,
-    "question": "في ريمونتادا ريال مدريد ضد مانشستر سيتي عام 2022، مين اللاعب اللي مرّر لبنزيما قبل عرضيته لهدف رودريغو الأول؟",
+    "question": "في ريمونتادا ريال مدريد ضد مانشستر سيتي عام 2022، مين اللاعب اللي مرّر لبنزيما قبل عرضيته لهدف مدريد الأول؟",
     "answer": "إدواردو كامافينغا",
     "explanation": "أرسل كامافينغا تمريرة لبنزيما الذي جهز الكرة لرودريغو.",
     "answer_english": "Eduardo Camavinga",
@@ -41,7 +41,7 @@
   {
     "id": "RM-004",
     "points": 200,
-    "question": "من سجل هدف ريال مدريد الثاني ضد دورتموند في نهائي 2024؟",
+    "question": "من سجّل هدف ريال مدريد الثاني أمام بوروسيا دورتموند في نهائي دوري أبطال أوروبا 2024؟",
     "answer": "فينيسيوس جونيور",
     "answer_english": "Vinicius Junior",
     "explanation": "سجّل فينيسيوس الهدف الثاني في الفوز 2-0.",
@@ -52,10 +52,10 @@
   {
     "id": "RM-005",
     "points": 600,
-    "question": "في النهائي الأوروبي الأول لريال مدريد أمام ريمس، من سجّل هدف التعادل الثالث قبل أن يحسم هيكتور ريال اللقب؟",
+    "question": "في نهائي كأس أوروبا 1956 أمام ريمس، من سجّل هدف التعادل 3–3 لريال مدريد قبل هدف الفوز؟",
     "answer": "ماركيتوس",
     "answer_english": "Marquitos",
-    "explanation": "سجل ماركيتوس التعادل الثالث قبل هدف ريال الحاسم.",
+    "explanation": "عادل ماركيتوس النتيجة في الدقيقة 67، ثم سجّل هيكتور ريال هدف الفوز 4–3 في الدقيقة 79.",
     "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-68-anos-de-la-primera-copa-de-europa-13-06-2024",
     "imageUrl": "https://1.bp.blogspot.com/-VXV8S1rXtz4/UW_JGDNlX3I/AAAAAAAAAGs/kdBMqAnY3O8/s1600/marquitos3.jpg",
     "imageSourceUrl": "https://orgullormadrid.blogspot.com/2013/04/leyendas-del-madridismo-marquitos.html",
@@ -113,10 +113,10 @@
   {
     "id": "RM-010",
     "points": 400,
-    "question": "في مشوار أول لقب لكأس الاتحاد الأوروبي لريال مدريد، من كان الخصم الذي قلب مدريد خسارته 3-0 أمامه إلى فوز 6-1 في الإياب؟",
+    "question": "أمام أي فريق خسر ريال مدريد ذهابًا 0–3 ثم فاز إيابًا 6–1 في طريقه إلى أول لقب له في كأس الاتحاد الأوروبي؟",
     "answer": "أندرلخت",
     "answer_english": "Anderlecht",
-    "explanation": "أقصى ريال مدريد أندرلخت بعد ريمونتادا في البرنابيو.",
+    "explanation": "أقصى ريال مدريد أندرلخت بنتيجة 6–4 في مجموع المباراتين، بعد فوزه 6–1 في البرنابيو.",
     "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-40-anos-de-la-primera-copa-de-la-uefa-22-05-2025",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/news/generic/2022/12/12/not-efemeride-remontada-anderlecht-2022/assets/1330804968506.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-41-anos-de-la-historica-remontada-contra-el-anderlecht-02-12-2025",
@@ -145,7 +145,7 @@
     "answer": "الكلاسيكو",
     "answer_english": "El Clásico",
     "explanation": "تُعرف مواجهة ريال مدريد وبرشلونة بالكلاسيكو.",
-    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "source_url": "https://www.laliga.com/en-GB/partidazos/el-clasico",
     "acceptableAnswers": [
       "كلاسيكو",
       "إل كلاسيكو"
@@ -158,7 +158,7 @@
     "answer": "الأبيض",
     "answer_english": "White",
     "explanation": "القميص الأبيض هو اللون التقليدي لريال مدريد.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "source_url": "https://www.realmadrid.com/StaticFiles/RealMadridResponsive/especiales/en/shirts-and-kits/white-shirt-5-european-cups.html",
     "acceptableAnswers": [
       "أبيض",
       "ابيض"
@@ -181,7 +181,7 @@
     "question": "في موسم 2023-24، أي فريق إسباني انضم منه خوسيلو إلى ريال مدريد على سبيل الإعارة؟",
     "answer": "إسبانيول",
     "explanation": "انتقل خوسيلو معارًا من إسبانيول.",
-    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/joselu-new-real-madrid-player",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/announcements/official-announcement-joselu",
     "answer_english": "Espanyol"
   },
   {
@@ -191,14 +191,14 @@
     "answer": "رافائيل فاران",
     "answer_english": "Raphael Varane",
     "explanation": "سجّل فاران هدف التعادل 1-1 في لقاء الذهاب.",
-    "source_url": "https://www.realmadrid.com/StaticFiles/RealMadrid/img/pdf/M_Rm_InfomeAnual_1213_eng_260913.pdf",
+    "source_url": "https://fr.uefa.com/news-media/news/0205-0e830968069b-c44a2561e3ac-1000--pas-de-vainqueur-dans-le-clasico/",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/raphael-varane/assets/1330738203636.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/pt-PT/o-clube/historia/lendas-futebol/raphael-varane"
   },
   {
     "id": "RM-017",
     "points": 400,
-    "question": "من مرّر الكرة العرضية التي سجّل منها خوسيلو هدف التأهل الثاني ضد بايرن في 2024؟",
+    "question": "مين أرسل العرضية الأرضية لهدف فوز ريال مدريد 2–1 على بايرن في إياب نصف نهائي دوري الأبطال 2024؟",
     "answer": "أنطونيو روديغر",
     "answer_english": "Antonio Rudiger",
     "explanation": "أرسل روديغر كرة عرضية حاسمة سجّل منها خوسيلو.",
@@ -212,7 +212,7 @@
     "question": "كم مباراة قلب ريال مدريد نتيجتها إلى فوز بعد استقبال الهدف الأول في مشوار أبطال أوروبا 2023-24 حتى إياب نصف النهائي؟",
     "answer": "4 مباريات",
     "answer_english": "4",
-    "explanation": "بحسب تحليل UEFA، حقق ريال مدريد أربعة انتصارات بعد التأخر حتى مباراة بايرن.",
+    "explanation": "نقلت UEFA عن أوبتا أن ريال مدريد فاز بأربع مباريات استقبل فيها الهدف الأول، حتى نهاية إياب نصف النهائي أمام بايرن.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/028d-1ad8fd0126d7-27e090df5704-1000--in-the-zone-how-real-madrid-pulled-off-their-stunning-win/"
   },
   {
@@ -220,7 +220,8 @@
     "points": 400,
     "question": "أي ملعب في غلاسكو احتضن النهائي التاريخي الذي فاز فيه ريال مدريد 7–3 على فرانكفورت عام 1960؟",
     "answer": "هامبدن بارك",
-    "answer_english": "Hampden Park Glasgow",
+    "answer_english": "Hampden Park",
+    "acceptableAnswers": ["ملعب هامبدن بارك", "Hampden Park Glasgow"],
     "explanation": "أقيم النهائي التاريخي في ملعب هامبدن بارك في غلاسكو.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b1dc17e3e-c896eaba1732-1000--1959-60-dazzling-madrid-crush-frankfurt/",
     "imageUrl": "https://media.eintracht.de/image/upload/ar_3%3A2%2Cc_fill%2Cdpr_3.0%2Cf_auto%2Cg_auto%2Cq_60%2Cw_400/imago59954945h-4141.jpg",
@@ -243,7 +244,7 @@
     "answer": "كارلو أنشيلوتي",
     "answer_english": "Carlo Ancelotti",
     "explanation": "قاد أنشيلوتي الفريق نحو لقبه الأوروبي الخامس عشر.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07e18d875a-ba78e4b9d9fc-1000--real-madrid-win-champions-league-carvajal-and-vinicius-junior-see-off-dortmund/",
     "acceptableAnswers": [
       "أنشيلوتي",
       "انشيلوتي"
@@ -256,7 +257,7 @@
     "answer": "بوروسيا دورتموند",
     "answer_english": "Borussia Dortmund",
     "explanation": "فاز ريال مدريد على دورتموند 2-0.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07e18d875a-ba78e4b9d9fc-1000--real-madrid-win-champions-league-carvajal-and-vinicius-junior-see-off-dortmund/",
     "acceptableAnswers": [
       "دورتموند",
       "بروسيا دورتموند"
@@ -283,7 +284,7 @@
     "answer": "جود بيلينغهام",
     "answer_english": "Jude Bellingham",
     "explanation": "انضم بيلينغهام إلى مدريد عام 2023.",
-    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/bellingham-is-first-player-to-score-in-his-first-four-european-cup-games-for-madrid",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/announcements/official-announcement-bellingham",
     "acceptableAnswers": [
       "بيلينغهام",
       "بيلينجهام"
@@ -326,7 +327,7 @@
     "answer": "إيكر كاسياس",
     "answer_english": "Iker Casillas",
     "explanation": "قاد كاسياس إسبانيا للفوز بكأس العالم 2010.",
-    "source_url": "https://www.realmadrid.com/de-DE/der-club/geschichte/fussballlenden/iker-casillas-fernandez",
+    "source_url": "https://www.realmadrid.com/es-ES/el-club/historia/leyendas-futbol/iker-casillas-fernandez",
     "acceptableAnswers": [
       "كاسياس",
       "ايكر كاسياس"
@@ -364,7 +365,7 @@
     "answer": "كاسيميرو",
     "answer_english": "Casemiro",
     "explanation": "شكّل كاسيميرو مع كروس ومودريتش ثلاثي وسط ريال مدريد.",
-    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/luka-modric",
     "acceptableAnswers": [
       "كاسيميرو"
     ],
@@ -391,7 +392,7 @@
     "answer": "باريس سان جيرمان",
     "answer_english": "Paris Saint-Germain",
     "explanation": "انضم مبابي إلى ريال مدريد بعد رحيله عن باريس سان جيرمان.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "source_url": "https://www.realmadrid.com/en-US/football/first-team/players/kylian-mbappe",
     "acceptableAnswers": [
       "باريس",
       "باريس سان جيرمان",
@@ -408,7 +409,7 @@
     "answer": "ليفربول",
     "answer_english": "Liverpool",
     "explanation": "انتصر ريال مدريد على ليفربول 1-0 في باريس.",
-    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football/first-team/",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-15464696cdc6-bf2145620f18-1000--champions-league-final-in-the-zone-liverpool-0-1-real-madrid-pe/",
     "acceptableAnswers": [
       "ليفربول"
     ],
@@ -470,7 +471,7 @@
   {
     "id": "RM-038",
     "points": 400,
-    "question": "من سجّل الهدف الآخر مع ثنائية رييس ضد مايوركا في حسم الدوري 2007؟",
+    "question": "من سجّل هدف التقدّم 2–1 لريال مدريد أمام مايوركا في المباراة التي حسمت لقب الدوري الإسباني عام 2007؟",
     "answer": "مامادو ديارا",
     "answer_english": "Mahamadou Diarra",
     "explanation": "سجّل ديارا الهدف الثاني لريال مدريد في المباراة.",
@@ -479,13 +480,14 @@
     "imageSourceUrl": "https://elpais.com/diario/2007/06/09/deportes/1181340004_850215.html"
   },
   {
-    "id": "RM-039-R3",
+    "id": "RM-039-QA1",
     "points": 600,
-    "question": "كم تسديدة سدد ليفربول مقابل أربع تسديدات لريال مدريد في نهائي دوري الأبطال 2022 وفق تحليل UEFA؟",
-    "answer": "24 تسديدة",
-    "answer_english": "24",
-    "explanation": "سدد ليفربول 24 مرة مقابل أربع لريال مدريد.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0275-15464696cdc6-bf2145620f18-1000--champions-league-final-in-the-zone-liverpool-0-1-real-madrid-pe/"
+    "question": "أمام أي نادٍ خاض ريال مدريد مباراته الأولى في كأس أوروبا عام 1955، وفيها سجّل ميغيل مونيوث أول أهداف الفريق في البطولة؟",
+    "answer": "سيرفيت",
+    "answer_english": "Servette",
+    "acceptableAnswers": ["سرفيت", "سيرفيت جنيف", "Servette FC"],
+    "explanation": "فاز ريال مدريد 2–0 على سيرفيت في جنيف. افتتح ميغيل مونيوث التسجيل وأضاف هيكتور ريال الهدف الثاني.",
+    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-70-anos-del-debut-en-la-copa-de-europa-08-09-2025"
   },
   {
     "id": "RM-040",
@@ -528,10 +530,10 @@
   {
     "id": "RM-043",
     "points": 600,
-    "question": "من اللاعب الذي انضم لريال مدريد عام 1962 قادمًا من أوساسونا، ووصل مع أمانسيو ولوسيان مولر؟",
+    "question": "من لاعب الوسط الذي انضم لريال مدريد من أوساسونا عام 1962 وكان ضمن جيل الفريق الفائز بكأس أوروبا 1966؟",
     "answer": "إغناسيو زوكو",
     "answer_english": "Ignacio Zoco",
-    "explanation": "انضم زوكو من أوساسونا وأصبح جزءًا من جيل السادسة.",
+    "explanation": "انتقل إغناسيو زوكو من أوساسونا إلى ريال مدريد عام 1962 وفاز معه بكأس أوروبا 1966.",
     "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ignacio-zoco-esparza",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/ignacio-zoco-esparza/assets/1330192178621.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ignacio-zoco-esparza",
@@ -540,11 +542,11 @@
   {
     "id": "RM-044-E6",
     "points": 200,
-    "question": "شو اسم النادي الثاني الكبير في مدينة مدريد، منافس ريال مدريد في الديربي؟",
+    "question": "شو اسم الفريق اللي يواجه ريال مدريد في المواجهة المعروفة بديربي مدريد؟",
     "answer": "أتلتيكو مدريد",
     "answer_english": "Atlético Madrid",
     "explanation": "يجمع ديربي مدريد ريال مدريد وأتلتيكو مدريد.",
-    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-atletico-j29-liga-22-03-2026",
     "acceptableAnswers": [
       "اتلتيكو",
       "أتلتيكو",
@@ -559,9 +561,10 @@
     "points": 400,
     "question": "كم هدفًا سجّل فيرينتس بوشكاش في نهائي كأس أوروبا 1960 ضد آينتراخت فرانكفورت؟",
     "answer": "أربعة أهداف",
-    "answer_english": "Ferenc Puskas",
+    "answer_english": "Four goals",
     "explanation": "سجّل بوشكاش رباعية في الفوز التاريخي 7-3.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b1dc17e3e-c896eaba1732-1000--1959-60-dazzling-madrid-crush-frankfurt/",
+    "acceptableAnswers": ["4", "٤", "أربعة", "أربع أهداف", "رباعية"],
     "imageUrl": "https://media0.faz.net/ppmedia/aktuell/748139594/1.8229798/twitter_teaser/ferenc-puskas-erzielt-real.jpg",
     "imageSourceUrl": "https://www.faz.net/aktuell/sport/rhein-main-sport/eintracht-frankfurt/eintracht-frankfurt-gegen-real-madrid-1960-so-was-das-jahrhundertspiel-18229796.html",
     "imageCaption": "صورة فيرينتس بوشكاش"
@@ -580,7 +583,7 @@
   {
     "id": "RM-047",
     "points": 600,
-    "question": "قبل هدف زيدان الطائر في نهائي 2002: روبرتو كارلوس أرسل العرضية، لكن مين مرر الكرة لكارلوس قبلها؟",
+    "question": "قبل هدف زيدان الطائر في نهائي دوري الأبطال 2002، مين مرّر الكرة للظهير الأيسر اللي أرسل العرضية؟",
     "answer": "سانتياغو سولاري",
     "answer_english": "Santiago Solari",
     "explanation": "وجد سولاري كارلوس منطلقًا يسارًا قبل العرضية.",
@@ -589,11 +592,11 @@
   {
     "id": "RM-048-E6",
     "points": 200,
-    "question": "أي منتخب يمثّل تيبو كورتوا؟",
+    "question": "مع أي منتخب لعب الحارس تيبو كورتوا على مستوى الكبار؟",
     "answer": "بلجيكا",
     "answer_english": "Belgium",
     "explanation": "كورتوا حارس بلجيكي.",
-    "source_url": "https://sport.sky.it/calcio/atleti/thibaut-courtois/60772",
+    "source_url": "https://static.rbfa.be/project/publiek/jrinteren/speler_PH_5771.htm",
     "acceptableAnswers": [
       "بلجيكا"
     ],
@@ -616,11 +619,11 @@
   {
     "id": "RM-050-E6",
     "points": 200,
-    "question": "كم مرة متتالية فاز ريال مدريد بدوري الأبطال من 2016 إلى 2018؟",
+    "question": "بعد الفوز على ليفربول في نهائي 2018، كم لقبًا متتاليًا في دوري الأبطال كان ريال مدريد قد حقق؟",
     "answer": "3 مرات",
     "answer_english": "Three",
     "explanation": "توج ريال مدريد ثلاث مرات متتالية.",
-    "source_url": "https://www.realmadrid.com/static/en/about-real-madrid/history/football/2011-2020/",
+    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d7318379-716954065574-1000--madrid-beat-liverpool-to-complete-hat-trick/",
     "acceptableAnswers": [
       "3",
       "ثلاث مرات",
@@ -646,16 +649,18 @@
     "source_url": "https://www.uefa.com/uefachampionsleague/news/025a-0eaae9bf5c46-b78d5f4a8b05-1000/"
   },
   {
-    "id": "RM-053",
+    "id": "RM-053-QA1",
     "points": 400,
-    "question": "من بدأ أساسيًا في قلب دفاع ريال مدريد بإياب ربع نهائي الأبطال 2018 أمام يوفنتوس إلى جانب فاران، في غياب راموس؟",
-    "answer": "خيسوس فاييخو",
-    "answer_english": "Jesús Vallejo",
-    "explanation": "بدأ فاييخو بجوار فاران في التشكيلة.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
-    "imageUrl": "https://www.ceroacero.es/img/planteis/new/64/08/3926408_jesus_vallejo_20250401034819.jpg",
-    "imageSourceUrl": "https://www.ceroacero.es/jugador/jesus-vallejo/364215?epoca_id=147",
-    "imageCaption": "خيسوس فاييخو بقميص موسم 2017–18"
+    "question": "أمام أي فريق فاز ريال مدريد 5–0 في أول مباراة لزين الدين زيدان مدربًا للفريق في الدوري الإسباني عام 2016؟",
+    "answer": "ديبورتيفو لا كورونيا",
+    "answer_english": "Deportivo de La Coruña",
+    "explanation": "فاز ريال مدريد 5–0 على ديبورتيفو لا كورونيا في البرنابيو يوم 9 يناير 2016.",
+    "source_url": "https://www.laliga.com/en-GB/news/bale-grabs-headlines-on-zidanes-debut",
+    "acceptableAnswers": [
+      "ديبورتيفو",
+      "ديبورتيفو لاكورونيا",
+      "RC Deportivo"
+    ]
   },
   {
     "id": "RM-054-E6",
@@ -674,24 +679,23 @@
     "imageCaption": "صورة اللاعب من مكتبة اللعبة"
   },
   {
-    "id": "RM-055",
+    "id": "RM-055-QA1",
     "points": 600,
-    "question": "في ذهاب ربع نهائي الأبطال 2018 ضد يوفنتوس، من حل بديلًا لبنزيما قبل الهدف المقصي الشهير لرونالدو؟",
-    "answer": "لوكاس فاسكيز",
-    "answer_english": "Lucas Vázquez",
-    "explanation": "دخل فاسكيز بدل بنزيما قبل الهدف المقصي.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
-    "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
-    "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35"
+    "question": "أمام أي فريق حقق ريال مدريد أول ريمونتادا أوروبية له بعد خسارة الذهاب بفارق ثلاثة أهداف، حين فاز 5–1 بعد التمديد عام 1975؟",
+    "answer": "ديربي كاونتي",
+    "answer_english": "Derby County",
+    "acceptableAnswers": ["ديربي", "دربي كاونتي", "Derby County FC"],
+    "explanation": "خسر ريال مدريد الذهاب 4–1 أمام ديربي كاونتي. انتهى الوقت الأصلي للإياب في البرنابيو 4–1 لمدريد، ثم حسم سانتيانا التأهل بالهدف الخامس في التمديد.",
+    "source_url": "https://www.realmadrid.com/es-ES/noticias/club/actualidad/se-cumplen-47-anos-de-la-remontada-al-derby-county"
   },
   {
     "id": "RM-056",
     "points": 200,
-    "question": "مين النجم الكولومبي اللي لعب لريال مدريد وبايرن وارتدى رقم 10 مع مدريد؟",
+    "question": "مين اللاعب الكولومبي اللي أعاره ريال مدريد لبايرن ميونخ عام 2017؟",
     "answer": "خاميس رودريغيز",
     "answer_english": "James Rodriguez",
-    "explanation": "سجل خاميس هدف بايرن الثاني ولم يحتفل.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
+    "explanation": "وافق ريال مدريد وبايرن ميونخ على إعارة خاميس رودريغيز في يوليو 2017 مع خيار الشراء.",
+    "source_url": "https://fcbayern.com/fcbayerntv/es/videos/2017/07/fcbf-ne-170711-ne-news01-g0-es--1_d6hj5ddy",
     "imageUrl": "/assets/questions/football-first-name/bf82e68ec15eee923d199227.jpg",
     "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Argentina_-_Colombia_2022_(28)_(cropped_2).jpg",
     "imageCaption": "صورة خاميس رودريغيز · jmmuguerza · CC BY-SA 3.0"
@@ -699,10 +703,10 @@
   {
     "id": "RM-057",
     "points": 400,
-    "question": "من سجّل هدف انتصار ريال مدريد الثاني في إياب ثمن نهائي دوري الأبطال 2018 ضد باريس سان جيرمان؟",
+    "question": "من سجّل هدف ريال مدريد الثاني في فوزه 2–1 على باريس سان جيرمان بإياب ثمن نهائي دوري الأبطال 2018؟",
     "answer": "كاسيميرو",
     "answer_english": "Casemiro",
-    "explanation": "جاء هدف كاسيميرو بعد تعادل باريس مؤقتًا.",
+    "explanation": "عادل إدينسون كافاني النتيجة، ثم سجّل كاسيميرو هدف الفوز في الدقيقة 80.",
     "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
     "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTYyYWRkNTItM2ZlYi00Y2NlLTk5YTktMzAzMmRiNjY5MDgyXkEyXkFqcGc%40._V1_.jpg",
     "imageSourceUrl": "https://www.imdb.com/name/nm9220376/bio/"
@@ -714,7 +718,7 @@
     "answer": "رافائيل فاران",
     "answer_english": "Raphael Varane",
     "explanation": "كان هدف توتنهام من كرة سجلها فاران في مرماه.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
+    "source_url": "https://www.uefa.com/newsfiles/UCL/2018/2021626_TS.pdf",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/legendary-players/raphael-varane/assets/1330738203636.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/pt-PT/o-clube/historia/lendas-futebol/raphael-varane"
   },
@@ -748,17 +752,15 @@
     "answer": "لوكاس فاسكيز",
     "answer_english": "Lucas Vazquez",
     "explanation": "حسم فاسكيز المباراة بعد أن عاد دورتموند للتعادل.",
-    "source_url": "https://www.uefa.com/uefachampionsleague/news/0245-0e98d19961a0-948d8f745d6c-1000--how-madrid-and-liverpool-reached-the-final/",
-    "imageUrl": "https://caracoltv.brightspotcdn.com/dims4/default/f7f28c0/2147483647/strip/false/crop/1000x666%2B0%2B0/resize/1200x799%21/format/webp/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.us-west-2.amazonaws.com%2F32%2F5a%2F74d2c64f4e858741f9c1e315bab6%2Flucas-vasquez-barcelona-vs-real-madrid-gol.jpg",
-    "imageSourceUrl": "https://www.noticiascaracol.com/golcaracol/lucas-vazquez-sorprendio-a-la-defensa-de-barcelona-y-puso-a-celebrar-al-real-madrid-en-el-clasico-so35"
+    "source_url": "https://www.uefa.com/newsfiles/UCL/2018/2021681_FR.pdf"
   },
   {
     "id": "RM-062",
     "points": 600,
-    "question": "من اللاعب الذي تألق مع ديبورتيفو لا كورونيا، ثم انضم إلى ريال مدريد عام 1962 وساهم بهدف في نهائي كأس أوروبا 1966؟",
+    "question": "مين جناح ديبورتيفو لا كورونيا الذي ساهم في صعوده للدرجة الأولى عام 1959، ثم انضم إلى ريال مدريد عام 1962؟",
     "answer": "أمانسيو أمارو",
     "answer_english": "Amancio Amaro",
-    "explanation": "انتقل أمانسيو عام 1962 وسجل في نهائي السادسة.",
+    "explanation": "برز أمانسيو مع ديبورتيفو عند صعوده للدرجة الأولى عام 1959، وانضم إلى ريال مدريد عام 1962.",
     "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/amancio-amaro-varela",
     "imageUrl": "https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/news/generic/2023/02/21/not-hasta-siempre-amancio/assets/1330815840609.jpg",
     "imageSourceUrl": "https://www.realmadrid.com/en-US/news/club/latest-news/se-cumplen-63-anos-del-debut-de-amancio-05-09-2025"
@@ -766,7 +768,7 @@
   {
     "id": "RM-063",
     "points": 600,
-    "question": "من اللاعب الخامس في جيل خماسي البويتره إلى جانب بوتراجينيو وميشيل وسانشيز ومارتين فاسكيز؟",
+    "question": "مين العضو الخامس في خماسي البويتره إلى جانب بوتراجينيو وميشيل وسانشيس ومارتين فاسكيز؟",
     "answer": "ميغيل بارديزا",
     "answer_english": "Miguel Pardeza",
     "explanation": "كان بارديزا عضوًا في الجيل الخماسي الذي برز في كاستيا.",
@@ -782,7 +784,7 @@
     "answer": "مارسيلو",
     "answer_english": "Marcelo",
     "explanation": "مارسيلو من أبرز أظهرة ريال مدريد.",
-    "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/historic-goals-marcelo",
+    "source_url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/marcelo-vieira/",
     "acceptableAnswers": [
       "مارسيلو",
       "مارسيلو فييرا"
@@ -1741,11 +1743,11 @@
   {
     "id": "RM-E-057-E6",
     "points": 200,
-    "question": "من أي مدينة إسبانية نادي ريال مدريد؟",
+    "question": "في أي مدينة إسبانية يقع ملعب سانتياغو برنابيو؟",
     "answer": "مدريد",
     "answer_english": "Madrid",
-    "explanation": "يقع النادي في العاصمة الإسبانية مدريد.",
-    "source_url": "https://www.realmadrid.com/en-US/news/club/latest-news/120-years-in-the-making",
+    "explanation": "يقع ملعب سانتياغو برنابيو في العاصمة الإسبانية مدريد.",
+    "source_url": "https://bernabeu.realmadrid.com/es-ES/planea-tu-visita",
     "acceptableAnswers": [
       "مدينة مدريد"
     ]

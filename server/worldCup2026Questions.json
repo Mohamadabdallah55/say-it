@@ -690,11 +690,11 @@
     "points": 200,
     "difficulty": "سهل",
     "topic": "جوائز وأرقام وحقائق",
-    "question": "منتخب الأردن كان في المجموعة اللي ضمت الأرجنتين والنمسا والجزائر. شو حرف المجموعة: J ولا A؟",
+    "question": "شو حرف مجموعة الأردن في كأس العالم 2026، اللي ضمت معه الأرجنتين والنمسا والجزائر؟",
     "answer": "المجموعة J",
     "explanation": "ضمت الأردن والأرجنتين والنمسا والجزائر.",
     "answer_type": "text",
-    "source_url": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
+    "source_url": "https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/grupo-j-mundial-2026-partidos-posiciones-resultados-fixture-calendario",
     "beforeImageUrls": [
       "/assets/world_cup_2026/flags/jo.png"
     ],
