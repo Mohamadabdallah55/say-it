@@ -168,7 +168,10 @@ async function startServer() {
   app.get('/api/pdf/ai-status', pdfAiStatus);
   app.get('/api/local-ai/status', pdfAiStatus); // Older cached clients can still read status.
 
+  // Official banks are bundled at process startup; reuse their serialized index.
+  let builtinCatalogJson: string | undefined;
   app.get('/api/catalog/builtin-ids', (_req, res) => {
+    if (builtinCatalogJson === undefined) {
     const questionIdsByCategory: Record<string, string[]> = {};
     for (const q of [...CURATED_QUESTIONS, ...SERVER_CURATED_QUESTIONS]) {
       if (q.status !== 'approved') continue;
@@ -177,10 +180,13 @@ async function startServer() {
       }
       questionIdsByCategory[q.categoryId].push(q.id);
     }
-    res.setHeader('Cache-Control', 'no-store');
     for (const id of Object.keys(questionIdsByCategory)) questionIdsByCategory[id] = [...new Set(questionIdsByCategory[id])];
     const categories = [...new Map([...ALL_CURATED_CATEGORIES, ...OFFICIAL_CATEGORIES].map(c => [c.id, c])).values()].filter(c => (questionIdsByCategory[c.id]?.length ?? 0) > 0);
-    res.json({ questionIdsByCategory, categories });
+    builtinCatalogJson = JSON.stringify({ questionIdsByCategory, categories });
+    }
+    // Revalidate on every check; Express can answer unchanged ETags with 304.
+    res.setHeader('Cache-Control', 'private, no-cache');
+    res.type('application/json').send(builtinCatalogJson);
   });
 
   app.use('/api/pdf', requirePaidPdfStaff);
