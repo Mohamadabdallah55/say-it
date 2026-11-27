@@ -1,6 +1,6 @@
 import { ClasicoVideoPlayer } from './ClasicoVideoPlayer';
 import { subscribeRoom } from '../utils/roomConnection';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { nextArenaClockDelay } from '../game/arenaClock';
 import {
@@ -57,9 +57,10 @@ import { CornerStarMascot } from './CornerStarMascot';
 import { GameAssistantBot } from './GameAssistantBot';
 import { useAccount } from '../context/AccountContext';
 
+const EMPTY_WORD_LETTERS: string[] = [];
 const RELIGIOUS_EVIDENCE_CATEGORIES = new Set(['cat_islamic','cat_prophet_stories','cat_prophetic_biography','cat_who_sahabi','cat_rashidun','cat_hadith','cat_islamic_ordering','cat_islamic_letters','cat_juz_amma','cat_juz_tabarak','cat_rub_yasin','cat_quran_verse_meanings','cat_quran_media','cat_quran_reciter']);
 
-function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
+const ReligiousEvidence = memo(function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet?: string }) {
   const parts = (reference || '').split(/\s*[·\n]\s*/).filter(Boolean);
   const urls = [...new Set(parts.flatMap(part => part.match(/https?:\/\/[^\s]+/g) ?? []))].filter(url => /^https:\/\/(?:quran\.com|sunnah\.com)\//.test(url));
   const labels = parts.filter(part => !/^https?:\/\//.test(part));
@@ -86,7 +87,7 @@ function ReligiousEvidence({ reference, snippet }: { reference?: string; snippet
       )}
     </section>
   );
-}
+});
 
 // Only reversed-word prompts are slowed and amplified; answer audio stays natural.
 function ReversedWordPlayer({ src }: { src: string }) {
@@ -176,7 +177,7 @@ type ArenaState = HostViewState | PublicProjectorState;
 /** Play the original audio when permitted, while respecting the shared game sound switch.
  * Browsers may deny audible autoplay; the clip then plays muted until the viewer enables sound.
  */
-function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
+const FocusClip = memo(function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabled: boolean; preferAudio: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [silent, setSilent] = useState(!soundEnabled || !preferAudio);
   const [needsPlay, setNeedsPlay] = useState(false);
@@ -219,7 +220,7 @@ function FocusClip({ src, soundEnabled, preferAudio }: { src: string; soundEnabl
       )}
     </div>
   );
-}
+});
 
 
 /** Short preview only: never show the source video's full duration or seek controls. */
@@ -1256,7 +1257,7 @@ export function GameArena({
 
                         <div className="question-stage-copy flex flex-col items-center justify-center min-w-0">
                           {roundMeta.categoryId === FOUR_PICTURES_CATEGORY.id && roundMeta.beforeImageUrls?.length === 4 && (
-                            <FourPicturesPuzzle key={roundMeta.questionId} images={roundMeta.beforeImageUrls} letters={roundMeta.wordLetters ?? []} wordLength={roundMeta.wordLength} compact={state.phase === 'REVEAL'} />
+                            <FourPicturesPuzzle key={roundMeta.questionId} images={roundMeta.beforeImageUrls} letters={roundMeta.wordLetters ?? EMPTY_WORD_LETTERS} wordLength={roundMeta.wordLength} compact={state.phase === 'REVEAL'} />
                           )}
                           {roundMeta.startingLetter && (
                             <div className="mx-auto mb-3 flex items-center gap-2.5 font-display font-black text-[#1F112E]">
